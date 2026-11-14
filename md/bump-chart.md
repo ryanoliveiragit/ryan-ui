@@ -3,7 +3,7 @@
 > Ranking ao longo do tempo: as linhas trocam de posição a cada período e a série escolhida vem para a frente.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/bump-chart
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bump-chart
 - Descrição original (inglês): Ranking over time: lines swap positions between periods, draw in from the first period, and hovering a series brings it forward with its rank at every period.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bump-chart.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bump-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bump-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bump-chart.json`. Caminho do registro, relativo ao endereço do site: `r/bump-chart.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json`. Caminho do registro, relativo ao endereço do site: `r/bump-chart.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/bump-chart/bump-chart.tsx`
   - `components/ryan-ui/bump-chart/bump-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -161,4 +161,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/bump-chart · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bump-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Campo de telefone com seletor de país, formatação enquanto você digita e saída no padrão E.164.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/phone-input
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/phone-input
 - Descrição original (inglês): A phone field with a country picker, formatting as you type, and E.164 output.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/phone-input.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/phone-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/phone-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/phone-input.json`. Caminho do registro, relativo ao endereço do site: `r/phone-input.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json`. Caminho do registro, relativo ao endereço do site: `r/phone-input.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/phone-input/phone-input.tsx`
   - `components/ryan-ui/phone-input/phone-input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -165,4 +165,4 @@ A phone number field with a country picker. The country button grows into a sear
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/phone-input · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/phone-input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

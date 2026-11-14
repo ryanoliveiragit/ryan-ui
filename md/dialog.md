@@ -3,7 +3,7 @@
 > Uma janela focada para decisões que pedem atenção.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/dialog
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/dialog
 - Descrição original (inglês): A focused surface for decisions that need attention.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dialog.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dialog.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dialog.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dialog.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dialog.json`. Caminho do registro, relativo ao endereço do site: `r/dialog.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dialog.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dialog.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dialog.json`. Caminho do registro, relativo ao endereço do site: `r/dialog.json`.
 
 - Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/dialog/dialog.tsx`
   - `components/ryan-ui/dialog/dialog.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -131,4 +131,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/dialog · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/dialog · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

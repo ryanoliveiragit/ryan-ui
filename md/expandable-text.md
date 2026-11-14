@@ -3,7 +3,7 @@
 > Texto longo recolhido em poucas linhas, com ler mais e mostrar menos.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/expandable-text
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-text
 - Descrição original (inglês): Long text clamped to a few lines with a soft fade that glides open with Read more and closes with Show less, shown only when the text overflows.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-text.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-text.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-text.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-text.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-text.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/expandable-text/expandable-text.tsx`
   - `components/ryan-ui/expandable-text/expandable-text.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -110,4 +110,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/expandable-text · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-text · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

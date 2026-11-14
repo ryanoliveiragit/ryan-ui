@@ -3,7 +3,7 @@
 > O botão se transforma no modal a partir do próprio lugar e volta a ser botão ao fechar.
 
 - Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/morphing-modal
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/morphing-modal
 - Descrição original (inglês): A trigger button that morphs into the modal panel from its own position, size and color, and back on close, with a focus trap, Escape and a scrim.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-modal.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-modal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-modal.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-modal.json`. Caminho do registro, relativo ao endereço do site: `r/morphing-modal.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json`. Caminho do registro, relativo ao endereço do site: `r/morphing-modal.json`.
 
 - Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/morphing-modal/morphing-modal.tsx`
   - `components/ryan-ui/morphing-modal/morphing-modal.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -176,4 +176,4 @@ What the body and the footer receive when they are written as functions.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/morphing-modal · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/morphing-modal · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

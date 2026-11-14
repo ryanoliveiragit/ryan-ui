@@ -3,7 +3,7 @@
 > Abas de ícones em que só a aba ativa mostra o rótulo, que se abre com uma mola enquanto as outras se recolhem.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/expandable-tabs
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-tabs
 - Descrição original (inglês): Icon tabs in which only the active tab shows its label, unfolding on a spring while the others fold back to icons.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-tabs.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-tabs.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-tabs.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-tabs.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/expandable-tabs/expandable-tabs.tsx`
   - `components/ryan-ui/blocks/expandable-tabs/expandable-tabs.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -118,4 +118,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/expandable-tabs · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-tabs · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

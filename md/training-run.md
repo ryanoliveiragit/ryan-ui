@@ -3,7 +3,7 @@
 > Cartão de job de fine-tuning: as curvas de loss de treino e validação desenham ao vivo sobre um eixo de passos fixo que também é a barra de progresso por epoch; mostra learning rate, tempo decorrido e ETA, os últimos evals e checkpoints, tem Pause e Cancel durante o run e termina em resultados com botão de Deploy.
 
 - Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/training-run
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/training-run
 - Descrição original (inglês): A fine-tuning job card where a live train and validation loss curve draws across a fixed step axis that doubles as the epoch progress bar. It shows the learning rate, elapsed time and ETA, the latest evals and checkpoints, has Pause and Cancel while it runs, and ends in results with a Deploy button.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/training-run.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/training-run.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/training-run.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/training-run.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/training-run.json`. Caminho do registro, relativo ao endereço do site: `r/training-run.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/training-run.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/training-run.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/training-run.json`. Caminho do registro, relativo ao endereço do site: `r/training-run.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/training-run/training-run.tsx`
   - `components/ryan-ui/training-run/training-run.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -187,4 +187,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/training-run · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/training-run · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

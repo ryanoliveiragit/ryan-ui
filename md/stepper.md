@@ -3,7 +3,7 @@
 > Indicador de etapas de um fluxo, com estados de concluída, atual, pendente e com erro.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/stepper
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/stepper
 - Descrição original (inglês): Show where a person is in a multi-step flow and what is done.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stepper.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stepper.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stepper.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stepper.json`. Caminho do registro, relativo ao endereço do site: `r/stepper.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json`. Caminho do registro, relativo ao endereço do site: `r/stepper.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/stepper/stepper.tsx`
   - `components/ryan-ui/stepper/stepper.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -146,4 +146,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/stepper · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/stepper · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

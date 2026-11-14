@@ -3,7 +3,7 @@
 > Reserva o espaço enquanto o conteúdo carrega e some em transição suave quando ele chega.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/skeleton
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/skeleton
 - Descrição original (inglês): Reserve space while content is still loading.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/skeleton.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/skeleton.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/skeleton.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/skeleton.json`. Caminho do registro, relativo ao endereço do site: `r/skeleton.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json`. Caminho do registro, relativo ao endereço do site: `r/skeleton.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/skeleton/skeleton.tsx`
   - `components/ryan-ui/skeleton/skeleton.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -109,4 +109,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/skeleton · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/skeleton · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -1,8 +1,8 @@
 {
  "generatedFrom": "registry.json",
  "upstream": {
-  "repository": "https://github.com/ryanoliveiragit/ryan-ui",
-  "commit": "5823e26723894e0bcf30707c7082a53cf43d70a0",
+  "repository": "https://github.com/ryanoliveiragit/ryan-ui-site",
+  "commit": "74018c7d780f24191871eed001ad311862597b68",
   "copyright": "Copyright (c) 2026 ryandev"
  },
  "counts": {

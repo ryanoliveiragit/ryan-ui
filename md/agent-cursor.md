@@ -3,7 +3,7 @@
 > Documento ao vivo em que o Claude edita como colaborador: o cursor com nome sai do avatar dele, seleciona um parágrafo e digita a reescrita palavra por palavra, adiciona um heading e corrige um typo sublinhado de ziguezague, enquanto a cursor da colega lê junto; as mudanças ficam tingidas até alguém aceitar ou desfazer na barra de revisão flutuante.
 
 - Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/agent-cursor
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-cursor
 - Descrição original (inglês): A live document where Claude edits like a collaborator: its labeled cursor comes out of its avatar, selects a paragraph and streams in a rewrite, adds a heading and fixes a typo, while a teammate's cursor reads along. Changes stay tinted until someone accepts or undoes them from a floating review bar.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-cursor.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-cursor.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-cursor.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-cursor.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-cursor.json`. Caminho do registro, relativo ao endereço do site: `r/agent-cursor.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-cursor.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-cursor.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-cursor.json`. Caminho do registro, relativo ao endereço do site: `r/agent-cursor.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/agent-cursor/agent-cursor.tsx`
   - `components/ryan-ui/agent-cursor/agent-cursor.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -142,4 +142,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/agent-cursor · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-cursor · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

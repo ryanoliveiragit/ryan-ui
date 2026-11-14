@@ -3,7 +3,7 @@
 > Cartão de login centralizado, com passkey em primeiro lugar, que muda de e-mail para código sem trocar de tela.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/login-centered
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/login-centered
 - Descrição original (inglês): A passkey-first login card on a quiet ring backdrop that morphs through email and code.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/login-centered.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/login-centered.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/login-centered.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/login-centered.json`. Caminho do registro, relativo ao endereço do site: `r/login-centered.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json`. Caminho do registro, relativo ao endereço do site: `r/login-centered.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Input](input.md), [OTP input](otp-input.md)
@@ -28,7 +28,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -123,4 +123,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/login-centered · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/login-centered · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

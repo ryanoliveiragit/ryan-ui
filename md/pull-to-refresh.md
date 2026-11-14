@@ -3,7 +3,7 @@
 > Área de rolagem que você puxa para baixo para atualizar: o indicador estica, gira durante a atualização e volta ao lugar.
 
 - Tipo: componente (categoria Feedback), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/pull-to-refresh
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/pull-to-refresh
 - Descrição original (inglês): A scroll container you drag down with a finger or the mouse: the indicator stretches, spins while the async refresh runs, confirms and settles.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/pull-to-refresh.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/pull-to-refresh.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/pull-to-refresh.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/pull-to-refresh.json`. Caminho do registro, relativo ao endereço do site: `r/pull-to-refresh.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json`. Caminho do registro, relativo ao endereço do site: `r/pull-to-refresh.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/pull-to-refresh/pull-to-refresh.tsx`
   - `components/ryan-ui/pull-to-refresh/pull-to-refresh.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -175,4 +175,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/pull-to-refresh · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/pull-to-refresh · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

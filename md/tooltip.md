@@ -3,7 +3,7 @@
 > Texto curto de apoio para controles pouco familiares.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/tooltip
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tooltip
 - Descrição original (inglês): Short supporting text for unfamiliar controls.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tooltip.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tooltip.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tooltip.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tooltip.json`. Caminho do registro, relativo ao endereço do site: `r/tooltip.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json`. Caminho do registro, relativo ao endereço do site: `r/tooltip.json`.
 
 - Pacotes npm: `@radix-ui/react-tooltip`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/tooltip/tooltip.tsx`
   - `components/ryan-ui/tooltip/tooltip.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -113,4 +113,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/tooltip · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tooltip · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

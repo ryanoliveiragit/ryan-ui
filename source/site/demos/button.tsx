@@ -36,8 +36,8 @@ export default function ButtonDemo() {
       <Stack gap={2}>
         <Caption>Feedback and states</Caption>
         <Row gap={2} justify="center">
-          <CopyButton value="https://ryanoliveiragit.github.io/arc-ui/#/c/button" label="Copy link" />
-          <CopyButton value="https://ryanoliveiragit.github.io/arc-ui/#/c/button" iconOnly label="Copy link" />
+          <CopyButton value="https://ryanoliveiragit.github.io/ryan-ui/#/c/button" label="Copy link" />
+          <CopyButton value="https://ryanoliveiragit.github.io/ryan-ui/#/c/button" iconOnly label="Copy link" />
           <Button variant="secondary">Upload file</Button>
           <Button variant="secondary" disabled>Disabled</Button>
         </Row>

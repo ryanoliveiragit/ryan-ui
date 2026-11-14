@@ -3,7 +3,7 @@
 > Botão flutuante cujas ações se abrem em arco, uma após a outra; Esc ou um clique fora fecha o menu.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/bloom-menu
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/bloom-menu
 - Descrição original (inglês): A floating button whose actions bloom outward along an arc with a staggered, slightly bouncy spring; Escape or a click outside folds them back.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bloom-menu.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bloom-menu.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bloom-menu.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bloom-menu.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bloom-menu.json`. Caminho do registro, relativo ao endereço do site: `r/bloom-menu.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bloom-menu.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bloom-menu.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bloom-menu.json`. Caminho do registro, relativo ao endereço do site: `r/bloom-menu.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/bloom-menu/bloom-menu.tsx`
   - `components/ryan-ui/blocks/bloom-menu/bloom-menu.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -132,4 +132,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/bloom-menu · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/bloom-menu · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

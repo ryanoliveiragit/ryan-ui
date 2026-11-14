@@ -3,7 +3,7 @@
 > Editor leve com atalhos de markdown, barra flutuante, menu de barra e saída em HTML ou markdown.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/rich-text-editor
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/rich-text-editor
 - Descrição original (inglês): A lightweight editor with markdown shortcuts, a floating toolbar, a slash menu, and HTML and markdown output.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/rich-text-editor.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rich-text-editor.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/rich-text-editor.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/rich-text-editor.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/rich-text-editor.json`. Caminho do registro, relativo ao endereço do site: `r/rich-text-editor.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rich-text-editor.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rich-text-editor.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rich-text-editor.json`. Caminho do registro, relativo ao endereço do site: `r/rich-text-editor.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/rich-text-editor/rich-text-editor.tsx`
   - `components/ryan-ui/rich-text-editor/rich-text-editor.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -175,4 +175,4 @@ A light rich text editor on contentEditable. Markdown shortcuts as you type, a f
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/rich-text-editor · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/rich-text-editor · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

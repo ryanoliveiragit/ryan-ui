@@ -3,7 +3,7 @@
 > Tabela de registros com colunas ordenáveis, seleção de linhas e contagem de itens.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/sortable-data-table
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/sortable-data-table
 - Descrição original (inglês): Compare structured records with sortable columns.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sortable-data-table.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sortable-data-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sortable-data-table.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sortable-data-table.json`. Caminho do registro, relativo ao endereço do site: `r/sortable-data-table.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json`. Caminho do registro, relativo ao endereço do site: `r/sortable-data-table.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/sortable-data-table/sortable-data-table.tsx`
   - `components/ryan-ui/sortable-data-table/sortable-data-table.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -165,4 +165,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/sortable-data-table · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/sortable-data-table · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

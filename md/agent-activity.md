@@ -3,7 +3,7 @@
 > Linha do tempo ao vivo do que o agente está fazendo: a etapa atual pulsa e as concluídas se recolhem num resumo.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/agent-activity
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-activity
 - Descrição original (inglês): A live timeline of an agent at work: the current step pulses and collects what it finds as chips, and finished steps fold into one summary row that opens again.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-activity.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-activity.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-activity.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/agent-activity.json`. Caminho do registro, relativo ao endereço do site: `r/agent-activity.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json`. Caminho do registro, relativo ao endereço do site: `r/agent-activity.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/agent-activity/agent-activity.tsx`
   - `components/ryan-ui/agent-activity/agent-activity.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -175,4 +175,4 @@ A live timeline of what an agent is doing. The step in progress pulses and colle
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/agent-activity · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-activity · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

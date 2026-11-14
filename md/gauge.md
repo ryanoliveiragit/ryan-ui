@@ -3,7 +3,7 @@
 > Mostra um valor dentro de um intervalo conhecido, com faixas de estado.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/gauge
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/gauge
 - Descrição original (inglês): Show a value against a known range.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/gauge.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/gauge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/gauge.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/gauge.json`. Caminho do registro, relativo ao endereço do site: `r/gauge.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json`. Caminho do registro, relativo ao endereço do site: `r/gauge.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/gauge/gauge.tsx`
   - `components/ryan-ui/gauge/gauge.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -132,4 +132,4 @@ A band that starts at `from`: the highest band the value reaches sets the tone a
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/gauge · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/gauge · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Formulário que se preenche com IA: você cola uma assinatura de e-mail ou anotações, os campos recebem um valor de cada vez com ponto de confiança, a fonte de cada valor fica destacada no texto colado, apostas baixas pedem revisão e o Undo devolve os valores anteriores.
 
 - Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/smart-form-fill
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/smart-form-fill
 - Descrição original (inglês): A paste-to-fill form card where AI reads an email signature or rough notes and fills the contact field by field with a confidence dot, lights up each value's source in the pasted text, flags low-confidence guesses for review, and Undo restores the old values.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/smart-form-fill.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/smart-form-fill.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/smart-form-fill.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/smart-form-fill.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/smart-form-fill.json`. Caminho do registro, relativo ao endereço do site: `r/smart-form-fill.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/smart-form-fill.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/smart-form-fill.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/smart-form-fill.json`. Caminho do registro, relativo ao endereço do site: `r/smart-form-fill.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/smart-form-fill/smart-form-fill.tsx`
   - `components/ryan-ui/smart-form-fill/smart-form-fill.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -153,4 +153,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/smart-form-fill · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/smart-form-fill · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

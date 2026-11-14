@@ -3,7 +3,7 @@
 > Abas com uma pílula ativa que estica e muda de forma ao viajar, enquanto o painel troca na mesma direção.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/morphing-tabs
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-tabs
 - Descrição original (inglês): Tabs whose active pill stretches, thins and squares off as it travels to the next tab, while the panel crossfades in the direction of travel.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-tabs.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morphing-tabs.json`. Caminho do registro, relativo ao endereço do site: `r/morphing-tabs.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json`. Caminho do registro, relativo ao endereço do site: `r/morphing-tabs.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/blocks/morphing-tabs/morphing-tabs.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -124,4 +124,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/morphing-tabs · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-tabs · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

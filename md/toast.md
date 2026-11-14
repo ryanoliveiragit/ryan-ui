@@ -3,7 +3,7 @@
 > Aviso rápido e discreto que aparece, some sozinho e pode ser dispensado com um gesto.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/toast
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast
 - Descrição original (inglês): Brief confirmation for a completed background action.
 - Versões: Padrão (este item), Pilha ([`toast-stack`](toast-stack.md)), Com ação ([`toast-action`](toast-action.md)), Progresso ([`toast-progress`](toast-progress.md))
 
@@ -12,17 +12,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast.json`. Caminho do registro, relativo ao endereço do site: `r/toast.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json`. Caminho do registro, relativo ao endereço do site: `r/toast.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/toast/toast.tsx`
   - `components/ryan-ui/toast/toast.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -107,4 +107,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/toast · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

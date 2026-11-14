@@ -3,7 +3,7 @@
 > Cartão de mercado de previsões com preços de sim e não, linha de probabilidade, valor e estimativa de retorno (dados fictícios).
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/prediction-market
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/prediction-market
 - Descrição original (inglês): A market card with yes and no prices, a probability line that flips to the picked outcome, an amount field and a payout estimate that counts to each new value (play money).
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/prediction-market.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prediction-market.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/prediction-market.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/prediction-market.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/prediction-market.json`. Caminho do registro, relativo ao endereço do site: `r/prediction-market.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prediction-market.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prediction-market.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prediction-market.json`. Caminho do registro, relativo ao endereço do site: `r/prediction-market.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/prediction-market/prediction-market.tsx`
   - `components/ryan-ui/blocks/prediction-market/prediction-market.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -143,4 +143,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/prediction-market · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/prediction-market · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

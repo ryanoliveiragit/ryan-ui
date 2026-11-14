@@ -3,7 +3,7 @@
 > Pequena superfície ancorada para informações de contexto.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/popover
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/popover
 - Descrição original (inglês): A small anchored surface for contextual information.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/popover.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/popover.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/popover.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/popover.json`. Caminho do registro, relativo ao endereço do site: `r/popover.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json`. Caminho do registro, relativo ao endereço do site: `r/popover.json`.
 
 - Pacotes npm: `@radix-ui/react-popover`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/popover/popover.tsx`
   - `components/ryan-ui/popover/popover.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -121,4 +121,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/popover · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/popover · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

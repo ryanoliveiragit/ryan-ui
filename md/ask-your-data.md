@@ -3,7 +3,7 @@
 > Pergunta livre sobre os dados em linguagem natural: o SQL é escrito palavra a palavra num painel recolhível com syntax highlighting, a consulta roda com contagem de linhas e responde em barras empilhadas, linhas ou tabela, com um insight em streaming logo abaixo.
 
 - Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/ask-your-data
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/ask-your-data
 - Descrição original (inglês): A natural language to chart card: you ask a question, PostgreSQL streams into a collapsible, syntax highlighted panel, the query runs with a rolling row count, and the answer builds as stacked bars, lines or a table, with a one line insight streamed in underneath.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ask-your-data.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ask-your-data.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ask-your-data.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ask-your-data.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ask-your-data.json`. Caminho do registro, relativo ao endereço do site: `r/ask-your-data.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ask-your-data.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ask-your-data.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ask-your-data.json`. Caminho do registro, relativo ao endereço do site: `r/ask-your-data.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/ask-your-data/ask-your-data.tsx`
   - `components/ryan-ui/ask-your-data/ask-your-data.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -163,4 +163,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/ask-your-data · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ask-your-data · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

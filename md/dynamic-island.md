@@ -3,7 +3,7 @@
 > Pílula no topo da tela que se transforma com mola entre repouso, atividade compacta e visões expandidas de chamada, timer e música.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/dynamic-island
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/dynamic-island
 - Descrição original (inglês): A pill at the top of the screen that morphs on one spring between a resting dot, a compact live activity and expanded call, timer and music views.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dynamic-island.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dynamic-island.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dynamic-island.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dynamic-island.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dynamic-island.json`. Caminho do registro, relativo ao endereço do site: `r/dynamic-island.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dynamic-island.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dynamic-island.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dynamic-island.json`. Caminho do registro, relativo ao endereço do site: `r/dynamic-island.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Segmented control](segmented-control.md)
@@ -23,7 +23,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/blocks/dynamic-island/dynamic-island.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -138,4 +138,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/dynamic-island · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/dynamic-island · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

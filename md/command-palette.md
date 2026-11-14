@@ -3,7 +3,7 @@
 > Paleta de comandos controlada pelo teclado, com busca, resultados agrupados e atalhos.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/command-palette
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/command-palette
 - Descrição original (inglês): A complete keyboard driven action surface with search, grouped results, and shortcuts.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/command-palette.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/command-palette.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/command-palette.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/command-palette.json`. Caminho do registro, relativo ao endereço do site: `r/command-palette.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json`. Caminho do registro, relativo ao endereço do site: `r/command-palette.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/command-palette/command-palette.tsx`
   - `components/ryan-ui/command-palette/command-palette.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -144,4 +144,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/command-palette · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/command-palette · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

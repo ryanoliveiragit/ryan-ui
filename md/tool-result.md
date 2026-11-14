@@ -3,7 +3,7 @@
 > Registro recolhível de uma chamada de ferramenta, com status, duração e a entrada e a saída formatadas.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/tool-result
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-result
 - Descrição original (inglês): A collapsible record of a tool call that shows its status, a live or final duration, and formatted input and output that expand with a height spring.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-result.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-result.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-result.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-result.json`. Caminho do registro, relativo ao endereço do site: `r/tool-result.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json`. Caminho do registro, relativo ao endereço do site: `r/tool-result.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/tool-result/tool-result.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -152,4 +152,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/tool-result · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-result · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

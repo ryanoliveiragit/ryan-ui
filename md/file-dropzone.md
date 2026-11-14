@@ -3,7 +3,7 @@
 > Uma área generosa para soltar um ou vários arquivos, com progresso de envio.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/file-dropzone
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-dropzone
 - Descrição original (inglês): A generous target for dropping one or more files.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-dropzone.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-dropzone.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-dropzone.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-dropzone.json`. Caminho do registro, relativo ao endereço do site: `r/file-dropzone.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json`. Caminho do registro, relativo ao endereço do site: `r/file-dropzone.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/file-dropzone/file-dropzone.tsx`
   - `components/ryan-ui/file-dropzone/file-dropzone.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -167,4 +167,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/file-dropzone · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-dropzone · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

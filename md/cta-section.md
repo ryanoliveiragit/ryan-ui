@@ -3,7 +3,7 @@
 > Chamada para ação como fecho centralizado, dividida ao lado de um cartão de configuração ou em faixa dispensável.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/cta-section
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/cta-section
 - Descrição original (inglês): A call to action as a centered closing section, a split beside a setup card that completes itself, or a dismissible banner.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-section.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-section.json`. Caminho do registro, relativo ao endereço do site: `r/cta-section.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json`. Caminho do registro, relativo ao endereço do site: `r/cta-section.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Segmented control](segmented-control.md)
@@ -28,7 +28,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -132,4 +132,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/cta-section · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/cta-section · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

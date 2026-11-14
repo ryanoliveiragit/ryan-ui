@@ -3,7 +3,7 @@
 > Medidor de consumo dividido em partes, com alerta quando o uso se aproxima ou passa do limite do plano.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/usage-meter
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/usage-meter
 - Descrição original (inglês): Show what fills an allowance and how close it is to the limit.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/usage-meter.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/usage-meter.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/usage-meter.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/usage-meter.json`. Caminho do registro, relativo ao endereço do site: `r/usage-meter.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json`. Caminho do registro, relativo ao endereço do site: `r/usage-meter.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/usage-meter/usage-meter.tsx`
   - `components/ryan-ui/usage-meter/usage-meter.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -144,4 +144,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/usage-meter · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/usage-meter · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

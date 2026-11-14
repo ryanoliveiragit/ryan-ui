@@ -3,7 +3,7 @@
 > Mural em colunas com cartões de alturas diferentes que carrega mais conforme você rola, com os novos subindo em sequência.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/infinite-masonry
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/infinite-masonry
 - Descrição original (inglês): Masonry feed of cards with different heights that loads the next page as the end scrolls into view, with new cards rising in on a stagger.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/infinite-masonry.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/infinite-masonry.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/infinite-masonry.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/infinite-masonry.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/infinite-masonry.json`. Caminho do registro, relativo ao endereço do site: `r/infinite-masonry.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/infinite-masonry.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/infinite-masonry.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/infinite-masonry.json`. Caminho do registro, relativo ao endereço do site: `r/infinite-masonry.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/blocks/infinite-masonry/infinite-masonry.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -119,4 +119,4 @@ Masonry feed: cards of different heights fill the shortest column, and the next 
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/infinite-masonry · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/infinite-masonry · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Campo de uma linha com rótulos claros e estados úteis.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/input
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/input
 - Descrição original (inglês): A single line field with clear labels and useful states.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/input.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/input.json`. Caminho do registro, relativo ao endereço do site: `r/input.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json`. Caminho do registro, relativo ao endereço do site: `r/input.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/input/input.tsx`
   - `components/ryan-ui/input/input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -100,4 +100,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/input · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

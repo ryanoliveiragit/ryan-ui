@@ -3,7 +3,7 @@
 > Linha do tempo de novidades por mês, com versões, tipos de mudança e navegação lateral.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/changelog-feed
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/changelog-feed
 - Descrição original (inglês): Release notes you can filter, open in place, and scroll through month by month.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/changelog-feed.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/changelog-feed.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/changelog-feed.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/changelog-feed.json`. Caminho do registro, relativo ao endereço do site: `r/changelog-feed.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json`. Caminho do registro, relativo ao endereço do site: `r/changelog-feed.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Copy button](copy-button.md)
@@ -27,7 +27,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/lib/use-copy-feedback.ts`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -144,4 +144,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/changelog-feed · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/changelog-feed · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

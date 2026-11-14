@@ -3,7 +3,7 @@
 > Dá mais espaço a um cartão denso quando a pessoa pede.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/expandable-card
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-card
 - Descrição original (inglês): Give a dense card more room when requested.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-card.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-card.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-card.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-card.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-card.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/expandable-card/expandable-card.tsx`
   - `components/ryan-ui/expandable-card/expandable-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -110,4 +110,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/expandable-card · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Grupo em que um único fundo desliza até o item sob o cursor ou em foco, ideal para menus, navegação e barras de ferramentas.
 
 - Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/hover-highlight
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-highlight
 - Descrição original (inglês): A group in which one shared background pill glides to the hovered or focused item and returns to the selected one.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-highlight.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-highlight.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-highlight.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-highlight.json`. Caminho do registro, relativo ao endereço do site: `r/hover-highlight.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json`. Caminho do registro, relativo ao endereço do site: `r/hover-highlight.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/hover-highlight/hover-highlight.tsx`
   - `components/ryan-ui/hover-highlight/hover-highlight.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -172,4 +172,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/hover-highlight · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-highlight · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

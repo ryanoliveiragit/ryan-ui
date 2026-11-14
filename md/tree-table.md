@@ -3,7 +3,7 @@
 > Tabela com linhas aninhadas, seleção em três estados, ordenação que preserva a hierarquia e carga sob demanda.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/tree-table
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tree-table
 - Descrição original (inglês): A table with nested rows, tri-state selection, hierarchy-preserving sort, and lazy-loaded children.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tree-table.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tree-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tree-table.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tree-table.json`. Caminho do registro, relativo ao endereço do site: `r/tree-table.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json`. Caminho do registro, relativo ao endereço do site: `r/tree-table.json`.
 
 - Pacotes npm: `@radix-ui/react-checkbox`, `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Checkbox](checkbox.md)
@@ -24,7 +24,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/checkbox/checkbox.tsx`
   - `components/ryan-ui/checkbox/checkbox.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -203,4 +203,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/tree-table · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tree-table · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

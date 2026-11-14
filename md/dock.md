@@ -3,7 +3,7 @@
 > Dock de aplicativos: os ícones crescem perto do cursor, mostram o nome, pulam ao clicar e o ativo ganha um ponto.
 
 - Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/dock
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/dock
 - Descrição original (inglês): An app dock whose tiles magnify around the cursor, show a tooltip, bounce when pressed and mark the active one with a dot.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dock.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dock.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dock.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/dock.json`. Caminho do registro, relativo ao endereço do site: `r/dock.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json`. Caminho do registro, relativo ao endereço do site: `r/dock.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/dock/dock.tsx`
   - `components/ryan-ui/dock/dock.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -142,4 +142,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/dock · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/dock · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

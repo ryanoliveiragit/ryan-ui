@@ -4,7 +4,7 @@ import { catalog } from "@/site/lib/catalog";
 export const site = {
   name: "ryan-ui",
   tagline: "Componentes e blocos React com movimento, prontos para copiar.",
-  repository: "https://github.com/ryanoliveiragit/arc-ui",
+  repository: "https://github.com/ryanoliveiragit/ryan-ui",
   upstream: catalog.upstream,
   counts: catalog.counts,
 } as const;

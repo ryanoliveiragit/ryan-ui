@@ -3,7 +3,7 @@
 > O novo tema se abre a partir de uma fenda fina no centro.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/theme-switch-split
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-split
 - Descrição original (inglês): The next appearance opens from a slim center seam.
 - Versões: Padrão ([`theme-switch`](theme-switch.md)), Eclipse ([`theme-switch-eclipse`](theme-switch-eclipse.md)), Split (este item), Rise ([`theme-switch-rise`](theme-switch-rise.md))
 
@@ -12,10 +12,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-split.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-split.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-split.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-split.json`. Caminho do registro, relativo ao endereço do site: `r/theme-switch-split.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json`. Caminho do registro, relativo ao endereço do site: `r/theme-switch-split.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md)
@@ -25,7 +25,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -113,4 +113,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/theme-switch-split · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-split · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

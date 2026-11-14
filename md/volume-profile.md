@@ -3,7 +3,7 @@
 > Histograma horizontal do volume em cada faixa de preço, ao lado da linha de preço, com o ponto de controle em destaque.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/volume-profile
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/volume-profile
 - Descrição original (inglês): Horizontal histogram of volume by price level beside a price line: bars grow outward from the point of control, which is highlighted along with the value area.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/volume-profile.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/volume-profile.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/volume-profile.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/volume-profile.json`. Caminho do registro, relativo ao endereço do site: `r/volume-profile.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json`. Caminho do registro, relativo ao endereço do site: `r/volume-profile.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/volume-profile/volume-profile.tsx`
   - `components/ryan-ui/volume-profile/volume-profile.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -176,4 +176,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/volume-profile · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/volume-profile · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

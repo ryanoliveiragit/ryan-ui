@@ -3,7 +3,7 @@
 > Um interruptor tátil para ajustes que passam a valer na hora.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/switch
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/switch
 - Descrição original (inglês): A tactile toggle for settings that take effect immediately.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/switch.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/switch.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/switch.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/switch.json`. Caminho do registro, relativo ao endereço do site: `r/switch.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json`. Caminho do registro, relativo ao endereço do site: `r/switch.json`.
 
 - Pacotes npm: `@radix-ui/react-switch`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/switch/switch.tsx`
   - `components/ryan-ui/switch/switch.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -90,4 +90,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/switch · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/switch · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

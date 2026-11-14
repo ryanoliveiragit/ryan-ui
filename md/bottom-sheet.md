@@ -3,7 +3,7 @@
 > Painel inferior que repousa em alturas definidas e acompanha o dedo ao arrastar.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/bottom-sheet
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bottom-sheet
 - Descrição original (inglês): A sheet that rests at a peek or full height and follows your finger.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bottom-sheet.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bottom-sheet.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bottom-sheet.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bottom-sheet.json`. Caminho do registro, relativo ao endereço do site: `r/bottom-sheet.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json`. Caminho do registro, relativo ao endereço do site: `r/bottom-sheet.json`.
 
 - Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/bottom-sheet/bottom-sheet.tsx`
   - `components/ryan-ui/bottom-sheet/bottom-sheet.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -151,4 +151,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/bottom-sheet · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bottom-sheet · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

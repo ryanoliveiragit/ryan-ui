@@ -3,7 +3,7 @@
 > Campo de várias linhas para notas, descrições e textos mais longos.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/textarea
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/textarea
 - Descrição original (inglês): A multiline field for notes, descriptions, and longer text.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/textarea.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/textarea.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/textarea.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/textarea.json`. Caminho do registro, relativo ao endereço do site: `r/textarea.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json`. Caminho do registro, relativo ao endereço do site: `r/textarea.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/textarea/textarea.tsx`
   - `components/ryan-ui/textarea/textarea.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -94,4 +94,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/textarea · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/textarea · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

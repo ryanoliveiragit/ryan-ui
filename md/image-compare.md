@@ -3,7 +3,7 @@
 > Arraste um divisor sobre duas imagens para ver o antes e o depois, também pelo teclado.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/image-compare
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/image-compare
 - Descrição original (inglês): Drag a divider across two images to see what changed.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-compare.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-compare.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-compare.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-compare.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-compare.json`. Caminho do registro, relativo ao endereço do site: `r/image-compare.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-compare.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-compare.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-compare.json`. Caminho do registro, relativo ao endereço do site: `r/image-compare.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/image-compare/image-compare.tsx`
   - `components/ryan-ui/image-compare/image-compare.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -136,4 +136,4 @@ Before and after, split by a divider. Drag anywhere to move it: the handle follo
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/image-compare · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/image-compare · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

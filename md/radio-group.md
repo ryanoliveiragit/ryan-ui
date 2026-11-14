@@ -3,7 +3,7 @@
 > Escolha uma opção entre várias visíveis, com um destaque que desliza até a linha escolhida.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/radio-group
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-group
 - Descrição original (inglês): Choose one option from a visible set.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-group.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-group.json`. Caminho do registro, relativo ao endereço do site: `r/radio-group.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json`. Caminho do registro, relativo ao endereço do site: `r/radio-group.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/radio-group/radio-group.tsx`
   - `components/ryan-ui/radio-group/radio-group.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -114,4 +114,4 @@ One highlight travels to the chosen row while the new dot springs in and the old
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/radio-group · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

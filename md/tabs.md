@@ -3,7 +3,7 @@
 > Alterna entre conteúdos relacionados no mesmo contexto.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/tabs
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tabs
 - Descrição original (inglês): Switch between related content in the same context.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tabs.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tabs.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tabs.json`. Caminho do registro, relativo ao endereço do site: `r/tabs.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tabs.json`. Caminho do registro, relativo ao endereço do site: `r/tabs.json`.
 
 - Pacotes npm: `@radix-ui/react-tabs`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/tabs/tabs.tsx`
   - `components/ryan-ui/tabs/tabs.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -123,4 +123,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/tabs · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tabs · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

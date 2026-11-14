@@ -3,7 +3,7 @@
 > Quadro de assinatura com traço suave que afina com a velocidade, desfazer, replay e exportação em PNG ou SVG.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/signature-pad
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/signature-pad
 - Descrição original (inglês): Smooth ink that thins with speed, with undo, replay, and PNG or SVG export.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/signature-pad.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signature-pad.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/signature-pad.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/signature-pad.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/signature-pad.json`. Caminho do registro, relativo ao endereço do site: `r/signature-pad.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signature-pad.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signature-pad.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signature-pad.json`. Caminho do registro, relativo ao endereço do site: `r/signature-pad.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/signature-pad/signature-pad.tsx`
   - `components/ryan-ui/signature-pad/signature-pad.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -167,4 +167,4 @@ A sampled point: position in pad units, pen pressure between 0 and 1 (or -1 when
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/signature-pad · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/signature-pad · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

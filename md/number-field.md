@@ -3,7 +3,7 @@
 > Informe um número limitado com controles de incremento claros e dígitos em odômetro.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/number-field
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/number-field
 - Descrição original (inglês): Enter a bounded number with clear increment controls.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/number-field.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/number-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/number-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/number-field.json`. Caminho do registro, relativo ao endereço do site: `r/number-field.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json`. Caminho do registro, relativo ao endereço do site: `r/number-field.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/number-field/number-field.tsx`
   - `components/ryan-ui/number-field/number-field.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -140,4 +140,4 @@ A bounded number with odometer digits. Buttons and arrow keys repeat and speed u
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/number-field · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/number-field · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

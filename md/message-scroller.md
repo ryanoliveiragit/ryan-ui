@@ -3,7 +3,7 @@
 > Área de conversa que acompanha as mensagens novas, solta quando você rola para cima e mostra um atalho com as não lidas.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/message-scroller
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/message-scroller
 - Descrição original (inglês): A conversation scroll area that follows new messages while the reader is at the bottom, lets go when they scroll up, and offers a jump to latest pill with an unread count.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-scroller.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-scroller.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-scroller.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-scroller.json`. Caminho do registro, relativo ao endereço do site: `r/message-scroller.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json`. Caminho do registro, relativo ao endereço do site: `r/message-scroller.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/message-scroller/message-scroller.tsx`
   - `components/ryan-ui/message-scroller/message-scroller.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -164,4 +164,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/message-scroller · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message-scroller · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Barra empilhada de 100% com legenda: mostra as partes de um todo e desliza os segmentos quando os dados mudam.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/composition-chart
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/composition-chart
 - Descrição original (inglês): 100% stacked bar of the parts of a whole with a legend: segments slide to their new shares when the data changes, and legend rows switch parts off and on.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/composition-chart.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/composition-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/composition-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/composition-chart.json`. Caminho do registro, relativo ao endereço do site: `r/composition-chart.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json`. Caminho do registro, relativo ao endereço do site: `r/composition-chart.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/composition-chart/composition-chart.tsx`
   - `components/ryan-ui/composition-chart/composition-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -143,4 +143,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/composition-chart · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/composition-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Três botões de chamada: seta que se expande e preenche o botão, deslize para confirmar e botão magnético que segue o cursor.
 
 - Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/cta-buttons
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/cta-buttons
 - Descrição original (inglês): Three call-to-action buttons: an arrow disc that expands to fill the button on hover, a slide-to-confirm thumb, and a magnetic button that leans toward the cursor.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-buttons.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-buttons.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-buttons.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cta-buttons.json`. Caminho do registro, relativo ao endereço do site: `r/cta-buttons.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json`. Caminho do registro, relativo ao endereço do site: `r/cta-buttons.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/cta-buttons/cta-buttons.tsx`
   - `components/ryan-ui/cta-buttons/cta-buttons.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -163,4 +163,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/cta-buttons · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cta-buttons · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

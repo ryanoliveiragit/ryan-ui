@@ -3,7 +3,7 @@
 > Página 404 com uma ilustração animada feita de formas, um campo de busca e atalhos para voltar ao site.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/not-found
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/not-found
 - Descrição original (inglês): A 404 page with an illustration built from shapes (a zero with eyes that follow the pointer between two fours), a search field that filters the suggested pages, and links back.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/not-found.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/not-found.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/not-found.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/not-found.json`. Caminho do registro, relativo ao endereço do site: `r/not-found.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json`. Caminho do registro, relativo ao endereço do site: `r/not-found.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/not-found/not-found.tsx`
   - `components/ryan-ui/blocks/not-found/not-found.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -125,4 +125,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/not-found · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/not-found · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

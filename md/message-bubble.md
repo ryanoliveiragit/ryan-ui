@@ -3,7 +3,7 @@
 > Balão de conversa para você e para o assistente, com cauda, agrupamento, horário e tiques de entrega animados.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/message-bubble
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/message-bubble
 - Descrição original (inglês): A chat bubble for the person and the assistant that pops in from its tail corner, groups consecutive messages, and draws delivery ticks under a timestamp.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-bubble.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-bubble.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-bubble.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/message-bubble.json`. Caminho do registro, relativo ao endereço do site: `r/message-bubble.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json`. Caminho do registro, relativo ao endereço do site: `r/message-bubble.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/message-bubble/message-bubble.tsx`
   - `components/ryan-ui/message-bubble/message-bubble.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -187,4 +187,4 @@ A run of bubbles from one sender. It spaces them tightly and gives each its plac
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/message-bubble · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message-bubble · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

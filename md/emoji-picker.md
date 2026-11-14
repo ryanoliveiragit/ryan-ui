@@ -3,7 +3,7 @@
 > Seletor de emoji completo com busca instantânea, categorias sincronizadas à rolagem, tons de pele, emojis usados recentemente e uma grade virtualizada que se navega por inteiro pelo teclado.
 
 - Tipo: componente (categoria Entradas), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/emoji-picker
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/emoji-picker
 - Descrição original (inglês): A full emoji picker with instant search, scroll-synced categories, skin tones, recently used emoji, and a virtualized, keyboard-navigable grid.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/emoji-picker.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/emoji-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/emoji-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/emoji-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/emoji-picker.json`. Caminho do registro, relativo ao endereço do site: `r/emoji-picker.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/emoji-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/emoji-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/emoji-picker.json`. Caminho do registro, relativo ao endereço do site: `r/emoji-picker.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/emoji-picker/emoji-picker.module.css`
   - `components/ryan-ui/emoji-picker/emoji-data.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -243,4 +243,4 @@ Compact built-in dataset: one line per emoji, `base|name|keywords…|tonePositio
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/emoji-picker · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/emoji-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Um ícone que se transforma em campo de busca, com resultados logo abaixo.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/expanding-search
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-search
 - Descrição original (inglês): An icon that morphs into a search field with results beneath it.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-search.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-search.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-search.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-search.json`. Caminho do registro, relativo ao endereço do site: `r/expanding-search.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json`. Caminho do registro, relativo ao endereço do site: `r/expanding-search.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/expanding-search/expanding-search.tsx`
   - `components/ryan-ui/expanding-search/expanding-search.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -158,4 +158,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/expanding-search · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-search · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

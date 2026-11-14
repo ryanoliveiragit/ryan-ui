@@ -3,7 +3,7 @@
 > Janela de tempo sobre um gráfico de área ao vivo: arraste as bordas para redimensionar, arraste ou dê um tapa para rolar com inércia, e as datas rolam para os novos valores.
 
 - Tipo: componente (categoria Entradas), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/window-range
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/window-range
 - Descrição original (inglês): A time window over a live area chart: drag its edges to resize, drag or flick it to pan with momentum, and the dates roll to their new values.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/window-range.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/window-range.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/window-range.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/window-range.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/window-range.json`. Caminho do registro, relativo ao endereço do site: `r/window-range.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/window-range.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/window-range.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/window-range.json`. Caminho do registro, relativo ao endereço do site: `r/window-range.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/window-range/window-range.tsx`
   - `components/ryan-ui/window-range/window-range.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -236,4 +236,4 @@ A time window over a live area chart. Drag either edge of the frame to resize it
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/window-range · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/window-range · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

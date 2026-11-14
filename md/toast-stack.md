@@ -3,7 +3,7 @@
 > Pilha de notificações que se empilha, se abre ao passar o mouse e transforma um aviso em seu resultado.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/toast-stack
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-stack
 - Descrição original (inglês): Stack short results at the edge until you reach for them.
 - Versões: Padrão ([`toast`](toast.md)), Pilha (este item), Com ação ([`toast-action`](toast-action.md)), Progresso ([`toast-progress`](toast-progress.md))
 
@@ -12,17 +12,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-stack.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-stack.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-stack.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-stack.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-stack.json`. Caminho do registro, relativo ao endereço do site: `r/toast-stack.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-stack.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-stack.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-stack.json`. Caminho do registro, relativo ao endereço do site: `r/toast-stack.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/toast-stack/toast-stack.tsx`
   - `components/ryan-ui/toast-stack/toast-stack.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -198,4 +198,4 @@ Scopes a toast queue to its subtree, so two stacks on one page never share toast
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/toast-stack · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-stack · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

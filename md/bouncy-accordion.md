@@ -3,7 +3,7 @@
 > Acordeão em que o item aberto se solta dos vizinhos: o espaço cresce e os cantos arredondam com um leve quique.
 
 - Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/bouncy-accordion
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bouncy-accordion
 - Descrição original (inglês): An accordion whose open item detaches from its neighbors: the gaps widen and the facing corners round off with a small bounce.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bouncy-accordion.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bouncy-accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bouncy-accordion.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bouncy-accordion.json`. Caminho do registro, relativo ao endereço do site: `r/bouncy-accordion.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json`. Caminho do registro, relativo ao endereço do site: `r/bouncy-accordion.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/bouncy-accordion/bouncy-accordion.tsx`
   - `components/ryan-ui/bouncy-accordion/bouncy-accordion.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -130,4 +130,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/bouncy-accordion · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bouncy-accordion · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

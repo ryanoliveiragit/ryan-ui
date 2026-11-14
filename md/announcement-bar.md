@@ -3,7 +3,7 @@
 > Faixa no topo que alterna mensagens, mostra contagem regressiva e recolhe com suavidade ao ser dispensada.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/announcement-bar
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/announcement-bar
 - Descrição original (inglês): A top banner that rotates messages, counts down, and collapses smoothly when dismissed.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/announcement-bar.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/announcement-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/announcement-bar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/announcement-bar.json`. Caminho do registro, relativo ao endereço do site: `r/announcement-bar.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json`. Caminho do registro, relativo ao endereço do site: `r/announcement-bar.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/announcement-bar/announcement-bar.tsx`
   - `components/ryan-ui/announcement-bar/announcement-bar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -170,4 +170,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/announcement-bar · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/announcement-bar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

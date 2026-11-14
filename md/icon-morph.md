@@ -3,7 +3,7 @@
 > Ícones que se transformam entre estados: menu em fechar, play em pausa, copiar em confirmado e outros.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/icon-morph
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/icon-morph
 - Descrição original (inglês): Icons that morph between states: menu to close, play to pause, copy to check, and more.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/icon-morph.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/icon-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/icon-morph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/icon-morph.json`. Caminho do registro, relativo ao endereço do site: `r/icon-morph.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json`. Caminho do registro, relativo ao endereço do site: `r/icon-morph.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/icon-morph/icon-morph.tsx`
   - `components/ryan-ui/icon-morph/icon-morph.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -213,4 +213,4 @@ One entry point for every morphing icon: pick it by `name` and drive it with `st
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/icon-morph · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/icon-morph · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

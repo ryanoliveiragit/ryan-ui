@@ -3,7 +3,7 @@
 > Copia um valor e confirma na hora.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/copy-button
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/copy-button
 - Descrição original (inglês): Copy a value with immediate confirmation.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/copy-button.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/copy-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/copy-button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/copy-button.json`. Caminho do registro, relativo ao endereço do site: `r/copy-button.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json`. Caminho do registro, relativo ao endereço do site: `r/copy-button.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/copy-button/copy-button.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -110,4 +110,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/copy-button · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/copy-button · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

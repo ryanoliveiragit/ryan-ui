@@ -3,7 +3,7 @@
 > Cartões selecionáveis com anel deslizante, preço e descrição, com o teclado de um grupo de rádio.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/radio-cards
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-cards
 - Descrição original (inglês): Selectable option cards with a sliding selection ring, price and description slots, and radio keyboard behavior.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-cards.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-cards.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-cards.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/radio-cards.json`. Caminho do registro, relativo ao endereço do site: `r/radio-cards.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json`. Caminho do registro, relativo ao endereço do site: `r/radio-cards.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/radio-cards/radio-cards.tsx`
   - `components/ryan-ui/radio-cards/radio-cards.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -137,4 +137,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/radio-cards · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-cards · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

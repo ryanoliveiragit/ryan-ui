@@ -3,7 +3,7 @@
 > Barra lateral que alterna entre trilho de ícones e painel completo com uma mola elástica; o marcador ativo desliza.
 
 - Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/bounce-sidebar
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bounce-sidebar
 - Descrição original (inglês): An app sidebar that switches between an icon rail and a full panel on a slightly bouncy width spring, with staggered labels and a gliding active marker.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bounce-sidebar.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bounce-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bounce-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/bounce-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/bounce-sidebar.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/bounce-sidebar.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/bounce-sidebar/bounce-sidebar.tsx`
   - `components/ryan-ui/bounce-sidebar/bounce-sidebar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -166,4 +166,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/bounce-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bounce-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Botão de ícone ou chip que se alarga com mola ao ser pressionado e revela o rótulo ou uma ação extra.
 
 - Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/expandable-control
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-control
 - Descrição original (inglês): An icon button or chip that widens on a spring when pressed to reveal its label and an optional trailing action.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-control.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-control.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-control.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expandable-control.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-control.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-control.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/expandable-control/expandable-control.tsx`
   - `components/ryan-ui/expandable-control/expandable-control.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -151,4 +151,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/expandable-control · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-control · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

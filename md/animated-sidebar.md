@@ -3,7 +3,7 @@
 > Barra lateral com grupos aninhados que abrem com animação de altura, destaque que desliza e modo recolhido com dicas.
 
 - Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/animated-sidebar
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-sidebar
 - Descrição original (inglês): A sidebar with nested groups that open on a height spring, one highlight that glides under the pointer, and a collapsed icon rail with tooltips.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/animated-sidebar.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/animated-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/animated-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/animated-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/animated-sidebar.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/animated-sidebar.json`.
 
 - Pacotes npm: `motion`, `lucide-react`, `@radix-ui/react-tooltip`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Hover highlight](hover-highlight.md)
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/animated-sidebar/animated-sidebar.tsx`
   - `components/ryan-ui/animated-sidebar/animated-sidebar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -217,4 +217,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/animated-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

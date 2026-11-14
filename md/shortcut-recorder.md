@@ -3,7 +3,7 @@
 > Grave atalhos de teclado em teclas visuais, com aviso de conflito e uma lista de atalhos pesquisável.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/shortcut-recorder
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/shortcut-recorder
 - Descrição original (inglês): Record key combinations into key caps, with conflict warnings, Kbd, and a searchable cheatsheet.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/shortcut-recorder.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/shortcut-recorder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/shortcut-recorder.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/shortcut-recorder.json`. Caminho do registro, relativo ao endereço do site: `r/shortcut-recorder.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json`. Caminho do registro, relativo ao endereço do site: `r/shortcut-recorder.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/shortcut-recorder/shortcut-recorder.tsx`
   - `components/ryan-ui/shortcut-recorder/shortcut-recorder.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -228,4 +228,4 @@ A searchable, grouped cheatsheet. Holding a modifier lights that cap in every ro
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/shortcut-recorder · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/shortcut-recorder · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

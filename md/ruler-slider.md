@@ -3,7 +3,7 @@
 > Uma fita de marcas que desliza sob uma agulha fixa, com inércia, encaixe e valor rolante.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/ruler-slider
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/ruler-slider
 - Descrição original (inglês): A tape of ticks that slides under a fixed needle, with momentum, snapping, and a rolling readout.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ruler-slider.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ruler-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ruler-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ruler-slider.json`. Caminho do registro, relativo ao endereço do site: `r/ruler-slider.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json`. Caminho do registro, relativo ao endereço do site: `r/ruler-slider.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/ruler-slider/ruler-slider.tsx`
   - `components/ryan-ui/ruler-slider/ruler-slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -124,4 +124,4 @@ A precise value input shaped like a tape measure. A ruler of ticks slides under 
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/ruler-slider · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ruler-slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

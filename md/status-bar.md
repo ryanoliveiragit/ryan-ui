@@ -3,7 +3,7 @@
 > Faixa de disponibilidade com uma barra por dia, colorida pelo estado, dica por dia e o percentual geral.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/status-bar
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/status-bar
 - Descrição original (inglês): An uptime strip with one bar per day colored by status, bars that lift around the pointer, a gliding tooltip and an overall percentage that counts up.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/status-bar.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/status-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/status-bar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/status-bar.json`. Caminho do registro, relativo ao endereço do site: `r/status-bar.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json`. Caminho do registro, relativo ao endereço do site: `r/status-bar.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/status-bar/status-bar.tsx`
   - `components/ryan-ui/status-bar/status-bar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -193,4 +193,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/status-bar · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/status-bar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Painéis que trocam espaço entre si ao arrastar o divisor.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/resizable-panels
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/resizable-panels
 - Descrição original (inglês): Trade space between panes by dragging the divider between them.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/resizable-panels.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/resizable-panels.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/resizable-panels.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/resizable-panels.json`. Caminho do registro, relativo ao endereço do site: `r/resizable-panels.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json`. Caminho do registro, relativo ao endereço do site: `r/resizable-panels.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/resizable-panels/resizable-panels.tsx`
   - `components/ryan-ui/resizable-panels/resizable-panels.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -136,4 +136,4 @@ Carries a pane's configuration into `ResizablePanels`. Rendered on its own it sh
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/resizable-panels · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/resizable-panels · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

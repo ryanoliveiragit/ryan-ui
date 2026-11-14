@@ -3,7 +3,7 @@
 > Tela de chat completa: lista de conversas, respostas simuladas que chegam aos poucos e caixa de prompt.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/chat-app
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/chat-app
 - Descrição original (inglês): A complete chat screen: a conversation list with a gliding active marker, a thread whose simulated replies think, stream in and can be stopped, copied or regenerated, and a growing prompt box.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-app.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-app.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-app.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-app.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-app.json`. Caminho do registro, relativo ao endereço do site: `r/chat-app.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-app.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-app.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-app.json`. Caminho do registro, relativo ao endereço do site: `r/chat-app.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Streaming response](streaming-response.md), [Loading states](loading-states.md)
@@ -25,7 +25,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/lib/use-copy-feedback.ts`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -166,4 +166,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/chat-app · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/chat-app · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

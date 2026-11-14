@@ -90,5 +90,5 @@ for (const item of registry.items) {
 fs.writeFileSync(path.join(root, "registry.json"), JSON.stringify(registry, null, 2) + "\n");
 
 const upstreamCommit = fs.existsSync(path.join(upstream, ".git")) ? fs.readFileSync(path.join(upstream, ".git", fs.readFileSync(path.join(upstream, ".git", "HEAD"), "utf8").trim().replace("ref: ", "")), "utf8").trim() : "desconhecido";
-fs.writeFileSync(path.join(root, "UPSTREAM.json"), JSON.stringify({ repository: "https://github.com/ryanoliveiragit/ryan-ui", license: "MIT", copyright: "Copyright (c) 2026 ryandev", commit: upstreamCommit, importedAt: new Date().toISOString().slice(0, 10), items: registry.items.length }, null, 2) + "\n");
+fs.writeFileSync(path.join(root, "UPSTREAM.json"), JSON.stringify({ repository: "https://github.com/ryanoliveiragit/ryan-ui-site", license: "MIT", copyright: "Copyright (c) 2026 ryandev", commit: upstreamCommit, importedAt: new Date().toISOString().slice(0, 10), items: registry.items.length }, null, 2) + "\n");
 console.log(`importado: ${stats.files} arquivos, ${stats.changed} com troca de nome, ${registry.items.length} itens no registro, commit ${upstreamCommit.slice(0, 12)}`);

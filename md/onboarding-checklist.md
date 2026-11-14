@@ -3,7 +3,7 @@
 > Lista que guia um novo espaço de trabalho pela configuração, um passo de cada vez.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/onboarding-checklist
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/onboarding-checklist
 - Descrição original (inglês): Guide a new workspace through setup, one step at a time.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/onboarding-checklist.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/onboarding-checklist.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/onboarding-checklist.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/onboarding-checklist.json`. Caminho do registro, relativo ao endereço do site: `r/onboarding-checklist.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json`. Caminho do registro, relativo ao endereço do site: `r/onboarding-checklist.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/onboarding-checklist/onboarding-checklist.tsx`
   - `components/ryan-ui/onboarding-checklist/onboarding-checklist.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -134,4 +134,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/onboarding-checklist · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/onboarding-checklist · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Faixa de logos de clientes que desliza sem parar e pausa quando você aponta.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/logo-marquee
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/logo-marquee
 - Descrição original (inglês): A quiet, continuously moving row of brand marks with a pause control.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/logo-marquee.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/logo-marquee.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/logo-marquee.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/logo-marquee.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/logo-marquee.json`. Caminho do registro, relativo ao endereço do site: `r/logo-marquee.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/logo-marquee.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/logo-marquee.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/logo-marquee.json`. Caminho do registro, relativo ao endereço do site: `r/logo-marquee.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md)
@@ -24,7 +24,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -124,4 +124,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/logo-marquee · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/logo-marquee · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

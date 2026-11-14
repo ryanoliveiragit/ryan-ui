@@ -3,7 +3,7 @@
 > Botão flutuante de feedback que vira um formulário com humor e mensagem, passa pelo envio e termina num agradecimento.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/feedback-widget
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/feedback-widget
 - Descrição original (inglês): A floating feedback button that morphs into a small form with a mood picker and a message field, then walks through sending into a drawn check and a thank-you.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/feedback-widget.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/feedback-widget.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/feedback-widget.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/feedback-widget.json`. Caminho do registro, relativo ao endereço do site: `r/feedback-widget.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json`. Caminho do registro, relativo ao endereço do site: `r/feedback-widget.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/feedback-widget/feedback-widget.tsx`
   - `components/ryan-ui/blocks/feedback-widget/feedback-widget.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -129,4 +129,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/feedback-widget · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/feedback-widget · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

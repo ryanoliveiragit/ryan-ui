@@ -3,7 +3,7 @@
 > Camadas fluidas que se transformam entre períodos, com uma camada para isolar e ler semana a semana.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/streamgraph
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/streamgraph
 - Descrição original (inglês): Layered streams on a wiggle baseline that morph between ranges, with a layer you can isolate and read week by week.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streamgraph.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streamgraph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streamgraph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streamgraph.json`. Caminho do registro, relativo ao endereço do site: `r/streamgraph.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json`. Caminho do registro, relativo ao endereço do site: `r/streamgraph.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/streamgraph/streamgraph.tsx`
   - `components/ryan-ui/streamgraph/streamgraph.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -174,4 +174,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/streamgraph · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/streamgraph · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

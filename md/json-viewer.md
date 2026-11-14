@@ -3,7 +3,7 @@
 > Árvore de JSON recolhível, com busca, paginação de listas longas e cópia de valor ou caminho.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/json-viewer
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/json-viewer
 - Descrição original (inglês): A collapsible JSON tree with search, paging for long arrays, and copy value or path.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/json-viewer.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/json-viewer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/json-viewer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/json-viewer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/json-viewer.json`. Caminho do registro, relativo ao endereço do site: `r/json-viewer.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/json-viewer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/json-viewer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/json-viewer.json`. Caminho do registro, relativo ao endereço do site: `r/json-viewer.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/json-viewer/json-viewer.tsx`
   - `components/ryan-ui/json-viewer/json-viewer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -154,4 +154,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/json-viewer · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/json-viewer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

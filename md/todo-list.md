@@ -3,7 +3,7 @@
 > Lista do plano de um agente: cada etapa passa de pendente para em andamento e concluída, com contagem de progresso.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/todo-list
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/todo-list
 - Descrição original (inglês): An agent plan checklist whose steps move from pending to running with a shimmer to done with a drawn check and strike-through, under a live progress count.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/todo-list.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/todo-list.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/todo-list.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/todo-list.json`. Caminho do registro, relativo ao endereço do site: `r/todo-list.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json`. Caminho do registro, relativo ao endereço do site: `r/todo-list.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/todo-list/todo-list.tsx`
   - `components/ryan-ui/todo-list/todo-list.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -153,4 +153,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/todo-list · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/todo-list · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

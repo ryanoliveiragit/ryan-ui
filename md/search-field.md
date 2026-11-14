@@ -3,7 +3,7 @@
 > Campo de busca reconhecível, com ícone, botão de limpar e foco bem marcado.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/search-field
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/search-field
 - Descrição original (inglês): A recognizable search entry point with clear affordances.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/search-field.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/search-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/search-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/search-field.json`. Caminho do registro, relativo ao endereço do site: `r/search-field.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json`. Caminho do registro, relativo ao endereço do site: `r/search-field.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/search-field/search-field.tsx`
   - `components/ryan-ui/search-field/search-field.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -101,4 +101,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/search-field · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/search-field · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Seletor de roda como o de hora do celular: arraste, solte com impulso e ele encaixa na opção; aceita várias colunas e teclado.
 
 - Tipo: componente (categoria Entradas), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/wheel-picker
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/wheel-picker
 - Descrição original (inglês): A vertical wheel picker with snap and drag momentum, like a phone time picker, with several columns, disabled options and full keyboard support.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wheel-picker.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wheel-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wheel-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wheel-picker.json`. Caminho do registro, relativo ao endereço do site: `r/wheel-picker.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json`. Caminho do registro, relativo ao endereço do site: `r/wheel-picker.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/wheel-picker/wheel-picker.tsx`
   - `components/ryan-ui/wheel-picker/wheel-picker.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -176,4 +176,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/wheel-picker · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/wheel-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

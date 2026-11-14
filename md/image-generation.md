@@ -3,7 +3,7 @@
 > Cartão de pedido de imagem: um campo de células cintila com o progresso e a imagem surge do desfoque até ficar nítida.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/image-generation
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/image-generation
 - Descrição original (inglês): An image request card: a shimmering field of cells with progress and phase labels, then the image resolves from blurred to sharp and the footer becomes the actions row.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-generation.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-generation.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-generation.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-generation.json`. Caminho do registro, relativo ao endereço do site: `r/image-generation.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json`. Caminho do registro, relativo ao endereço do site: `r/image-generation.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/image-generation/image-generation.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -160,4 +160,4 @@ A card for one image request. While the image is being made, a field of cells sh
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/image-generation · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/image-generation · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

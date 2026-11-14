@@ -3,7 +3,7 @@
 > Área de rolagem nativa com barras finas e esmaecimento só quando há overflow.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/scroll-area
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/scroll-area
 - Descrição original (inglês): A native scroll container with thin overlay scrollbars and edge fades that appear only when content overflows.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/scroll-area.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-area.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/scroll-area.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/scroll-area.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/scroll-area.json`. Caminho do registro, relativo ao endereço do site: `r/scroll-area.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-area.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-area.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-area.json`. Caminho do registro, relativo ao endereço do site: `r/scroll-area.json`.
 
 - Pacotes npm: nenhum além do React
 - Arquivos, depois de instalados:
   - `components/ryan-ui/scroll-area/scroll-area.tsx`
   - `components/ryan-ui/scroll-area/scroll-area.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -145,4 +145,4 @@ Which edges still have content beyond them.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/scroll-area · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/scroll-area · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Cartões dispostos em volta de um cilindro 3D que gira com arraste, setas ou teclado e para sempre em um cartão.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/cylinder-carousel
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/cylinder-carousel
 - Descrição original (inglês): Cards placed around a 3D cylinder that turns by drag, arrows and keys, snaps to the nearest card and dims the cards that turn away.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cylinder-carousel.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cylinder-carousel.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cylinder-carousel.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cylinder-carousel.json`. Caminho do registro, relativo ao endereço do site: `r/cylinder-carousel.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json`. Caminho do registro, relativo ao endereço do site: `r/cylinder-carousel.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/cylinder-carousel/cylinder-carousel.tsx`
   - `components/ryan-ui/cylinder-carousel/cylinder-carousel.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -149,4 +149,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/cylinder-carousel · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cylinder-carousel · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

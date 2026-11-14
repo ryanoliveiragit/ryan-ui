@@ -3,7 +3,7 @@
 > Velas de abertura, máxima, mínima e fechamento, com mira que acompanha o cursor e mostra os valores de cada período.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/candlestick-chart
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/candlestick-chart
 - Descrição original (inglês): OHLC candles with wicks in the status colors that grow in from left to right, with a crosshair that snaps to each candle and a tooltip of its open, high, low and close.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/candlestick-chart.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/candlestick-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/candlestick-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/candlestick-chart.json`. Caminho do registro, relativo ao endereço do site: `r/candlestick-chart.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json`. Caminho do registro, relativo ao endereço do site: `r/candlestick-chart.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/candlestick-chart/candlestick-chart.tsx`
   - `components/ryan-ui/candlestick-chart/candlestick-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -173,4 +173,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/candlestick-chart · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/candlestick-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

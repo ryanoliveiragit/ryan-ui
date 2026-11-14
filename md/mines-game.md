@@ -3,7 +3,7 @@
 > Campo 5×5 de mentirinha: vire as peças para achar gemas e aumentar o multiplicador, mas uma mina encerra a rodada.
 
 - Tipo: componente (categoria Jogos), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/mines-game
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/mines-game
 - Descrição original (inglês): A play-money mines game on a 5×5 grid: tiles flip to reveal gems that raise the multiplier, and a mine ends the round unless you cash out first.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mines-game.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mines-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mines-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mines-game.json`. Caminho do registro, relativo ao endereço do site: `r/mines-game.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json`. Caminho do registro, relativo ao endereço do site: `r/mines-game.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
@@ -23,7 +23,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/mines-game/play-money.tsx`
   - `components/ryan-ui/mines-game/play-money.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -258,4 +258,4 @@ A row of past results. A new chip springs in at the start and pushes the others 
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/mines-game · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/mines-game · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

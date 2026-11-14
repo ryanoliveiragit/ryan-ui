@@ -3,7 +3,7 @@
 > Seletor radial: as opções ficam em um arco, giram com a rolagem, o arraste ou as setas, e uma moldura abraça a opção ativa.
 
 - Tipo: componente (categoria Entradas), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/arc-picker
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/arc-picker
 - Descrição original (inglês): A radial text picker: options sit on an arc, the wheel, a drag or the arrow keys turn the dial, and one bracket frame resizes around the active label.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/arc-picker.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/arc-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/arc-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/arc-picker.json`. Caminho do registro, relativo ao endereço do site: `r/arc-picker.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json`. Caminho do registro, relativo ao endereço do site: `r/arc-picker.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/arc-picker/arc-picker.tsx`
   - `components/ryan-ui/arc-picker/arc-picker.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -157,4 +157,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/arc-picker · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/arc-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

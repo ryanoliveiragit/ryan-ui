@@ -3,7 +3,7 @@
 > Uma fileira de botões de alternância, única ou múltipla, como numa barra de formatação.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/toggle-group
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toggle-group
 - Descrição original (inglês): A row of icon or text toggles, single or multiple: one pressed fill glides between options, or each fades in on its own and neighbours join, as in a formatting toolbar.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toggle-group.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toggle-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toggle-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toggle-group.json`. Caminho do registro, relativo ao endereço do site: `r/toggle-group.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json`. Caminho do registro, relativo ao endereço do site: `r/toggle-group.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/toggle-group/toggle-group.tsx`
   - `components/ryan-ui/toggle-group/toggle-group.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -148,4 +148,4 @@ Props: `ToggleGroupSingleProps | ToggleGroupMultipleProps`
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/toggle-group · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toggle-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

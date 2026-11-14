@@ -3,7 +3,7 @@
 > Capture texto sensível com um botão para revelar o que foi digitado.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/password-field
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/password-field
 - Descrição original (inglês): Capture sensitive text with a visible reveal control.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/password-field.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/password-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/password-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/password-field.json`. Caminho do registro, relativo ao endereço do site: `r/password-field.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json`. Caminho do registro, relativo ao endereço do site: `r/password-field.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/password-field/password-field.tsx`
   - `components/ryan-ui/password-field/password-field.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -113,4 +113,4 @@ The toggle's names. Both have English defaults; pass the ones you translate.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/password-field · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/password-field · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Texto que chega palavra por palavra, com cursor e desfoque suave, e controles para pausar, pular e repetir.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/streaming-response
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/streaming-response
 - Descrição original (inglês): Text that streams in word by word behind a caret, each word rising out of a soft blur, with pause, skip and replay controls; reduced motion shows the full text.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streaming-response.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streaming-response.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streaming-response.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/streaming-response.json`. Caminho do registro, relativo ao endereço do site: `r/streaming-response.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json`. Caminho do registro, relativo ao endereço do site: `r/streaming-response.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/streaming-response/streaming-response.tsx`
   - `components/ryan-ui/streaming-response/streaming-response.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -146,4 +146,4 @@ Text that arrives word by word, the way a model response does: each word fades u
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/streaming-response · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/streaming-response · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

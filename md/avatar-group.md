@@ -3,7 +3,7 @@
 > Grupo de avatares sobrepostos que resume uma equipe e mostra quantos membros a mais existem.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/avatar-group
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/avatar-group
 - Descrição original (inglês): Show a team or set of contributors in a small space.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/avatar-group.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/avatar-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/avatar-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/avatar-group.json`. Caminho do registro, relativo ao endereço do site: `r/avatar-group.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json`. Caminho do registro, relativo ao endereço do site: `r/avatar-group.json`.
 
 - Pacotes npm: `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Avatar](avatar.md)
@@ -25,7 +25,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/avatar/avatar.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -114,4 +114,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/avatar-group · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/avatar-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Tabuleiro de plinko de mentirinha: a bolinha quica nos pinos, para a esquerda ou a direita, e acende a casa do multiplicador.
 
 - Tipo: componente (categoria Jogos), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/plinko-game
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/plinko-game
 - Descrição original (inglês): A play-money plinko board: each ball bounces left or right off every row of pegs and lights up the multiplier slot it lands in.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/plinko-game.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/plinko-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/plinko-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/plinko-game.json`. Caminho do registro, relativo ao endereço do site: `r/plinko-game.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json`. Caminho do registro, relativo ao endereço do site: `r/plinko-game.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
@@ -23,7 +23,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/plinko-game/play-money.tsx`
   - `components/ryan-ui/plinko-game/play-money.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -266,4 +266,4 @@ A row of past results. A new chip springs in at the start and pushes the others 
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/plinko-game · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/plinko-game · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Uma mensagem persistente que ajuda a pessoa a se recuperar de um problema ou seguir em frente.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/alert
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/alert
 - Descrição original (inglês): A persistent message that helps people recover or continue.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/alert.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/alert.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/alert.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/alert.json`. Caminho do registro, relativo ao endereço do site: `r/alert.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json`. Caminho do registro, relativo ao endereço do site: `r/alert.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/alert/alert.tsx`
   - `components/ryan-ui/alert/alert.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -107,4 +107,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/alert · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/alert · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

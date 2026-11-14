@@ -3,7 +3,7 @@
 > Indicadores de que a IA está pensando: texto cintilante, pontinhos que saltam, frases que se alternam e contador de etapas.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/loading-states
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/loading-states
 - Descrição original (inglês): Thinking indicators for AI interfaces: shimmering text, bouncing dots, a rotating status phrase beside an orbiting mark, and a step counter with rolling digits and pips.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loading-states.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loading-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loading-states.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loading-states.json`. Caminho do registro, relativo ao endereço do site: `r/loading-states.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json`. Caminho do registro, relativo ao endereço do site: `r/loading-states.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/loading-states/loading-states.tsx`
   - `components/ryan-ui/loading-states/loading-states.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -175,4 +175,4 @@ Indicators for the moments an AI is working and has nothing to show yet. One com
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/loading-states · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/loading-states · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

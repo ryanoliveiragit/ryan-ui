@@ -3,7 +3,7 @@
 > Seletor de período que cresce a partir do gatilho, com dois meses, atalhos e destaque elástico.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/date-range-picker
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/date-range-picker
 - Descrição original (inglês): A range picker that grows from its trigger into two months with presets and a stretching range highlight.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/date-range-picker.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/date-range-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/date-range-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/date-range-picker.json`. Caminho do registro, relativo ao endereço do site: `r/date-range-picker.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json`. Caminho do registro, relativo ao endereço do site: `r/date-range-picker.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/lib/use-today.ts`
   - `components/ryan-ui/date-range-picker/date-range-picker.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -172,4 +172,4 @@ A shortcut in the preset rail. `range` receives the viewer's local today.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/date-range-picker · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/date-range-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

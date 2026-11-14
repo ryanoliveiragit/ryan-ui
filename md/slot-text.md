@@ -3,7 +3,7 @@
 > Textos e números que giram até o novo valor, como rolos de caça-níqueis.
 
 - Tipo: componente (categoria Especial)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/slot-text
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/slot-text
 - Descrição original (inglês): Text and numbers that spin into their new value on staggered slot machine reels.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slot-text.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slot-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slot-text.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slot-text.json`. Caminho do registro, relativo ao endereço do site: `r/slot-text.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json`. Caminho do registro, relativo ao endereço do site: `r/slot-text.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/slot-text/slot-text.tsx`
   - `components/ryan-ui/slot-text/slot-text.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -109,4 +109,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/slot-text · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slot-text · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Central de notificações com estado de lido, avisos agrupados e abertura animada.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/notification-center
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-center
 - Descrição original (inglês): A home for updates with read state, grouped information, and animated disclosure.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-center.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-center.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-center.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-center.json`. Caminho do registro, relativo ao endereço do site: `r/notification-center.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json`. Caminho do registro, relativo ao endereço do site: `r/notification-center.json`.
 
 - Pacotes npm: `@radix-ui/react-popover`, `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Avatar](avatar.md)
@@ -25,7 +25,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/avatar/avatar.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -145,4 +145,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/notification-center · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-center · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Cabeçalho de projeto que encolhe numa barra compacta ao rolar, com abas de contagem animada.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/page-header
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/page-header
 - Descrição original (inglês): A project page header that folds into a compact bar as you scroll, with tabs whose counts roll.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/page-header.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/page-header.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/page-header.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/page-header.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/page-header.json`. Caminho do registro, relativo ao endereço do site: `r/page-header.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/page-header.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/page-header.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/page-header.json`. Caminho do registro, relativo ao endereço do site: `r/page-header.json`.
 
 - Pacotes npm: `@radix-ui/react-dropdown-menu`, `@radix-ui/react-tabs`, `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Animated counter](animated-counter.md), [Avatar](avatar.md), [Avatar group](avatar-group.md), [Badge](badge.md), [Button](button.md), [Progress](progress.md)
@@ -37,7 +37,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/animated-counter/animated-counter.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -126,4 +126,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/page-header · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/page-header · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

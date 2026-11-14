@@ -3,7 +3,7 @@
 > Aviso que acompanha uma tarefa: a barra e a porcentagem avançam e ele vira sucesso, com o check desenhado, ou erro com Tentar de novo.
 
 - Tipo: componente (categoria Feedback), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/toast-progress
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-progress
 - Descrição original (inglês): A toast that follows a running task: a bar and a percentage advance, then it morphs in place into a success state with a drawn check, or into an error state with Retry.
 - Versões: Padrão ([`toast`](toast.md)), Pilha ([`toast-stack`](toast-stack.md)), Com ação ([`toast-action`](toast-action.md)), Progresso (este item)
 
@@ -12,17 +12,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-progress.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-progress.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-progress.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/toast-progress.json`. Caminho do registro, relativo ao endereço do site: `r/toast-progress.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json`. Caminho do registro, relativo ao endereço do site: `r/toast-progress.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/toast-progress/toast-progress.tsx`
   - `components/ryan-ui/toast-progress/toast-progress.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -202,4 +202,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/toast-progress · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-progress · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

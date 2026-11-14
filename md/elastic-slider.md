@@ -3,7 +3,7 @@
 > Controle deslizante que estica como borracha nos limites, com etiqueta que balança e marcas magnéticas.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/elastic-slider
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/elastic-slider
 - Descrição original (inglês): A slider that stretches like rubber past its ends, with a swaying value tag and detents the thumb clicks into.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/elastic-slider.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/elastic-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/elastic-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/elastic-slider.json`. Caminho do registro, relativo ao endereço do site: `r/elastic-slider.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json`. Caminho do registro, relativo ao endereço do site: `r/elastic-slider.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/elastic-slider/elastic-slider.tsx`
   - `components/ryan-ui/elastic-slider/elastic-slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -147,4 +147,4 @@ A single value slider made of something that gives. The thumb swells under the f
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/elastic-slider · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/elastic-slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Pilha de notificações que se abre em leque ao passar o mouse; dispense arrastando ou pelo botão e as demais se reorganizam com mola.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/notification-stack
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-stack
 - Descrição original (inglês): A pile of notification cards that fans out into a list on hover or focus; cards leave by swipe, close button or Delete, and the rest restack on a spring.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-stack.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-stack.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-stack.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-stack.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/notification-stack.json`. Caminho do registro, relativo ao endereço do site: `r/notification-stack.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-stack.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-stack.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-stack.json`. Caminho do registro, relativo ao endereço do site: `r/notification-stack.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/notification-stack/notification-stack.tsx`
   - `components/ryan-ui/blocks/notification-stack/notification-stack.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -137,4 +137,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/notification-stack · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-stack · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > O novo tema sobe até ocupar a página.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/theme-switch-rise
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-rise
 - Descrição original (inglês): The next appearance rises into place.
 - Versões: Padrão ([`theme-switch`](theme-switch.md)), Eclipse ([`theme-switch-eclipse`](theme-switch-eclipse.md)), Split ([`theme-switch-split`](theme-switch-split.md)), Rise (este item)
 
@@ -12,10 +12,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-rise.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-rise.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-rise.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-rise.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/theme-switch-rise.json`. Caminho do registro, relativo ao endereço do site: `r/theme-switch-rise.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-rise.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-rise.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-rise.json`. Caminho do registro, relativo ao endereço do site: `r/theme-switch-rise.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md)
@@ -25,7 +25,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -121,4 +121,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/theme-switch-rise · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-rise · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

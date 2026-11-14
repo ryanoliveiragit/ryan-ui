@@ -3,7 +3,7 @@
 > Cinco indicadores de carregamento em três tamanhos, com rótulo lido por leitores de tela.
 
 - Tipo: componente (categoria Feedback), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/loader
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/loader
 - Descrição original (inglês): A family of five loaders (spinner, dots, bars, pulse ring, orbit) in three sizes that share one box, color and accessible label.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loader.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loader.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loader.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/loader.json`. Caminho do registro, relativo ao endereço do site: `r/loader.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json`. Caminho do registro, relativo ao endereço do site: `r/loader.json`.
 
 - Pacotes npm: nenhum além do React
 - Arquivos, depois de instalados:
   - `components/ryan-ui/loader/loader.tsx`
   - `components/ryan-ui/loader/loader.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -140,4 +140,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/loader · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/loader · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

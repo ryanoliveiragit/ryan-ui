@@ -3,7 +3,7 @@
 > Grupo de botões de ícone em que o apontado cresce para mostrar o rótulo e os vizinhos abrem espaço.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/expanding-button-group
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-button-group
 - Descrição original (inglês): Icon buttons in a compact group: the one you point at or focus grows to reveal its label while its neighbours slide aside, and an action confirms in place.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-button-group.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-button-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-button-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/expanding-button-group.json`. Caminho do registro, relativo ao endereço do site: `r/expanding-button-group.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-button-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-button-group.json`. Caminho do registro, relativo ao endereço do site: `r/expanding-button-group.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/expanding-button-group/expanding-button-group.tsx`
   - `components/ryan-ui/expanding-button-group/expanding-button-group.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -147,4 +147,4 @@ A compact pill of icon buttons for actions. One action always shows its label; t
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/expanding-button-group · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-button-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Uma região que abre e fecha no lugar, com altura em mola, conteúdo que entra em foco e seta que gira.
 
 - Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/collapsible
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/collapsible
 - Descrição original (inglês): One region that opens in place: the height follows on a spring, the content fades in from a small blur and the chevron turns; controlled or uncontrolled.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/collapsible.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/collapsible.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/collapsible.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/collapsible.json`. Caminho do registro, relativo ao endereço do site: `r/collapsible.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json`. Caminho do registro, relativo ao endereço do site: `r/collapsible.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/collapsible/collapsible.tsx`
   - `components/ryan-ui/collapsible/collapsible.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -159,4 +159,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/collapsible · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/collapsible · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

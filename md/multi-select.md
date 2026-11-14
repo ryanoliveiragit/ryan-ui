@@ -3,7 +3,7 @@
 > Selecione vários valores mantendo o campo legível.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/multi-select
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/multi-select
 - Descrição original (inglês): Select several values while keeping the field readable.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/multi-select.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/multi-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/multi-select.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/multi-select.json`. Caminho do registro, relativo ao endereço do site: `r/multi-select.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json`. Caminho do registro, relativo ao endereço do site: `r/multi-select.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/multi-select/multi-select.tsx`
   - `components/ryan-ui/multi-select/multi-select.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -133,4 +133,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/multi-select · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/multi-select · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

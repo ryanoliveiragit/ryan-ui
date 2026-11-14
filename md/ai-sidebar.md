@@ -3,7 +3,7 @@
 > Painel de assistente que desliza ao lado da página, com cabeçalho, mensagens, sugestões e caixa de prompt.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/ai-sidebar
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/ai-sidebar
 - Descrição original (inglês): A docked assistant panel that springs in beside the page and pushes it aside (or slides over it when narrow), with a header, a message list that follows new messages, suggestion chips and a growing prompt box.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ai-sidebar.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ai-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ai-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ai-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/ai-sidebar.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/ai-sidebar.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Loading states](loading-states.md)
@@ -22,7 +22,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/ai-sidebar/ai-sidebar.tsx`
   - `components/ryan-ui/ai-sidebar/ai-sidebar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -190,4 +190,4 @@ An assistant panel docked beside the page. It slides in on a spring and pushes t
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/ai-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ai-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

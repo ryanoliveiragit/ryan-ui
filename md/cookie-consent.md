@@ -3,7 +3,7 @@
 > Barra de consentimento que vira painel de preferências e se recolhe em um botão para reabrir.
 
 - Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/cookie-consent
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/cookie-consent
 - Descrição original (inglês): A consent bar that morphs into preferences and folds into a reopen button.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cookie-consent.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cookie-consent.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cookie-consent.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/cookie-consent.json`. Caminho do registro, relativo ao endereço do site: `r/cookie-consent.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json`. Caminho do registro, relativo ao endereço do site: `r/cookie-consent.json`.
 
 - Pacotes npm: `@radix-ui/react-switch`, `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Switch](switch.md)
@@ -26,7 +26,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -194,4 +194,4 @@ What is written to storage under `storageKey`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/cookie-consent · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cookie-consent · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

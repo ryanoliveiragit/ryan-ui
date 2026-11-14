@@ -3,7 +3,7 @@
 > Calendário de retornos diários, mês a mês, com cada dia colorido pela força do ganho ou da perda e o total do mês.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/returns-calendar
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/returns-calendar
 - Descrição original (inglês): Small month calendars of daily returns tinted by gain or loss, with month totals, months and cells that wave in, and a tooltip that glides between days.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/returns-calendar.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/returns-calendar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/returns-calendar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/returns-calendar.json`. Caminho do registro, relativo ao endereço do site: `r/returns-calendar.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json`. Caminho do registro, relativo ao endereço do site: `r/returns-calendar.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/returns-calendar/returns-calendar.tsx`
   - `components/ryan-ui/returns-calendar/returns-calendar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -172,4 +172,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/returns-calendar · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/returns-calendar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

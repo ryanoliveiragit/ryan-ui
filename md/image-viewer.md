@@ -3,7 +3,7 @@
 > Galeria de miniaturas que se ampliam num visualizador com setas, gesto de deslizar, zoom e arraste; Esc devolve a imagem ao lugar.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/image-viewer
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/image-viewer
 - Descrição original (inglês): A thumbnail gallery whose pictures grow into a lightbox with a shared-element zoom, with arrows, swipe, zoom and pan, a focus trap, and Escape closing back into the thumbnail.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-viewer.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-viewer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-viewer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/image-viewer.json`. Caminho do registro, relativo ao endereço do site: `r/image-viewer.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json`. Caminho do registro, relativo ao endereço do site: `r/image-viewer.json`.
 
 - Pacotes npm: `motion`, `lucide-react`, `@radix-ui/react-dialog`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/image-viewer/image-viewer.tsx`
   - `components/ryan-ui/image-viewer/image-viewer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -153,4 +153,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/image-viewer · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/image-viewer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

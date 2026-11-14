@@ -3,7 +3,7 @@
 > Cabeçalho de site com menu mega, que ganha fundo ao rolar a página, em três layouts.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/site-header
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/site-header
 - Descrição original (inglês): A sticky website header that turns solid on scroll, with a gliding active link, mega menu panels, and a mobile sheet.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/site-header.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/site-header.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/site-header.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/site-header.json`. Caminho do registro, relativo ao endereço do site: `r/site-header.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json`. Caminho do registro, relativo ao endereço do site: `r/site-header.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Segmented control](segmented-control.md)
@@ -26,7 +26,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/segmented-control/segmented-control.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -196,4 +196,4 @@ What `onNavigate` receives.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/site-header · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/site-header · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

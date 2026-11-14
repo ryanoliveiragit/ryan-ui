@@ -3,7 +3,7 @@
 > Hero em três versões sem gradientes: janela de produto viva, fluxo de automação com pulso e tipografia editorial com marquee.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/hero-section
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/hero-section
 - Descrição original (inglês): A landing page hero in three versions on a solid page with a faint dot grid: a live product window with counting figures, a self-drawing chart and floating cards; an automation graph with a pulse travelling along its lines; and editorial type over a marquee of words.
 - Versões: Produto (`hero-section` com `variant="product"`), Fluxo (`hero-section` com `variant="workflow"`), Editorial (`hero-section` com `variant="editorial"`)
 
@@ -12,10 +12,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hero-section.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hero-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hero-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hero-section.json`. Caminho do registro, relativo ao endereço do site: `r/hero-section.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json`. Caminho do registro, relativo ao endereço do site: `r/hero-section.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Animated counter](animated-counter.md), [Avatar](avatar.md), [Badge](badge.md), [Button](button.md), [Copy button](copy-button.md), [Marquee](marquee.md), [Segmented control](segmented-control.md)
@@ -50,7 +50,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/segmented-control/segmented-control.tsx`
   - `components/ryan-ui/segmented-control/segmented-control.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -296,4 +296,4 @@ Minimal hero, one full screen: large type over a slowly drifting mesh gradient w
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/hero-section · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/hero-section · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Jogo de brincadeira em que o multiplicador sobe numa curva até quebrar; saia antes para ficar com a aposta multiplicada.
 
 - Tipo: componente (categoria Jogos), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/crash-game
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/crash-game
 - Descrição original (inglês): A play-money crash game: the multiplier climbs along a live curve until it crashes at a random point, and you cash out first to keep your bet times the multiplier.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/crash-game.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/crash-game.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/crash-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/crash-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/crash-game.json`. Caminho do registro, relativo ao endereço do site: `r/crash-game.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/crash-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/crash-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/crash-game.json`. Caminho do registro, relativo ao endereço do site: `r/crash-game.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
@@ -23,7 +23,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/crash-game/play-money.tsx`
   - `components/ryan-ui/crash-game/play-money.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -257,4 +257,4 @@ A row of past results. A new chip springs in at the start and pushes the others 
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/crash-game · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/crash-game · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

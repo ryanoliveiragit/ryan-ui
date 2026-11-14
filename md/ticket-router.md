@@ -3,7 +3,7 @@
 > Roteador de tickets de suporte com IA: as mensagens chegam uma a uma, recebem intenção, sentimento e confiança e caem numa lane de time com responsável em round robin; as de baixa confiança esperam na lane de revisão até alguém confirmar.
 
 - Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/ticket-router
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/ticket-router
 - Descrição original (inglês): A support ticket router where messages from Gmail, Intercom, Slack and Zendesk come in one at a time. An AI classifier labels each one with intent, sentiment and confidence, and the ticket moves into a team lane with an assignee. Low confidence tickets wait in a review lane, and one click there routes them to the suggested team.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ticket-router.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ticket-router.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ticket-router.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ticket-router.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ticket-router.json`. Caminho do registro, relativo ao endereço do site: `r/ticket-router.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ticket-router.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ticket-router.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ticket-router.json`. Caminho do registro, relativo ao endereço do site: `r/ticket-router.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/ticket-router/ticket-router.tsx`
   - `components/ryan-ui/ticket-router/ticket-router.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -175,4 +175,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/ticket-router · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ticket-router · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Grade semanal para marcar horários livres com clique e arraste, com atalhos prontos e um resumo por dia que se atualiza na hora.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/availability-scheduler
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/availability-scheduler
 - Descrição original (inglês): Week grid of one-hour slots chosen by click, rectangle drag or keyboard, with one-click presets and a live summary of merged ranges per day.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/availability-scheduler.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/availability-scheduler.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/availability-scheduler.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/availability-scheduler.json`. Caminho do registro, relativo ao endereço do site: `r/availability-scheduler.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json`. Caminho do registro, relativo ao endereço do site: `r/availability-scheduler.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/availability-scheduler/availability-scheduler.tsx`
   - `components/ryan-ui/blocks/availability-scheduler/availability-scheduler.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -125,4 +125,4 @@ Week grid of one-hour slots: click or drag a rectangle to mark when you are free
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/availability-scheduler · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/availability-scheduler · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

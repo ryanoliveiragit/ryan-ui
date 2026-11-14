@@ -3,7 +3,7 @@
 > Faixa que rola sem fim na horizontal ou na vertical, com bordas esmaecidas, e desacelera até parar quando o cursor passa.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/marquee
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/marquee
 - Descrição original (inglês): An infinite horizontal or vertical scroller with speed and direction control, faded edges, and a pause on hover that eases to a stop.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/marquee.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/marquee.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/marquee.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/marquee.json`. Caminho do registro, relativo ao endereço do site: `r/marquee.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json`. Caminho do registro, relativo ao endereço do site: `r/marquee.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/marquee/marquee.tsx`
   - `components/ryan-ui/marquee/marquee.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -167,4 +167,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/marquee · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/marquee · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

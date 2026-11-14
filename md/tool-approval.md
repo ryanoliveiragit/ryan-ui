@@ -3,7 +3,7 @@
 > Pedido compacto para rodar uma ferramenta: permita uma vez, sempre ou negue, e ele se recolhe em uma linha de resultado.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/tool-approval
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-approval
 - Descrição original (inglês): A compact inline request to run a tool, with its arguments and allow once, always allow or deny, that collapses into a one-line result once decided.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-approval.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-approval.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-approval.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tool-approval.json`. Caminho do registro, relativo ao endereço do site: `r/tool-approval.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json`. Caminho do registro, relativo ao endereço do site: `r/tool-approval.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/tool-approval/tool-approval.tsx`
   - `components/ryan-ui/tool-approval/tool-approval.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -140,4 +140,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/tool-approval · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-approval · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

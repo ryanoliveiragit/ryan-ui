@@ -3,7 +3,7 @@
 > Diagrama de fluxo em colunas: as faixas têm a espessura do valor e, ao passar o mouse, só o caminho escolhido fica aceso.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/sankey-chart
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/sankey-chart
 - Descrição original (inglês): Flow diagram with nodes in columns joined by curved ribbons sized by value: ribbons draw in column by column, and hovering a node or ribbon dims everything else.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sankey-chart.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sankey-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sankey-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/sankey-chart.json`. Caminho do registro, relativo ao endereço do site: `r/sankey-chart.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json`. Caminho do registro, relativo ao endereço do site: `r/sankey-chart.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/sankey-chart/sankey-chart.tsx`
   - `components/ryan-ui/sankey-chart/sankey-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -180,4 +180,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/sankey-chart · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/sankey-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

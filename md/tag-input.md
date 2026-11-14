@@ -3,7 +3,7 @@
 > Transforma textos curtos em etiquetas removíveis, com animação suave ao adicionar e remover.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/tag-input
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tag-input
 - Descrição original (inglês): Turn short text values into removable tags.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tag-input.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tag-input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tag-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tag-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tag-input.json`. Caminho do registro, relativo ao endereço do site: `r/tag-input.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tag-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tag-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tag-input.json`. Caminho do registro, relativo ao endereço do site: `r/tag-input.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/tag-input/tag-input.tsx`
   - `components/ryan-ui/tag-input/tag-input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -111,4 +111,4 @@ Tags keep the field still: a new tag blurs in where its text was typed while the
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/tag-input · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tag-input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

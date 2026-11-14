@@ -3,7 +3,7 @@
 > Cartão de troca de tokens com dois campos que trocam de lugar ao inverter, taxa e custos ao vivo e confirmação animada (dados fictícios).
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/token-swap
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/token-swap
 - Descrição original (inglês): Play-money swap card: two amount fields with token pickers that trade places when flipped, live rate and fee rows, and a pending then confirmed state.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/token-swap.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/token-swap.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/token-swap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/token-swap.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/token-swap.json`. Caminho do registro, relativo ao endereço do site: `r/token-swap.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/token-swap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/token-swap.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/token-swap.json`. Caminho do registro, relativo ao endereço do site: `r/token-swap.json`.
 
 - Pacotes npm: `motion`, `lucide-react`, `@radix-ui/react-dropdown-menu`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/token-swap/token-swap.tsx`
   - `components/ryan-ui/blocks/token-swap/token-swap.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -135,4 +135,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/token-swap · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/token-swap · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

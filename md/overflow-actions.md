@@ -3,7 +3,7 @@
 > Barra de ações que mede a própria largura e guarda no menu “mais” o que não cabe, animando a cada ajuste.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/overflow-actions
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/overflow-actions
 - Descrição original (inglês): A toolbar that measures its width and moves the actions that do not fit into a "more" menu, with buttons that scale out and a menu button that glides into place.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/overflow-actions.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/overflow-actions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/overflow-actions.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/overflow-actions.json`. Caminho do registro, relativo ao endereço do site: `r/overflow-actions.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json`. Caminho do registro, relativo ao endereço do site: `r/overflow-actions.json`.
 
 - Pacotes npm: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/overflow-actions/overflow-actions.tsx`
   - `components/ryan-ui/blocks/overflow-actions/overflow-actions.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -128,4 +128,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/overflow-actions · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/overflow-actions · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

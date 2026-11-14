@@ -3,7 +3,7 @@
 > Barra de filtros ativos que se removem com um toque, com um botão que vira menu para escolher campo e valor.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/filter-toolbar
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/filter-toolbar
 - Descrição original (inglês): Keep collection filters close and easy to reset.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/filter-toolbar.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/filter-toolbar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/filter-toolbar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/filter-toolbar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/filter-toolbar.json`. Caminho do registro, relativo ao endereço do site: `r/filter-toolbar.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/filter-toolbar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/filter-toolbar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/filter-toolbar.json`. Caminho do registro, relativo ao endereço do site: `r/filter-toolbar.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/filter-toolbar/filter-toolbar.tsx`
   - `components/ryan-ui/filter-toolbar/filter-toolbar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -178,4 +178,4 @@ One value a field can take. `hint` sits at the end of the row, for example a cou
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/filter-toolbar · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/filter-toolbar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

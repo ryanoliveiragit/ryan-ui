@@ -3,7 +3,7 @@
 > Faixa de números que contam até o valor final, em layout simples ou em cartões.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/stats-band
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/stats-band
 - Descrição original (inglês): Headline numbers that count up in view, each with a tiny visual that proves it and a context line on hover, plain or in a hairline grid.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stats-band.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stats-band.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stats-band.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/stats-band.json`. Caminho do registro, relativo ao endereço do site: `r/stats-band.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json`. Caminho do registro, relativo ao endereço do site: `r/stats-band.json`.
 
 - Pacotes npm: `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Segmented control](segmented-control.md)
@@ -26,7 +26,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/segmented-control/segmented-control.tsx`
   - `components/ryan-ui/segmented-control/segmented-control.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -144,4 +144,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/stats-band · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/stats-band · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

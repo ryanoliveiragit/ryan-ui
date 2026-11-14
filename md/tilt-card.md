@@ -3,7 +3,7 @@
 > Cartão que se inclina em 3D na direção do cursor, com um brilho que acompanha o movimento, e volta ao lugar com mola.
 
 - Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/tilt-card
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tilt-card
 - Descrição original (inglês): A card that tilts in 3D toward the cursor with a glare highlight and springs back flat on leave; it stays still on touch and with reduced motion.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tilt-card.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tilt-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tilt-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/tilt-card.json`. Caminho do registro, relativo ao endereço do site: `r/tilt-card.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json`. Caminho do registro, relativo ao endereço do site: `r/tilt-card.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/tilt-card/tilt-card.tsx`
   - `components/ryan-ui/tilt-card/tilt-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -145,4 +145,4 @@ A part of the card that floats above its face, so it shifts against the backgrou
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/tilt-card · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tilt-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

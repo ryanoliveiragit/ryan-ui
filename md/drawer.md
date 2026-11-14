@@ -3,7 +3,7 @@
 > Painel lateral temporário para tarefas focadas.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/drawer
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/drawer
 - Descrição original (inglês): A temporary side surface for focused work.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/drawer.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/drawer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/drawer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/drawer.json`. Caminho do registro, relativo ao endereço do site: `r/drawer.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json`. Caminho do registro, relativo ao endereço do site: `r/drawer.json`.
 
 - Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/drawer/drawer.tsx`
   - `components/ryan-ui/drawer/drawer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -142,4 +142,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/drawer · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/drawer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

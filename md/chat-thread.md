@@ -3,7 +3,7 @@
 > Conversa com mensagens agrupadas, reações, confirmação de leitura, indicador de digitação e campo de envio com anexos.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/chat-thread
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/chat-thread
 - Descrição original (inglês): A chat thread with grouped messages, reactions, read receipts, typing, and a composer with attachments.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-thread.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-thread.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-thread.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/chat-thread.json`. Caminho do registro, relativo ao endereço do site: `r/chat-thread.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json`. Caminho do registro, relativo ao endereço do site: `r/chat-thread.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/chat-thread/chat-thread.tsx`
   - `components/ryan-ui/chat-thread/chat-thread.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -286,4 +286,4 @@ Every word the thread shows or announces. Each has an English default; words wit
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/chat-thread · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/chat-thread · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

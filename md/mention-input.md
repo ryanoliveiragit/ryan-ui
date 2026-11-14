@@ -3,7 +3,7 @@
 > Caixa de texto com menções a @pessoas e #canais que funcionam como um único bloco.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/mention-input
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/mention-input
 - Descrição original (inglês): A textarea with @people and #channel mentions that act as single tokens, with suggestions at the caret.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mention-input.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mention-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mention-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/mention-input.json`. Caminho do registro, relativo ao endereço do site: `r/mention-input.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json`. Caminho do registro, relativo ao endereço do site: `r/mention-input.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/mention-input/mention-input.tsx`
   - `components/ryan-ui/mention-input/mention-input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -212,4 +212,4 @@ A mention inside `text`. `start` and `end` are character offsets; the text betwe
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/mention-input · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/mention-input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

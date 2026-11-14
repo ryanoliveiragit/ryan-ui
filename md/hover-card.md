@@ -3,7 +3,7 @@
 > Pré-visualiza uma pessoa ou link ao passar o mouse ou focar, sem sair da página.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/hover-card
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-card
 - Descrição original (inglês): Preview a person or link on hover or focus without leaving the page.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-card.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/hover-card.json`. Caminho do registro, relativo ao endereço do site: `r/hover-card.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json`. Caminho do registro, relativo ao endereço do site: `r/hover-card.json`.
 
 - Pacotes npm: `@radix-ui/react-popover`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/hover-card/hover-card.tsx`
   - `components/ryan-ui/hover-card/hover-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -142,4 +142,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/hover-card · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

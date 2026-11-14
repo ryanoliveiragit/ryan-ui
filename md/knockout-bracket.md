@@ -3,7 +3,7 @@
 > Chave de mata-mata em colunas: escolha o vencedor e ele avança pela linha de conexão até a próxima fase.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/knockout-bracket
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/knockout-bracket
 - Descrição original (inglês): Single-elimination bracket with rounds in columns and measured connector lines; picking a winner draws its line and slides the team into the next round.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/knockout-bracket.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/knockout-bracket.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/knockout-bracket.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/knockout-bracket.json`. Caminho do registro, relativo ao endereço do site: `r/knockout-bracket.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json`. Caminho do registro, relativo ao endereço do site: `r/knockout-bracket.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/knockout-bracket/knockout-bracket.tsx`
   - `components/ryan-ui/blocks/knockout-bracket/knockout-bracket.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -117,4 +117,4 @@ Single-elimination bracket: pick a winner and it travels along its connector int
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/knockout-bracket · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/knockout-bracket · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

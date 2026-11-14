@@ -3,7 +3,7 @@
 > Diff unificado de um arquivo, com números de linha, contagem de mudanças e trechos iguais que se abrem com um clique.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/file-diff
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-diff
 - Descrição original (inglês): A unified diff of one file with line numbers, tinted added and removed lines, header stats, and unchanged ranges that fold into a row and spring open.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-diff.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-diff.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-diff.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/file-diff.json`. Caminho do registro, relativo ao endereço do site: `r/file-diff.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json`. Caminho do registro, relativo ao endereço do site: `r/file-diff.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/file-diff/file-diff.tsx`
   - `components/ryan-ui/file-diff/file-diff.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -245,4 +245,4 @@ A unified diff of one file, computed from the text before and after. Changed lin
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/file-diff · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-diff · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

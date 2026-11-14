@@ -3,7 +3,7 @@
 > Revela informações de apoio no próprio lugar, uma seção por vez.
 
 - Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/accordion
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/accordion
 - Descrição original (inglês): Progressively reveal supporting information in place.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/accordion.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/accordion.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/accordion.json`. Caminho do registro, relativo ao endereço do site: `r/accordion.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json`. Caminho do registro, relativo ao endereço do site: `r/accordion.json`.
 
 - Pacotes npm: `@radix-ui/react-accordion`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/accordion/accordion.tsx`
   - `components/ryan-ui/accordion/accordion.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -114,4 +114,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/accordion · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/accordion · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

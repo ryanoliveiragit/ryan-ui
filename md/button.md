@@ -3,7 +3,7 @@
 > Uma ação clara e responsiva, com estados secundários discretos.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/button
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/button
 - Descrição original (inglês): A clear, responsive action with quiet secondary states.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/button.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/button.json`. Caminho do registro, relativo ao endereço do site: `r/button.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json`. Caminho do registro, relativo ao endereço do site: `r/button.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -84,8 +84,8 @@ export default function ButtonDemo() {
       <Stack gap={2}>
         <Caption>Feedback and states</Caption>
         <Row gap={2} justify="center">
-          <CopyButton value="https://ryanoliveiragit.github.io/arc-ui/#/c/button" label="Copy link" />
-          <CopyButton value="https://ryanoliveiragit.github.io/arc-ui/#/c/button" iconOnly label="Copy link" />
+          <CopyButton value="https://ryanoliveiragit.github.io/ryan-ui/#/c/button" label="Copy link" />
+          <CopyButton value="https://ryanoliveiragit.github.io/ryan-ui/#/c/button" iconOnly label="Copy link" />
           <Button variant="secondary">Upload file</Button>
           <Button variant="secondary" disabled>Disabled</Button>
         </Row>
@@ -151,4 +151,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/button · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/button · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

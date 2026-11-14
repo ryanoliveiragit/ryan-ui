@@ -3,7 +3,7 @@
 > Renomeie no próprio lugar: o texto vira campo sem mudar de posição.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/inline-edit
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/inline-edit
 - Descrição original (inglês): Rename in place: the text becomes a field without moving.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/inline-edit.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/inline-edit.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/inline-edit.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/inline-edit.json`. Caminho do registro, relativo ao endereço do site: `r/inline-edit.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json`. Caminho do registro, relativo ao endereço do site: `r/inline-edit.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/inline-edit/inline-edit.tsx`
   - `components/ryan-ui/inline-edit/inline-edit.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -145,4 +145,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/inline-edit · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/inline-edit · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -3,7 +3,7 @@
 > Um baralho que distribui cartas pelas posições da mesa em arco, virando cada uma; dá para embaralhar e recomeçar.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/card-dealer
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/card-dealer
 - Descrição original (inglês): A deck that deals playing cards to table positions along an arc while they lift and flip face up, with a riffle shuffle, a reset and a named poker hand.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/card-dealer.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/card-dealer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/card-dealer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/card-dealer.json`. Caminho do registro, relativo ao endereço do site: `r/card-dealer.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json`. Caminho do registro, relativo ao endereço do site: `r/card-dealer.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/card-dealer/card-dealer.tsx`
   - `components/ryan-ui/blocks/card-dealer/card-dealer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -123,4 +123,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/card-dealer · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/card-dealer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

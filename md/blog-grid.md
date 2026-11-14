@@ -3,7 +3,7 @@
 > Índice de blog com post em destaque, filtro por categoria, cartões, paginação e leitor no próprio lugar.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/blog-grid
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/blog-grid
 - Descrição original (inglês): A blog index with a featured post, category filter, post cards, pagination and an in-place reader.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/blog-grid.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/blog-grid.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/blog-grid.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/blog-grid.json`. Caminho do registro, relativo ao endereço do site: `r/blog-grid.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json`. Caminho do registro, relativo ao endereço do site: `r/blog-grid.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
@@ -23,7 +23,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/blocks/blog-grid/blog-grid.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -153,4 +153,4 @@ Sample posts for the blog grid. Photos and portraits live in public/media (credi
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/blog-grid · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/blog-grid · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

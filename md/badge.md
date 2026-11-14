@@ -3,7 +3,7 @@
 > Etiqueta compacta para status, categorias e destaques, em tons e cores variados.
 
 - Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/badge
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/badge
 - Descrição original (inglês): A small label for status, category, or metadata.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/badge.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/badge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/badge.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/badge.json`. Caminho do registro, relativo ao endereço do site: `r/badge.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json`. Caminho do registro, relativo ao endereço do site: `r/badge.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/badge/badge.tsx`
   - `components/ryan-ui/badge/badge.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -132,4 +132,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/badge · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/badge · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

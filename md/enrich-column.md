@@ -3,7 +3,7 @@
 > Coluna de enriquecimento com IA para tabela: um prompt desce todas as linhas, cada célula shimmeriza enquanto trabalha e assenta num valor com fonte ou numa falha com retry, e o rodapé conta o que ficou pronto.
 
 - Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/enrich-column
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/enrich-column
 - Descrição original (inglês): An AI enrichment column for a data table where one prompt runs down every row, each cell shimmers while it works, then settles into a value with its source or a failure you can retry, with a footer tallying what's done.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/enrich-column.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/enrich-column.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/enrich-column.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/enrich-column.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/enrich-column.json`. Caminho do registro, relativo ao endereço do site: `r/enrich-column.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/enrich-column.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/enrich-column.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/enrich-column.json`. Caminho do registro, relativo ao endereço do site: `r/enrich-column.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/enrich-column/enrich-column.tsx`
   - `components/ryan-ui/enrich-column/enrich-column.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -167,4 +167,4 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/enrich-column · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/enrich-column · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

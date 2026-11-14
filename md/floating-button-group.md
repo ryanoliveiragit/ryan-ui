@@ -3,7 +3,7 @@
 > Botões soltos numa bandeja discreta, com um realce único que passa de um para o outro.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/floating-button-group
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/floating-button-group
 - Descrição original (inglês): Separate soft buttons in a quiet tray, with one shared highlight that morphs from button to button as you move, and a pressed state that settles in place.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/floating-button-group.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/floating-button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/floating-button-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/floating-button-group.json`. Caminho do registro, relativo ao endereço do site: `r/floating-button-group.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json`. Caminho do registro, relativo ao endereço do site: `r/floating-button-group.json`.
 
 - Pacotes npm: `@radix-ui/react-tooltip`, `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Tooltip](tooltip.md)
@@ -24,7 +24,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/tooltip/tooltip.tsx`
   - `components/ryan-ui/tooltip/tooltip.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -174,4 +174,4 @@ Separate soft buttons in a quiet tray. One shared highlight morphs, in position 
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/floating-button-group · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/floating-button-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

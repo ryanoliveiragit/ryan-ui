@@ -3,7 +3,7 @@
 > Números de citação no meio do texto que abrem um cartão com a fonte, mais a lista de fontes com destaque compartilhado.
 
 - Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/citations
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/citations
 - Descrição original (inglês): Numbered citation chips inside text that open a card with the source title, site and snippet, plus a sources list; chips and rows share one gliding highlight.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/citations.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/citations.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/citations.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/citations.json`. Caminho do registro, relativo ao endereço do site: `r/citations.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json`. Caminho do registro, relativo ao endereço do site: `r/citations.json`.
 
 - Pacotes npm: `motion`, `lucide-react`, `@radix-ui/react-popover`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/citations/citations.tsx`
   - `components/ryan-ui/citations/citations.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -191,4 +191,4 @@ The numbered list of every source. One highlight glides to the row under the poi
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/citations · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/citations · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

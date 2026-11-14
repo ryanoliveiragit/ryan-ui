@@ -3,7 +3,7 @@
 > Um select cujo gatilho cresce até virar a lista, com destaque deslizante e busca por digitação.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/morph-select
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/morph-select
 - Descrição original (inglês): A select whose trigger grows into the list, with a gliding highlight and type-ahead.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morph-select.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morph-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morph-select.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/morph-select.json`. Caminho do registro, relativo ao endereço do site: `r/morph-select.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json`. Caminho do registro, relativo ao endereço do site: `r/morph-select.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/morph-select/morph-select.tsx`
   - `components/ryan-ui/morph-select/morph-select.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -176,4 +176,4 @@ A labelled run of options.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/morph-select · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/morph-select · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

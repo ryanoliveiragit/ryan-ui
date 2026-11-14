@@ -3,7 +3,7 @@
 > Reage a uma publicação com um toque, com contadores que rolam.
 
 - Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/reactions
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/reactions
 - Descrição original (inglês): Acknowledge a post in one tap, with counts that roll.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/reactions.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/reactions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/reactions.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/reactions.json`. Caminho do registro, relativo ao endereço do site: `r/reactions.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json`. Caminho do registro, relativo ao endereço do site: `r/reactions.json`.
 
 - Pacotes npm: `@radix-ui/react-popover`, `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/reactions/reactions.tsx`
   - `components/ryan-ui/reactions/reactions.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -159,4 +159,4 @@ A reaction bar for comments, posts, and release notes. Each pill shows one react
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/reactions · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/reactions · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

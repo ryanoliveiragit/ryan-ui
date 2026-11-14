@@ -3,7 +3,7 @@
 > Quatro estados vazios numa única ilustração, cujas formas se transformam ao trocar de aba.
 
 - Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/empty-states
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/empty-states
 - Descrição original (inglês): Four empty states in one illustration whose shapes morph between scenes as you switch tabs.
 
 ## Instalação
@@ -11,10 +11,10 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/empty-states.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/empty-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/empty-states.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/empty-states.json`. Caminho do registro, relativo ao endereço do site: `r/empty-states.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json`. Caminho do registro, relativo ao endereço do site: `r/empty-states.json`.
 
 - Pacotes npm: `motion`
 - Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md)
@@ -25,7 +25,7 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -143,4 +143,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/empty-states · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/empty-states · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

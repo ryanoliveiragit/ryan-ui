@@ -3,7 +3,7 @@
 > Cartão de pagamento que inclina em 3D e vira para mostrar o verso, com saldo que pode ser ocultado e últimas transações.
 
 - Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/b/wallet-card
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/wallet-card
 - Descrição original (inglês): A payment card that leans toward the pointer in 3D and flips on a spring to show its back, with a balance that masks digit by digit and a short transaction list.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wallet-card.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wallet-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wallet-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/wallet-card.json`. Caminho do registro, relativo ao endereço do site: `r/wallet-card.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json`. Caminho do registro, relativo ao endereço do site: `r/wallet-card.json`.
 
 - Pacotes npm: `lucide-react`, `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/blocks/wallet-card/wallet-card.tsx`
   - `components/ryan-ui/blocks/wallet-card/wallet-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -130,4 +130,4 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/b/wallet-card · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/wallet-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

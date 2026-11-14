@@ -3,7 +3,7 @@
 > Escolha um valor ou um intervalo numa trilha que acompanha o dedo, com balão de dígitos rolantes.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/slider
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/slider
 - Descrição original (inglês): Pick a value or a range on a track that follows your finger.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slider.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/slider.json`. Caminho do registro, relativo ao endereço do site: `r/slider.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json`. Caminho do registro, relativo ao endereço do site: `r/slider.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/slider/slider.tsx`
   - `components/ryan-ui/slider/slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -139,4 +139,4 @@ A value or a range on a track. The thumb follows the pointer 1:1, rubber-bands p
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/slider · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

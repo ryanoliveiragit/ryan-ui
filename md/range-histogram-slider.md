@@ -3,7 +3,7 @@
 > Faixa de preço sobre um histograma dos dados, acendendo as barras dentro do intervalo escolhido.
 
 - Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/range-histogram-slider
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/range-histogram-slider
 - Descrição original (inglês): A price range over a live histogram of the data, lighting the bars inside the range and settling on bar edges.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/range-histogram-slider.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/range-histogram-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/range-histogram-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/range-histogram-slider.json`. Caminho do registro, relativo ao endereço do site: `r/range-histogram-slider.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json`. Caminho do registro, relativo ao endereço do site: `r/range-histogram-slider.json`.
 
 - Pacotes npm: `motion`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/range-histogram-slider/range-histogram-slider.tsx`
   - `components/ryan-ui/range-histogram-slider/range-histogram-slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -144,4 +144,4 @@ A two thumb range over a histogram of the data it filters. Bars inside the range
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/range-histogram-slider · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/range-histogram-slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

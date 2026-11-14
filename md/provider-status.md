@@ -3,7 +3,7 @@
 > Um cartão de status para os provedores de IA em que seu produto depende: cada linha mostra o mark real do provedor, a saúde com ícone e rótulo, a latência p50 e uma barra de uptime de 30 dias com tooltip por dia; uma linha com incidente expande para a timeline de updates (Investigating até Resolved) e o cartão reconfere num countdown visível, com estado de checking e de erro que mantém os últimos resultados na tela.
 
 - Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/arc-ui/#/c/provider-status
+- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/provider-status
 - Descrição original (inglês): A status card for the AI providers your product depends on. Each row shows the provider's real mark, its health as an icon and label, p50 latency and a 30-day uptime bar with a tooltip for each day. An incident row expands into its timeline of updates, and the card checks again on a visible countdown.
 
 ## Instalação
@@ -11,17 +11,17 @@
 Com a CLI do shadcn (um comando copia o código e instala as dependências):
 
 ```bash
-npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/provider-status.json
+npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/provider-status.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/provider-status.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/provider-status.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/provider-status.json`. Caminho do registro, relativo ao endereço do site: `r/provider-status.json`.
+Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/provider-status.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/provider-status.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/provider-status.json`. Caminho do registro, relativo ao endereço do site: `r/provider-status.json`.
 
 - Pacotes npm: `motion`, `lucide-react`
 - Arquivos, depois de instalados:
   - `components/ryan-ui/provider-status/provider-status.tsx`
   - `components/ryan-ui/provider-status/provider-status.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/arc-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
 
 ### Manual
 
@@ -234,4 +234,4 @@ Amazon Bedrock — mono, rounded badge with the smile arrow.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/arc-ui/#/c/provider-status · índice para assistentes: https://ryanoliveiragit.github.io/arc-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/provider-status · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
