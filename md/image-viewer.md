@@ -2,48 +2,48 @@
 
 > Galeria de miniaturas que se ampliam num visualizador com setas, gesto de deslizar, zoom e arraste; Esc devolve a imagem ao lugar.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/image-viewer
-- Descrição original (inglês): A thumbnail gallery whose pictures grow into a lightbox with a shared-element zoom, with arrows, swipe, zoom and pan, a focus trap, and Escape closing back into the thumbnail.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/image-viewer
+- Original description: A thumbnail gallery whose pictures grow into a lightbox with a shared-element zoom, with arrows, swipe, zoom and pan, a focus trap, and Escape closing back into the thumbnail.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json`. Caminho do registro, relativo ao endereço do site: `r/image-viewer.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-viewer.json`. Registry path, relative to the site address: `r/image-viewer.json`.
 
-- Pacotes npm: `motion`, `lucide-react`, `@radix-ui/react-dialog`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`, `@radix-ui/react-dialog`
+- Files, once installed:
   - `components/ryan-ui/image-viewer/image-viewer.tsx`
   - `components/ryan-ui/image-viewer/image-viewer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react @radix-ui/react-dialog`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/image-viewer.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react @radix-ui/react-dialog`.
+2. Copy the files listed above. The content of each one is in `r/image-viewer.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Galeria de fotos (produto, viagem, portfólio, anexos) em que a pessoa abre uma imagem, amplia e passa para as vizinhas.
-- Quando abrir a imagem deve manter a noção de lugar: a miniatura cresce até virar a imagem e volta para o mesmo ponto ao fechar.
-- Imagens com legenda curta que pedem zoom por roda do mouse, pinça, duplo clique ou teclado.
+- Photo gallery (product, travel, portfolio, attachments) where the user opens an image, zooms in, and moves to the neighboring ones.
+- When opening the image should preserve the sense of place: the thumbnail grows into the image and returns to the same spot on close.
+- Images with a short caption that call for zoom by mouse wheel, pinch, double click, or keyboard.
 
-## Quando não usar
+## When not to use
 
-- Use [`carousel`](carousel.md) para passar por slides dentro da própria página, sem abrir uma camada em tela cheia.
-- Use [`image-compare`](image-compare.md) para comparar duas versões da mesma imagem.
-- Use [`infinite-masonry`](infinite-masonry.md) para um feed longo de alturas variadas que carrega mais ao rolar; aqui a grade tem colunas fixas e monta todas as miniaturas.
+- Use [`carousel`](carousel.md) to move through slides within the page itself, without opening a full-screen layer.
+- Use [`image-compare`](image-compare.md) to compare two versions of the same image.
+- Use [`infinite-masonry`](infinite-masonry.md) for a long feed of varying heights that loads more on scroll; here the grid has fixed columns and mounts all thumbnails.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -79,15 +79,15 @@ export default function ImageViewerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ImageViewer`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `images` (obrigatória) | `ImageViewerItem[]` | — | The images, in order. |
+| `images` (required) | `ImageViewerItem[]` | — | The images, in order. |
 | `value` | `number \| null` | — | Index of the open image, or null when the lightbox is closed (controlled). |
 | `defaultValue` | `number \| null` | `null` | Open image when uncontrolled. Defaults to closed. |
 | `onValueChange` | `(index: number \| null) => void` | — | Called when an image opens, when the open image changes, and with null on close. |
@@ -99,58 +99,58 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | Extra class for the thumbnail grid. |
 | `container` | `HTMLElement \| null` | — | Opens the lightbox inside this element instead of over the whole page: the backdrop covers only the element and the image fits in it. The element needs position: relative and overflow: hidden. The page around it stays usable while the lightbox is open: nothing is scroll-locked or hidden from assistive technology, and Escape, the close button and a tap beside the image still close it. |
 
-### Tipos exportados
+### Exported types
 
 #### `ImageViewerItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `src` (obrigatória) | `string` | URL of the full image shown in the lightbox. |
-| `alt` (obrigatória) | `string` | Alternative text. It also names the thumbnail button. |
+| `src` (required) | `string` | URL of the full image shown in the lightbox. |
+| `alt` (required) | `string` | Alternative text. It also names the thumbnail button. |
 | `thumbnail` | `string` | Smaller image for the grid. Defaults to `src`. |
 | `width` | `number` | Intrinsic width in pixels. With `height`, it lets the lightbox know the shape before the image loads. |
 | `height` | `number` | Intrinsic height in pixels. |
 | `caption` | `string` | Line of text shown under the open image. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Numa miniatura, abrem o visualizador naquela imagem. |
-| `←` ou `→` | Vão à imagem anterior ou à próxima; com `loop`, dão a volta nas pontas. |
-| `Home` ou `End` | Vão à primeira e à última imagem. |
-| `+` ou `-` | Aproximam e afastam em passos de 1,6×, até `maxZoom`; `=` também aproxima e `0` volta ao tamanho ajustado. |
-| `Esc` | Fecha o visualizador: a imagem volta para a miniatura e o foco também. |
-| `Tab` ou `Shift + Tab` | Circulam pelos controles do visualizador (zoom, fechar, setas, tira de miniaturas) sem sair dele. |
+| `Enter` or `Space` | On a thumbnail, open the viewer on that image. |
+| `←` or `→` | Go to the previous or next image; with `loop`, wrap at the ends. |
+| `Home` or `End` | Go to the first and last image. |
+| `+` or `-` | Zoom in and out in 1.6× steps, up to `maxZoom`; `=` also zooms in and `0` returns to the fitted size. |
+| `Esc` | Closes the viewer: the image returns to the thumbnail and so does focus. |
+| `Tab` or `Shift + Tab` | Cycle through the viewer's controls (zoom, close, arrows, thumbnail strip) without leaving it. |
 
-## Acessibilidade
+## Accessibility
 
-- O visualizador é um diálogo do Radix: prende o foco, fecha com `Esc` e, ao fechar, devolve o foco à miniatura da última imagem vista.
-- Cada miniatura é um botão com `aria-label` “Open image N of M: alt”, e o contador `aria-live` anuncia a imagem atual a cada troca.
-- Forneça `alt` em todas as imagens (ele nomeia os botões e é lido no contador) e `label` para a galeria; os rótulos dos controles estão fixos em inglês.
+- The viewer is a Radix dialog: it traps focus, closes with `Esc`, and on close returns focus to the thumbnail of the last image viewed.
+- Each thumbnail is a button with `aria-label` “Open image N of M: alt”, and the `aria-live` counter announces the current image on each change.
+- Provide `alt` on all images (it names the buttons and is read in the counter) and `label` for the gallery; the control labels are hardcoded in English.
 
-## Movimento
+## Motion
 
-- A miniatura pressionada cresce numa mola até o tamanho ajustado à tela e volta mais rápido ao fechar; se ela estiver fora da tela, a imagem só esmaece.
-- Entre imagens, a nova entra pelo lado do movimento; o arraste acompanha o dedo, resiste quando não há para onde ir e troca de imagem ao passar do limite ou num arremesso.
-- Com “reduzir movimento”, abrir, fechar e trocar viram um esmaecer, e o zoom por botão ou tecla salta direto para o nível.
+- The pressed thumbnail grows on a spring to the size fitted to the screen and returns faster on close; if it is offscreen, the image only fades.
+- Between images, the new one enters from the side of the movement; the drag follows the finger, resists when there is nowhere to go, and switches images past the threshold or on a fling.
+- With “reduced motion”, opening, closing, and switching become a fade, and zoom by button or key jumps straight to the level.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A grade mantém sempre `columns` colunas (3 por padrão), sem pontos de quebra: ajuste a prop conforme a largura disponível.
-- Abaixo de 640 px as setas laterais somem e a navegação fica por deslize e pela tira de miniaturas, que rola na horizontal; as margens laterais da imagem caem de 84 px para 12 px.
+- The grid always keeps `columns` columns (3 by default), with no breakpoints: adjust the prop according to the available width.
+- Below 640 px the side arrows disappear and navigation is by swipe and the thumbnail strip, which scrolls horizontally; the image's side margins drop from 84 px to 12 px.
 
-## Desempenho
+## Performance
 
-- As miniaturas da grade usam `loading="lazy"`; passe `thumbnail` com um arquivo menor, que também serve de prévia enquanto a imagem cheia carrega.
-- Informe `width` e `height` para o visualizador saber o formato antes do carregamento; a tira de miniaturas monta todas as imagens de uma vez, então galerias muito grandes pesam.
+- Grid thumbnails use `loading="lazy"`; pass `thumbnail` with a smaller file, which also serves as a preview while the full image loads.
+- Provide `width` and `height` so the viewer knows the aspect before loading; the thumbnail strip mounts all images at once, so very large galleries are heavy.
 
-## Notas para IA
+## Notes for AI
 
-- O componente renderiza a grade e o visualizador: passe `images` com `src` e `alt`, e de preferência `thumbnail`, `width`, `height` e `caption`.
-- `value` é o índice da imagem aberta ou `null` (fechado): controle com `onValueChange`, que recebe o índice ao abrir ou trocar e `null` ao fechar, ou use `defaultValue`.
-- O visualizador abre num portal em tela cheia (`position: fixed`, `z-index` 80 e 81); `className` se aplica só à grade de miniaturas.
+- The component renders the grid and the viewer: pass `images` with `src` and `alt`, and preferably `thumbnail`, `width`, `height`, and `caption`.
+- `value` is the index of the open image or `null` (closed): control it with `onValueChange`, which receives the index on open or switch and `null` on close, or use `defaultValue`.
+- The viewer opens in a full-screen portal (`position: fixed`, `z-index` 80 and 81); `className` applies only to the thumbnail grid.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/image-viewer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/image-viewer · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -8,7 +8,7 @@ export interface ApiType { name: string; exported: boolean; kind: "interface" | 
 export interface ApiComponent { name: string; doc: string; props: string; defaults: Record<string, string> }
 export interface ApiData { exports: { name: string; kind: string; default?: boolean }[]; components: ApiComponent[]; types: ApiType[] }
 
-const exportKind: Record<string, string> = { hook: "hook", function: "função", const: "valor" };
+const exportKind: Record<string, string> = { hook: "hook", function: "function", const: "value" };
 const Dash = () => <span className={styles.dash}>—</span>;
 
 /** Separa por vírgula só no primeiro nível (fora de <>, (), {} e []). */
@@ -35,7 +35,7 @@ function readInherited(entry: string): { base: string; omitted: string[] } {
 
 /** "a, b e c", com cada nome num chip. */
 function codeList(names: string[]) {
-  return names.map((name, index) => <span key={name}>{index === 0 ? "" : index === names.length - 1 ? " e " : ", "}<code className={styles.chip}>{name}</code></span>);
+  return names.map((name, index) => <span key={name}>{index === 0 ? "" : index === names.length - 1 ? " and " : ", "}<code className={styles.chip}>{name}</code></span>);
 }
 
 /** Tabela de props de um componente; sem `defaults`, é a tabela de campos de um tipo (não há coluna "Padrão"). */
@@ -47,7 +47,7 @@ function PropsTable({ label, type, defaults, aliases }: { label: string; type: A
     <TableCard label={label} className={styles.card}>
       <table className={styles.table} data-columns={defaults ? 4 : 3}>
         <thead>
-          <tr><th scope="col">{defaults ? "Prop" : "Campo"}</th><th scope="col">Tipo</th>{defaults ? <th scope="col">Padrão</th> : null}<th scope="col">Descrição</th></tr>
+          <tr><th scope="col">{defaults ? "Prop" : "Field"}</th><th scope="col">Type</th>{defaults ? <th scope="col">Default</th> : null}<th scope="col">Description</th></tr>
         </thead>
         <tbody>
           {members.map(member => {
@@ -55,7 +55,7 @@ function PropsTable({ label, type, defaults, aliases }: { label: string; type: A
             const expanded = aliases.get(member.type);
             return (
               <tr key={member.name}>
-                <th scope="row"><code className={styles.prop}>{member.name}</code>{member.optional ? null : <span className={styles.required}>obrigatória</span>}</th>
+                <th scope="row"><code className={styles.prop}>{member.name}</code>{member.optional ? null : <span className={styles.required}>required</span>}</th>
                 <td><code className={styles.chip} title={expanded ? member.type : undefined}>{expanded ?? member.type}</code></td>
                 {defaults ? <td>{defaults[member.name] ? <code className={styles.chip}>{defaults[member.name]}</code> : <Dash />}</td> : null}
                 <td className={styles.text}>{member.doc || <Dash />}</td>
@@ -67,7 +67,7 @@ function PropsTable({ label, type, defaults, aliases }: { label: string; type: A
               <th scope="row"><code className={styles.prop}>...props</code></th>
               <td>{inherited.map(entry => <code key={entry.base} className={styles.chip}>{entry.base}</code>)}</td>
               {defaults ? <td><Dash /></td> : null}
-              <td className={styles.text}>Também aceita as props {inherited.length === 1 ? "deste tipo" : "destes tipos"}{omitted.length ? <>, menos {codeList(omitted)}</> : null}.</td>
+              <td className={styles.text}>Also accepts the props of {inherited.length === 1 ? "this type" : "these types"}{omitted.length ? <>, except {codeList(omitted)}</> : null}.</td>
             </tr>
           ) : null}
         </tbody>
@@ -90,7 +90,7 @@ export function ApiSection({ api }: { api: ApiData }) {
   if (!components.length && !otherTypes.length && !otherExports.length) return null;
 
   return (
-    <Section id="api" title="Referência da API" intro="Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.">
+    <Section id="api" title="API reference" intro="Extracted from the source code. Prop descriptions come from code comments.">
       <div className={styles.blocks}>
         {components.map(component => {
           const type = typeByName.get(component.props);
@@ -99,19 +99,19 @@ export function ApiSection({ api }: { api: ApiData }) {
             <div key={component.name} className={styles.block}>
               <h3 className={styles.name}>{component.name}</h3>
               {component.doc ? <p className={styles.doc}>{component.doc}</p> : null}
-              {type && hasRows ? <PropsTable label={`Props de ${component.name}`} type={type} defaults={component.defaults} aliases={aliases} />
+              {type && hasRows ? <PropsTable label={`${component.name} props`} type={type} defaults={component.defaults} aliases={aliases} />
                 : type?.text ? <p className={styles.doc}>Props: <code className={styles.chip}>{type.text}</code></p>
-                : <p className={styles.doc}>Sem props próprias: aceita as do elemento ou do primitivo que envolve.</p>}
+                : <p className={styles.doc}>No props of its own: accepts those of the element or primitive it wraps.</p>}
             </div>
           );
         })}
         {shapes.length || definitions.length ? (
           <div className={styles.block}>
-            <h3 className={styles.groupTitle}>Tipos exportados</h3>
+            <h3 className={styles.groupTitle}>Exported types</h3>
             {definitions.length ? (
-              <TableCard label="Tipos exportados" className={styles.card}>
+              <TableCard label="Exported types" className={styles.card}>
                 <table className={styles.table} data-columns={2}>
-                  <thead><tr><th scope="col">Tipo</th><th scope="col">Definição</th></tr></thead>
+                  <thead><tr><th scope="col">Type</th><th scope="col">Definition</th></tr></thead>
                   <tbody>
                     {definitions.map(type => (
                       <tr key={type.name}>
@@ -127,14 +127,14 @@ export function ApiSection({ api }: { api: ApiData }) {
               <div key={type.name} className={styles.typeBlock}>
                 <h4 className={styles.name}>{type.name}</h4>
                 {type.doc ? <p className={styles.doc}>{type.doc}</p> : null}
-                <PropsTable label={`Campos de ${type.name}`} type={type} aliases={aliases} />
+                <PropsTable label={`${type.name} fields`} type={type} aliases={aliases} />
               </div>
             ))}
           </div>
         ) : null}
         {otherExports.length ? (
           <div className={styles.block}>
-            <h3 className={styles.groupTitle}>Outras exportações</h3>
+            <h3 className={styles.groupTitle}>Other exports</h3>
             <ul className={styles.exports}>
               {otherExports.map(entry => <li key={entry.name}><code className={styles.prop}>{entry.name}</code><span className={styles.dash}>{exportKind[entry.kind] ?? entry.kind}</span></li>)}
             </ul>

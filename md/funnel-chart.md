@@ -2,48 +2,48 @@
 
 > Funil de conversão em que cada etapa surge depois da anterior, com o valor da etapa e a queda percentual entre elas.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/funnel-chart
-- Descrição original (inglês): Conversion funnel with a value per stage and the drop-off percentage between stages: stages grow in one after another and morph when the data changes.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/funnel-chart
+- Original description: Conversion funnel with a value per stage and the drop-off percentage between stages: stages grow in one after another and morph when the data changes.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/funnel-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/funnel-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/funnel-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/funnel-chart.json`. Caminho do registro, relativo ao endereço do site: `r/funnel-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/funnel-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/funnel-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/funnel-chart.json`. Registry path, relative to the site address: `r/funnel-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/funnel-chart/funnel-chart.tsx`
   - `components/ryan-ui/funnel-chart/funnel-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/funnel-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/funnel-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Sequência fixa de etapas (checkout, cadastro, onboarding) em que a pergunta é quantos seguem de cada etapa para a próxima.
-- Comparar o mesmo funil entre segmentos ou períodos trocando `data`: etapas com a mesma `key` se transformam até a nova largura.
-- Relatórios em que a queda percentual entre etapas e a conversão total precisam ficar à vista, sem depender do cursor.
+- A fixed sequence of stages (checkout, signup, onboarding) where the question is how many move from each stage to the next.
+- Comparing the same funnel across segments or periods by swapping `data`: stages with the same `key` transform to the new width.
+- Reports where the percentage drop between stages and the overall conversion must stay visible, without depending on the cursor.
 
-## Quando não usar
+## When not to use
 
-- Use [`sankey-chart`](sankey-chart.md) quando o fluxo se divide ou se junta entre vários nós, em vez de seguir uma fila única de etapas.
-- Use [`stepper`](stepper.md) para mostrar em que passo uma pessoa está num fluxo; o funil mostra quantas chegaram a cada etapa.
-- Use [`composition-chart`](composition-chart.md) ou [`donut-chart`](donut-chart.md) quando os valores são partes de um todo, e não etapas em que cada uma contém a seguinte.
+- Use [`sankey-chart`](sankey-chart.md) when the flow splits or merges across several nodes, instead of following a single queue of stages.
+- Use [`stepper`](stepper.md) to show which step a person is on in a flow; the funnel shows how many reached each stage.
+- Use [`composition-chart`](composition-chart.md) or [`donut-chart`](donut-chart.md) when the values are parts of a whole, not stages where each contains the next.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -80,16 +80,16 @@ export default function FunnelChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FunnelChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `FunnelStage[]` | — | Stages from first to last. |
-| `label` (obrigatória) | `string` | — | What moves through the funnel, such as "Checkout funnel". Names the chart for assistive technology and heads the readout. |
+| `data` (required) | `FunnelStage[]` | — | Stages from first to last. |
+| `label` (required) | `string` | — | What moves through the funnel, such as "Checkout funnel". Names the chart for assistive technology and heads the readout. |
 | `unit` | `string` | `""` | Unit after counts in the header and tooltip, such as "shoppers". |
 | `formatValue` | `(value: number) => string` | `value => grouped.format(value)` | Formats stage values. |
 | `stageHeight` | `number` | `44` | Height of each stage bar in pixels. |
@@ -100,48 +100,48 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onActiveChange` | `(key: string \| null) => void` | — | Called when hover, touch or the keyboard moves to another stage, or leaves the chart. |
 | `className` | `string` | — | Extra class on the root figure. |
 
-### Tipos exportados
+### Exported types
 
 #### `FunnelStage`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. A stage that survives a data change keeps its place and morphs to its new width. |
-| `label` (obrigatória) | `string` | Name of the stage, such as "Added to cart". |
-| `value` (obrigatória) | `number` | How many reached this stage. Stages are drawn in the order given. |
+| `key` (required) | `string` | Stable identity. A stage that survives a data change keeps its place and morphs to its new width. |
+| `label` (required) | `string` | Name of the stage, such as "Added to cart". |
+| `value` (required) | `number` | How many reached this stage. Stages are drawn in the order given. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Com o foco no gráfico, passam à etapa anterior ou à seguinte e mostram o tooltip dela; `←` e `→` fazem o mesmo. |
-| `Home` ou `End` | Vão à primeira e à última etapa. |
-| `Esc` | Tira o destaque da etapa atual. |
-| `Tab` | O gráfico é uma única parada de `Tab`: ao receber o foco pelo teclado, destaca a primeira etapa; ao perdê-lo, nenhuma. |
+| `↑` or `↓` | With focus on the chart, move to the previous or next stage and show its tooltip; `←` and `→` do the same. |
+| `Home` or `End` | Go to the first and last stage. |
+| `Esc` | Removes the highlight from the current stage. |
+| `Tab` | The chart is a single `Tab` stop: on receiving focus by keyboard, it highlights the first stage; on losing it, none. |
 
-## Acessibilidade
+## Accessibility
 
-- Sobre o gráfico fica um `role="slider"` vertical focável, cujo `aria-valuetext` descreve a etapa atual: nome, valor, parte da primeira etapa e queda desde a anterior.
-- O desenho, os rótulos e o tooltip ficam em `aria-hidden`; os mesmos números estão numa tabela oculta com etapa, valor, parte da primeira etapa e queda.
-- `label` é obrigatório e nomeia a figura; os textos fixos (“overall conversion”, “Reached”, “dropped off before this stage”) estão em inglês.
+- A focusable vertical `role="slider"` sits over the chart, and its `aria-valuetext` describes the current stage: name, value, share of the first stage, and drop from the previous one.
+- The drawing, labels, and tooltip are `aria-hidden`; the same numbers are in a hidden table with stage, value, share of the first stage, and drop.
+- `label` is required and names the figure; the fixed texts (“overall conversion”, “Reached”, “dropped off before this stage”) are in English.
 
-## Movimento
+## Motion
 
-- Quando 30% do gráfico entra na tela, as barras crescem do centro para fora, uma etapa após a outra, de cima para baixo, seguidas dos afunilamentos e das pílulas de queda; os números contam a partir de zero.
-- Depois disso, trocar `data` transforma todas as etapas de uma vez, e o tooltip desliza de etapa em etapa numa mola enquanto as outras esmaecem.
-- Com “reduzir movimento”, o gráfico aparece pronto e as trocas são instantâneas.
+- When 30% of the chart enters the viewport, the bars grow from the center outward, one stage after another, from top to bottom, followed by the tapers and the drop pills; the numbers count up from zero.
+- After that, swapping `data` transforms all stages at once, and the tooltip slides from stage to stage on a spring while the others fade.
+- With “reduced motion”, the chart appears ready and swaps are instant.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura é medida com `ResizeObserver` e o desenho usa pixels reais; a coluna de rótulos ocupa de 84 px a 176 px (no máximo 34% da largura) e nomes longos são cortados.
-- A altura cresce com o número de etapas (44 px de `stageHeight` mais 28 px de `connectorHeight` por padrão); no toque, tocar numa etapa mostra o tooltip e a rolagem vertical continua livre.
+- Width is measured with `ResizeObserver` and the drawing uses real pixels; the label column spans 84 px to 176 px (at most 34% of the width) and long names are truncated.
+- Height grows with the number of stages (44 px of `stageHeight` plus 28 px of `connectorHeight` by default); on touch, tapping a stage shows the tooltip and vertical scrolling stays free.
 
-## Notas para IA
+## Notes for AI
 
-- `label` é obrigatório; passe `data` na ordem das etapas, com `key` estável: a largura de cada barra é relativa ao maior valor, e as porcentagens, à primeira etapa e à anterior.
-- Passe valores que não crescem de uma etapa para a seguinte: o componente não valida isso, e a queda sairia negativa.
-- Só a largura vem do pai; para controlar a etapa em destaque use `activeKey` com `onActiveChange` (sem atualizar o estado, o cursor não faz nada), e `hideHeader` remove o cabeçalho com a conversão total.
+- `label` is required; pass `data` in stage order, with a stable `key`: each bar's width is relative to the largest value, and the percentages are relative to the first stage and the previous one.
+- Pass values that don't grow from one stage to the next: the component doesn't validate this, and the drop would come out negative.
+- Only the width comes from the parent; to control the highlighted stage use `activeKey` with `onActiveChange` (without updating the state, the cursor does nothing), and `hideHeader` removes the header with the overall conversion.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/funnel-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/funnel-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

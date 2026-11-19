@@ -2,48 +2,48 @@
 
 > Caixa que mantém a proporção e desliza suavemente para outra (16:9, 4:3, 1:1, 9:16) sem deixar a mídia descoberta.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/aspect-ratio
-- Descrição original (inglês): A box that holds a width to height ratio and springs to a new one when it changes, keeping the media inside covered.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/aspect-ratio
+- Original description: A box that holds a width to height ratio and springs to a new one when it changes, keeping the media inside covered.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/aspect-ratio.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/aspect-ratio.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/aspect-ratio.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/aspect-ratio.json`. Caminho do registro, relativo ao endereço do site: `r/aspect-ratio.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/aspect-ratio.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/aspect-ratio.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/aspect-ratio.json`. Registry path, relative to the site address: `r/aspect-ratio.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/aspect-ratio/aspect-ratio.tsx`
   - `components/ryan-ui/aspect-ratio/aspect-ratio.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/aspect-ratio.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/aspect-ratio.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Pré-visualização que alterna entre paisagem, quadrado e retrato (um seletor de formato de corte, por exemplo) sem salto de layout.
-- Reservar o espaço de imagem, vídeo ou `iframe` antes do carregamento, com a mídia recortada pelo centro.
-- Formatos verticais que não devem empurrar a página: com `maxHeight` a caixa estreita em vez de crescer.
+- A preview that switches between landscape, square, and portrait (a crop format selector, for example) without layout shift.
+- Reserve the space of an image, video, or `iframe` before loading, with the media cropped from the center.
+- Vertical formats that should not push the page: with `maxHeight` the box narrows instead of growing.
 
-## Quando não usar
+## When not to use
 
-- Quando a proporção nunca muda e não há recorte, a propriedade CSS `aspect-ratio` resolve sem um componente cliente.
-- Use [`image-compare`](image-compare.md) para confrontar duas imagens com uma divisória.
-- Use [`image-viewer`](image-viewer.md) quando as fotos precisam abrir ampliadas, com zoom e navegação.
+- When the ratio never changes and there is no cropping, the CSS `aspect-ratio` property does the job without a client component.
+- Use [`image-compare`](image-compare.md) to compare two images with a divider.
+- Use [`image-viewer`](image-viewer.md) when photos need to open enlarged, with zoom and navigation.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -80,13 +80,13 @@ export default function AspectRatioDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AspectRatio`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `ratio` | `number \| string` | — | Width divided by height. A number (`16 / 9`) or a string such as `"16/9"`, `"16:9"` or `"1.85"`. |
 | `maxHeight` | `number \| string` | — | Tallest the box may get, in px or any CSS length. Past it the box narrows instead of growing, so a portrait ratio never pushes the page down. |
@@ -98,33 +98,33 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | Extra class names for the root element. |
 | `style` | `CSSProperties` | — | Inline styles for the root element, for sizes and CSS variables. |
 
-### Outras exportações
+### Other exports
 
-- `parseRatio` (função)
+- `parseRatio` (function)
 
-## Acessibilidade
+## Accessibility
 
-- É um `div` sem papel nem rótulo: a descrição vem da mídia que você coloca dentro, então informe `alt` na imagem ou `title` no `iframe`.
+- It is a `div` with no role or label: the description comes from the media you place inside, so provide `alt` on the image or `title` on the `iframe`.
 
-## Movimento
+## Motion
 
-- Ao mudar `ratio`, a própria proporção anima com mola sem ultrapassagem e o navegador recalcula largura e altura a cada quadro, então a mídia nunca estica como esticaria num `scale`.
-- A primeira renderização não anima; `animated={false}` troca na hora, e com “reduzir movimento” a troca é sempre instantânea.
+- When `ratio` changes, the ratio itself animates with a no-overshoot spring and the browser recalculates width and height on every frame, so the media never stretches as it would with a `scale`.
+- The first render does not animate; `animated={false}` swaps immediately, and with “reduce motion” the swap is always instant.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A caixa ocupa 100% da largura do pai; com `maxHeight` a largura passa a ser o menor entre 100% e `maxHeight` vezes a proporção, e a caixa fica centralizada na linha.
+- The box takes 100% of the parent's width; with `maxHeight` the width becomes the smaller of 100% and `maxHeight` times the ratio, and the box is centered in the row.
 
-## Desempenho
+## Performance
 
-- A animação mexe em layout, não em `transform`: cada quadro recalcula a caixa e o que vem depois dela, o que é leve para uma prévia e pesado para uma grade inteira trocando de proporção ao mesmo tempo.
+- The animation touches layout, not `transform`: each frame recalculates the box and what comes after it, which is light for a preview and heavy for a whole grid changing ratio at the same time.
 
-## Notas para IA
+## Notes for AI
 
-- `ratio` aceita número (`16 / 9`) ou texto (`"16/9"`, `"16:9"`, `"1.85"`); um valor ilegível cai em 16:9 sem aviso.
-- Filhos diretos `img`, `video`, `canvas`, `iframe` e `picture` são esticados sobre a caixa e recortados (`fit="contain"` mostra a mídia inteira); outros filhos você mesmo posiciona, pois a caixa é `position: relative`.
-- `onRatioSettled` avisa quando a caixa assenta numa proporção nova (não dispara na montagem); o pai precisa definir a largura.
+- `ratio` accepts a number (`16 / 9`) or text (`"16/9"`, `"16:9"`, `"1.85"`); an unreadable value falls back to 16:9 without a warning.
+- Direct children `img`, `video`, `canvas`, `iframe`, and `picture` are stretched over the box and cropped (`fit="contain"` shows the whole media); other children you position yourself, since the box is `position: relative`.
+- `onRatioSettled` fires when the box settles on a new ratio (it does not fire on mount); the parent must define the width.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/aspect-ratio · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/aspect-ratio · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

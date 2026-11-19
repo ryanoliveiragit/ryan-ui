@@ -2,48 +2,48 @@
 
 > Grade semanal para marcar horários livres com clique e arraste, com atalhos prontos e um resumo por dia que se atualiza na hora.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/availability-scheduler
-- Descrição original (inglês): Week grid of one-hour slots chosen by click, rectangle drag or keyboard, with one-click presets and a live summary of merged ranges per day.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/availability-scheduler
+- Original description: Week grid of one-hour slots chosen by click, rectangle drag or keyboard, with one-click presets and a live summary of merged ranges per day.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json`. Caminho do registro, relativo ao endereço do site: `r/availability-scheduler.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/availability-scheduler.json`. Registry path, relative to the site address: `r/availability-scheduler.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/blocks/availability-scheduler/availability-scheduler.tsx`
   - `components/ryan-ui/blocks/availability-scheduler/availability-scheduler.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/availability-scheduler.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/availability-scheduler.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Perguntar a alguém em que horários da semana está livre, para marcar reuniões, plantões ou atendimentos em blocos de uma hora.
-- Configurar janelas que se repetem toda semana, como horário de funcionamento ou período em que notificações podem chegar.
-- Quando o resultado precisa ser conferido de relance: o resumo ao lado junta os blocos vizinhos em faixas por dia e soma as horas.
+- Asking someone which times of the week they are free, to schedule meetings, on-call shifts, or appointments in one-hour blocks.
+- Setting up windows that repeat every week, such as business hours or the period when notifications may arrive.
+- When the result needs to be checked at a glance: the summary alongside merges adjacent blocks into per-day ranges and totals the hours.
 
-## Quando não usar
+## When not to use
 
-- Use [`date-picker`](date-picker.md) ou [`date-range-picker`](date-range-picker.md) quando a escolha é de datas do calendário, e não de horários que se repetem toda semana.
-- Use [`time-picker`](time-picker.md) quando basta um único horário.
-- Evite quando a precisão precisa ser menor que uma hora: cada célula é um bloco de uma hora cheia, sem meia hora nem quinze minutos.
+- Use [`date-picker`](date-picker.md) or [`date-range-picker`](date-range-picker.md) when the choice is calendar dates rather than times that repeat every week.
+- Use [`time-picker`](time-picker.md) when a single time is enough.
+- Avoid when precision needs to be finer than one hour: each cell is a full one-hour block, with no half hours or quarter hours.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import AvailabilityScheduler from "@/components/ryan-ui/blocks/availability-scheduler/availability-scheduler";
@@ -57,15 +57,15 @@ export default function AvailabilitySchedulerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AvailabilityScheduler`
 
 Week grid of one-hour slots: click or drag a rectangle to mark when you are free, apply a preset, and read the result as merged ranges per day.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `string[]` | — | Selected one-hour slots as `"day-hour"` ids: day from 0 (first column), hour on the 24 h clock. Pass it with `onValueChange` to control the grid. |
 | `defaultValue` | `string[]` | — | Starting selection when uncontrolled. Defaults to weekdays 9 to 5 with a lunch break. |
@@ -77,52 +77,52 @@ Week grid of one-hour slots: click or drag a rectangle to mark when you are free
 | `title` | `string` | `"When are you free?"` | Heading above the grid. |
 | `className` | `string` | — | Extra class for the section. |
 
-### Tipos exportados
+### Exported types
 
 #### `AvailabilityPreset`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | Text on the preset's button. |
-| `includes` (obrigatória) | `(day: number, hour: number) => boolean` | Whether the slot that starts at `hour` (24 h clock) on `day` (0 is the first column) belongs to the preset. |
+| `label` (required) | `string` | Text on the preset's button. |
+| `includes` (required) | `(day: number, hour: number) => boolean` | Whether the slot that starts at `hour` (24 h clock) on `day` (0 is the first column) belongs to the preset. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` ou `←` ou `→` | Movem o foco pela grade, uma célula por vez. |
-| `Espaço` ou `Enter` | Marca ou desmarca o horário em foco. |
-| `Shift + ↑` ou `Shift + ↓` ou `Shift + ←` ou `Shift + →` | Pintam: a célula de destino recebe o estado (marcada ou não) da célula de onde o foco saiu. |
-| `Home` ou `End` | Levam o foco ao primeiro ou ao último dia, na mesma hora. |
-| `Tab` | Passa pelos atalhos prontos, por “Clear”, pelos botões de dia (que marcam ou limpam o dia inteiro) e entra na grade pela célula atual. |
+| `↑` or `↓` or `←` or `→` | Move focus around the grid, one cell at a time. |
+| `Space` or `Enter` | Select or deselect the focused time slot. |
+| `Shift + ↑` or `Shift + ↓` or `Shift + ←` or `Shift + →` | Paint: the destination cell takes the state (selected or not) of the cell focus came from. |
+| `Home` or `End` | Move focus to the first or last day, at the same hour. |
+| `Tab` | Moves through the ready-made presets, “Clear”, and the day buttons (which select or clear a whole day), then enters the grid at the current cell. |
 
-## Acessibilidade
+## Accessibility
 
-- A grade usa `role="grid"` com `aria-multiselectable`; cada célula é um `gridcell` com `aria-selected` e um nome como “Monday, 9 AM to 10 AM”, e só a célula atual fica na ordem do Tab (roving tabindex).
-- O total de horas fica numa região `aria-live="polite"`, os atalhos prontos expõem `aria-pressed` e cada cabeçalho de dia é um botão com nome próprio.
-- Os textos internos (ajuda, “Clear”, “Available”, “Unavailable”, nomes das células e o relógio AM/PM) estão fixos em inglês no código; só `title`, `days` e os rótulos de `presets` vêm por props.
+- The grid uses `role="grid"` with `aria-multiselectable`; each cell is a `gridcell` with `aria-selected` and a name like “Monday, 9 AM to 10 AM”, and only the current cell is in the Tab order (roving tabindex).
+- The total hours sit in an `aria-live="polite"` region, the ready-made presets expose `aria-pressed`, and each day header is a button with its own name.
+- The internal texts (help, “Clear”, “Available”, “Unavailable”, cell names, and the AM/PM clock) are hardcoded in English; only `title`, `days`, and the `presets` labels come through props.
 
-## Movimento
+## Motion
 
-- Cada horário marcado cresce do centro da célula numa curva de mola sem ultrapassagem e some com um esmaecer simples; em mudanças em lote (atalho pronto, dia inteiro) as células se preenchem em onda a partir da origem.
-- O total de horas troca rolando: o número antigo sobe e o novo entra por baixo, com uma mola sem ultrapassagem.
-- Com “reduzir movimento” ligado, as transições das células e dos botões são desligadas e o total troca na hora.
+- Each selected slot grows from the center of the cell on a no-overshoot spring curve and disappears with a simple fade; in batch changes (preset, whole day) the cells fill in a wave from the origin.
+- The total hours change by scrolling: the old number moves up and the new one enters from below, on a no-overshoot spring.
+- With “reduce motion” on, cell and button transitions are turned off and the total changes instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Usa container query: abaixo de 46rem de largura do bloco o resumo desce para baixo da grade, e abaixo de 30rem os dias mostram só a inicial.
-- O corpo da grade tem `touch-action: none`: no toque, arrastar sobre os horários seleciona em vez de rolar a página, então deixe área livre ao redor para a rolagem.
+- Uses a container query: below 46rem of block width the summary drops below the grid, and below 30rem the days show only the initial.
+- The grid body has `touch-action: none`: on touch, dragging over the slots selects them instead of scrolling the page, so leave free space around it for scrolling.
 
-## Desempenho
+## Performance
 
-- Cada horário é um elemento do DOM (`days` × horas visíveis, 84 no padrão), e durante o arrasto o estado só muda quando o ponteiro entra em outra célula, não a cada pixel.
+- Each time slot is one DOM element (`days` × visible hours, 84 by default), and during a drag the state changes only when the pointer enters another cell, not on every pixel.
 
-## Notas para IA
+## Notes for AI
 
-- Controle com `value` e `onValueChange`: a seleção é uma lista de ids `"dia-hora"`, com o dia contado a partir de 0 e a hora no relógio de 24 h (`"0-9"` é o primeiro dia às 9h).
-- Sem `value` nem `defaultValue`, a grade já nasce com as cinco primeiras colunas marcadas das 9h às 17h, menos o meio-dia; passe `defaultValue={[]}` para começar vazia.
-- `startHour` e `endHour` definem as linhas (8 e 20 por padrão), `days` as colunas e `presets` os atalhos, cada um com `label` e uma função `includes(day, hour)`.
+- Controlled with `value` and `onValueChange`: the selection is a list of `"dia-hora"` ids, with the day counted from 0 and the hour on a 24-hour clock (`"0-9"` is the first day at 9 AM).
+- Without `value` or `defaultValue`, the grid starts with the first five columns selected from 9 AM to 5 PM, except noon; pass `defaultValue={[]}` to start empty.
+- `startHour` and `endHour` define the rows (8 and 20 by default), `days` the columns, and `presets` the shortcuts, each with a `label` and an `includes(day, hour)` function.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/availability-scheduler · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/availability-scheduler · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

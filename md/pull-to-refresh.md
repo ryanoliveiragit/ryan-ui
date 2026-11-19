@@ -2,48 +2,48 @@
 
 > Área de rolagem que você puxa para baixo para atualizar: o indicador estica, gira durante a atualização e volta ao lugar.
 
-- Tipo: componente (categoria Feedback), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/pull-to-refresh
-- Descrição original (inglês): A scroll container you drag down with a finger or the mouse: the indicator stretches, spins while the async refresh runs, confirms and settles.
+- Type: component (category Feedback), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/pull-to-refresh
+- Original description: A scroll container you drag down with a finger or the mouse: the indicator stretches, spins while the async refresh runs, confirms and settles.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json`. Caminho do registro, relativo ao endereço do site: `r/pull-to-refresh.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/pull-to-refresh.json`. Registry path, relative to the site address: `r/pull-to-refresh.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/pull-to-refresh/pull-to-refresh.tsx`
   - `components/ryan-ui/pull-to-refresh/pull-to-refresh.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/pull-to-refresh.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/pull-to-refresh.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Listas em que puxar para baixo é o gesto esperado no celular, como caixa de entrada, feed ou notificações.
-- Uma área com rolagem própria dentro de um painel ou de uma moldura de app (`height`), que atualiza o conteúdo sem recarregar a página.
-- Atualizações que às vezes começam fora do gesto, por um botão ou um timer: `refreshing` mostra o mesmo estado de atualização.
+- Lists where pulling down is the expected gesture on mobile, such as an inbox, a feed, or notifications.
+- An area with its own scrolling inside a panel or an app frame (`height`), which refreshes the content without reloading the page.
+- Updates that sometimes start outside the gesture, from a button or a timer: `refreshing` shows the same refresh state.
 
-## Quando não usar
+## When not to use
 
-- Para a página inteira rolando no `body` ele não serve: o gesto só existe dentro do próprio contêiner, que precisa de altura.
-- Use [`infinite-masonry`](infinite-masonry.md) quando o conteúdo novo deve chegar ao rolar até o fim, e não ao puxar o topo.
-- Use [`message-scroller`](message-scroller.md) para conversas, em que o conteúdo novo chega no fim da lista.
+- It does not suit a whole page scrolling on the `body`: the gesture only exists inside its own container, which needs a height.
+- Use [`infinite-masonry`](infinite-masonry.md) when new content should arrive on scrolling to the end, not on pulling the top.
+- Use [`message-scroller`](message-scroller.md) for conversations, where new content arrives at the end of the list.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useRef, useState } from "react";
@@ -120,16 +120,16 @@ export default function PullToRefreshDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PullToRefresh`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `onRefresh` (obrigatória) | `() => Promise<unknown> \| void` | — | Runs when a pull is released past the threshold. Return a promise: the indicator spins until it settles. |
-| `children` (obrigatória) | `ReactNode` | — | The scrolling content. |
+| `onRefresh` (required) | `() => Promise<unknown> \| void` | — | Runs when a pull is released past the threshold. Return a promise: the indicator spins until it settles. |
+| `children` (required) | `ReactNode` | — | The scrolling content. |
 | `refreshing` | `boolean` | — | Shows the refreshing state from outside, for a refresh that did not start with a pull (a button, a timer). |
 | `threshold` | `number` | `72` | Pull distance in pixels at which releasing starts a refresh. |
 | `maxPull` | `number` | `150` | The farthest the content can travel, in pixels. Resistance grows toward it. |
@@ -139,40 +139,40 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `refreshLabel` | `string` | `"Refresh"` | Text of the keyboard refresh button. |
 | `className` | `string` | — | Extra class for the outer element. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | O primeiro foco do componente é o botão `refreshLabel` (padrão “Refresh”), que só aparece com foco de teclado; o próximo `Tab` vai para a área de rolagem. |
-| `Enter` ou `Espaço` | No botão, dispara o mesmo `onRefresh` do gesto; durante a atualização ele fica `aria-disabled` e não repete. |
-| `↑` ou `↓` ou `Page Up` ou `Page Down` | Com o foco na área de rolagem, rolam o conteúdo (comportamento nativo). |
+| `Tab` | The component's first focus stop is the `refreshLabel` button (default “Refresh”), which only appears with keyboard focus; the next `Tab` goes to the scroll area. |
+| `Enter` or `Space` | On the button, triggers the same `onRefresh` as the gesture; during the refresh it is `aria-disabled` and does not repeat. |
+| `↑` or `↓` or `Page Up` or `Page Down` | With focus on the scroll area, scroll the content (native behavior). |
 
-## Acessibilidade
+## Accessibility
 
-- A área de rolagem é `role="region"`, focável, com `aria-busy` durante a atualização; troque o nome genérico de `label` (padrão “Content”) pelo nome da lista.
-- Uma região `role="status"` anuncia “Refreshing” e “Updated” (fixos em inglês no código), e o indicador visual é `aria-hidden`.
+- The scroll area is `role="region"`, focusable, with `aria-busy` during the refresh; replace the generic name from `label` (default “Content”) with the name of the list.
+- A `role="status"` region announces “Refreshing” and “Updated” (fixed in English in the code), and the visual indicator is `aria-hidden`.
 
-## Movimento
+## Motion
 
-- O conteúdo segue o dedo 1:1 no começo e com resistência crescente até `maxPull`; o indicador aparece, cresce, a seta vira e, passado `threshold`, ele estica numa cápsula na cor de destaque.
-- Ao soltar depois do limite, o conteúdo fica parado a até 56 px enquanto o indicador gira; quando a Promise termina, um visto aparece por 0,65 s e tudo volta com uma mola sem ultrapassagem.
-- Com “reduzir movimento”, as voltas viram saltos, os ícones só esmaecem e o giro fica mais lento (2,4 s por volta).
+- The content follows the finger 1:1 at the start and with increasing resistance up to `maxPull`; the indicator appears, grows, the arrow flips and, past `threshold`, it stretches into a capsule in the accent color.
+- On release past the limit, the content holds at up to 56 px while the indicator spins; when the Promise finishes, a checkmark appears for 0.65 s and everything returns with a no-overshoot spring.
+- With “reduce motion”, the returns become jumps, the icons only fade, and the spin slows down (2.4 s per turn).
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa a altura do pai por padrão; se o pai não tiver altura definida, passe `height` para a área poder rolar.
-- `overscroll-behavior` impede que o puxão passe para a página e dispare o recarregar do próprio navegador no celular.
+- It fills the parent's height by default; if the parent has no defined height, pass `height` so the area can scroll.
+- `overscroll-behavior` prevents the pull from passing to the page and triggering the browser's own reload on mobile.
 
-## Desempenho
+## Performance
 
-- O puxão anima um único valor de movimento (transform), sem re-render do React a cada quadro; o toque usa um listener não passivo para poder bloquear a rolagem só durante o gesto.
+- The pull animates a single motion value (transform), with no React re-render on every frame; touch uses a non-passive listener so it can block scrolling only during the gesture.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/pull-to-refresh/pull-to-refresh`. `onRefresh` deve devolver uma Promise: o indicador gira até ela terminar; sem Promise, gira 0,6 s.
-- Dê altura ao componente (`height` ou um pai com altura) e ponha a lista dentro dele: ele mesmo é a área que rola.
-- No desktop, arrastar com o mouse não é óbvio; mantenha também um botão visível que chama a mesma função e mostre o estado com `refreshing`.
+- Import from `@/components/ryan-ui/pull-to-refresh/pull-to-refresh`. `onRefresh` should return a Promise: the indicator spins until it finishes; without a Promise, it spins for 0.6 s.
+- Give the component a height (`height` or a parent with a height) and put the list inside it: it is itself the scrolling area.
+- On desktop, dragging with the mouse is not obvious; also keep a visible button that calls the same function and show the state with `refreshing`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/pull-to-refresh · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/pull-to-refresh · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

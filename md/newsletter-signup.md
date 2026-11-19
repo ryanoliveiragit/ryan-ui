@@ -2,23 +2,23 @@
 
 > Cadastro de newsletter em dois layouts, com confirmação e tratamento de erro.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/newsletter-signup
-- Descrição original (inglês): An email signup framed by a stack of past issues; subscribing drops the next issue, addressed to you, onto the front.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/newsletter-signup
+- Original description: An email signup framed by a stack of past issues; subscribing drops the next issue, addressed to you, onto the front.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/newsletter-signup.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/newsletter-signup.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/newsletter-signup.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/newsletter-signup.json`. Caminho do registro, relativo ao endereço do site: `r/newsletter-signup.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/newsletter-signup.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/newsletter-signup.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/newsletter-signup.json`. Registry path, relative to the site address: `r/newsletter-signup.json`.
 
-- Pacotes npm: `@radix-ui/react-switch`, `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Animated counter](animated-counter.md), [Segmented control](segmented-control.md), [Switch](switch.md)
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-switch`, `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Animated counter](animated-counter.md), [Segmented control](segmented-control.md), [Switch](switch.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/newsletter-signup/newsletter-signup.tsx`
   - `components/ryan-ui/blocks/newsletter-signup/newsletter-signup-data.ts`
   - `components/ryan-ui/lib/media.ts`
@@ -31,29 +31,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/animated-counter/animated-counter.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-switch lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/newsletter-signup.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-switch lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/newsletter-signup.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Seção de inscrição de newsletter numa landing page ou blog em que mostrar as edições anteriores ajuda a pessoa a decidir.
-- Cartão independente de inscrição (`variant="card"`), por exemplo ao fim de um artigo.
-- Formulário só de e-mail com validação e estados de envio, sem a pilha: passe `publication={null}` e `readers={null}`.
+- Newsletter signup section on a landing page or blog where showing past issues helps people decide.
+- Standalone signup card (`variant="card"`), for example at the end of an article.
+- Email-only form with validation and submit states, without the stack: pass `publication={null}` and `readers={null}`.
 
-## Quando não usar
+## When not to use
 
-- Use [`site-footer`](site-footer.md) quando a inscrição é só um campo dentro do rodapé; a variante de colunas dele já traz um formulário de newsletter.
-- Use [`contact-section`](contact-section.md) quando a pessoa precisa escrever uma mensagem, e [`signup-form`](signup-form.md) quando o objetivo é criar conta com senha.
-- Sem edições reais para mostrar, a pilha vira enfeite com dados de exemplo; nesse caso esconda-a em vez de inventar conteúdo.
+- Use [`site-footer`](site-footer.md) when the signup is just a field inside the footer; its columns variant already includes a newsletter form.
+- Use [`contact-section`](contact-section.md) when the person needs to write a message, and [`signup-form`](signup-form.md) when the goal is to create an account with a password.
+- Without real issues to show, the stack becomes decoration with example data; in that case hide it instead of inventing content.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import NewsletterSignup from "@/components/ryan-ui/blocks/newsletter-signup/newsletter-signup";
@@ -63,15 +63,15 @@ export default function NewsletterSignupDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `NewsletterSignup`
 
 A newsletter signup framed by the newsletter itself: a stack of recent issues. Subscribing drops the next issue, addressed to the new reader, onto the front of the stack and ticks the reader count up by one. Comes as an inline page section or a self-contained card.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"inline" \| "card"` | `"inline"` | `inline` puts the copy and form beside the issue stack; `card` is a self-contained card with the stack in a tray on top. |
 | `title` | `string` | — | — |
@@ -89,11 +89,11 @@ A newsletter signup framed by the newsletter itself: a stack of recent issues. S
 
 Preview: both layouts. Subscribing is simulated and nothing is sent; the switch makes the next send fail.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `NewsletterVariant` | `"inline" \| "card"` |
 
@@ -101,72 +101,72 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 One story teased in an issue. `image` is a small square-cropped thumbnail.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `title` (obrigatória) | `string` | — |
-| `image` (obrigatória) | `string` | — |
-| `minutes` (obrigatória) | `number` | — |
+| `title` (required) | `string` | — |
+| `image` (required) | `string` | — |
+| `minutes` (required) | `number` | — |
 
 #### `NewsletterIssue`
 
 One issue of the newsletter, as it appears on the stack.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `number` (obrigatória) | `number` | — |
-| `date` (obrigatória) | `string` | Send date as it should read, such as "Friday, September 25". |
-| `subject` (obrigatória) | `string` | — |
-| `stories` (obrigatória) | `NewsletterStory[]` | Up to three stories. |
+| `number` (required) | `number` | — |
+| `date` (required) | `string` | Send date as it should read, such as "Friday, September 25". |
+| `subject` (required) | `string` | — |
+| `stories` (required) | `NewsletterStory[]` | Up to three stories. |
 
 #### `NewsletterPublication`
 
 The publication shown beside the form: the next issue lands on the stack of recent ones when someone subscribes.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | — |
-| `upcoming` (obrigatória) | `NewsletterIssue` | The next issue. It is addressed to the new reader and joins the front of the stack on success. |
-| `recent` (obrigatória) | `NewsletterIssue[]` | Recent issues, newest first. The first three make the stack. |
+| `name` (required) | `string` | — |
+| `upcoming` (required) | `NewsletterIssue` | The next issue. It is addressed to the new reader and joins the front of the stack on success. |
+| `recent` (required) | `NewsletterIssue[]` | Recent issues, newest first. The first three make the stack. |
 
-### Outras exportações
+### Other exports
 
-- `newsletterCopy` (valor)
-- `newsletterPublication` (valor)
-- `newsletterReaders` (valor)
+- `newsletterCopy` (value)
+- `newsletterPublication` (value)
+- `newsletterReaders` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | No campo de e-mail, envia o formulário; com endereço inválido, o foco volta ao campo. |
+| `Enter` | In the email field, submits the form; with an invalid address, focus returns to the field. |
 
-## Acessibilidade
+## Accessibility
 
-- O campo tem um `<label>` escondido visualmente (“Email address”), `aria-invalid` quando o endereço é inválido e `aria-describedby` apontando para a linha de mensagem.
-- A linha de mensagem fica numa região `aria-live="polite"` e vira `role="alert"` em erro; ao concluir, o foco vai para “Use a different email” e, ao reiniciar, volta ao campo.
-- Só a edição da frente da pilha é exposta ao leitor de tela, com `aria-label`; as de trás ficam com `aria-hidden` e as fotos dos leitores têm `alt` vazio.
+- The field has a visually hidden `<label>` (“Email address”), `aria-invalid` when the address is invalid, and `aria-describedby` pointing to the message line.
+- The message line sits in an `aria-live="polite"` region and becomes `role="alert"` on error; on completion, focus goes to “Use a different email” and, on reset, returns to the field.
+- Only the front issue of the stack is exposed to the screen reader, with an `aria-label`; the ones behind are `aria-hidden` and the reader photos have empty `alt`.
 
-## Movimento
+## Motion
 
-- Ao inscrever, a próxima edição sobe de baixo, endereçada ao e-mail digitado, e pousa na frente da pilha; as anteriores recuam um degrau numa mola sem ultrapassagem e a mais antiga sai.
-- O rótulo do botão troca no lugar entre enviar, enviando e inscrito (com um visto desenhado), a contagem de leitores sobe um e um erro sacode o campo de lado uma vez.
-- Com “reduzir movimento” ligado, as edições assumem o lugar na hora e só esmaecem, não há sacudida nem desenho do visto, e o indicador de envio gira mais devagar.
+- On subscribe, the next issue rises from below, addressed to the typed email, and lands at the front of the stack; the previous ones step back one level on a spring that does not overshoot and the oldest leaves.
+- The button label swaps in place between submit, submitting, and subscribed (with a drawn checkmark), the reader count goes up by one, and an error shakes the field sideways once.
+- With “reduce motion” on, issues take their place instantly and only fade, there is no shake or checkmark drawing, and the submit indicator spins more slowly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Container queries do bloco: até 860 px a variante `inline` empilha texto e pilha; até 520 px e 400 px os espaçamentos encolhem e os minutos de leitura somem.
-- O formulário tem contêiner próprio: até 300 px, campo e botão se separam e empilham em largura total; a linha de mensagem reserva a altura da frase mais longa, então nada abaixo se move.
+- The block's container queries: up to 860 px the `inline` variant stacks the text and the stack; up to 520 px and 400 px the spacing shrinks and the reading minutes disappear.
+- The form has its own container: up to 300 px, the field and button separate and stack at full width; the message line reserves the height of the longest sentence, so nothing below moves.
 
-## Desempenho
+## Performance
 
-- As miniaturas e os rostos passam por `RyanImage`, que carrega sob demanda por padrão; uma cópia invisível da próxima edição fica no DOM só para reservar a altura da pilha.
+- Thumbnails and faces go through `RyanImage`, which loads on demand by default; an invisible copy of the next issue stays in the DOM only to reserve the stack's height.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `NewsletterSignup`; o export padrão é `NewsletterSignupBlock`, o preview com troca de layout e um interruptor que simula falha.
-- Passe `onSubscribe(email)` devolvendo uma Promise: rejeitar mostra o erro e mantém o e-mail, resolver mostra o sucesso; sem essa prop o bloco só espera 1,1 s e finge que deu certo.
-- `publication` (nome, `upcoming` e `recent`) e `readers` vêm com dados de exemplo de `newsletter-signup-data.ts`; troque pelos seus ou passe `null`, e saiba que as mensagens de validação estão fixas em inglês.
+- Import the named component `NewsletterSignup`; the default export is `NewsletterSignupBlock`, the preview with layout switching and a switch that simulates failure.
+- Pass `onSubscribe(email)` returning a Promise: rejecting shows the error and keeps the email, resolving shows success; without this prop the block just waits 1.1 s and pretends it worked.
+- `publication` (name, `upcoming`, and `recent`) and `readers` come with example data from `newsletter-signup-data.ts`; replace them with your own or pass `null`, and note that the validation messages are hardcoded in English.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/newsletter-signup · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/newsletter-signup · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

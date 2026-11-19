@@ -2,51 +2,51 @@
 
 > Grupo de avatares sobrepostos que resume uma equipe e mostra quantos membros a mais existem.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/avatar-group
-- Descrição original (inglês): Show a team or set of contributors in a small space.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/avatar-group
+- Original description: Show a team or set of contributors in a small space.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json`. Caminho do registro, relativo ao endereço do site: `r/avatar-group.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/avatar-group.json`. Registry path, relative to the site address: `r/avatar-group.json`.
 
-- Pacotes npm: `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Avatar](avatar.md)
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Uses other ryan-ui items (installed along with it): [Avatar](avatar.md)
+- Files, once installed:
   - `components/ryan-ui/avatar-group/avatar-group.tsx`
   - `components/ryan-ui/avatar-group/avatar-group.module.css`
   - `components/ryan-ui/avatar/avatar.tsx`
   - `components/ryan-ui/avatar/avatar.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/avatar-group.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/avatar-group.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar quem participa de um projeto, documento ou equipe em pouco espaço: cabeçalho, cartão ou célula de tabela.
-- Listas que mudam ao vivo: quem entra ou sai abre ou fecha o próprio espaço e o resto da pilha desliza.
-- Grupos maiores que o espaço: `max` limita os avatares visíveis e o restante vira um contador `+N`.
+- Show who takes part in a project, document, or team in little space: header, card, or table cell.
+- Lists that change live: whoever joins or leaves opens or closes their own space and the rest of the stack slides.
+- Groups larger than the space: `max` limits the visible avatars and the remainder becomes a `+N` counter.
 
-## Quando não usar
+## When not to use
 
-- Use [`avatar`](avatar.md) para uma pessoa só.
-- Quando cada pessoa precisa ser clicável ou a lista completa tem de estar à vista, use uma lista com nomes: aqui nada recebe foco e quem passa de `max` não é mostrado.
+- Use [`avatar`](avatar.md) for a single person.
+- When each person needs to be clickable or the full list must be in view, use a list with names: here nothing receives focus and anyone beyond `max` is not shown.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -72,46 +72,46 @@ export default function AvatarGroupDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AvatarGroup`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `members` (obrigatória) | `AvatarGroupMember[]` | — | — |
+| `members` (required) | `AvatarGroupMember[]` | — | — |
 | `max` | `number` | `4` | — |
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | — |
 | `label` | `string` | `"Team members"` | — |
 
-### Tipos exportados
+### Exported types
 
 #### `AvatarGroupMember`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | — |
+| `name` (required) | `string` | — |
 | `src` | `string` | — |
 | `status` | `"online" \| "offline"` | — |
 
-## Acessibilidade
+## Accessibility
 
-- O contêiner é um `role="group"` nomeado por `label` (o padrão é inglês, “Team members”); cada avatar anuncia o nome, e o contador anuncia “N more” seguido do rótulo.
-- O balão com o nome é só visual: aparece ao passar o mouse e fica em `aria-hidden`; em toque ele não aparece, e os nomes além de `max` não ficam em lugar nenhum.
+- The container is a `role="group"` named by `label` (the default is English, “Team members”); each avatar announces the name, and the counter announces “N more” followed by the label.
+- The name bubble is visual only: it appears on mouse hover and is `aria-hidden`; on touch it does not appear, and the names beyond `max` are not available anywhere.
 
-## Movimento
+## Motion
 
-- Um membro novo abre o próprio espaço em largura com mola sem ultrapassagem e os demais deslizam; quem sai fecha o espaço do mesmo jeito.
-- O contador `+N` rola no sentido da mudança: o número novo sobe quando há mais gente e desce quando há menos.
-- Com “reduzir movimento”, entradas, saídas e contador trocam na hora e o balão do nome aparece sem subir.
+- A new member opens its own width with a no-overshoot spring and the others slide; whoever leaves closes the space the same way.
+- The `+N` counter rolls in the direction of the change: the new number rises when there are more people and drops when there are fewer.
+- With “reduce motion”, entries, exits, and the counter swap immediately and the name bubble appears without rising.
 
-## Notas para IA
+## Notes for AI
 
-- `members` é uma lista `{ name, src?, status? }` e o `name` serve de `key`: dois membros com o mesmo nome geram aviso do React e quebram a animação.
-- Para ver entrada e saída animadas, altere a lista `members` com o componente montado; `max` (padrão 4) decide quantos aparecem antes do `+N`.
-- Depende de `avatar` e só aceita `size` `sm`, `md` ou `lg`; passe `label` em português, porque o padrão é inglês.
+- `members` is a list of `{ name, src?, status? }` and `name` serves as the `key`: two members with the same name cause a React warning and break the animation.
+- To see animated entry and exit, change the `members` list while the component is mounted; `max` (default 4) decides how many appear before the `+N`.
+- It depends on `avatar` and only accepts `size` `sm`, `md`, or `lg`; pass `label` in your language, because the default is English.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/avatar-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/avatar-group · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

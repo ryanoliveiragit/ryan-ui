@@ -2,48 +2,48 @@
 
 > Um cartão da grade cresce até virar um modal no centro da tela, e o resumo dá lugar ao conteúdo completo.
 
-- Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/center-morph-modal
-- Descrição original (inglês): A grid of cards in which the chosen card morphs into a centered modal: its box, icon and title travel while the summary crossfades to the expanded content.
+- Type: component (category Disclosure), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/center-morph-modal
+- Original description: A grid of cards in which the chosen card morphs into a centered modal: its box, icon and title travel while the summary crossfades to the expanded content.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/center-morph-modal.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/center-morph-modal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/center-morph-modal.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/center-morph-modal.json`. Caminho do registro, relativo ao endereço do site: `r/center-morph-modal.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/center-morph-modal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/center-morph-modal.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/center-morph-modal.json`. Registry path, relative to the site address: `r/center-morph-modal.json`.
 
-- Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dialog`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/center-morph-modal/center-morph-modal.tsx`
   - `components/ryan-ui/center-morph-modal/center-morph-modal.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dialog lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/center-morph-modal.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dialog lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/center-morph-modal.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Galerias de modelos, receitas ou integrações em que cada cartão abre os próprios detalhes sem trocar de página.
-- Catálogos em que o resumo do cartão (`summary`) basta para escolher e o conteúdo completo (`content`) só aparece no modal, com ações no rodapé.
-- Grades em que a continuidade importa: ícone e título viajam do cartão até o cabeçalho do modal.
+- Galleries of templates, recipes, or integrations where each card opens its own details without changing pages.
+- Catalogs where the card summary (`summary`) is enough to choose and the full content (`content`) only appears in the modal, with actions in the footer.
+- Grids where continuity matters: icon and title travel from the card to the modal header.
 
-## Quando não usar
+## When not to use
 
-- Use [`dialog`](dialog.md) para uma confirmação ou formulário que não nasce de um cartão de uma grade.
-- Use [`expandable-card`](expandable-card.md) quando os detalhes cabem no próprio cartão e a página não precisa ser bloqueada.
-- Use [`image-viewer`](image-viewer.md) para galerias de fotos com zoom e navegação entre imagens.
+- Use [`dialog`](dialog.md) for a confirmation or form that does not originate from a card in a grid.
+- Use [`expandable-card`](expandable-card.md) when the details fit in the card itself and the page does not need to be blocked.
+- Use [`image-viewer`](image-viewer.md) for photo galleries with zoom and navigation between images.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -119,15 +119,15 @@ export default function CenterMorphModalDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CenterMorphModal`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `CenterMorphItem[]` | — | The cards, in order. |
+| `items` (required) | `CenterMorphItem[]` | — | The cards, in order. |
 | `value` | `string \| null` | — | Id of the open card, or null when none is open (controlled). |
 | `defaultValue` | `string \| null` | `null` | Id of the card open at first when uncontrolled. |
 | `onValueChange` | `(id: string \| null) => void` | — | Called with the id of the card that opened, or null when the modal closes. |
@@ -137,51 +137,51 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | Extra class for the grid. |
 | `container` | `HTMLElement \| null` | — | Renders the modal inside this element instead of the page body: the scrim covers only the element and the card grows to its center. The element needs position: relative and overflow: hidden. The page around it stays usable while the modal is open: nothing is scroll-locked or hidden from assistive technology, and Escape, the scrim and the close button still close it. |
 
-### Tipos exportados
+### Exported types
 
 #### `CenterMorphItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id; this is what `value` and `onValueChange` carry. |
-| `title` (obrigatória) | `string` | Title shown on the card and carried into the modal. |
+| `id` (required) | `string` | Unique id; this is what `value` and `onValueChange` carry. |
+| `title` (required) | `string` | Title shown on the card and carried into the modal. |
 | `subtitle` | `string` | One line under the title, on the card and in the modal. |
 | `media` | `ReactNode` | Icon or small image. It travels from the card to the modal header and grows on the way. |
 | `summary` | `ReactNode` | Short text shown only on the card. It fades out as the card opens. |
 | `meta` | `ReactNode` | Small trailing label on the card, such as a status or a count. |
-| `content` (obrigatória) | `ReactNode` | The expanded content, shown only in the modal. |
+| `content` (required) | `ReactNode` | The expanded content, shown only in the modal. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No cartão em foco, abre o modal. |
-| `Tab` ou `Shift + Tab` | Percorrem os controles do modal sem sair dele; ao abrir, o foco vai ao primeiro controle, o botão de fechar. |
-| `Esc` | Fecha o modal; o foco volta ao cartão que o abriu. |
+| `Enter` or `Space` | On the focused card, opens the modal. |
+| `Tab` or `Shift + Tab` | Move through the modal controls without leaving it; on open, focus goes to the first control, the close button. |
+| `Esc` | Closes the modal; focus returns to the card that opened it. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada cartão é um `<button>` com `aria-haspopup="dialog"` e `aria-expanded`; o modal é um diálogo do Radix com o título como nome e o `subtitle` como descrição.
-- Com o modal aberto, o foco fica preso nele e o resto da página sai da árvore de acessibilidade; ao fechar, o foco volta ao cartão de origem.
-- O botão de fechar se chama “Close”, fixo em inglês no código; a mídia do cartão fica oculta para o leitor de tela.
+- Each card is a `<button>` with `aria-haspopup="dialog"` and `aria-expanded`; the modal is a Radix dialog with the title as its name and the `subtitle` as its description.
+- With the modal open, focus is trapped in it and the rest of the page leaves the accessibility tree; on close, focus returns to the originating card.
+- The close button is named “Close”, fixed in English in the code; the card media is hidden from the screen reader.
 
-## Movimento
+## Motion
 
-- Caixa, mídia e título do cartão são os mesmos elementos do modal e viajam até o centro numa mola com um quique leve; ao fechar, voltam numa mola sem quique.
-- O resumo some enquanto subtítulo, corpo e rodapé chegam um depois do outro, subindo 12 px de um leve desfoque, e saem todos de uma vez.
-- Com “reduzir movimento” ligado, não há viagem compartilhada: o modal só esmaece ao entrar e sair.
+- The card's box, media, and title are the same elements as the modal's and travel to the center on a spring with a slight bounce; on close, they return on a spring without bounce.
+- The summary disappears while subtitle, body, and footer arrive one after another, rising 12 px out of a slight blur, and all leave at once.
+- With “reduce motion” on, there is no shared travel: the modal only fades on enter and exit.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A grade usa `auto-fill` com colunas de no mínimo `minColumnWidth` (padrão 220 px) e perde colunas conforme a largura diminui.
-- O modal ocupa a largura da tela menos 2rem até `width` (padrão 480 px), com altura máxima de `100dvh` menos 2rem e rolagem interna.
+- The grid uses `auto-fill` with columns of at least `minColumnWidth` (default 220 px) and loses columns as the width shrinks.
+- The modal takes the screen width minus 2rem up to `width` (default 480 px), with a maximum height of `100dvh` minus 2rem and inner scrolling.
 
-## Notas para IA
+## Notes for AI
 
-- Cada item tem `id`, `title` e `content`; `summary` e `meta` só aparecem no cartão, e `subtitle` e `media` aparecem nos dois.
-- Use `renderFooter(item, close)` para as ações e chame `close()` depois de agir; para controlar o cartão aberto, use `value` (um `id` ou `null`) com `onValueChange`.
-- Importe `CenterMorphModal` de `@/components/ryan-ui/center-morph-modal/center-morph-modal`; ele desenha a grade inteira, então passe todos os cartões de uma vez.
+- Each item has `id`, `title`, and `content`; `summary` and `meta` only appear on the card, and `subtitle` and `media` appear on both.
+- Use `renderFooter(item, close)` for the actions and call `close()` after acting; to control the open card, use `value` (an `id` or `null`) with `onValueChange`.
+- Import `CenterMorphModal` from `@/components/ryan-ui/center-morph-modal/center-morph-modal`; it draws the whole grid, so pass all the cards at once.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/center-morph-modal · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/center-morph-modal · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

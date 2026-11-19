@@ -2,48 +2,48 @@
 
 > Revela informações de apoio no próprio lugar, uma seção por vez.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/accordion
-- Descrição original (inglês): Progressively reveal supporting information in place.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/accordion
+- Original description: Progressively reveal supporting information in place.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json`. Caminho do registro, relativo ao endereço do site: `r/accordion.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/accordion.json`. Registry path, relative to the site address: `r/accordion.json`.
 
-- Pacotes npm: `@radix-ui/react-accordion`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-accordion`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/accordion/accordion.tsx`
   - `components/ryan-ui/accordion/accordion.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-accordion lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/accordion.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-accordion lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/accordion.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Perguntas frequentes numa página de preço ou de ajuda, com `size="lg"` para perguntas em texto grande e respostas em corpo de leitura.
-- Informação de apoio que só interessa a parte das pessoas, como detalhes de cobrança ou de privacidade, sem tirar ninguém da página.
-- Listas em que só uma resposta precisa ficar aberta: abrir um item fecha o anterior, e clicar no item aberto o fecha.
+- Frequently asked questions on a pricing or help page, with `size="lg"` for questions in large text and answers in reading-size body text.
+- Supporting information that only some people need, such as billing or privacy details, without taking anyone off the page.
+- Lists where only one answer needs to stay open: opening an item closes the previous one, and clicking the open item closes it.
 
-## Quando não usar
+## When not to use
 
-- Use [`bouncy-accordion`](bouncy-accordion.md) quando precisar de vários itens abertos ao mesmo tempo ou de estado controlado; este acordeão só tem `defaultOpen`.
-- Use [`collapsible`](collapsible.md) para uma única região que abre e fecha ao lado do próprio título.
-- Use [`faq-section`](faq-section.md) quando a página precisa de uma seção inteira de perguntas, com tópicos ou busca.
+- Use [`bouncy-accordion`](bouncy-accordion.md) when you need several items open at the same time or controlled state; this accordion only has `defaultOpen`.
+- Use [`collapsible`](collapsible.md) for a single region that opens and closes next to its own title.
+- Use [`faq-section`](faq-section.md) when the page needs a whole section of questions, with topics or search.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import Accordion from "@/components/ryan-ui/accordion/accordion";
@@ -61,57 +61,57 @@ export default function AccordionDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Accordion`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `AccordionItem[]` | — | — |
+| `items` (required) | `AccordionItem[]` | — | — |
 | `defaultOpen` | `number` | `0` | — |
 | `size` | `"md" \| "lg"` | `"md"` | "lg" suits page-level FAQs: questions at the large text size, answers at body size. |
 
-### Tipos exportados
+### Exported types
 
 #### `AccordionItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `title` (obrigatória) | `string` | — |
-| `content` (obrigatória) | `ReactNode` | — |
+| `title` (required) | `string` | — |
+| `content` (required) | `ReactNode` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Abre o item em foco e fecha o que estava aberto; no item já aberto, fecha. |
-| `↓` ou `↑` | Move o foco para o título seguinte ou anterior, voltando ao primeiro depois do último. |
-| `Home` ou `End` | Leva o foco ao primeiro ou ao último título. |
+| `Enter` or `Space` | Opens the focused item and closes the one that was open; on an item that is already open, closes it. |
+| `↓` or `↑` | Moves focus to the next or previous title, wrapping to the first after the last. |
+| `Home` or `End` | Moves focus to the first or last title. |
 
-## Acessibilidade
+## Accessibility
 
-- Construído sobre o Accordion do Radix: cada título é um `<button>` dentro de um `<h3>`, com `aria-expanded` e `aria-controls`, e cada painel é uma `region` ligada ao seu título.
-- Ao terminar de recolher, o painel recebe `visibility: hidden` e sai da ordem de Tab e da árvore de acessibilidade; o leitor de tela só encontra a resposta aberta.
-- O nível do título é fixo em `<h3>`; se a hierarquia da página pede outro nível, use `bouncy-accordion`, que aceita `headingLevel`.
+- Built on the Radix Accordion: each title is a `<button>` inside an `<h3>`, with `aria-expanded` and `aria-controls`, and each panel is a `region` tied to its title.
+- When it finishes collapsing, the panel gets `visibility: hidden` and leaves the Tab order and the accessibility tree; the screen reader only finds the open answer.
+- The heading level is fixed at `<h3>`; if the page hierarchy calls for another level, use `bouncy-accordion`, which accepts `headingLevel`.
 
-## Movimento
+## Motion
 
-- A altura do painel acompanha o conteúdo numa mola sem ultrapassagem, e a resposta desce 6 px saindo de um leve desfoque enquanto aparece.
-- A seta gira 180° numa mola curta; trocar de item no meio da animação redireciona a altura em vez de recomeçar.
-- Com “reduzir movimento” ligado, painéis e seta vão direto ao estado final, sem animação.
+- The panel height follows the content on a no-overshoot spring, and the answer moves down 6 px out of a slight blur as it appears.
+- The arrow rotates 180° on a short spring; switching items mid-animation redirects the height instead of restarting.
+- With “reduce motion” on, panels and arrow go straight to the final state, without animation.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- No tamanho `lg`, abaixo de 520 px a altura mínima do título cai de 76 para 68 px e as fontes descem um degrau.
+- At size `lg`, below 520 px the minimum title height drops from 76 to 68 px and the fonts go down one step.
 
-## Notas para IA
+## Notes for AI
 
-- O primeiro item já começa aberto (`defaultOpen` vale 0); passe `defaultOpen={-1}` para começar com tudo fechado.
-- Os itens são `{ title, content }`: `title` é texto simples e `content` aceita qualquer nó React; não há `value` nem `onValueChange`.
-- Importe de `@/components/ryan-ui/accordion/accordion`; ele ocupa 100% da largura, então limite a largura no pai (o demo usa 520 px).
+- The first item starts open (`defaultOpen` is 0); pass `defaultOpen={-1}` to start with everything closed.
+- Items are `{ title, content }`: `title` is plain text and `content` accepts any React node; there is no `value` or `onValueChange`.
+- Import from `@/components/ryan-ui/accordion/accordion`; it takes 100% of the width, so limit the width on the parent (the demo uses 520 px).
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/accordion · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/accordion · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

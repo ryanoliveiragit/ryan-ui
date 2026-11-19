@@ -2,47 +2,47 @@
 
 > Faixa que rola sem fim na horizontal ou na vertical, com bordas esmaecidas, e desacelera até parar quando o cursor passa.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/marquee
-- Descrição original (inglês): An infinite horizontal or vertical scroller with speed and direction control, faded edges, and a pause on hover that eases to a stop.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/marquee
+- Original description: An infinite horizontal or vertical scroller with speed and direction control, faded edges, and a pause on hover that eases to a stop.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json`. Caminho do registro, relativo ao endereço do site: `r/marquee.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/marquee.json`. Registry path, relative to the site address: `r/marquee.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/marquee/marquee.tsx`
   - `components/ryan-ui/marquee/marquee.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/marquee.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/marquee.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Fileira de logos de clientes, depoimentos curtos ou um letreiro de novidades que serve de ambiente, não de conteúdo essencial.
-- Feed vertical de atividade que rola devagar num espaço de altura fixa (`direction="up"`).
+- Row of customer logos, short testimonials, or a news ticker that serves as ambiance, not essential content.
+- Vertical activity feed that scrolls slowly in a fixed-height space (`direction="up"`).
 
-## Quando não usar
+## When not to use
 
-- Use [`logo-marquee`](logo-marquee.md) quando quiser a fileira de marcas pronta, já com controle de pausa.
-- Use [`carousel`](carousel.md) quando a pessoa precisa parar em cada item e controlar a passagem.
-- Use [`announcement-bar`](announcement-bar.md) para avisos importantes no topo da página; informação essencial não deve depender de texto em movimento.
+- Use [`logo-marquee`](logo-marquee.md) when you want the ready-made row of brands, already with a pause control.
+- Use [`carousel`](carousel.md) when the user needs to stop on each item and control the progression.
+- Use [`announcement-bar`](announcement-bar.md) for important notices at the top of the page; essential information must not depend on moving text.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -120,15 +120,15 @@ export default function MarqueeDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Marquee`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | The items to scroll. They are laid out in a row, or in a column for the vertical directions. |
+| `children` (required) | `ReactNode` | — | The items to scroll. They are laid out in a row, or in a column for the vertical directions. |
 | `direction` | `"left" \| "right" \| "up" \| "down"` | `"left"` | Where the content travels. `left` and `right` scroll a row; `up` and `down` scroll a column and need a height on the marquee. |
 | `speed` | `number` | `48` | Travel speed in px per second. |
 | `gap` | `number \| string` | `24` | Space between items, and between one repetition and the next, in px or any CSS length. |
@@ -139,32 +139,32 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | Extra class names for the root element. |
 | `style` | `CSSProperties` | — | Inline styles for the root element, for sizes and CSS variables. |
 
-## Acessibilidade
+## Accessibility
 
-- As repetições levam `aria-hidden` e `inert`, de modo que cada item é lido e recebe foco uma única vez; com `label`, a raiz vira um `role="group"` nomeado.
-- Com `pauseOnHover` (padrão), o cursor sobre a faixa ou o foco dentro dela a fazem desacelerar até parar; para movimento que dura mais que alguns segundos, ofereça também um botão de pausa ligado a `paused`.
+- The repetitions carry `aria-hidden` and `inert`, so each item is read and receives focus only once; with `label`, the root becomes a named `role="group"`.
+- With `pauseOnHover` (default), the cursor over the strip or focus inside it makes it slow down until it stops; for motion that lasts more than a few seconds, also provide a pause button tied to `paused`.
 
-## Movimento
+## Motion
 
-- O conteúdo corre a `speed` px por segundo num laço de quadros de animação e se repete quantas vezes for preciso (até 24 cópias) para emendar sem costura.
-- Pausar e retomar passam por uma mola que leva o ritmo de 1 a 0 e de volta, então a faixa freia e arranca em vez de congelar; fora da tela, ela descansa.
-- Com “reduzir movimento”, nada se move sozinho: as cópias não são renderizadas e a faixa vira uma área de rolagem comum, focável pelo teclado.
+- The content runs at `speed` px per second in an animation-frame loop and repeats as many times as needed (up to 24 copies) to join seamlessly.
+- Pausing and resuming go through a spring that takes the pace from 1 to 0 and back, so the strip brakes and accelerates instead of freezing; offscreen, it rests.
+- With “reduced motion”, nothing moves on its own: the copies aren't rendered and the strip becomes a regular scroll area, keyboard-focusable.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A faixa ocupa a largura do pai e recalcula o número de cópias quando ela ou o conteúdo mudam de tamanho.
-- Nas direções `up` e `down` a raiz usa `height: 100%`: o pai precisa ter altura definida.
+- The strip takes the parent's width and recalculates the number of copies when it or the content changes size.
+- In the `up` and `down` directions the root uses `height: 100%`: the parent must have a defined height.
 
-## Desempenho
+## Performance
 
-- Cada instância roda um laço de quadros (`useAnimationFrame`) que só move um `transform`; os filhos são renderizados em todas as cópias, então evite itens pesados ou com estado e efeitos próprios.
+- Each instance runs a frame loop (`useAnimationFrame`) that only moves a `transform`; the children are rendered in every copy, so avoid heavy items or ones with their own state and effects.
 
-## Notas para IA
+## Notes for AI
 
-- Passe os itens como filhos diretos: o marquee os alinha em linha (ou em coluna) e aplica `gap` entre eles e entre as repetições.
-- `speed` é em px por segundo (48 por padrão), `direction` aceita `left`, `right`, `up` e `down`, e `fade` controla a máscara das bordas (`true`, um comprimento CSS como `"28%"` ou `false`).
-- Para pausar por botão, guarde um estado e passe em `paused`: o componente não traz esse botão.
+- Pass the items as direct children: the marquee lays them out in a row (or column) and applies `gap` between them and between repetitions.
+- `speed` is in px per second (48 by default), `direction` accepts `left`, `right`, `up`, and `down`, and `fade` controls the edge mask (`true`, a CSS length like `"28%"`, or `false`).
+- To pause with a button, keep a state and pass it to `paused`: the component doesn't include that button.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/marquee · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/marquee · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

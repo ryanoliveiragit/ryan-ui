@@ -2,23 +2,23 @@
 
 > Seção de contato com formulário, canais e escritórios, em três layouts à escolha.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/contact-section
-- Descrição original (inglês): A validated contact form that morphs into a confirmation, support channels, and office cards with local times.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/contact-section
+- Original description: A validated contact form that morphs into a confirmation, support channels, and office cards with local times.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/contact-section.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/contact-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/contact-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/contact-section.json`. Caminho do registro, relativo ao endereço do site: `r/contact-section.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/contact-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/contact-section.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/contact-section.json`. Registry path, relative to the site address: `r/contact-section.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Avatar](avatar.md), [Button](button.md), [Copy button](copy-button.md), [Input](input.md), [Segmented control](segmented-control.md), [Textarea](textarea.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Avatar](avatar.md), [Button](button.md), [Copy button](copy-button.md), [Input](input.md), [Segmented control](segmented-control.md), [Textarea](textarea.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/contact-section/contact-section.tsx`
   - `components/ryan-ui/blocks/contact-section/contact-section.module.css`
   - `components/ryan-ui/lib/media.ts`
@@ -37,29 +37,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/avatar/avatar.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/contact-section.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/contact-section.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Página ou seção de contato com formulário validado (nome, e-mail, assunto e mensagem) que vira uma confirmação no mesmo cartão, na variante `form`.
-- Central de suporte com vários canais (chat, e-mail, vendas, comunidade), cada um com seu painel de detalhe, na variante `channels`.
-- Empresas com escritórios em fusos diferentes: a variante `offices` mostra a hora local de cada um e se está aberto agora.
+- A contact page or section with a validated form (name, email, subject, and message) that turns into a confirmation in the same card, in the `form` variant.
+- A support center with several channels (chat, email, sales, community), each with its own detail panel, in the `channels` variant.
+- Companies with offices in different time zones: the `offices` variant shows each one's local time and whether it is open now.
 
-## Quando não usar
+## When not to use
 
-- Use [`feedback-widget`](feedback-widget.md) para colher uma opinião rápida sem a pessoa sair da página.
-- Use [`signup-form`](signup-form.md) para criar conta, com força de senha e estado de conclusão próprios.
-- Evite quando o formulário precisa de outros campos: nome, e-mail, assunto e mensagem são fixos no código, e só a lista de assuntos vem por prop.
+- Use [`feedback-widget`](feedback-widget.md) to collect a quick opinion without the person leaving the page.
+- Use [`signup-form`](signup-form.md) to create an account, with its own password strength and completion state.
+- Avoid when the form needs other fields: name, email, subject, and message are hardcoded, and only the list of subjects comes through a prop.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import ContactSection from "@/components/ryan-ui/blocks/contact-section/contact-section";
@@ -69,15 +69,15 @@ export default function ContactSectionDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ContactSection`
 
 A contact section in three layouts: a validated form whose card springs into a confirmation, a list of support channels whose detail panel morphs to each channel, and office cards with live local times and open status.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"form" \| "channels" \| "offices"` | `"form"` | `form` validates and morphs into a confirmation, `channels` lists ways to reach you, `offices` shows live local times. |
 | `title` | `string` | — | — |
@@ -95,84 +95,84 @@ A contact section in three layouts: a validated form whose card springs into a c
 
 Preview: the contact section with a switch between its three layouts. Messages are simulated and never sent.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ContactSectionVariant` | `"form" \| "channels" \| "offices"` |
 
 #### `ContactMessage`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | — |
-| `email` (obrigatória) | `string` | — |
-| `topic` (obrigatória) | `string` | — |
-| `message` (obrigatória) | `string` | — |
+| `name` (required) | `string` | — |
+| `email` (required) | `string` | — |
+| `topic` (required) | `string` | — |
+| `message` (required) | `string` | — |
 
 #### `ContactChannel`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
-| `meta` (obrigatória) | `string` | One line under the label in the list, such as a response time. |
+| `value` (required) | `string` | — |
+| `label` (required) | `string` | — |
+| `meta` (required) | `string` | One line under the label in the list, such as a response time. |
 | `icon` | `ReactNode` | — |
-| `detail` (obrigatória) | `ReactNode` | The detail shown when the channel is selected. |
+| `detail` (required) | `ReactNode` | The detail shown when the channel is selected. |
 
 #### `ContactOffice`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `city` (obrigatória) | `string` | — |
-| `timeZone` (obrigatória) | `string` | IANA time zone, used for the live local time and open status. |
-| `address` (obrigatória) | `string[]` | — |
+| `city` (required) | `string` | — |
+| `timeZone` (required) | `string` | IANA time zone, used for the live local time and open status. |
+| `address` (required) | `string[]` | — |
 | `email` | `string` | — |
 | `hours` | `[number, number]` | Opening hours in local 24 hour time. Defaults to 9 to 18. |
 
-### Outras exportações
+### Other exports
 
-- `contactExampleChannels` (valor)
-- `contactExampleOffices` (valor)
+- `contactExampleChannels` (value)
+- `contactExampleOffices` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` ou `←` ou `→` | No grupo de assuntos, marcam o assunto anterior ou o próximo, dando a volta nas pontas. |
-| `↑` ou `↓` ou `←` ou `→` | Na lista de canais (variante `channels`), selecionam o canal anterior ou o próximo e trocam o painel, dando a volta. |
-| `Home` ou `End` | Na lista de canais, selecionam o primeiro ou o último canal. |
-| `Enter` | Num campo de linha única, envia o formulário; com erro, o foco vai para o primeiro campo inválido. |
+| `↑` or `↓` or `←` or `→` | In the subject group, select the previous or next subject, wrapping at the ends. |
+| `↑` or `↓` or `←` or `→` | In the channel list (`channels` variant), select the previous or next channel and switch the panel, wrapping around. |
+| `Home` or `End` | In the channel list, select the first or last channel. |
+| `Enter` | In a single-line field, submits the form; on error, focus goes to the first invalid field. |
 
-## Acessibilidade
+## Accessibility
 
-- Os campos vêm de `input` e `textarea`, com rótulo visível, `aria-invalid` e erro ligado ao campo em `role="alert"`; uma falha de envio também aparece em `role="alert"`.
-- Os assuntos são um `radiogroup` com foco itinerante e os canais, um `tablist` vertical ligado ao `tabpanel`; durante a troca, a face que sai fica `inert`.
-- Na confirmação, o foco vai para o título “Thanks, …”, e “Send another message” limpa o formulário e devolve o foco ao campo Name; os textos fixos estão em inglês.
+- The fields come from `input` and `textarea`, with a visible label, `aria-invalid`, and an error tied to the field in `role="alert"`; a submit failure also appears in `role="alert"`.
+- The subjects are a `radiogroup` with roving focus and the channels a vertical `tablist` tied to the `tabpanel`; during the swap, the outgoing face is `inert`.
+- On confirmation, focus goes to the “Thanks, …” heading, and “Send another message” clears the form and returns focus to the Name field; the fixed texts are in English.
 
-## Movimento
+## Motion
 
-- O cartão muda de altura numa mola ao virar confirmação, enquanto as faces trocam deslizando um pouco e saindo de um leve desfoque; o visto da confirmação se desenha.
-- Nos assuntos e nos canais, um realce desliza até a opção escolhida, e o painel do canal ajusta a altura enquanto o conteúdo novo entra no sentido da navegação.
-- Com “reduzir movimento” ligado, as faces só esmaecem, a altura troca na hora, os realces não deslizam e o visto já aparece desenhado.
+- The card changes height on a spring when it turns into the confirmation, while the faces swap by sliding slightly and coming out of a slight blur; the confirmation checkmark is drawn.
+- On subjects and channels, a highlight slides to the chosen option, and the channel panel adjusts its height while the new content enters in the navigation direction.
+- With “reduce motion” on, the faces only fade, the height changes instantly, the highlights do not slide, and the checkmark appears already drawn.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Container query: abaixo de 820px o formulário desce para baixo do texto e os canais viram uma fileira que rola na horizontal, sem a linha de detalhe; abaixo de 520px os campos empilham.
-- Os cartões de escritório se organizam em colunas automáticas de no mínimo 240px (`auto-fit`).
+- Container query: below 820px the form drops below the text and the channels become a horizontally scrolling row, without the detail row; below 520px the fields stack.
+- The office cards arrange themselves in automatic columns of at least 240px (`auto-fit`).
 
-## Desempenho
+## Performance
 
-- A variante `offices` atualiza a hora local a cada 15 segundos; antes de montar no navegador mostra “--:--”, então a primeira renderização bate com a do servidor.
+- The `offices` variant updates the local time every 15 seconds; before mounting in the browser it shows “--:--”, so the first render matches the server's.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `ContactSection` pelo nome (a exportação padrão é a prévia com seletor de variantes); `avatar`, `button`, `copy-button`, `input`, `segmented-control` e `textarea` são instalados junto.
-- `onSubmit` recebe `{ name, email, topic, message }`: devolva uma promessa e rejeite para manter o formulário com a mensagem de falha; sem ele, o envio é só simulado (1,1 s) e nada sai da página.
-- O e-mail “hello@example.com” e os prazos de resposta da variante `form` estão escritos no código; canais e escritórios de exemplo trocam por `channels` e `offices`.
+- Import `ContactSection` by name (the default export is the preview with a variant selector); `avatar`, `button`, `copy-button`, `input`, `segmented-control`, and `textarea` are installed along with it.
+- `onSubmit` receives `{ name, email, topic, message }`: return a promise and reject it to keep the form with the failure message; without it, the submit is only simulated (1.1 s) and nothing leaves the page.
+- The email “hello@example.com” and the reply times of the `form` variant are written in the code; example channels and offices are swapped through `channels` and `offices`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/contact-section · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/contact-section · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

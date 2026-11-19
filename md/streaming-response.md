@@ -2,48 +2,48 @@
 
 > Texto que chega palavra por palavra, com cursor e desfoque suave, e controles para pausar, pular e repetir.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/streaming-response
-- Descrição original (inglês): Text that streams in word by word behind a caret, each word rising out of a soft blur, with pause, skip and replay controls; reduced motion shows the full text.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/streaming-response
+- Original description: Text that streams in word by word behind a caret, each word rising out of a soft blur, with pause, skip and replay controls; reduced motion shows the full text.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json`. Caminho do registro, relativo ao endereço do site: `r/streaming-response.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streaming-response.json`. Registry path, relative to the site address: `r/streaming-response.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/streaming-response/streaming-response.tsx`
   - `components/ryan-ui/streaming-response/streaming-response.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/streaming-response.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/streaming-response.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar a resposta de um modelo chegando palavra por palavra, com pausas naturais em vírgulas, fins de frase e entre parágrafos.
-- Streams reais: se `text` cresce com o novo pedaço anexado ao final, a revelação continua de onde estava em vez de recomeçar.
-- Demos e onboarding em que a pessoa pode pausar, pular para o fim ou repetir a resposta pela linha de status.
+- Show a model's reply arriving word by word, with natural pauses at commas, sentence ends and between paragraphs.
+- Real streams: if `text` grows with the new chunk appended at the end, the reveal continues from where it was instead of restarting.
+- Demos and onboarding where the person can pause, skip to the end or replay the reply from the status line.
 
-## Quando não usar
+## When not to use
 
-- Use [`message`](message.md) para respostas já prontas, com Markdown e ações de copiar, repetir e avaliar; aqui o texto é simples, dividido só em parágrafos.
-- Use [`text-reveal`](text-reveal.md) para revelar um trecho curto de interface com movimento contido, sem cursor nem controles.
-- Use [`loading-states`](loading-states.md) enquanto ainda não chegou nenhuma palavra.
+- Use [`message`](message.md) for replies that are already complete, with Markdown and copy, replay and rate actions; here the text is plain, split only into paragraphs.
+- Use [`text-reveal`](text-reveal.md) to reveal a short piece of interface with restrained motion, without a cursor or controls.
+- Use [`loading-states`](loading-states.md) while no word has arrived yet.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -86,17 +86,17 @@ export default function StreamingResponseDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `StreamingResponse`
 
 Text that arrives word by word, the way a model response does: each word fades up out of a soft blur behind a caret, the pace breathes at punctuation, and the caret leaves when the text settles. The status line can pause, skip to the end or replay. With reduced motion the whole text is shown at once.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `text` (obrigatória) | `string` | — | The text to stream. Blank lines split it into paragraphs. If the text grows (a real stream appending to it), the reveal carries on from where it is; any other change starts over. |
+| `text` (required) | `string` | — | The text to stream. Blank lines split it into paragraphs. If the text grows (a real stream appending to it), the reveal carries on from where it is; any other change starts over. |
 | `speed` | `number` | `16` | Words revealed per second. Sentence ends and commas add a short natural pause. |
 | `playing` | `boolean` | — | Whether the stream is running (controlled). Set it to false to hold the text where it is. |
 | `defaultPlaying` | `boolean` | `true` | Whether the stream starts running on mount (uncontrolled). |
@@ -108,42 +108,42 @@ Text that arrives word by word, the way a model response does: each word fades u
 | `onComplete` | `() => void` | — | Called once per run when the last word has appeared. |
 | `className` | `string` | — | Class name added to the root element. |
 
-### Outras exportações
+### Other exports
 
-- `takeWords` (função)
+- `takeWords` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Nos controles da linha de status, pausa ou retoma, pula para o fim ou repete; pausar e pular ficam desativados quando o texto termina. |
+| `Enter` or `Space` | On the status line controls, pauses or resumes, skips to the end or replays; pause and skip are disabled when the text finishes. |
 
-## Acessibilidade
+## Accessibility
 
-- As palavras animadas ficam `aria-hidden`; uma cópia oculta tem o texto inteiro desde o início, então o leitor de tela lê a resposta completa, não uma palavra por vez.
-- A linha de status é um `role="status"` com “Streaming”, “Paused” ou “Complete” e, no fim, o total de palavras; os botões só de ícone têm `aria-label` e `title` fixos em inglês.
-- Com `controls={false}` não há linha de status: nada anuncia que a resposta terminou, então avise de outro jeito se isso importar.
+- The animated words are `aria-hidden`; a hidden copy holds the whole text from the start, so the screen reader reads the complete reply, not one word at a time.
+- The status line is a `role="status"` with “Streaming”, “Paused” or “Complete” and, at the end, the total word count; the icon-only buttons have a fixed English `aria-label` and `title`.
+- With `controls={false}` there is no status line: nothing announces that the reply has finished, so notify in another way if that matters.
 
-## Movimento
+## Motion
 
-- Cada palavra sobe de um desfoque suave atrás de um cursor; o ritmo desacelera em vírgulas, fins de frase e entre parágrafos.
-- O cursor respira de leve enquanto as palavras chegam, pisca na pausa e some ao terminar; uma barra fina acima da linha de status mostra o progresso.
-- Com “reduzir movimento” ligado, o texto inteiro aparece de uma vez e os botões de pausar, pular e repetir somem; a linha de status mostra “Complete”.
+- Each word rises from a soft blur behind a cursor; the pace slows at commas, sentence ends and between paragraphs.
+- The cursor breathes lightly while words arrive, blinks on pause and disappears at the end; a thin bar above the status line shows progress.
+- With “reduce motion” on, the whole text appears at once and the pause, skip and replay buttons disappear; the status line shows “Complete”.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Num contêiner esticado em coluna, a linha de status fica no fundo enquanto o texto cresce acima dela, e quebra em duas linhas quando falta largura.
+- In a container stretched into a column, the status line stays at the bottom while the text grows above it, and wraps onto two lines when width runs short.
 
-## Desempenho
+## Performance
 
-- Cada palavra é um `<span>` e cada passo é um `setTimeout` seguido de nova renderização; para respostas longas que já terminaram, passe `instant`.
+- Each word is a `<span>` and each step is a `setTimeout` followed by a re-render; for long replies that have already finished, pass `instant`.
 
-## Notas para IA
+## Notes for AI
 
-- Num stream real, passe o texto acumulado em `text`: anexar ao final continua a revelação, mas qualquer outra mudança recomeça do zero; quebras de linha simples viram espaço.
-- `onComplete` dispara uma vez por execução, assim que todas as palavras já recebidas aparecem; se o stream demora entre pedaços, ele dispara antes do fim real, então use um sinal de fim seu.
-- Ao parar um stream no meio, guarde só o que a pessoa viu com `takeWords(text, shown)`, usando o número que veio de `onProgress`; para histórico, use `instant`.
+- In a real stream, pass the accumulated text in `text`: appending at the end continues the reveal, but any other change restarts from zero; single line breaks become spaces.
+- `onComplete` fires once per run, as soon as all the words received so far have appeared; if the stream pauses between chunks, it fires before the real end, so use your own end signal.
+- When stopping a stream midway, keep only what the person saw with `takeWords(text, shown)`, using the number that came from `onProgress`; for history, use `instant`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/streaming-response · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/streaming-response · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

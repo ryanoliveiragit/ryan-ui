@@ -2,48 +2,48 @@
 
 > Cartões selecionáveis com anel deslizante, preço e descrição, com o teclado de um grupo de rádio.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-cards
-- Descrição original (inglês): Selectable option cards with a sliding selection ring, price and description slots, and radio keyboard behavior.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-cards
+- Original description: Selectable option cards with a sliding selection ring, price and description slots, and radio keyboard behavior.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json`. Caminho do registro, relativo ao endereço do site: `r/radio-cards.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-cards.json`. Registry path, relative to the site address: `r/radio-cards.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/radio-cards/radio-cards.tsx`
   - `components/ryan-ui/radio-cards/radio-cards.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/radio-cards.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/radio-cards.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolha de plano, frete ou região em que cada opção precisa de descrição e preço à vista.
-- Seleção única entre poucas opções que merecem peso visual, como num checkout ou num onboarding.
-- Quando uma opção indisponível deve continuar visível com o motivo, via `disabledReason`.
+- Choosing a plan, shipping option, or region where each option needs a visible description and price.
+- Single selection among a few options that deserve visual weight, such as in a checkout or an onboarding.
+- When an unavailable option should stay visible with the reason, via `disabledReason`.
 
-## Quando não usar
+## When not to use
 
-- Use [`radio-group`](radio-group.md) quando cada opção cabe num rótulo curto e uma linha de apoio.
-- Use [`select`](select.md) quando há muitas opções ou pouco espaço na tela.
-- Use [`chip-group`](chip-group.md) quando a pessoa pode marcar mais de uma opção.
+- Use [`radio-group`](radio-group.md) when each option fits a short label and one supporting line.
+- Use [`select`](select.md) when there are many options or little screen space.
+- Use [`chip-group`](chip-group.md) when people can check more than one option.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -69,15 +69,15 @@ export default function RadioCardsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `RadioCards`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `options` (obrigatória) | `RadioCardOption[]` | — | — |
+| `options` (required) | `RadioCardOption[]` | — | — |
 | `value` | `string \| null` | — | — |
 | `defaultValue` | `string \| null` | `null` | — |
 | `onValueChange` | `(value: string) => void` | — | — |
@@ -86,55 +86,55 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `name` | `string` | — | Form field name. Renders a hidden input with the selected value. |
 | `required` | `boolean` | — | — |
 | `disabled` | `boolean` | `false` | — |
-| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Também aceita as props deste tipo, menos `onChange` e `defaultValue`. |
+| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Also accepts the props of this type, except `onChange` and `defaultValue`. |
 
-### Tipos exportados
+### Exported types
 
 #### `RadioCardOption`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `ReactNode` | — |
+| `value` (required) | `string` | — |
+| `label` (required) | `ReactNode` | — |
 | `description` | `ReactNode` | One or two short lines under the label. |
 | `meta` | `ReactNode` | A price, estimate, or other value. Sits at the end of a list row, or under the text in a grid card. |
 | `icon` | `ReactNode` | Plain decorative icon beside the label. |
 | `disabled` | `boolean` | — |
 | `disabledReason` | `ReactNode` | Short reason shown in place of the description when the option is disabled. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↓` | Movem o foco para o próximo cartão e já o selecionam, pulando os desabilitados e voltando ao primeiro depois do último. |
-| `←` ou `↑` | Fazem o mesmo para o cartão anterior; em layout da direita para a esquerda, ← e → se invertem. |
-| `Home` ou `End` | Selecionam o primeiro ou o último cartão disponível. |
-| `Espaço` ou `Enter` | Selecionam o cartão em foco. |
-| `Tab` | Entra no grupo pelo cartão selecionado, ou pelo primeiro disponível, e sai dele numa tecla só. |
+| `→` or `↓` | Move focus to the next card and select it right away, skipping disabled ones and wrapping to the first after the last. |
+| `←` or `↑` | Do the same for the previous card; in right-to-left layouts, ← and → are swapped. |
+| `Home` or `End` | Select the first or last available card. |
+| `Space` or `Enter` | Select the focused card. |
+| `Tab` | Enters the group at the selected card, or the first available one, and leaves it in a single keystroke. |
 
-## Acessibilidade
+## Accessibility
 
-- O grupo tem `role="radiogroup"` e cada cartão `role="radio"` com `aria-checked`, nomeado pelo rótulo e descrito pela descrição.
-- Não há prop de rótulo: passe `aria-label` ou `aria-labelledby` ao `RadioCards`, senão o grupo fica sem nome para leitores de tela.
-- Opções desabilitadas recebem `aria-disabled` e mostram `disabledReason` no lugar da descrição, então o motivo também é lido.
+- The group has `role="radiogroup"` and each card `role="radio"` with `aria-checked`, named by the label and described by the description.
+- There is no label prop: pass `aria-label` or `aria-labelledby` to `RadioCards`, otherwise the group has no name for screen readers.
+- Disabled options get `aria-disabled` and show `disabledReason` in place of the description, so the reason is also read aloud.
 
-## Movimento
+## Motion
 
-- Um anel único desliza de cartão em cartão numa mola sem ultrapassagem e o ponto do indicador cresce no cartão novo; o cartão em si nunca muda de tamanho.
-- Quando o grupo muda de tamanho, o anel acompanha o novo layout na hora, sem repetir o deslize.
-- Com “reduzir movimento” ligado, anel e ponto mudam de lugar na hora e as transições de cor são desligadas.
+- A single ring slides from card to card on a no-overshoot spring and the indicator dot grows on the new card; the card itself never changes size.
+- When the group changes size, the ring follows the new layout instantly, without repeating the slide.
+- With “reduce motion” on, ring and dot change place instantly and the color transitions are turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- No `layout="grid"` as colunas se ajustam à largura e caem uma a uma quando ficariam menores que `minColumnWidth` (180px por padrão); em `list` cada opção ocupa a linha inteira.
-- O rótulo não quebra linha e corta com reticências; o texto longo vai em `description`, que quebra normalmente.
+- In `layout="grid"` the columns adjust to the width and drop one by one when they would become narrower than `minColumnWidth` (180px by default); in `list` each option takes the full row.
+- The label does not wrap and is truncated with an ellipsis; put long text in `description`, which wraps normally.
 
-## Notas para IA
+## Notes for AI
 
-- Cada opção aceita `label`, `description`, `meta` (preço ou prazo) e `icon`; `meta` fica no fim da linha em `list` e embaixo do texto em `grid`.
-- Controlado com `value` e `onValueChange`, ou não controlado com `defaultValue`; com `name`, um campo oculto leva o valor no formulário.
-- Não esqueça o `aria-label` no grupo; para opções só de texto, `radio-group` é mais simples e usa rádios nativos.
+- Each option accepts `label`, `description`, `meta` (price or lead time), and `icon`; `meta` sits at the end of the row in `list` and below the text in `grid`.
+- Controlled with `value` and `onValueChange`, or uncontrolled with `defaultValue`; with `name`, a hidden field carries the value in the form.
+- Do not forget the `aria-label` on the group; for text-only options, `radio-group` is simpler and uses native radios.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-cards · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-cards · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

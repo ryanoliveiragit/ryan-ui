@@ -2,51 +2,51 @@
 
 > Tabela com linhas aninhadas, seleção em três estados, ordenação que preserva a hierarquia e carga sob demanda.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tree-table
-- Descrição original (inglês): A table with nested rows, tri-state selection, hierarchy-preserving sort, and lazy-loaded children.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/tree-table
+- Original description: A table with nested rows, tri-state selection, hierarchy-preserving sort, and lazy-loaded children.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json`. Caminho do registro, relativo ao endereço do site: `r/tree-table.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tree-table.json`. Registry path, relative to the site address: `r/tree-table.json`.
 
-- Pacotes npm: `@radix-ui/react-checkbox`, `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Checkbox](checkbox.md)
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-checkbox`, `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Checkbox](checkbox.md)
+- Files, once installed:
   - `components/ryan-ui/tree-table/tree-table.tsx`
   - `components/ryan-ui/tree-table/tree-table.module.css`
   - `components/ryan-ui/checkbox/checkbox.tsx`
   - `components/ryan-ui/checkbox/checkbox.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-checkbox lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/tree-table.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-checkbox lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/tree-table.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Dados hierárquicos com colunas para comparar: pastas e arquivos com dono e tamanho, orçamento por área e subárea, equipes e pessoas.
-- Seleção em lote numa hierarquia: marcar um pai marca tudo abaixo dele, e o pai fica em estado misto quando só parte dos filhos está marcada.
-- Árvores grandes cujos filhos vêm do servidor ao abrir, com `loadChildren`, uma linha de carregamento e um botão de nova tentativa quando a carga falha.
+- Hierarchical data with columns to compare: folders and files with owner and size, budget by area and sub-area, teams and people.
+- Bulk selection in a hierarchy: checking a parent checks everything below it, and the parent shows a mixed state when only some children are checked.
+- Large trees whose children come from the server on open, with `loadChildren`, a loading row, and a retry button when the load fails.
 
-## Quando não usar
+## When not to use
 
-- Use [`tree-view`](tree-view.md) para navegar numa hierarquia só pelos nomes, sem colunas de dados.
-- Use [`sortable-data-table`](sortable-data-table.md) quando os registros não têm filhos.
-- Milhares de linhas abertas ao mesmo tempo pedem virtualização, que este componente não tem.
+- Use [`tree-view`](tree-view.md) to navigate a hierarchy by names only, with no data columns.
+- Use [`sortable-data-table`](sortable-data-table.md) when records have no children.
+- Thousands of rows open at once call for virtualization, which this component doesn't have.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { Folder, FileText } from "lucide-react";
@@ -92,17 +92,17 @@ export default function TreeTableDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `TreeTable`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `rows` (obrigatória) | `TreeTableRow<T>[]` | — | — |
-| `columns` (obrigatória) | `TreeTableColumn<T>[]` | — | — |
-| `label` (obrigatória) | `string` | — | Accessible name of the table. |
+| `rows` (required) | `TreeTableRow<T>[]` | — | — |
+| `columns` (required) | `TreeTableColumn<T>[]` | — | — |
+| `label` (required) | `string` | — | Accessible name of the table. |
 | `expanded` | `string[]` | — | — |
 | `defaultExpanded` | `string[]` | `[]` | — |
 | `onExpandedChange` | `(ids: string[]) => void` | — | — |
@@ -121,32 +121,32 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | — |
 | `ref` | `Ref<HTMLDivElement>` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `TreeTableRow`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `data` (obrigatória) | `T` | — |
+| `id` (required) | `string` | — |
+| `data` (required) | `T` | — |
 | `children` | `TreeTableRow<T>[]` | Nested rows. Leave undefined and set hasChildren to load them on first expand with loadChildren. |
 | `hasChildren` | `boolean` | Marks a row whose children are not loaded yet. |
 
 #### `TreeTableCellContext`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `row` (obrigatória) | `TreeTableRow<T>` | — |
-| `depth` (obrigatória) | `number` | One for top level rows. |
-| `expanded` (obrigatória) | `boolean` | — |
+| `row` (required) | `TreeTableRow<T>` | — |
+| `depth` (required) | `number` | One for top level rows. |
+| `expanded` (required) | `boolean` | — |
 
 #### `TreeTableColumn`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `header` (obrigatória) | `string` | — |
-| `cell` (obrigatória) | `(data: T, context: TreeTableCellContext<T>) => ReactNode` | — |
+| `id` (required) | `string` | — |
+| `header` (required) | `string` | — |
+| `cell` (required) | `(data: T, context: TreeTableCellContext<T>) => ReactNode` | — |
 | `sortValue` | `(data: T) => string \| number` | Makes the column sortable. Siblings are sorted within their parent, so the hierarchy never breaks. |
 | `width` | `string` | A grid track, such as "120px" or "minmax(0, 2fr)". Defaults to "minmax(0, 1fr)". |
 | `align` | `"start" \| "end"` | — |
@@ -154,53 +154,53 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 #### `TreeTableSort`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `columnId` (obrigatória) | `string` | — |
-| `direction` (obrigatória) | `"ascending" \| "descending"` | — |
+| `columnId` (required) | `string` | — |
+| `direction` (required) | `"ascending" \| "descending"` | — |
 
-### Outras exportações
+### Other exports
 
-- `collectExpandableIds` (função)
+- `collectExpandableIds` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` ou `Page Up` ou `Page Down` | Move o foco uma linha para cima ou para baixo; Page Up e Page Down saltam dez linhas. |
-| `Home` ou `End` | Vai à primeira ou à última linha visível. |
-| `→` ou `←` | → abre a linha ou, se ela já está aberta, desce ao primeiro filho; ← fecha a linha ou, se ela já está fechada, sobe ao pai. |
-| `Enter` | Abre ou fecha uma linha com filhos, chama `onRowActivate` numa folha e, depois de uma falha de carga, tenta de novo. |
-| `Espaço` ou `Ctrl + A` | Com `selectable`, Espaço marca ou desmarca a linha e seus descendentes; Ctrl + A (⌘ + A no Mac) marca tudo ou limpa a seleção. |
-| `*` | Abre todas as linhas irmãs da linha em foco, carregando os filhos que faltam. |
+| `↑` or `↓` or `Page Up` or `Page Down` | Move focus one row up or down; Page Up and Page Down jump ten rows. |
+| `Home` or `End` | Go to the first or last visible row. |
+| `→` or `←` | → opens the row or, if it is already open, moves down to the first child; ← closes the row or, if it is already closed, moves up to the parent. |
+| `Enter` | Opens or closes a row with children, calls `onRowActivate` on a leaf, and, after a load failure, retries. |
+| `Space` or `Ctrl + A` | With `selectable`, Space checks or unchecks the row and its descendants; Ctrl + A (⌘ + A on Mac) checks everything or clears the selection. |
+| `*` | Opens all sibling rows of the focused row, loading any missing children. |
 
-## Acessibilidade
+## Accessibility
 
-- Segue o padrão `treegrid`: as linhas têm `aria-level`, `aria-posinset`, `aria-setsize` e `aria-expanded`, e o foco é itinerante, com uma única linha na ordem de `Tab`.
-- Com `selectable`, a grade é `aria-multiselectable` e as linhas marcadas têm `aria-selected`; as caixas ficam fora do `Tab` (a marcação é pelo Espaço) e recebem nome de `rowLabel`.
-- Uma região `aria-live` anuncia ordenação, abrir ou fechar tudo e o resultado das cargas; se a linha em foco some ao fechar um ramo, o foco sobe para o ancestral visível mais próximo.
+- Follows the `treegrid` pattern: rows have `aria-level`, `aria-posinset`, `aria-setsize`, and `aria-expanded`, and focus is roving, with a single row in the `Tab` order.
+- With `selectable`, the grid is `aria-multiselectable` and checked rows have `aria-selected`; the checkboxes are outside `Tab` (checking is done with Space) and get their name from `rowLabel`.
+- An `aria-live` region announces sorting, expanding or collapsing all, and the result of loads; if the focused row disappears when a branch closes, focus moves up to the nearest visible ancestor.
 
-## Movimento
+## Motion
 
-- Abrir uma linha faz os filhos crescerem em altura com mola e aparecerem em leve sequência; fechar recolhe na mesma mola, e a seta gira 90°.
-- Ao ordenar, as linhas deslizam até a nova posição dentro do seu nível; quando os filhos chegam de `loadChildren`, o primeiro ocupa o lugar da linha de carregamento, sem empurrão.
-- Com “reduzir movimento” ligado, as linhas aparecem e somem com um esmaecer curto, sem crescer em altura; o esqueleto de carga para de pulsar e o indicador gira mais devagar.
+- Opening a row makes the children grow in height on a spring and appear in a slight sequence; closing collapses on the same spring, and the arrow rotates 90°.
+- When sorting, rows glide to the new position within their level; when children arrive from `loadChildren`, the first takes the loading row's place, with no jolt.
+- With “reduced motion” on, rows appear and disappear with a short fade, without growing in height; the loading skeleton stops pulsing and the indicator spins more slowly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- `hideBelow` esconde uma coluna enquanto a tabela for mais estreita que aquele valor em px; a medida é da própria tabela, então vale também para painéis estreitos em telas largas.
-- Com `maxHeight`, o corpo rola por dentro e o cabeçalho fica fixo; a linha que recebe foco pelo teclado é rolada para a vista sem ficar escondida sob o cabeçalho.
+- `hideBelow` hides a column while the table is narrower than that value in px; the measure is of the table itself, so it also applies to narrow panels on wide screens.
+- With `maxHeight`, the body scrolls internally and the header stays fixed; the row that receives focus by keyboard is scrolled into view without being hidden under the header.
 
-## Desempenho
+## Performance
 
-- Só as linhas dos ramos abertos vão para o DOM, mas sem virtualização: abrir tudo numa árvore de milhares de nós renderiza todos, cada um com animação de altura e de posição.
+- Only the rows of open branches go into the DOM, but without virtualization: opening everything in a tree of thousands of nodes renders them all, each with height and position animation.
 
-## Notas para IA
+## Notes for AI
 
-- Cada linha é `{ id, data, children? }`; para carga sob demanda, deixe `children` indefinido, marque `hasChildren: true` e passe `loadChildren`, que devolve uma `Promise` com os filhos.
-- A primeira coluna leva a árvore; `sortValue` torna a coluna ordenável (crescente, decrescente, sem ordem), `width` aceita uma trilha de grid (`"90px"`, `"minmax(0, 2fr)"`) e `align: "end"` alinha números.
-- Depende do item `checkbox`, instalado junto; `Loading`, `Couldn't load` e `Retry` são fixos em inglês, e para abrir tudo por fora use `collectExpandableIds(rows)` com `expanded` e `onExpandedChange`.
+- Each row is `{ id, data, children? }`; for on-demand loading, leave `children` undefined, set `hasChildren: true`, and pass `loadChildren`, which returns a `Promise` with the children.
+- The first column carries the tree; `sortValue` makes the column sortable (ascending, descending, unsorted), `width` accepts a grid track (`"90px"`, `"minmax(0, 2fr)"`), and `align: "end"` aligns numbers.
+- It depends on the `checkbox` item, installed along with it; `Loading`, `Couldn't load`, and `Retry` are hardcoded in English, and to open everything from outside use `collectExpandableIds(rows)` with `expanded` and `onExpandedChange`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tree-table · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tree-table · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

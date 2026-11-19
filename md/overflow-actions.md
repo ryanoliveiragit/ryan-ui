@@ -2,47 +2,47 @@
 
 > Barra de ações que mede a própria largura e guarda no menu “mais” o que não cabe, animando a cada ajuste.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/overflow-actions
-- Descrição original (inglês): A toolbar that measures its width and moves the actions that do not fit into a "more" menu, with buttons that scale out and a menu button that glides into place.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/overflow-actions
+- Original description: A toolbar that measures its width and moves the actions that do not fit into a "more" menu, with buttons that scale out and a menu button that glides into place.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json`. Caminho do registro, relativo ao endereço do site: `r/overflow-actions.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/overflow-actions.json`. Registry path, relative to the site address: `r/overflow-actions.json`.
 
-- Pacotes npm: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/overflow-actions/overflow-actions.tsx`
   - `components/ryan-ui/blocks/overflow-actions/overflow-actions.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/overflow-actions.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/overflow-actions.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Barra de ferramentas cuja largura muda (painéis redimensionáveis, colunas estreitas, telas pequenas) e que tem mais ações do que cabem.
-- Quando todas as ações precisam continuar alcançáveis: as que não cabem vão para o menu “mais”, começando pelas últimas da lista.
+- Toolbar whose width changes (resizable panels, narrow columns, small screens) and that has more actions than fit.
+- When all actions must stay reachable: the ones that do not fit go into the “more” menu, starting with the last ones in the list.
 
-## Quando não usar
+## When not to use
 
-- Use [`button-group`](button-group.md) quando são poucas ações relacionadas que sempre cabem.
-- Use [`dropdown-menu`](dropdown-menu.md) quando as ações secundárias podem ficar num menu desde o início.
-- Use [`toggle-group`](toggle-group.md) para alternadores de formatação que cabem sempre e não precisam de menu.
+- Use [`button-group`](button-group.md) when there are a few related actions that always fit.
+- Use [`dropdown-menu`](dropdown-menu.md) when secondary actions can live in a menu from the start.
+- Use [`toggle-group`](toggle-group.md) for formatting toggles that always fit and do not need a menu.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import OverflowActionsPreview from "@/components/ryan-ui/blocks/overflow-actions/overflow-actions";
@@ -52,17 +52,17 @@ export default function OverflowActionsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `OverflowActions`
 
 A toolbar that always fits. It measures every action once in a hidden row, then shows as many as the current width allows and moves the rest into a "more" menu. Buttons leave and return with a short scale, and the "more" button glides to its new place on a layout spring.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `actions` (obrigatória) | `OverflowAction[]` | — | Actions in priority order: the last ones move into the menu first. |
+| `actions` (required) | `OverflowAction[]` | — | Actions in priority order: the last ones move into the menu first. |
 | `label` | `string` | `"Actions"` | Accessible name of the toolbar. |
 | `moreLabel` | `string` | `"More actions"` | Accessible name of the "more" button. |
 | `onAction` | `(id: string) => void` | — | Called with the action id whenever an action is used. |
@@ -73,59 +73,59 @@ A toolbar that always fits. It measures every action once in a hidden row, then 
 
 Ready preview: a small editor whose toolbar you can resize with the handle, the arrow keys or the width presets.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `OverflowAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable key; also passed to `onAction`. |
-| `label` (obrigatória) | `string` | Visible text in the bar and in the menu. |
+| `id` (required) | `string` | Stable key; also passed to `onAction`. |
+| `label` (required) | `string` | Visible text in the bar and in the menu. |
 | `icon` | `ReactNode` | Icon shown before the label. |
 | `pressed` | `boolean` | Marks a toggle as on (`aria-pressed` in the bar, a check state in the menu). Leave undefined for plain actions. |
 | `disabled` | `boolean` | Disabled actions stay in place but cannot be used. |
 | `onSelect` | `() => void` | Runs when the action is used, from the bar or from the menu. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `←` | Movem o foco entre as ações visíveis e o botão “mais”, dando a volta nas pontas e pulando as desativadas. |
-| `Home` ou `End` | Levam o foco à primeira ou à última parada da barra. |
-| `Tab` | A barra tem uma única parada de Tab; as setas fazem o resto. |
-| `Enter` ou `Espaço` | Acionam a ação em foco ou abrem o menu “mais”. |
-| `↓` ou `↑` | No menu “mais”, movem entre os itens; `↓` no botão também abre o menu. |
-| `Esc` | Fecha o menu e devolve o foco ao botão “mais”. |
+| `→` or `←` | Move focus between the visible actions and the “more” button, wrapping around at the ends and skipping disabled ones. |
+| `Home` or `End` | Move focus to the first or last stop of the bar. |
+| `Tab` | The bar has a single Tab stop; the arrow keys do the rest. |
+| `Enter` or `Space` | Activate the focused action or open the “more” menu. |
+| `↓` or `↑` | In the “more” menu, move between items; `↓` on the button also opens the menu. |
+| `Esc` | Closes the menu and returns focus to the “more” button. |
 
-## Acessibilidade
+## Accessibility
 
-- A barra é um `role="toolbar"` com `aria-label` vindo de `label` e roving tabindex; ações com `pressed` expõem `aria-pressed`.
-- O botão “mais” recebe `moreLabel` com a contagem no `aria-label`, e no menu uma ação ligada ganha um ponto com o texto “On” para leitor de tela.
-- A fileira de medição, com cópias de todas as ações, fica com `aria-hidden` e `inert`.
+- The bar is a `role="toolbar"` with an `aria-label` coming from `label` and roving tabindex; actions with `pressed` expose `aria-pressed`.
+- The “more” button receives `moreLabel` with the count in the `aria-label`, and in the menu an active action gets a dot with the text “On” for screen readers.
+- The measuring row, with copies of all the actions, is `aria-hidden` and `inert`.
 
-## Movimento
+## Motion
 
-- As ações que deixam de caber encolhem para 80% e esmaecem, e as que voltam fazem o caminho inverso; o botão “mais” desliza até a nova posição numa mola de layout.
-- O número no botão “mais” rola na vertical quando a contagem muda, e o menu abre com os itens em cascata de 28 ms.
-- Com “reduzir movimento” ligado, entradas, saídas e deslocamentos acontecem na hora e as animações do menu são removidas.
+- Actions that stop fitting shrink to 80% and fade, and the ones that return do the reverse; the “more” button slides to its new position on a layout spring.
+- The number on the “more” button rolls vertically when the count changes, and the menu opens with the items in a 28 ms cascade.
+- With “reduce motion” on, entries, exits, and shifts happen instantly and the menu animations are removed.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura que conta é a do próprio componente, que ocupa 100% do pai: ele mede todas as ações numa fileira oculta e mostra quantas couberem, sem nunca quebrar linha.
-- Quando não cabe nenhuma ação, sobra só o botão “mais”, com todas dentro do menu.
+- The width that counts is the component's own, which takes 100% of its parent: it measures all the actions in a hidden row and shows as many as fit, never wrapping to a new line.
+- When no action fits, only the “more” button remains, with all of them inside the menu.
 
-## Desempenho
+## Performance
 
-- Um `ResizeObserver` observa a raiz e a fileira de medição e refaz a conta a cada mudança de largura, rótulo ou fonte; cada ação é renderizada duas vezes por causa dessa cópia.
+- A `ResizeObserver` watches the root and the measuring row and recomputes on every change of width, label, or font; each action is rendered twice because of that copy.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `OverflowActions`; o export padrão é o preview de um editor com alça de redimensionar.
-- Ordene `actions` por prioridade, porque as últimas vão primeiro para o menu, e dê ao contêiner uma largura real (em flex, `min-width: 0`).
-- `pressed` é controlado por você: guarde o estado e alterne em `onSelect` ou em `onAction(id)`; `onOverflowChange(ids)` avisa quais ações estão no menu.
+- Import the named component `OverflowActions`; the default export is the preview of an editor with a resize handle.
+- Order `actions` by priority, because the last ones go to the menu first, and give the container a real width (in flex, `min-width: 0`).
+- `pressed` is controlled by you: keep the state and toggle it in `onSelect` or `onAction(id)`; `onOverflowChange(ids)` reports which actions are in the menu.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/overflow-actions · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/overflow-actions · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

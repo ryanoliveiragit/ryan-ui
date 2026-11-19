@@ -2,49 +2,49 @@
 
 > Navegue pelas datas em uma visão mensal clara e compacta.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/calendar
-- Descrição original (inglês): Browse dates in a clear, compact month view.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/calendar
+- Original description: Browse dates in a clear, compact month view.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/calendar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/calendar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/calendar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/calendar.json`. Caminho do registro, relativo ao endereço do site: `r/calendar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/calendar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/calendar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/calendar.json`. Registry path, relative to the site address: `r/calendar.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/calendar/calendar.tsx`
   - `components/ryan-ui/lib/use-today.ts`
   - `components/ryan-ui/calendar/calendar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/calendar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/calendar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolha de um único dia com o mês sempre visível na página: agendamento, entrega, painel lateral de agenda.
-- Quando parte dos dias não pode ser escolhida: `minDate`, `maxDate` e a função `disabledDates` bloqueiam dias, e o teclado passa por cima deles.
-- Como peça de um seletor próprio: `month` e `onMonthChange` controlam o mês visível, como faz o `date-picker`.
+- Choosing a single day with the month always visible on the page: scheduling, delivery, an agenda side panel.
+- When some days cannot be chosen: `minDate`, `maxDate`, and the `disabledDates` function block days, and the keyboard skips over them.
+- As a piece of your own picker: `month` and `onMonthChange` control the visible month, as `date-picker` does.
 
-## Quando não usar
+## When not to use
 
-- Use [`date-picker`](date-picker.md) quando o calendário deve abrir a partir de um campo de formulário e fechar depois da escolha.
-- Use [`date-range-picker`](date-range-picker.md) para escolher início e fim: este calendário guarda um dia só.
-- Use [`activity-heatmap`](activity-heatmap.md) para exibir valores por dia ao longo do ano; este calendário serve para escolher uma data, não para visualizar dados.
+- Use [`date-picker`](date-picker.md) when the calendar should open from a form field and close after the choice.
+- Use [`date-range-picker`](date-range-picker.md) to choose a start and end: this calendar holds a single day.
+- Use [`activity-heatmap`](activity-heatmap.md) to display values per day across the year; this calendar is for choosing a date, not for visualizing data.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -68,13 +68,13 @@ export default function CalendarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Calendar`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `Date` | — | — |
 | `onChange` | `(date: Date) => void` | — | — |
@@ -87,57 +87,57 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | — |
 | `showToday` | `boolean` | `false` | Adds a Today button that slides back to the current month and selects today when it is available. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `CalendarDateMatcher` | `(date: Date) => boolean` |
 
-### Outras exportações
+### Other exports
 
-- `startOfDay` (função)
-- `sameDay` (função)
-- `addDays` (função)
-- `addMonths` (função)
+- `startOfDay` (function)
+- `sameDay` (function)
+- `addDays` (function)
+- `addMonths` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Move o foco um dia para trás ou para a frente, pulando dias bloqueados. |
-| `↑` ou `↓` | Move o foco uma semana para trás ou para a frente. |
-| `Home` ou `End` | Vai para o domingo ou para o sábado da semana em foco. |
-| `Page Up` ou `Page Down` | Vai para o mesmo dia do mês anterior ou do seguinte, e o mês visível acompanha. |
-| `Shift + Page Up` ou `Shift + Page Down` | Volta ou avança um ano. |
-| `Enter` ou `Espaço` | Seleciona o dia em foco. |
+| `←` or `→` | Moves focus one day back or forward, skipping blocked days. |
+| `↑` or `↓` | Moves focus one week back or forward. |
+| `Home` or `End` | Goes to the Sunday or Saturday of the focused week. |
+| `Page Up` or `Page Down` | Goes to the same day of the previous or next month, and the visible month follows. |
+| `Shift + Page Up` or `Shift + Page Down` | Goes back or forward one year. |
+| `Enter` or `Space` | Selects the focused day. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada mês é um `role="grid"` e cada dia um botão com a data por extenso em `aria-label`, `aria-selected` e, no dia de hoje, `aria-current="date"`.
-- Só um dia fica na ordem de tabulação (o último focado, o selecionado, hoje ou o primeiro livre), e a troca de mês é anunciada por uma região `aria-live`.
-- `locale` traduz o mês, os dias da semana e a data lida em cada dia, mas `Today`, `Previous month` e `Next month` são textos fixos em inglês.
+- Each month is a `role="grid"` and each day a button with the full-text date in `aria-label`, `aria-selected`, and, on today, `aria-current="date"`.
+- Only one day is in the tab order (the last focused, the selected, today, or the first available), and the month change is announced by an `aria-live` region.
+- `locale` translates the month, the weekdays, and the date read out on each day, but `Today`, `Previous month`, and `Next month` are fixed English texts.
 
-## Movimento
+## Motion
 
-- Os meses ficam lado a lado numa faixa que desliza com uma mola sem ultrapassagem; cliques rápidos redirecionam a mesma mola em vez de enfileirar animações.
-- O disco da seleção desliza em linha reta de um dia ao outro, e cada número troca de cor no momento em que o disco passa por ele.
-- Com “reduzir movimento” ligado, mês, título e disco trocam no lugar, sem deslocamento.
+- Months sit side by side in a strip that slides with a spring with no overshoot; quick clicks redirect the same spring instead of queuing animations.
+- The selection disc slides in a straight line from one day to another, and each number changes color the moment the disc passes over it.
+- With “reduce motion” on, month, title, and disc swap in place, with no displacement.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa `min(100%, 328px)` e toda grade tem seis semanas, então a altura não muda de um mês para outro.
-- O cabeçalho é um contêiner próprio: abaixo de 260 px de largura o título ocupa uma linha inteira e os controles descem para a linha seguinte.
+- Takes `min(100%, 328px)` and every grid has six weeks, so the height does not change from one month to another.
+- The header is its own container: below 260 px of width the title takes a full line and the controls drop to the next line.
 
-## Desempenho
+## Performance
 
-- Só ficam montados o mês de destino e os que ainda estão passando pela faixa, com 42 botões cada; o mês que sai fica `inert`.
+- Only the destination month and those still passing through the strip stay mounted, with 42 buttons each; the month leaving becomes `inert`.
 
-## Notas para IA
+## Notes for AI
 
-- A seleção é sempre controlada: guarde a data em estado e passe `value` e `onChange`, senão nenhum dia fica marcado; já o mês visível pode ficar por conta do componente ou vir de `month`.
-- A semana começa sempre no domingo e `locale` tem padrão `en-US`: passe `locale="pt-BR"` para ter os nomes em português.
-- Sem `value` nem `month`, a grade só é preenchida depois da hidratação, porque o “hoje” vem do relógio do visitante (`useToday`).
+- Selection is always controlled: keep the date in state and pass `value` and `onChange`, otherwise no day is marked; the visible month can be left to the component or come from `month`.
+- The week always starts on Sunday and `locale` defaults to `en-US`: pass `locale="pt-BR"` to get the names in Portuguese.
+- Without `value` or `month`, the grid is only filled after hydration, because “today” comes from the visitor's clock (`useToday`).
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/calendar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/calendar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

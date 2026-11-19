@@ -2,48 +2,48 @@
 
 > Ações relacionadas numa só superfície, com realce que desliza entre os segmentos e menu acoplado.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/button-group
-- Descrição original (inglês): Related actions joined into one surface with hairline dividers: a hover highlight glides between segments, the pressed one answers in place, and an attached menu can close the row.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/button-group
+- Original description: Related actions joined into one surface with hairline dividers: a hover highlight glides between segments, the pressed one answers in place, and an attached menu can close the row.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button-group.json`. Caminho do registro, relativo ao endereço do site: `r/button-group.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button-group.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button-group.json`. Registry path, relative to the site address: `r/button-group.json`.
 
-- Pacotes npm: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/button-group/button-group.tsx`
   - `components/ryan-ui/button-group/button-group.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/button-group.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/button-group.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ações relacionadas sobre o mesmo objeto que devem ler como um controle só: Compartilhar, Baixar, Arquivar.
-- Quando as ações menos usadas cabem num menu anexo ao fim da fileira (prop `menu`).
-- Barras em que os rótulos podem encolher para ícones quando falta largura (`collapseLabels`).
+- Related actions on the same object that should read as a single control: Share, Download, Archive.
+- When the less-used actions fit in a menu attached to the end of the row (`menu` prop).
+- Bars where labels can shrink to icons when width runs short (`collapseLabels`).
 
-## Quando não usar
+## When not to use
 
-- Use [`toggle-group`](toggle-group.md) ou [`segmented-control`](segmented-control.md) quando os botões representam um estado ou uma escolha: aqui nenhum segmento fica marcado como pressionado.
-- Use [`split-button`](split-button.md) quando existe uma ação principal e as demais são alternativas dela.
-- Use [`overflow-actions`](overflow-actions.md) quando a barra deve mandar para um menu as ações que não cabem na largura.
+- Use [`toggle-group`](toggle-group.md) or [`segmented-control`](segmented-control.md) when the buttons represent a state or a choice: here no segment is marked as pressed.
+- Use [`split-button`](split-button.md) when there is a main action and the others are alternatives to it.
+- Use [`overflow-actions`](overflow-actions.md) when the bar should send the actions that do not fit the width to a menu.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -109,19 +109,19 @@ export default function ButtonGroupDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ButtonGroup`
 
 Related actions joined into one surface: a shared border and radius, hairline dividers, no gaps. One soft highlight glides between segments under the pointer or keyboard focus, the pressed segment answers in place, and an optional chevron segment opens more actions in a menu aligned to the group's edge.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `ButtonGroupItem[]` | — | — |
+| `items` (required) | `ButtonGroupItem[]` | — | — |
 | `menu` | `ButtonGroupMenu` | — | Adds a trailing chevron segment that opens these actions in a menu aligned to the group's edge. |
-| `label` (obrigatória) | `string` | — | Accessible name of the group, such as "Document actions". |
+| `label` (required) | `string` | — | Accessible name of the group, such as "Document actions". |
 | `variant` | `"outline" \| "solid"` | `"outline"` | — |
 | `size` | `"sm" \| "md"` | `"md"` | — |
 | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | — |
@@ -131,9 +131,9 @@ Related actions joined into one surface: a shared border and radius, hairline di
 | `className` | `string` | — | — |
 | `style` | `CSSProperties` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ButtonGroupVariant` | `"outline" \| "solid"` |
 | `ButtonGroupSize` | `"sm" \| "md"` |
@@ -141,10 +141,10 @@ Related actions joined into one surface: a shared border and radius, hairline di
 
 #### `ButtonGroupItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable key for the segment. |
-| `label` (obrigatória) | `string` | Visible text and the accessible name. Changing it crossfades in place, so "Share" can answer "Copied". |
+| `id` (required) | `string` | Stable key for the segment. |
+| `label` (required) | `string` | Visible text and the accessible name. Changing it crossfades in place, so "Share" can answer "Copied". |
 | `reserve` | `string[]` | Every other label this segment can show, such as ["Copied"]. The segment sizes to the widest, so a label change never resizes it. |
 | `icon` | `ReactNode` | — |
 | `iconOnly` | `boolean` | Shows only the icon; the label becomes the accessible name and the tooltip. |
@@ -155,10 +155,10 @@ Related actions joined into one surface: a shared border and radius, hairline di
 
 #### `ButtonGroupMenuItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `icon` | `ReactNode` | — |
 | `onSelect` | `() => void` | — |
 | `href` | `string` | — |
@@ -167,49 +167,49 @@ Related actions joined into one surface: a shared border and radius, hairline di
 
 #### `ButtonGroupMenu`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | Accessible name and tooltip of the chevron segment, such as "More actions". |
-| `items` (obrigatória) | `ButtonGroupMenuItem[]` | — |
+| `label` (required) | `string` | Accessible name and tooltip of the chevron segment, such as "More actions". |
+| `items` (required) | `ButtonGroupMenuItem[]` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` ou `Shift + Tab` | Passam por cada segmento em ordem; todos são paradas de tabulação. |
-| `→` ou `←` | Movem o foco entre os segmentos e dão a volta nas pontas; na orientação `vertical` valem `↓` e `↑`, e em RTL as setas se invertem. |
-| `Home` ou `End` | Levam o foco ao primeiro e ao último segmento. |
-| `Enter` ou `Espaço` | Acionam o segmento em foco (um segmento com `href` é link e responde só a `Enter`); na seta, abrem o menu. |
-| `↓` | Na seta, abre o menu; dentro dele, `↓` e `↑` percorrem os itens em laço e `Enter` escolhe. |
-| `Esc` | Fecha o menu e devolve o foco à seta. |
+| `Tab` or `Shift + Tab` | Move through each segment in order; all of them are tab stops. |
+| `→` or `←` | Move focus between segments and wrap around at the ends; in the `vertical` orientation `↓` and `↑` apply, and in RTL the arrows are reversed. |
+| `Home` or `End` | Move focus to the first and last segment. |
+| `Enter` or `Space` | Trigger the focused segment (a segment with `href` is a link and responds only to `Enter`); on the arrow, open the menu. |
+| `↓` | On the arrow, opens the menu; inside it, `↓` and `↑` loop through the items and `Enter` selects. |
+| `Esc` | Closes the menu and returns focus to the arrow. |
 
-## Acessibilidade
+## Accessibility
 
-- O contêiner é `role="group"` com o `label` obrigatório como nome; cada segmento é um `<button>` ou, com `href`, um link.
-- Segmentos `iconOnly`, com `content` ou recolhidos usam o `label` como `aria-label` (e, sem texto visível, também como `title`); um item `disabled` vira `aria-disabled` e continua focável.
-- Um rótulo que muda logo depois do acionamento do próprio segmento, como “Copiado”, é anunciado uma vez por uma região `aria-live="polite"`.
+- The container is `role="group"` with the required `label` as its name; each segment is a `<button>` or, with `href`, a link.
+- `iconOnly` segments, with `content`, or collapsed ones use the `label` as `aria-label` (and, with no visible text, also as `title`); a `disabled` item becomes `aria-disabled` and stays focusable.
+- A label that changes right after the segment itself is triggered, like “Copied”, is announced once by an `aria-live="polite"` region.
 
-## Movimento
+## Motion
 
-- Um único realce desliza entre os segmentos sob o ponteiro ou o foco do teclado, numa mola sem ultrapassagem, e as divisórias vizinhas somem para ele ler como uma forma só.
-- A pressão encolhe só o conteúdo do segmento (0,97; 0,9 nos de ícone); um rótulo novo sobe de um leve desfoque dentro de uma caixa de largura fixa quando `reserve` lista os textos.
-- Com “reduzir movimento”, o realce salta para o segmento, não há escala na pressão e o menu apenas esmaece.
+- A single highlight slides between segments under the pointer or keyboard focus, on a spring with no overshoot, and neighboring dividers disappear so it reads as one shape.
+- The press shrinks only the segment content (0.97; 0.9 on icon ones); a new label rises from a slight blur inside a fixed-width box when `reserve` lists the texts.
+- With “reduce motion”, the highlight jumps to the segment, there is no press scale, and the menu only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Com `collapseLabels` (padrão), quando a fileira não cabe no contêiner os segmentos com ícone escondem o rótulo, que passa para `aria-label` e `title`, e o recuperam quando volta a haver espaço.
-- O grupo nunca passa de 100% do contêiner: o que ainda sobra rola na horizontal sem barra visível; na orientação `vertical` os segmentos ocupam a largura toda e não recolhem.
+- With `collapseLabels` (default), when the row does not fit the container, segments with an icon hide the label, which moves to `aria-label` and `title`, and get it back when there is room again.
+- The group never exceeds 100% of the container: what is left over scrolls horizontally with no visible scrollbar; in the `vertical` orientation the segments take the full width and do not collapse.
 
-## Desempenho
+## Performance
 
-- Cada grupo usa `ResizeObserver` no contêiner pai, em si mesmo e em cada segmento, e testa a posição dos segmentos a cada movimento do ponteiro: adequado a barras, não a dezenas de grupos numa lista.
+- Each group uses `ResizeObserver` on the parent container, on itself, and on each segment, and tests segment positions on every pointer move: suited to bars, not to dozens of groups in a list.
 
-## Notas para IA
+## Notes for AI
 
-- `label` nomeia o grupo e é obrigatório; cada item precisa de `id` e `label`, e a ação vai em `onSelect` (ou `href`, para o segmento virar link).
-- Se um rótulo muda (Compartilhar → Copiado), liste todos os textos em `reserve` para o segmento manter a largura do maior.
-- É um grupo de ações sem estado selecionado; `menu` (`label` e `items`) acrescenta a seta com o menu, e `variant="solid"` é a versão preenchida, de mais destaque.
+- `label` names the group and is required; each item needs `id` and `label`, and the action goes in `onSelect` (or `href`, for the segment to become a link).
+- If a label changes (Share → Copied), list all the texts in `reserve` so the segment keeps the width of the longest.
+- It is a group of actions with no selected state; `menu` (`label` and `items`) adds the arrow with the menu, and `variant="solid"` is the filled, more prominent version.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/button-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/button-group · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

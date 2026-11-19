@@ -8,7 +8,7 @@ function load<T>(url: string): Promise<T> {
   const cached = cache.get(url) as Promise<T> | undefined;
   if (cached) return cached;
   const request = fetch(url).then(response => {
-    if (!response.ok) throw new Error(`${response.status} ao buscar ${url}`);
+    if (!response.ok) throw new Error(`${response.status} while fetching ${url}`);
     return response.json() as Promise<T>;
   });
   cache.set(url, request);
@@ -32,7 +32,7 @@ export function useJson<T>(url: string | null): State<T> {
 export function useText(loader: (() => Promise<string>) | undefined, key: string): State<string> {
   const [state, setState] = useState<{ key: string; value: State<string> }>({ key, value: { status: "loading" } });
   useEffect(() => {
-    if (!loader) { setState({ key, value: { status: "error", error: new Error("sem arquivo") } }); return; }
+    if (!loader) { setState({ key, value: { status: "error", error: new Error("no file") } }); return; }
     let alive = true;
     loader().then(data => { if (alive) setState({ key, value: { status: "ready", data } }); }).catch((error: unknown) => { if (alive) setState({ key, value: { status: "error", error: error instanceof Error ? error : new Error(String(error)) } }); });
     return () => { alive = false; };

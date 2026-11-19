@@ -2,23 +2,23 @@
 
 > Barra de consentimento que vira painel de preferências e se recolhe em um botão para reabrir.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/cookie-consent
-- Descrição original (inglês): A consent bar that morphs into preferences and folds into a reopen button.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/cookie-consent
+- Original description: A consent bar that morphs into preferences and folds into a reopen button.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json`. Caminho do registro, relativo ao endereço do site: `r/cookie-consent.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cookie-consent.json`. Registry path, relative to the site address: `r/cookie-consent.json`.
 
-- Pacotes npm: `@radix-ui/react-switch`, `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Switch](switch.md)
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-switch`, `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md), [Switch](switch.md)
+- Files, once installed:
   - `components/ryan-ui/cookie-consent/cookie-consent.tsx`
   - `components/ryan-ui/cookie-consent/cookie-consent.module.css`
   - `components/ryan-ui/switch/switch.tsx`
@@ -26,29 +26,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-switch lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/cookie-consent.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-switch lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/cookie-consent.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Pedir consentimento para cookies opcionais na primeira visita, com aceitar, rejeitar e personalizar lado a lado, e recusar tão fácil quanto aceitar.
-- Deixar a pessoa mudar de ideia depois: a escolha vira um botão redondo no canto que reabre as preferências, e `openPreferences()` pelo `ref` atende um link “Cookies” no rodapé.
-- Pedir de novo quando a política muda: aumente `version` e a escolha salva em `storageKey` deixa de valer.
+- Ask for consent to optional cookies on the first visit, with accept, reject, and customize side by side, and declining as easy as accepting.
+- Let the user change their mind later: the choice becomes a round button in the corner that reopens the preferences, and `openPreferences()` through the `ref` serves a “Cookies” link in the footer.
+- Ask again when the policy changes: increase `version` and the choice saved under `storageKey` stops being valid.
 
-## Quando não usar
+## When not to use
 
-- Use [`announcement-bar`](announcement-bar.md) para um recado de topo que não pede escolha nenhuma.
-- Use [`dialog`](dialog.md) quando o fluxo exige bloquear a página até a decisão; esta camada não é modal e o site segue usável por trás.
-- Use [`switch`](switch.md) direto numa página de configurações quando as preferências de privacidade fazem parte de um formulário maior.
+- Use [`announcement-bar`](announcement-bar.md) for a top message that asks for no choice.
+- Use [`dialog`](dialog.md) when the flow requires blocking the page until a decision is made; this layer is not modal and the site remains usable behind it.
+- Use [`switch`](switch.md) directly on a settings page when the privacy preferences are part of a larger form.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -79,13 +79,13 @@ export default function CookieConsentDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CookieConsent`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `categories` | `CookieCategory[]` | `defaultCookieCategories` | — |
 | `value` | `CookieConsentValue \| null` | — | The saved choice. `null` means the visitor has not decided yet. Leave it out to let the component manage it. |
@@ -104,9 +104,9 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `labels` | `Partial<CookieConsentLabels>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `CookieConsentValue`: Category id to allowed. | `Record<string, boolean>` |
 | `CookieConsentAction` | `"accept-all" \| "reject-all" \| "save" \| "reset"` |
@@ -115,10 +115,10 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 One group of cookies a visitor can allow or refuse.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `description` | `string` | — |
 | `required` | `boolean` | Needed for the site to work. Always on and cannot be switched off. |
 | `defaultEnabled` | `boolean` | Starting position of the switch before a choice is saved. Non-essential categories default to off. |
@@ -127,71 +127,71 @@ One group of cookies a visitor can allow or refuse.
 
 What is written to storage under `storageKey`.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `Record<string, boolean>` | — |
-| `version` (obrigatória) | `string` | — |
-| `updatedAt` (obrigatória) | `string` | — |
+| `value` (required) | `Record<string, boolean>` | — |
+| `version` (required) | `string` | — |
+| `updatedAt` (required) | `string` | — |
 
 #### `CookieConsentHandle`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `openPreferences` (obrigatória) | `() => void` | Opens the preferences panel, for example from a "Cookie settings" footer link. |
-| `closePreferences` (obrigatória) | `() => void` | Closes the preferences panel without saving. |
-| `reset` (obrigatória) | `() => void` | Forgets the saved choice and asks again. |
+| `openPreferences` (required) | `() => void` | Opens the preferences panel, for example from a "Cookie settings" footer link. |
+| `closePreferences` (required) | `() => void` | Closes the preferences panel without saving. |
+| `reset` (required) | `() => void` | Forgets the saved choice and asks again. |
 
 #### `CookieConsentLabels`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `message` (obrigatória) | `ReactNode` | — |
-| `customize` (obrigatória) | `string` | — |
-| `acceptAll` (obrigatória) | `string` | — |
-| `rejectAll` (obrigatória) | `string` | — |
-| `save` (obrigatória) | `string` | — |
-| `preferencesTitle` (obrigatória) | `string` | — |
-| `preferencesDescription` (obrigatória) | `ReactNode` | — |
-| `reopen` (obrigatória) | `string` | — |
-| `alwaysOn` (obrigatória) | `string` | — |
-| `close` (obrigatória) | `string` | — |
+| `message` (required) | `ReactNode` | — |
+| `customize` (required) | `string` | — |
+| `acceptAll` (required) | `string` | — |
+| `rejectAll` (required) | `string` | — |
+| `save` (required) | `string` | — |
+| `preferencesTitle` (required) | `string` | — |
+| `preferencesDescription` (required) | `ReactNode` | — |
+| `reopen` (required) | `string` | — |
+| `alwaysOn` (required) | `string` | — |
+| `close` (required) | `string` | — |
 
-### Outras exportações
+### Other exports
 
-- `defaultCookieCategories` (valor)
-- `readCookieConsent` (função)
+- `defaultCookieCategories` (value)
+- `readCookieConsent` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Esc` | Com o foco no painel de preferências, fecha sem salvar e devolve o foco ao botão “Customize” da barra ou ao botão de reabrir. |
-| `Espaço` ou `Enter` | No interruptor de uma categoria, liga ou desliga no rascunho; nada é salvo até “Save choices”, “Accept all” ou “Reject all”. |
-| `Tab` ou `Shift + Tab` | Percorre botões e interruptores; não há trap de foco, porque a camada não é modal. |
+| `Esc` | With focus in the preferences panel, closes without saving and returns focus to the bar's “Customize” button or to the reopen button. |
+| `Space` or `Enter` | On a category's switch, toggles it in the draft; nothing is saved until “Save choices”, “Accept all”, or “Reject all”. |
+| `Tab` or `Shift + Tab` | Moves through buttons and switches; there is no focus trap, because the layer is not modal. |
 
-## Acessibilidade
+## Accessibility
 
-- Barra e painel são `role="dialog"` com `aria-modal="false"`, sem trap de foco; abrir o painel leva o foco ao título, e salvar ou fechar devolve o foco à barra ou ao botão de reabrir.
-- Cada interruptor tem `<label>` e `aria-describedby` com a descrição da categoria, e “Save choices” informa em texto oculto quantas categorias opcionais estão permitidas.
-- Os textos padrão estão em inglês; passe `labels` (mensagem, botões, título, `reopen`, `alwaysOn`, `close`) para traduzir, inclusive os nomes acessíveis do botão de reabrir e do fechar.
+- Bar and panel are `role="dialog"` with `aria-modal="false"`, with no focus trap; opening the panel moves focus to the title, and saving or closing returns focus to the bar or to the reopen button.
+- Each switch has a `<label>` and `aria-describedby` with the category description, and “Save choices” reports in hidden text how many optional categories are allowed.
+- The default texts are in English; pass `labels` (message, buttons, title, `reopen`, `alwaysOn`, `close`) to translate them, including the accessible names of the reopen and close buttons.
 
-## Movimento
+## Motion
 
-- Uma única superfície muda de posição, largura, altura e raio com uma mola sem ultrapassagem entre barra, painel e botão redondo; crescer é um pouco mais lento que encolher.
-- O conteúdo de cada forma troca com um esmaecer curto, subindo poucos pixels a partir de um leve desfoque, e a superfície entra de baixo com uma escala quase cheia.
-- Com “reduzir movimento”, a forma muda na hora e só o conteúdo esmaece.
+- A single surface changes position, width, height, and radius with a no-overshoot spring between bar, panel, and round button; growing is slightly slower than shrinking.
+- The content of each shape swaps with a short fade, rising a few pixels from a slight blur, and the surface enters from below at nearly full scale.
+- With “reduce motion”, the shape changes immediately and only the content fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A barra vai até 660 px e o painel até 420 px; abaixo de 560 px a barra empilha texto e botões, e numa barra bem estreita (perto de 340 px) “Customize” desce para uma linha própria.
-- A lista de categorias rola por dentro acima de `min(46vh, 300px)`; mude o limite com a variável `--cookie-consent-list-max`.
+- The bar goes up to 660 px and the panel up to 420 px; below 560 px the bar stacks text and buttons, and in a very narrow bar (around 340 px) “Customize” drops to its own line.
+- The category list scrolls internally above `min(46vh, 300px)`; change the limit with the `--cookie-consent-list-max` variable.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/cookie-consent/cookie-consent` (usa `button` e `switch`). Ela só registra a escolha: carregue scripts de análise ou marketing você mesmo, a partir de `onChange` ou `readCookieConsent(storageKey, version)`.
-- Monte uma vez no layout com `storageKey`; nada aparece no servidor nem antes de ler o armazenamento. Numa prévia dentro de um cartão, use `strategy="absolute"` com um pai posicionado.
-- Para um link “Cookies” no rodapé, guarde um `ref` e chame `openPreferences()`; `reset()` apaga a escolha e mostra a barra de novo.
+- Import from `@/components/ryan-ui/cookie-consent/cookie-consent` (it uses `button` and `switch`). It only records the choice: load analytics or marketing scripts yourself, from `onChange` or `readCookieConsent(storageKey, version)`.
+- Mount it once in the layout with `storageKey`; nothing appears on the server or before storage is read. In a preview inside a card, use `strategy="absolute"` with a positioned parent.
+- For a “Cookies” link in the footer, keep a `ref` and call `openPreferences()`; `reset()` erases the choice and shows the bar again.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cookie-consent · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cookie-consent · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

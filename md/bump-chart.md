@@ -2,48 +2,48 @@
 
 > Ranking ao longo do tempo: as linhas trocam de posição a cada período e a série escolhida vem para a frente.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bump-chart
-- Descrição original (inglês): Ranking over time: lines swap positions between periods, draw in from the first period, and hovering a series brings it forward with its rank at every period.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/bump-chart
+- Original description: Ranking over time: lines swap positions between periods, draw in from the first period, and hovering a series brings it forward with its rank at every period.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json`. Caminho do registro, relativo ao endereço do site: `r/bump-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bump-chart.json`. Registry path, relative to the site address: `r/bump-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/bump-chart/bump-chart.tsx`
   - `components/ryan-ui/bump-chart/bump-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/bump-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/bump-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Quando a ordem importa mais que os valores: quem liderou, quem ultrapassou quem e em que período.
-- Rankings por período com poucos itens, como regiões por mês ou times por rodada, com o nome de cada série no fim da linha.
-- Trocar a medida do ranking mantendo os itens: séries com a mesma `key` deslizam para as novas posições.
+- When order matters more than values: who led, who overtook whom, and in which period.
+- Rankings by period with few items, such as regions by month or teams by round, with each series' name at the end of its line.
+- Switch the ranking measure while keeping the items: series with the same `key` slide to the new positions.
 
-## Quando não usar
+## When not to use
 
-- Use [`line-chart`](line-chart.md) quando a distância entre os valores importa: aqui só a posição aparece no desenho.
-- Use [`slope-chart`](slope-chart.md) para comparar exatamente dois momentos.
-- Use [`sortable-data-table`](sortable-data-table.md) para o ranking de um único período com várias colunas.
+- Use [`line-chart`](line-chart.md) when the distance between values matters: here only the position appears in the drawing.
+- Use [`slope-chart`](slope-chart.md) to compare exactly two moments.
+- Use [`sortable-data-table`](sortable-data-table.md) for the ranking of a single period with several columns.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -96,17 +96,17 @@ export default function BumpChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BumpChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `series` (obrigatória) | `BumpSeries[]` | — | The items being ranked. |
-| `periods` (obrigatória) | `string[]` | — | Label of each period on the axis, such as ["Jun", "Jul", "Aug"]. |
-| `label` (obrigatória) | `string` | — | What is ranked, such as "Regions ranked by monthly revenue". Names the chart for assistive technology. |
+| `series` (required) | `BumpSeries[]` | — | The items being ranked. |
+| `periods` (required) | `string[]` | — | Label of each period on the axis, such as ["Jun", "Jul", "Aug"]. |
+| `label` (required) | `string` | — | What is ranked, such as "Regions ranked by monthly revenue". Names the chart for assistive technology. |
 | `order` | `"desc" \| "asc"` | `"desc"` | "desc" ranks the highest value first; "asc" ranks the lowest first, for times or costs. |
 | `rowHeight` | `number` | `40` | Vertical distance between two ranks in pixels. |
 | `formatValue` | `(value: number) => string` | `value => grouped.format(value)` | Formats the value behind a rank in the tooltip and the table. |
@@ -115,50 +115,50 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onActiveChange` | `(key: string \| null) => void` | — | Called when hover, touch or the keyboard brings another series forward, or lets go. |
 | `className` | `string` | — | Extra class on the root figure. |
 
-### Tipos exportados
+### Exported types
 
 #### `BumpSeries`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. A series that survives a data change keeps its line and slides to its new ranks. |
-| `label` (obrigatória) | `string` | Name at the end of the line, in the tooltip and in the table. |
-| `values` (obrigatória) | `number[]` | One value per period, in the order of `periods`. Ranks are worked out from these. |
+| `key` (required) | `string` | Stable identity. A series that survives a data change keeps its line and slides to its new ranks. |
+| `label` (required) | `string` | Name at the end of the line, in the tooltip and in the table. |
+| `values` (required) | `number[]` | One value per period, in the order of `periods`. Ranks are worked out from these. |
 | `color` | `string` | Any CSS color. Series default to the shared --series-* palette in data order, then neutral steps. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Leva o foco à área do gráfico e traz à frente a série que está em primeiro no último período. |
-| `↑` ou `↓` | Passa à série uma posição acima ou abaixo no período atual. |
-| `←` ou `→` | Vai ao período anterior ou ao seguinte, mantendo a série. |
-| `Home` ou `End` | Vai ao primeiro ou ao último período. |
-| `Esc` | Solta a série: todas voltam ao mesmo peso. |
+| `Tab` | Moves focus to the chart area and brings forward the series that is first in the last period. |
+| `↑` or `↓` | Moves to the series one position above or below in the current period. |
+| `←` or `→` | Moves to the previous or next period, keeping the series. |
+| `Home` or `End` | Moves to the first or last period. |
+| `Esc` | Releases the series: all return to the same weight. |
 
-## Acessibilidade
+## Accessibility
 
-- A área de leitura é um `role="slider"` vertical cujo `aria-valuetext` diz série, período, posição, valor e a mudança desde o período anterior.
-- Uma tabela oculta traz a posição e o valor de cada série em cada período; `label` é obrigatório e nomeia a figura.
-- Ordinais e frases da dica (“1st of 6”, “Up 2 from Oct”) são gerados em inglês no código e não têm prop de tradução.
+- The reading area is a vertical `role="slider"` whose `aria-valuetext` states the series, period, position, value, and the change since the previous period.
+- A hidden table carries the position and value of each series in each period; `label` is required and names the figure.
+- Ordinals and tooltip phrases (“1st of 6”, “Up 2 from Oct”) are generated in English in the code and have no translation prop.
 
-## Movimento
+## Motion
 
-- Na primeira aparição cada linha se desenha do primeiro ao último período, uma série depois da outra, e os pontos surgem acompanhando o traço.
-- Quando os dados mudam, linhas, pontos e nomes deslizam com mola sem ultrapassagem para as novas posições; a série em foco ganha traço mais grosso e um anel com a posição em cada período, e as outras esmaecem.
-- Com “reduzir movimento”, tudo aparece e troca na hora, e a dica salta em vez de deslizar.
+- On first appearance each line draws from the first to the last period, one series after another, and the points appear following the stroke.
+- When the data changes, lines, points, and names slide with a no-overshoot spring to the new positions; the focused series gets a thicker stroke and a ring with the position in each period, and the others fade.
+- With “reduce motion”, everything appears and swaps immediately, and the tooltip jumps instead of sliding.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A altura é `rowHeight` (40 px) vezes o número de séries e a largura é a do contêiner; a coluna de nomes ocupa até 36% e corta com reticências.
-- Os rótulos de período não rareiam quando falta espaço: com muitos períodos em tela estreita eles se sobrepõem, então use rótulos curtos.
+- The height is `rowHeight` (40 px) times the number of series and the width is the container's; the names column takes up to 36% and truncates with an ellipsis.
+- Period labels do not thin out when space runs short: with many periods on a narrow screen they overlap, so use short labels.
 
-## Notas para IA
+## Notes for AI
 
-- Cada série é `{ key, label, values, color? }`, com um valor por item de `periods` na mesma ordem; as posições são calculadas dos valores, e `order="asc"` põe o menor em primeiro (tempos, custos).
-- Série em foco: controlada com `activeKey` e `onActiveChange` (`null` para nenhuma), ou livre com `defaultActiveKey`.
-- As quatro primeiras séries usam `--series-1` a `--series-4` e as seguintes, três tons neutros que se repetem a partir da oitava: passe `color` se houver mais.
+- Each series is `{ key, label, values, color? }`, with one value per item in `periods` in the same order; positions are computed from the values, and `order="asc"` puts the smallest first (times, costs).
+- Focused series: controlled with `activeKey` and `onActiveChange` (`null` for none), or uncontrolled with `defaultActiveKey`.
+- The first four series use `--series-1` to `--series-4` and the following ones, three neutral tones that repeat from the eighth: pass `color` if there are more.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bump-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bump-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

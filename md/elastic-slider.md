@@ -2,48 +2,48 @@
 
 > Controle deslizante que estica como borracha nos limites, com etiqueta que balança e marcas magnéticas.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/elastic-slider
-- Descrição original (inglês): A slider that stretches like rubber past its ends, with a swaying value tag and detents the thumb clicks into.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/elastic-slider
+- Original description: A slider that stretches like rubber past its ends, with a swaying value tag and detents the thumb clicks into.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json`. Caminho do registro, relativo ao endereço do site: `r/elastic-slider.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/elastic-slider.json`. Registry path, relative to the site address: `r/elastic-slider.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/elastic-slider/elastic-slider.tsx`
   - `components/ryan-ui/elastic-slider/elastic-slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/elastic-slider.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/elastic-slider.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ajustes contínuos em que a sensação do controle conta, como volume, brilho ou intensidade.
-- Valores com pontos de referência: `marks` cria paradas em que o polegar encaixa ao passar a até 7 px delas, com rótulos clicáveis sob a trilha.
-- Quando o trabalho pesado só deve rodar no fim do gesto: `onValueChange` acompanha o arrasto e `onValueCommit` dispara ao soltar ou a cada tecla.
+- Continuous adjustments where the feel of the control matters, like volume, brightness, or intensity.
+- Values with reference points: `marks` creates stops where the thumb snaps when passing within 7 px of them, with clickable labels under the track.
+- When heavy work should only run at the end of the gesture: `onValueChange` follows the drag and `onValueCommit` fires on release or on each key.
 
-## Quando não usar
+## When not to use
 
-- Use [`slider`](slider.md) para um intervalo com dois polegares; este tem um só.
-- Use [`number-field`](number-field.md) quando o valor exato importa e precisa ser digitado.
-- Use [`ruler-slider`](ruler-slider.md) para escolher com precisão numa escala longa, com régua e inércia.
+- Use [`slider`](slider.md) for a range with two thumbs; this one has just one.
+- Use [`number-field`](number-field.md) when the exact value matters and needs to be typed.
+- Use [`ruler-slider`](ruler-slider.md) to choose precisely on a long scale, with a ruler and inertia.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -75,17 +75,17 @@ export default function ElasticSliderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ElasticSlider`
 
 A single value slider made of something that gives. The thumb swells under the finger, the track stretches like rubber past either end and springs back with the release velocity, a value tag hangs off the thumb and sways with its speed, and marks act as detents the thumb clicks into. Arrows, Shift+arrows, PageUp, PageDown, Home, and End work as in a native range input.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Visible label; it also names the thumb. |
+| `label` (required) | `string` | — | Visible label; it also names the thumb. |
 | `value` | `number` | — | — |
 | `defaultValue` | `number` | — | — |
 | `onValueChange` | `(value: number) => void` | — | — |
@@ -103,48 +103,48 @@ A single value slider made of something that gives. The thumb swells under the f
 | `disabled` | `boolean` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `ElasticSliderMark`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `number` | — |
+| `value` (required) | `number` | — |
 | `label` | `string` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↑` | Soma um `step`. |
-| `←` ou `↓` | Subtrai um `step`. |
-| `Page Up` ou `Page Down` | Soma ou subtrai `largeStep` (por padrão, um décimo da faixa). |
-| `Shift + →` ou `Shift + ↑` ou `Shift + ←` ou `Shift + ↓` | Movem `largeStep` em vez de `step`. |
-| `Home` ou `End` | Vai para `min` ou para `max`. |
+| `→` or `↑` | Adds one `step`. |
+| `←` or `↓` | Subtracts one `step`. |
+| `Page Up` or `Page Down` | Adds or subtracts `largeStep` (by default, a tenth of the range). |
+| `Shift + →` or `Shift + ↑` or `Shift + ←` or `Shift + ↓` | Move `largeStep` instead of `step`. |
+| `Home` or `End` | Goes to `min` or to `max`. |
 
-## Acessibilidade
+## Accessibility
 
-- O polegar é um `role="slider"` focável, nomeado pelo `label` visível, com `aria-valuenow`, `aria-valuemin`, `aria-valuemax` e um `aria-valuetext` que vem de `format`.
-- O valor ao lado do rótulo e a etiqueta sobre o polegar são decorativos (`aria-hidden`): o que o leitor de tela anuncia é o `aria-valuetext`.
-- Clicar ou tocar em qualquer ponto da trilha leva o foco ao polegar, e a área de toque dele se estende 12 px além do círculo.
+- The thumb is a focusable `role="slider"`, named by the visible `label`, with `aria-valuenow`, `aria-valuemin`, `aria-valuemax`, and an `aria-valuetext` that comes from `format`.
+- The value next to the label and the tag over the thumb are decorative (`aria-hidden`): what the screen reader announces is the `aria-valuetext`.
+- Clicking or tapping anywhere on the track moves focus to the thumb, and its touch area extends 12 px beyond the circle.
 
-## Movimento
+## Motion
 
-- Além das pontas a trilha estica como elástico (até 26 px), afina e, ao soltar, volta com uma mola que ultrapassa e assenta; no teclado, insistir num limite dá o mesmo tranco.
-- A etiqueta de valor segue o polegar com um pequeno atraso e balança conforme a velocidade; ao encaixar numa marca, o ponto dela pulsa e, no toque, o aparelho vibra quando há suporte.
-- Com “reduzir movimento” ligado, não há esticamento nem balanço: o polegar salta para o valor e a etiqueta só esmaece.
+- Past the ends the track stretches like a rubber band (up to 26 px), thins, and on release returns with a spring that overshoots and settles; on the keyboard, pushing against a limit gives the same jolt.
+- The value tag follows the thumb with a slight delay and sways with the velocity; on snapping to a mark, its dot pulses and, on touch, the device vibrates where supported.
+- With “reduce motion” on, there is no stretching or sway: the thumb jumps to the value and the tag only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% da largura do contêiner e só existe na horizontal; `--elastic-thumb` e `--elastic-track` ajustam os tamanhos (padrão 24 px e 8 px).
-- No toque, arrastar na vertical continua rolando a página (`touch-action: pan-y`) e, em ponteiros grossos, a etiqueta sobe mais para não ficar sob o dedo.
+- Takes 100% of the container width and only exists horizontally; `--elastic-thumb` and `--elastic-track` adjust the sizes (default 24 px and 8 px).
+- On touch, dragging vertically still scrolls the page (`touch-action: pan-y`) and, on coarse pointers, the tag rises higher so it does not sit under the finger.
 
-## Notas para IA
+## Notes for AI
 
-- `label` é obrigatório e visível; use `value` + `onValueChange` ou `defaultValue` (que cai em `min`), com padrões `min={0}`, `max={100}` e `step={1}`.
-- O formato padrão do número é `en-US`: passe `format` para moeda, unidade ou separadores em português; ele vale para o texto ao lado do rótulo, a etiqueta e o leitor de tela.
-- `marks` aceita números ou `{ value, label }`, `startIcon` e `endIcon` põem ícones nas pontas e `name` envia o valor num campo oculto.
+- `label` is required and visible; use `value` + `onValueChange` or `defaultValue` (which falls back to `min`), with defaults `min={0}`, `max={100}`, and `step={1}`.
+- The default number format is `en-US`: pass `format` for currency, unit, or Portuguese separators; it applies to the text next to the label, the tag, and the screen reader.
+- `marks` accepts numbers or `{ value, label }`, `startIcon` and `endIcon` put icons at the ends, and `name` sends the value in a hidden field.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/elastic-slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/elastic-slider · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

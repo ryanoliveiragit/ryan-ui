@@ -2,48 +2,48 @@
 
 > Avaliação por estrelas acessível, com meias estrelas, teclado e opção de limpar.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/rating
-- Descrição original (inglês): A simple, accessible way to capture a numeric opinion.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/rating
+- Original description: A simple, accessible way to capture a numeric opinion.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rating.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rating.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rating.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rating.json`. Caminho do registro, relativo ao endereço do site: `r/rating.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rating.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rating.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/rating.json`. Registry path, relative to the site address: `r/rating.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/rating/rating.tsx`
   - `components/ryan-ui/rating/rating.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/rating.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/rating.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Pedir uma nota rápida depois de uma compra, estadia ou atendimento.
-- Mostrar a média de avaliações com meias estrelas, em modo `readOnly`.
-- Formulários com vários critérios, cada um com sua nota e uma linha de apoio em `description`.
+- Asking for a quick rating after a purchase, stay, or support interaction.
+- Showing the average of reviews with half stars, in `readOnly` mode.
+- Forms with several criteria, each with its own rating and a supporting line in `description`.
 
-## Quando não usar
+## When not to use
 
-- Use [`reactions`](reactions.md) para reconhecer um post com um toque, sem escala de nota.
-- Use [`slider`](slider.md) quando a escala tem muitos pontos, como de 0 a 100.
-- Use [`radio-group`](radio-group.md) quando cada ponto da escala precisa de um texto próprio visível, como numa escala de concordância.
+- Use [`reactions`](reactions.md) to acknowledge a post with one tap, without a rating scale.
+- Use [`slider`](slider.md) when the scale has many points, such as 0 to 100.
+- Use [`radio-group`](radio-group.md) when each point on the scale needs its own visible text, as in an agreement scale.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -63,15 +63,15 @@ export default function RatingDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Rating`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `value` | `number` | — | — |
 | `defaultValue` | `number` | `0` | — |
 | `onChange` | `(value: number) => void` | — | Receives the committed value; 0 means the rating was cleared. |
@@ -88,40 +88,40 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `emptyLabel` | `string` | `"Not rated"` | Shown beside empty stars. |
 | `name` | `string` | — | Submits the value with a surrounding form. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↑` | Sobem a nota em um passo (meia estrela com `allowHalf`) e levam o foco junto. |
-| `←` ou `↓` | Descem um passo; abaixo da primeira estrela, a nota é apagada se `allowClear` estiver ligado. |
-| `Home` ou `End` | Vão à menor nota ou à máxima. |
-| `1–9` | Dão essa nota direto, até o valor de `max`. |
-| `Backspace` ou `Delete` | Apagam a nota quando `allowClear` está ligado, que é o padrão. |
-| `Espaço` ou `Enter` | Escolhem a estrela em foco. |
+| `→` or `↑` | Raise the rating by one step (half a star with `allowHalf`) and move focus along. |
+| `←` or `↓` | Lower it by one step; below the first star, the rating is cleared if `allowClear` is on. |
+| `Home` or `End` | Go to the lowest or the highest rating. |
+| `1–9` | Give that rating directly, up to the value of `max`. |
+| `Backspace` or `Delete` | Clear the rating when `allowClear` is on, which is the default. |
+| `Space` or `Enter` | Choose the focused star. |
 
-## Acessibilidade
+## Accessibility
 
-- As estrelas formam um `radiogroup` ligado ao rótulo, com um botão `role="radio"` por valor (dois por estrela com `allowHalf`) lido como “Great, 4 of 5 stars”, e só o valor atual entra no Tab.
-- Com `readOnly`, o grupo vira `role="img"` com a nota no nome (“… 4.5 out of 5”) e nada recebe foco.
-- Escolhas com ponteiro e a nota apagada são anunciadas numa região `aria-live`; as palavras padrão (“Poor” a “Excellent”, “Not rated”) são em inglês, troque com `valueLabels` e `emptyLabel`.
+- The stars form a `radiogroup` tied to the label, with one `role="radio"` button per value (two per star with `allowHalf`) read as “Great, 4 of 5 stars”, and only the current value is in the Tab order.
+- With `readOnly`, the group becomes `role="img"` with the rating in its name (“… 4.5 out of 5”) and nothing receives focus.
+- Pointer choices and a cleared rating are announced in an `aria-live` region; the default words (“Poor” to “Excellent”, “Not rated”) are in English, change them with `valueLabels` and `emptyLabel`.
 
-## Movimento
+## Motion
 
-- Ao escolher, o preenchimento varre as estrelas da esquerda para a direita e cada uma dá um pulinho em onda; escolhas seguidas e rápidas, como uma seta segurada, fazem pular só a estrela escolhida.
-- Passar o mouse mostra uma prévia sobre a nota guardada, que fica como marca fraca, e a palavra do valor rola na direção da mudança.
-- Com “reduzir movimento” ligado, preenchimento, pulo e palavras trocam na hora.
+- On choosing, the fill sweeps the stars from left to right and each one gives a little wave-like hop; quick successive choices, such as a held arrow key, make only the chosen star hop.
+- Hovering shows a preview over the saved rating, which stays as a faint mark, and the value word rolls in the direction of the change.
+- With “reduce motion” on, fill, hop, and words change instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- As células de `sm`, `md` e `lg` medem 28, 36 e 44px; em telas de toque prefira `lg`, e o dedo pode deslizar pelas estrelas, valendo a nota ao soltar.
-- Quando falta largura, a palavra do valor desce para a linha de baixo; ela reserva o espaço da palavra mais longa e não empurra nada ao mudar.
+- The `sm`, `md`, and `lg` cells measure 28, 36, and 44px; on touch screens prefer `lg`, and a finger can slide across the stars, with the rating taking effect on release.
+- When width runs short, the value word drops to the line below; it reserves the space of the longest word and pushes nothing when it changes.
 
-## Notas para IA
+## Notes for AI
 
-- `onChange` recebe a nota confirmada e 0 significa apagada; clicar de novo na nota atual também apaga, a menos que `allowClear={false}`.
-- Para média de avaliações, use `readOnly` com `allowHalf` e um valor como 4.5; valores são arredondados ao passo, meia estrela ou inteira.
-- As palavras padrão só aparecem com `max={5}` sem meias estrelas, e nos outros casos o texto é “4 out of 5”, então em português passe `valueLabels` ou `showValue={false}`.
+- `onChange` receives the confirmed rating and 0 means cleared; clicking the current rating again also clears it, unless `allowClear={false}`.
+- For an average of reviews, use `readOnly` with `allowHalf` and a value like 4.5; values are rounded to the step, half star or whole.
+- The default words only appear with `max={5}` without half stars, and in other cases the text is “4 out of 5”, so for Portuguese pass `valueLabels` or `showValue={false}`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/rating · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/rating · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

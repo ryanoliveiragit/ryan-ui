@@ -2,47 +2,47 @@
 
 > Transforma um rótulo no próximo estado, letra por letra.
 
-- Tipo: componente (categoria Texto)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/text-morph
-- Descrição original (inglês): Morph a label into its next state, letter by letter.
+- Type: component (category Text)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/text-morph
+- Original description: Morph a label into its next state, letter by letter.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-morph.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-morph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-morph.json`. Caminho do registro, relativo ao endereço do site: `r/text-morph.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-morph.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-morph.json`. Registry path, relative to the site address: `r/text-morph.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/text-morph/text-morph.tsx`
   - `components/ryan-ui/text-morph/text-morph.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/text-morph.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/text-morph.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Rótulos de estado que mudam poucas letras, como “Publicar”, “Publicando” e “Publicado”, ou “Seguir” e “Seguindo”.
-- Status curtos em botões, selos ou títulos, em que a largura nova deve deslizar em vez de pular e empurrar o que está ao lado.
+- State labels that change a few letters, such as “Publish”, “Publishing”, and “Published”, or “Follow” and “Following”.
+- Short statuses in buttons, badges, or titles, where the new width should slide instead of jumping and pushing what is beside it.
 
-## Quando não usar
+## When not to use
 
-- Use [`slot-text`](slot-text.md) para números e valores que devem girar como roletas, como preços e contadores.
-- Use [`action-swap`](action-swap.md) para um botão compacto que passa por estados como ocioso, trabalhando e concluído, com ícone e largura mudando juntos.
-- Para frases longas ou texto de várias linhas ele não serve: fica numa linha só e anima letra por letra.
+- Use [`slot-text`](slot-text.md) for numbers and values that should spin like reels, such as prices and counters.
+- Use [`action-swap`](action-swap.md) for a compact button that goes through states such as idle, working, and done, with icon and width changing together.
+- It does not suit long sentences or multi-line text: it stays on a single line and animates letter by letter.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -64,36 +64,36 @@ export default function TextMorphDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `TextMorph`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `string` | — | — |
+| `children` (required) | `string` | — | — |
 | `as` | `"span" \| "div" \| "p" \| "strong" \| "h1" \| "h2" \| "h3"` | `"span"` | — |
 | `className` | `string` | — | — |
 | `id` | `string` | — | — |
 
-## Acessibilidade
+## Accessibility
 
-- O texto atual fica num `span` visualmente oculto e as letras animadas são `aria-hidden`, então o leitor de tela lê a palavra inteira, nunca letras soltas.
-- A troca não é anunciada; se a mudança precisa ser ouvida, ponha o componente dentro de uma região `aria-live` sua.
+- The current text sits in a visually hidden `span` and the animated letters are `aria-hidden`, so the screen reader reads the whole word, never loose letters.
+- The swap is not announced; if the change needs to be heard, put the component inside your own `aria-live` region.
 
-## Movimento
+## Motion
 
-- Letras em comum deslizam até a nova posição com uma mola sem ultrapassagem; as novas surgem de um leve desfoque, em ordem de leitura, e as removidas se desfazem.
-- A largura acompanha o texto novo com a mesma mola e uma borda suave revela as letras que chegam, então o layout em volta desliza em vez de pular.
-- Com “reduzir movimento”, o texto troca na hora.
+- Shared letters slide to the new position with a no-overshoot spring; new ones emerge from a slight blur, in reading order, and removed ones dissolve.
+- The width follows the new text with the same spring and a soft edge reveals the incoming letters, so the surrounding layout slides instead of jumping.
+- With “reduce motion”, the text swaps immediately.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `TextMorph` de `@/components/ryan-ui/text-morph/text-morph` e passe uma string como filho: `<TextMorph>{status}</TextMorph>`; elementos como filhos não funcionam.
-- Rende mais quando os rótulos compartilham letras, que ficam no lugar; com palavras sem nada em comum, todas as letras saem e entram de novo. Use `as` para o elemento certo (`h2`, `strong`).
-- Fica numa linha só (`nowrap`): reserve espaço para o rótulo mais longo ou deixe a largura variar com o texto.
+- Import `TextMorph` from `@/components/ryan-ui/text-morph/text-morph` and pass a string as the child: `<TextMorph>{status}</TextMorph>`; elements as children do not work.
+- It works best when labels share letters, which stay in place; with words that have nothing in common, all letters leave and enter again. Use `as` for the right element (`h2`, `strong`).
+- It stays on a single line (`nowrap`): reserve space for the longest label or let the width vary with the text.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/text-morph · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/text-morph · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

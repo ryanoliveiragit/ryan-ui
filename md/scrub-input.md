@@ -2,48 +2,48 @@
 
 > Campo numérico estilo Figma: arraste o rótulo para ajustar ou digite valores, unidades e contas.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/scrub-input
-- Descrição original (inglês): A Figma-style number field: drag the label to scrub, or type values, units, and arithmetic.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/scrub-input
+- Original description: A Figma-style number field: drag the label to scrub, or type values, units, and arithmetic.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scrub-input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scrub-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scrub-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scrub-input.json`. Caminho do registro, relativo ao endereço do site: `r/scrub-input.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scrub-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scrub-input.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scrub-input.json`. Registry path, relative to the site address: `r/scrub-input.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/scrub-input/scrub-input.tsx`
   - `components/ryan-ui/scrub-input/scrub-input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/scrub-input.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/scrub-input.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Painéis de propriedades e inspetores (largura, posição, rotação, opacidade), em que arrastar é mais rápido que digitar.
-- Campos numéricos que ganham com contas e unidades digitadas, como `320/2 + 8` ou `50%`.
-- Valores circulares, como rotação de 0 a 360, com `wrap`.
+- Property panels and inspectors (width, position, rotation, opacity), where dragging is faster than typing.
+- Numeric fields that benefit from typed calculations and units, such as `320/2 + 8` or `50%`.
+- Circular values, such as rotation from 0 to 360, with `wrap`.
 
-## Quando não usar
+## When not to use
 
-- Use [`number-field`](number-field.md) em formulários comuns, onde as pessoas esperam botões de mais e menos à vista.
-- Use [`slider`](slider.md) quando a posição dentro da faixa importa mais que o número.
-- Use [`money-input`](money-input.md) para valores em dinheiro.
+- Use [`number-field`](number-field.md) in ordinary forms, where people expect visible plus and minus buttons.
+- Use [`slider`](slider.md) when the position within the range matters more than the number.
+- Use [`money-input`](money-input.md) for monetary values.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -69,15 +69,15 @@ export default function ScrubInputDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ScrubInput`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `ReactNode` | — | Text or a 16px icon. Icon labels need `aria-label` so the field keeps an accessible name. |
+| `label` (required) | `ReactNode` | — | Text or a 16px icon. Icon labels need `aria-label` so the field keeps an accessible name. |
 | `value` | `number` | — | — |
 | `defaultValue` | `number` | `0` | — |
 | `onValueChange` | `(value: number, details: ScrubInputChangeDetails) => void` | — | Fires for every change, including each step of a scrub. |
@@ -99,56 +99,56 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `size` | `"sm" \| "md"` | `"md"` | — |
 | `pointerLock` | `boolean` | `true` | Locks the pointer while scrubbing when the browser allows it. On by default. |
 | `className` | `string` | — | — |
-| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Também aceita as props deste tipo, menos `value`, `defaultValue`, `onChange`, `type`, `size`, `min`, `max`, `step` e `prefix`. |
+| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Also accepts the props of this type, except `value`, `defaultValue`, `onChange`, `type`, `size`, `min`, `max`, `step` and `prefix`. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ScrubInputSource` | `"scrub" \| "type" \| "key" \| "reset"` |
 
 #### `ScrubInputChangeDetails`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `source` (obrigatória) | `"scrub" \| "type" \| "key" \| "reset"` | What produced the value: a label drag, a typed entry, an arrow key, or a double click reset. |
-| `unit` (obrigatória) | `string` | The unit in effect after the change. |
+| `source` (required) | `"scrub" \| "type" \| "key" \| "reset"` | What produced the value: a label drag, a typed entry, an arrow key, or a double click reset. |
+| `unit` (required) | `string` | The unit in effect after the change. |
 
-### Outras exportações
+### Other exports
 
-- `evaluateScrubExpression` (função)
+- `evaluateScrubExpression` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Somam ou subtraem um `step`; com Shift usam `coarseStep` (10× por padrão) e caem na grade grossa, como 13 indo a 20, e com Alt usam `fineStep` (um décimo). |
-| `Enter` | Confirma o texto digitado, inclusive contas como `(100-24)/2` e unidades de `units`. |
-| `Esc` | Descarta o texto digitado e volta ao último valor; durante um arraste do rótulo, cancela o arraste. |
-| `Tab` | Sair do campo confirma o texto digitado, como o Enter. |
+| `↑` or `↓` | Add or subtract one `step`; with Shift they use `coarseStep` (10× by default) and land on the coarse grid, such as 13 going to 20, and with Alt they use `fineStep` (one tenth). |
+| `Enter` | Confirms the typed text, including calculations such as `(100-24)/2` and units from `units`. |
+| `Esc` | Discards the typed text and returns to the last value; during a label drag, cancels the drag. |
+| `Tab` | Leaving the field confirms the typed text, like Enter. |
 
-## Acessibilidade
+## Accessibility
 
-- O campo é um `role="spinbutton"` com `aria-valuetext` que fala a unidade por extenso (“50 percent”, “45 degrees”) e `aria-invalid` por um instante quando uma conta é recusada.
-- Com texto no `label`, o `<label>` nomeia o campo; com um ícone, passe `aria-label`, e o botão de unidade se anuncia como “Unit: px. Change unit”.
-- Arrastar o rótulo é só para ponteiro; pelo teclado, o mesmo ajuste é feito com as setas e os modificadores.
+- The field is a `role="spinbutton"` with `aria-valuetext` that speaks the unit in full (“50 percent”, “45 degrees”) and `aria-invalid` for a moment when a calculation is rejected.
+- With text in `label`, the `<label>` names the field; with an icon, pass `aria-label`, and the unit button announces itself as “Unit: px. Change unit”.
+- Dragging the label is pointer-only; by keyboard, the same adjustment is done with the arrow keys and the modifiers.
 
-## Movimento
+## Motion
 
-- Nos limites, o campo estica como elástico na direção do arraste e volta numa mola ao soltar, e uma conta inválida faz o campo tremer uma vez.
-- A faixa de preenchimento acompanha o arraste 1:1 e desliza até valores digitados; segurar Shift ou Alt mostra uma etiqueta “×10” ou “×0.1”.
-- Com “reduzir movimento” ligado, não há elástico nem tremor, a faixa salta para o valor e etiquetas e unidade só esmaecem.
+- At the limits, the field stretches like elastic in the drag direction and springs back on release, and an invalid calculation makes the field shake once.
+- The fill bar follows the drag 1:1 and slides to typed values; holding Shift or Alt shows a “×10” or “×0.1” tag.
+- With “reduce motion” on, there is no elastic or shake, the bar jumps to the value, and tags and unit only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa a coluna inteira (fixe com `--scrub-input-width`); no toque, o rótulo arrasta na horizontal e a rolagem vertical segue para a página, e o travamento do ponteiro vale só para mouse.
+- It fills the whole column (set it with `--scrub-input-width`); on touch, the label drags horizontally and vertical scrolling goes to the page, and pointer lock applies only to mouse.
 
-## Notas para IA
+## Notes for AI
 
-- Pensado para linhas densas: `label` curto (“W”, “X” ou um ícone de 16px com `aria-label`), `min`, `max`, `unit` e `size="sm"`.
-- `unit` deixa a unidade controlada, então trate `onUnitChange`; para o botão de unidades e o `50%` digitado trocarem a unidade sozinhos, use `defaultUnit`.
-- `onValueChange` dispara a cada passo do arraste, com `details.source`; salve em `onValueCommit`, que vem ao soltar, no Enter, ao sair do campo e a cada seta.
+- Designed for dense rows: short `label` (“W”, “X”, or a 16px icon with `aria-label`), `min`, `max`, `unit`, and `size="sm"`.
+- `unit` makes the unit controlled, so handle `onUnitChange`; for the unit button and a typed `50%` to switch the unit on their own, use `defaultUnit`.
+- `onValueChange` fires on every drag step, with `details.source`; save in `onValueCommit`, which arrives on release, on Enter, on leaving the field, and on each arrow key.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/scrub-input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/scrub-input · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

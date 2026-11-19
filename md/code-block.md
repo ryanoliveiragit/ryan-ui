@@ -2,114 +2,136 @@
 
 > Bloco de código com realce leve, nome do arquivo, botão de copiar e opção de expandir trechos longos.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/code-block
-- Descrição original (inglês): Present code with legible hierarchy and copy access.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/code-block
+- Original description: Present code with legible hierarchy and copy access.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/code-block.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/code-block.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/code-block.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/code-block.json`. Caminho do registro, relativo ao endereço do site: `r/code-block.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/code-block.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/code-block.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/code-block.json`. Registry path, relative to the site address: `r/code-block.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Copy button](copy-button.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Copy button](copy-button.md)
+- Files, once installed:
   - `components/ryan-ui/code-block/code-block.tsx`
   - `components/ryan-ui/code-block/code-block.module.css`
   - `components/ryan-ui/copy-button/copy-button.tsx`
   - `components/ryan-ui/copy-button/copy-button.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/code-block.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/code-block.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar um trecho de código em documentação ou tutorial, com nome do arquivo, linguagem e botão de copiar.
-- Fontes longas que devem começar recolhidas: `maxLines` corta a altura e um botão abre o resto no lugar.
-- Código que muda no mesmo bloco (variações por gerenciador de pacotes ou framework): o novo entra suave e a altura acompanha.
+- Show a code snippet in documentation or a tutorial, with file name, language, and a copy button.
+- Long sources that should start collapsed: `maxLines` cuts the height and a button opens the rest in place.
+- Code that changes in the same block (variations by package manager or framework): the new code enters smoothly and the height follows.
 
-## Quando não usar
+## When not to use
 
-- Use [`file-diff`](file-diff.md) para mostrar o que mudou entre duas versões de um arquivo.
-- Use [`json-viewer`](json-viewer.md) para explorar dados JSON com nós que abrem e fecham e com busca.
-- Use [`copy-button`](copy-button.md) sozinho para copiar um valor curto, como um token ou um comando de uma linha.
+- Use [`file-diff`](file-diff.md) to show what changed between two versions of a file.
+- Use [`json-viewer`](json-viewer.md) to explore JSON data with nodes that open and close and with search.
+- Use [`copy-button`](copy-button.md) alone to copy a short value, such as a token or a one-line command.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { CodeBlock } from "@/components/ryan-ui/code-block/code-block";
 import { Stack } from "./_kit";
 
+const hook = `import { useEffect, useState } from "react";
+
+export function useDebouncedValue<T>(value: T, delay = 250) {
+  const [debounced, setDebounced] = useState(value);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(timer);
+  }, [value, delay]);
+
+  return debounced;
+}
+
+// Usage
+const query = useDebouncedValue(search, 300);
+const results = useSearch(query);
+`;
+
+const shell = `npm install ryan-ui motion lucide-react
+npx ryan-ui add button dialog`;
+
 export default function CodeBlockDemo() {
   return (
-    <Stack width={564}>
-      <CodeBlock filename="button.tsx" language="tsx" code={'<Button variant="secondary">Review changes</Button>'} />
+    <Stack width={560} gap={5}>
+      <CodeBlock filename="use-debounced-value.ts" language="tsx" code={hook} maxLines={9} />
+      <CodeBlock language="bash" code={shell} />
     </Stack>
   );
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CodeBlock`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `code` (obrigatória) | `string` | — | Source shown in the block and copied by the action. |
+| `code` (required) | `string` | — | Source shown in the block and copied by the action. |
 | `filename` | `string` | — | File name displayed in the header. |
 | `language` | `string` | `"tsx"` | Used for the header label and lightweight syntax highlighting. |
 | `maxLines` | `number` | — | Collapse longer sources to this many lines, with a toggle that expands the rest in place. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Passa pelo botão de copiar, pelo bloco de código (que é focável) e, se houver, pelo botão de expandir. |
-| `Enter` ou `Espaço` | Acionam o botão em foco: copiar, ou mostrar todas as linhas e recolher. |
-| `←` ou `→` | Com o foco no código, rolam as linhas longas para os lados; é a rolagem nativa do `pre`, que recebe `tabIndex` para isso. |
+| `Tab` | Moves through the copy button, the code block (which is focusable), and, if present, the expand button. |
+| `Enter` or `Space` | Trigger the focused button: copy, or show all lines and collapse. |
+| `←` or `→` | With focus on the code, scroll long lines sideways; this is the native scrolling of the `pre`, which receives `tabIndex` for that. |
 
-## Acessibilidade
+## Accessibility
 
-- O bloco é uma `section` rotulada com o nome do arquivo ou a linguagem; o `pre` é focável para rolar pelo teclado, e o botão de expandir informa `aria-expanded`.
-- Recolhido, o código só é cortado na altura: o leitor de tela e o botão de copiar continuam com o texto inteiro.
-- A cópia é confirmada numa região `role="status"` do `copy-button`; os rótulos (“Copy code”, “Show all N lines”) estão em inglês no código.
+- The block is a `section` labeled with the file name or the language; the `pre` is focusable for scrolling by keyboard, and the expand button reports `aria-expanded`.
+- When collapsed, the code is only clipped in height: the screen reader and the copy button still have the full text.
+- Copying is confirmed in a `role="status"` region of the `copy-button`; the labels (“Copy code”, “Show all N lines”) are in English in the code.
 
-## Movimento
+## Motion
 
-- Expandir e recolher anima a altura com mola sem ultrapassagem, gira a seta e troca o rótulo do botão.
-- Um `code` novo entra subindo 4 px enquanto a altura acompanha o conteúdo, e um `filename` novo troca com a largura seguindo em mola.
-- Com “reduzir movimento”, altura, textos e seta mudam na hora.
+- Expanding and collapsing animates the height with a no-overshoot spring, rotates the arrow, and swaps the button label.
+- A new `code` enters rising 4 px while the height follows the content, and a new `filename` swaps with the width following on a spring.
+- With “reduce motion”, height, texts, and arrow change immediately.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Linhas longas não quebram: rolam para os lados dentro do bloco, que ocupa 100% da largura do pai.
-- Em telas de até 420 px a fonte e o espaçamento diminuem e o botão de copiar fica só com o ícone.
+- Long lines do not wrap: they scroll sideways inside the block, which takes 100% of the parent's width.
+- On screens up to 420 px the font and spacing shrink and the copy button keeps only the icon.
 
-## Desempenho
+## Performance
 
-- O realce roda a cada render sobre o código inteiro e cria um `span` por token, mesmo recolhido: para arquivos de milhares de linhas, mostre um trecho.
+- Highlighting runs on every render over the whole code and creates one `span` per token, even when collapsed: for files with thousands of lines, show an excerpt.
 
-## Notas para IA
+## Notes for AI
 
-- `language` (padrão `tsx`) define o rótulo e as heurísticas do realce, um tokenizador simples voltado a JS/TS, JSON, HTML e CSS; em `bash` ou `python`, comentários com `#` não são reconhecidos.
-- Passe `code` sem quebra de linha no fim: ela conta como uma linha a mais no botão “Show all N lines”.
-- Depende de `copy-button`, o export é nomeado (`CodeBlock`) e o estado expandido é interno; não há `className`, números de linha nem destaque de linhas.
+- `language` (default `tsx`) defines the label and the highlighting heuristics, a simple tokenizer aimed at JS/TS, JSON, HTML, and CSS; in `bash` or `python`, comments with `#` are not recognized.
+- Pass `code` without a trailing line break: it counts as one extra line in the “Show all N lines” button.
+- It depends on `copy-button`, the export is named (`CodeBlock`), and the expanded state is internal; there is no `className`, line numbers, or line highlighting.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/code-block · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/code-block · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

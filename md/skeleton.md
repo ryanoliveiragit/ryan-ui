@@ -2,48 +2,48 @@
 
 > Reserva o espaço enquanto o conteúdo carrega e some em transição suave quando ele chega.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/skeleton
-- Descrição original (inglês): Reserve space while content is still loading.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/skeleton
+- Original description: Reserve space while content is still loading.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json`. Caminho do registro, relativo ao endereço do site: `r/skeleton.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/skeleton.json`. Registry path, relative to the site address: `r/skeleton.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/skeleton/skeleton.tsx`
   - `components/ryan-ui/skeleton/skeleton.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/skeleton.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/skeleton.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Reservar o espaço de um comentário, cartão ou bloco de texto enquanto os dados chegam, para a página não pular quando eles aparecem.
-- Trocar o espaço reservado pelo conteúdo real no mesmo lugar: com filhos e `loading`, o esqueleto esmaece no conteúdo e a altura acompanha com uma mola.
-- Itens de lista com foto e texto, como comentários ou contatos (`avatar` e `lines`).
+- Reserve the space of a comment, card, or block of text while the data arrives, so the page does not jump when it appears.
+- Swap the placeholder for the real content in the same place: with children and `loading`, the skeleton fades into the content and the height follows with a spring.
+- List items with a photo and text, such as comments or contacts (`avatar` and `lines`).
 
-## Quando não usar
+## When not to use
 
-- Use [`loader`](loader.md) para uma ação curta, como salvar, em que não há um bloco de conteúdo para reservar.
-- Use [`progress`](progress.md) quando a espera tem fim conhecido e vale mostrar quanto falta.
-- Para tabelas, gráficos ou layouts que não se parecem com linhas de texto, desenhe um esqueleto próprio: este só faz um avatar e até seis linhas.
+- Use [`loader`](loader.md) for a short action, such as saving, where there is no block of content to reserve.
+- Use [`progress`](progress.md) when the wait has a known end and it is worth showing how much remains.
+- For tables, charts, or layouts that do not look like lines of text, draw a custom skeleton: this one only makes an avatar and up to six lines.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -75,13 +75,13 @@ export default function SkeletonDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Skeleton`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | `"Loading content"` | — |
 | `lines` | `number` | `3` | — |
@@ -90,23 +90,23 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `children` | `ReactNode` | — | Content to reveal once loading finishes. With children, the placeholder crossfades into them. |
 | `loading` | `boolean` | `true` | Keeps the placeholder visible while true. Only used together with children. |
 
-## Acessibilidade
+## Accessibility
 
-- O espaço reservado é `role="status"` com `aria-busy` e o nome de `label` (padrão “Loading content”, em inglês); os blocos são `aria-hidden`. Diga em `label` o que carrega.
-- Com filhos, o contêiner tem `aria-busy` enquanto `loading` é `true`, e o conteúdo só entra no DOM quando a espera termina.
+- The placeholder is `role="status"` with `aria-busy` and the name from `label` (default “Loading content”, in English); the blocks are `aria-hidden`. Say in `label` what is loading.
+- With children, the container has `aria-busy` while `loading` is `true`, and the content only enters the DOM when the wait ends.
 
-## Movimento
+## Motion
 
-- Os blocos pulsam a opacidade em onda, cada um um pouco depois do de cima, e param depois de cerca de 20 s para não pulsar para sempre.
-- Quando `loading` vira `false`, o esqueleto esmaece, o conteúdo entra subindo 4 px e a altura vai do tamanho do esqueleto ao do conteúdo com uma mola sem ultrapassagem.
-- Com “reduzir movimento”, o pulso é desligado e a troca vira um esmaecer curto, sem animar a altura.
+- The blocks pulse their opacity in a wave, each one a little after the one above, and stop after about 20 s so they do not pulse forever.
+- When `loading` becomes `false`, the skeleton fades, the content enters rising 4 px, and the height goes from the skeleton's size to the content's with a no-overshoot spring.
+- With “reduce motion”, the pulse is turned off and the swap becomes a short fade, without animating the height.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/skeleton/skeleton`. Dois usos: sozinho, como espaço reservado, ou envolvendo o conteúdo real com `loading={isLoading}`, que cuida da troca e da altura.
-- `lines` vai de 1 a 6 e `avatar` põe um círculo à esquerda; escolha um número de linhas parecido com o conteúdo final para a altura mudar pouco.
-- `loading` só tem efeito com filhos; sem filhos, o componente sempre mostra o esqueleto, então renderize-o só durante a espera.
+- Import from `@/components/ryan-ui/skeleton/skeleton`. Two uses: standalone, as a placeholder, or wrapping the real content with `loading={isLoading}`, which handles the swap and the height.
+- `lines` goes from 1 to 6 and `avatar` adds a circle on the left; choose a number of lines similar to the final content so the height changes little.
+- `loading` only has an effect with children; without children, the component always shows the skeleton, so render it only during the wait.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/skeleton · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/skeleton · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

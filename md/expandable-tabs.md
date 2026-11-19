@@ -2,47 +2,47 @@
 
 > Abas de ícones em que só a aba ativa mostra o rótulo, que se abre com uma mola enquanto as outras se recolhem.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-tabs
-- Descrição original (inglês): Icon tabs in which only the active tab shows its label, unfolding on a spring while the others fold back to icons.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-tabs
+- Original description: Icon tabs in which only the active tab shows its label, unfolding on a spring while the others fold back to icons.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-tabs.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-tabs.json`. Registry path, relative to the site address: `r/expandable-tabs.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/expandable-tabs/expandable-tabs.tsx`
   - `components/ryan-ui/blocks/expandable-tabs/expandable-tabs.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/expandable-tabs.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/expandable-tabs.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Barra inferior de app ou alternador compacto com quatro ou cinco destinos, em que só o ativo precisa mostrar o nome.
-- Navegação por ícones conhecidos (início, busca, caixa de entrada, perfil), com contador de não lidos no ícone (`badge: 3`).
+- An app bottom bar or compact switcher with four or five destinations, where only the active one needs to show its name.
+- Navigation through familiar icons (home, search, inbox, profile), with an unread counter on the icon (`badge: 3`).
 
-## Quando não usar
+## When not to use
 
-- Use [`tabs`](tabs.md) ou [`segmented-control`](segmented-control.md) quando todos os rótulos devem ficar visíveis o tempo todo.
-- Use [`morphing-tabs`](morphing-tabs.md) quando as abas têm rótulo e o destaque deve viajar entre elas.
-- Evite com ícones ambíguos ou muitos destinos: os nomes ficam escondidos e a lista não rola nem quebra linha.
+- Use [`tabs`](tabs.md) or [`segmented-control`](segmented-control.md) when all labels must stay visible at all times.
+- Use [`morphing-tabs`](morphing-tabs.md) when the tabs have labels and the highlight should travel between them.
+- Avoid with ambiguous icons or many destinations: the names are hidden and the list neither scrolls nor wraps.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import ExpandableTabsPreview from "@/components/ryan-ui/blocks/expandable-tabs/expandable-tabs";
@@ -52,17 +52,17 @@ export default function ExpandableTabsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ExpandableTabs`
 
 Icon tabs that spend their width on the active tab only: its label unfolds on a spring while the others fold back to icons, so five destinations fit where two labeled tabs would. Arrow keys, Home and End move between tabs.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `tabs` (obrigatória) | `ExpandableTab[]` | — | The tabs, in order. |
+| `tabs` (required) | `ExpandableTab[]` | — | The tabs, in order. |
 | `value` | `string` | — | Active tab id (controlled). |
 | `defaultValue` | `string` | — | Active tab id on first render (uncontrolled). Defaults to the first tab. |
 | `onValueChange` | `(value: string) => void` | — | Called with the id of the tab that was picked. |
@@ -73,49 +73,49 @@ Icon tabs that spend their width on the active tab only: its label unfolds on a 
 
 Ready preview: a compact app screen with five destinations in its bottom bar.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `ExpandableTab`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable value of the tab. |
-| `label` (obrigatória) | `string` | Text shown only while the tab is active; always the tab's accessible name. |
-| `icon` (obrigatória) | `ReactNode` | Icon, always visible. |
+| `id` (required) | `string` | Stable value of the tab. |
+| `label` (required) | `string` | Text shown only while the tab is active; always the tab's accessible name. |
+| `icon` (required) | `ReactNode` | Icon, always visible. |
 | `badge` | `number` | Small count on the icon, for unread items and the like. |
 | `content` | `ReactNode` | Panel shown while the tab is active. Leave it out to use the tabs as a plain switcher. |
 | `disabled` | `boolean` | A disabled tab cannot be picked and is skipped by the arrow keys. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Selecionam a aba anterior ou a próxima, pulando as desabilitadas e dando a volta, e levam o foco junto. |
-| `Home` ou `End` | Selecionam a primeira ou a última aba habilitada. |
+| `←` or `→` | Select the previous or next tab, skipping disabled ones and wrapping around, and move focus along with it. |
+| `Home` or `End` | Select the first or last enabled tab. |
 
-## Acessibilidade
+## Accessibility
 
-- Segue o padrão de abas com foco itinerante: `tablist` nomeado por `label`, `aria-selected` em cada aba e, quando há `content`, um `tabpanel` ligado à aba ativa.
-- O nome de cada aba é sempre o `label` (com “, 3 new” quando há `badge`), mesmo com o texto escondido; o rótulo visível fica em `aria-hidden` para não ser lido duas vezes.
+- Follows the tabs pattern with roving focus: a `tablist` named by `label`, `aria-selected` on each tab and, when there is `content`, a `tabpanel` tied to the active tab.
+- Each tab's name is always the `label` (with “, 3 new” when there is a `badge`), even with the text hidden; the visible label is `aria-hidden` so it is not read twice.
 
-## Movimento
+## Motion
 
-- O rótulo da aba ativa se abre numa mola sem ultrapassagem enquanto o da anterior se fecha, o fundo de destaque cresce a partir da própria aba e o ícone pulsa uma vez.
-- Quando há `content`, o painel troca subindo de um leve desfoque.
-- Com “reduzir movimento” ligado, rótulos e painéis trocam na hora, sem pulso nem desfoque, e as transições CSS do fundo são desligadas.
+- The active tab's label opens on a no-overshoot spring while the previous one's closes, the highlight background grows from the tab itself, and the icon pulses once.
+- When there is `content`, the panel swaps rising from a slight blur.
+- With “reduce motion” on, labels and panels swap instantly, with no pulse or blur, and the background's CSS transitions are turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista se centraliza e cresce com o rótulo ativo, sem rolagem nem quebra de linha: confira se os ícones mais o rótulo mais longo cabem na tela mais estreita.
+- The list centers itself and grows with the active label, with no scrolling or line wrapping: check that the icons plus the longest label fit on the narrowest screen.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `ExpandableTabs` pelo nome (a exportação padrão é a prévia de um app); cada aba precisa de `id`, `label` e `icon`, e contagens acima de 9 em `tab.badge` aparecem como “9+”.
-- Sem `content` em nenhuma aba, vira um alternador simples, sem `tabpanel`: use `value` e `onValueChange` para trocar a tela por fora, como numa barra inferior.
-- Com `content`, o painel aparece acima da lista; para fixar a barra no rodapé da tela, posicione o componente pelo pai.
+- Import `ExpandableTabs` by name (the default export is an app preview); each tab needs `id`, `label`, and `icon`, and counts above 9 in `tab.badge` appear as “9+”.
+- Without `content` on any tab, it becomes a simple switcher, with no `tabpanel`: use `value` and `onValueChange` to switch the screen externally, as in a bottom bar.
+- With `content`, the panel appears above the list; to pin the bar to the bottom of the screen, position the component from the parent.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-tabs · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-tabs · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

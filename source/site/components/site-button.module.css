@@ -1,0 +1,13 @@
+.button { display: inline-flex; height: var(--control-height-md); align-items: center; justify-content: center; gap: var(--space-2); border: 1px solid transparent; border-radius: var(--radius-pill); padding-inline: var(--space-4); font-size: var(--text-sm); font-weight: 600; text-decoration: none; white-space: nowrap; cursor: pointer; transition: transform var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard); }
+.button[data-size="lg"] { height: var(--control-height-lg); padding-inline: var(--space-6); font-size: var(--text-base); }
+.button[data-variant="primary"] { color: var(--accent-foreground); background: var(--accent); }
+.button[data-variant="line"] { border-color: var(--border-strong); color: var(--foreground); background: transparent; }
+.button svg { transition: transform var(--duration-standard) var(--ease-enter); }
+.button:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) {
+  .button[data-variant="primary"]:hover { background: var(--accent-strong); }
+  .button[data-variant="line"]:hover { background: var(--surface-muted); }
+  .button:hover svg:last-child { transform: translateX(.1875rem); }
+}
+:root[data-theme="dark"] .button[data-variant="primary"]:hover { color: var(--accent-foreground); }
+@media (prefers-reduced-motion: reduce) { .button, .button svg { transition: none; } .button:active { transform: none; } }

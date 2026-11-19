@@ -2,48 +2,48 @@
 
 > Barra lateral que alterna entre trilho de ícones e painel completo com uma mola elástica; o marcador ativo desliza.
 
-- Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bounce-sidebar
-- Descrição original (inglês): An app sidebar that switches between an icon rail and a full panel on a slightly bouncy width spring, with staggered labels and a gliding active marker.
+- Type: component (category Disclosure), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/bounce-sidebar
+- Original description: An app sidebar that switches between an icon rail and a full panel on a slightly bouncy width spring, with staggered labels and a gliding active marker.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/bounce-sidebar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bounce-sidebar.json`. Registry path, relative to the site address: `r/bounce-sidebar.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/bounce-sidebar/bounce-sidebar.tsx`
   - `components/ryan-ui/bounce-sidebar/bounce-sidebar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/bounce-sidebar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/bounce-sidebar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- A navegação principal de um app com quatro a oito destinos planos, em que um trilho de ícones libera largura para o conteúdo.
-- Shells de painel com destinos fixos no pé da barra, como Configurações e Ajuda, passados em `secondaryItems`.
-- Contadores que precisam continuar visíveis no trilho: o `badge` vira um ponto sobre o ícone.
+- The main navigation of an app with four to eight flat destinations, where an icon rail frees up width for the content.
+- Dashboard shells with fixed destinations at the foot of the bar, such as Settings and Help, passed in `secondaryItems`.
+- Counters that need to stay visible on the rail: the `badge` becomes a dot over the icon.
 
-## Quando não usar
+## When not to use
 
-- Use [`animated-sidebar`](animated-sidebar.md) quando houver grupos aninhados, destinos com `href` ou necessidade de dica com o nome de cada ícone no trilho.
-- Evite com muitos destinos ou pouca altura: a barra não rola, e as últimas linhas e o botão de recolher ficam cortados.
-- Use [`site-header`](site-header.md) para a navegação de um site público.
+- Use [`animated-sidebar`](animated-sidebar.md) when there are nested groups, destinations with `href`, or a need for a tooltip with each icon's name on the rail.
+- Avoid it with many destinations or little height: the bar does not scroll, and the last rows and the collapse button get cut off.
+- Use [`site-header`](site-header.md) for the navigation of a public site.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -98,15 +98,15 @@ export default function BounceSidebarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BounceSidebar`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `BounceSidebarItem[]` | — | Main destinations, top to bottom. |
+| `items` (required) | `BounceSidebarItem[]` | — | Main destinations, top to bottom. |
 | `secondaryItems` | `BounceSidebarItem[]` | `[]` | Destinations pinned to the bottom, such as settings and help. |
 | `value` | `string` | — | Id of the active row (controlled). |
 | `defaultValue` | `string` | — | Active row when uncontrolled. Defaults to the first item. |
@@ -121,49 +121,49 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `label` | `string` | `"Main"` | Accessible name of the navigation landmark. |
 | `className` | `string` | — | Extra class for the sidebar. |
 
-### Tipos exportados
+### Exported types
 
 #### `BounceSidebarItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id, used as the sidebar's value. |
-| `label` (obrigatória) | `string` | Text next to the icon. It stays in the accessibility tree while the sidebar is a rail. |
-| `icon` (obrigatória) | `ReactNode` | Icon, about 18 px. |
+| `id` (required) | `string` | Unique id, used as the sidebar's value. |
+| `label` (required) | `string` | Text next to the icon. It stays in the accessibility tree while the sidebar is a rail. |
+| `icon` (required) | `ReactNode` | Icon, about 18 px. |
 | `badge` | `string \| number` | A count or short word at the end of the row; the rail shows it as a dot on the icon. |
 | `disabled` | `boolean` | Keeps the row visible but not pressable. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `↑` | Move o foco entre as linhas e o botão de recolher, voltando ao início depois do último. |
-| `Home` ou `End` | Leva o foco à primeira linha ou ao botão de recolher, que é o último. |
-| `Enter` ou `Espaço` | Seleciona a linha em foco ou alterna entre trilho e painel. |
+| `↓` or `↑` | Moves focus between the rows and the collapse button, wrapping to the start after the last. |
+| `Home` or `End` | Moves focus to the first row or to the collapse button, which is the last. |
+| `Enter` or `Space` | Selects the focused row or toggles between rail and panel. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<nav>` com `aria-label` vindo de `label` (padrão “Main”); a linha ativa recebe `aria-current="page"`.
-- No trilho, rótulos e contadores continuam no DOM com opacidade zero, então o leitor de tela segue lendo cada destino; não há dica visual com o nome do ícone.
-- O botão de recolher tem `aria-expanded`, `aria-controls` apontando para a barra e um nome oculto “Collapse sidebar” ou “Expand sidebar”, fixo em inglês no código.
+- It is a `<nav>` with `aria-label` coming from `label` (default “Main”); the active row gets `aria-current="page"`.
+- On the rail, labels and counters stay in the DOM with zero opacity, so the screen reader keeps reading each destination; there is no visual tooltip with the icon's name.
+- The collapse button has `aria-expanded`, `aria-controls` pointing to the bar, and a hidden name “Collapse sidebar” or “Expand sidebar”, fixed in English in the code.
 
-## Movimento
+## Motion
 
-- A largura troca entre `railWidth` e `panelWidth` numa mola com um pequeno quique; o marcador do item ativo ocupa a largura toda e estica junto.
-- Ao abrir, os rótulos chegam um depois do outro deslizando 6 px; ao fechar, saem juntos num esmaecer de 120 ms. O marcador desliza até a linha ativa com um leve quique.
-- Com “reduzir movimento” ligado, largura, rótulos e marcador mudam na hora, e o encolher do ícone ao pressionar é desligado.
+- The width switches between `railWidth` and `panelWidth` on a spring with a small bounce; the active item marker takes the full width and stretches along.
+- On open, the labels arrive one after another sliding 6 px; on close, they leave together in a 120 ms fade. The marker slides to the active row with a slight bounce.
+- With “reduce motion” on, width, labels, and marker change instantly, and the icon shrink on press is turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A barra tem `height: 100%` e não rola por dentro; com pouca altura, as últimas linhas e o botão de recolher ficam cortados, então o pai precisa de altura suficiente.
-- Ela não recolhe sozinha em telas estreitas; o demo começa no trilho abaixo de 560 px passando `expanded` controlado.
+- The bar has `height: 100%` and does not scroll inside; with little height, the last rows and the collapse button get cut off, so the parent needs enough height.
+- It does not collapse on its own on narrow screens; the demo starts on the rail below 560 px by passing a controlled `expanded`.
 
-## Notas para IA
+## Notes for AI
 
-- As linhas são `<button>` sem `href`: faça a navegação no `onValueChange`, por exemplo chamando o roteador.
-- Todo item precisa de `id` único e `icon` (cerca de 18 px); `defaultValue` cai no primeiro item e `defaultExpanded` começa como `true`.
-- Importe `BounceSidebar` de `@/components/ryan-ui/bounce-sidebar/bounce-sidebar` e coloque-a numa linha flex ao lado da página, com altura definida.
+- The rows are `<button>` without `href`: do the navigation in `onValueChange`, for example by calling the router.
+- Every item needs a unique `id` and `icon` (about 18 px); `defaultValue` falls back to the first item and `defaultExpanded` starts as `true`.
+- Import `BounceSidebar` from `@/components/ryan-ui/bounce-sidebar/bounce-sidebar` and put it in a flex row beside the page, with a defined height.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bounce-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bounce-sidebar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

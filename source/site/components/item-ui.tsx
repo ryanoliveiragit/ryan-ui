@@ -273,10 +273,10 @@ interface CopyButtonProps {
 }
 
 /** Botão de copiar: ícone (e rótulo) trocam por "Copiado" por um instante, e o leitor de tela ouve o resultado. */
-export function CopyButton({ value, label = "Copiar", iconOnly = false, className }: CopyButtonProps) {
+export function CopyButton({ value, label = "Copy", iconOnly = false, className }: CopyButtonProps) {
   const { state, copy } = useCopy();
   const icon = state === "copied" ? <Check size={14} strokeWidth={2} aria-hidden="true" /> : state === "error" ? <CircleAlert size={14} strokeWidth={1.75} aria-hidden="true" /> : <Copy size={14} strokeWidth={1.75} aria-hidden="true" />;
-  const feedback = state === "copied" ? "Copiado" : state === "error" ? "Não copiou" : "";
+  const feedback = state === "copied" ? "Copied" : state === "error" ? "Copy failed" : "";
   return (
     <button type="button" className={cx(iconOnly ? styles.iconButton : styles.textButton, className)} data-state={state} aria-label={iconOnly ? label : undefined} title={iconOnly ? label : undefined} onClick={() => { void copy(value); }}>
       {icon}

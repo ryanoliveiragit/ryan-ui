@@ -2,50 +2,50 @@
 
 > Índice de blog com post em destaque, filtro por categoria, cartões, paginação e leitor no próprio lugar.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/blog-grid
-- Descrição original (inglês): A blog index with a featured post, category filter, post cards, pagination and an in-place reader.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/blog-grid
+- Original description: A blog index with a featured post, category filter, post cards, pagination and an in-place reader.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json`. Caminho do registro, relativo ao endereço do site: `r/blog-grid.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/blog-grid.json`. Registry path, relative to the site address: `r/blog-grid.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/blog-grid/blog-grid.tsx`
   - `components/ryan-ui/blocks/blog-grid/blog-grid-data.ts`
   - `components/ryan-ui/blocks/blog-grid/blog-grid.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/blog-grid.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/blog-grid.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Índice de blog ou de novidades de um site, com um post em destaque, filtro por categoria e paginação, tudo a partir de uma lista de posts em memória.
-- Protótipos e sites estáticos sem roteador: sem `getHref`, o clique abre o post num leitor no próprio lugar e “All posts” volta ao índice.
-- Listas editoriais com imagem de capa, resumo, autor e tempo de leitura em cada cartão.
+- A blog or news index for a site, with a featured post, category filter, and pagination, all from an in-memory list of posts.
+- Prototypes and static sites without a router: without `getHref`, clicking opens the post in an in-place reader and “All posts” returns to the index.
+- Editorial lists with a cover image, summary, author, and reading time on each card.
 
-## Quando não usar
+## When not to use
 
-- Use [`changelog-feed`](changelog-feed.md) para notas de versão, com tipo de mudança, número da versão e navegação por mês.
-- Use [`infinite-masonry`](infinite-masonry.md) quando o conteúdo é um feed de imagens de alturas diferentes que carrega ao rolar.
-- Evite quando os posts chegam paginados do servidor: o bloco ordena, filtra e pagina no cliente a lista inteira passada em `posts`.
+- Use [`changelog-feed`](changelog-feed.md) for release notes, with change type, version number, and month navigation.
+- Use [`infinite-masonry`](infinite-masonry.md) when the content is an image feed of varying heights that loads on scroll.
+- Avoid when posts arrive paginated from the server: the block sorts, filters, and paginates the whole list passed in `posts` on the client.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import BlogGrid from "@/components/ryan-ui/blocks/blog-grid/blog-grid";
@@ -55,13 +55,13 @@ export default function BlogGridDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BlogGrid`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `title` | `string` | `"Journal"` | — |
 | `description` | `string` | `"Product news, design notes and engineering d…` | — |
@@ -83,74 +83,72 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 Preview: the blog index with the in-place reader.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `BlogAuthor`
 
-Sample posts for the blog grid. Photos and portraits live in public/media (credits in public/media/CREDITS.md).
-
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | — |
+| `name` (required) | `string` | — |
 | `avatar` | `string` | — |
 | `role` | `string` | — |
 
 #### `BlogPost`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `title` (obrigatória) | `string` | — |
-| `excerpt` (obrigatória) | `string` | — |
-| `category` (obrigatória) | `string` | — |
-| `date` (obrigatória) | `string` | ISO date, used for sorting and the visible date. |
-| `readTime` (obrigatória) | `number` | Minutes to read. |
-| `author` (obrigatória) | `BlogAuthor` | — |
+| `id` (required) | `string` | — |
+| `title` (required) | `string` | — |
+| `excerpt` (required) | `string` | — |
+| `category` (required) | `string` | — |
+| `date` (required) | `string` | ISO date, used for sorting and the visible date. |
+| `readTime` (required) | `number` | Minutes to read. |
+| `author` (required) | `BlogAuthor` | — |
 | `image` | `{ src: string; alt: string }` | — |
 | `body` | `string[]` | Paragraphs for the in-place reader. Leave out when every post links out through getHref. |
 | `featured` | `boolean` | — |
 
-### Outras exportações
+### Other exports
 
-- `blogCategories` (valor)
-- `blogPosts` (valor)
+- `blogCategories` (value)
+- `blogPosts` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | Num cartão, abre o post no leitor e leva o foco ao botão “All posts”; com `getHref`, segue o link. |
-| `Enter` ou `Espaço` | Acionam os filtros de categoria, os números de página e os botões “Previous”, “Next” e “All posts”. |
+| `Enter` | On a card, opens the post in the reader and moves focus to the “All posts” button; with `getHref`, follows the link. |
+| `Enter` or `Space` | Activate the category filters, the page numbers, and the “Previous”, “Next”, and “All posts” buttons. |
 
-## Acessibilidade
+## Accessibility
 
-- Os cartões são links (`<a>`), os filtros são botões com `aria-pressed` e a paginação é um `<nav>` com `aria-current="page"` na página atual.
-- Ao abrir o leitor o foco vai para “All posts”; ao fechar, volta ao cartão de origem, que é rolado para a área visível; não há tecla Esc para fechar.
-- Preencha `image.alt` de cada post: é o texto alternativo da capa no cartão e no leitor; o avatar do autor é decorativo (`alt=""`).
+- The cards are links (`<a>`), the filters are buttons with `aria-pressed`, and pagination is a `<nav>` with `aria-current="page"` on the current page.
+- When the reader opens, focus goes to “All posts”; when it closes, focus returns to the originating card, which is scrolled into view; there is no Esc key to close.
+- Fill in `image.alt` for each post: it is the cover's alternative text on the card and in the reader; the author avatar is decorative (`alt=""`).
 
-## Movimento
+## Motion
 
-- A capa do cartão viaja e cresce até virar a imagem do leitor (elemento compartilhado, mola sem ultrapassagem) e faz o caminho de volta ao fechar, enquanto o resto do índice some e reaparece aos poucos.
-- Trocar de página desliza o conteúdo no sentido da navegação, os realces do filtro e da página deslizam até o novo item e a altura acompanha com uma mola, sem salto da paginação.
-- Com “reduzir movimento” ligado, a capa não viaja, as trocas viram um esmaecer, os realces e a altura mudam na hora e a rolagem até o topo deixa de ser suave.
+- The card cover travels and grows into the reader image (shared element, no-overshoot spring) and makes the trip back on close, while the rest of the index fades out and gradually reappears.
+- Changing page slides the content in the direction of navigation, the filter and page highlights slide to the new item, and the height follows with a spring, with no pagination jump.
+- With “reduce motion” on, the cover does not travel, transitions become a fade, the highlights and height change instantly, and scrolling to the top is no longer smooth.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Container query no próprio bloco: três colunas, duas abaixo de 900px e uma abaixo de 540px; abaixo de 680px o destaque empilha a imagem sobre o texto.
-- A faixa de filtros rola na horizontal sem barra de rolagem, e abaixo de 540px “Previous” e “Next” ficam só com o ícone.
+- Container query on the block itself: three columns, two below 900px, and one below 540px; below 680px the featured post stacks the image above the text.
+- The filter strip scrolls horizontally without a scrollbar, and below 540px “Previous” and “Next” show only the icon.
 
-## Desempenho
+## Performance
 
-- As capas usam `<img>` simples com `loading="lazy"` (a do destaque carrega na hora), então sirva arquivos já redimensionados; um `ResizeObserver` mede a página para animar a altura.
+- Covers use a plain `<img>` with `loading="lazy"` (the featured one loads immediately), so serve files that are already resized; a `ResizeObserver` measures the page to animate the height.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `BlogGrid` pelo nome para passar props (a exportação padrão, `BlogGridBlock`, é só a prévia); `category` e `page` aceitam uso controlado com `onCategoryChange` e `onPageChange`.
-- Com `getHref` os cartões viram links reais e o leitor é desligado; sem ele, preencha `body` de cada post (parágrafos em texto puro), senão o leitor mostra só o resumo.
-- Passe `categories` com as mesmas categorias usadas em `posts` (o padrão é a lista de exemplo; “All” é acrescentada pelo bloco) e datas ISO em `date` (`2026-09-18`), que ordenam os posts e geram a data exibida.
+- Import `BlogGrid` by name to pass props (the default export, `BlogGridBlock`, is only the preview); `category` and `page` support controlled use with `onCategoryChange` and `onPageChange`.
+- With `getHref` the cards become real links and the reader is turned off; without it, fill in `body` for each post (paragraphs as plain text), otherwise the reader shows only the summary.
+- Pass `categories` with the same categories used in `posts` (the default is the example list; “All” is added by the block) and ISO dates in `date` (`2026-09-18`), which sort the posts and generate the displayed date.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/blog-grid · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/blog-grid · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

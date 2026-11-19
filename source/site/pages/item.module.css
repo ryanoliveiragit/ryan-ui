@@ -53,3 +53,7 @@
   .actions { justify-content: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) { .crumbs a, .footline a { transition: none; } }
+/* O código dos itens Pro fica bloqueado até a compra. */
+.locked { display: grid; justify-items: start; gap: var(--space-3); border: 1px solid var(--accent); border-radius: var(--radius-panel); padding: var(--space-8); background: var(--accent-subtle); }
+.locked h3 { font-size: var(--text-xl); font-weight: 600; }
+.locked p { color: var(--text-secondary); }

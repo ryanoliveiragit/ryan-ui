@@ -2,23 +2,23 @@
 
 > Linha do tempo de novidades por mês, com versões, tipos de mudança e navegação lateral.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/changelog-feed
-- Descrição original (inglês): Release notes you can filter, open in place, and scroll through month by month.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/changelog-feed
+- Original description: Release notes you can filter, open in place, and scroll through month by month.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json`. Caminho do registro, relativo ao endereço do site: `r/changelog-feed.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/changelog-feed.json`. Registry path, relative to the site address: `r/changelog-feed.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Copy button](copy-button.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Copy button](copy-button.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/changelog-feed/changelog-feed.tsx`
   - `components/ryan-ui/blocks/changelog-feed/changelog-feed.module.css`
   - `components/ryan-ui/lib/media.ts`
@@ -27,29 +27,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/lib/use-copy-feedback.ts`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/changelog-feed.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/changelog-feed.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Página de novidades ou notas de versão de um produto, com cada entrada marcada como New, Improved ou Fixed e detalhes que abrem no lugar.
-- Históricos longos agrupados por mês, em que a barra de meses mostra em que mês a rolagem está e salta para outro.
-- Notas que pedem uma imagem com legenda ou um trecho de código com botão de copiar, sem sair da lista.
+- A product's what's-new or release notes page, with each entry tagged New, Improved, or Fixed and details that open in place.
+- Long histories grouped by month, where the month bar shows which month the scroll is in and jumps to another.
+- Notes that call for an image with a caption or a code snippet with a copy button, without leaving the list.
 
-## Quando não usar
+## When not to use
 
-- Use [`timeline`](timeline.md) para uma sequência de eventos agrupada por dia, sem filtros por tipo nem versões.
-- Use [`blog-grid`](blog-grid.md) quando as novidades são artigos com capa, autor e leitura completa.
-- Evite quando os tipos de mudança são outros: New, Improved e Fixed são fixos no código, assim como os textos da interface, em inglês.
+- Use [`timeline`](timeline.md) for a sequence of events grouped by day, with no type filters or versions.
+- Use [`blog-grid`](blog-grid.md) when the updates are articles with a cover, author, and full reading view.
+- Avoid when the change types are different: New, Improved, and Fixed are hardcoded, as are the interface texts, in English.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import ChangelogFeed from "@/components/ryan-ui/blocks/changelog-feed/changelog-feed";
@@ -59,13 +59,13 @@ export default function ChangelogFeedDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ChangelogFeed`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `entries` | `ChangelogEntry[]` | `exampleEntries` | Release notes, newest first. Each entry belongs to one of `months` by key. |
 | `months` | `ChangelogMonth[]` | `exampleMonths` | Months shown in the month bar, newest first. |
@@ -75,73 +75,73 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `defaultOpen` | `string[]` | — | Entry ids open on first render. Defaults to the newest entry. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ChangelogKind` | `"new" \| "improved" \| "fixed"` |
-| `ChangelogMedia` | `` \| { type: "photo"; src: string; alt: string; caption: string; /** Pixel size, needed when `src` is a URL rather than an imported image. */ width?: number; height?: number } \| { type: "code"; file: string; code: string } `` |
+| `ChangelogMedia` | `\| { type: "photo"; src: string; alt: string; caption: string; /** Pixel size of the image, so the frame keeps its ratio before it loads. */ width?: number; height?: number } \| { type: "code"; file: string; code: string }` |
 
 #### `ChangelogEntry`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `month` (obrigatória) | `string` | — |
-| `date` (obrigatória) | `string` | — |
-| `iso` (obrigatória) | `string` | — |
-| `version` (obrigatória) | `string` | — |
-| `kind` (obrigatória) | `Kind` | — |
-| `title` (obrigatória) | `string` | — |
-| `summary` (obrigatória) | `string` | — |
-| `details` (obrigatória) | `string[]` | — |
+| `id` (required) | `string` | — |
+| `month` (required) | `string` | — |
+| `date` (required) | `string` | — |
+| `iso` (required) | `string` | — |
+| `version` (required) | `string` | — |
+| `kind` (required) | `Kind` | — |
+| `title` (required) | `string` | — |
+| `summary` (required) | `string` | — |
+| `details` (required) | `string[]` | — |
 | `media` | `Media` | — |
 
 #### `ChangelogMonth`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
-| `short` (obrigatória) | `string` | — |
+| `key` (required) | `string` | — |
+| `label` (required) | `string` | — |
+| `short` (required) | `string` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Numa nota, abrem ou fecham os detalhes; nos filtros, ligam ou desligam o tipo; num mês da barra, rolam a lista até ele. |
-| `↑` ou `↓` ou `Page Up` ou `Page Down` | Com a área das notas em foco (ela entra na ordem do Tab), rolam a lista como qualquer área de rolagem. |
-| `Enter` | No campo de e-mail de “Subscribe”, envia; um endereço inválido faz o campo tremer, mostra o erro e mantém o foco nele. |
-| `Esc` | No campo de e-mail, volta ao botão “Subscribe” e devolve o foco a ele. |
+| `Enter` or `Space` | On a note, open or close the details; on the filters, turn the type on or off; on a month in the bar, scroll the list to it. |
+| `↑` or `↓` or `Page Up` or `Page Down` | With the notes area focused (it joins the Tab order), scroll the list like any scroll area. |
+| `Enter` | In the “Subscribe” email field, submits; an invalid address makes the field shake, shows the error, and keeps focus on it. |
+| `Esc` | In the email field, goes back to the “Subscribe” button and returns focus to it. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada nota é um botão com `aria-expanded` e `aria-controls`, os filtros usam `aria-pressed` e uma região `role="status"` oculta anuncia quantas notas ficaram visíveis depois de filtrar.
-- O e-mail tem rótulo oculto, `aria-invalid` no erro e mensagem num `role="status"`; ao confirmar, o foco vai para “Undo”, cujo nome inclui o endereço inscrito.
-- O mês atual e as contagens animadas são `aria-hidden`; para o leitor de tela, cada mês é uma `section` com título próprio e a barra de meses é um `nav` com botões “Jump to …”.
+- Each note is a button with `aria-expanded` and `aria-controls`, the filters use `aria-pressed`, and a hidden `role="status"` region announces how many notes remain visible after filtering.
+- The email has a hidden label, `aria-invalid` on error, and a message in a `role="status"`; on confirmation, focus goes to “Undo”, whose name includes the subscribed address.
+- The current month and the animated counts are `aria-hidden`; for the screen reader, each month is a `section` with its own heading and the month bar is a `nav` with “Jump to …” buttons.
 
-## Movimento
+## Motion
 
-- Os detalhes abrem com a altura numa mola e o conteúdo sobe de um leve desfoque; ao filtrar, as notas restantes deslizam para o novo lugar enquanto as que saem esmaecem.
-- Os números rolam para cima quando crescem e para baixo quando diminuem, o nome do mês entra no sentido da rolagem e a pílula da barra de meses desliza até o mês atual.
-- Com “reduzir movimento” ligado, as transições CSS vão a zero, molas e tremor do erro são desligados, as trocas viram corte ou esmaecer curto e o salto até um mês deixa de ser suave.
+- The details open with the height on a spring and the content rises from a slight blur; when filtering, the remaining notes slide to their new place while those leaving fade out.
+- The numbers scroll up when they grow and down when they shrink, the month name enters in the scroll direction, and the month bar's pill slides to the current month.
+- With “reduce motion” on, CSS transitions go to zero, springs and the error shake are turned off, changes become a cut or short fade, and the jump to a month is no longer smooth.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista rola dentro de uma altura fixa de 560px (520px em telas de até 640px); abaixo de 640px o cabeçalho empilha e data e versão vão para cima do título de cada nota.
-- Usa media queries da janela, não do contêiner: abaixo de 480px somem o ano, a contagem do mês e o total de notas visíveis.
+- The list scrolls inside a fixed height of 560px (520px on screens up to 640px); below 640px the header stacks and the date and version move above each note's title.
+- Uses window media queries, not container ones: below 480px the year, the month count, and the total of visible notes disappear.
 
-## Desempenho
+## Performance
 
-- A rolagem é lida no máximo uma vez por quadro (`requestAnimationFrame`) e um `ResizeObserver` refaz a conta quando a lista muda de altura; fotos e código só entram no DOM quando a nota abre.
-- Todas as notas ficam no DOM, cada uma com animação de layout; para centenas de versões, corte ou pagine a lista antes de passar `entries`.
+- Scroll is read at most once per frame (`requestAnimationFrame`) and a `ResizeObserver` redoes the calculation when the list changes height; photos and code enter the DOM only when the note opens.
+- All notes stay in the DOM, each with a layout animation; for hundreds of versions, trim or paginate the list before passing `entries`.
 
-## Notas para IA
+## Notes for AI
 
-- Cada entrada precisa de `month` igual a uma `key` de `months` (os dois do mais novo para o mais antigo): entradas sem mês correspondente não aparecem.
-- O “Subscribe” só valida o e-mail e mostra a confirmação, sem prop de envio; para inscrever de verdade, edite `SubscribeControl` no arquivo instalado.
-- Depende de `copy-button` (instalado junto) para copiar os trechos de código; `defaultOpen` recebe ids e, sem ele, a primeira entrada já começa aberta.
+- Each entry needs a `month` equal to a `key` from `months` (both from newest to oldest): entries without a matching month do not appear.
+- “Subscribe” only validates the email and shows the confirmation, with no submit prop; to really subscribe, edit `SubscribeControl` in the installed file.
+- Depends on `copy-button` (installed along with it) to copy the code snippets; `defaultOpen` takes ids and, without it, the first entry starts open.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/changelog-feed · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/changelog-feed · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

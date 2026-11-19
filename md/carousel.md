@@ -2,48 +2,48 @@
 
 > Carrossel arrastável que centraliza o slide ativo, com indicadores, setas e rotação opcional.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/carousel
-- Descrição original (inglês): Browse a row of slides by dragging, flicking, or arrowing through them.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/carousel
+- Original description: Browse a row of slides by dragging, flicking, or arrowing through them.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/carousel.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/carousel.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/carousel.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/carousel.json`. Caminho do registro, relativo ao endereço do site: `r/carousel.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/carousel.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/carousel.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/carousel.json`. Registry path, relative to the site address: `r/carousel.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/carousel/carousel.tsx`
   - `components/ryan-ui/carousel/carousel.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/carousel.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/carousel.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um conjunto curto e ordenado de itens do mesmo tipo, como produtos ou estudos de caso, em que os vizinhos à vista indicam que há mais.
-- Navegação por toque (arrastar, deslize rápido, gesto horizontal no trackpad) com setas, indicadores e teclado equivalentes.
-- Rotação automática opcional com botão de pausa visível, via `interval`.
+- A short, ordered set of items of the same kind, such as products or case studies, where the neighbors in view signal that there is more.
+- Touch navigation (drag, quick swipe, horizontal trackpad gesture) with equivalent arrows, indicators, and keyboard.
+- Optional automatic rotation with a visible pause button, via `interval`.
 
-## Quando não usar
+## When not to use
 
-- Use [`marquee`](marquee.md) para uma faixa que rola sozinha sem parar em cada item, como uma fila de logotipos.
-- Use [`image-viewer`](image-viewer.md) para fotos que precisam abrir ampliadas, com zoom.
-- Use [`card-stack`](card-stack.md) quando a pessoa decide sobre cada item em vez de só navegar.
+- Use [`marquee`](marquee.md) for a strip that scrolls on its own without stopping at each item, such as a row of logos.
+- Use [`image-viewer`](image-viewer.md) for photos that need to open enlarged, with zoom.
+- Use [`card-stack`](card-stack.md) when the user decides on each item instead of just browsing.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { Carousel } from "@/components/ryan-ui/carousel/carousel";
@@ -77,16 +77,16 @@ export default function CarouselDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Carousel`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Names the carousel for assistive technology, for example "From the Harbour suites". |
-| `children` (obrigatória) | `ReactNode` | — | One child per slide. |
+| `label` (required) | `string` | — | Names the carousel for assistive technology, for example "From the Harbour suites". |
+| `children` (required) | `ReactNode` | — | One child per slide. |
 | `index` | `number` | — | Controlled active slide. Pair with `onIndexChange`. |
 | `defaultIndex` | `number` | `0` | — |
 | `onIndexChange` | `(index: number) => void` | — | — |
@@ -96,43 +96,43 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `autoplay` | `boolean` | `false` | Starts rotating on mount. Off by default, so motion begins with the viewer. |
 | `className` | `string` | — | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Vão ao slide anterior ou ao seguinte, com o foco em qualquer parte do carrossel fora de campos de texto. |
-| `Home` ou `End` | Vão ao primeiro ou ao último slide. |
-| `Tab` | Percorre a área dos slides, o conteúdo do slide ativo, o botão de rotação, o indicador selecionado e as duas setas. |
-| `Enter` ou `Espaço` | Acionam o botão em foco: pausar ou iniciar a rotação, escolher um slide, anterior ou próximo. |
+| `←` or `→` | Go to the previous or next slide, with focus anywhere in the carousel outside text fields. |
+| `Home` or `End` | Go to the first or last slide. |
+| `Tab` | Moves through the slides area, the active slide's content, the rotation button, the selected indicator, and the two arrows. |
+| `Enter` or `Space` | Trigger the focused button: pause or start rotation, choose a slide, previous or next. |
 
-## Acessibilidade
+## Accessibility
 
-- A `section` tem `aria-roledescription="carousel"` e o nome de `label`; cada slide é um `tabpanel` rotulado por `slideLabel`, e os indicadores formam um `tablist` em que só o selecionado fica na ordem de tabulação.
-- Slides fora do centro ficam `inert`: links e botões dentro deles só funcionam no slide ativo, e a troca manual é anunciada numa região `aria-live`.
-- A rotação pausa ao passar o mouse, no foco do teclado, no arrasto, fora da tela e com a aba oculta; os rótulos dos controles (“Next slide”, “Pause slide rotation”) estão em inglês no código.
+- The `section` has `aria-roledescription="carousel"` and the name from `label`; each slide is a `tabpanel` labeled by `slideLabel`, and the indicators form a `tablist` in which only the selected one is in the tab order.
+- Slides away from the center are `inert`: links and buttons inside them only work on the active slide, and a manual change is announced in an `aria-live` region.
+- Rotation pauses on mouse hover, on keyboard focus, while dragging, off screen, and with the tab hidden; the control labels (“Next slide”, “Pause slide rotation”) are in English in the code.
 
-## Movimento
+## Motion
 
-- A trilha vai ao slide com mola sem ultrapassagem, levando a velocidade do gesto; nas pontas ela resiste como um elástico.
-- Os slides encolhem até 90% e esmaecem até 50% conforme se afastam do centro, e o indicador estica numa pílula que viaja junto, quadro a quadro; na rotação, a pílula esvazia até a troca.
-- Com “reduzir movimento”, a trilha salta para o slide e a rotação automática fica indisponível (o botão nem aparece).
+- The track goes to the slide with a no-overshoot spring, carrying the gesture's velocity; at the ends it resists like an elastic band.
+- Slides shrink to 90% and fade to 50% as they move away from the center, and the indicator stretches into a pill that travels along with it, frame by frame; during rotation, the pill empties until the swap.
+- With “reduce motion”, the track jumps to the slide and automatic rotation is unavailable (the button does not even appear).
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A raiz é um contêiner de tamanho e precisa de largura definida; `slideSize` (padrão `min(80cqw, 340px)`) aceita qualquer comprimento CSS, e `cqw` é a fração da largura do carrossel.
-- Com até 340 px de contêiner a linha de controles aperta; a área dos slides usa `touch-action: pan-y`, então o gesto vertical rola a página.
+- The root is a size container and needs a defined width; `slideSize` (default `min(80cqw, 340px)`) accepts any CSS length, and `cqw` is the fraction of the carousel's width.
+- With a container up to 340 px the controls row tightens; the slides area uses `touch-action: pan-y`, so the vertical gesture scrolls the page.
 
-## Desempenho
+## Performance
 
-- Todos os slides ficam montados e leem a posição da trilha a cada quadro para escala e opacidade: mantenha o conjunto curto.
-- Com `interval`, um `IntersectionObserver` e o evento de visibilidade da página pausam a rotação quando ninguém está vendo.
+- All slides stay mounted and read the track position on every frame for scale and opacity: keep the set short.
+- With `interval`, an `IntersectionObserver` and the page visibility event pause rotation when no one is looking.
 
-## Notas para IA
+## Notes for AI
 
-- Cada filho é um slide (dê `key` estável) e `label` é obrigatório; índice controlado com `index` e `onIndexChange`, ou livre com `defaultIndex`.
-- `interval` (ms por slide) só adiciona o botão de rotação; ela começa parada, a menos que você passe `autoplay`.
-- Não há laço: as setas param no primeiro e no último slide, e só a rotação automática volta ao início.
+- Each child is a slide (give it a stable `key`) and `label` is required; index controlled with `index` and `onIndexChange`, or uncontrolled with `defaultIndex`.
+- `interval` (ms per slide) only adds the rotation button; it starts stopped, unless you pass `autoplay`.
+- There is no loop: the arrows stop at the first and last slide, and only automatic rotation returns to the start.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/carousel · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/carousel · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

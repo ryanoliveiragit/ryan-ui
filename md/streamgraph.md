@@ -2,48 +2,48 @@
 
 > Camadas fluidas que se transformam entre períodos, com uma camada para isolar e ler semana a semana.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/streamgraph
-- Descrição original (inglês): Layered streams on a wiggle baseline that morph between ranges, with a layer you can isolate and read week by week.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/streamgraph
+- Original description: Layered streams on a wiggle baseline that morph between ranges, with a layer you can isolate and read week by week.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json`. Caminho do registro, relativo ao endereço do site: `r/streamgraph.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/streamgraph.json`. Registry path, relative to the site address: `r/streamgraph.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/streamgraph/streamgraph.tsx`
   - `components/ryan-ui/streamgraph/streamgraph.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/streamgraph.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/streamgraph.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar como a mistura de várias partes muda ao longo do tempo, quando a forma geral importa mais que valores exatos: chamados por assunto, tráfego por canal.
-- Quando o leitor quer isolar uma parte: apontar uma camada ou sua entrada na legenda esmaece as outras, e a dica lê os valores ponto a ponto.
-- Alternar entre períodos de tamanhos diferentes: as camadas são reamostradas numa grade comum e se transformam de um conjunto no outro.
+- Showing how the mix of several parts changes over time, when the overall shape matters more than exact values: tickets by topic, traffic by channel.
+- When the reader wants to isolate one part: pointing at a layer or its legend entry fades the others, and the tooltip reads values point by point.
+- Switching between periods of different lengths: layers are resampled onto a common grid and transform from one dataset to the other.
 
-## Quando não usar
+## When not to use
 
-- Use [`line-chart`](line-chart.md) quando o leitor precisa comparar valores exatos entre séries: aqui só a espessura da camada é legível, e a linha de base ondula.
-- Use [`bump-chart`](bump-chart.md) quando o que importa é a posição de cada série no ranking a cada período.
-- Use [`composition-chart`](composition-chart.md) ou [`donut-chart`](donut-chart.md) para a divisão de um total num único momento.
+- Use [`line-chart`](line-chart.md) when the reader needs to compare exact values across series: here only the layer's thickness is readable, and the baseline undulates.
+- Use [`bump-chart`](bump-chart.md) when what matters is each series' ranking position in each period.
+- Use [`composition-chart`](composition-chart.md) or [`donut-chart`](donut-chart.md) for the split of a total at a single moment.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -89,17 +89,17 @@ export default function StreamgraphDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Streamgraph`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `StreamgraphDatum[]` | — | — |
-| `series` (obrigatória) | `StreamgraphSeries[]` | — | Layers from the centre out: the first runs through the middle of the stream, the rest alternate above and below it. |
-| `label` (obrigatória) | `string` | — | What is measured, such as "Support tickets by topic". Names the chart for assistive technology. |
+| `data` (required) | `StreamgraphDatum[]` | — | — |
+| `series` (required) | `StreamgraphSeries[]` | — | Layers from the centre out: the first runs through the middle of the stream, the rest alternate above and below it. |
+| `label` (required) | `string` | — | What is measured, such as "Support tickets by topic". Names the chart for assistive technology. |
 | `unit` | `string` | `""` | Unit after each value, such as "tickets". |
 | `height` | `number` | `260` | Plot height in pixels. The width follows the container. |
 | `offset` | `"wiggle" \| "silhouette" \| "zero"` | `"wiggle"` | "wiggle" minimises layer slopes for a flowing stream, "silhouette" centres the stack, "zero" stacks from a flat baseline. |
@@ -115,63 +115,63 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `StreamgraphSeries`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. A layer keeps its place and color across data changes, so switching datasets morphs it. |
-| `label` (obrigatória) | `string` | Name in the legend, the direct label, the tooltip, and the data table. |
+| `key` (required) | `string` | Stable identity. A layer keeps its place and color across data changes, so switching datasets morphs it. |
+| `label` (required) | `string` | Name in the legend, the direct label, the tooltip, and the data table. |
 | `color` | `string` | Any CSS color. Defaults to the chart series for the first four layers (the first in the accent), then neutral steps. |
 
 #### `StreamgraphDatum`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity, such as an ISO week. |
-| `label` (obrigatória) | `string` | Full label for the tooltip and screen readers, such as "Week of Sep 14". |
+| `key` (required) | `string` | Stable identity, such as an ISO week. |
+| `label` (required) | `string` | Full label for the tooltip and screen readers, such as "Week of Sep 14". |
 | `axisLabel` | `string` | Short label on the time axis. Leave it out to keep the axis quiet at that point. |
-| `values` (obrigatória) | `Record<string, number \| undefined>` | One value per series key. Missing values count as zero; negatives are treated as zero. |
+| `values` (required) | `Record<string, number \| undefined>` | One value per series key. Missing values count as zero; negatives are treated as zero. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Com o foco no gráfico, recua ou avança um ponto no tempo. |
-| `↑` ou `↓` | Troca a camada em destaque, seguindo a ordem de `series`. |
-| `Page Up` ou `Page Down` | Avança ou recua cerca de um sexto do período. |
-| `Home` ou `End` | Vai ao primeiro ou ao último ponto. |
-| `Enter` ou `Espaço` | Na legenda, esconde ou mostra a camada do botão em foco. |
-| `Esc` | Encerra a leitura e esconde a dica. |
+| `←` or `→` | With focus on the chart, step back or forward one point in time. |
+| `↑` or `↓` | Switch the highlighted layer, following the order of `series`. |
+| `Page Up` or `Page Down` | Move forward or back about a sixth of the period. |
+| `Home` or `End` | Go to the first or last point. |
+| `Enter` or `Space` | In the legend, hide or show the focused button's layer. |
+| `Esc` | Ends the reading and hides the tooltip. |
 
-## Acessibilidade
+## Accessibility
 
-- A área do gráfico é um grupo focável com `aria-roledescription="stream graph"`; ao receber foco pelo teclado, a leitura começa no ponto mais recente.
-- Uma região `aria-live="polite"` lê o ponto atual, a camada em destaque com seu valor e o total; um resumo e uma tabela ocultos trazem todos os dados.
-- A legenda é um grupo de botões com `aria-pressed` (pressionado = camada visível); o cabeçalho da primeira coluna da tabela vem de `categoryLabel`, que por padrão é `Date`.
+- The chart area is a focusable group with `aria-roledescription="stream graph"`; on receiving focus by keyboard, reading starts at the most recent point.
+- An `aria-live="polite"` region reads the current point, the highlighted layer with its value, and the total; a hidden summary and table carry all the data.
+- The legend is a group of buttons with `aria-pressed` (pressed = layer visible); the table's first column header comes from `categoryLabel`, which defaults to `Date`.
 
-## Movimento
+## Motion
 
-- Na primeira vez em tela, o fluxo se abre a partir de um fio ao longo do centro; dados novos fazem cada camada se transformar com mola a partir da forma atual.
-- Esconder uma camada pela legenda a afina até sumir enquanto as outras fecham o espaço; a mira desliza entre pontos e a dica segue numa mola própria.
-- Com “reduzir movimento” ligado, as camadas vão direto ao estado final e a mira e a dica saltam.
+- The first time on screen, the flow opens from a thread along the center; new data makes each layer transform on a spring from its current shape.
+- Hiding a layer through the legend thins it until it vanishes while the others close the gap; the crosshair glides between points and the tooltip follows on its own spring.
+- With “reduced motion” on, layers go straight to the final state and the crosshair and tooltip jump.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura segue o contêiner e a altura é a prop `height` (260 px); o eixo mostra no máximo um `axisLabel` a cada 72 px, contando a partir do mais recente.
-- O nome dentro da camada só aparece onde ela tem ao menos 19 px de espessura e o texto cabe; nas camadas finas a identificação fica com a legenda e a dica.
+- The width follows the container and the height is the `height` prop (260 px); the axis shows at most one `axisLabel` every 72 px, counting from the most recent.
+- The name inside a layer only appears where it is at least 19 px thick and the text fits; on thin layers, identification is left to the legend and tooltip.
 
-## Desempenho
+## Performance
 
-- O desenho é imperativo: a cada quadro de animação todas as camadas têm o caminho refeito com 161 amostras e a linha de base recalculada, então o custo cresce com o número de camadas.
+- Drawing is imperative: on every animation frame all layers have their path rebuilt with 161 samples and the baseline recomputed, so the cost grows with the number of layers.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `series` (`{ key, label, color? }`) e `data` com um objeto `values` por ponto, indexado pela `key` da série; valores ausentes ou negativos contam como zero.
-- A ordem de `series` vai do centro para fora: a primeira corre pelo meio e as demais alternam acima e abaixo; só as quatro primeiras recebem cor de série, e o resto fica neutro sem `color`.
-- `offset="zero"` empilha a partir de uma base reta e `offset="silhouette"` centraliza a pilha; `hiddenSeries` com `onHiddenSeriesChange` controla as camadas escondidas.
+- Pass `series` (`{ key, label, color? }`) and `data` with a `values` object per point, indexed by the series `key`; missing or negative values count as zero.
+- The order of `series` runs from the center outward: the first runs through the middle and the rest alternate above and below; only the first four get a series color, and the rest stay neutral without `color`.
+- `offset="zero"` stacks from a straight base and `offset="silhouette"` centers the stack; `hiddenSeries` with `onHiddenSeriesChange` controls the hidden layers.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/streamgraph · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/streamgraph · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

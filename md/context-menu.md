@@ -2,47 +2,47 @@
 
 > Ações secundárias ao alcance do clique direito, junto do objeto selecionado.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/context-menu
-- Descrição original (inglês): Secondary actions kept close to the selected object.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/context-menu
+- Original description: Secondary actions kept close to the selected object.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/context-menu.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/context-menu.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/context-menu.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/context-menu.json`. Caminho do registro, relativo ao endereço do site: `r/context-menu.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/context-menu.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/context-menu.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/context-menu.json`. Registry path, relative to the site address: `r/context-menu.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/context-menu/context-menu.tsx`
   - `components/ryan-ui/context-menu/context-menu.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/context-menu.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/context-menu.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ações secundárias sobre um objeto que a pessoa já está vendo, como um arquivo, um cartão ou um projeto, abertas com o botão direito no próprio objeto.
-- Superfícies que não devem exibir um botão de menu, mas cujas ações precisam continuar alcançáveis pelo teclado (`Shift + F10` ou a tecla de menu).
+- Secondary actions on an object the person is already looking at, like a file, a card, or a project, opened with a right-click on the object itself.
+- Surfaces that should not show a menu button, but whose actions must remain reachable by keyboard (`Shift + F10` or the menu key).
 
-## Quando não usar
+## When not to use
 
-- Use [`dropdown-menu`](dropdown-menu.md) quando as ações precisam de um gatilho visível ou de separadores entre grupos; este menu é uma lista plana aberta sobre o objeto.
-- Evite em objetos que já respondem a clique, como links, cartões que abrem ou linhas selecionáveis: um clique ou toque simples em qualquer ponto do alvo também abre o menu.
-- Use [`swipe-actions`](swipe-actions.md) quando as ações de cada linha de uma lista devem aparecer com um gesto de deslizar no toque.
+- Use [`dropdown-menu`](dropdown-menu.md) when the actions need a visible trigger or separators between groups; this menu is a flat list opened over the object.
+- Avoid on objects that already respond to clicks, like links, cards that open, or selectable rows: a simple click or tap anywhere on the target also opens the menu.
+- Use [`swipe-actions`](swipe-actions.md) when each list row's actions should appear with a swipe gesture on touch.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -82,71 +82,71 @@ export default function ContextMenuDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ContextMenu`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | — |
-| `items` (obrigatória) | `ContextMenuItem[]` | — | — |
+| `children` (required) | `ReactNode` | — | — |
+| `items` (required) | `ContextMenuItem[]` | — | — |
 | `label` | `string` | `"Context menu"` | — |
 | `container` | `HTMLElement \| null` | — | Render the menu inside this element: it is placed and kept within that element instead of the viewport (used by the demo stages). |
 | `defaultOpen` | `boolean \| { x: number; y: number }` | `false` | Starts with the menu open at a point inside the target, as if it had just been right-clicked. `x` and `y` are fractions of the target's size (default 0.62 and 0.58). Focus stays where it is until a person uses the menu. |
 
-### Tipos exportados
+### Exported types
 
 #### `ContextMenuItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `icon` | `ReactNode` | — |
 | `onSelect` | `() => void` | — |
 | `disabled` | `boolean` | — |
 | `destructive` | `boolean` | — |
 | `checked` | `boolean` | — |
 
-### Outras exportações
+### Other exports
 
-- `contextMenuExampleItems` (valor)
+- `contextMenuExampleItems` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Shift + F10` ou `Menu` | Com o foco no alvo, abrem o menu logo abaixo dele, com o foco no primeiro item habilitado. |
-| `↓` ou `↑` | Percorrem os itens habilitados e dão a volta nas pontas. |
-| `Home` ou `End` | Vão para o primeiro e o último item habilitado. |
-| `Enter` ou `Espaço` | Escolhem o item em foco, fecham o menu e devolvem o foco ao alvo. |
-| `Esc` | Com o foco no menu, fecha e devolve o foco ao alvo. |
+| `Shift + F10` or `Menu` | With focus on the target, open the menu just below it, with focus on the first enabled item. |
+| `↓` or `↑` | Move through the enabled items and wrap around at the ends. |
+| `Home` or `End` | Go to the first and last enabled item. |
+| `Enter` or `Space` | Select the focused item, close the menu, and return focus to the target. |
+| `Esc` | With focus in the menu, closes it and returns focus to the target. |
 
-## Acessibilidade
+## Accessibility
 
-- O alvo é um `<div>` com `tabIndex=0`, `aria-haspopup="menu"`, `aria-expanded` e `aria-label`; o menu é `role="menu"`, com itens `role="menuitem"`, e recebe o mesmo `label` (padrão em inglês, “Context menu”).
-- Ao abrir, o foco vai para o primeiro item habilitado, mas o menu não prende o foco: `Tab` sai dele sem fechá-lo e, com o foco fora, `Esc` não o fecha mais (só um toque fora ou a rolagem).
-- `checked` não vira `aria-checked` e só desenha um visto quando o item não tem `icon`; o estado não chega ao leitor de tela.
+- The target is a `<div>` with `tabIndex=0`, `aria-haspopup="menu"`, `aria-expanded`, and `aria-label`; the menu is `role="menu"`, with `role="menuitem"` items, and gets the same `label` (default in English, “Context menu”).
+- On open, focus goes to the first enabled item, but the menu does not trap focus: `Tab` leaves it without closing it and, with focus outside, `Esc` no longer closes it (only a tap outside or scrolling).
+- `checked` does not become `aria-checked` and only draws a checkmark when the item has no `icon`; the state does not reach the screen reader.
 
-## Movimento
+## Motion
 
-- O menu cresce a partir do ponto do clique (a origem fica no ponteiro mesmo quando o menu é empurrado para dentro da tela) numa mola curta, e sai esmaecendo mais rápido do que entrou.
-- Os itens entram em sequência, 35 ms entre um e outro, e um realce único desliza entre as linhas sob o ponteiro; com o teclado, ele salta direto para o item em foco.
-- Com “reduzir movimento”, o menu só esmaece, os itens aparecem sem sequência e o realce não desliza.
+- The menu grows from the click point (the origin stays at the pointer even when the menu is pushed into the screen) on a short spring, and leaves fading faster than it entered.
+- Items enter in sequence, 35 ms apart, and a single highlight slides between rows under the pointer; with the keyboard, it jumps straight to the focused item.
+- With “reduce motion”, the menu only fades, items appear with no sequence, and the highlight does not slide.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O menu usa `position: fixed` e é empurrado para ficar a 8 px das bordas da janela; acima de 300 px de altura (ou da altura da tela) ele rola por dentro, e rótulos longos terminam em reticências.
-- Ele fecha quando a página rola ou a janela muda de tamanho, em vez de acompanhar o alvo.
+- The menu uses `position: fixed` and is pushed to stay 8 px from the window edges; above 300 px in height (or the screen height) it scrolls inside, and long labels end in an ellipsis.
+- It closes when the page scrolls or the window is resized, instead of following the target.
 
-## Notas para IA
+## Notes for AI
 
-- Envolva o objeto: `<ContextMenu label="Ações do arquivo" items={itens}>…</ContextMenu>`; o alvo vira um `<div>` em bloco, e cada item precisa de `id` e `label`, com a ação em `onSelect`.
-- Dê um `icon` a todo item: sem ele aparece um ícone de reticências, e `checked` só troca esse ícone por um visto; `destructive` pinta o item com a cor de perigo.
-- Não ponha links ou botões dentro do alvo esperando que funcionem sozinhos: o clique neles sobe até o alvo e também abre o menu.
+- Wrap the object: `<ContextMenu label="Ações do arquivo" items={itens}>…</ContextMenu>`; the target becomes a block `<div>`, and each item needs `id` and `label`, with the action in `onSelect`.
+- Give every item an `icon`: without one an ellipsis icon appears, and `checked` only swaps that icon for a checkmark; `destructive` paints the item with the danger color.
+- Do not put links or buttons inside the target expecting them to work on their own: the click on them bubbles up to the target and also opens the menu.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/context-menu · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/context-menu · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

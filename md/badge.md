@@ -2,48 +2,48 @@
 
 > Etiqueta compacta para status, categorias e destaques, em tons e cores variados.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/badge
-- Descrição original (inglês): A small label for status, category, or metadata.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/badge
+- Original description: A small label for status, category, or metadata.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json`. Caminho do registro, relativo ao endereço do site: `r/badge.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/badge.json`. Registry path, relative to the site address: `r/badge.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/badge/badge.tsx`
   - `components/ryan-ui/badge/badge.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/badge.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/badge.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Estado de um registro em tabela, lista ou cartão (Ativo, Vencido, Falhou), com `tone` e, se quiser, o ponto de `dot`.
-- Categorias sem sentido de estado, como métodos HTTP ou rótulos, com as seis cores de `color`.
-- Rótulo que muda no lugar (Rascunho → Publicado): o texto troca e a largura acompanha com uma mola.
+- The state of a record in a table, list, or card (Active, Overdue, Failed), with `tone` and, if you like, the `dot` indicator.
+- Categories with no state meaning, such as HTTP methods or labels, with the six `color` options.
+- A label that changes in place (Draft → Published): the text swaps and the width follows with a spring.
 
-## Quando não usar
+## When not to use
 
-- Use [`tag-input`](tag-input.md) para valores que a pessoa digita e remove.
-- Use [`chip-group`](chip-group.md) para filtros que ligam e desligam: a etiqueta não é clicável nem recebe foco.
-- Use [`alert`](alert.md) quando a mensagem precisa de explicação ou de uma ação.
+- Use [`tag-input`](tag-input.md) for values the user types and removes.
+- Use [`chip-group`](chip-group.md) for filters that toggle on and off: the badge is not clickable and does not receive focus.
+- Use [`alert`](alert.md) when the message needs an explanation or an action.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { CheckCircle2, Sparkles } from "lucide-react";
@@ -79,13 +79,13 @@ export default function BadgeDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Badge`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `tone` | `"neutral" \| "success" \| "info" \| "warning" \| "danger"` | `"neutral"` | — |
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | — |
@@ -94,42 +94,42 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `color` | `"teal" \| "sky" \| "orchid" \| "violet" \| "rose" \| "amber"` | — | Categorical colour from the shared tone family, for labels such as method tags. Overrides tone. |
 | `outline` | `boolean` | `false` | Draws a hairline border in the tone colour. |
 | `pill` | `boolean` | `false` | Fully rounded ends instead of the default soft corners. |
-| `...props` | `HTMLAttributes<HTMLSpanElement>` | — | Também aceita as props deste tipo. |
+| `...props` | `HTMLAttributes<HTMLSpanElement>` | — | Also accepts the props of this type. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `BadgeTone` | `"neutral" \| "success" \| "info" \| "warning" \| "danger"` |
 | `BadgeSize` | `"sm" \| "md" \| "lg"` |
 | `BadgeColor` | `"teal" \| "sky" \| "orchid" \| "violet" \| "rose" \| "amber"` |
 
-## Acessibilidade
+## Accessibility
 
-- É um `span` sem papel: o leitor de tela lê só o texto, então a palavra tem de dizer o estado; a cor de `tone` e o ponto não são anunciados.
-- Ícone e ponto ficam em `aria-hidden`, e durante a troca a cópia que sai também, para o texto não ser lido duas vezes.
-- A mudança de texto não é anunciada sozinha; se precisar, passe `role="status"` (as props extras vão para o `span`).
+- It is a `span` with no role: the screen reader reads only the text, so the word itself must state the status; the `tone` color and the dot are not announced.
+- Icon and dot are `aria-hidden`, and during the swap so is the outgoing copy, so the text is not read twice.
+- A text change is not announced on its own; if needed, pass `role="status"` (extra props go to the `span`).
 
-## Movimento
+## Motion
 
-- Quando o texto muda, o antigo sobe e some, o novo entra de baixo com um desfoque leve, e a largura vai do tamanho antigo ao novo com mola sem ultrapassagem.
-- Um ícone de outro componente troca com escala e esmaecer; mudar `tone` ou `color` faz fundo, borda e texto mudarem de cor numa transição curta.
-- Com “reduzir movimento”, texto e ícone só esmaecem rápido e a largura acompanha na hora.
+- When the text changes, the old one rises and disappears, the new one enters from below with a slight blur, and the width goes from the old size to the new with a no-overshoot spring.
+- An icon from another component swaps with scale and fade; changing `tone` or `color` makes background, border, and text change color in a short transition.
+- With “reduce motion”, text and icon only fade quickly and the width follows immediately.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A etiqueta não quebra linha nem encolhe (`white-space: nowrap`, `flex: none`): em colunas estreitas use rótulos curtos ou `size="sm"`.
+- The badge does not wrap or shrink (`white-space: nowrap`, `flex: none`): in narrow columns use short labels or `size="sm"`.
 
-## Desempenho
+## Performance
 
-- Cada etiqueta mantém um observador de tamanho para a animação de largura; numa tabela com centenas de linhas isso soma, então pagine ou virtualize.
+- Each badge keeps a size observer for the width animation; in a table with hundreds of rows this adds up, so paginate or virtualize.
 
-## Notas para IA
+## Notes for AI
 
-- Use `tone` para estado (`neutral`, `success`, `info`, `warning`, `danger`) e `color` para categoria; `color` vence `tone`, e `dot` é ignorado quando há `icon`.
-- Passe o rótulo como texto puro (`<Badge>{status}</Badge>`): a troca animada só acontece quando o filho é string ou número, não JSX.
-- O SVG de `icon` é redimensionado por CSS para 12, 14 ou 16 px conforme `size`; `outline` e `pill` só mudam a borda e os cantos.
+- Use `tone` for status (`neutral`, `success`, `info`, `warning`, `danger`) and `color` for category; `color` wins over `tone`, and `dot` is ignored when there is an `icon`.
+- Pass the label as plain text (`<Badge>{status}</Badge>`): the animated swap only happens when the child is a string or number, not JSX.
+- The `icon` SVG is resized by CSS to 12, 14, or 16 px depending on `size`; `outline` and `pill` only change the border and corners.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/badge · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/badge · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

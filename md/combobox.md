@@ -2,48 +2,48 @@
 
 > Pesquise e escolha em uma lista sem sair do campo.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/combobox
-- Descrição original (inglês): Search and select from a list without leaving the field.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/combobox
+- Original description: Search and select from a list without leaving the field.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/combobox.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/combobox.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/combobox.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/combobox.json`. Caminho do registro, relativo ao endereço do site: `r/combobox.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/combobox.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/combobox.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/combobox.json`. Registry path, relative to the site address: `r/combobox.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/combobox/combobox.tsx`
   - `components/ryan-ui/combobox/combobox.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/combobox.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/combobox.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolher um valor numa lista longa demais para percorrer sem busca: país, fuso horário, responsável.
-- Quando as pessoas procuram por termos que não estão no rótulo: as `keywords` de cada opção entram no filtro.
-- Campos de formulário que precisam de rótulo visível e texto de ajuda: `label` e `description` já vêm ligados ao campo.
+- Choosing a value from a list too long to scan without search: country, time zone, owner.
+- When people search for terms that are not in the label: each option's `keywords` go into the filter.
+- Form fields that need a visible label and help text: `label` and `description` already come tied to the field.
 
-## Quando não usar
+## When not to use
 
-- Use [`select`](select.md) para listas curtas, em que digitar não ajuda.
-- Use [`multi-select`](multi-select.md) quando a pessoa pode escolher vários valores.
-- Use [`command-palette`](command-palette.md) quando os resultados são ações ou destinos, não o valor de um campo.
+- Use [`select`](select.md) for short lists, where typing does not help.
+- Use [`multi-select`](multi-select.md) when the person can choose several values.
+- Use [`command-palette`](command-palette.md) when the results are actions or destinations, not a field's value.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -70,16 +70,16 @@ export default function ComboboxDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Combobox`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
-| `options` (obrigatória) | `ComboboxOption[]` | — | — |
+| `label` (required) | `string` | — | — |
+| `options` (required) | `ComboboxOption[]` | — | — |
 | `value` | `string` | — | — |
 | `defaultValue` | `string` | `""` | — |
 | `onValueChange` | `(value: string) => void` | — | — |
@@ -88,54 +88,54 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `emptyMessage` | `string` | `"No matches found"` | — |
 | `defaultOpen` | `boolean` | `false` | Start with the list open, without focusing the field (for previews and onboarding). |
 | `className` | `string` | — | — |
-| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Também aceita as props deste tipo, menos `value`, `defaultValue`, `onChange` e `placeholder`. |
+| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Also accepts the props of this type, except `value`, `defaultValue`, `onChange` and `placeholder`. |
 
-### Tipos exportados
+### Exported types
 
 #### `ComboboxOption`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `value` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `disabled` | `boolean` | — |
 | `keywords` | `string[]` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `↑` | Abrem a lista se estiver fechada; aberta, movem o destaque pelas opções habilitadas, dando a volta nas pontas. |
-| `Enter` | Escolhe a opção em destaque, fecha a lista e mantém o foco no campo. |
-| `Esc` | Fecha a lista e descarta o texto digitado, mantendo a seleção anterior. |
+| `↓` or `↑` | Open the list if it is closed; when open, move the highlight through the enabled options, wrapping around at the ends. |
+| `Enter` | Chooses the highlighted option, closes the list, and keeps focus in the field. |
+| `Esc` | Closes the list and discards the typed text, keeping the previous selection. |
 
-## Acessibilidade
+## Accessibility
 
-- O campo é um `role="combobox"` com `aria-expanded`, `aria-controls`, `aria-autocomplete="list"` e `aria-activedescendant`; o foco permanece no campo enquanto as setas percorrem as opções.
-- `label` é obrigatório e vira um `<label>` visível, `description` entra por `aria-describedby` e a mensagem de lista vazia é um `role="status"`; o botão de limpar tem nome fixo em inglês (`Clear selection`).
-- A lista abre assim que o campo recebe foco e não fecha ao sair com `Tab`: só com `Esc`, uma escolha ou um clique fora.
+- The field is a `role="combobox"` with `aria-expanded`, `aria-controls`, `aria-autocomplete="list"`, and `aria-activedescendant`; focus stays in the field while the arrows move through the options.
+- `label` is required and becomes a visible `<label>`, `description` goes in via `aria-describedby`, and the empty-list message is a `role="status"`; the clear button has a fixed English name (`Clear selection`).
+- The list opens as soon as the field gets focus and does not close when leaving with `Tab`: only with `Esc`, a choice, or a click outside.
 
-## Movimento
+## Motion
 
-- A lista entra com um esmaecer e um leve crescimento a partir do topo, e sua altura acompanha o filtro com uma mola sem ultrapassagem.
-- O rótulo escolhido assenta no campo subindo de um leve desfoque, o botão de limpar cresce ao aparecer e a seta gira 180° com a lista aberta.
-- Com “reduzir movimento” ligado, sobram só esmaecimentos curtos e a altura muda na hora.
+- The list enters with a fade and a slight growth from the top, and its height follows the filter with a spring with no overshoot.
+- The chosen label settles into the field rising from a slight blur, the clear button grows as it appears, and the arrow rotates 180° with the list open.
+- With “reduce motion” on, only short fades remain and the height changes instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista tem a largura do campo, abre sempre para baixo e rola por dentro acima de `min(300px, 40vh)`; rótulos longos são cortados com reticências.
-- Ela é posicionada dentro do próprio componente, sem portal: um ancestral com `overflow: hidden` a corta.
+- The list has the width of the field, always opens downward, and scrolls inside above `min(300px, 40vh)`; long labels are cut with an ellipsis.
+- It is positioned inside the component itself, with no portal: an ancestor with `overflow: hidden` clips it.
 
-## Desempenho
+## Performance
 
-- Todas as opções que passam no filtro são renderizadas, sem virtualização, e a altura da lista é medida por um `ResizeObserver` a cada mudança do filtro.
+- All options that pass the filter are rendered, with no virtualization, and the list height is measured by a `ResizeObserver` on every filter change.
 
-## Notas para IA
+## Notes for AI
 
-- Controlado com `value` + `onValueChange` ou não controlado com `defaultValue`; limpar a seleção chama `onValueChange("")`.
-- O filtro é local, por trecho de `label` e `keywords`; ignora maiúsculas mas não acentos (`sao` não acha “São Paulo”) e o texto digitado não é exposto, então não serve para busca no servidor.
-- Dê a cada opção um `value` sem espaços, porque ele entra no `id` usado por `aria-activedescendant`; as demais props e o `ref` vão para o `<input>`.
+- Controlled with `value` + `onValueChange` or uncontrolled with `defaultValue`; clearing the selection calls `onValueChange("")`.
+- The filter is local, by substring of `label` and `keywords`; it ignores case but not accents (`sao` does not find “São Paulo”) and the typed text is not exposed, so it does not work for server-side search.
+- Give each option a `value` with no spaces, because it goes into the `id` used by `aria-activedescendant`; the other props and the `ref` go to the `<input>`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/combobox · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/combobox · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

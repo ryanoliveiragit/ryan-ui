@@ -2,48 +2,48 @@
 
 > Grave atalhos de teclado em teclas visuais, com aviso de conflito e uma lista de atalhos pesquisável.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/shortcut-recorder
-- Descrição original (inglês): Record key combinations into key caps, with conflict warnings, Kbd, and a searchable cheatsheet.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/shortcut-recorder
+- Original description: Record key combinations into key caps, with conflict warnings, Kbd, and a searchable cheatsheet.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json`. Caminho do registro, relativo ao endereço do site: `r/shortcut-recorder.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shortcut-recorder.json`. Registry path, relative to the site address: `r/shortcut-recorder.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/shortcut-recorder/shortcut-recorder.tsx`
   - `components/ryan-ui/shortcut-recorder/shortcut-recorder.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/shortcut-recorder.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/shortcut-recorder.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Telas de preferências em que a pessoa redefine os atalhos de teclado do produto.
-- Apps com muitos atalhos que precisam de uma folha de referência pesquisável, via `ShortcutList`.
-- Mostrar atalhos em menus e textos com teclas desenhadas, via `ShortcutKeys` e `ShortcutKbd`.
+- Preferences screens where people redefine the product's keyboard shortcuts.
+- Apps with many shortcuts that need a searchable reference sheet, via `ShortcutList`.
+- Showing shortcuts in menus and texts with drawn keys, via `ShortcutKeys` and `ShortcutKbd`.
 
-## Quando não usar
+## When not to use
 
-- Use [`command-palette`](command-palette.md) quando o objetivo é executar ações pelo teclado, não configurá-las.
-- Para só exibir um atalho fixo, use `ShortcutKeys` deste mesmo arquivo, sem o gravador.
-- Em apps usados quase só por toque, atalhos de teclado têm pouco uso e a tela de configuração pode ficar de fora.
+- Use [`command-palette`](command-palette.md) when the goal is to run actions from the keyboard, not to configure them.
+- To only display a fixed shortcut, use `ShortcutKeys` from this same file, without the recorder.
+- In apps used almost only by touch, keyboard shortcuts get little use and the settings screen can be left out.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -77,28 +77,28 @@ export default function ShortcutRecorderDemo() {
 export const stage = { height: 560 };
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ShortcutKbd`
 
 A key cap. Use it inline in copy, in menus, or through `ShortcutKeys` for a whole combination.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | — |
+| `children` (required) | `ReactNode` | — | — |
 | `pressed` | `boolean` | `false` | Draws the key pushed down and lit, such as while it is held. |
 | `size` | `"sm" \| "md"` | `"md"` | — |
-| `...props` | `HTMLAttributes<HTMLElement>` | — | Também aceita as props deste tipo. |
+| `...props` | `HTMLAttributes<HTMLElement>` | — | Also accepts the props of this type. |
 
 ### `ShortcutKeys`
 
 A shortcut as key caps, with a spoken label for assistive technology.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `shortcut` (obrigatória) | `string` | — | — |
+| `shortcut` (required) | `string` | — | — |
 | `platform` | `"mac" \| "other"` | — | — |
 | `pressed` | `ReadonlySet<string>` | — | Held key ids from `usePressedKeys`; matching caps light up. |
 | `size` | `"sm" \| "md"` | `"md"` | — |
@@ -108,9 +108,9 @@ A shortcut as key caps, with a spoken label for assistive technology.
 
 A field that records a keyboard shortcut. Press it, then press the combination: held modifiers light up as caps while you build the chord, the finished shortcut settles into place, and a combination that is already taken asks before it is used. Escape cancels, Backspace clears, and the reset button restores the default. Caps follow the platform: ⌘ on a Mac, Ctrl elsewhere.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `hideLabel` | `boolean` | `false` | — |
 | `value` | `string \| null` | — | — |
 | `defaultValue` | `string \| null` | `null` | — |
@@ -130,9 +130,9 @@ A field that records a keyboard shortcut. Press it, then press the combination: 
 
 A searchable, grouped cheatsheet. Holding a modifier lights that cap in every row and fades rows that do not use it, so people can explore by holding keys; a row whose whole combination is down lights up. Search matches names, groups, and key names such as "cmd k".
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `groups` (obrigatória) | `ShortcutListGroup[]` | — | — |
+| `groups` (required) | `ShortcutListGroup[]` | — | — |
 | `label` | `string` | `"Keyboard shortcuts"` | Accessible name of the list. |
 | `searchable` | `boolean` | `true` | — |
 | `searchPlaceholder` | `string` | `"Search shortcuts"` | — |
@@ -140,92 +140,92 @@ A searchable, grouped cheatsheet. Holding a modifier lights that cap in every ro
 | `platform` | `"mac" \| "other"` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `Platform` | `"mac" \| "other"` |
 | `KbdProps`: @deprecated Renamed to `ShortcutKbdProps`. | `ShortcutKbdProps` |
 
 #### `ShortcutToken`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
-| `id` (obrigatória) | `string` | — |
-| `spoken` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
+| `id` (required) | `string` | — |
+| `spoken` (required) | `string` | — |
 
 #### `ShortcutBinding`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `shortcut` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `shortcut` (required) | `string` | — |
+| `label` (required) | `string` | — |
 
 #### `ShortcutListItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
-| `shortcut` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
+| `shortcut` (required) | `string` | — |
 | `keywords` | `string` | — |
 
 #### `ShortcutListGroup`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
-| `items` (obrigatória) | `ShortcutListItem[]` | — |
+| `label` (required) | `string` | — |
+| `items` (required) | `ShortcutListItem[]` | — |
 
-### Outras exportações
+### Other exports
 
-- `keyId` (função)
-- `normalizeShortcut` (função)
-- `shortcutFromEvent` (função)
-- `matchesShortcut` (função)
-- `shortcutTokens` (função)
-- `formatShortcut` (função)
+- `keyId` (function)
+- `normalizeShortcut` (function)
+- `shortcutFromEvent` (function)
+- `matchesShortcut` (function)
+- `shortcutTokens` (function)
+- `formatShortcut` (function)
 - `usePlatform` (hook)
 - `usePressedKeys` (hook)
-- `Kbd` (valor)
+- `Kbd` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No campo, começam a gravar; a próxima combinação com modificador vira o atalho. |
-| `Esc` | Cancela a gravação e mantém o atalho anterior. |
-| `Backspace` ou `Delete` | Apagam o atalho, durante a gravação ou fora dela. |
-| `Tab` | Durante a gravação, para de gravar e segue para o próximo controle. |
-| `Ctrl` ou `Alt` ou `Shift` ou `⌘` | Segurados com a `ShortcutList` na tela, acendem essa tecla em todas as linhas e esmaecem as linhas que não a usam. |
-| `Esc` | Na busca da `ShortcutList`, apaga o texto digitado. |
+| `Enter` or `Space` | On the field, start recording; the next combination with a modifier becomes the shortcut. |
+| `Esc` | Cancels recording and keeps the previous shortcut. |
+| `Backspace` or `Delete` | Clear the shortcut, during recording or outside it. |
+| `Tab` | During recording, stops recording and moves on to the next control. |
+| `Ctrl` or `Alt` or `Shift` or `⌘` | Held with the `ShortcutList` on screen, light up that key in every row and fade the rows that do not use it. |
+| `Esc` | In the `ShortcutList` search, clears the typed text. |
 
-## Acessibilidade
+## Accessibility
 
-- O campo é um botão com `aria-pressed` durante a gravação, nomeado pelo rótulo mais o atalho falado (“Control Shift L”) e descrito pela mensagem de baixo.
-- Uma região `role="status"` narra cada passo: início da gravação, atalho definido, conflito, limpeza e cancelamento; os textos são em inglês e fixos.
-- `ShortcutKeys` tem `role="img"` com o nome falado da combinação, e os botões de restaurar e limpar têm `aria-label` próprio.
+- The field is a button with `aria-pressed` during recording, named by the label plus the spoken shortcut (“Control Shift L”) and described by the message below.
+- A `role="status"` region narrates each step: recording start, shortcut set, conflict, clearing, and cancellation; the texts are in English and fixed.
+- `ShortcutKeys` has `role="img"` with the spoken name of the combination, and the restore and clear buttons have their own `aria-label`.
 
-## Movimento
+## Motion
 
-- As teclas entram uma depois da outra com uma mola curta e afundam um pixel quando estão seguradas, e um ponto pulsa devagar enquanto grava.
-- A linha de mensagem abre a altura numa mola medindo o texto, e os botões de restaurar e limpar crescem no lugar.
-- Com “reduzir movimento” ligado, as teclas só esmaecem, o ponto fica parado e nada afunda.
+- The keys enter one after another with a short spring and sink one pixel when held, and a dot pulses slowly while recording.
+- The message line opens its height on a spring measuring the text, and the restore and clear buttons grow in place.
+- With “reduce motion” on, the keys only fade, the dot stays still, and nothing sinks.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A `ShortcutList` usa consulta de contêiner: a partir de 520px de largura, os grupos ficam em duas colunas.
+- `ShortcutList` uses a container query: from 520px wide, the groups go into two columns.
 
-## Desempenho
+## Performance
 
-- Com `highlightPressed` ligado (padrão), a `ShortcutList` escuta `keydown` e `keyup` da janela inteira na fase de captura; desligue se não usar as linhas acesas.
+- With `highlightPressed` on (the default), `ShortcutList` listens to `keydown` and `keyup` on the whole window in the capture phase; turn it off if you do not use the lit rows.
 
-## Notas para IA
+## Notes for AI
 
-- Guarde o valor como texto (`"mod+shift+k"`), em que `mod` é ⌘ no Mac e Ctrl no resto; para disparar a ação, use `matchesShortcut(evento, atalho, plataforma)` com `usePlatform()`.
-- Passe em `bindings` os atalhos já usados para avisar conflitos; em “Use anyway”, `onValueChange` traz `details.replaced` para você desligar o atalho antigo.
-- `requireModifier` (padrão) exige ⌘, Ctrl ou ⌥, exceto em teclas F, e `warnReserved` avisa sobre atalhos do navegador como ⌘W e ⌘C.
+- Store the value as text (`"mod+shift+k"`), where `mod` is ⌘ on Mac and Ctrl elsewhere; to trigger the action, use `matchesShortcut(evento, atalho, plataforma)` with `usePlatform()`.
+- Pass the shortcuts already in use in `bindings` to warn about conflicts; on “Use anyway”, `onValueChange` brings `details.replaced` so you can turn off the old shortcut.
+- `requireModifier` (default) requires ⌘, Ctrl, or ⌥, except on F keys, and `warnReserved` warns about browser shortcuts such as ⌘W and ⌘C.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/shortcut-recorder · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/shortcut-recorder · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

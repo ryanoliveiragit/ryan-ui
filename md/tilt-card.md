@@ -2,47 +2,47 @@
 
 > Cartão que se inclina em 3D na direção do cursor, com um brilho que acompanha o movimento, e volta ao lugar com mola.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tilt-card
-- Descrição original (inglês): A card that tilts in 3D toward the cursor with a glare highlight and springs back flat on leave; it stays still on touch and with reduced motion.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/tilt-card
+- Original description: A card that tilts in 3D toward the cursor with a glare highlight and springs back flat on leave; it stays still on touch and with reduced motion.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json`. Caminho do registro, relativo ao endereço do site: `r/tilt-card.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tilt-card.json`. Registry path, relative to the site address: `r/tilt-card.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/tilt-card/tilt-card.tsx`
   - `components/ryan-ui/tilt-card/tilt-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/tilt-card.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/tilt-card.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Cartões de destaque numa vitrine ou página de produto, como um destino de viagem ou um cartão de embarque, em que a profundidade chama a atenção para poucos itens.
-- Quando partes do conteúdo devem flutuar acima da face: cada `TiltCardLayer` sobe `depth` px durante o hover e se desloca contra o fundo conforme o cartão inclina.
+- Highlight cards in a showcase or product page, such as a travel destination or a boarding pass, where depth draws attention to a few items.
+- When parts of the content should float above the face: each `TiltCardLayer` rises `depth` px during hover and shifts against the background as the card tilts.
 
-## Quando não usar
+## When not to use
 
-- Use [`card`](card.md) para cartões comuns em listas e painéis, em que o movimento só distrairia.
-- Use [`wallet-card`](wallet-card.md) para um cartão de pagamento que também vira para mostrar o verso.
-- Em interfaces usadas sobretudo no toque o efeito some: o cartão só se inclina com mouse.
+- Use [`card`](card.md) for ordinary cards in lists and panels, where the motion would only distract.
+- Use [`wallet-card`](wallet-card.md) for a payment card that also flips to show the back.
+- In interfaces used mostly by touch the effect is lost: the card only tilts with a mouse.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { Plane, Star } from "lucide-react";
@@ -92,15 +92,15 @@ export default function TiltCardDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `TiltCard`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | Card content. Wrap parts in `TiltCardLayer` to float them above the card face. |
+| `children` (required) | `ReactNode` | — | Card content. Wrap parts in `TiltCardLayer` to float them above the card face. |
 | `maxTilt` | `number` | `10` | Largest lean in degrees, reached at the card's edges. |
 | `hoverScale` | `number` | `1.02` | How much the card grows while hovered. `1` keeps its size. |
 | `perspective` | `number` | `900` | Viewing distance in px. Smaller values exaggerate the depth. |
@@ -115,34 +115,34 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 A part of the card that floats above its face, so it shifts against the background as the card leans.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | Content that floats above the card face. |
+| `children` (required) | `ReactNode` | — | Content that floats above the card face. |
 | `depth` | `number` | `24` | Distance above the card face in px. Higher layers shift more as the card leans. |
 | `className` | `string` | — | Extra class names for the root element. |
 
-## Acessibilidade
+## Accessibility
 
-- É um contêiner visual, sem papel nem foco próprios: se o cartão inteiro leva a algum lugar, ponha dentro dele um link ou botão com o texto da ação.
-- A inclinação só responde ao mouse; teclado, toque, caneta e leitor de tela não a percebem, então nenhuma informação deve depender dela.
-- O brilho é `aria-hidden` e tem `pointer-events: none`, então links e botões sob ele continuam clicáveis.
+- It is a visual container, with no role or focus of its own: if the whole card leads somewhere, put a link or button with the action text inside it.
+- The tilt only responds to the mouse; keyboard, touch, pen, and screen readers don't perceive it, so no information should depend on it.
+- The glare is `aria-hidden` and has `pointer-events: none`, so links and buttons beneath it stay clickable.
 
-## Movimento
+## Motion
 
-- O cartão gira até `maxTilt` graus (10 por padrão) nas bordas, seguindo o cursor com uma mola firme e sem balanço, cresce até `hoverScale` e mostra um brilho na posição do cursor.
-- Ao sair, volta a ficar plano com mola; as camadas `TiltCardLayer` sobem com o hover e voltam à face em repouso, onde o texto fica nítido.
-- Com “reduzir movimento” ligado, assim como com `disabled`, o cartão fica plano: sem giro, sem escala, sem brilho e sem camadas elevadas.
+- The card rotates up to `maxTilt` degrees (10 by default) at the edges, following the cursor with a firm spring and no bounce, scales up to `hoverScale`, and shows a glare at the cursor position.
+- On leaving, it returns to flat on a spring; the `TiltCardLayer` layers rise with the hover and return to the face at rest, where the text is sharp.
+- With “reduced motion” on, as with `disabled`, the card stays flat: no rotation, no scale, no glare, and no raised layers.
 
-## Desempenho
+## Performance
 
-- O cartão mantém `will-change: transform` o tempo todo (exceto com “reduzir movimento”), o que reserva uma camada de composição por instância; numa grade com dezenas deles, use o efeito só nos destaques.
+- The card keeps `will-change: transform` all the time (except with “reduced motion”), which reserves a compositing layer per instance; in a grid with dozens of them, use the effect only on highlights.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `TiltCard` (e `TiltCardLayer`, se quiser camadas) de `@/components/ryan-ui/tilt-card/tilt-card`; dê largura e altura por `className` ou `style`, porque o cartão interno preenche a altura do contêiner.
-- Todo elemento entre o cartão e as camadas precisa de `transform-style: preserve-3d`, como o corpo do cartão de embarque no demo; sem isso as camadas achatam na face.
-- O cartão não recorta o conteúdo: numa imagem de capa, use `position: absolute`, `inset: 0` e `border-radius: inherit`; `onTiltChange` dispara a cada movimento do mouse, então evite estado pesado ali.
+- Import `TiltCard` (and `TiltCardLayer`, if you want layers) from `@/components/ryan-ui/tilt-card/tilt-card`; set width and height via `className` or `style`, because the inner card fills the container's height.
+- Every element between the card and the layers needs `transform-style: preserve-3d`, like the boarding pass body in the demo; without it the layers flatten onto the face.
+- The card doesn't clip its content: for a cover image, use `position: absolute`, `inset: 0`, and `border-radius: inherit`; `onTiltChange` fires on every mouse movement, so avoid heavy state there.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tilt-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tilt-card · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

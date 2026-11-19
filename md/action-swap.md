@@ -2,48 +2,48 @@
 
 > Troca o rótulo de uma ação sem ela sair do lugar nem mudar de intenção.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/action-swap
-- Descrição original (inglês): Swap an action label while preserving its place and intent.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/action-swap
+- Original description: Swap an action label while preserving its place and intent.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-swap.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-swap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-swap.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-swap.json`. Caminho do registro, relativo ao endereço do site: `r/action-swap.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-swap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-swap.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-swap.json`. Registry path, relative to the site address: `r/action-swap.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/action-swap/action-swap.tsx`
   - `components/ryan-ui/action-swap/action-swap.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/action-swap.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/action-swap.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma ação que percorre poucos estados relacionados no mesmo lugar, como Seguir, Seguindo e Deixar de seguir.
-- Envios curtos com confirmação passageira: “Enviar fatura” vira “Enviando”, depois “Enviada”, e volta sozinho ao início com `holdFor`.
-- Quando cada estado precisa de ícone e tom próprios (`neutral`, `accent`, `success`, `warning` ou `quiet`).
+- An action that cycles through a few related states in the same place, like Follow, Following, and Unfollow.
+- Short submissions with a transient confirmation: “Send invoice” becomes “Sending”, then “Sent”, and returns to the start on its own with `holdFor`.
+- When each state needs its own icon and tone (`neutral`, `accent`, `success`, `warning`, or `quiet`).
 
-## Quando não usar
+## When not to use
 
-- Use [`action-button`](action-button.md) quando há uma única ação com pendente e concluído e você não quer descrever estados.
-- Use [`split-button`](split-button.md) quando a pessoa escolhe entre alternativas: aqui cada clique só avança para o próximo estado da lista.
-- Use [`switch`](switch.md) quando o controle representa uma configuração ligada ou desligada, e não uma ação.
+- Use [`action-button`](action-button.md) when there is a single action with pending and done states and you do not want to describe states.
+- Use [`split-button`](split-button.md) when the person chooses among alternatives: here each click only advances to the next state in the list.
+- Use [`switch`](switch.md) when the control represents an on or off setting, not an action.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -93,74 +93,74 @@ export default function ActionSwapDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ActionSwap`
 
 A compact action that morphs through a small set of related states: idle, working, done, and back. Width, padding, tone, icon, and letters move together on one spring, and every change can be interrupted mid-flight.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `states` (obrigatória) | `ActionSwapState[]` | — | — |
+| `states` (required) | `ActionSwapState[]` | — | — |
 | `value` | `string` | — | — |
 | `defaultValue` | `string` | — | — |
 | `onValueChange` | `(value: string, state: ActionSwapState) => void` | — | — |
 | `onAction` | `(next: ActionSwapState, current: ActionSwapState) => void \| PromiseLike<unknown>` | — | Runs on press before the control moves on. Return a promise to show the working phase; a rejection shows `failureLabel`, then returns to the current state. |
 | `failureLabel` | `string` | `"Try again"` | — |
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | — |
-| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Também aceita as props deste tipo, menos `children`, `onChange`, `onClick`, `value`, `onDrag`, `onDragEnd`, `onDragStart` e `onAnimationStart`. |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Also accepts the props of this type, except `children`, `onChange`, `onClick`, `value`, `onDrag`, `onDragEnd`, `onDragStart` and `onAnimationStart`. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ActionSwapTone` | `"neutral" \| "accent" \| "success" \| "warning" \| "quiet"` |
 
 #### `ActionSwapState`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `icon` | `ReactNode` | — |
 | `tone` | `"neutral" \| "accent" \| "success" \| "warning" \| "quiet"` | — |
 | `pendingLabel` | `string` | Shown while `onAction` runs on the way into this state, such as "Sending" before "Sent". Without it the pill folds into a round spinner. |
 | `holdFor` | `number` | Milliseconds to hold this state before moving on by itself, for brief confirmations such as "Sent". |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Avançam para o próximo estado de `states` (depois do último, volta ao primeiro), chamando `onAction` antes. |
+| `Enter` or `Space` | Advance to the next state in `states` (after the last, back to the first), calling `onAction` first. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<button>` cujo `aria-label` acompanha o rótulo visível; enquanto `onAction` roda, recebe `aria-busy` e `aria-disabled` e continua focável.
-- Cada mudança é anunciada por um `role="status"` ao lado do botão: o novo `label`, o `pendingLabel` ou o `failureLabel`.
-- Sem `pendingLabel` no estado de destino, o anúncio de espera é o texto fixo “Working”; defina `pendingLabel` e `failureLabel` (padrão “Try again”) no idioma da interface.
+- It is a `<button>` whose `aria-label` follows the visible label; while `onAction` runs, it gets `aria-busy` and `aria-disabled` and stays focusable.
+- Each change is announced by a `role="status"` next to the button: the new `label`, the `pendingLabel`, or the `failureLabel`.
+- Without a `pendingLabel` on the target state, the wait announcement is the fixed text “Working”; set `pendingLabel` and `failureLabel` (default “Try again”) in the interface language.
 
-## Movimento
+## Motion
 
-- As letras em comum no início e no fim do rótulo ficam paradas e as novas sobem de um leve desfoque, em sequência, enquanto a largura segue uma mola sem ultrapassagem.
-- Sem `pendingLabel`, a pílula se dobra num círculo com indicador giratório enquanto a Promise roda (no mínimo 450 ms); uma falha mostra `failureLabel` por 1,8 s e volta ao estado atual.
-- Com “reduzir movimento”, letras e ícones trocam com um esmaecer de 0,12 s, a largura salta e o indicador não gira.
+- Letters shared at the start and end of the label stay still and the new ones rise from a slight blur, in sequence, while the width follows a spring with no overshoot.
+- Without `pendingLabel`, the pill folds into a circle with a spinner while the Promise runs (at least 450 ms); a failure shows `failureLabel` for 1.8 s and returns to the current state.
+- With “reduce motion”, letters and icons swap with a 0.12 s fade, the width jumps, and the spinner does not spin.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Os rótulos não quebram linha e a pílula muda de largura a cada estado; mantenha cada `label` curto.
+- Labels do not wrap and the pill changes width with each state; keep each `label` short.
 
-## Desempenho
+## Performance
 
-- Cada letra do rótulo é um elemento animado e há um `ResizeObserver` por botão: serve a rótulos curtos, não a frases.
+- Each letter of the label is an animated element and there is one `ResizeObserver` per button: it suits short labels, not sentences.
 
-## Notas para IA
+## Notes for AI
 
-- Descreva os estados em `states` (`id`, `label`, `icon`, `tone`) na ordem do ciclo; com menos de dois estados o botão fica desabilitado.
-- `onAction(next, current)` roda antes da troca: devolva uma Promise para mostrar a fase de espera e rejeite-a para exibir `failureLabel`.
-- Controle o estado com `value` e `onValueChange` ou deixe-o interno com `defaultValue`; `holdFor` num estado faz o botão avançar sozinho depois desse tempo.
+- Describe the states in `states` (`id`, `label`, `icon`, `tone`) in cycle order; with fewer than two states the button is disabled.
+- `onAction(next, current)` runs before the swap: return a Promise to show the wait phase and reject it to display `failureLabel`.
+- Control the state with `value` and `onValueChange` or leave it internal with `defaultValue`; `holdFor` on a state makes the button advance on its own after that time.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/action-swap · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/action-swap · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

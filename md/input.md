@@ -2,48 +2,48 @@
 
 > Campo de uma linha com rótulos claros e estados úteis.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/input
-- Descrição original (inglês): A single line field with clear labels and useful states.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/input
+- Original description: A single line field with clear labels and useful states.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json`. Caminho do registro, relativo ao endereço do site: `r/input.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/input.json`. Registry path, relative to the site address: `r/input.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/input/input.tsx`
   - `components/ryan-ui/input/input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/input.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/input.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Texto de uma linha num formulário: nome, e-mail, URL, código.
-- Campos que precisam de ajuda e de validação visíveis: `description` e `error` abrem a própria linha sob o campo sem dar tranco no layout.
-- Mensagens com contagem que muda durante a digitação, como “12 caracteres restantes”: só os dígitos alterados rolam.
+- Single-line text in a form: name, email, URL, code.
+- Fields that need visible help and validation: `description` and `error` open their own line under the field without jolting the layout.
+- Messages with a count that changes while typing, like “12 characters left”: only the changed digits roll.
 
-## Quando não usar
+## When not to use
 
-- Use [`textarea`](textarea.md) para texto de várias linhas.
-- Use [`password-field`](password-field.md) para senhas e [`search-field`](search-field.md) para busca: eles já trazem o botão de revelar e o de limpar.
-- Use [`number-field`](number-field.md) ou [`money-input`](money-input.md) para números e valores em dinheiro, que pedem limites, passos e formatação.
+- Use [`textarea`](textarea.md) for multi-line text.
+- Use [`password-field`](password-field.md) for passwords and [`search-field`](search-field.md) for search: they already bring the reveal and clear buttons.
+- Use [`number-field`](number-field.md) or [`money-input`](money-input.md) for numbers and money values, which need limits, steps, and formatting.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -63,41 +63,41 @@ export default function InputDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Input`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `description` | `string` | — | — |
 | `error` | `string` | — | — |
-| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Também aceita as props deste tipo. |
+| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Also accepts the props of this type. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<input>` nativo com um `<label>` ligado por `htmlFor`; `label` é obrigatório.
-- `error` marca o campo com `aria-invalid` e a mensagem sai num `role="alert"`; `description` e `error` entram em `aria-describedby`, somados ao que você passar nessa prop.
-- O foco é indicado só pelo escurecimento da borda, sem anel; as palavras animadas das mensagens ficam ocultas, e o leitor de tela lê uma cópia em texto simples.
+- It is a native `<input>` with a `<label>` tied by `htmlFor`; `label` is required.
+- `error` marks the field with `aria-invalid` and the message goes out in a `role="alert"`; `description` and `error` go into `aria-describedby`, added to whatever you pass in that prop.
+- Focus is indicated only by the border darkening, with no ring; the animated words of the messages are hidden, and the screen reader reads a plain-text copy.
 
-## Movimento
+## Motion
 
-- As linhas de ajuda e de erro abrem a própria altura com uma mola, e as palavras sobem de um leve desfoque.
-- Quando a mensagem muda, só as palavras diferentes se movem, e os números rolam para cima se cresceram e para baixo se diminuíram.
-- Com “reduzir movimento” ligado, as linhas aparecem já no tamanho final e as palavras só esmaecem.
+- The help and error lines open their own height with a spring, and the words rise from a slight blur.
+- When the message changes, only the different words move, and numbers roll up if they grew and down if they shrank.
+- With “reduce motion” on, the lines appear already at final size and the words only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% da largura do contêiner, com altura mínima de 44 px (`--control-height-md`); quem define a largura é o pai.
+- Takes 100% of the container width, with a minimum height of 44 px (`--control-height-md`); the parent defines the width.
 
-## Notas para IA
+## Notes for AI
 
-- Aceita todas as props de `<input>` (`type`, `value`, `onChange`, `placeholder`, `disabled`…) e o `ref` aponta para o elemento nativo.
-- `error` é uma string, não um booleano: passe o texto quando houver erro e `undefined` quando não houver; a `description` continua visível junto com o erro.
-- Não há variações de tamanho nem espaço para ícone ou botão dentro do campo: para isso existem `password-field`, `search-field` e `money-input`.
+- Accepts all `<input>` props (`type`, `value`, `onChange`, `placeholder`, `disabled`…) and the `ref` points to the native element.
+- `error` is a string, not a boolean: pass the text when there is an error and `undefined` when there is none; the `description` stays visible along with the error.
+- There are no size variations or room for an icon or button inside the field: for that there are `password-field`, `search-field`, and `money-input`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/input · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,48 +2,48 @@
 
 > Fichário de cartões com abas: ao escolher uma aba, o cartão sobe, vem para a frente e os outros se acomodam atrás.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/card-folder
-- Descrição original (inglês): A tabbed pile of index cards: picking a tab pulls that card up, drops it in front with a small bounce, and lets the others settle behind it.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/card-folder
+- Original description: A tabbed pile of index cards: picking a tab pulls that card up, drops it in front with a small bounce, and lets the others settle behind it.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-folder.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-folder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-folder.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-folder.json`. Caminho do registro, relativo ao endereço do site: `r/card-folder.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-folder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-folder.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-folder.json`. Registry path, relative to the site address: `r/card-folder.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/blocks/card-folder/card-folder.tsx`
   - `components/ryan-ui/blocks/card-folder/card-folder.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/card-folder.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/card-folder.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- De três a cinco visões curtas do mesmo assunto, como resumo, tarefas, arquivos e equipe de um projeto, em que a metáfora de fichas empilhadas ajuda.
-- Seções de apresentação em que trocar de aba deve ser um gesto visível: a ficha escolhida sobe, cai na frente e as outras se acomodam atrás.
+- Three to five short views of the same subject, such as a project's summary, tasks, files, and team, where the stacked-index-card metaphor helps.
+- Presentation sections where switching tabs should be a visible gesture: the chosen card rises, drops to the front, and the others settle behind.
 
-## Quando não usar
+## When not to use
 
-- Use [`tabs`](tabs.md) para abas comuns de aplicativo, com conteúdo de altura variável ou muitas seções.
-- Use [`card-stack`](card-stack.md) quando a pessoa percorre os cartões um a um e descarta, em vez de escolher por aba.
-- Evite com conteúdo longo: todas as fichas têm a mesma altura (`height`) e o corpo corta o que passar dela, sem rolagem.
+- Use [`tabs`](tabs.md) for ordinary application tabs, with variable-height content or many sections.
+- Use [`card-stack`](card-stack.md) when the person goes through the cards one by one and dismisses them, instead of choosing by tab.
+- Avoid with long content: all cards have the same height (`height`) and the body clips whatever exceeds it, with no scrolling.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import CardFolderPreview from "@/components/ryan-ui/blocks/card-folder/card-folder";
@@ -53,15 +53,15 @@ export default function CardFolderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CardFolder`
 
 A folder of index cards: picking a tab pulls that card up out of the pile and drops it in front, while the others settle behind it.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `cards` | `FolderCard[]` | `sampleCards` | The cards, in tab order. Defaults to a sample project folder. |
 | `value` | `string` | — | Id of the card in front. Pass it with `onValueChange` to control it. |
@@ -75,52 +75,52 @@ A folder of index cards: picking a tab pulls that card up out of the pile and dr
 
 Ready preview: the sample project folder on a quiet stage.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `FolderCard`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id, used as the value. |
-| `label` (obrigatória) | `string` | Text on the card's tab. |
+| `id` (required) | `string` | Unique id, used as the value. |
+| `label` (required) | `string` | Text on the card's tab. |
 | `icon` | `ReactNode` | Small icon before the label. |
-| `content` (obrigatória) | `ReactNode` | What the card shows when it is in front. |
+| `content` (required) | `ReactNode` | What the card shows when it is in front. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Selecionam a aba anterior ou a próxima e levam o foco junto, dando a volta nas pontas. |
-| `Home` ou `End` | Selecionam a primeira ou a última aba. |
-| `Tab` | Entra na aba selecionada (a única na ordem do Tab) e depois segue para os controles da ficha da frente, se houver; os das fichas de trás ficam fora do alcance. |
+| `←` or `→` | Select the previous or next tab and move focus along with it, wrapping at the ends. |
+| `Home` or `End` | Select the first or last tab. |
+| `Tab` | Enters the selected tab (the only one in the Tab order) and then moves on to the controls of the front card, if any; those on the back cards are out of reach. |
 
-## Acessibilidade
+## Accessibility
 
-- Segue o padrão de abas: um `tablist` nomeado por `label` (ligado às abas por `aria-owns`), cada aba com `aria-selected` e `aria-controls`, e um `tabpanel` por ficha.
-- As fichas de trás recebem `inert` e `aria-hidden`, então nem o foco nem o leitor de tela entram no conteúdo coberto.
+- Follows the tabs pattern: a `tablist` named by `label` (tied to the tabs by `aria-owns`), each tab with `aria-selected` and `aria-controls`, and one `tabpanel` per card.
+- The back cards get `inert` and `aria-hidden`, so neither focus nor the screen reader enters the covered content.
 
-## Movimento
+## Motion
 
-- Ao escolher uma aba, a ficha é puxada 58px para cima num movimento curto e depois cai na frente com uma mola de leve quique, enquanto as que estavam na frente dela recuam um degrau, menores e mais apagadas.
-- O conteúdo da ficha que sai da frente fica visível até a nova pousar, e um marcador de destaque cresce no topo da aba ativa.
-- Com “reduzir movimento” ligado, a ordem da pilha troca na hora, sem subida, quique nem transições.
+- When a tab is chosen, the card is pulled 58px upward in a short movement and then drops to the front with a slightly bouncy spring, while those that were in front of it step back one level, smaller and dimmer.
+- The content of the card leaving the front stays visible until the new one lands, and a highlight marker grows at the top of the active tab.
+- With “reduce motion” on, the stack order changes instantly, with no rise, bounce, or transitions.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A pasta ocupa `min(30rem, 100%)` e as abas dividem a largura por igual, cortando rótulos longos com reticências; abaixo de 26rem (container query) os ícones das abas somem e o texto diminui.
+- The folder takes `min(30rem, 100%)` and the tabs share the width equally, truncating long labels with ellipses; below 26rem (container query) the tab icons disappear and the text shrinks.
 
-## Desempenho
+## Performance
 
-- Todas as fichas ficam montadas o tempo todo (as de trás só escondidas), então o conteúdo de cada uma é renderizado mesmo sem estar à frente.
+- All cards stay mounted at all times (the back ones only hidden), so each one's content is rendered even when it is not in front.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `CardFolder` pelo nome (a exportação padrão é a prévia) e passe `cards` com `id`, `label`, `icon` opcional e `content`: sem `cards`, aparece uma pasta de projeto de exemplo.
-- Controle a ficha da frente com `value` e `onValueChange`, ou defina só a inicial com `defaultValue`.
-- `height` (296 por padrão) é a altura em px do corpo de todas as fichas; dimensione pelo conteúdo mais alto, porque o excesso é cortado.
+- Import `CardFolder` by name (the default export is the preview) and pass `cards` with `id`, `label`, optional `icon`, and `content`: without `cards`, an example project folder appears.
+- Control the front card with `value` and `onValueChange`, or set only the initial one with `defaultValue`.
+- `height` (296 by default) is the height in px of the body of all cards; size it by the tallest content, because the excess is clipped.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/card-folder · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/card-folder · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

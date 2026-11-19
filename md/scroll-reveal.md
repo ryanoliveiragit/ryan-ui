@@ -2,48 +2,48 @@
 
 > Revela o conteúdo conforme ele entra na tela, em sequência, e acompanha a leitura com uma barra de progresso.
 
-- Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/scroll-reveal
-- Descrição original (inglês): A wrapper that reveals its children as they enter the viewport (fade, slide, scale or blur) with stagger and once or repeat modes, plus a scroll progress bar.
+- Type: component (category Special), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/scroll-reveal
+- Original description: A wrapper that reveals its children as they enter the viewport (fade, slide, scale or blur) with stagger and once or repeat modes, plus a scroll progress bar.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-reveal.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-reveal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-reveal.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-reveal.json`. Caminho do registro, relativo ao endereço do site: `r/scroll-reveal.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-reveal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-reveal.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/scroll-reveal.json`. Registry path, relative to the site address: `r/scroll-reveal.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/scroll-reveal/scroll-reveal.tsx`
   - `components/ryan-ui/scroll-reveal/scroll-reveal.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/scroll-reveal.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/scroll-reveal.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Seções de landing page ou de notas de versão em que cartões, números e listas chegam um depois do outro ao rolar.
-- Grades e fileiras de cartões: cada filho direto vira um passo da sequência, e `className` no invólucro monta a grade.
-- Leitura longa num painel com rolagem própria, com `root` apontando para o contêiner e `ScrollProgress` no topo mostrando quanto já foi lido.
+- Landing page or release notes sections where cards, numbers, and lists arrive one after another on scroll.
+- Grids and rows of cards: each direct child becomes a step in the sequence, and `className` on the wrapper builds the grid.
+- Long reading in a panel with its own scrolling, with `root` pointing to the container and `ScrollProgress` at the top showing how much has been read.
 
-## Quando não usar
+## When not to use
 
-- Use [`in-view-title`](in-view-title.md) para animar só o título de uma seção, palavra por palavra.
-- Use [`infinite-masonry`](infinite-masonry.md) para um feed que carrega mais itens ao chegar ao fim.
-- Em telas de trabalho, como tabelas, formulários e painéis, revelar ao rolar só atrasa a leitura; mostre o conteúdo direto.
+- Use [`in-view-title`](in-view-title.md) to animate only a section's title, word by word.
+- Use [`infinite-masonry`](infinite-masonry.md) for a feed that loads more items on reaching the end.
+- On work screens, such as tables, forms, and dashboards, revealing on scroll only delays reading; show the content directly.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useRef, useState } from "react";
@@ -121,15 +121,15 @@ export default function ScrollRevealDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ScrollReveal`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | Each direct child is revealed as one step. |
+| `children` (required) | `ReactNode` | — | Each direct child is revealed as one step. |
 | `effect` | `"fade" \| "slide" \| "scale" \| "blur"` | `"slide"` | How the children arrive: a plain fade, a slide from one side, a scale up, or a blur that comes into focus. |
 | `from` | `"bottom" \| "top" \| "left" \| "right"` | `"bottom"` | The side the "slide" effect comes from. |
 | `distance` | `number` | `28` | Distance in px that the "slide" effect travels. |
@@ -144,7 +144,7 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ### `ScrollProgress`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `container` | `RefObject<HTMLElement \| null>` | — | The scrolling element to measure. Leave it out to follow the page. |
 | `label` | `string` | `"Scroll progress"` | Accessible name of the progress bar. |
@@ -152,33 +152,33 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `thickness` | `number` | `3` | Bar thickness in px. |
 | `className` | `string` | — | Extra class for the track. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ScrollRevealEffect` | `"fade" \| "slide" \| "scale" \| "blur"` |
 
-## Acessibilidade
+## Accessibility
 
-- Os filhos ficam no DOM o tempo todo, só invisíveis antes de entrar na tela, então o leitor de tela os lê normalmente; a animação não muda a ordem nem o foco.
-- `ScrollProgress` é `role="progressbar"` com `aria-valuenow` de 0 a 100 atualizado na rolagem; passe `label` em português (padrão “Scroll progress”).
+- The children stay in the DOM the whole time, only invisible before entering the screen, so the screen reader reads them normally; the animation changes neither the order nor the focus.
+- `ScrollProgress` is `role="progressbar"` with `aria-valuenow` from 0 to 100 updated on scroll; pass `label` in your language (default “Scroll progress”).
 
-## Movimento
+## Motion
 
-- Cada filho entra com o efeito escolhido: `fade` esmaece, `slide` vem de um lado (`from`, `distance`), `scale` cresce de 90% e `blur` sobe 6 px saindo de um desfoque, com uma mola sem ultrapassagem.
-- Os filhos entram em sequência a cada `stagger` (padrão 0,08 s) depois de `delay`; com `once={false}`, somem rápido ao sair da tela e entram de novo na volta.
-- Com “reduzir movimento”, tudo vira um esmaecer curto, sem deslocamento, escala, desfoque nem sequência, e a barra de progresso segue a rolagem sem suavizar.
+- Each child enters with the chosen effect: `fade` fades, `slide` comes from one side (`from`, `distance`), `scale` grows from 90%, and `blur` rises 6 px coming out of a blur, with a no-overshoot spring.
+- Children enter in sequence every `stagger` (default 0.08 s) after `delay`; with `once={false}`, they quickly disappear on leaving the screen and enter again on return.
+- With “reduce motion”, everything becomes a short fade, with no displacement, scale, blur, or sequence, and the progress bar follows the scroll without smoothing.
 
-## Desempenho
+## Performance
 
-- Cada `ScrollReveal` usa um observador de interseção e `will-change` só vale durante a animação; `blur` anima filtro, que custa mais que mover ou esmaecer, então em listas longas prefira `fade` ou `slide`.
+- Each `ScrollReveal` uses an intersection observer and `will-change` only applies during the animation; `blur` animates a filter, which costs more than moving or fading, so in long lists prefer `fade` or `slide`.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `ScrollReveal` e `ScrollProgress` de `@/components/ryan-ui/scroll-reveal/scroll-reveal`. Cada filho direto é envolvido num `div`: aplique grid ou flex com `className` no próprio `ScrollReveal`.
-- Quando quem rola é um contêiner, e não a página, passe o mesmo `ref` em `root` (no `ScrollReveal`) e em `container` (no `ScrollProgress`).
-- Os filhos começam invisíveis até 20% do invólucro aparecer (`amount`); não envolva conteúdo que precisa estar visível logo no carregamento.
+- Import `ScrollReveal` and `ScrollProgress` from `@/components/ryan-ui/scroll-reveal/scroll-reveal`. Each direct child is wrapped in a `div`: apply grid or flex with `className` on the `ScrollReveal` itself.
+- When the scroller is a container, not the page, pass the same `ref` in `root` (on `ScrollReveal`) and in `container` (on `ScrollProgress`).
+- Children start invisible until 20% of the wrapper appears (`amount`); do not wrap content that must be visible right on load.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/scroll-reveal · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/scroll-reveal · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

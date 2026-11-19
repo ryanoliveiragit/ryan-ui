@@ -2,49 +2,49 @@
 
 > Barra lateral com grupos aninhados que abrem com animação de altura, destaque que desliza e modo recolhido com dicas.
 
-- Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-sidebar
-- Descrição original (inglês): A sidebar with nested groups that open on a height spring, one highlight that glides under the pointer, and a collapsed icon rail with tooltips.
+- Type: component (category Disclosure), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-sidebar
+- Original description: A sidebar with nested groups that open on a height spring, one highlight that glides under the pointer, and a collapsed icon rail with tooltips.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/animated-sidebar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-sidebar.json`. Registry path, relative to the site address: `r/animated-sidebar.json`.
 
-- Pacotes npm: `motion`, `lucide-react`, `@radix-ui/react-tooltip`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Hover highlight](hover-highlight.md)
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`, `@radix-ui/react-tooltip`
+- Uses other ryan-ui items (installed along with it): [Hover highlight](hover-highlight.md)
+- Files, once installed:
   - `components/ryan-ui/animated-sidebar/animated-sidebar.tsx`
   - `components/ryan-ui/animated-sidebar/animated-sidebar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react @radix-ui/react-tooltip`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/animated-sidebar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react @radix-ui/react-tooltip`.
+2. Copy the files listed above. The content of each one is in `r/animated-sidebar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Navegação de um app com seções e subpáginas, como Projetos com Ativos, Rascunhos e Arquivados, em que o grupo abre no próprio lugar.
-- Painéis administrativos que precisam recolher a navegação num trilho de ícones de 64 px, com o nome de cada ícone numa dica.
-- Navegação com contadores nas linhas (`badge`) e destinos que são links reais (`href`).
+- App navigation with sections and subpages, such as Projects with Assets, Drafts, and Archived, where the group opens in place.
+- Admin panels that need to collapse the navigation into a 64 px icon rail, with each icon's name in a tooltip.
+- Navigation with counters on rows (`badge`) and destinations that are real links (`href`).
 
-## Quando não usar
+## When not to use
 
-- Use [`bounce-sidebar`](bounce-sidebar.md) quando os destinos são uma lista plana, sem grupos aninhados.
-- Use [`tree-view`](tree-view.md) ou [`file-tree`](file-tree.md) para hierarquias de conteúdo com vários níveis; aqui os grupos têm um nível só e filhos de um filho não são desenhados.
-- Use [`site-header`](site-header.md) para a navegação principal de um site público, no topo da página.
+- Use [`bounce-sidebar`](bounce-sidebar.md) when the destinations are a flat list, without nested groups.
+- Use [`tree-view`](tree-view.md) or [`file-tree`](file-tree.md) for multi-level content hierarchies; here groups have a single level and children of a child are not drawn.
+- Use [`site-header`](site-header.md) for the main navigation of a public site, at the top of the page.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -135,15 +135,15 @@ export default function AnimatedSidebarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AnimatedSidebar`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `sections` (obrigatória) | `AnimatedSidebarSection[]` | — | Sections of rows, top to bottom. |
+| `sections` (required) | `AnimatedSidebarSection[]` | — | Sections of rows, top to bottom. |
 | `value` | `string` | — | Id of the active leaf row (controlled). |
 | `defaultValue` | `string` | — | Active row when uncontrolled. |
 | `onValueChange` | `(value: string) => void` | — | Called with the id of the pressed leaf row. |
@@ -160,14 +160,14 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `label` | `string` | `"Sidebar"` | Accessible name of the navigation landmark. |
 | `className` | `string` | — | Extra class for the sidebar. |
 
-### Tipos exportados
+### Exported types
 
 #### `AnimatedSidebarItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id across the whole sidebar. Leaf ids are the sidebar's value. |
-| `label` (obrigatória) | `string` | Row text. In the collapsed rail it moves to a tooltip. |
+| `id` (required) | `string` | Unique id across the whole sidebar. Leaf ids are the sidebar's value. |
+| `label` (required) | `string` | Row text. In the collapsed rail it moves to a tooltip. |
 | `icon` | `ReactNode` | Icon for a top-level row, about 18 px. Nested rows do not show one. |
 | `badge` | `string \| number` | A count or short word at the end of the row. |
 | `href` | `string` | Renders the row as a link. |
@@ -176,45 +176,45 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 #### `AnimatedSidebarSection`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id of the section. |
+| `id` (required) | `string` | Unique id of the section. |
 | `title` | `string` | Small heading above the rows. In the rail it becomes a divider. |
-| `items` (obrigatória) | `AnimatedSidebarItem[]` | The rows of the section. |
+| `items` (required) | `AnimatedSidebarItem[]` | The rows of the section. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `↑` | Move o foco para a linha seguinte ou anterior, incluindo as de grupos abertos, voltando à primeira depois da última. |
-| `Home` ou `End` | Leva o foco à primeira ou à última linha. |
-| `→` | Numa linha de grupo fechada, abre o grupo; no trilho, abre o painel e o grupo juntos. |
-| `←` | Numa linha de grupo aberta, fecha o grupo; numa linha aninhada, leva o foco à linha do grupo. |
-| `Enter` ou `Espaço` | Aciona a linha ou abre e fecha o grupo; linhas com `href` são links e respondem ao `Enter`. |
+| `↓` or `↑` | Moves focus to the next or previous row, including those of open groups, wrapping to the first after the last. |
+| `Home` or `End` | Moves focus to the first or last row. |
+| `→` | On a closed group row, opens the group; on the rail, opens the panel and the group together. |
+| `←` | On an open group row, closes the group; on a nested row, moves focus to the group row. |
+| `Enter` or `Space` | Activates the row or opens and closes the group; rows with `href` are links and respond to `Enter`. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<nav>` com `aria-label` vindo de `label` (padrão “Sidebar”); cada seção é um `group` nomeado pelo título, e o título visual fica oculto para o leitor de tela.
-- Linhas de grupo são botões com `aria-expanded` e `aria-controls`; a folha ativa recebe `aria-current="page"`, e linhas desativadas usam `disabled` ou, nos links, `aria-disabled` sem `href`.
-- No trilho, o rótulo continua no DOM com opacidade zero e uma dica do Radix aparece ao passar o mouse ou focar; os nomes “Expand sidebar” e “Collapse sidebar” do botão são fixos em inglês.
+- It is a `<nav>` with `aria-label` coming from `label` (default “Sidebar”); each section is a `group` named by its title, and the visual title is hidden from the screen reader.
+- Group rows are buttons with `aria-expanded` and `aria-controls`; the active leaf gets `aria-current="page"`, and disabled rows use `disabled` or, on links, `aria-disabled` without `href`.
+- On the rail, the label stays in the DOM with zero opacity and a Radix tooltip appears on hover or focus; the button names “Expand sidebar” and “Collapse sidebar” are fixed in English.
 
-## Movimento
+## Motion
 
-- A largura alterna entre `width` e `collapsedWidth` numa mola sem ultrapassagem; os ícones ficam parados numa célula de 40 px enquanto o painel estreita em volta deles.
-- Um grupo abre com mola de altura e suas linhas chegam uma depois da outra, deslizando 8 px da esquerda; um único destaque desliza sob o cursor ou o foco do teclado.
-- Com “reduzir movimento” ligado, largura, grupos e destaque mudam na hora e as transições de CSS são desligadas.
+- The width toggles between `width` and `collapsedWidth` on a no-overshoot spring; the icons stay still in a 40 px cell while the panel narrows around them.
+- A group opens with a height spring and its rows arrive one after another, sliding 8 px from the left; a single highlight slides under the cursor or keyboard focus.
+- With “reduce motion” on, width, groups, and highlight change instantly and the CSS transitions are turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A barra ocupa `height: 100%` e rola por dentro quando as linhas não cabem; o pai precisa ter altura definida.
-- Ela não recolhe sozinha em telas estreitas: decida `collapsed` pela largura da janela, como o demo faz abaixo de 560 px.
+- The bar takes `height: 100%` and scrolls inside when the rows do not fit; the parent needs a defined height.
+- It does not collapse on its own on narrow screens: decide `collapsed` from the window width, as the demo does below 560 px.
 
-## Notas para IA
+## Notes for AI
 
-- Precisa do item `hover-highlight` instalado; importe `AnimatedSidebar` de `@/components/ryan-ui/animated-sidebar/animated-sidebar`.
-- Os `id` precisam ser únicos na barra inteira e `value` é sempre o `id` de uma folha: uma linha com `children` só abre o grupo, nunca navega.
-- Ao controlar `collapsed`, trate `onCollapsedChange` também quando um grupo é aberto pelo trilho: o componente pede para expandir o painel antes de mostrar os filhos.
+- It needs the `hover-highlight` item installed; import `AnimatedSidebar` from `@/components/ryan-ui/animated-sidebar/animated-sidebar`.
+- The `id`s must be unique across the whole bar and `value` is always the `id` of a leaf: a row with `children` only opens the group, never navigates.
+- When controlling `collapsed`, also handle `onCollapsedChange` when a group is opened from the rail: the component asks to expand the panel before showing the children.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-sidebar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

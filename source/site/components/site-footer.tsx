@@ -1,39 +1,29 @@
 import { BrandMark } from "@/site/components/brand";
-import { items } from "@/site/lib/catalog";
 import { href } from "@/site/lib/router";
-import { asset, site } from "@/site/lib/site-config";
+import { site } from "@/site/lib/site-config";
 import styles from "./site-footer.module.css";
 
-/** O rodapé grande, do início e da página de erro. */
+/** O rodapé de todas as páginas. O crédito ao núcleo MIT é obrigatório e fica sempre visível. */
 export function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.about}>
           <a className={styles.brand} href={href("/")}><BrandMark size={22} /><span>{site.name}</span></a>
-          <p>{site.counts.components} componentes e {site.counts.blocks} blocos React com movimento. Código aberto, licença MIT.</p>
+          <p>{site.counts.components} components and {site.counts.blocks} blocks for React.</p>
         </div>
-        <nav className={styles.links} aria-label="Rodapé">
-          <a href={href("/componentes")}>Componentes</a>
-          <a href={href("/blocos")}>Blocos</a>
-          <a href={href("/docs/instalacao")}>Instalação</a>
-          <a href={href("/docs/temas")}>Temas</a>
-          <a href={href("/docs/licenca")}>Licença e créditos</a>
+        <nav className={styles.links} aria-label="Footer">
+          <a href={href("/components")}>Components</a>
+          <a href={href("/blocks")}>Blocks</a>
+          <a href={href("/pricing")}>Pricing</a>
+          <a href={href("/docs")}>Docs</a>
+          <a href={href("/saved")}>Saved</a>
+          <a href={href("/docs/license")}>License and credits</a>
         </nav>
       </div>
       <p className={styles.credit}>
-        O ryan-ui é open source sob licença MIT. Detalhes e créditos em <a href={href("/docs/licenca")}>Licença e créditos</a>.
+        Based on the open source core of <a href={site.upstream.repository} target="_blank" rel="noreferrer">Arc</a> by Elia Kuratli, under the MIT license. The original copyright notice is in <a href={href("/docs/license")}>License and credits</a>.
       </p>
-    </footer>
-  );
-}
-
-/** A linha de rodapé das páginas com barra lateral (galerias, docs, salvos): fica no fim da coluna de conteúdo. */
-export function PageFooter() {
-  return (
-    <footer className={styles.line}>
-      <span>{site.name} · {items.length} itens</span>
-      <a href={asset("llms.txt")} target="_blank" rel="noreferrer">llms.txt</a>
     </footer>
   );
 }

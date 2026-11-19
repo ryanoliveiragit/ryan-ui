@@ -2,48 +2,48 @@
 
 > Texto curto de apoio para controles pouco familiares.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tooltip
-- Descrição original (inglês): Short supporting text for unfamiliar controls.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/tooltip
+- Original description: Short supporting text for unfamiliar controls.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json`. Caminho do registro, relativo ao endereço do site: `r/tooltip.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tooltip.json`. Registry path, relative to the site address: `r/tooltip.json`.
 
-- Pacotes npm: `@radix-ui/react-tooltip`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-tooltip`, `motion`
+- Files, once installed:
   - `components/ryan-ui/tooltip/tooltip.tsx`
   - `components/ryan-ui/tooltip/tooltip.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-tooltip motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/tooltip.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-tooltip motion`.
+2. Copy the files listed above. The content of each one is in `r/tooltip.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Nomear botões só com ícone numa barra de ferramentas, como Negrito, Itálico e Link.
-- Mostrar o atalho de teclado de um controle, como “Bold (Ctrl+B)”.
-- Uma explicação curta para um controle pouco familiar; se o texto muda com o balão aberto, como “Copiar” para “Copiado”, a troca é animada.
+- Naming icon-only buttons in a toolbar, such as Bold, Italic, and Link.
+- Showing a control's keyboard shortcut, such as “Bold (Ctrl+B)”.
+- A short explanation for an unfamiliar control; if the text changes while the bubble is open, such as “Copy” to “Copied”, the swap is animated.
 
-## Quando não usar
+## When not to use
 
-- Use [`hover-card`](hover-card.md) para prévias ricas de uma pessoa ou de um link.
-- Use [`popover`](popover.md) quando o conteúdo tem botões, links ou campos.
-- Evite para informação essencial: com toque o tooltip não abre, então ela deve estar visível na tela.
+- Use [`hover-card`](hover-card.md) for rich previews of a person or a link.
+- Use [`popover`](popover.md) when the content has buttons, links, or fields.
+- Avoid it for essential information: on touch the tooltip does not open, so it should be visible on screen.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { Bold, Italic, Link2, Share2 } from "lucide-react";
@@ -68,49 +68,49 @@ export default function TooltipDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Tooltip`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `content` (obrigatória) | `ReactNode` | — | — |
-| `children` (obrigatória) | `ReactElement` | — | — |
+| `content` (required) | `ReactNode` | — | — |
+| `children` (required) | `ReactElement` | — | — |
 | `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | — |
 | `container` | `HTMLElement \| null` | — | Render the tooltip inside this element and limit collisions to it (used by the demo stages). |
 | `defaultOpen` | `boolean` | `false` | Starts open, for previews and first-run hints. It stays until the person interacts (hover or focus on its trigger, Escape, a press elsewhere) or another tooltip opens; scrolling does not dismiss it. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Ao focar o gatilho pelo teclado, o tooltip aparece; ao sair, some. |
-| `Esc` | Fecha o tooltip sem tirar o foco do gatilho. |
+| `Tab` | When the trigger is focused by keyboard, the tooltip appears; when leaving, it disappears. |
+| `Esc` | Closes the tooltip without taking focus off the trigger. |
 
-## Acessibilidade
+## Accessibility
 
-- O balão tem `role="tooltip"` e, aberto, o gatilho recebe `aria-describedby` apontando para ele: o texto é uma descrição, não o nome do controle.
-- Num botão só com ícone, passe `aria-label` no próprio botão; o tooltip complementa, como no demo.
-- O Radix ignora ponteiros de toque e não abre o tooltip num foco causado por toque ou clique, então ele não aparece em celulares.
+- The bubble has `role="tooltip"` and, when open, the trigger gets `aria-describedby` pointing to it: the text is a description, not the control's name.
+- On an icon-only button, pass `aria-label` on the button itself; the tooltip complements it, as in the demo.
+- Radix ignores touch pointers and does not open the tooltip on focus caused by touch or click, so it does not appear on phones.
 
-## Movimento
+## Motion
 
-- O primeiro tooltip espera 250 ms e desliza 3 px a partir do gatilho crescendo de 97%; enquanto algum estiver aberto, e até 300 ms depois, o próximo abre na hora e só esmaece.
-- Quando um `content` em texto muda com o balão aberto, o novo sobe, o antigo sai para cima e o balão ajusta o tamanho numa mola.
-- Com “reduzir movimento” ligado, o balão só esmaece e a troca de texto acontece sem deslocamento.
+- The first tooltip waits 250 ms and slides 3 px from the trigger, growing from 97%; while any is open, and for up to 300 ms after, the next opens instantly and only fades.
+- When a text `content` changes with the bubble open, the new one rises, the old one exits upward, and the bubble adjusts its size on a spring.
+- With “reduce motion” on, the bubble only fades and the text swap happens without displacement.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O balão tem até 15rem de largura e quebra o texto em linhas; troca de lado quando não cabe, com 12 px de folga da borda.
+- The bubble is up to 15rem wide and wraps the text into lines; it switches sides when it does not fit, with 12 px of clearance from the edge.
 
-## Notas para IA
+## Notes for AI
 
-- O filho precisa ser um único elemento que aceite `ref` e receba foco, como um `<button>`; o texto vai em `content`.
-- Só há `content`, `children` e `side` (padrão `top`); o atraso e a janela de troca rápida são fixos no código.
-- Cada `Tooltip` traz o próprio provedor do Radix, então não é preciso envolver o app num `TooltipProvider`. Importe de `@/components/ryan-ui/tooltip/tooltip`.
+- The child must be a single element that accepts `ref` and receives focus, such as a `<button>`; the text goes in `content`.
+- There is only `content`, `children`, and `side` (default `top`); the delay and the quick-switch window are fixed in the code.
+- Each `Tooltip` brings its own Radix provider, so there is no need to wrap the app in a `TooltipProvider`. Import from `@/components/ryan-ui/tooltip/tooltip`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tooltip · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tooltip · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

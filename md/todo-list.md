@@ -2,48 +2,48 @@
 
 > Lista do plano de um agente: cada etapa passa de pendente para em andamento e concluída, com contagem de progresso.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/todo-list
-- Descrição original (inglês): An agent plan checklist whose steps move from pending to running with a shimmer to done with a drawn check and strike-through, under a live progress count.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/todo-list
+- Original description: An agent plan checklist whose steps move from pending to running with a shimmer to done with a drawn check and strike-through, under a live progress count.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json`. Caminho do registro, relativo ao endereço do site: `r/todo-list.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/todo-list.json`. Registry path, relative to the site address: `r/todo-list.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/todo-list/todo-list.tsx`
   - `components/ryan-ui/todo-list/todo-list.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/todo-list.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/todo-list.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar o plano de um agente como uma lista em que cada passo avança de pendente para em andamento e depois para concluído.
-- Planos de tamanho conhecido, em que vale mostrar “2 of 5” e uma barra de progresso no cabeçalho.
-- Transcrições compactas: recolhida, a lista vira uma linha que ainda mostra o passo em andamento.
+- Show an agent's plan as a list in which each step advances from pending to in progress and then to done.
+- Plans of known size, where it is worth showing “2 of 5” and a progress bar in the header.
+- Compact transcripts: collapsed, the list becomes a line that still shows the step in progress.
 
-## Quando não usar
+## When not to use
 
-- Use [`agent-activity`](agent-activity.md) quando os passos surgem durante o trabalho, coletam achados em chips ou precisam de duração e de estado de erro.
-- Use [`stepper`](stepper.md) para mostrar em que etapa de um fluxo a própria pessoa está.
-- Use [`onboarding-checklist`](onboarding-checklist.md) quando é a pessoa quem marca as tarefas; aqui os passos não são clicáveis.
+- Use [`agent-activity`](agent-activity.md) when steps appear during the work, collect findings in chips or need a duration and an error state.
+- Use [`stepper`](stepper.md) to show which stage of a flow the person themselves is in.
+- Use [`onboarding-checklist`](onboarding-checklist.md) when the person is the one who checks off tasks; here the steps are not clickable.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useEffect, useState } from "react";
@@ -92,15 +92,15 @@ export default function TodoListDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `TodoList`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `TodoItem[]` | — | The steps, in order. Change an item's `status` to move it along. |
+| `items` (required) | `TodoItem[]` | — | The steps, in order. Change an item's `status` to move it along. |
 | `title` | `string` | `"Plan"` | Heading of the list. |
 | `showProgress` | `boolean` | `true` | Shows the "2 of 5" count and the progress bar. |
 | `open` | `boolean` | — | Controlled open state of the list. |
@@ -108,49 +108,49 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onOpenChange` | `(open: boolean) => void` | — | Called when the header is pressed. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `TodoStatus` | `"pending" \| "running" \| "done"` |
 
 #### `TodoItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable id, used as the key. |
-| `label` (obrigatória) | `string` | What the step does. |
-| `status` (obrigatória) | `"pending" \| "running" \| "done"` | Where the step stands. |
+| `id` (required) | `string` | Stable id, used as the key. |
+| `label` (required) | `string` | What the step does. |
+| `status` (required) | `"pending" \| "running" \| "done"` | Where the step stands. |
 | `detail` | `string` | A line shown under the label while the step runs, such as the file being read. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No cabeçalho, recolhe ou abre a lista; é o único controle do componente. |
+| `Enter` or `Space` | On the header, collapses or opens the list; it is the component's only control. |
 
-## Acessibilidade
+## Accessibility
 
-- O cabeçalho é um `<button>` com `aria-expanded` e `aria-controls`; recolhido, ele mostra o passo em andamento, então o nome do botão continua dizendo o que está acontecendo.
-- A contagem é uma região `aria-live="polite"` que lê “N of M steps done”, e a barra é um `role="progressbar"` com `aria-valuenow` igual aos concluídos e `aria-valuemax` igual ao total.
-- Cada passo começa com o estado só para leitor de tela (“To do:”, “In progress:”, “Done:”); esses textos, “All steps done” e a palavra “progress” no rótulo da barra estão fixos em inglês.
+- The header is a `<button>` with `aria-expanded` and `aria-controls`; collapsed, it shows the step in progress, so the button's name keeps saying what is happening.
+- The count is an `aria-live="polite"` region that reads “N of M steps done”, and the bar is a `role="progressbar"` with `aria-valuenow` equal to the done count and `aria-valuemax` equal to the total.
+- Each step starts with its state for screen readers only (“To do:”, “In progress:”, “Done:”); these texts, “All steps done” and the word “progress” in the bar's label are fixed in English.
 
-## Movimento
+## Motion
 
-- O passo em andamento ganha um spinner e um brilho que corre pelo rótulo; ao concluir, o visto pousa com um pequeno quique e se desenha, e um risco atravessa o rótulo da esquerda para a direita.
-- Na montagem os passos sobem em sequência; passos acrescentados depois abrem a própria altura, a barra avança com uma mola e o número de concluídos rola.
-- Com “reduzir movimento” ligado, tudo só esmaece: o spinner fica parado, não há brilho nem desenho do visto, e o risco aparece de uma vez.
+- The step in progress gets a spinner and a shimmer that runs across the label; on completion, the check mark lands with a small bounce and draws itself, and a strike crosses the label from left to right.
+- On mount the steps rise in sequence; steps added later open to their own height, the bar advances with a spring and the done count rolls.
+- With “reduce motion” on, everything only fades: the spinner stays still, there is no shimmer or check mark drawing, and the strike appears at once.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% do pai; recolhido, o passo atual no cabeçalho corta com reticências numa linha, e aberto os rótulos dos passos quebram linha.
+- Fills 100% of the parent; collapsed, the current step in the header truncates with an ellipsis on one line, and when open the step labels wrap.
 
-## Notas para IA
+## Notes for AI
 
-- É controlado pelos dados: passe `items` com `id` estável e mude o `status` de cada um (`pending`, `running`, `done`); não há estado de erro nem duração.
-- `detail` só aparece enquanto o passo está `running`: use-o para o arquivo ou o comando daquele momento.
-- Começa aberta; use `defaultOpen={false}` ou o par `open` e `onOpenChange` para recolher, e `showProgress={false}` para tirar a contagem e a barra.
+- It is data-driven: pass `items` with a stable `id` and change each one's `status` (`pending`, `running`, `done`); there is no error state or duration.
+- `detail` only appears while the step is `running`: use it for the file or command of that moment.
+- It starts open; use `defaultOpen={false}` or the `open` and `onOpenChange` pair to collapse it, and `showProgress={false}` to remove the count and the bar.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/todo-list · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/todo-list · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

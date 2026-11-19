@@ -1,14 +1,14 @@
 "use client";
 
 /**
- * Lets an app swap the link and image elements ryan-ui components render.
+ * Lets an app swap the link and image elements ryan-ui components render (kuratlielia/arc-library#13).
  *
  * Without a provider, ryan-ui renders a plain `<a>` and `<img>`, so components work in any React app (Vite, Remix, Astro,
  * plain React). Wrap the app once to use your framework's or your own components instead:
  *
  *   import Link from "next/link";
  *   import Image from "next/image";
- *   import { RyanProvider } from "@/lib/ryan-provider";
+ *   import { RyanProvider } from "@/components/ryan-ui/lib/ryan-provider";
  *
  *   <RyanProvider link={Link} image={Image}>{children}</RyanProvider>
  *
@@ -79,16 +79,16 @@ export function RyanProvider({ link, image, children }: RyanProviderProps) {
 }
 
 /** The link component from the nearest RyanProvider, or a plain anchor. */
-export const useArcLink = () => useContext(RyanContext).link;
+export const useRyanLink = () => useContext(RyanContext).link;
 /** The image component from the nearest RyanProvider, or a plain img. */
-export const useArcImage = () => useContext(RyanContext).image;
+export const useRyanImage = () => useContext(RyanContext).image;
 
 /** What ryan-ui components render for a link: the provider's link component, or a plain anchor. */
 export function RyanLink(props: RyanLinkProps) {
-  return createElement(useArcLink(), props);
+  return createElement(useRyanLink(), props);
 }
 
 /** What ryan-ui components render for an image: the provider's image component, or a plain img. */
 export function RyanImage(props: RyanImageProps) {
-  return createElement(useArcImage(), props);
+  return createElement(useRyanImage(), props);
 }

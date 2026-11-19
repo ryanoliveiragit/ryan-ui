@@ -2,48 +2,48 @@
 
 > Livro de ofertas com compras e vendas lado a lado, barras de profundidade, spread e linhas que piscam a cada mudança.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/order-book
-- Descrição original (inglês): Bids and asks side by side with cumulative depth bars, a spread row, rows that flash when their size changes and slide when the price moves, plus a seeded feed hook.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/order-book
+- Original description: Bids and asks side by side with cumulative depth bars, a spread row, rows that flash when their size changes and slide when the price moves, plus a seeded feed hook.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/order-book.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/order-book.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/order-book.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/order-book.json`. Caminho do registro, relativo ao endereço do site: `r/order-book.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/order-book.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/order-book.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/order-book.json`. Registry path, relative to the site address: `r/order-book.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/order-book/order-book.tsx`
   - `components/ryan-ui/order-book/order-book.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/order-book.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/order-book.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Tela de negociação que mostra as ofertas de compra e de venda do momento, com profundidade acumulada, spread e preço médio entre as melhores ofertas.
-- Deixar a pessoa escolher o preço de uma ordem limitada clicando num nível (`onSelectLevel`).
-- Demonstrações e telas de exemplo de produtos de trading, com o feed simulado `useOrderBookFeed`.
+- Trading screen that shows the current buy and sell offers, with cumulative depth, spread, and the mid price between the best offers.
+- Letting the user pick a limit order's price by clicking a level (`onSelectLevel`).
+- Demos and sample screens for trading products, with the simulated feed `useOrderBookFeed`.
 
-## Quando não usar
+## When not to use
 
-- Use [`liquidity-heatmap`](liquidity-heatmap.md) para ver como a liquidez evoluiu ao longo do tempo, e não só o retrato de agora.
-- Use [`candlestick-chart`](candlestick-chart.md) para o histórico de preços em velas.
-- Use [`sortable-data-table`](sortable-data-table.md) para tabelas genéricas de registros com ordenação; o livro tem colunas e ordem fixas.
+- Use [`liquidity-heatmap`](liquidity-heatmap.md) to see how liquidity evolved over time, not just the current snapshot.
+- Use [`candlestick-chart`](candlestick-chart.md) for price history in candles.
+- Use [`sortable-data-table`](sortable-data-table.md) for generic record tables with sorting; the book has fixed columns and order.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -82,17 +82,17 @@ export default function OrderBookDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `OrderBook`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `bids` (obrigatória) | `OrderLevel[]` | — | Buy orders. Any order: the highest price is drawn first. |
-| `asks` (obrigatória) | `OrderLevel[]` | — | Sell orders. Any order: the lowest price is drawn first. |
-| `label` (obrigatória) | `string` | — | Accessible name of the book, such as "BTC-USD order book". |
+| `bids` (required) | `OrderLevel[]` | — | Buy orders. Any order: the highest price is drawn first. |
+| `asks` (required) | `OrderLevel[]` | — | Sell orders. Any order: the lowest price is drawn first. |
+| `label` (required) | `string` | — | Accessible name of the book, such as "BTC-USD order book". |
 | `depth` | `number` | `10` | Rows shown per side. |
 | `baseSymbol` | `string` | `""` | Code of the asset sizes are counted in, such as "BTC". |
 | `quoteSymbol` | `string` | `""` | Code of the asset prices are quoted in, such as "USD". |
@@ -104,25 +104,25 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `locale` | `string` | `"en-US"` | Formatting locale. Fixed by default so server and client render the same numbers. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `OrderSide` | `"bid" \| "ask"` |
 
 #### `OrderLevel`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `price` (obrigatória) | `number` | Price of the level. |
-| `size` (obrigatória) | `number` | Size resting at that price, in the base asset. |
+| `price` (required) | `number` | Price of the level. |
+| `size` (required) | `number` | Size resting at that price, in the base asset. |
 
 #### `OrderBookFeedOptions`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `mid` (obrigatória) | `number` | Price the book starts around. |
-| `tick` (obrigatória) | `number` | Price step between two levels. |
+| `mid` (required) | `number` | Price the book starts around. |
+| `tick` (required) | `number` | Price step between two levels. |
 | `levels` | `number` | Levels kept on each side. |
 | `size` | `number` | Typical size of a level near the best price. |
 | `interval` | `number` | Milliseconds between two ticks. |
@@ -131,54 +131,54 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 #### `OrderBookFeed`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `bids` (obrigatória) | `OrderLevel[]` | Buy levels, best first. |
-| `asks` (obrigatória) | `OrderLevel[]` | Sell levels, best first. |
-| `running` (obrigatória) | `boolean` | False while paused, while the tab is hidden, or when the person asked for reduced motion. |
+| `bids` (required) | `OrderLevel[]` | Buy levels, best first. |
+| `asks` (required) | `OrderLevel[]` | Sell levels, best first. |
+| `running` (required) | `boolean` | False while paused, while the tab is hidden, or when the person asked for reduced motion. |
 
-### Outras exportações
+### Other exports
 
 - `useOrderBookFeed` (hook)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Movem o foco para o nível acima ou abaixo, no mesmo lado. |
-| `←` ou `→` | Passam para o lado das compras ou o das vendas, na mesma linha. |
-| `Home` ou `End` | Vão ao melhor preço e ao último nível do lado atual. |
-| `Enter` ou `Espaço` | Selecionam o preço da linha; na linha já selecionada, desfazem a seleção. |
-| `Tab` | O livro inteiro é uma única parada de `Tab`; as setas fazem o resto. |
+| `↑` or `↓` | Move focus to the level above or below, on the same side. |
+| `←` or `→` | Switch to the buy side or the sell side, on the same row. |
+| `Home` or `End` | Go to the best price and to the last level of the current side. |
+| `Enter` or `Space` | Select the row's price; on the already selected row, clear the selection. |
+| `Tab` | The whole book is a single `Tab` stop; the arrow keys do the rest. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é um `role="group"` nomeado por `label`, com duas listas rotuladas (compras e vendas, melhor preço primeiro); cada linha é um botão com `aria-pressed` e um `aria-label` com lado, preço, tamanho e total.
-- O foco numa linha faz o mesmo que o cursor: destaca os níveis até ela e mostra no rodapé quanto custa negociar até ali; as mudanças do feed não são anunciadas, pois não há região viva.
-- `label` é obrigatório; cabeçalhos e frases (“Bid”, “Ask”, “Spread”, “at an average of”) estão fixos em inglês, e `locale` só muda o formato dos números.
+- The root is a `role="group"` named by `label`, with two labeled lists (buys and sells, best price first); each row is a button with `aria-pressed` and an `aria-label` with side, price, size, and total.
+- Focus on a row does the same as the cursor: it highlights the levels up to it and shows in the footer how much it costs to trade up to there; feed changes are not announced, since there is no live region.
+- `label` is required; headers and phrases (“Bid”, “Ask”, “Spread”, “at an average of”) are hardcoded in English, and `locale` only changes the number format.
 
-## Movimento
+## Motion
 
-- Quando o tamanho de um nível muda, a linha pisca por 0,6 s: na cor do lado se cresceu, num tom neutro se diminuiu.
-- Quando o preço anda, as linhas deslizam para a nova posição numa mola, as novas entram esmaecendo e as barras de profundidade se esticam a partir do meio do livro.
-- Com “reduzir movimento”, não há pisca nem deslize, e o `useOrderBookFeed` deixa de emitir atualizações.
+- When a level's size changes, the row flashes for 0.6 s: in the side's color if it grew, in a neutral tone if it shrank.
+- When the price moves, rows slide to their new position on a spring, new ones enter fading in, and the depth bars stretch from the middle of the book.
+- With “reduced motion”, there is no flash or slide, and `useOrderBookFeed` stops emitting updates.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A raiz é um contêiner: com 520 px ou mais cada lado ganha a coluna de total acumulado; com até 360 px o respiro das linhas diminui e, com até 300 px, a fonte também.
-- Os dois lados ficam sempre lado a lado; abaixo de 520 px a coluna de preço usa a largura do próprio texto, então quem encolhe é a de tamanho.
+- The root is a container: at 520 px or more each side gets the cumulative total column; at up to 360 px the row padding shrinks and, at up to 300 px, so does the font.
+- The two sides always stay side by side; below 520 px the price column uses its own text width, so the size column is the one that shrinks.
 
-## Desempenho
+## Performance
 
-- As linhas são memorizadas e só `depth` níveis por lado são renderizados; o feed simulado usa um intervalo (850 ms por padrão) que para com a aba oculta.
-- Num feed real de alta frequência, agrupe as atualizações antes de trocar `bids` e `asks`: cada troca recalcula os totais e dispara piscas e deslizes.
+- Rows are memoized and only `depth` levels per side are rendered; the simulated feed uses an interval (850 ms by default) that stops when the tab is hidden.
+- In a real high-frequency feed, batch the updates before swapping `bids` and `asks`: each swap recomputes the totals and triggers flashes and slides.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `bids` e `asks` como `{ price, size }` em qualquer ordem: o componente ordena, descarta tamanhos zerados, corta em `depth` e calcula totais, spread e o preço médio (mid).
-- `selectedPrice` controla a seleção (`null` para nenhuma; `undefined` deixa o livro cuidar dela), e `onSelectLevel` recebe `{ side, price, size }` ou `null` ao clicar de novo na linha.
-- `useOrderBookFeed` é uma simulação com semente para demos, não uma conexão de mercado: com dados reais, passe os seus arrays e mantenha os preços arredondados de forma estável, pois são a chave de cada linha.
+- Pass `bids` and `asks` as `{ price, size }` in any order: the component sorts, drops zero sizes, cuts at `depth`, and computes totals, spread, and the mid price.
+- `selectedPrice` controls the selection (`null` for none; `undefined` lets the book manage it), and `onSelectLevel` receives `{ side, price, size }` or `null` when the row is clicked again.
+- `useOrderBookFeed` is a seeded simulation for demos, not a market connection: with real data, pass your own arrays and keep prices rounded consistently, since they are each row's key.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/order-book · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/order-book · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

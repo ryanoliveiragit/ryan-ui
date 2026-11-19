@@ -2,48 +2,48 @@
 
 > Números de citação no meio do texto que abrem um cartão com a fonte, mais a lista de fontes com destaque compartilhado.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/citations
-- Descrição original (inglês): Numbered citation chips inside text that open a card with the source title, site and snippet, plus a sources list; chips and rows share one gliding highlight.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/citations
+- Original description: Numbered citation chips inside text that open a card with the source title, site and snippet, plus a sources list; chips and rows share one gliding highlight.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json`. Caminho do registro, relativo ao endereço do site: `r/citations.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/citations.json`. Registry path, relative to the site address: `r/citations.json`.
 
-- Pacotes npm: `motion`, `lucide-react`, `@radix-ui/react-popover`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`, `@radix-ui/react-popover`
+- Files, once installed:
   - `components/ryan-ui/citations/citations.tsx`
   - `components/ryan-ui/citations/citations.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react @radix-ui/react-popover`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/citations.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react @radix-ui/react-popover`.
+2. Copy the files listed above. The content of each one is in `r/citations.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Respostas de IA ou textos de pesquisa em que cada afirmação aponta para uma fonte numerada.
-- Quando o leitor deve conferir título, site e trecho da fonte sem sair do parágrafo, e abrir o original só se quiser.
-- Quando há uma lista de fontes no fim e ela deve destacar a fonte do chip apontado no texto, e o chip quando se aponta a linha.
+- AI answers or research texts where each claim points to a numbered source.
+- When the reader should check the source's title, site and excerpt without leaving the paragraph, and open the original only if they want to.
+- When there is a list of sources at the end and it should highlight the source of the chip pointed at in the text, and the chip when a row is pointed at.
 
-## Quando não usar
+## When not to use
 
-- Use [`hover-card`](hover-card.md) para a prévia de uma pessoa ou de um link solto, sem numeração nem lista de fontes.
-- Use [`tooltip`](tooltip.md) quando a nota é só um texto curto, sem link nem conteúdo interativo.
-- Fontes sem endereço não cabem aqui: o endereço é obrigatório, e tanto o título do cartão quanto a linha da lista são links para ele.
+- Use [`hover-card`](hover-card.md) for a preview of a person or a standalone link, with no numbering or source list.
+- Use [`tooltip`](tooltip.md) when the note is just short text, with no link or interactive content.
+- Sources without an address do not fit here: the address is required, and both the card title and the list row are links to it.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { Citation, Citations, CitationSources } from "@/components/ryan-ui/citations/citations";
@@ -108,18 +108,18 @@ export default function CitationsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Citations`
 
 Groups an answer with its sources. Inside it, `<Citation>` is a numbered chip that opens a card with the source, and `<CitationSources>` lists them all. The parts share one highlight: pointing at a chip marks its row in the list, and pointing at a row lights up its chips.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `sources` (obrigatória) | `CitationSource[]` | — | Every source that can be cited, in the order they are numbered. |
-| `children` (obrigatória) | `ReactNode` | — | The text with `<Citation>` chips inside it, and usually a `<CitationSources>` list after it. |
+| `sources` (required) | `CitationSource[]` | — | Every source that can be cited, in the order they are numbered. |
+| `children` (required) | `ReactNode` | — | The text with `<Citation>` chips inside it, and usually a `<CitationSources>` list after it. |
 | `activeId` | `string \| null` | — | Id of the highlighted source (controlled). |
 | `onActiveIdChange` | `(id: string \| null) => void` | — | Called when hover, focus or an open card changes the highlighted source. |
 | `container` | `HTMLElement \| null` | `null` | Render the source cards inside this element and limit collisions to it (used by the demo stages). |
@@ -129,9 +129,9 @@ Groups an answer with its sources. Inside it, `<Citation>` is a numbered chip th
 
 A numbered chip for the middle of a sentence. Hover, focus plus Enter, or a tap opens a card with the source; a click pins it open.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `source` (obrigatória) | `string` | — | Id of the source this chip cites. |
+| `source` (required) | `string` | — | Id of the source this chip cites. |
 | `defaultOpen` | `boolean` | `false` | Starts with this chip's card pinned open, for previews. Focus stays where it is until a person uses the card. |
 | `className` | `string` | — | Class name added to the chip. |
 
@@ -139,56 +139,56 @@ A numbered chip for the middle of a sentence. Hover, focus plus Enter, or a tap 
 
 The numbered list of every source. One highlight glides to the row under the pointer or keyboard focus, or to the source whose chip is active.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `title` | `string` | `"Sources"` | Heading above the list. |
 | `className` | `string` | — | Class name added to the list wrapper. |
 
-### Tipos exportados
+### Exported types
 
 #### `CitationSource`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable id that `<Citation source>` refers to. |
-| `title` (obrigatória) | `string` | Title of the page or document. |
-| `url` (obrigatória) | `string` | Address the source opens. |
+| `id` (required) | `string` | Stable id that `<Citation source>` refers to. |
+| `title` (required) | `string` | Title of the page or document. |
+| `url` (required) | `string` | Address the source opens. |
 | `site` | `string` | Name of the site. Defaults to the host of `url`. |
 | `snippet` | `string` | Short passage or summary that supports the claim. |
 | `date` | `string` | Publication date or year, as it should be shown. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Passa pelos chips no texto e pelas linhas da lista; o foco numa linha acende os chips da mesma fonte. |
-| `Enter` ou `Espaço` | No chip, abre o cartão da fonte e leva o foco para ele. |
-| `Enter` | No título do cartão ou numa linha da lista, abre a fonte em nova aba. |
-| `Esc` | Fecha o cartão e devolve o foco ao chip. |
+| `Tab` | Moves through the chips in the text and the list rows; focus on a row lights up the chips of the same source. |
+| `Enter` or `Space` | On a chip, opens the source card and moves focus to it. |
+| `Enter` | On the card title or a list row, opens the source in a new tab. |
+| `Esc` | Closes the card and returns focus to the chip. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada chip é um `<button>` com `aria-label` “Source N: título”; o cartão é um popover do Radix (`role="dialog"`) que só recebe o foco quando aberto por clique ou teclado, nunca por hover.
-- A lista é uma `<section>` rotulada pelo próprio título, com um `<ol>` de links que abrem em nova aba com `rel="noreferrer noopener"`.
-- Os rótulos “Source N” estão fixos em inglês; o título da lista vem da prop `title` de `CitationSources` (padrão “Sources”).
+- Each chip is a `<button>` with `aria-label` “Source N: title”; the card is a Radix popover (`role="dialog"`) that only receives focus when opened by click or keyboard, never by hover.
+- The list is a `<section>` labeled by its own title, with an `<ol>` of links that open in a new tab with `rel="noreferrer noopener"`.
+- The “Source N” labels are fixed in English; the list title comes from the `title` prop of `CitationSources` (default “Sources”).
 
-## Movimento
+## Motion
 
-- O cartão cresce a partir do chip, com escala e esmaecer, e suas linhas entram em sequência; o chip ativo aumenta um pouco.
-- Um único realce desliza entre as linhas da lista com uma mola, seguindo o ponteiro, o foco ou o chip ativo; as linhas entram escalonadas na montagem.
-- Com “reduzir movimento” ligado, cartão e linhas aparecem sem animação e o realce troca de linha na hora.
+- The card grows from the chip, with scale and fade, and its rows enter in sequence; the active chip grows slightly.
+- A single highlight slides between the list rows with a spring, following the pointer, focus or active chip; rows enter staggered on mount.
+- With “reduce motion” on, the card and rows appear without animation and the highlight switches rows instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O cartão tem no máximo 20rem de largura e encolhe com a janela; abre acima do chip e o Radix o reposiciona para caber, com 12 px de folga.
-- O chip nunca se separa da palavra anterior na quebra de linha; na lista, o título corta em duas linhas, e no cartão o trecho corta em quatro.
+- The card is at most 20rem wide and shrinks with the window; it opens above the chip and Radix repositions it to fit, with 12 px of clearance.
+- The chip never separates from the preceding word at a line break; in the list, the title truncates at two lines, and in the card the excerpt truncates at four.
 
-## Notas para IA
+## Notes for AI
 
-- São três partes do mesmo arquivo: `Citations` recebe `sources` e envolve o texto, `Citation source="id"` vai dentro da frase e `CitationSources` lista tudo; as duas últimas lançam erro fora de `Citations`.
-- O número vem da posição em `sources` (índice + 1), não da ordem em que o chip aparece no texto; um `source` que não existe em `sources` não renderiza nada.
-- Ponha `<Citation>` logo depois da palavra e antes da pontuação; `site` é opcional e, sem ele, aparece o host de `url`.
+- There are three parts in the same file: `Citations` receives `sources` and wraps the text, `Citation source="id"` goes inside the sentence and `CitationSources` lists everything; the last two throw an error outside `Citations`.
+- The number comes from the position in `sources` (index + 1), not from the order in which the chip appears in the text; a `source` that does not exist in `sources` renders nothing.
+- Put `<Citation>` right after the word and before the punctuation; `site` is optional and, without it, the host of `url` is shown.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/citations · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/citations · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

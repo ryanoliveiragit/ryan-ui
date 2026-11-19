@@ -2,23 +2,23 @@
 
 > Chamada para ação como fecho centralizado, dividida ao lado de um cartão de configuração ou em faixa dispensável.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/cta-section
-- Descrição original (inglês): A call to action as a centered closing section, a split beside a setup card that completes itself, or a dismissible banner.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/cta-section
+- Original description: A call to action as a centered closing section, a split beside a setup card that completes itself, or a dismissible banner.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json`. Caminho do registro, relativo ao endereço do site: `r/cta-section.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-section.json`. Registry path, relative to the site address: `r/cta-section.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Segmented control](segmented-control.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md), [Segmented control](segmented-control.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/cta-section/cta-section.tsx`
   - `components/ryan-ui/blocks/cta-section/cta-section-data.ts`
   - `components/ryan-ui/lib/media.ts`
@@ -28,29 +28,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/cta-section.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/cta-section.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Fechamento de uma landing page com título, texto e duas ações, na variante `centered`, com rostos e uma nota curta como prova social.
-- Chamada ao lado de uma demonstração do produto, na variante `split`, com lista de benefícios e um cartão de configuração que se completa ao entrar na tela (ou o seu `visual`).
-- Aviso de lançamento numa linha só, na variante `banner`, que pode ser dispensado e fecha o espaço que ocupava.
+- The closing of a landing page with a title, text, and two actions, in the `centered` variant, with faces and a short note as social proof.
+- A call-to-action beside a product demo, in the `split` variant, with a benefits list and a setup card that completes itself on entering the screen (or your own `visual`).
+- A single-line launch notice, in the `banner` variant, which can be dismissed and closes the space it occupied.
 
-## Quando não usar
+## When not to use
 
-- Use [`announcement-bar`](announcement-bar.md) para uma faixa no topo que alterna mensagens ou faz contagem regressiva.
-- Use [`newsletter-signup`](newsletter-signup.md) quando a ação é deixar o e-mail.
-- Use [`hero-section`](hero-section.md) para a abertura da página; esta seção é pensada para o meio ou o fim dela.
+- Use [`announcement-bar`](announcement-bar.md) for a strip at the top that alternates messages or runs a countdown.
+- Use [`newsletter-signup`](newsletter-signup.md) when the action is leaving an email.
+- Use [`hero-section`](hero-section.md) for the page opening; this section is meant for the middle or end of the page.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import CtaSectionBlock from "@/components/ryan-ui/blocks/cta-section/cta-section";
@@ -60,15 +60,15 @@ export default function CtaSectionDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CtaSection`
 
 A call to action in three shapes: a centered closing section, a split layout beside a setup card that completes itself in view, and a compact banner that closes its gap when dismissed.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"centered" \| "split" \| "banner"` | `"centered"` | `centered` is a closing section, `split` sits beside a product visual, `banner` is one dismissible line. |
 | `title` | `string` | — | — |
@@ -86,50 +86,50 @@ A call to action in three shapes: a centered closing section, a split layout bes
 
 Preview: all three shapes. Buttons confirm in place; nothing is sent.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `CtaVariant` | `"centered" \| "split" \| "banner"` |
 
 #### `CtaAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `href` | `string` | Renders a link. |
 | `onClick` | `() => void` | — |
 | `confirmedLabel` | `string` | With no href or onClick, the button confirms in place with this label, which suits previews. |
 
-### Outras exportações
+### Other exports
 
-- `ctaCopy` (valor)
-- `ctaFaces` (função)
-- `ctaSetup` (valor)
+- `ctaCopy` (value)
+- `ctaFaces` (function)
+- `ctaSetup` (value)
 
-## Acessibilidade
+## Accessibility
 
-- Cada variante é uma `section` nomeada pelo título (`h2` em `centered` e `split`, texto em negrito no `banner`); o botão de dispensar se chama “Dismiss” e só aparece com `onDismiss`.
-- O cartão de configuração e os rostos são decorativos (`aria-hidden`); ações sem `href` nem `onClick` trocam o rótulo numa região `aria-live` quando clicadas.
+- Each variant is a `section` named by the title (`h2` in `centered` and `split`, bold text in `banner`); the dismiss button is called “Dismiss” and appears only with `onDismiss`.
+- The setup card and the faces are decorative (`aria-hidden`); actions with neither `href` nor `onClick` swap the label in an `aria-live` region when clicked.
 
-## Movimento
+## Motion
 
-- Em `split`, o palco sobe ao entrar na tela e o cartão marca as etapas uma a uma, a cada 0,6 s, enchendo a barra de progresso até “Ready”.
-- No `banner`, dispensar fecha a altura com uma mola sem ultrapassagem e só então chama `onDismiss`; a seta das ações avança um pouco ao passar o mouse.
-- Com “reduzir movimento” ligado, o cartão já aparece completo, o palco não sobe, o banner some sem fechar a altura aos poucos e as transições CSS são desligadas.
+- In `split`, the stage rises on entering the screen and the card checks off the steps one by one, every 0.6 s, filling the progress bar up to “Ready”.
+- In `banner`, dismissing closes the height with a no-overshoot spring and only then calls `onDismiss`; the actions' arrow advances slightly on hover.
+- With “reduce motion” on, the card already appears complete, the stage does not rise, the banner disappears without gradually closing its height, and CSS transitions are turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Container query: abaixo de 860px o `split` empilha o texto sobre o palco; abaixo de 560px as ações ocupam a largura, uma sobre a outra, e o `banner` vira um bloco com as ações embaixo.
+- Container query: below 860px the `split` stacks the text above the stage; below 560px the actions take the full width, one above the other, and the `banner` becomes a block with the actions underneath.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `CtaSection` pelo nome (a exportação padrão é a prévia com seletor de variantes); todos os textos têm padrão de exemplo, então passe sempre `title`, `description` e `primaryAction`.
-- Cada ação é `{ label, href?, onClick?, confirmedLabel? }`: com `href` vira link, com `onClick` chama a função e, sem os dois, só alterna o rótulo, o que serve para prévias e não para produção.
-- No `banner`, o botão de fechar só existe se você passar `onDismiss`; `secondaryAction={null}` esconde a segunda ação e `faces={[]}` tira os rostos de `centered`.
+- Import `CtaSection` by name (the default export is the preview with a variant selector); all texts have example defaults, so always pass `title`, `description`, and `primaryAction`.
+- Each action is `{ label, href?, onClick?, confirmedLabel? }`: with `href` it becomes a link, with `onClick` it calls the function, and with neither it only toggles the label, which suits previews and not production.
+- In `banner`, the close button exists only if you pass `onDismiss`; `secondaryAction={null}` hides the second action and `faces={[]}` removes the faces from `centered`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/cta-section · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/cta-section · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

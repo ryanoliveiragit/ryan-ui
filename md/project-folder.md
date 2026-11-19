@@ -2,48 +2,48 @@
 
 > Pasta que entreabre ao passar o mouse e, no clique, deixa os documentos subirem e se abrirem em leque.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/project-folder
-- Descrição original (inglês): A folder whose flap leans open on hover while its documents peek out, then rise and fan out with a springy stagger on click.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/project-folder
+- Original description: A folder whose flap leans open on hover while its documents peek out, then rise and fan out with a springy stagger on click.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/project-folder.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/project-folder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/project-folder.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/project-folder.json`. Caminho do registro, relativo ao endereço do site: `r/project-folder.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/project-folder.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/project-folder.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/project-folder.json`. Registry path, relative to the site address: `r/project-folder.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/project-folder/project-folder.tsx`
   - `components/ryan-ui/blocks/project-folder/project-folder.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/project-folder.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/project-folder.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Grade ou prateleira de projetos em portfólios, painéis e telas iniciais de arquivos, em que espiar os primeiros documentos ao passar o mouse dá contexto.
-- Para mostrar de relance o tipo de conteúdo de uma pasta (texto, gráfico ou imagem) antes de abri-la.
+- Grid or shelf of projects in portfolios, dashboards, and file home screens, where peeking at the first documents on hover gives context.
+- To show at a glance the kind of content in a folder (text, chart, or image) before opening it.
 
-## Quando não usar
+## When not to use
 
-- Use [`file-tree`](file-tree.md) para navegar por arquivos e subpastas de verdade, com seleção e teclado.
-- Use [`card-folder`](card-folder.md) quando o conteúdo é um conjunto de fichas com abas para ler uma de cada vez.
-- Se abrir a pasta deve listar ou abrir arquivos, o bloco sozinho não basta: aberto, ele só desenha três folhas, sem links.
+- Use [`file-tree`](file-tree.md) to actually navigate files and subfolders, with selection and keyboard.
+- Use [`card-folder`](card-folder.md) when the content is a set of cards with tabs to read one at a time.
+- If opening the folder should list or open files, the block alone is not enough: when open, it only draws three sheets, with no links.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import ProjectFolderPreview from "@/components/ryan-ui/blocks/project-folder/project-folder";
@@ -53,17 +53,17 @@ export default function ProjectFolderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ProjectFolder`
 
 A folder whose flap leans open on hover and whose sheets rise and fan out on click.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `name` (obrigatória) | `string` | — | Folder name, shown under it. |
+| `name` (required) | `string` | — | Folder name, shown under it. |
 | `meta` | `string` | — | Short line under the name while the folder is closed, such as "12 files, edited 2h ago". |
 | `files` | `ProjectFile[]` | `[]` | Files in the folder. The first three peek out; the rest are counted. |
 | `tone` | `"accent" \| "neutral"` | `"neutral"` | `accent` fills the folder with the accent color; `neutral` keeps it quiet. |
@@ -76,47 +76,47 @@ A folder whose flap leans open on hover and whose sheets rise and fan out on cli
 
 Ready preview: three project folders; opening one closes the others.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `ProjectFile`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | File name, printed at the top of its sheet. |
+| `name` (required) | `string` | File name, printed at the top of its sheet. |
 | `kind` | `"text" \| "chart" \| "image"` | What the little sheet shows: lines of text, a bar chart, or a picture. |
 | `image` | `string` | Picture for `image` sheets. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Abrem ou fecham a pasta, espalhando ou recolhendo as folhas. |
-| `Tab` | Com foco vindo do teclado, a pasta entreabre como no hover do mouse. |
+| `Enter` or `Space` | Open or close the folder, spreading out or gathering the sheets. |
+| `Tab` | With focus coming from the keyboard, the folder opens slightly as on mouse hover. |
 
-## Acessibilidade
+## Accessibility
 
-- A pasta inteira é um `<button>` nativo com `aria-expanded`; o desenho (aba, folhas e contador) fica com `aria-hidden`, então o nome acessível vem do nome e da linha abaixo dele.
-- Aberta, a linha abaixo troca a descrição pelos nomes das três primeiras folhas mais “and N more”, em inglês fixo, e é isso que o leitor de tela passa a ouvir.
-- As imagens das folhas têm `alt` vazio, porque são decorativas.
+- The whole folder is a native `<button>` with `aria-expanded`; the drawing (tab, sheets, and counter) is `aria-hidden`, so the accessible name comes from the name and the line below it.
+- When open, the line below swaps the description for the names of the first three sheets plus “and N more”, hardcoded in English, and that is what the screen reader then announces.
+- The sheet images have empty `alt`, because they are decorative.
 
-## Movimento
+## Motion
 
-- Com o mouse por cima ou foco de teclado, a aba inclina 24° para trás em 3D e as folhas espiam; ao clicar, a aba abre a 42° e as folhas sobem em leque numa mola com pequeno quique, 45 ms uma após a outra.
-- A aba usa uma mola mais pesada, praticamente sem quique; ao fechar, as folhas voltam na ordem inversa e a linha sob o nome troca com um deslize curto.
-- Com “reduzir movimento” ligado, a aba não gira, as folhas saltam para o lugar e a linha só esmaece.
+- With the mouse over it or keyboard focus, the tab tilts back 24° in 3D and the sheets peek out; on click, the tab opens to 42° and the sheets rise in a fan on a slightly bouncy spring, 45 ms one after another.
+- The tab uses a heavier spring, with practically no bounce; on close, the sheets return in reverse order and the line under the name swaps with a short slide.
+- With “reduce motion” on, the tab does not rotate, the sheets jump into place, and the line only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Tudo escala a partir de `--folder-size` (padrão 13rem), definido na pasta ou num pai; a pasta reserva espaço acima de si para as folhas subirem, mas abertas elas passam um pouco das laterais.
+- Everything scales from `--folder-size` (default 13rem), set on the folder or a parent; the folder reserves space above itself for the sheets to rise, but when open they extend slightly past the sides.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `ProjectFolder`; o export padrão é uma prateleira de três pastas em que abrir uma fecha as outras, feita com `open` e `onOpenChange`.
-- `files` desenha só as três primeiras folhas (`kind` `text`, `chart` ou `image`, com `image` para a URL) e conta o resto; para mostrar o conteúdo de verdade, reaja a `onOpenChange`.
-- Deixe espaço lateral entre pastas vizinhas para o leque aberto; `tone="accent"` pinta a pasta na cor de destaque e o papel das folhas fica claro nos dois temas.
+- Import the named component `ProjectFolder`; the default export is a shelf of three folders where opening one closes the others, built with `open` and `onOpenChange`.
+- `files` draws only the first three sheets (`kind` `text`, `chart`, or `image`, with `image` for the URL) and counts the rest; to show the real content, react to `onOpenChange`.
+- Leave side space between neighboring folders for the open fan; `tone="accent"` paints the folder in the accent color and the sheets' paper stays light in both themes.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/project-folder · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/project-folder · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

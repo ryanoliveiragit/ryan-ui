@@ -2,46 +2,46 @@
 
 > Capture texto sensível com um botão para revelar o que foi digitado.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/password-field
-- Descrição original (inglês): Capture sensitive text with a visible reveal control.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/password-field
+- Original description: Capture sensitive text with a visible reveal control.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json`. Caminho do registro, relativo ao endereço do site: `r/password-field.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-field.json`. Registry path, relative to the site address: `r/password-field.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/password-field/password-field.tsx`
   - `components/ryan-ui/password-field/password-field.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/password-field.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/password-field.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Senha no login ou na troca de senha, quando a pessoa quer conferir o que digitou antes de enviar.
-- Outros segredos digitados, como uma chave de API, trocando os nomes do botão por `messages`.
+- A password at login or password change, when the person wants to check what they typed before sending.
+- Other typed secrets, like an API key, by replacing the button names with `messages`.
 
-## Quando não usar
+## When not to use
 
-- Use [`password-strength`](password-strength.md) quando a pessoa está criando uma senha e precisa ver os requisitos e a força enquanto digita.
-- Use [`otp-input`](otp-input.md) para códigos de verificação de seis dígitos.
+- Use [`password-strength`](password-strength.md) when the person is creating a password and needs to see the requirements and strength while typing.
+- Use [`otp-input`](otp-input.md) for six-digit verification codes.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -59,58 +59,58 @@ export default function PasswordFieldDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PasswordField`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `description` | `string` | — | — |
 | `messages` | `Partial<PasswordFieldMessages>` | — | Translated or reworded toggle names. |
-| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Também aceita as props deste tipo, menos `type`. |
+| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Also accepts the props of this type, except `type`. |
 
-### Tipos exportados
+### Exported types
 
 #### `PasswordFieldMessages`
 
 The toggle's names. Both have English defaults; pass the ones you translate.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `showPassword` (obrigatória) | `string` | — |
-| `hidePassword` (obrigatória) | `string` | — |
+| `showPassword` (required) | `string` | — |
+| `hidePassword` (required) | `string` | — |
 
-### Outras exportações
+### Other exports
 
-- `defaultPasswordFieldMessages` (valor)
+- `defaultPasswordFieldMessages` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Leva o foco do campo ao botão do olho. |
-| `Enter` ou `Espaço` | No botão do olho, mostram ou escondem a senha. |
+| `Tab` | Moves focus from the field to the eye button. |
+| `Enter` or `Space` | On the eye button, show or hide the password. |
 
-## Acessibilidade
+## Accessibility
 
-- `label` vira um `<label>` ligado ao campo, e `description` entra em `aria-describedby` junto com o que você passar nessa prop.
-- O botão do olho tem `aria-pressed` e nome que alterna entre `Show password` e `Hide password`; traduza com `messages={{ showPassword, hidePassword }}`.
-- Não há prop de erro: passe `aria-invalid` para a borda ficar vermelha e ligue sua mensagem por `aria-describedby`.
+- `label` becomes a `<label>` tied to the field, and `description` goes into `aria-describedby` along with whatever you pass in that prop.
+- The eye button has `aria-pressed` and a name that toggles between `Show password` and `Hide password`; translate with `messages={{ showPassword, hidePassword }}`.
+- There is no error prop: pass `aria-invalid` for the border to turn red and tie your message via `aria-describedby`.
 
-## Movimento
+## Motion
 
-- Ao mostrar a senha, um traço se desenha sobre o olho, cortando o contorno por baixo, e se recolhe ao esconder, em vez de trocar um ícone pelo outro.
-- A troca entre pontos e letras aparece com um breve esmaecer e desfoque a partir do primeiro clique, e a linha de ajuda abre a própria altura com uma mola.
-- Com “reduzir movimento” ligado, o traço troca na hora, o texto não esmaece e o botão não encolhe ao ser pressionado.
+- When showing the password, a stroke draws over the eye, cutting the outline from below, and retracts on hiding, instead of swapping one icon for the other.
+- The swap between dots and letters appears with a brief fade and blur from the first click, and the help line opens its own height with a spring.
+- With “reduce motion” on, the stroke swaps instantly, the text does not fade, and the button does not shrink when pressed.
 
-## Notas para IA
+## Notes for AI
 
-- Aceita as props de `<input>` exceto `type` (`value`, `onChange`, `name`, `autoComplete`…) e o `ref` aponta para o campo; use `autoComplete="current-password"` no login e `"new-password"` no cadastro.
-- Mostrar ou esconder é estado interno: não há prop para controlar nem para saber se a senha está visível.
+- Accepts `<input>` props except `type` (`value`, `onChange`, `name`, `autoComplete`…) and the `ref` points to the field; use `autoComplete="current-password"` at login and `"new-password"` at signup.
+- Showing or hiding is internal state: there is no prop to control it or to know whether the password is visible.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/password-field · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/password-field · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

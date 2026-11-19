@@ -2,48 +2,48 @@
 
 > Comentários em fio, com respostas, reações, menções, edição no local e opção de resolver a conversa.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/comment-thread
-- Descrição original (inglês): Threaded comments with replies, reactions, mentions, inline edit, and resolve.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/comment-thread
+- Original description: Threaded comments with replies, reactions, mentions, inline edit, and resolve.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/comment-thread.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/comment-thread.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/comment-thread.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/comment-thread.json`. Caminho do registro, relativo ao endereço do site: `r/comment-thread.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/comment-thread.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/comment-thread.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/comment-thread.json`. Registry path, relative to the site address: `r/comment-thread.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/comment-thread/comment-thread.tsx`
   - `components/ryan-ui/comment-thread/comment-thread.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/comment-thread.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/comment-thread.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Discussão presa a um conteúdo específico (um título do layout, um parágrafo, uma tarefa), com o assunto em `title`.
-- Quando a conversa precisa de respostas aninhadas, reações, menções com `@` e edição ou exclusão dos próprios comentários no lugar.
-- Revisões que se encerram: resolver dobra a conversa inteira num resumo de uma linha que pode ser reaberto.
+- A discussion tied to specific content (a layout heading, a paragraph, a task), with the subject in `title`.
+- When the conversation needs nested replies, reactions, `@` mentions, and editing or deleting your own comments in place.
+- Reviews that wrap up: resolving folds the whole conversation into a one-line summary that can be reopened.
 
-## Quando não usar
+## When not to use
 
-- Use [`chat-thread`](chat-thread.md) para conversa em tempo real, com balões, indicador de digitação e confirmação de leitura.
-- Use [`mention-input`](mention-input.md) quando só precisa do campo com menções, sem a conversa em volta.
-- Use [`timeline`](timeline.md) para um histórico só de leitura do que aconteceu.
+- Use [`chat-thread`](chat-thread.md) for real-time conversation, with bubbles, typing indicator, and read receipts.
+- Use [`mention-input`](mention-input.md) when you only need the field with mentions, without the surrounding conversation.
+- Use [`timeline`](timeline.md) for a read-only history of what happened.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { CommentThread, type CommentAuthor, type ThreadComment } from "@/components/ryan-ui/comment-thread/comment-thread";
@@ -77,18 +77,18 @@ export default function CommentThreadDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CommentThread`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `comments` | `ThreadComment[]` | — | — |
 | `defaultComments` | `ThreadComment[]` | `[]` | — |
 | `onCommentsChange` | `(comments: ThreadComment[], event: CommentThreadEvent) => void` | — | — |
-| `currentUser` (obrigatória) | `CommentAuthor` | — | The person writing. Their comments can be edited and deleted. |
+| `currentUser` (required) | `CommentAuthor` | — | The person writing. Their comments can be edited and deleted. |
 | `people` | `CommentAuthor[]` | — | People who can be mentioned. Defaults to everyone in the thread. |
 | `resolved` | `boolean` | — | — |
 | `defaultResolved` | `boolean` | `false` | — |
@@ -101,35 +101,35 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `labels` | `CommentThreadLabels` | — | Words for localization. Leave out any key to keep its English default. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `CommentThreadEvent`: What changed, for syncing to a server. `comments` on `onCommentsChange` is always the full next tree. | `\| { type: "reply"; comment: ThreadComment; parentId: string \| null } \| { type: "edit"; id: string; body: string } \| { type: "delete"; id: string } \| { type: "react"; id: string; emoji: string; added: boolean }` |
 
 #### `CommentAuthor`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `name` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `name` (required) | `string` | — |
 | `avatar` | `string` | Square image URL. Initials are shown without one. |
 
 #### `CommentReaction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `emoji` (obrigatória) | `string` | — |
-| `users` (obrigatória) | `string[]` | Ids of the people who reacted. |
+| `emoji` (required) | `string` | — |
+| `users` (required) | `string[]` | Ids of the people who reacted. |
 
 #### `ThreadComment`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `author` (obrigatória) | `CommentAuthor` | — |
-| `body` (obrigatória) | `string` | Plain text. "@Full Name" mentions of known people are highlighted. |
-| `createdAt` (obrigatória) | `string` | Display label such as "2h" or "Sep 18". |
+| `id` (required) | `string` | — |
+| `author` (required) | `CommentAuthor` | — |
+| `body` (required) | `string` | Plain text. "@Full Name" mentions of known people are highlighted. |
+| `createdAt` (required) | `string` | Display label such as "2h" or "Sep 18". |
 | `edited` | `boolean` | — |
 | `deleted` | `boolean` | A deleted comment that still has replies keeps its place as a quiet placeholder. |
 | `reactions` | `CommentReaction[]` | — |
@@ -139,7 +139,7 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 Every word the thread shows or announces. Each one has an English default; words with a count or a name are functions, so an app can apply its own plural rules.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `thread` | `string` | Accessible name of the whole thread. |
 | `commentCount` | `(count: number) => string` | Header and resolved chip, such as "3 comments". |
@@ -170,43 +170,43 @@ Every word the thread shows or announces. Each one has an English default; words
 | `reactionCount` | `(emoji: string, count: number, includesYou: boolean) => string` | Accessible name of a reaction under a comment. |
 | `mentions` | `string` | Accessible name of the @mention suggestions. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Ctrl + Enter` ou `Cmd + Enter` | Enviam o comentário ou salvam a edição; `Enter` sozinho quebra a linha. |
-| `↑` ou `↓` | Com as sugestões de menção abertas, percorrem a lista. |
-| `Enter` ou `Tab` | Com as sugestões abertas, inserem a pessoa destacada como `@Nome Completo`. |
-| `Esc` | Fecha as sugestões; sem elas, cancela a resposta ou a edição, e também fecha o seletor de reações e a confirmação de exclusão. |
-| `Tab` | Percorre os botões de cada comentário; as ações (reagir, responder, editar, excluir) aparecem quando o foco entra nele. |
+| `Ctrl + Enter` or `Cmd + Enter` | Submit the comment or save the edit; `Enter` alone inserts a line break. |
+| `↑` or `↓` | With the mention suggestions open, move through the list. |
+| `Enter` or `Tab` | With the suggestions open, insert the highlighted person as `@Nome Completo`. |
+| `Esc` | Closes the suggestions; without them, cancels the reply or edit, and also closes the reaction picker and the delete confirmation. |
+| `Tab` | Moves through each comment's buttons; the actions (react, reply, edit, delete) appear when focus enters it. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é uma `section` nomeada e cada comentário é um `article` com autor e hora no rótulo; o campo é um `combobox` ligado à lista de menções por `aria-activedescendant`.
-- O foco é conduzido: resolver leva ao botão de reabrir e vice-versa, responder leva ao campo, e a confirmação de exclusão abre com o foco no botão de excluir.
-- Todos os textos têm padrão em inglês e são trocados por `labels`; não há região viva, então comentários que chegam de fora não são anunciados.
+- The root is a named `section` and each comment is an `article` with author and time in the label; the field is a `combobox` linked to the mentions list by `aria-activedescendant`.
+- Focus is guided: resolving moves to the reopen button and vice versa, replying moves to the field, and the delete confirmation opens with focus on the delete button.
+- All texts have an English default and are replaced through `labels`; there is no live region, so comments arriving from elsewhere are not announced.
 
-## Movimento
+## Motion
 
-- Comentários e respostas entram e saem abrindo a própria altura com mola; recolher respostas faz o mesmo e gira a seta.
-- Editar troca o texto pelo campo com um esmaecer enquanto a altura do comentário acompanha em mola; reações surgem com escala e a contagem rola.
-- Resolver cruza a conversa com o resumo enquanto a altura da caixa anima; com “reduzir movimento”, sobram esmaecimentos curtos e as alturas mudam na hora.
+- Comments and replies enter and leave by opening their own height with a spring; collapsing replies does the same and rotates the arrow.
+- Editing swaps the text for the field with a fade while the comment's height follows on a spring; reactions appear with scale and the count rolls.
+- Resolving crossfades the conversation with the summary while the box height animates; with “reduce motion”, short fades remain and heights change immediately.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Em telas de até 420 px o campo perde o avatar ao lado e as respostas recuam 12 px em vez de 24; em toque, as ações de cada comentário ficam sempre visíveis.
-- O campo cresce com o texto por `field-sizing: content` (até 160 px); em navegadores sem essa propriedade ele fica com uma linha e rola.
+- On screens up to 420 px the field loses the avatar beside it and replies indent 12 px instead of 24; on touch, each comment's actions are always visible.
+- The field grows with the text through `field-sizing: content` (up to 160 px); in browsers without that property it stays at one line and scrolls.
 
-## Desempenho
+## Performance
 
-- A árvore inteira é refeita a cada mudança e cada comentário mantém um observador de altura: serve a discussões de dezenas de comentários, não a um feed longo.
+- The whole tree is rebuilt on every change and each comment keeps a height observer: it serves discussions of dozens of comments, not a long feed.
 
-## Notas para IA
+## Notes for AI
 
-- Controlado ou não nos dois eixos: `comments` com `onCommentsChange` e `resolved` com `onResolvedChange`, ou `defaultComments` e `defaultResolved`; o callback entrega a árvore nova inteira e o evento que a causou, para sincronizar o servidor.
-- `createdAt` é o texto já formatado (“2h”, “18 set”), não uma data; comentários novos saem com `nowLabel` e um `id` local, que você troca pelo do servidor.
-- `currentUser` decide quem pode editar e excluir; `people` alimenta as menções, e respostas além de `maxDepth` (2) se prendem ao nível mais fundo permitido.
+- Controlled or not on both axes: `comments` with `onCommentsChange` and `resolved` with `onResolvedChange`, or `defaultComments` and `defaultResolved`; the callback delivers the whole new tree and the event that caused it, to sync the server.
+- `createdAt` is the already formatted text (“2h”, “Sep 18”), not a date; new comments go out with `nowLabel` and a local `id`, which you swap for the server's.
+- `currentUser` decides who can edit and delete; `people` feeds the mentions, and replies beyond `maxDepth` (2) attach to the deepest allowed level.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/comment-thread · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/comment-thread · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

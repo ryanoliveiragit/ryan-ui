@@ -2,47 +2,47 @@
 
 > Lista enxuta de ações ancorada a um botão.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/dropdown-menu
-- Descrição original (inglês): A focused list of actions anchored to a trigger.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/dropdown-menu
+- Original description: A focused list of actions anchored to a trigger.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dropdown-menu.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dropdown-menu.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dropdown-menu.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dropdown-menu.json`. Caminho do registro, relativo ao endereço do site: `r/dropdown-menu.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dropdown-menu.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dropdown-menu.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dropdown-menu.json`. Registry path, relative to the site address: `r/dropdown-menu.json`.
 
-- Pacotes npm: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/dropdown-menu/dropdown-menu.tsx`
   - `components/ryan-ui/dropdown-menu/dropdown-menu.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/dropdown-menu.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/dropdown-menu.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um conjunto curto de ações sobre a página ou um objeto, atrás de um botão com rótulo, como “Ações do projeto”.
-- Escolhas como “Ordenar por”, em que o próprio gatilho mostra a opção atual: troque `label` e o texto novo entra animado, com a largura do gatilho acompanhando numa mola.
+- A short set of actions on the page or an object, behind a labeled button, like “Project actions”.
+- Choices like “Sort by”, where the trigger itself shows the current option: change `label` and the new text enters animated, with the trigger width following on a spring.
 
-## Quando não usar
+## When not to use
 
-- Use [`select`](select.md) quando a escolha é um valor de formulário com a opção marcada: aqui os itens são ações, sem estado selecionado.
-- Use [`split-button`](split-button.md) quando uma ação principal deve rodar com um clique e as outras são alternativas dela.
-- Use [`context-menu`](context-menu.md) para ações abertas com o botão direito sobre o próprio objeto, sem gatilho visível.
+- Use [`select`](select.md) when the choice is a form value with the option marked: here the items are actions, with no selected state.
+- Use [`split-button`](split-button.md) when a main action should run on a click and the others are alternatives to it.
+- Use [`context-menu`](context-menu.md) for actions opened with a right-click on the object itself, with no visible trigger.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -91,68 +91,68 @@ export default function DropdownMenuDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `DropdownMenu`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
-| `items` (obrigatória) | `DropdownItem[]` | — | — |
+| `label` (required) | `string` | — | — |
+| `items` (required) | `DropdownItem[]` | — | — |
 | `icon` | `ReactNode` | — | — |
 | `defaultOpen` | `boolean` | — | — |
 | `container` | `HTMLElement \| null` | — | — |
 | `modal` | `boolean` | `true` | — |
 | `onOpenAutoFocus` | `(event: Event) => void` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `DropdownItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `onSelect` | `() => void` | — |
 | `disabled` | `boolean` | — |
 | `icon` | `ReactNode` | — |
 | `destructive` | `boolean` | — |
 | `separatorBefore` | `boolean` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` ou `↓` | No gatilho, abrem o menu com o foco no primeiro item. |
-| `↓` ou `↑` | Percorrem os itens habilitados e dão a volta nas pontas. |
-| `Home` ou `End` | Vão para o primeiro e o último item; `Page Up` e `Page Down` fazem o mesmo. |
-| `A–Z` | Digitar o começo de um rótulo leva o foco a esse item. |
-| `Enter` ou `Espaço` | Escolhem o item em foco e fecham o menu. |
-| `Esc` | Fecha o menu e devolve o foco ao gatilho. |
+| `Enter` or `Space` or `↓` | On the trigger, open the menu with focus on the first item. |
+| `↓` or `↑` | Move through the enabled items and wrap around at the ends. |
+| `Home` or `End` | Go to the first and last item; `Page Up` and `Page Down` do the same. |
+| `A–Z` | Typing the start of a label moves focus to that item. |
+| `Enter` or `Space` | Select the focused item and close the menu. |
+| `Esc` | Closes the menu and returns focus to the trigger. |
 
-## Acessibilidade
+## Accessibility
 
-- Usa o `DropdownMenu` do Radix: o gatilho recebe `aria-haspopup`, `aria-expanded` e `aria-controls`, os itens são `role="menuitem"`, e itens `disabled` ficam esmaecidos e são pulados pelas setas.
-- O menu é modal: enquanto está aberto, o foco fica preso nele, a página não rola, o resto fica oculto para leitores de tela e um clique fora só fecha o menu.
-- O gatilho sempre mostra o texto de `label`, que também nomeia o menu; os ícones do gatilho e dos itens são decorativos.
+- Uses Radix's `DropdownMenu`: the trigger gets `aria-haspopup`, `aria-expanded`, and `aria-controls`, items are `role="menuitem"`, and `disabled` items are dimmed and skipped by the arrows.
+- The menu is modal: while open, focus is trapped in it, the page does not scroll, the rest is hidden from screen readers, and a click outside only closes the menu.
+- The trigger always shows the `label` text, which also names the menu; the icons on the trigger and items are decorative.
 
-## Movimento
+## Motion
 
-- O menu surge deslocado 5 px na direção do gatilho e em escala de 0,97, por transição CSS, e sai mais rápido do que entrou; os itens entram em sequência, 35 ms entre um e outro.
-- Um realce único desliza entre os itens numa mola sob o ponteiro e salta direto com as setas; a seta do gatilho gira 180° com o menu aberto.
-- Com “reduzir movimento”, o menu só esmaece, os itens aparecem juntos e o realce, a seta e o rótulo do gatilho trocam sem animação.
+- The menu appears offset 5 px toward the trigger and at 0.97 scale, via a CSS transition, and leaves faster than it entered; items enter in sequence, 35 ms apart.
+- A single highlight slides between items on a spring under the pointer and jumps straight with the arrows; the trigger arrow rotates 180° with the menu open.
+- With “reduce motion”, the menu only fades, items appear together, and the highlight, the arrow, and the trigger label swap with no animation.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O menu é alinhado ao fim do gatilho, fica a 12 px das bordas da janela, muda de lado se faltar espaço e nunca passa da largura disponível; o rótulo do gatilho termina em reticências quando o espaço acaba.
+- The menu is aligned to the end of the trigger, stays 12 px from the window edges, flips sides if there is not enough room, and never exceeds the available width; the trigger label ends in an ellipsis when space runs out.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `label` e `items` (cada um com `label`, `onSelect` e, se quiser, `icon`, `disabled`, `destructive` e `separatorBefore`); o `label` do item também é a chave React, então não repita rótulos.
-- O gatilho é fixo (texto de `label`, `icon` opcional e uma seta) e o estado aberto é interno: não há prop para outro gatilho, para um botão só com ícone nem para controlar `open`.
-- Os itens não mostram marca de seleção; para um seletor de valor, prefira `select`, ou mostre a escolha atual no próprio `label`.
+- Pass `label` and `items` (each with `label`, `onSelect`, and, if you want, `icon`, `disabled`, `destructive`, and `separatorBefore`); the item's `label` is also the React key, so do not repeat labels.
+- The trigger is fixed (`label` text, optional `icon`, and an arrow) and the open state is internal: there is no prop for another trigger, for an icon-only button, or to control `open`.
+- Items show no selection mark; for a value selector, prefer `select`, or show the current choice in the `label` itself.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/dropdown-menu · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/dropdown-menu · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

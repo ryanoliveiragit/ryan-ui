@@ -2,48 +2,48 @@
 
 > Mapa de árvore em blocos: clique para detalhar e os blocos crescem até preencher a vista.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/treemap
-- Descrição original (inglês): A squarified treemap: click to drill and the tiles grow to fill the view, with a breadcrumb back and metrics that morph every tile.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/treemap
+- Original description: A squarified treemap: click to drill and the tiles grow to fill the view, with a breadcrumb back and metrics that morph every tile.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/treemap.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/treemap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/treemap.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/treemap.json`. Caminho do registro, relativo ao endereço do site: `r/treemap.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/treemap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/treemap.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/treemap.json`. Registry path, relative to the site address: `r/treemap.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/treemap/treemap.tsx`
   - `components/ryan-ui/treemap/treemap.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/treemap.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/treemap.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar uma hierarquia de partes de um todo, como receita por linha de negócio e produto, quando o tamanho relativo importa mais que comparações exatas.
-- Explorar por níveis: clicar num bloco amplia aquele ramo até preencher a vista, e a trilha no topo volta a qualquer nível acima.
-- Mostrar uma segunda medida, como crescimento, na intensidade da cor, com `colorLabel` e uma escala em degraus abaixo do gráfico.
+- Showing a hierarchy of parts of a whole, such as revenue by business line and product, when relative size matters more than exact comparisons.
+- Exploring by levels: clicking a block zooms that branch to fill the view, and the breadcrumb at the top goes back to any level above.
+- Showing a second measure, such as growth, in color intensity, with `colorLabel` and a stepped scale below the chart.
 
-## Quando não usar
+## When not to use
 
-- Use [`bar-chart`](bar-chart.md) quando o leitor precisa comparar valores com precisão: áreas são difíceis de comparar a olho.
-- Use [`composition-chart`](composition-chart.md) ou [`donut-chart`](donut-chart.md) para poucas partes num único nível.
-- Use [`tree-table`](tree-table.md) quando cada nó da hierarquia precisa de números exatos em colunas.
+- Use [`bar-chart`](bar-chart.md) when the reader needs to compare values precisely: areas are hard to compare by eye.
+- Use [`composition-chart`](composition-chart.md) or [`donut-chart`](donut-chart.md) for a few parts at a single level.
+- Use [`tree-table`](tree-table.md) when each node of the hierarchy needs exact numbers in columns.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -107,16 +107,16 @@ export default function TreemapDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Treemap`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `TreemapNode` | — | The root. Its label names the whole in the first breadcrumb. |
-| `label` (obrigatória) | `string` | — | What the whole is, such as "Revenue". Names the chart for assistive technology. |
+| `data` (required) | `TreemapNode` | — | The root. Its label names the whole in the first breadcrumb. |
+| `label` (required) | `string` | — | What the whole is, such as "Revenue". Names the chart for assistive technology. |
 | `formatValue` | `(value: number) => string` | `value => grouped.format(value)` | — |
 | `colorLabel` | `string` | — | Names the shading measure in the tooltip and scale, such as "Growth". Tiles take the hue of their top level branch and grow deeper with the measure. Leave it out to draw every tile at one depth. |
 | `formatColor` | `(value: number) => string` | `value => grouped.format(value)` | — |
@@ -129,54 +129,54 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `TreemapNode`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable identity, unique in the tree. A tile that survives a data change morphs to its new size. |
-| `label` (obrigatória) | `string` | — |
+| `id` (required) | `string` | Stable identity, unique in the tree. A tile that survives a data change morphs to its new size. |
+| `label` (required) | `string` | — |
 | `value` | `number` | Leaf size. A branch's size is the sum of its children. |
 | `color` | `number` | Optional second measure for shading, such as growth. A branch uses the size weighted mean of its children. |
 | `children` | `TreemapNode[]` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` ou `↑` ou `↓` | Com o foco no gráfico, salta para o bloco de primeiro nível mais próximo naquela direção. |
-| `Home` ou `End` | Vai ao primeiro ou ao último bloco de primeiro nível, na ordem de `data`. |
-| `Enter` ou `Espaço` | Amplia o bloco em foco, quando ele tem filhos, e passa o destaque ao primeiro filho. |
-| `Esc` ou `Backspace` | Volta um nível e destaca o bloco de onde veio; na raiz, tira o destaque. |
+| `←` or `→` or `↑` or `↓` | With focus on the chart, jump to the nearest first-level block in that direction. |
+| `Home` or `End` | Go to the first or last first-level block, in the order of `data`. |
+| `Enter` or `Space` | Zoom into the focused block, when it has children, and move the highlight to the first child. |
+| `Esc` or `Backspace` | Go up one level and highlight the block it came from; at the root, remove the highlight. |
 
-## Acessibilidade
+## Accessibility
 
-- A área dos blocos é um grupo focável com `aria-roledescription="treemap"` e as instruções no nome, em inglês; o teclado percorre só os blocos do primeiro nível da vista.
-- Uma região `aria-live="polite"` lê o bloco ativo (caminho, valor, fatia do pai e a medida de cor), e uma tabela oculta lista todos os nós com caminho e valores.
-- A trilha é um `<nav>` com lista ordenada e `aria-current="location"` no nível atual; a dica é decorativa (`aria-hidden`).
+- The block area is a focusable group with `aria-roledescription="treemap"` and the instructions in its name, in English; the keyboard moves through the first-level blocks of the view only.
+- An `aria-live="polite"` region reads the active block (path, value, share of its parent, and the color measure), and a hidden table lists all nodes with path and values.
+- The breadcrumb is a `<nav>` with an ordered list and `aria-current="location"` on the current level; the tooltip is decorative (`aria-hidden`).
 
-## Movimento
+## Motion
 
-- Na primeira vez em tela, os blocos crescem a partir do próprio centro, numa onda rápida que começa pelos maiores.
-- Ao ampliar, o bloco escolhido cresce até preencher a vista e os filhos surgem; ao voltar, a vista encolhe até ele; com dados novos, cada bloco muda de tamanho no lugar.
-- Com “reduzir movimento” ligado, cada mudança vai direto ao layout final, a dica não desliza e a trilha troca sem deslocamento.
+- The first time on screen, blocks grow from their own center, in a quick wave that starts with the largest.
+- When zooming in, the chosen block grows to fill the view and the children appear; when going back, the view shrinks to it; with new data, each block resizes in place.
+- With “reduced motion” on, each change goes straight to the final layout, the tooltip doesn't glide, and the breadcrumb swaps without displacement.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura segue o contêiner e a altura é fixa em `height` (420 px); nome e valor só aparecem em blocos com espaço (mais de 64 × 38 px), e os pequenos dependem da dica.
-- No toque não há dica ao passar: tocar num bloco amplia o ramo dele, e tocar numa folha do primeiro nível mostra seus números.
+- The width follows the container and the height is fixed by `height` (420 px); name and value only appear on blocks with room (over 64 × 38 px), and small ones depend on the tooltip.
+- On touch there is no hover tooltip: tapping a block zooms into its branch, and tapping a first-level leaf shows its numbers.
 
-## Desempenho
+## Performance
 
-- Todos os nós da árvore têm um elemento no DOM, mesmo fora da vista, `data` é serializado a cada render e a animação reposiciona os blocos por JavaScript a cada quadro; com milhares de folhas, agregue antes.
+- Every node in the tree has a DOM element, even out of view, `data` is serialized on every render, and the animation repositions blocks in JavaScript on every frame; with thousands of leaves, aggregate first.
 
-## Notas para IA
+## Notes for AI
 
-- Passe uma raiz em `data` (`{ id, label, children }`) com `value` só nas folhas: o valor de um ramo é a soma dos filhos, e o `label` da raiz abre a trilha.
-- Para colorir pela segunda medida, dê `color` às folhas e passe `colorLabel` (e `formatColor`); os quatro primeiros ramos ganham matiz de série e os seguintes ficam neutros.
-- `focus` com `onFocusChange` controla o ramo ampliado (um id de folha mostra a raiz); mantenha os `id` estáveis entre conjuntos para os blocos se transformarem em vez de reaparecerem.
+- Pass a root in `data` (`{ id, label, children }`) with `value` only on leaves: a branch's value is the sum of its children, and the root's `label` starts the breadcrumb.
+- To color by the second measure, give `color` to the leaves and pass `colorLabel` (and `formatColor`); the first four branches get a series hue and the rest stay neutral.
+- `focus` with `onFocusChange` controls the zoomed branch (a leaf id shows the root); keep the `id`s stable between datasets so blocks transform instead of reappearing.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/treemap · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/treemap · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

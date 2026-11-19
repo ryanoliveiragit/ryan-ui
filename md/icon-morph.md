@@ -2,47 +2,47 @@
 
 > Ícones que se transformam entre estados: menu em fechar, play em pausa, copiar em confirmado e outros.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/icon-morph
-- Descrição original (inglês): Icons that morph between states: menu to close, play to pause, copy to check, and more.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/icon-morph
+- Original description: Icons that morph between states: menu to close, play to pause, copy to check, and more.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json`. Caminho do registro, relativo ao endereço do site: `r/icon-morph.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/icon-morph.json`. Registry path, relative to the site address: `r/icon-morph.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/icon-morph/icon-morph.tsx`
   - `components/ryan-ui/icon-morph/icon-morph.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/icon-morph.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/icon-morph.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Botões de alternância cujo ícone representa o estado: abrir e fechar o menu, tocar e pausar, ativar e silenciar notificações, curtir.
-- Confirmações pequenas dentro de um botão seu, como copiar virando visto ou adicionar virando visto (`copy` e `plus`).
+- Toggle buttons whose icon represents the state: open and close the menu, play and pause, enable and mute notifications, like.
+- Small confirmations inside your own button, like copy becoming a checkmark or add becoming a checkmark (`copy` and `plus`).
 
-## Quando não usar
+## When not to use
 
-- Use [`copy-button`](copy-button.md) quando precisa copiar um valor com a confirmação já pronta.
-- Use [`theme-switch`](theme-switch.md) para alternar entre claro e escuro: ele já é um botão completo, com o ícone animado e o nome acessível.
-- Para um ícone que não muda de estado, use o ícone comum da biblioteca Lucide; aqui há só oito pares fixos de desenhos.
+- Use [`copy-button`](copy-button.md) when you need to copy a value with the confirmation ready-made.
+- Use [`theme-switch`](theme-switch.md) to toggle between light and dark: it is already a complete button, with the animated icon and the accessible name.
+- For an icon that does not change state, use the regular icon from the Lucide library; here there are only eight fixed pairs of drawings.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -88,129 +88,129 @@ export default function IconMorphDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MenuIcon`
 
 Menu to close: the outer lines slide to the middle as they rotate into an X, and the middle line folds away.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `boolean` | `false` | The second state of the icon. menu: close, play: pause, plus: check, copy: check, theme: moon, chevron: turned, bell: notifications on, heart: liked. |
 | `size` | `number` | — | Rendered size in px. Defaults to 24. |
 | `strokeWidth` | `number` | — | Stroke width in the 24 unit grid. Defaults to 1.75. |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Também aceita as props deste tipo, menos `ref` e `children`. |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Also accepts the props of this type, except `ref` and `children`. |
 
 ### `PlayPauseIcon`
 
 Play to pause: the triangle splits into two halves that straighten into bars.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `boolean` | `false` | The second state of the icon. menu: close, play: pause, plus: check, copy: check, theme: moon, chevron: turned, bell: notifications on, heart: liked. |
 | `size` | `number` | — | Rendered size in px. Defaults to 24. |
 | `strokeWidth` | `number` | — | Stroke width in the 24 unit grid. Defaults to 1.75. |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Também aceita as props deste tipo, menos `ref` e `children`. |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Also accepts the props of this type, except `ref` and `children`. |
 
 ### `PlusCheckIcon`
 
 Plus to check: each bar swings its ends to become one leg of the check.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `boolean` | `false` | The second state of the icon. menu: close, play: pause, plus: check, copy: check, theme: moon, chevron: turned, bell: notifications on, heart: liked. |
 | `size` | `number` | — | Rendered size in px. Defaults to 24. |
 | `strokeWidth` | `number` | — | Stroke width in the 24 unit grid. Defaults to 1.75. |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Também aceita as props deste tipo, menos `ref` e `children`. |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Also accepts the props of this type, except `ref` and `children`. |
 
 ### `CopyCheckIcon`
 
 Copy to check: the back sheet tucks under the front one, the front one settles away, and the check draws in.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `boolean` | `false` | The second state of the icon. menu: close, play: pause, plus: check, copy: check, theme: moon, chevron: turned, bell: notifications on, heart: liked. |
 | `size` | `number` | — | Rendered size in px. Defaults to 24. |
 | `strokeWidth` | `number` | — | Stroke width in the 24 unit grid. Defaults to 1.75. |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Também aceita as props deste tipo, menos `ref` e `children`. |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Also accepts the props of this type, except `ref` and `children`. |
 
 ### `SunMoonIcon`
 
 Sun to moon: the disc grows while a shadow slides across it from the corner, carving the crescent, and the rays turn and fold in. The crescent is drawn as an outline: the disc's edge outside the shadow, and the shadow's edge inside the disc.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `boolean` | `false` | The second state of the icon. menu: close, play: pause, plus: check, copy: check, theme: moon, chevron: turned, bell: notifications on, heart: liked. |
 | `size` | `number` | — | Rendered size in px. Defaults to 24. |
 | `strokeWidth` | `number` | — | Stroke width in the 24 unit grid. Defaults to 1.75. |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Também aceita as props deste tipo, menos `ref` e `children`. |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Also accepts the props of this type, except `ref` and `children`. |
 
 ### `ChevronIcon`
 
 A chevron that turns on a spring, for disclosure and sort controls.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `turn` | `number` | `180` | Degrees the chevron turns when `state` is true. 180 flips down to up; 90 turns right to down. |
 | `pointing` | `"down" \| "right"` | `"down"` | Where the chevron points at rest. |
-| `...props` | `IconMorphIconProps` | — | Também aceita as props deste tipo. |
+| `...props` | `IconMorphIconProps` | — | Also accepts the props of this type. |
 
 ### `BellIcon`
 
 Notifications on and off: turning on rings the bell from its top, with the clapper lagging behind; turning off strikes it through.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `boolean` | `false` | The second state of the icon. menu: close, play: pause, plus: check, copy: check, theme: moon, chevron: turned, bell: notifications on, heart: liked. |
 | `size` | `number` | — | Rendered size in px. Defaults to 24. |
 | `strokeWidth` | `number` | — | Stroke width in the 24 unit grid. Defaults to 1.75. |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Também aceita as props deste tipo, menos `ref` e `children`. |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Also accepts the props of this type, except `ref` and `children`. |
 
 ### `HeartIcon`
 
 Like: the heart fills with a pop, and a ring and a few sparks burst out once. Unliking simply empties it.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `boolean` | `false` | The second state of the icon. menu: close, play: pause, plus: check, copy: check, theme: moon, chevron: turned, bell: notifications on, heart: liked. |
 | `size` | `number` | — | Rendered size in px. Defaults to 24. |
 | `strokeWidth` | `number` | — | Stroke width in the 24 unit grid. Defaults to 1.75. |
-| `...props` | `SVGProps<SVGSVGElement>` | — | Também aceita as props deste tipo, menos `ref` e `children`. |
+| `...props` | `SVGProps<SVGSVGElement>` | — | Also accepts the props of this type, except `ref` and `children`. |
 
 ### `IconMorph`
 
 One entry point for every morphing icon: pick it by `name` and drive it with `state`.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `name` (obrigatória) | `"menu" \| "play" \| "plus" \| "copy" \| "theme" \| "chevron" \| "bell" \| "heart"` | — | — |
-| `...props` | `IconMorphIconProps` | — | Também aceita as props deste tipo. |
+| `name` (required) | `"menu" \| "play" \| "plus" \| "copy" \| "theme" \| "chevron" \| "bell" \| "heart"` | — | — |
+| `...props` | `IconMorphIconProps` | — | Also accepts the props of this type. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `IconMorphName` | `"menu" \| "play" \| "plus" \| "copy" \| "theme" \| "chevron" \| "bell" \| "heart"` |
 
-## Acessibilidade
+## Accessibility
 
-- Todo ícone é um SVG com `aria-hidden="true"` e `focusable="false"`: coloque-o num `<button>` que tenha o nome acessível e `aria-pressed` refletindo `state`.
-- Como o desenho muda com o estado (o menu vira X, o play vira pausa), atualize junto o nome do botão, por exemplo de “Abrir menu” para “Fechar menu”.
+- Every icon is an SVG with `aria-hidden="true"` and `focusable="false"`: put it in a `<button>` that has the accessible name and `aria-pressed` reflecting `state`.
+- Since the drawing changes with the state (the menu becomes an X, play becomes pause), update the button name along with it, for example from “Open menu” to “Close menu”.
 
-## Movimento
+## Motion
 
-- O ícone se transforma em vez de trocar: as linhas do menu giram até formar um X, o play se divide em duas barras, o sol cresce enquanto uma sombra recorta a lua, tudo em molas que podem ser interrompidas no meio.
-- Ligar o sino o faz balançar (0,9 s), com o badalo atrasado, e curtir o coração dispara um anel e faíscas uma vez; desligar risca o sino, e descurtir só esvazia o coração.
-- Com “reduzir movimento”, o ícone troca de estado na hora, sem o balanço do sino nem a explosão do coração.
+- The icon transforms instead of swapping: the menu lines rotate into an X, play splits into two bars, the sun grows while a shadow carves out the moon, all on springs that can be interrupted midway.
+- Turning the bell on makes it swing (0.9 s), with the clapper delayed, and liking the heart fires a ring and sparks once; turning it off strikes the bell through, and unliking only empties the heart.
+- With “reduce motion”, the icon changes state instantly, without the bell swing or the heart burst.
 
-## Notas para IA
+## Notes for AI
 
-- Use `<IconMorph name="menu" state={aberto} />` ou o componente específico: `MenuIcon`, `PlayPauseIcon`, `PlusCheckIcon`, `CopyCheckIcon`, `SunMoonIcon`, `ChevronIcon`, `BellIcon` ou `HeartIcon`.
-- O pai controla `state`, pois o ícone não tem clique nem estado próprio; `size` (24) e `strokeWidth` (1,75) ajustam o desenho, e o `ChevronIcon` aceita `turn` (graus) e `pointing`.
-- Herda a cor do texto (`currentColor`); o coração curtido usa `--icon-morph-like`, que por padrão é a cor de perigo.
+- Use `<IconMorph name="menu" state={aberto} />` or the specific component: `MenuIcon`, `PlayPauseIcon`, `PlusCheckIcon`, `CopyCheckIcon`, `SunMoonIcon`, `ChevronIcon`, `BellIcon`, or `HeartIcon`.
+- The parent controls `state`, since the icon has no click or state of its own; `size` (24) and `strokeWidth` (1.75) tune the drawing, and `ChevronIcon` accepts `turn` (degrees) and `pointing`.
+- It inherits the text color (`currentColor`); the liked heart uses `--icon-morph-like`, which by default is the danger color.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/icon-morph · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/icon-morph · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

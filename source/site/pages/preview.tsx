@@ -39,14 +39,14 @@ export function PreviewPage({ name, run, variant }: { name: string; run: number;
 
   if (!item) {
     document.documentElement.dataset.demoStatus = "error";
-    document.documentElement.dataset.demoError = `Item "${name}" não existe.`;
-    return <main className={styles.message}><p>O item “{name}” não existe.</p></main>;
+    document.documentElement.dataset.demoError = `Item "${name}" does not exist.`;
+    return <main className={styles.message}><p>The item “{name}” does not exist.</p></main>;
   }
   const stage = resolveStage(item.kind, module?.stage);
   return (
     <main className={styles.preview} data-demo-stage="1" data-layout={stage.layout}>
       <DemoMount name={name} run={run} variant={variant} onStatus={onStatus} onModule={setModule} renderError={() => null} />
-      {error ? <div className={styles.message} role="alert"><p>O demo de {item.title} não abriu.</p><pre>{error.message}</pre></div> : null}
+      {error ? <div className={styles.message} role="alert"><p>The {item.title} demo did not open.</p><pre>{error.message}</pre></div> : null}
     </main>
   );
 }

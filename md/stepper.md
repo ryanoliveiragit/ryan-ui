@@ -2,48 +2,48 @@
 
 > Indicador de etapas de um fluxo, com estados de concluída, atual, pendente e com erro.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/stepper
-- Descrição original (inglês): Show where a person is in a multi-step flow and what is done.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/stepper
+- Original description: Show where a person is in a multi-step flow and what is done.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json`. Caminho do registro, relativo ao endereço do site: `r/stepper.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stepper.json`. Registry path, relative to the site address: `r/stepper.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/stepper/stepper.tsx`
   - `components/ryan-ui/stepper/stepper.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/stepper.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/stepper.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar em que etapa de um checkout, cadastro ou configuração a pessoa está, acima do conteúdo (`horizontal`) ou ao lado dele (`vertical`).
-- Fluxos em que dá para voltar a uma etapa já feita: com `onStepSelect`, os passos concluídos viram botões.
-- Sinalizar uma etapa que falhou, como um cartão recusado: `error` troca o número por um alerta e a mensagem toma o lugar da descrição.
+- Show which step of a checkout, sign-up, or setup the user is on, above the content (`horizontal`) or beside it (`vertical`).
+- Flows where it is possible to go back to a step already done: with `onStepSelect`, completed steps become buttons.
+- Flag a step that failed, such as a declined card: `error` swaps the number for an alert and the message takes the place of the description.
 
-## Quando não usar
+## When not to use
 
-- Use [`onboarding-checklist`](onboarding-checklist.md) quando os passos podem ser feitos em qualquer ordem e marcados à mão.
-- Use [`tabs`](tabs.md) quando as seções são independentes e a pessoa pode ir e voltar entre elas livremente.
-- Use [`adaptive-stepper`](adaptive-stepper.md) para escolher um número com botões de menos e mais; apesar do nome parecido, este item indica etapas.
+- Use [`onboarding-checklist`](onboarding-checklist.md) when the steps can be done in any order and checked by hand.
+- Use [`tabs`](tabs.md) when the sections are independent and the user can move back and forth between them freely.
+- Use [`adaptive-stepper`](adaptive-stepper.md) to choose a number with minus and plus buttons; despite the similar name, this item indicates steps.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -79,16 +79,16 @@ export default function StepperDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Stepper`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `steps` (obrigatória) | `StepperStep[]` | — | — |
-| `current` (obrigatória) | `number` | — | Index of the step in progress. `steps.length` marks the whole flow complete. |
+| `steps` (required) | `StepperStep[]` | — | — |
+| `current` (required) | `number` | — | Index of the step in progress. `steps.length` marks the whole flow complete. |
 | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | — |
 | `onStepSelect` | `(index: number) => void` | — | Called with the index of a completed step when it is chosen. Without it the stepper is a read-only indicator. |
 | `details` | `"all" \| "current"` | `"all"` | `current` shows only the active step's description, for tight spaces. Errors always show. |
@@ -97,53 +97,53 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `completeLabel` | `string` | `"All steps complete"` | Announced, and shown in the compact caption, once every step is complete. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `StepperOrientation` | `"horizontal" \| "vertical"` |
 | `StepperStatus` | `"complete" \| "current" \| "upcoming" \| "error"` |
 
 #### `StepperStep`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable key, so each step keeps its own motion when the list changes. |
-| `label` (obrigatória) | `string` | — |
+| `id` (required) | `string` | Stable key, so each step keeps its own motion when the list changes. |
+| `label` (required) | `string` | — |
 | `description` | `string` | A short hint under the label. |
 | `error` | `string` | Marks the step as failed: the marker morphs into an alert and this message replaces the description. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` ou `↑` ou `↓` | Com `onStepSelect`, movem o foco entre os passos concluídos e o atual, sem dar a volta; em texto da direita para a esquerda, ← e → se invertem. |
-| `Home` ou `End` | Vai para o primeiro passo ou para o passo atual. |
-| `Enter` ou `Espaço` | Num passo concluído, chama `onStepSelect` com o índice dele. |
+| `←` or `→` or `↑` or `↓` | With `onStepSelect`, move focus between the completed steps and the current one, without wrapping; in right-to-left text, ← and → are swapped. |
+| `Home` or `End` | Moves to the first step or to the current step. |
+| `Enter` or `Space` | On a completed step, calls `onStepSelect` with its index. |
 
-## Acessibilidade
+## Accessibility
 
-- Sem `onStepSelect` é um `role="group"` só de leitura; com ele vira `<nav>` de botões. O passo atual tem `aria-current="step"` e cada passo tem o estado em texto oculto (“Completed”, “Error”).
-- Uma região `aria-live="polite"` anuncia “Step N of M: rótulo” a cada mudança de `current`, e `completeLabel` no fim; esses textos fixos estão em inglês.
-- Só os passos concluídos entram na ordem do `Tab`; o atual e os futuros têm `aria-disabled`, e as setas também chegam ao atual.
+- Without `onStepSelect` it is a read-only `role="group"`; with it, it becomes a `<nav>` of buttons. The current step has `aria-current="step"` and each step has its state in hidden text (“Completed”, “Error”).
+- An `aria-live="polite"` region announces “Step N of M: label” on each change of `current`, and `completeLabel` at the end; these fixed texts are in English.
+- Only completed steps enter the `Tab` order; the current and future ones have `aria-disabled`, and the arrow keys also reach the current one.
 
-## Movimento
+## Motion
 
-- Ao avançar, a linha entre os passos se preenche com uma mola a partir do passo que terminou; pular vários passos preenche uma linha depois da outra, e o anel do passo atual aparece por último.
-- O número de um passo concluído encolhe e dá lugar a um visto desenhado (num erro, a um ponto de exclamação); descrições novas sobem com leve desfoque e a altura acompanha.
-- Com “reduzir movimento”, linhas, marcadores e textos mudam na hora.
+- On advancing, the line between steps fills with a spring starting from the step that finished; skipping several steps fills one line after another, and the current step's ring appears last.
+- A completed step's number shrinks and gives way to a drawn checkmark (on an error, an exclamation mark); new descriptions rise with a slight blur and the height follows.
+- With “reduce motion”, lines, markers, and texts change immediately.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O horizontal mede a própria largura (container query): abaixo de 30 rem esconde os rótulos, mantém os marcadores e mostra embaixo o rótulo e a descrição do passo atual; `compact` força esse modo.
-- Com `details="current"`, só o passo atual mostra a descrição, o que economiza altura; erros aparecem sempre.
+- The horizontal one measures its own width (container query): below 30 rem it hides the labels, keeps the markers, and shows the current step's label and description underneath; `compact` forces this mode.
+- With `details="current"`, only the current step shows its description, which saves height; errors always appear.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/stepper/stepper`. É controlado por `current`, o índice da etapa em andamento; use `current={steps.length}` para marcar o fluxo inteiro como concluído.
-- O stepper só indica: o conteúdo de cada etapa e os botões de voltar e continuar ficam com você, mudando `current`.
-- Para voltar a etapas feitas, passe `onStepSelect={setCurrent}`; só índices menores que `current` disparam. O erro vai no próprio passo, em `steps[i].error`.
+- Import from `@/components/ryan-ui/stepper/stepper`. It is controlled by `current`, the index of the step in progress; use `current={steps.length}` to mark the whole flow as completed.
+- The stepper only indicates: each step's content and the back and continue buttons are up to you, by changing `current`.
+- To go back to completed steps, pass `onStepSelect={setCurrent}`; only indices lower than `current` fire. The error goes on the step itself, in `steps[i].error`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/stepper · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/stepper · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,54 +2,53 @@
 
 > Uma ação clara e responsiva, com estados secundários discretos.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/button
-- Descrição original (inglês): A clear, responsive action with quiet secondary states.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/button
+- Original description: A clear, responsive action with quiet secondary states.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json`. Caminho do registro, relativo ao endereço do site: `r/button.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/button.json`. Registry path, relative to the site address: `r/button.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/button.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/button.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Qualquer ação única numa página, formulário ou diálogo: salvar, continuar, cancelar.
-- Ações cujo rótulo muda no lugar, como “Salvar” virando “Salvo”: a largura acompanha o texto novo com uma mola, sem pulo.
-- Trabalho assíncrono curto, em que um indicador de carregamento no próprio botão já é retorno suficiente (prop `loading`).
+- Any single action on a page, form, or dialog: save, continue, cancel.
+- Actions whose label changes in place, like “Save” becoming “Saved”: the width follows the new text with a spring, with no jump.
+- Short async work where a loading indicator on the button itself is enough feedback (`loading` prop).
 
-## Quando não usar
+## When not to use
 
-- Use [`action-button`](action-button.md) quando o botão precisa mostrar sozinho os estados de pendente e concluído depois de uma ação assíncrona.
-- Use [`split-button`](split-button.md) quando a ação principal tem alternativas próximas num menu.
-- Use [`hold-to-confirm`](hold-to-confirm.md) para ações destrutivas que pedem mais que um clique.
+- Use [`action-button`](action-button.md) when the button needs to show the pending and done states by itself after an async action.
+- Use [`split-button`](split-button.md) when the main action has close alternatives in a menu.
+- Use [`hold-to-confirm`](hold-to-confirm.md) for destructive actions that need more than a click.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
-import { ArrowRight, MoreHorizontal, Plus } from "lucide-react";
+import { ArrowRight, Download, Trash2 } from "lucide-react";
 import { Button } from "@/components/ryan-ui/button/button";
-import { CopyButton } from "@/components/ryan-ui/copy-button/copy-button";
 import { Caption, Row, Stack } from "./_kit";
 
 export default function ButtonDemo() {
@@ -62,93 +61,79 @@ export default function ButtonDemo() {
   };
 
   return (
-    <Stack gap={5}>
-      <Stack gap={2}>
-        <Caption>Styles</Caption>
-        <Row gap={2} justify="center">
-          <Button onClick={save} loading={saving}>{saved ? "Saved" : "Save changes"}</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="danger">Delete</Button>
-        </Row>
-      </Stack>
-      <Stack gap={2}>
-        <Caption>Icons and sizes</Caption>
-        <Row gap={2} justify="center">
-          <Button variant="secondary"><Plus size={16} aria-hidden="true" />Add item</Button>
-          <Button>Continue<ArrowRight size={16} aria-hidden="true" /></Button>
-          <Button variant="ghost" aria-label="More options"><MoreHorizontal size={18} aria-hidden="true" /></Button>
-          <Button size="lg" variant="secondary">Large</Button>
-        </Row>
-      </Stack>
-      <Stack gap={2}>
-        <Caption>Feedback and states</Caption>
-        <Row gap={2} justify="center">
-          <CopyButton value="https://ryanoliveiragit.github.io/ryan-ui/#/c/button" label="Copy link" />
-          <CopyButton value="https://ryanoliveiragit.github.io/ryan-ui/#/c/button" iconOnly label="Copy link" />
-          <Button variant="secondary">Upload file</Button>
-          <Button variant="secondary" disabled>Disabled</Button>
-        </Row>
-      </Stack>
+    <Stack gap={8} align="center">
+      <Row justify="center">
+        <Button onClick={save} loading={saving}>{saved ? "Saved" : "Save changes"}</Button>
+        <Button variant="secondary"><Download size={16} aria-hidden="true" />Export</Button>
+        <Button variant="ghost">Cancel</Button>
+        <Button variant="danger"><Trash2 size={16} aria-hidden="true" />Delete</Button>
+      </Row>
+      <Row justify="center">
+        <Button size="sm" variant="secondary">Small</Button>
+        <Button size="md" variant="secondary">Medium</Button>
+        <Button size="lg" variant="secondary">Large<ArrowRight size={16} aria-hidden="true" /></Button>
+        <Button variant="secondary" disabled>Disabled</Button>
+      </Row>
+      <Caption>Press “Save changes” to see the loading state and the label morph.</Caption>
     </Stack>
   );
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Button`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"primary" \| "secondary" \| "ghost" \| "danger"` | `"primary"` | — |
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | — |
 | `loading` | `boolean` | `false` | — |
-| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Também aceita as props deste tipo, menos `onDrag`, `onDragEnd`, `onDragStart` e `onAnimationStart`. |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Also accepts the props of this type, except `onDrag`, `onDragEnd`, `onDragStart` and `onAnimationStart`. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ButtonVariant` | `"primary" \| "secondary" \| "ghost" \| "danger"` |
 | `ButtonSize` | `"sm" \| "md" \| "lg"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Acionam o botão; com `loading`, o acionamento é ignorado. |
-| `Tab` | Leva o foco ao próximo controle; o contorno de foco só aparece com teclado (`:focus-visible`, regra do `foundation.css`). |
+| `Enter` or `Space` | Trigger the button; with `loading`, the activation is ignored. |
+| `Tab` | Moves focus to the next control; the focus ring only appears with the keyboard (`:focus-visible`, a `foundation.css` rule). |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<button>` nativo: papel, foco e ativação por teclado vêm do navegador.
-- Durante `loading` o botão recebe `aria-busy` e `aria-disabled`, continua focável e mantém o rótulo no DOM para leitores de tela.
-- Num botão só com ícone, passe `aria-label` com o nome da ação.
+- It is a native `<button>`: role, focus, and keyboard activation come from the browser.
+- During `loading` the button gets `aria-busy` and `aria-disabled`, stays focusable, and keeps the label in the DOM for screen readers.
+- On an icon-only button, pass `aria-label` with the action name.
 
-## Movimento
+## Motion
 
-- A pressão reduz levemente a escala do botão; âncoras de menus e popovers não escalam, para o painel medir o tamanho certo.
-- Quando o conteúdo muda, a largura anima com uma mola sem ultrapassagem e o rótulo troca com um esmaecer curto.
-- Com “reduzir movimento”, a escala da pressão e a mola da largura são desligadas, o rótulo troca com um esmaecer de 0,12 s e o indicador de carregamento não gira.
+- The press slightly reduces the button scale; anchors of menus and popovers do not scale, so the panel measures the right size.
+- When the content changes, the width animates with a spring with no overshoot and the label swaps with a short fade.
+- With “reduce motion”, the press scale and the width spring are turned off, the label swaps with a 0.12 s fade, and the loading indicator does not spin.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O rótulo não quebra linha (`white-space: nowrap`); em telas estreitas prefira rótulos curtos ou o tamanho `sm`.
-- As alturas mínimas vêm dos tokens `--control-height-sm`, `-md` e `-lg`, então acompanham o resto dos controles.
+- The label does not wrap (`white-space: nowrap`); on narrow screens prefer short labels or the `sm` size.
+- Minimum heights come from the `--control-height-sm`, `-md`, and `-lg` tokens, so they follow the rest of the controls.
 
-## Desempenho
+## Performance
 
-- A medição da largura do rótulo usa um observador por botão; é barato, mas evite centenas deles numa lista longa.
+- Measuring the label width uses one observer per button; it is cheap, but avoid hundreds of them in a long list.
 
-## Notas para IA
+## Notes for AI
 
-- Escolha padrão para uma ação única; para uma fileira de ações com ícones prefira `floating-button-group` ou `button-group`, e com alternativas próximas, `split-button`.
-- Passe o rótulo que muda (Salvar → Salvo) como filho para ganhar a animação de largura sem configuração; `loading` bloqueia o `onClick` sem desabilitar o botão.
-- Variantes `primary` (padrão), `secondary`, `ghost` e `danger`, tamanhos `sm`, `md` e `lg`; o componente não define `type`, então dentro de um `<form>` passe `type="button"` quando a ação não envia.
+- Default choice for a single action; for a row of actions with icons prefer `floating-button-group` or `button-group`, and with close alternatives, `split-button`.
+- Pass the changing label (Save → Saved) as the child to get the width animation with no configuration; `loading` blocks `onClick` without disabling the button.
+- Variants `primary` (default), `secondary`, `ghost`, and `danger`, sizes `sm`, `md`, and `lg`; the component does not set `type`, so inside a `<form>` pass `type="button"` when the action does not submit.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/button · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/button · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

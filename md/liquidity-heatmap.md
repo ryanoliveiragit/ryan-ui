@@ -2,47 +2,47 @@
 
 > Mapa de calor da liquidez por preço e horário, com legenda em degraus e leitura da célula sob o cursor.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/liquidity-heatmap
-- Descrição original (inglês): A price by time grid tinted by resting size, with columns that sweep in, a traded price line, a crosshair that glides to the cell being read, and a stepped legend.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/liquidity-heatmap
+- Original description: A price by time grid tinted by resting size, with columns that sweep in, a traded price line, a crosshair that glides to the cell being read, and a stepped legend.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/liquidity-heatmap.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/liquidity-heatmap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/liquidity-heatmap.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/liquidity-heatmap.json`. Caminho do registro, relativo ao endereço do site: `r/liquidity-heatmap.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/liquidity-heatmap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/liquidity-heatmap.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/liquidity-heatmap.json`. Registry path, relative to the site address: `r/liquidity-heatmap.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/liquidity-heatmap/liquidity-heatmap.tsx`
   - `components/ryan-ui/liquidity-heatmap/liquidity-heatmap.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/liquidity-heatmap.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/liquidity-heatmap.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Telas de negociação que mostram como a liquidez em repouso se distribuiu por preço ao longo do tempo.
-- Encontrar paredes de ordens e ver onde elas ficam em relação ao preço negociado, desenhado como linha sobre a grade (`path`).
+- Trading screens that show how resting liquidity was distributed by price over time.
+- Finding order walls and seeing where they sit relative to the traded price, drawn as a line over the grid (`path`).
 
-## Quando não usar
+## When not to use
 
-- Use [`order-book`](order-book.md) para ver as ofertas de compra e de venda de agora, com profundidade acumulada e spread.
-- Use [`volume-profile`](volume-profile.md) para o volume negociado por nível de preço, num histograma ao lado da linha de preço.
-- Use [`activity-heatmap`](activity-heatmap.md) para atividade por dia num calendário; aqui os eixos são sempre horário e preço.
+- Use [`order-book`](order-book.md) to see the current buy and sell offers, with cumulative depth and spread.
+- Use [`volume-profile`](volume-profile.md) for volume traded per price level, in a histogram beside the price line.
+- Use [`activity-heatmap`](activity-heatmap.md) for per-day activity on a calendar; here the axes are always time and price.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -117,19 +117,19 @@ export default function LiquidityHeatmapDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `LiquidityHeatmap`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `times` (obrigatória) | `string[]` | — | Label of each time bucket, oldest first. One column per entry. |
-| `prices` (obrigatória) | `number[]` | — | Price of each level, evenly spaced. Any order: the chart draws the highest price at the top. |
-| `values` (obrigatória) | `number[][]` | — | Size resting in each cell, as `values[timeIndex][priceIndex]`. Missing cells count as zero. |
+| `times` (required) | `string[]` | — | Label of each time bucket, oldest first. One column per entry. |
+| `prices` (required) | `number[]` | — | Price of each level, evenly spaced. Any order: the chart draws the highest price at the top. |
+| `values` (required) | `number[][]` | — | Size resting in each cell, as `values[timeIndex][priceIndex]`. Missing cells count as zero. |
 | `path` | `number[]` | — | Traded price at each time bucket, drawn as a line over the grid. |
-| `label` (obrigatória) | `string` | — | Accessible name of the chart, such as "BTC-USD resting liquidity, last four hours". |
+| `label` (required) | `string` | — | Accessible name of the chart, such as "BTC-USD resting liquidity, last four hours". |
 | `unit` | `string` | `""` | Unit written after a size, such as "BTC". |
 | `formatPrice` | `(price: number) => string` | — | Formats a price for the axis and the readout. |
 | `formatValue` | `(value: number) => string` | — | Formats a size for the readout and the legend. |
@@ -139,43 +139,43 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `locale` | `string` | `"en-US"` | Formatting locale. Fixed by default so server and client render the same labels. |
 | `className` | `string` | — | Extra class for the root element. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Movem a leitura uma coluna de tempo para trás ou para a frente. |
-| `↑` ou `↓` | Sobem ou descem um nível de preço. |
-| `Page Up` ou `Page Down` | Sobem ou descem quatro níveis de preço. |
-| `Home` ou `End` | Vão à primeira e à última coluna, no mesmo preço. |
-| `Esc` | Larga a célula e volta à leitura da coluna mais recente. |
+| `←` or `→` | Move the readout one time column back or forward. |
+| `↑` or `↓` | Go up or down one price level. |
+| `Page Up` or `Page Down` | Go up or down four price levels. |
+| `Home` or `End` | Go to the first and last column, at the same price. |
+| `Esc` | Releases the cell and returns to the readout of the most recent column. |
 
-## Acessibilidade
+## Accessibility
 
-- O gráfico é um `role="application"` focável, descrito como “heatmap”, com uma dica oculta de uso; cada movimento pelo teclado anuncia horário, preço e tamanho numa região `role="status"`.
-- O SVG fica em `aria-hidden` e não há tabela alternativa: os valores são lidos célula a célula pelo teclado, e o resumo acima da grade mostra horário, preço e tamanho da célula lida.
-- `label` é obrigatório; os rótulos da interface (“Latest”, “Resting size”, “Traded price”) estão fixos em inglês, e `locale` muda apenas o formato dos números.
+- The chart is a focusable `role="application"`, described as “heatmap”, with a hidden usage hint; each keyboard movement announces time, price, and size in a `role="status"` region.
+- The SVG is `aria-hidden` and there is no alternative table: values are read cell by cell by keyboard, and the summary above the grid shows time, price, and size of the cell being read.
+- `label` is required; the interface labels (“Latest”, “Resting size”, “Traded price”) are hardcoded in English, and `locale` only changes the number format.
 
-## Movimento
+## Motion
 
-- Quando 30% do gráfico entra na tela, as colunas surgem da esquerda para a direita, subindo 8 px, e em seguida a linha do preço negociado se desenha sobre elas.
-- Com dados novos, as células mudam de cor na mesma varredura; as faixas e o anel da mira deslizam numa mola até a célula lida, e o marcador da legenda acompanha o degrau de cor.
-- Com “reduzir movimento”, a grade e a linha aparecem prontas e a mira salta de célula em célula.
+- When 30% of the chart enters the viewport, the columns appear from left to right, rising 8 px, and then the traded price line draws over them.
+- With new data, cells change color in the same sweep; the bands and the crosshair ring slide on a spring to the cell being read, and the legend marker follows the color step.
+- With “reduced motion”, the grid and the line appear ready and the crosshair jumps from cell to cell.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O gráfico mede a própria largura e desenha em pixels reais; a altura é a prop `height` (268 px, eixo de tempo incluído), e a faixa de preços à direita se ajusta ao rótulo mais longo.
-- Os rótulos dos eixos rareiam quando as células encolhem, e em contêineres de até 400 px o resumo e a legenda ficam mais compactos.
+- The chart measures its own width and draws in real pixels; the height is the `height` prop (268 px, time axis included), and the price strip on the right adjusts to the longest label.
+- Axis labels thin out as cells shrink, and in containers up to 400 px the summary and legend become more compact.
 
-## Desempenho
+## Performance
 
-- Cada célula é um `<rect>` no SVG (colunas × níveis; a demo usa 48 × 24 = 1.152): a grade é memorizada durante a leitura com o cursor, mas é refeita a cada mudança de dados ou de largura.
+- Each cell is a `<rect>` in the SVG (columns × levels; the demo uses 48 × 24 = 1,152): the grid is memoized while reading with the cursor, but is rebuilt on every data or width change.
 
-## Notas para IA
+## Notes for AI
 
-- `values` é indexado como `values[tempo][preço]`, alinhado a `times` e `prices`; os preços podem vir em qualquer ordem, mas precisam ser igualmente espaçados.
-- Fixe `max` quando os dados se atualizam, senão a escala de cor se recalcula pelo maior valor de cada conjunto; `path` é opcional e traz o preço negociado de cada coluna.
-- Passe arrays memorizados: o modelo é recalculado sempre que `times`, `prices` ou `values` mudam de identidade; `onCellChange` recebe a célula lida ou `null` quando a leitura volta ao repouso.
+- `values` is indexed as `values[tempo][preço]`, aligned with `times` and `prices`; prices can come in any order, but must be evenly spaced.
+- Fix `max` when the data updates, otherwise the color scale is recomputed from the largest value of each set; `path` is optional and carries the traded price of each column.
+- Pass memoized arrays: the model is recomputed whenever `times`, `prices`, or `values` change identity; `onCellChange` receives the cell being read or `null` when the reading returns to rest.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/liquidity-heatmap · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/liquidity-heatmap · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,47 +2,47 @@
 
 > Botão flutuante de feedback que vira um formulário com humor e mensagem, passa pelo envio e termina num agradecimento.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/feedback-widget
-- Descrição original (inglês): A floating feedback button that morphs into a small form with a mood picker and a message field, then walks through sending into a drawn check and a thank-you.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/feedback-widget
+- Original description: A floating feedback button that morphs into a small form with a mood picker and a message field, then walks through sending into a drawn check and a thank-you.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json`. Caminho do registro, relativo ao endereço do site: `r/feedback-widget.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/feedback-widget.json`. Registry path, relative to the site address: `r/feedback-widget.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/feedback-widget/feedback-widget.tsx`
   - `components/ryan-ui/blocks/feedback-widget/feedback-widget.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/feedback-widget.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/feedback-widget.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Coletar uma opinião rápida em qualquer página (central de ajuda, artigo, painel) com um botão fixo no canto que não tira a pessoa do que estava fazendo.
-- Pesquisas de satisfação de um clique, com cinco rostos e uma mensagem opcional.
+- Collecting quick feedback on any page (help center, article, dashboard) with a fixed button in the corner that does not take the person away from what they were doing.
+- One-click satisfaction surveys, with five faces and an optional message.
 
-## Quando não usar
+## When not to use
 
-- Use [`contact-section`](contact-section.md) quando a mensagem precisa de nome, e-mail e assunto para receber resposta.
-- Use [`rating`](rating.md) para uma nota dentro de um formulário.
-- Evite com outro botão flutuante no mesmo canto, como um chat de suporte: o widget fica fixo no canto inferior, numa camada alta (`z-index: 50`), e os dois disputariam o lugar.
+- Use [`contact-section`](contact-section.md) when the message needs name, email, and subject in order to get a reply.
+- Use [`rating`](rating.md) for a score inside a form.
+- Avoid with another floating button in the same corner, such as a support chat: the widget is fixed to the bottom corner, on a high layer (`z-index: 50`), and the two would compete for the spot.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import FeedbackWidgetPreview from "@/components/ryan-ui/blocks/feedback-widget/feedback-widget";
@@ -53,15 +53,15 @@ export default function FeedbackWidgetDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FeedbackWidget`
 
 A floating feedback button that grows into a small form, from its own corner, on a layout spring. Pick a mood (the highlight glides between faces), add a note, and the button walks through sending into a drawn check and a thank-you. Escape or a click outside closes it and returns focus to the button.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | `"Feedback"` | Text on the floating button. |
 | `title` | `string` | `"How is it going?"` | Heading of the form. |
@@ -80,53 +80,53 @@ A floating feedback button that grows into a small form, from its own corner, on
 
 Ready preview: a help article with the widget in its corner. `defaultOpen` starts with the panel open.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `FeedbackMood` | `"terrible" \| "bad" \| "okay" \| "good" \| "great"` |
 
 #### `Feedback`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `mood` (obrigatória) | `"terrible" \| "bad" \| "okay" \| "good" \| "great"` | The mood that was picked. |
-| `message` (obrigatória) | `string` | The optional message, trimmed. |
+| `mood` (required) | `"terrible" \| "bad" \| "okay" \| "good" \| "great"` | The mood that was picked. |
+| `message` (required) | `string` | The optional message, trimmed. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão “Feedback”, abrem o formulário e levam o foco ao primeiro rosto. |
-| `↑` ou `↓` ou `←` ou `→` | No grupo de rostos, escolhem o anterior ou o próximo, dando a volta; sem escolha, `→` e `↓` começam no primeiro e `←` e `↑` no último. |
-| `Ctrl + Enter` ou `⌘ + Enter` | No campo de mensagem, enviam o formulário, desde que um rosto tenha sido escolhido. |
-| `Esc` | Fecha o formulário e devolve o foco ao botão, exceto durante o envio. |
+| `Enter` or `Space` | On the “Feedback” button, open the form and move focus to the first face. |
+| `↑` or `↓` or `←` or `→` | In the faces group, choose the previous or next one, wrapping around; with no choice, `→` and `↓` start at the first and `←` and `↑` at the last. |
+| `Ctrl + Enter` or `⌘ + Enter` | In the message field, submit the form, as long as a face has been chosen. |
+| `Esc` | Closes the form and returns focus to the button, except during submission. |
 
-## Acessibilidade
+## Accessibility
 
-- O botão tem `aria-haspopup="dialog"`; o painel é um `role="dialog"` nomeado pelo título, mas não modal: o foco não fica preso, e Esc ou um clique fora fecham e devolvem o foco ao botão.
-- Os rostos formam um `radiogroup` com foco itinerante e nomes (de “Terrible” a “Great”), e o nome do rosto escolhido é anunciado numa região `aria-live`.
-- O envio expõe `aria-busy`, a falha aparece em `role="alert"` e o agradecimento em `role="status"`; o campo de mensagem tem o rótulo oculto “Your feedback”.
+- The button has `aria-haspopup="dialog"`; the panel is a `role="dialog"` named by the title, but not modal: focus is not trapped, and Esc or a click outside closes it and returns focus to the button.
+- The faces form a `radiogroup` with roving focus and names (from “Terrible” to “Great”), and the name of the chosen face is announced in an `aria-live` region.
+- Submission exposes `aria-busy`, the failure appears in `role="alert"` and the thank-you in `role="status"`; the message field has the hidden label “Your feedback”.
 
-## Movimento
+## Motion
 
-- O próprio botão se transforma no painel, a partir do seu canto, numa mola de layout sem ultrapassagem, e o conteúdo surge aos poucos logo depois.
-- O destaque desliza até o rosto escolhido, que cresce e gira um pouco; ao concluir, o selo aparece com um quique, o visto se desenha e o painel fecha sozinho após 2,6 s.
-- Com “reduzir movimento” ligado, o painel abre e fecha na hora, sem morph nem giro, e o indicador de envio fica parado.
+- The button itself transforms into the panel, from its corner, on a no-overshoot layout spring, and the content appears gradually right after.
+- The highlight slides to the chosen face, which grows and rotates slightly; on completion, the badge appears with a bounce, the checkmark is drawn, and the panel closes by itself after 2.6 s.
+- With “reduce motion” on, the panel opens and closes instantly, with no morph or rotation, and the submit indicator stays still.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Fica fixo na janela (`position: fixed`) no canto escolhido por `placement`; com `contained`, prende-se ao ancestral posicionado mais próximo, como num painel ou numa prévia.
-- O painel tem 21rem de largura, limitado ao espaço disponível; em telas de até 30rem, a distância até as bordas diminui.
+- It stays fixed to the window (`position: fixed`) in the corner chosen by `placement`; with `contained`, it attaches to the nearest positioned ancestor, as in a panel or a preview.
+- The panel is 21rem wide, limited to the available space; on screens up to 30rem, the distance to the edges shrinks.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `FeedbackWidget` pelo nome (a exportação padrão é a prévia com um artigo de ajuda) e monte-o uma vez no layout da página: ele se fixa sozinho no canto.
-- `onSubmit` recebe `{ mood, message }`, com a mensagem já aparada: devolva uma promessa para segurar o estado de envio e rejeite-a para mostrar o erro e manter o formulário.
-- Os nomes dos rostos e os textos de falha, de envio e de “Close” estão fixos em inglês; `label`, `title`, `placeholder`, `thanksTitle` e `thanksMessage` vêm por props.
+- Import `FeedbackWidget` by name (the default export is the preview with a help article) and mount it once in the page layout: it pins itself to the corner.
+- `onSubmit` receives `{ mood, message }`, with the message already trimmed: return a promise to hold the submitting state and reject it to show the error and keep the form.
+- The face names and the failure, submitting, and “Close” texts are hardcoded in English; `label`, `title`, `placeholder`, `thanksTitle`, and `thanksMessage` come through props.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/feedback-widget · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/feedback-widget · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

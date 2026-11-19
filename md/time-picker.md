@@ -2,47 +2,47 @@
 
 > Escolha um horário com um comportamento de teclado sensato, em formato 12h ou 24h.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/time-picker
-- Descrição original (inglês): Choose a time with sensible keyboard behavior.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/time-picker
+- Original description: Choose a time with sensible keyboard behavior.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/time-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/time-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/time-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/time-picker.json`. Caminho do registro, relativo ao endereço do site: `r/time-picker.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/time-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/time-picker.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/time-picker.json`. Registry path, relative to the site address: `r/time-picker.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/time-picker/time-picker.tsx`
   - `components/ryan-ui/time-picker/time-picker.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/time-picker.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/time-picker.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Agendar reunião, lembrete ou entrega com horários em passos fixos de 5, 15 ou 30 minutos.
-- Formulários compactos em que um campo com lista é mais rápido que digitar horas e minutos.
+- Scheduling a meeting, reminder, or delivery with times in fixed steps of 5, 15, or 30 minutes.
+- Compact forms where a field with a list is faster than typing hours and minutes.
 
-## Quando não usar
+## When not to use
 
-- Use [`wheel-picker`](wheel-picker.md) em telas de toque, onde o gesto de roda é o esperado, ou quando alguns horários estão indisponíveis.
-- Use [`date-picker`](date-picker.md) quando a escolha principal é o dia; para dia e hora, combine os dois.
-- Use [`select`](select.md) quando os horários possíveis são poucos e fixos, como turnos.
+- Use [`wheel-picker`](wheel-picker.md) on touch screens, where the wheel gesture is expected, or when some times are unavailable.
+- Use [`date-picker`](date-picker.md) when the main choice is the day; for day and time, combine the two.
+- Use [`select`](select.md) when the possible times are few and fixed, such as shifts.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -67,15 +67,15 @@ export default function TimePickerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `TimePicker`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `value` | `string` | — | — |
 | `defaultValue` | `string` | `"09:00"` | — |
 | `onChange` | `(value: string) => void` | — | — |
@@ -87,40 +87,40 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `defaultOpen` | `boolean` | `false` | Start with the list open, centered on the selected time (used by previews). Focus stays where it is. |
 | `className` | `string` | — | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão, abrem a lista centrada no horário atual; com a lista aberta, escolhem o horário em destaque. |
-| `↓` ou `↑` | Abrem a lista; aberta, movem o destaque, voltando ao começo depois do fim. |
-| `Esc` | Fecha a lista sem mudar o horário. |
+| `Enter` or `Space` | On the button, open the list centered on the current time; with the list open, choose the highlighted time. |
+| `↓` or `↑` | Open the list; when open, move the highlight, wrapping to the start after the end. |
+| `Esc` | Closes the list without changing the time. |
 
-## Acessibilidade
+## Accessibility
 
-- O botão tem `aria-haspopup="listbox"`, `aria-expanded` e `aria-controls`, e seu nome junta o rótulo ao horário escolhido (“Meeting starts 2:30 PM”).
-- O foco fica no botão enquanto as setas movem o destaque, sem `aria-activedescendant`, então o leitor de tela só ouve o novo horário depois da escolha.
-- A lista é uma `listbox` chamada “{label} options”, e a opção escolhida tem `aria-selected`.
+- The button has `aria-haspopup="listbox"`, `aria-expanded`, and `aria-controls`, and its name joins the label to the chosen time (“Meeting starts 2:30 PM”).
+- Focus stays on the button while the arrows move the highlight, without `aria-activedescendant`, so the screen reader only hears the new time after the choice.
+- The list is a `listbox` named “{label} options”, and the chosen option has `aria-selected`.
 
-## Movimento
+## Motion
 
-- O horário exibido rola como num relógio: um horário mais tarde sobe por baixo e um mais cedo desce por cima.
-- A lista surge com uma mola curta, um leve deslocamento e escala, já centrada no horário escolhido, e a seta gira.
-- Com “reduzir movimento” ligado, a lista e o horário só esmaecem.
+- The displayed time rolls like a clock: a later time rises from below and an earlier one drops from above.
+- The list appears with a short spring, a slight offset and scale, already centered on the chosen time, and the arrow rotates.
+- With “reduce motion” on, the list and the time only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista tem a largura do campo e no máximo 250px de altura, rolando por dentro sem arrastar a página.
+- The list is as wide as the field and at most 250px tall, scrolling inside without dragging the page.
 
-## Desempenho
+## Performance
 
-- A lista renderiza todos os horários do dia como botões: 96 com `minuteStep` de 15, mas 1.440 com 1, então prefira passos de 5 ou mais.
+- The list renders every time of the day as buttons: 96 with a `minuteStep` of 15, but 1,440 with 1, so prefer steps of 5 or more.
 
-## Notas para IA
+## Notes for AI
 
-- O valor é sempre `"HH:MM"` em 24 horas, mesmo com `format="12h"`, que só muda a exibição para AM e PM.
-- Use `value` com `onChange` ou `defaultValue` (padrão `"09:00"`); um horário fora da grade de `minuteStep` é exibido, mas não aparece marcado na lista.
-- Não há `name`, horário mínimo nem horários bloqueados; para bloquear horários, use `wheel-picker` com opções desabilitadas ou valide no pai.
+- The value is always `"HH:MM"` in 24 hours, even with `format="12h"`, which only changes the display to AM and PM.
+- Use `value` with `onChange` or `defaultValue` (default `"09:00"`); a time outside the `minuteStep` grid is displayed, but does not appear selected in the list.
+- There is no `name`, minimum time, or blocked times; to block times, use `wheel-picker` with disabled options or validate in the parent.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/time-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/time-picker · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

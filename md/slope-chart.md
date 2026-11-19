@@ -2,48 +2,48 @@
 
 > Antes e depois em dois eixos, com variação de posição ao lado de cada valor.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/slope-chart
-- Descrição original (inglês): Before and after on two axes: lines draw in, rank moves sit beside each value, and switching datasets slides every line to its new slope.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/slope-chart
+- Original description: Before and after on two axes: lines draw in, rank moves sit beside each value, and switching datasets slides every line to its new slope.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slope-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slope-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slope-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slope-chart.json`. Caminho do registro, relativo ao endereço do site: `r/slope-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slope-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slope-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slope-chart.json`. Registry path, relative to the site address: `r/slope-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/slope-chart/slope-chart.tsx`
   - `components/ryan-ui/slope-chart/slope-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/slope-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/slope-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar como vários itens mudaram entre exatamente dois momentos: antes e depois, um trimestre e o seguinte.
-- Quando a troca de posição conta tanto quanto o valor: a seta ao lado de cada valor final diz quantas posições o item subiu ou desceu.
-- Contar a história de um item no meio dos outros: `highlightKey` pinta uma linha na cor de destaque e deixa as demais neutras.
+- Showing how several items changed between exactly two moments: before and after, one quarter and the next.
+- When the change in rank counts as much as the value: the arrow beside each final value says how many positions the item rose or fell.
+- Telling the story of one item among the others: `highlightKey` paints one line in the accent color and leaves the rest neutral.
 
-## Quando não usar
+## When not to use
 
-- Use [`bump-chart`](bump-chart.md) quando o ranking muda ao longo de três ou mais períodos.
-- Use [`line-chart`](line-chart.md) quando existem valores intermediários e a trajetória entre os extremos importa.
-- Use [`bar-chart`](bar-chart.md) para comparar os itens num único momento, sem antes e depois.
+- Use [`bump-chart`](bump-chart.md) when the ranking changes over three or more periods.
+- Use [`line-chart`](line-chart.md) when there are intermediate values and the path between the extremes matters.
+- Use [`bar-chart`](bar-chart.md) to compare the items at a single moment, with no before and after.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -85,18 +85,18 @@ export default function SlopeChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SlopeChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `SlopeItem[]` | — | — |
-| `label` (obrigatória) | `string` | — | What is measured, such as "Conversion rate by channel". Names the chart for assistive technology. |
-| `startLabel` (obrigatória) | `string` | — | Heading of the first column, such as "Q1". |
-| `endLabel` (obrigatória) | `string` | — | Heading of the second column, such as "Q2". |
+| `data` (required) | `SlopeItem[]` | — | — |
+| `label` (required) | `string` | — | What is measured, such as "Conversion rate by channel". Names the chart for assistive technology. |
+| `startLabel` (required) | `string` | — | Heading of the first column, such as "Q1". |
+| `endLabel` (required) | `string` | — | Heading of the second column, such as "Q2". |
 | `formatValue` | `(value: number) => string` | — | — |
 | `formatChange` | `(change: number, item: SlopeItem) => string` | — | Formats the change in the tooltip. Defaults to the difference in formatValue's terms. |
 | `height` | `number` | — | Plot height in pixels. Defaults to 44 pixels per item. |
@@ -108,49 +108,49 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `SlopeItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. An item keeps its line across datasets, so switching morphs it. |
-| `label` (obrigatória) | `string` | Name beside the start value, in the tooltip, and in the table. |
-| `start` (obrigatória) | `number` | Value in the first period. |
-| `end` (obrigatória) | `number` | Value in the second period. |
+| `key` (required) | `string` | Stable identity. An item keeps its line across datasets, so switching morphs it. |
+| `label` (required) | `string` | Name beside the start value, in the tooltip, and in the table. |
+| `start` (required) | `number` | Value in the first period. |
+| `end` (required) | `number` | Value in the second period. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `→` | Com o foco no gráfico, destaca o item seguinte, na ordem do valor final. |
-| `↑` ou `←` | Destaca o item anterior. |
-| `Home` ou `End` | Vai ao primeiro ou ao último item dessa ordem. |
-| `Esc` | Desfaz o destaque e esconde a dica. |
+| `↓` or `→` | With focus on the chart, highlight the next item, in final-value order. |
+| `↑` or `←` | Highlight the previous item. |
+| `Home` or `End` | Go to the first or last item in that order. |
+| `Esc` | Clears the highlight and hides the tooltip. |
 
-## Acessibilidade
+## Accessibility
 
-- A área do gráfico é um grupo focável com `aria-roledescription="slope chart"`; ao receber foco pelo teclado, destaca o primeiro item na ordem do valor final.
-- Uma região `aria-live="polite"` lê o item em destaque (nome, os dois valores, variação e mudança de posição), e um resumo e uma tabela ocultos trazem todos os itens.
-- As frases de posição, como `up 2 to rank 1`, são fixas em inglês e aparecem também na dica visível.
+- The chart area is a focusable group with `aria-roledescription="slope chart"`; on receiving focus by keyboard, it highlights the first item in final-value order.
+- An `aria-live="polite"` region reads the highlighted item (name, both values, change, and rank change), and a hidden summary and table carry all items.
+- The rank phrases, such as `up 2 to rank 1`, are hardcoded in English and also appear in the visible tooltip.
 
-## Movimento
+## Motion
 
-- Ao entrar na tela, os pontos iniciais surgem em sequência, cada linha se desenha da esquerda para a direita e só então aparecem o ponto e o rótulo finais.
-- Ao trocar `data` mantendo as mesmas `key`, linhas, pontos e rótulos deslizam com mola até a nova inclinação, e o número de posições rola para o novo valor.
-- Com “reduzir movimento” ligado, o gráfico aparece pronto e as trocas de dados e de destaque são imediatas.
+- On entering the viewport, the starting points appear in sequence, each line draws from left to right, and only then do the final point and label appear.
+- When swapping `data` while keeping the same `key`s, lines, points, and labels glide on a spring to the new slope, and the rank-change number rolls to the new value.
+- With “reduced motion” on, the chart appears ready and data and highlight changes are immediate.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura segue o contêiner; abaixo de 440 px as colunas de rótulos encolhem e o texto passa para `--text-xs`, com reticências nos nomes longos.
-- A altura padrão é de 44 px por item, com mínimo de 200 px (`height` fixa outro valor); rótulos que se sobreporiam são afastados e ligados ao ponto por um traço.
+- The width follows the container; below 440 px the label columns shrink and the text switches to `--text-xs`, with ellipses on long names.
+- The default height is 44 px per item, with a minimum of 200 px (`height` sets another value); labels that would overlap are pushed apart and tied to the point by a stroke.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `data` como `{ key, label, start, end }` e os títulos das colunas em `startLabel` e `endLabel`; os dois lados usam o mesmo eixo de valor.
-- Mantenha `key` estável entre conjuntos para as linhas se transformarem em vez de sumir e reaparecer; `formatValue` e `formatChange` cuidam de unidade e sinal.
-- `activeKey` só existe na forma controlada, com `onActiveChange`; sem ele o destaque é interno e some ao sair do gráfico, e `ranks={false}` esconde as setas de posição.
+- Pass `data` as `{ key, label, start, end }` and the column titles in `startLabel` and `endLabel`; both sides use the same value axis.
+- Keep `key` stable between datasets so lines transform instead of vanishing and reappearing; `formatValue` and `formatChange` handle unit and sign.
+- `activeKey` exists only in the controlled form, with `onActiveChange`; without it the highlight is internal and disappears when leaving the chart, and `ranks={false}` hides the rank arrows.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slope-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slope-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

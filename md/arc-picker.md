@@ -2,48 +2,48 @@
 
 > Seletor radial: as opções ficam em um arco, giram com a rolagem, o arraste ou as setas, e uma moldura abraça a opção ativa.
 
-- Tipo: componente (categoria Entradas), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/arc-picker
-- Descrição original (inglês): A radial text picker: options sit on an arc, the wheel, a drag or the arrow keys turn the dial, and one bracket frame resizes around the active label.
+- Type: component (category Inputs), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/arc-picker
+- Original description: A radial text picker: options sit on an arc, the wheel, a drag or the arrow keys turn the dial, and one bracket frame resizes around the active label.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json`. Caminho do registro, relativo ao endereço do site: `r/arc-picker.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/arc-picker.json`. Registry path, relative to the site address: `r/arc-picker.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/arc-picker/arc-picker.tsx`
   - `components/ryan-ui/arc-picker/arc-picker.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/arc-picker.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/arc-picker.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolha única entre opções de texto em que o gesto de girar faz parte da experiência: lente da câmera, modo, período.
-- Telas de toque ou com roda do mouse, em que arrastar ao longo do arco ou rolar é mais direto que abrir um menu.
-- Conjuntos ordenados em que basta ver a opção atual e as vizinhas: os rótulos esmaecem com a distância e somem a pouco mais de três posições do ápice.
+- Single choice among text options where the rotating gesture is part of the experience: camera lens, mode, period.
+- Touch screens or ones with a mouse wheel, where dragging along the arc or scrolling is more direct than opening a menu.
+- Ordered sets where seeing the current option and its neighbors is enough: labels fade with distance and disappear a little over three positions from the apex.
 
-## Quando não usar
+## When not to use
 
-- Use [`segmented-control`](segmented-control.md) quando são poucas opções e todas precisam ficar visíveis ao mesmo tempo.
-- Use [`wheel-picker`](wheel-picker.md) para rolos verticais de hora ou data, com várias colunas.
-- Use [`select`](select.md) em formulários densos: o arco horizontal ocupa por padrão 30rem por 8rem.
+- Use [`segmented-control`](segmented-control.md) when there are few options and all need to be visible at the same time.
+- Use [`wheel-picker`](wheel-picker.md) for vertical reels of time or date, with several columns.
+- Use [`select`](select.md) in dense forms: the horizontal arc takes 30rem by 8rem by default.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -89,19 +89,19 @@ export default function ArcPickerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ArcPicker`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `options` (obrigatória) | `ArcOption[]` | — | The options in order along the arc. |
+| `options` (required) | `ArcOption[]` | — | The options in order along the arc. |
 | `value` | `string` | — | The chosen value (controlled). |
 | `defaultValue` | `string` | — | The value chosen at first (uncontrolled). Defaults to the first enabled option. |
 | `onValueChange` | `(value: string) => void` | — | Runs when the dial settles on a new option. |
-| `label` (obrigatória) | `string` | — | Accessible name, for example "Billing period". |
+| `label` (required) | `string` | — | Accessible name, for example "Billing period". |
 | `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` | Which part of the dial shows: `top` arches up, `bottom` hangs down, `left` and `right` bow sideways with the labels stacked. |
 | `radius` | `number` | — | Radius of the dial in px. Larger is flatter. Defaults to 320 for the top and bottom arcs and 240 for the side arcs. |
 | `gap` | `number` | — | Distance between the centers of neighboring options along the arc, in px. By default each pair is spaced by its own label widths. |
@@ -110,51 +110,51 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | Extra class names for the root element. |
 | `style` | `CSSProperties` | — | Inline styles for the root element, for sizes and CSS variables. |
 
-### Tipos exportados
+### Exported types
 
 #### `ArcOption`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | The value reported when this option is chosen. |
+| `value` (required) | `string` | The value reported when this option is chosen. |
 | `label` | `string` | The text on the arc. Falls back to the value. |
 | `disabled` | `boolean` | Shown dimmed; the dial never comes to rest on it. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↓` | Gira até a próxima opção habilitada. |
-| `←` ou `↑` | Gira até a opção habilitada anterior. |
-| `Home` ou `End` | Vai para a primeira ou para a última opção habilitada. |
+| `→` or `↓` | Rotates to the next enabled option. |
+| `←` or `↑` | Rotates to the previous enabled option. |
+| `Home` or `End` | Goes to the first or last enabled option. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é um `role="listbox"` focável com `aria-activedescendant` apontando para a opção escolhida; cada rótulo é um `role="option"` com `aria-selected`.
-- `label` é obrigatório e vira o `aria-label`; `aria-orientation` passa a `vertical` nos arcos `left` e `right`.
-- Opções com `disabled` aparecem riscadas, recebem `aria-disabled` e o disco nunca para nelas, seja por tecla, roda, clique ou arrasto.
+- The root is a focusable `role="listbox"` with `aria-activedescendant` pointing to the chosen option; each label is a `role="option"` with `aria-selected`.
+- `label` is required and becomes the `aria-label`; `aria-orientation` becomes `vertical` on the `left` and `right` arcs.
+- Options with `disabled` appear struck through, get `aria-disabled`, and the disc never stops on them, whether by key, wheel, click, or drag.
 
-## Movimento
+## Motion
 
-- O disco gira até a opção com uma mola suave e, ao soltar um arrasto, herda a velocidade do gesto antes de assentar na opção habilitada mais próxima.
-- Os colchetes do ápice se ajustam com uma mola à largura do rótulo mais próximo, e os rótulos encolhem e esmaecem conforme se afastam.
-- Além das pontas o arrasto oferece resistência elástica; com “reduzir movimento” ligado, disco e colchetes saltam direto para a posição final.
+- The disc rotates to the option with a gentle spring and, on releasing a drag, inherits the gesture's velocity before settling on the nearest enabled option.
+- The apex brackets adjust with a spring to the width of the nearest label, and labels shrink and fade as they move away.
+- Beyond the ends the drag offers elastic resistance; with “reduce motion” on, disc and brackets jump straight to the final position.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O arco `top` ou `bottom` mede 30rem por 8rem (variáveis `--span` e `--depth`, ajustáveis por `style`) e respeita `max-width: 100%`; as pontas somem por uma máscara.
-- No toque, o arco horizontal deixa a página rolar na vertical (`touch-action: pan-y`) e os arcos laterais, na horizontal.
+- The `top` or `bottom` arc measures 30rem by 8rem (variables `--span` and `--depth`, adjustable via `style`) and respects `max-width: 100%`; the ends fade out through a mask.
+- On touch, the horizontal arc lets the page scroll vertically (`touch-action: pan-y`) and the side arcs, horizontally.
 
-## Desempenho
+## Performance
 
-- As larguras dos rótulos são medidas no layout e de novo quando as fontes carregam, e cada opção acompanha a posição do disco a cada quadro: mantenha a lista curta.
+- Label widths are measured in layout and again when fonts load, and each option tracks the disc position on every frame: keep the list short.
 
-## Notas para IA
+## Notes for AI
 
-- `options` é `{ value, label?, disabled? }[]` com `value` único e `label` do componente é obrigatório; use `value` + `onValueChange` ou `defaultValue` (sem ele, vale a primeira opção habilitada).
-- `side` escolhe a face do disco (`top`, `bottom`, `left`, `right`), `radius` maior deixa o arco mais plano e `gap` fixa a distância entre opções, que por padrão segue a largura de cada rótulo.
-- Sobre o componente, a roda do mouse gira o disco em vez de rolar a página (só nas pontas a rolagem volta): não o ponha no caminho de uma rolagem longa.
+- `options` is `{ value, label?, disabled? }[]` with a unique `value`, and the component's `label` is required; use `value` + `onValueChange` or `defaultValue` (without it, the first enabled option applies).
+- `side` chooses the disc face (`top`, `bottom`, `left`, `right`), a larger `radius` makes the arc flatter, and `gap` fixes the distance between options, which by default follows each label's width.
+- Over the component, the mouse wheel rotates the disc instead of scrolling the page (scrolling only returns at the ends): do not put it in the way of a long scroll.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/arc-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/arc-picker · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,48 +2,48 @@
 
 > Uma fileira de botões de alternância, única ou múltipla, como numa barra de formatação.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toggle-group
-- Descrição original (inglês): A row of icon or text toggles, single or multiple: one pressed fill glides between options, or each fades in on its own and neighbours join, as in a formatting toolbar.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/toggle-group
+- Original description: A row of icon or text toggles, single or multiple: one pressed fill glides between options, or each fades in on its own and neighbours join, as in a formatting toolbar.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json`. Caminho do registro, relativo ao endereço do site: `r/toggle-group.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toggle-group.json`. Registry path, relative to the site address: `r/toggle-group.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/toggle-group/toggle-group.tsx`
   - `components/ryan-ui/toggle-group/toggle-group.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/toggle-group.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/toggle-group.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Barras de formatação em que negrito, itálico e sublinhado ficam ligados ao mesmo tempo (`type="multiple"`).
-- Alinhamento, ferramenta ativa ou modo de exibição, em que só um vale por vez (modo `single`, o padrão).
-- Grupos compactos de ícones dentro de editores e painéis, com `size="sm"`.
+- Formatting bars where bold, italic, and underline are on at the same time (`type="multiple"`).
+- Alignment, active tool, or display mode, where only one applies at a time (`single` mode, the default).
+- Compact icon groups inside editors and panels, with `size="sm"`.
 
-## Quando não usar
+## When not to use
 
-- Use [`segmented-control`](segmented-control.md) para alternar entre visões de uma tela, com rótulos de texto e um destaque mais forte.
-- Use [`button-group`](button-group.md) quando os botões disparam ações em vez de guardar um estado ligado ou desligado.
-- Use [`chip-group`](chip-group.md) para filtros de uma lista, com muitos itens que quebram linha.
+- Use [`segmented-control`](segmented-control.md) to switch between views of a screen, with text labels and a stronger highlight.
+- Use [`button-group`](button-group.md) when the buttons trigger actions instead of holding an on or off state.
+- Use [`chip-group`](chip-group.md) for list filters, with many items that wrap.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -74,9 +74,9 @@ export default function ToggleGroupDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ToggleGroup`
 
@@ -86,66 +86,66 @@ Props: `ToggleGroupSingleProps | ToggleGroupMultipleProps`
 
 ### `ToggleGroupItem`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `string` | — | — |
+| `value` (required) | `string` | — | — |
 | `label` | `string` | — | Accessible name, required when the item shows only an icon. Also used as the tooltip title unless title is set. |
-| `children` (obrigatória) | `ReactNode` | — | — |
-| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Também aceita as props deste tipo, menos `value` e `type`. |
+| `children` (required) | `ReactNode` | — | — |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Also accepts the props of this type, except `value` and `type`. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ToggleGroupSize` | `"sm" \| "md"` |
 
 #### `ToggleGroupSingleProps`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `type` | `"single"` | One option at most is pressed. Choosing another moves the pressed state across; the pressed option stays pressed. |
 | `value` | `string \| null` | — |
 | `defaultValue` | `string \| null` | — |
 | `onValueChange` | `(value: string) => void` | — |
-| `...props` | `ToggleGroupBase` | Também aceita as props deste tipo. |
+| `...props` | `ToggleGroupBase` | Also accepts the props of this type. |
 
 #### `ToggleGroupMultipleProps`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `type` (obrigatória) | `"multiple"` | Each option toggles on its own. |
+| `type` (required) | `"multiple"` | Each option toggles on its own. |
 | `value` | `readonly string[]` | — |
 | `defaultValue` | `readonly string[]` | — |
 | `onValueChange` | `(value: string[]) => void` | — |
-| `...props` | `ToggleGroupBase` | Também aceita as props deste tipo. |
+| `...props` | `ToggleGroupBase` | Also accepts the props of this type. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↓` | Levam o foco ao próximo item, em ciclo, sem mudar o que está pressionado. |
-| `←` ou `↑` | Levam o foco ao item anterior. |
-| `Home` ou `End` | Vão ao primeiro ou ao último item habilitado. |
-| `Espaço` ou `Enter` | Pressionam o item em foco: no `multiple` alternam, e no `single` escolhem, sem desmarcar o que já está escolhido. |
-| `Tab` | Entra no grupo pelo último item focado, ou pelo pressionado, e sai numa tecla só. |
+| `→` or `↓` | Move focus to the next item, wrapping around, without changing what is pressed. |
+| `←` or `↑` | Move focus to the previous item. |
+| `Home` or `End` | Go to the first or last enabled item. |
+| `Space` or `Enter` | Press the focused item: in `multiple` they toggle, and in `single` they choose, without deselecting what is already chosen. |
+| `Tab` | Enters the group at the last focused item, or the pressed one, and leaves in a single keystroke. |
 
-## Acessibilidade
+## Accessibility
 
-- No modo `single` o grupo é um `radiogroup` com itens `role="radio"` e `aria-checked`; no `multiple`, é um `group` de botões com `aria-pressed`.
-- O `label` do grupo é obrigatório e vira `aria-label`; em itens só com ícone, passe `label` no item, que também vira a dica (`title`).
+- In `single` mode the group is a `radiogroup` with `role="radio"` items and `aria-checked`; in `multiple`, it is a `group` of buttons with `aria-pressed`.
+- The group `label` is required and becomes `aria-label`; for icon-only items, pass `label` on the item, which also becomes the tooltip (`title`).
 
-## Movimento
+## Motion
 
-- No `single`, um único preenchimento desliza até a opção escolhida numa mola sem ultrapassagem.
-- No `multiple`, cada preenchimento aparece no lugar e vizinhos ligados se juntam numa forma só por cima do espaço entre eles; o ícone afunda um pouco ao apertar.
-- Com “reduzir movimento” ligado, o preenchimento muda de lugar na hora e só cor e opacidade trocam, sem escala.
+- In `single`, one fill slides to the chosen option on a no-overshoot spring.
+- In `multiple`, each fill appears in place and adjacent on items merge into one shape over the gap between them; the icon sinks slightly on press.
+- With “reduce motion” on, the fill changes place instantly and only color and opacity change, with no scale.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `ToggleGroup` (export padrão) e `ToggleGroupItem` de `@/components/ryan-ui/toggle-group/toggle-group`; `type="multiple"` muda o valor para `string[]`, e sem `type` ele é uma `string`.
-- No `single` não dá para desmarcar clicando de novo; se “nenhum” for uma opção válida, use `multiple` ou um item próprio para ela.
-- As setas só movem o foco, mesmo no `single`, ao contrário de um rádio nativo; a escolha acontece com Espaço, Enter ou clique.
+- Import `ToggleGroup` (default export) and `ToggleGroupItem` from `@/components/ryan-ui/toggle-group/toggle-group`; `type="multiple"` changes the value to `string[]`, and without `type` it is a `string`.
+- In `single` you cannot deselect by clicking again; if “none” is a valid option, use `multiple` or a dedicated item for it.
+- The arrows only move focus, even in `single`, unlike a native radio; the choice happens with Space, Enter, or click.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toggle-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toggle-group · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

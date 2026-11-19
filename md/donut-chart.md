@@ -2,141 +2,98 @@
 
 > Gráfico de rosca cujos arcos se transformam entre conjuntos de dados, com o valor ativo rolando no centro.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/donut-chart
-- Descrição original (inglês): A donut whose arcs morph between datasets, with the active value rolling into the center.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/donut-chart
+- Original description: A donut whose arcs morph between datasets, with the active value rolling into the center.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/donut-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/donut-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/donut-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/donut-chart.json`. Caminho do registro, relativo ao endereço do site: `r/donut-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/donut-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/donut-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/donut-chart.json`. Registry path, relative to the site address: `r/donut-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/donut-chart/donut-chart.tsx`
   - `components/ryan-ui/donut-chart/donut-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/donut-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/donut-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Poucas partes de um todo (até umas seis), quando a fatia de cada uma importa mais que a comparação exata entre valores.
-- Alternar entre conjuntos de dados com as mesmas chaves (mês a mês, plano a plano): os arcos se transformam em vez de redesenhar.
-- Quando a pessoa precisa esconder categorias na legenda para ver como o restante do anel se redistribui.
+- A few parts of a whole (up to about six), when each slice's share matters more than the exact comparison between values.
+- Switching between datasets with the same keys (month by month, plan by plan): the arcs transform instead of redrawing.
+- When the user needs to hide categories in the legend to see how the rest of the ring redistributes.
 
-## Quando não usar
+## When not to use
 
-- Use [`composition-chart`](composition-chart.md) quando o espaço é uma faixa horizontal: as mesmas partes cabem numa barra empilhada com legenda.
-- Use [`treemap`](treemap.md) quando há muitas partes ou níveis de hierarquia; aqui, o que fica abaixo de `groupBelow` ou além de `maxSegments` é agrupado em “Other”.
-- Use [`gauge`](gauge.md) para um único valor contra uma faixa conhecida; a rosca divide um total em partes.
+- Use [`composition-chart`](composition-chart.md) when the space is a horizontal strip: the same parts fit in a stacked bar with a legend.
+- Use [`treemap`](treemap.md) when there are many parts or hierarchy levels; here, whatever falls below `groupBelow` or beyond `maxSegments` is grouped into “Other”.
+- Use [`gauge`](gauge.md) for a single value against a known range; the donut splits a total into parts.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
 import DonutChart, { type DonutChartDatum } from "@/components/ryan-ui/donut-chart/donut-chart";
 import SegmentedControl from "@/components/ryan-ui/segmented-control/segmented-control";
-import { Caption, Row, Stack, Surface } from "./_kit";
-import type { DemoStage } from "./_kit";
+import { Caption, Stack, Surface } from "./_kit";
 
-export const stage: DemoStage = { height: 560 };
-
-type Period = "week" | "month" | "year";
-
-const grouped = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
-const compact = new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 });
-
-interface Dataset {
-  range: string;
-  formatValue: (value: number) => string;
-  data: DonutChartDatum[];
-}
-
-const datasets: Record<Period, Dataset> = {
-  week: {
-    range: "Sep 15–21, 2026",
-    formatValue: value => grouped.format(value),
-    data: [
-      { key: "search", label: "Search", value: 4210 },
-      { key: "direct", label: "Direct", value: 2380 },
-      { key: "newsletter", label: "Newsletter", value: 1940 },
-      { key: "referrals", label: "Referrals", value: 1120 },
-      { key: "social", label: "Social", value: 385 },
-      { key: "podcasts", label: "Podcasts", value: 130 },
-      { key: "partners", label: "Partners", value: 70 },
-    ],
-  },
-  month: {
-    range: "Aug 23 – Sep 21, 2026",
-    formatValue: value => grouped.format(value),
-    data: [
-      { key: "search", label: "Search", value: 16840 },
-      { key: "direct", label: "Direct", value: 8120 },
-      { key: "newsletter", label: "Newsletter", value: 5260 },
-      { key: "referrals", label: "Referrals", value: 6430 },
-      { key: "social", label: "Social", value: 2910 },
-      { key: "podcasts", label: "Podcasts", value: 640 },
-      { key: "partners", label: "Partners", value: 410 },
-    ],
-  },
-  year: {
-    range: "Oct 2025 – Sep 2026",
-    formatValue: value => (value >= 100000 ? compact.format(value) : grouped.format(value)),
-    data: [
-      { key: "search", label: "Search", value: 168300 },
-      { key: "direct", label: "Direct", value: 71900 },
-      { key: "newsletter", label: "Newsletter", value: 38400 },
-      { key: "referrals", label: "Referrals", value: 52700 },
-      { key: "social", label: "Social", value: 41200 },
-      { key: "podcasts", label: "Podcasts", value: 16400 },
-      { key: "partners", label: "Partners", value: 10100 },
-    ],
-  },
+const datasets: Record<string, DonutChartDatum[]> = {
+  august: [
+    { key: "search", label: "Organic search", value: 48200 },
+    { key: "direct", label: "Direct", value: 31400 },
+    { key: "social", label: "Social", value: 14800 },
+    { key: "email", label: "Email", value: 11900 },
+    { key: "referral", label: "Referral", value: 8300 },
+    { key: "ads", label: "Paid ads", value: 2100 },
+  ],
+  september: [
+    { key: "search", label: "Organic search", value: 52600 },
+    { key: "direct", label: "Direct", value: 29800 },
+    { key: "social", label: "Social", value: 21700 },
+    { key: "email", label: "Email", value: 9400 },
+    { key: "referral", label: "Referral", value: 10200 },
+    { key: "ads", label: "Paid ads", value: 6500 },
+  ],
 };
 
 export default function DonutChartDemo() {
-  const [period, setPeriod] = useState<Period>("month");
-  const dataset = datasets[period];
+  const [month, setMonth] = useState("august");
   return (
-    <Surface width={570} padding={5}>
-      <Stack gap={5}>
-        <Row justify="space-between" wrap={false}>
-          <div>
-            <h3 style={{ margin: 0, color: "var(--foreground)", fontSize: 15, fontWeight: 600 }}>Visits by source</h3>
-            <Caption>{dataset.range}</Caption>
-          </div>
-          <SegmentedControl label="Visits period" options={[{ value: "week", label: "Week" }, { value: "month", label: "Month" }, { value: "year", label: "Year" }]} value={period} onValueChange={value => setPeriod(value as Period)} />
-        </Row>
-        <DonutChart key={period} data={dataset.data} label={`Visits by source, ${dataset.range}`} totalLabel="Visits" formatValue={dataset.formatValue} />
-      </Stack>
-    </Surface>
+    <Stack gap={4} width={520}>
+      <SegmentedControl label="Month" value={month} onValueChange={setMonth} options={[{ value: "august", label: "August" }, { value: "september", label: "September" }]} />
+      <Surface>
+        <DonutChart data={datasets[month] ?? []} label="Visits by source" unit="visits" totalLabel="Total visits" />
+      </Surface>
+      <Caption>Hover a segment or legend row to read it in the center; click a legend row to hide it.</Caption>
+    </Stack>
   );
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `DonutChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `DonutChartDatum[]` | — | — |
-| `label` (obrigatória) | `string` | — | What the whole is, such as "Visits by source". Names the chart for assistive technology. |
+| `data` (required) | `DonutChartDatum[]` | — | — |
+| `label` (required) | `string` | — | What the whole is, such as "Visits by source". Names the chart for assistive technology. |
 | `unit` | `string` | `""` | Unit after values, such as "visits". |
 | `formatValue` | `(value: number) => string` | `value => grouped.format(value)` | — |
 | `totalLabel` | `string` | `"Total"` | Center label at rest, above the total. |
@@ -157,53 +114,53 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `DonutChartDatum`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. A segment whose key survives a data change keeps its place and color, so switching datasets morphs the arcs. |
-| `label` (obrigatória) | `string` | — |
-| `value` (obrigatória) | `number` | — |
+| `key` (required) | `string` | Stable identity. A segment whose key survives a data change keeps its place and color, so switching datasets morphs the arcs. |
+| `label` (required) | `string` | — |
+| `value` (required) | `number` | — |
 | `color` | `string` | Any CSS color. Segments default to the shared --series-* palette in data order, then neutral steps. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` ou `←` ou `→` | Movem o foco entre as linhas da legenda, dando a volta nas pontas; a linha em foco destaca o arco e aparece no centro. |
-| `Home` ou `End` | Vão à primeira e à última linha da legenda. |
-| `Enter` ou `Espaço` | Na legenda, escondem ou mostram o segmento (`legendAction="toggle"`) ou o fixam como selecionado (`legendAction="select"`). |
-| `Esc` | Desfaz a seleção fixada. |
+| `↑` or `↓` or `←` or `→` | Move focus between the legend rows, wrapping at the ends; the focused row highlights the arc and appears in the center. |
+| `Home` or `End` | Go to the first and last legend rows. |
+| `Enter` or `Space` | In the legend, hide or show the segment (`legendAction="toggle"`) or pin it as selected (`legendAction="select"`). |
+| `Esc` | Clears the pinned selection. |
 
-## Acessibilidade
+## Accessibility
 
-- O SVG é decorativo (`aria-hidden`): o leitor de tela recebe um resumo com total e fatias, uma tabela oculta com segmento, valor e participação, e anúncios `aria-live` quando um segmento é mostrado ou escondido.
-- Cada linha da legenda é um botão com `aria-pressed` e `aria-label` com nome, valor e porcentagem; com `legend={false}`, o anel vira um grupo focável em que as setas leem cada segmento e `Enter` ou `Espaço` o fixam.
-- `label` é obrigatório e nomeia a figura; os textos gerados para leitor de tela (“hidden”, “Segment”, “Includes…”) estão fixos em inglês.
+- The SVG is decorative (`aria-hidden`): the screen reader gets a summary with the total and slices, a hidden table with segment, value, and share, and `aria-live` announcements when a segment is shown or hidden.
+- Each legend row is a button with `aria-pressed` and an `aria-label` with name, value, and percentage; with `legend={false}`, the ring becomes a focusable group where the arrow keys read each segment and `Enter` or `Space` pins it.
+- `label` is required and names the figure; the texts generated for screen readers (“hidden”, “Segment”, “Includes…”) are hardcoded in English.
 
-## Movimento
+## Motion
 
-- Na primeira vez que 35% do gráfico entra na tela, os arcos abrem a partir do topo numa varredura única, com a borda final de cada um um instante atrás da anterior.
-- Ao trocar `data` ou esconder um segmento, cada arco vai de onde está até o novo ângulo numa mola sem ultrapassagem; chaves iguais mantêm lugar e cor, e o segmento que sai fecha até sumir.
-- O segmento ativo desliza para fora e engrossa enquanto os outros esmaecem, e o centro troca de leitura rolando como um tambor; com “reduzir movimento”, tudo isso muda na hora.
+- The first time 35% of the chart enters the viewport, the arcs open from the top in a single sweep, with each arc's trailing edge a moment behind the previous one.
+- When `data` changes or a segment is hidden, each arc moves from where it is to the new angle on a spring with no overshoot; equal keys keep position and color, and the segment that leaves closes until it disappears.
+- The active segment slides outward and thickens while the others fade, and the center changes its readout by rolling like a drum; with “reduced motion”, all of this changes instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A figura é um contêiner (`container-type: inline-size`): com 460 px ou mais a legenda fica ao lado do anel; abaixo disso, vai para baixo dele.
-- O anel tem `size` px de diâmetro (208 por padrão) e encolhe para caber em contêineres mais estreitos; rótulos longos no centro são cortados com reticências.
+- The figure is a container (`container-type: inline-size`): at 460 px or more the legend sits beside the ring; below that, it goes underneath.
+- The ring is `size` px in diameter (208 by default) and shrinks to fit narrower containers; long labels in the center are truncated with an ellipsis.
 
-## Desempenho
+## Performance
 
-- Durante as animações, as formas são escritas direto no DOM, uma pintura por quadro, e os números direto no texto: nenhum quadro re-renderiza o React.
+- During animations, shapes are written straight to the DOM, one paint per frame, and numbers straight to the text: no frame re-renders React.
 
-## Notas para IA
+## Notes for AI
 
-- `label` é obrigatório, e cada item de `data` precisa de `key` estável, `label` e `value`; valores zero ou negativos são descartados.
-- Seleção (`activeKey`, `onActiveChange`) e ocultos (`hiddenKeys`, `onHiddenKeysChange`) podem ser controlados ou não; o cursor só pré-visualiza, clicar num arco fixa ou solta a seleção, e o último segmento visível nunca é escondido.
-- As cores seguem `--series-1` a `--series-4` e depois tons neutros (passe `color` no item para ir além); basta um pai com largura, pois a altura vem do conteúdo.
+- `label` is required, and each item in `data` needs a stable `key`, `label`, and `value`; zero or negative values are discarded.
+- Selection (`activeKey`, `onActiveChange`) and hidden segments (`hiddenKeys`, `onHiddenKeysChange`) can be controlled or uncontrolled; the cursor only previews, clicking an arc pins or releases the selection, and the last visible segment is never hidden.
+- Colors follow `--series-1` through `--series-4` and then neutral tones (pass `color` on the item to go beyond); a parent with a width is enough, since the height comes from the content.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/donut-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/donut-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

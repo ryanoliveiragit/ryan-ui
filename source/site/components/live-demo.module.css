@@ -1,0 +1,5 @@
+.live { position: relative; display: grid; height: 100%; min-width: 0; min-height: 0; place-items: center; overflow: hidden; padding: var(--space-5); }
+.live > * { width: 100%; min-width: 0; max-width: 100%; background: transparent; }
+.wait { width: min(100%, 15rem); }
+.error { display: grid; justify-items: center; gap: var(--space-2); color: var(--text-secondary); font-size: var(--text-sm); }
+.error button { border: 0; color: var(--accent-strong); background: none; cursor: pointer; }

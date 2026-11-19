@@ -2,49 +2,49 @@
 
 > Aviso que acompanha uma tarefa: a barra e a porcentagem avançam e ele vira sucesso, com o check desenhado, ou erro com Tentar de novo.
 
-- Tipo: componente (categoria Feedback), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-progress
-- Descrição original (inglês): A toast that follows a running task: a bar and a percentage advance, then it morphs in place into a success state with a drawn check, or into an error state with Retry.
-- Versões: Padrão ([`toast`](toast.md)), Pilha ([`toast-stack`](toast-stack.md)), Com ação ([`toast-action`](toast-action.md)), Progresso (este item)
+- Type: component (category Feedback), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-progress
+- Original description: A toast that follows a running task: a bar and a percentage advance, then it morphs in place into a success state with a drawn check, or into an error state with Retry.
+- Versions: Padrão ([`toast`](toast.md)), Pilha ([`toast-stack`](toast-stack.md)), Com ação ([`toast-action`](toast-action.md)), Progresso (this item)
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json`. Caminho do registro, relativo ao endereço do site: `r/toast-progress.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-progress.json`. Registry path, relative to the site address: `r/toast-progress.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/toast-progress/toast-progress.tsx`
   - `components/ryan-ui/toast-progress/toast-progress.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/toast-progress.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/toast-progress.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Acompanhar uma tarefa em segundo plano com porcentagem conhecida, como envio, exportação ou importação, sem bloquear a tela.
-- Fechar o ciclo no mesmo aviso: a barra completa e vira um visto de sucesso, ou congela no tom de perigo com “Retry” quando falha.
-- Progresso com um detalhe que muda a cada atualização (“27 of 42 MB”, “3 seconds left”) em `description`, sem animar a troca de texto a cada vez.
+- Track a background task with a known percentage, such as an upload, export, or import, without blocking the screen.
+- Close the loop in the same notice: the bar completes and becomes a success checkmark, or freezes in the danger tone with “Retry” on failure.
+- Progress with a detail that changes on each update (“27 of 42 MB”, “3 seconds left”) in `description`, without animating the text swap every time.
 
-## Quando não usar
+## When not to use
 
-- Use [`progress`](progress.md) quando o andamento deve ficar visível na própria página, perto do que está sendo processado.
-- Use [`toast-stack`](toast-stack.md) com `update` para várias tarefas ao mesmo tempo; este acompanha uma só.
-- Use [`toast`](toast.md) para um resultado que não precisou de progresso.
+- Use [`progress`](progress.md) when the progress should be visible on the page itself, near what is being processed.
+- Use [`toast-stack`](toast-stack.md) with `update` for several tasks at once; this one tracks only one.
+- Use [`toast`](toast.md) for a result that needed no progress.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useEffect, useRef, useState } from "react";
@@ -136,17 +136,17 @@ export default function ToastProgressDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ToastProgress`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | What is running, or how it ended. Pass the text for the current status; the copy swaps in place when it changes. |
+| `title` (required) | `string` | — | What is running, or how it ended. Pass the text for the current status; the copy swaps in place when it changes. |
 | `description` | `string` | — | Optional second line. While the task runs it may change on every tick (for example "27 of 42 MB") without replaying the swap. |
-| `value` (obrigatória) | `number` | — | How far the task is, from 0 to 100. The bar and the number glide to each new value. |
+| `value` (required) | `number` | — | How far the task is, from 0 to 100. The bar and the number glide to each new value. |
 | `status` | `"loading" \| "success" \| "error"` | — | State of the task. Left out, the toast runs until `value` reaches 100 and then shows success. |
 | `icon` | `ReactNode` | — | Glyph in the status circle while the task runs. A spinner by default. |
 | `formatValue` | `(value: number) => string` | `percent` | Text beside the title while the task runs. Receives the rounded value that is on screen; by default it prints a percentage such as "64%". |
@@ -161,45 +161,45 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `hotkey` | `boolean` | `true` | Alt+T moves focus into the toast (to Retry when it is showing). |
 | `className` | `string` | — | Extra class for the toast surface. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ToastProgressStatus`: `loading` shows the bar and the number; `success` and `error` are the two ways the task can end. | `"loading" \| "success" \| "error"` |
 | `ToastProgressCloseReason`: Why the toast closed: the success state timed out, or the person closed it (button, Escape or swipe). | `"timeout" \| "dismiss"` |
 | `ToastProgressPosition`: `inline` renders where it is placed, like `Toast`. The others pin it to the bottom edge, like `ToastStack`. | `"inline" \| "bottom-right" \| "bottom-center" \| "bottom-left"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Alt + T` | Leva o foco ao “Retry”, quando a tarefa falhou, ou ao botão de fechar; desligue com `hotkey={false}`. |
-| `Esc` | Com o foco dentro, fecha o aviso (motivo `dismiss`) e devolve o foco para onde ele estava. |
-| `Enter` ou `Espaço` | Em “Retry”, chama `onRetry`; o foco passa para o botão de fechar enquanto a tarefa recomeça. |
+| `Alt + T` | Moves focus to “Retry”, when the task failed, or to the close button; turn off with `hotkey={false}`. |
+| `Esc` | With focus inside, closes the notice (reason `dismiss`) and returns focus to where it was. |
+| `Enter` or `Space` | On “Retry”, calls `onRetry`; focus moves to the close button while the task restarts. |
 
-## Acessibilidade
+## Accessibility
 
-- O aviso é `role="status"` com `aria-live="polite"`, e a barra é `role="progressbar"` nomeada pelo título, com `aria-valuetext` vindo de `formatValue`.
-- Enquanto a tarefa roda, a descrição que muda a cada atualização fica com `aria-live="off"` e o número ao lado do título é `aria-hidden`, para não haver leitura a cada passo.
-- Ao fechar com o foco dentro, ele volta para onde estava; o `aria-label` do fechar é fixo em inglês (“Dismiss notification”).
+- The notice is `role="status"` with `aria-live="polite"`, and the bar is `role="progressbar"` named by the title, with `aria-valuetext` coming from `formatValue`.
+- While the task runs, the description that changes on each update has `aria-live="off"` and the number next to the title is `aria-hidden`, so there is no reading at every step.
+- On closing with focus inside, it returns to where it was; the close `aria-label` is fixed in English (“Dismiss notification”).
 
-## Movimento
+## Motion
 
-- Barra e número deslizam juntos até cada novo `value` com uma mola; no fim, a barra completa em 0,32 s e só então o aviso muda para sucesso.
-- Na mudança de estado, o giro encolhe com desfoque e um visto ou um ponto de exclamação se desenha; o texto troca subindo, o número dá lugar ao “Retry” e, no sucesso, a barra afina e some.
-- Com “reduzir movimento”, a barra salta para o valor, o giro fica parado, as trocas só esmaecem e o arraste para dispensar fica desligado.
+- Bar and number slide together to each new `value` with a spring; at the end, the bar completes in 0.32 s and only then does the notice change to success.
+- On the state change, the spinner shrinks with blur and a checkmark or an exclamation mark draws itself; the text swaps rising, the number gives way to “Retry” and, on success, the bar thins and disappears.
+- With “reduce motion”, the bar jumps to the value, the spinner stays still, swaps only fade, and drag-to-dismiss is turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Nas posições `bottom-*` fica fixo na janela com até 24 rem e centraliza no rodapé abaixo de 30 rem; com `contained`, prende-se ao ancestral posicionado.
-- Num aviso estreito (menos de 23 rem), o “Retry” desce para baixo do texto.
+- In `bottom-*` positions it is fixed to the window at up to 24 rem and centers at the bottom below 30 rem; with `contained`, it attaches to the positioned ancestor.
+- In a narrow notice (under 23 rem), “Retry” drops below the text.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/toast-progress/toast-progress`. Atualize `value`; sem `status`, chegar a 100 já mostra sucesso. A falha precisa de `status="error"`, e para retomar volte a `"loading"`.
-- Passe em `title` o texto do estado atual. Rodando ou com erro, o aviso não fecha sozinho; o sucesso fecha após `duration`, que recomeça do zero se a pessoa segurar o aviso com mouse ou foco.
-- Sem `onRetry`, o erro aparece sem botão. Se outro aviso da página também usa `Alt + T` (`toast-stack`, `toast-action`), desligue `hotkey` num deles.
+- Import from `@/components/ryan-ui/toast-progress/toast-progress`. Update `value`; without `status`, reaching 100 already shows success. Failure needs `status="error"`, and to resume go back to `"loading"`.
+- Pass the current state's text in `title`. While running or in error, the notice does not close on its own; success closes after `duration`, which restarts from zero if the user holds the notice with the mouse or focus.
+- Without `onRetry`, the error appears without a button. If another notice on the page also uses `Alt + T` (`toast-stack`, `toast-action`), turn off `hotkey` on one of them.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-progress · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-progress · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

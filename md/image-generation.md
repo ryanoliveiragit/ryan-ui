@@ -2,49 +2,49 @@
 
 > Cartão de pedido de imagem: um campo de células cintila com o progresso e a imagem surge do desfoque até ficar nítida.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/image-generation
-- Descrição original (inglês): An image request card: a shimmering field of cells with progress and phase labels, then the image resolves from blurred to sharp and the footer becomes the actions row.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/image-generation
+- Original description: An image request card: a shimmering field of cells with progress and phase labels, then the image resolves from blurred to sharp and the footer becomes the actions row.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json`. Caminho do registro, relativo ao endereço do site: `r/image-generation.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/image-generation.json`. Registry path, relative to the site address: `r/image-generation.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/image-generation/image-generation.tsx`
   - `components/ryan-ui/image-generation/image-generation.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/image-generation.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/image-generation.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um pedido de imagem numa conversa ou num editor, com prompt, progresso e resultado no mesmo cartão.
-- Gerações que levam alguns segundos e têm progresso conhecido: o cartão mostra a fase e a porcentagem em vez de um spinner.
-- Quando o resultado pede ações imediatas: gerar de novo, baixar a imagem e copiar o prompt.
+- An image request in a conversation or editor, with prompt, progress and result in the same card.
+- Generations that take a few seconds and have known progress: the card shows the phase and percentage instead of a spinner.
+- When the result calls for immediate actions: generate again, download the image and copy the prompt.
 
-## Quando não usar
+## When not to use
 
-- Use [`skeleton`](skeleton.md) para reservar o lugar de uma imagem comum que só está carregando.
-- Use [`image-viewer`](image-viewer.md) para uma galeria de imagens prontas, com zoom e navegação.
-- Use [`progress`](progress.md) ou [`toast-progress`](toast-progress.md) para tarefas longas que não terminam numa imagem.
+- Use [`skeleton`](skeleton.md) to reserve the place of an ordinary image that is just loading.
+- Use [`image-viewer`](image-viewer.md) for a gallery of finished images, with zoom and navigation.
+- Use [`progress`](progress.md) or [`toast-progress`](toast-progress.md) for long tasks that do not end in an image.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -96,17 +96,17 @@ export default function ImageGenerationDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ImageGeneration`
 
 A card for one image request. While the image is being made, a field of cells shimmers behind a progress line and a phase label; when it is ready the image resolves from blurred to sharp and the footer turns into the actions: regenerate, download, copy prompt.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `prompt` (obrigatória) | `string` | — | The prompt the image was requested with. |
+| `prompt` (required) | `string` | — | The prompt the image was requested with. |
 | `src` | `string` | — | Address of the finished image. It is shown when the status is "done". |
 | `alt` | `string` | — | Alternative text of the finished image. Defaults to the prompt. |
 | `status` | `"idle" \| "generating" \| "done" \| "error"` | — | Where the request is (controlled). Leave it out and the card runs a timed preview: `duration` of progress on mount and on every regenerate. |
@@ -119,45 +119,45 @@ A card for one image request. While the image is being made, a field of cells sh
 | `onComplete` | `() => void` | — | Called when the built-in timed preview reaches the end. |
 | `className` | `string` | — | Class name added to the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ImageGenerationStatus` | `"idle" \| "generating" \| "done" \| "error"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Aciona o botão em foco: “Regenerate”, “Copy prompt”, “Generate” ou “Try again”. |
-| `Enter` | Ativa o link “Download”, que aponta para `src` com o atributo `download`. |
+| `Enter` or `Space` | Activates the focused button: “Regenerate”, “Copy prompt”, “Generate” or “Try again”. |
+| `Enter` | Activates the “Download” link, which points to `src` with the `download` attribute. |
 
-## Acessibilidade
+## Accessibility
 
-- Enquanto gera, a moldura é um `role="progressbar"` com `aria-valuenow` e `aria-valuetext` (fase e porcentagem); no fim, uma região `role="status"` anuncia “Image ready”.
-- O erro aparece num `role="alert"`; a imagem usa `alt`, que por padrão repete o `prompt`, então passe um `alt` que descreva o resultado.
-- Fases, botões e anúncios estão fixos em inglês; só `prompt`, `model`, `alt` e `error` são seus.
+- While generating, the frame is a `role="progressbar"` with `aria-valuenow` and `aria-valuetext` (phase and percentage); at the end, a `role="status"` region announces “Image ready”.
+- The error appears in a `role="alert"`; the image uses `alt`, which by default repeats the `prompt`, so pass an `alt` that describes the result.
+- Phases, buttons and announcements are fixed in English; only `prompt`, `model`, `alt` and `error` are yours.
 
-## Movimento
+## Motion
 
-- Durante a geração, uma onda diagonal de opacidade percorre uma grade de 8 × 6 células, a linha de progresso enche e o rótulo da fase troca saindo de um desfoque.
-- Quando a imagem termina de carregar, ela passa de desfocada e levemente ampliada para nítida em menos de um segundo, e as ações entram em sequência no rodapé.
-- Com “reduzir movimento” ligado, a onda para e as células ficam fixas, a imagem aparece sem desfoque nem zoom e as trocas são imediatas.
+- During generation, a diagonal opacity wave sweeps a grid of 8 × 6 cells, the progress line fills and the phase label swaps, leaving through a blur.
+- When the image finishes loading, it goes from blurred and slightly enlarged to sharp in under a second, and the actions enter in sequence in the footer.
+- With “reduce motion” on, the wave stops and the cells stay fixed, the image appears without blur or zoom and swaps are immediate.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% do pai e a moldura mantém `aspectRatio` (padrão `4 / 3`); o prompt corta em duas linhas e as ações quebram para a linha de baixo.
+- Fills 100% of the parent and the frame keeps `aspectRatio` (default `4 / 3`); the prompt truncates at two lines and the actions wrap to the line below.
 
-## Desempenho
+## Performance
 
-- Sem `status`, um `setInterval` de 70 ms move o progresso; cada cartão em geração anima 48 células, e o desfoque de 28 px na revelação é caro: evite vários gerando ao mesmo tempo.
+- Without `status`, a 70 ms `setInterval` moves the progress; each generating card animates 48 cells, and the 28 px blur in the reveal is expensive: avoid several generating at the same time.
 
-## Notas para IA
+## Notes for AI
 
-- Sem `status`, o cartão não gera nada: roda uma prévia cronometrada de `duration` ms ao montar e a cada “Regenerate”; em uso real, controle `status` (`idle`, `generating`, `done`, `error`) e `progress` de 0 a 1.
-- `onRegenerate` é chamado por “Generate”, “Regenerate” e “Try again”: dispare a nova geração ali e troque `src` quando ela terminar.
-- A imagem só aparece com `status` em `done` e `src` carregado; “Download” é um link com `download` para o mesmo `src`.
+- Without `status`, the card generates nothing: it runs a timed preview of `duration` ms on mount and on each “Regenerate”; in real use, control `status` (`idle`, `generating`, `done`, `error`) and `progress` from 0 to 1.
+- `onRegenerate` is called by “Generate”, “Regenerate” and “Try again”: trigger the new generation there and swap `src` when it finishes.
+- The image only appears with `status` at `done` and `src` loaded; “Download” is a link with `download` to the same `src`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/image-generation · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/image-generation · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

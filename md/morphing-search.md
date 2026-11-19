@@ -2,47 +2,47 @@
 
 > Ícone de busca que se estica em campo e depois abre um painel de resultados; Esc desfaz o caminho passo a passo.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-search
-- Descrição original (inglês): A search icon that stretches into a field and then grows a results panel with a gliding highlight; Escape walks the same steps back.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-search
+- Original description: A search icon that stretches into a field and then grows a results panel with a gliding highlight; Escape walks the same steps back.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-search.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-search.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-search.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-search.json`. Caminho do registro, relativo ao endereço do site: `r/morphing-search.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-search.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-search.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-search.json`. Registry path, relative to the site address: `r/morphing-search.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/blocks/morphing-search/morphing-search.tsx`
   - `components/ryan-ui/blocks/morphing-search/morphing-search.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/morphing-search.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/morphing-search.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Busca na barra superior de um app em que o espaço é curto: em repouso é só um ícone de 44 px e abre por clique ou pela tecla `/`.
-- Navegação rápida por uma lista local de páginas, pessoas e ações, agrupada por tipo e limitada a poucos resultados (`limit`, padrão 6).
+- Search in an app's top bar where space is tight: at rest it is just a 44 px icon and opens on click or with the `/` key.
+- Quick navigation through a local list of pages, people, and actions, grouped by type and limited to a few results (`limit`, default 6).
 
-## Quando não usar
+## When not to use
 
-- Use [`command-palette`](command-palette.md) quando a busca é a superfície principal de comandos, com atalhos por item, e não um campo dentro da barra.
-- Use [`expanding-search`](expanding-search.md) quando precisa de sugestões recentes antes de digitar ou de dar nome acessível próprio ao campo; aqui os rótulos são fixos em inglês.
-- Use [`search-field`](search-field.md) quando o campo fica sempre visível e os resultados aparecem em outra parte da tela.
+- Use [`command-palette`](command-palette.md) when search is the main command surface, with per-item shortcuts, and not a field inside the bar.
+- Use [`expanding-search`](expanding-search.md) when you need recent suggestions before typing or a custom accessible name for the field; here the labels are hardcoded in English.
+- Use [`search-field`](search-field.md) when the field is always visible and the results appear elsewhere on the screen.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import MorphingSearchPreview from "@/components/ryan-ui/blocks/morphing-search/morphing-search";
@@ -56,15 +56,15 @@ export default function MorphingSearchDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MorphingSearch`
 
 A search icon that stretches into a field and then lets a results panel grow out of it; Escape walks the same steps back.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `items` | `SearchItem[]` | `sampleSearchItems` | Everything that can be found. Defaults to sample pages, people and actions. |
 | `open` | `boolean` | — | Whether the icon has grown into the field. Pass it with `onOpenChange` to control it. |
@@ -85,63 +85,63 @@ A search icon that stretches into a field and then lets a results panel grow out
 
 Ready preview: the search living at the end of an app toolbar, above a page it can cover.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `SearchItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id. |
-| `title` (obrigatória) | `string` | Main line. This is what the query is matched against. |
+| `id` (required) | `string` | Unique id. |
+| `title` (required) | `string` | Main line. This is what the query is matched against. |
 | `subtitle` | `string` | Second line: where the item lives or what it does. |
-| `group` (obrigatória) | `string` | Heading the item is listed under. |
+| `group` (required) | `string` | Heading the item is listed under. |
 | `icon` | `ReactNode` | Icon shown before the title. Defaults to one that fits the sample groups. |
 | `keywords` | `string` | Extra words that should match the item. Only the title and these words are searched. |
 
-### Outras exportações
+### Other exports
 
-- `sampleSearchItems` (valor)
+- `sampleSearchItems` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `/` | Abre a busca de qualquer ponto da página, desde que o foco não esteja num campo de texto; a tecla vem de `shortcut`. |
-| `↓` ou `↑` | Movem o destaque pela lista de resultados, dando a volta nas pontas. |
-| `Enter` | Escolhe o resultado destacado, chama `onSelect`, fecha a busca e devolve o foco ao ícone. |
-| `Esc` | Primeiro limpa o texto; com o campo vazio, fecha a busca e devolve o foco ao ícone. |
-| `Tab` | Fecha a busca e limpa o texto, sem impedir que o foco siga adiante. |
+| `/` | Opens the search from anywhere on the page, as long as focus is not in a text field; the key comes from `shortcut`. |
+| `↓` or `↑` | Move the highlight through the results list, wrapping around at the ends. |
+| `Enter` | Selects the highlighted result, calls `onSelect`, closes the search, and returns focus to the icon. |
+| `Esc` | First clears the text; with an empty field, closes the search and returns focus to the icon. |
+| `Tab` | Closes the search and clears the text, without preventing focus from moving on. |
 
-## Acessibilidade
+## Accessibility
 
-- O campo é um `role="combobox"` com `aria-expanded`, `aria-controls` e `aria-activedescendant`; os resultados são `role="option"` dentro de um `listbox`, em grupos nomeados pelos títulos.
-- O foco fica no campo enquanto o destaque percorre as opções; fechada, a busca deixa o campo `disabled` e o painel `inert`, e o estado sem resultados usa `role="status"`.
-- Os nomes acessíveis (“Search”, “Results”, “Clear search”) e os títulos “Suggested …” estão fixos em inglês no arquivo.
+- The field is a `role="combobox"` with `aria-expanded`, `aria-controls`, and `aria-activedescendant`; results are `role="option"` inside a `listbox`, in groups named by their headings.
+- Focus stays on the field while the highlight moves through the options; when closed, the search sets the field to `disabled` and the panel to `inert`, and the no-results state uses `role="status"`.
+- The accessible names (“Search”, “Results”, “Clear search”) and the “Suggested …” headings are hardcoded in English in the file.
 
-## Movimento
+## Motion
 
-- O ícone estica até virar o campo com uma mola sem ultrapassagem e só depois o painel de resultados cresce para baixo; ao fechar, o painel dobra primeiro e o campo encolhe em seguida.
-- Um único destaque desliza entre as linhas conforme as setas ou o ponteiro, e os resultados entram subindo 8 px e se reposicionam quando a lista filtra.
-- Com “reduzir movimento” ligado, largura, altura, destaque e linhas trocam na hora.
+- The icon stretches into the field with a spring that does not overshoot, and only then does the results panel grow downward; on close, the panel folds first and the field shrinks afterward.
+- A single highlight slides between rows following the arrows or the pointer, and results enter rising 8 px and reposition when the list filters.
+- With “reduce motion” on, width, height, highlight, and rows change instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura aberta é o menor valor entre `width` (padrão 440 px) e o espaço medido da âncora, então o campo nunca passa do contêiner.
-- Abaixo de 36rem de viewport, a linha de dicas de teclado no rodapé do painel é escondida.
+- The open width is the smaller of `width` (default 440 px) and the measured space of the anchor, so the field never exceeds the container.
+- Below 36rem of viewport, the keyboard hints line in the panel footer is hidden.
 
-## Desempenho
+## Performance
 
-- A filtragem é local e síncrona sobre `items` a cada tecla, sem estado de carregamento: serve para listas em memória, não para busca remota.
-- Usa dois `ResizeObserver` (âncora e painel) e ouvintes no `document` só enquanto precisa: `keydown` para o atalho quando fechada e `pointerdown` quando aberta.
+- Filtering is local and synchronous over `items` on every keystroke, with no loading state: it suits in-memory lists, not remote search.
+- Uses two `ResizeObserver`s (anchor and panel) and `document` listeners only while needed: `keydown` for the shortcut when closed and `pointerdown` when open.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `MorphingSearch`; o export padrão do arquivo é `MorphingSearchPreview`, a demonstração com um app fictício em volta.
-- A âncora ocupa 100% da largura do pai e reserva só 44 px de altura: o campo cresce até `width` a partir da borda de `align` e flutua sobre o conteúdo, então o pai precisa dar esse espaço e não pode cortar com `overflow: hidden`.
-- Só `title` e `keywords` entram na busca (`subtitle` não); controle com `open` e `onOpenChange`, `query` e `onQueryChange`, e passe `shortcut=""` para desligar a tecla global.
+- Import the named component `MorphingSearch`; the file's default export is `MorphingSearchPreview`, the demo with a fictional app around it.
+- The anchor takes 100% of the parent's width and reserves only 44 px of height: the field grows up to `width` from the `align` edge and floats over the content, so the parent must provide that space and must not clip with `overflow: hidden`.
+- Only `title` and `keywords` are searched (`subtitle` is not); control it with `open` and `onOpenChange`, `query` and `onQueryChange`, and pass `shortcut=""` to turn off the global key.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-search · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-search · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

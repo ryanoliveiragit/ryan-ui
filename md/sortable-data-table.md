@@ -2,48 +2,48 @@
 
 > Tabela de registros com colunas ordenáveis, seleção de linhas e contagem de itens.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/sortable-data-table
-- Descrição original (inglês): Compare structured records with sortable columns.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/sortable-data-table
+- Original description: Compare structured records with sortable columns.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json`. Caminho do registro, relativo ao endereço do site: `r/sortable-data-table.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sortable-data-table.json`. Registry path, relative to the site address: `r/sortable-data-table.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/sortable-data-table/sortable-data-table.tsx`
   - `components/ryan-ui/sortable-data-table/sortable-data-table.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/sortable-data-table.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/sortable-data-table.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Comparar registros estruturados em colunas, deixando a pessoa ordenar por qualquer uma: projetos, faturas, membros de uma equipe.
-- Selecionar várias linhas para uma ação em lote: `selectable` acrescenta a coluna de caixas, a seleção por clique na linha, o intervalo com `Shift` e a contagem no rodapé.
-- Tabelas que cabem inteiras na página, em que a ordenação pode acontecer no navegador.
+- Comparing structured records in columns, letting the user sort by any of them: projects, invoices, team members.
+- Selecting several rows for a bulk action: `selectable` adds the checkbox column, selection by clicking the row, range selection with `Shift`, and the count in the footer.
+- Tables that fit entirely on the page, where sorting can happen in the browser.
 
-## Quando não usar
+## When not to use
 
-- Use [`tree-table`](tree-table.md) quando as linhas têm filhos e a ordenação precisa respeitar a hierarquia.
-- Use [`comparison-table`](comparison-table.md) para comparar planos ou produtos recurso a recurso, com uma coluna em destaque.
-- Coleções grandes ou ordenadas no servidor pedem outra solução: a ordenação é local, todas as linhas vão para o DOM e não há prop para controlar a ordem por fora.
+- Use [`tree-table`](tree-table.md) when rows have children and sorting must respect the hierarchy.
+- Use [`comparison-table`](comparison-table.md) to compare plans or products feature by feature, with one highlighted column.
+- Large collections or ones sorted on the server call for another solution: sorting is local, all rows go into the DOM, and there is no prop to control the order from outside.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { SortableDataTable, type DataColumn } from "@/components/ryan-ui/sortable-data-table/sortable-data-table";
@@ -79,17 +79,17 @@ export default function SortableDataTableDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SortableDataTable`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `rows` (obrigatória) | `T[]` | — | — |
-| `columns` (obrigatória) | `DataColumn<T>[]` | — | — |
-| `rowKey` (obrigatória) | `keyof T \| ((row: T) => string)` | — | — |
+| `rows` (required) | `T[]` | — | — |
+| `columns` (required) | `DataColumn<T>[]` | — | — |
+| `rowKey` (required) | `keyof T \| ((row: T) => string)` | — | — |
 | `caption` | `string` | `"Data table"` | — |
 | `emptyMessage` | `string` | `"No rows to show"` | — |
 | `defaultSort` | `SortState` | — | Sort applied on the first render. |
@@ -100,69 +100,69 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onSelectionChange` | `(keys: string[]) => void` | — | — |
 | `itemName` | `{ one: string; other: string }` | `{ one: "row", other: "rows" }` | Noun for the count line, as in "6 projects". |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `SortDirection` | `"asc" \| "desc"` |
 
 #### `SortState`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | — |
-| `direction` (obrigatória) | `"asc" \| "desc"` | — |
+| `key` (required) | `string` | — |
+| `direction` (required) | `"asc" \| "desc"` | — |
 
 #### `DataColumn`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `key` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `sortable` | `boolean` | — |
 | `render` | `(value: unknown, row: T) => ReactNode` | — |
 | `numeric` | `boolean` | Right-aligns the column with tabular numerals. Detected when every value is a number. |
 | `width` | `number \| string` | Fixed width such as 120 or "20%". Other columns are measured once and held, so sorting never reflows them. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Num cabeçalho, ordena pela coluna; de novo, inverte entre crescente e decrescente. |
-| `Espaço` | Numa caixa de seleção, marca ou desmarca a linha; na caixa do cabeçalho, todas as linhas. |
-| `←` ou `→` | No cabeçalho, move o foco entre a caixa de selecionar tudo e os botões de ordenação. |
-| `↑` ou `↓` | Move o foco entre as caixas das linhas; da primeira linha, `↑` sobe para a caixa de selecionar tudo, e dela `↓` desce de volta. |
-| `Home` ou `End` | Vai ao primeiro ou ao último controle do cabeçalho, ou à primeira ou última caixa de linha. |
-| `Esc` | Limpa a seleção quando há linhas marcadas. |
+| `Enter` or `Space` | On a header, sort by the column; again, toggle between ascending and descending. |
+| `Space` | On a checkbox, check or uncheck the row; on the header checkbox, all rows. |
+| `←` or `→` | In the header, move focus between the select-all checkbox and the sort buttons. |
+| `↑` or `↓` | Move focus between the row checkboxes; from the first row, `↑` goes up to the select-all checkbox, and from it `↓` goes back down. |
+| `Home` or `End` | Go to the first or last header control, or to the first or last row checkbox. |
+| `Esc` | Clears the selection when rows are checked. |
 
-## Acessibilidade
+## Accessibility
 
-- É uma `<table>` nativa com `caption` oculta e papéis ARIA explícitos, que mantêm a semântica quando o CSS a redesenha em telas estreitas; cabeçalhos ordenáveis levam `aria-sort`.
-- Uma região `role="status"` anuncia a coluna e o sentido da ordenação e quantas linhas estão selecionadas; a caixa do cabeçalho usa o estado indeterminado.
-- A caixa de cada linha é nomeada pelo valor da primeira coluna; os textos fixos (`Sort by`, `Select all rows`, `Clear selection`) estão em inglês.
+- It is a native `<table>` with a hidden `caption` and explicit ARIA roles, which keep the semantics when CSS redraws it on narrow screens; sortable headers carry `aria-sort`.
+- A `role="status"` region announces the column and direction of the sort and how many rows are selected; the header checkbox uses the indeterminate state.
+- Each row's checkbox is named by the value of the first column; the fixed texts (`Sort by`, `Select all rows`, `Clear selection`) are in English.
 
-## Movimento
+## Motion
 
-- Ao ordenar, as linhas deslizam com mola até a nova posição sobre uma faixa fixa que tinge a coluna ordenada; a seta surge na coluna e gira quando o sentido inverte.
-- A marca da caixa se desenha e, no cabeçalho, se transforma entre visto e traço; a contagem do rodapé troca de texto subindo ou descendo, com a largura acompanhando.
-- Com “reduzir movimento” ligado, as linhas trocam de lugar na hora e os textos apenas alternam, sem deslocamento nem desfoque.
+- When sorting, rows glide on a spring to the new position over a fixed band that tints the sorted column; the arrow appears on the column and rotates when the direction flips.
+- The checkbox mark draws itself and, in the header, morphs between check and dash; the footer count swaps text rising or descending, with the width following.
+- With “reduced motion” on, rows swap places instantly and texts merely alternate, with no displacement or blur.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Em janelas de até 620 px o cabeçalho vira uma faixa rolável de botões de ordenação e cada linha se dobra em duas: primeira coluna e primeiro número em cima, o resto embaixo.
-- A regra é uma media query da janela, não do contêiner: num painel estreito em tela larga a tabela mantém 560 px de largura mínima e rola na horizontal.
+- In windows up to 620 px the header becomes a scrollable strip of sort buttons and each row folds into two: first column and first number on top, the rest below.
+- The rule is a window media query, not a container query: in a narrow panel on a wide screen the table keeps a 560 px minimum width and scrolls horizontally.
 
-## Desempenho
+## Performance
 
-- Não há paginação nem virtualização, e cada linha é um `motion.tr` com animação de layout: para coleções longas, fatie `rows` e combine com `pagination`.
-- As larguras das colunas são medidas uma vez e travadas com `table-layout: fixed`, para a ordenação não causar reflow; a medição só se repete se as colunas mudarem.
+- There is no pagination or virtualization, and each row is a `motion.tr` with a layout animation: for long collections, slice `rows` and combine with `pagination`.
+- Column widths are measured once and locked with `table-layout: fixed`, so sorting doesn't cause reflow; the measurement only repeats if the columns change.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `rows`, `columns` (`{ key, label, render?, numeric?, width? }`) e `rowKey`; toda coluna é ordenável, a menos que tenha `sortable: false`.
-- A ordenação usa o valor bruto de `row[key]`, não o que `render` devolve: guarde números e `Date` nos dados e formate só no `render`; valores vazios ficam sempre no fim.
-- A ordenação é só interna (`defaultSort` e `onSortChange`); a seleção pode ser controlada com `selectedKeys` e `onSelectionChange`, e a primeira coluna deve identificar a linha.
+- Pass `rows`, `columns` (`{ key, label, render?, numeric?, width? }`), and `rowKey`; every column is sortable unless it has `sortable: false`.
+- Sorting uses the raw value of `row[key]`, not what `render` returns: keep numbers and `Date` in the data and format only in `render`; empty values always go last.
+- Sorting is internal only (`defaultSort` and `onSortChange`); selection can be controlled with `selectedKeys` and `onSelectionChange`, and the first column should identify the row.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/sortable-data-table · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/sortable-data-table · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

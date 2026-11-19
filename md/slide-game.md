@@ -2,50 +2,50 @@
 
 > Uma faixa de multiplicadores dispara, desacelera e para sob o marcador central: o valor sorteado multiplica a aposta de mentirinha.
 
-- Tipo: componente (categoria Jogos), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/slide-game
-- Descrição original (inglês): A play-money slide game: a strip of multiplier tiles shoots past a center marker, decelerates and stops on the multiplier that pays the bet.
+- Type: component (category Games), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/slide-game
+- Original description: A play-money slide game: a strip of multiplier tiles shoots past a center marker, decelerates and stops on the multiplier that pays the bet.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slide-game.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slide-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slide-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slide-game.json`. Caminho do registro, relativo ao endereço do site: `r/slide-game.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slide-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slide-game.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slide-game.json`. Registry path, relative to the site address: `r/slide-game.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/slide-game/slide-game.tsx`
   - `components/ryan-ui/slide-game/slide-game.module.css`
   - `components/ryan-ui/slide-game/play-money.tsx`
   - `components/ryan-ui/slide-game/play-money.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/slide-game.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/slide-game.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Demos ou áreas de jogo com saldo fictício em que uma aposta faz uma faixa de multiplicadores correr e parar sozinha.
-- Quando as chances devem ficar à mostra: a lista abaixo da faixa traz a porcentagem de cada multiplicador, calculada dos pesos.
-- Sorteios configuráveis: `tiles` define os multiplicadores e o peso de cada um.
+- Demos or game areas with a play-money balance where a bet makes a strip of multipliers run and stop on its own.
+- When the odds should be on display: the list below the strip gives the percentage of each multiplier, computed from the weights.
+- Configurable draws: `tiles` defines the multipliers and the weight of each.
 
-## Quando não usar
+## When not to use
 
-- Não use com dinheiro real nem prêmios: o saldo é fictício e o resultado é sorteado no navegador com `random`.
-- Use [`crash-game`](crash-game.md) ou [`mines-game`](mines-game.md) quando a pessoa deve decidir durante a rodada.
-- Use [`plinko-game`](plinko-game.md) quando várias apostas devem rodar ao mesmo tempo, com um risco que a pessoa escolhe.
+- Do not use with real money or prizes: the balance is play money and the result is drawn in the browser with `random`.
+- Use [`crash-game`](crash-game.md) or [`mines-game`](mines-game.md) when the person should decide during the round.
+- Use [`plinko-game`](plinko-game.md) when several bets should run at the same time, with a risk the person chooses.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -75,15 +75,15 @@ export default function SlideGameDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SlideGame`
 
 A slide game with fake money: a strip of multiplier tiles shoots past a center marker, slows down and stops on the multiplier that pays the bet.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `balance` | `number` | — | Controlled play-money balance. |
 | `defaultBalance` | `number` | `1000` | Starting balance when uncontrolled; the reset button returns to it. |
@@ -101,25 +101,25 @@ A slide game with fake money: a strip of multiplier tiles shoots past a center m
 
 The card around a game: title, a "Play money" tag, the balance and its reset.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | Name of the game, shown in the header and used as the region label. |
-| `money` (obrigatória) | `PlayMoney` | — | The balance from `usePlayMoney`. |
+| `title` (required) | `string` | — | Name of the game, shown in the header and used as the region label. |
+| `money` (required) | `PlayMoney` | — | The balance from `usePlayMoney`. |
 | `busy` | `boolean` | `false` | True while a round is running: the reset button waits for it to end. |
 | `announcement` | `string` | `""` | Result text for screen readers, announced politely. |
 | `className` | `string` | — | Extra class for the card. |
-| `children` (obrigatória) | `ReactNode` | — | The stage and controls of the game. |
+| `children` (required) | `ReactNode` | — | The stage and controls of the game. |
 
 ### `BetField`
 
 Bet amount with half, double and max shortcuts. Typing is free; the amount is clamped when the field loses focus.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `number` | — | Bet amount. |
-| `onValueChange` (obrigatória) | `(value: number) => void` | — | Called with the new amount, already clamped between `min` and `max`. |
+| `value` (required) | `number` | — | Bet amount. |
+| `onValueChange` (required) | `(value: number) => void` | — | Called with the new amount, already clamped between `min` and `max`. |
 | `min` | `number` | `1` | Smallest bet. |
-| `max` (obrigatória) | `number` | — | Largest bet, usually the balance. |
+| `max` (required) | `number` | — | Largest bet, usually the balance. |
 | `disabled` | `boolean` | `false` | Locks the field, for example while a round runs. |
 | `label` | `string` | `"Bet"` | Field label. |
 
@@ -127,11 +127,11 @@ Bet amount with half, double and max shortcuts. Typing is free; the amount is cl
 
 A small optional number, such as a target multiplier.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Field label. |
-| `value` (obrigatória) | `string` | — | Text in the field (digits and one dot). Empty means "not set". |
-| `onValueChange` (obrigatória) | `(value: string) => void` | — | Called with the cleaned text on every edit. |
+| `label` (required) | `string` | — | Field label. |
+| `value` (required) | `string` | — | Text in the field (digits and one dot). Empty means "not set". |
+| `onValueChange` (required) | `(value: string) => void` | — | Called with the cleaned text on every edit. |
 | `placeholder` | `string` | — | Shown while the field is empty. |
 | `suffix` | `string` | — | Short unit after the number, for example "×". |
 | `disabled` | `boolean` | `false` | Locks the field. |
@@ -140,118 +140,118 @@ A small optional number, such as a target multiplier.
 
 A labelled slot for a custom control, aligned with the bet field.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Label above the control. |
-| `children` (obrigatória) | `ReactNode` | — | The control: a stepper, a segmented choice… |
+| `label` (required) | `string` | — | Label above the control. |
+| `children` (required) | `ReactNode` | — | The control: a stepper, a segmented choice… |
 
 ### `PlayButton`
 
 The main action of a game. One button keeps focus while its label changes (Bet, Cash out, …).
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `labelKey` (obrigatória) | `string` | — | Identifies the label: when it changes, the old label slides out and the new one slides in. |
+| `labelKey` (required) | `string` | — | Identifies the label: when it changes, the old label slides out and the new one slides in. |
 | `tone` | `"accent" \| "neutral"` | `"accent"` | "accent" for the main action, "neutral" for a waiting state. |
 | `disabled` | `boolean` | `false` | Turns the action off. The button stays focusable (aria-disabled), so keyboard focus is never lost while a round runs. |
-| `onClick` (obrigatória) | `() => void` | — | Runs the action. |
-| `children` (obrigatória) | `ReactNode` | — | Label content. |
+| `onClick` (required) | `() => void` | — | Runs the action. |
+| `children` (required) | `ReactNode` | — | Label content. |
 
 ### `HistoryChips`
 
 A row of past results. A new chip springs in at the start and pushes the others along.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `entries` (obrigatória) | `HistoryEntry[]` | — | Past results, newest first. |
-| `label` (obrigatória) | `string` | — | Label of the list for screen readers. |
+| `entries` (required) | `HistoryEntry[]` | — | Past results, newest first. |
+| `label` (required) | `string` | — | Label of the list for screen readers. |
 
-### Tipos exportados
+### Exported types
 
 #### `SlideTile`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `multiplier` (obrigatória) | `number` | Multiplier paid when the strip stops on this tile. |
-| `weight` (obrigatória) | `number` | Relative chance of this tile: a weight of 2 comes up twice as often as a weight of 1. |
+| `multiplier` (required) | `number` | Multiplier paid when the strip stops on this tile. |
+| `weight` (required) | `number` | Relative chance of this tile: a weight of 2 comes up twice as often as a weight of 1. |
 
 #### `SlideRound`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number` | Round number, starting at 1. |
-| `multiplier` (obrigatória) | `number` | Multiplier the strip stopped on. |
-| `bet` (obrigatória) | `number` | Amount bet. |
-| `payout` (obrigatória) | `number` | Amount paid back. |
+| `id` (required) | `number` | Round number, starting at 1. |
+| `multiplier` (required) | `number` | Multiplier the strip stopped on. |
+| `bet` (required) | `number` | Amount bet. |
+| `payout` (required) | `number` | Amount paid back. |
 
 #### `PlayMoneyOptions`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `balance` | `number` | Controlled balance. |
-| `defaultBalance` (obrigatória) | `number` | Starting balance when uncontrolled; a reset returns to it. |
+| `defaultBalance` (required) | `number` | Starting balance when uncontrolled; a reset returns to it. |
 | `onBalanceChange` | `(balance: number) => void` | Called with the new balance after a bet, a payout or a reset. |
 
 #### `PlayMoneyGain`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number` | Changes on every payout, so the same amount twice still animates. |
-| `amount` (obrigatória) | `number` | Amount paid. |
+| `id` (required) | `number` | Changes on every payout, so the same amount twice still animates. |
+| `amount` (required) | `number` | Amount paid. |
 
 #### `PlayMoney`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `balance` (obrigatória) | `number` | Current fake balance. |
-| `gain` (obrigatória) | `PlayMoneyGain \| null` | The latest payout, for the "+12.40" flyer next to the balance. |
-| `spend` (obrigatória) | `(amount: number) => boolean` | Takes a bet out of the balance. Returns false (and takes nothing) when the balance is too low. |
-| `pay` (obrigatória) | `(amount: number) => void` | Adds a payout to the balance. |
-| `reset` (obrigatória) | `() => void` | Returns the balance to its starting amount. |
+| `balance` (required) | `number` | Current fake balance. |
+| `gain` (required) | `PlayMoneyGain \| null` | The latest payout, for the "+12.40" flyer next to the balance. |
+| `spend` (required) | `(amount: number) => boolean` | Takes a bet out of the balance. Returns false (and takes nothing) when the balance is too low. |
+| `pay` (required) | `(amount: number) => void` | Adds a payout to the balance. |
+| `reset` (required) | `() => void` | Returns the balance to its starting amount. |
 
 #### `HistoryEntry`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number \| string` | Stable key of the round. |
-| `label` (obrigatória) | `string` | Text of the chip, for example "2.31×". |
-| `tone` (obrigatória) | `"low" \| "mid" \| "high"` | "low" is muted, "mid" is tinted, "high" takes the accent fill. |
+| `id` (required) | `number \| string` | Stable key of the round. |
+| `label` (required) | `string` | Text of the chip, for example "2.31×". |
+| `tone` (required) | `"low" \| "mid" \| "high"` | "low" is muted, "mid" is tinted, "high" takes the accent fill. |
 
-### Outras exportações
+### Other exports
 
-- `formatAmount` (função)
-- `formatMultiplier` (função)
-- `roundAmount` (função)
+- `formatAmount` (function)
+- `formatMultiplier` (function)
+- `roundAmount` (function)
 - `usePlayMoney` (hook)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão principal, aposta e solta a faixa; durante o deslize ele fica `aria-disabled`, mas mantém o foco. |
-| `Enter` | No campo de aposta, confirma o valor e o ajusta entre `minBet` e o saldo. |
+| `Enter` or `Space` | On the main button, bets and releases the strip; during the slide it is `aria-disabled`, but keeps focus. |
+| `Enter` | In the bet field, confirms the value and clamps it between `minBet` and the balance. |
 
-## Acessibilidade
+## Accessibility
 
-- A faixa é `aria-hidden`; o resultado chega ao leitor de tela pela região `role="status"` do cartão (“Sliding with a bet of…”, “Landed on…”), e as chances ficam numa lista rotulada.
-- Saldo com texto oculto, atalhos de aposta com `aria-label` e botão principal com `aria-disabled` seguem o padrão dos outros jogos; todos os textos estão em inglês.
+- The strip is `aria-hidden`; the result reaches the screen reader through the card's `role="status"` region (“Sliding with a bet of…”, “Landed on…”), and the odds sit in a labeled list.
+- Balance with hidden text, bet shortcuts with `aria-label` and main button with `aria-disabled` follow the pattern of the other games; all texts are in English.
 
-## Movimento
+## Motion
 
-- A faixa dispara, passa a maior parte do percurso desacelerando e para um pouco fora do centro, assentando no ladrilho com uma mola; o ponteiro do marcador dá toques conforme os ladrilhos passam por ele.
-- Ao parar, o ladrilho vencedor cresce com sombra, os outros esmaecem e o marcador cresce junto; na montagem, os ladrilhos entram do centro para fora.
-- Com “reduzir movimento” ligado, a faixa não corre: ela reaparece na posição final com um esmaecer curto, sem o toque do ponteiro, sem crescimento e sem entrada escalonada.
+- The strip launches, spends most of the run slowing down and stops slightly off-center, settling on the tile with a spring; the marker's pointer ticks as tiles pass it.
+- On stopping, the winning tile grows with a shadow, the others fade and the marker grows along with it; on mount, the tiles enter from the center outward.
+- With “reduce motion” on, the strip does not run: it reappears at the final position with a short fade, with no pointer tick, no growth and no staggered entrance.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O cartão vai até 36rem e é um contêiner: aposta e botão ficam lado a lado a partir de 28rem; a faixa ocupa a largura toda e esmaece nas bordas, com ladrilhos fixos de 76 px.
+- The card goes up to 36rem and is a container: bet and button sit side by side from 28rem; the strip takes the full width and fades at the edges, with fixed 76 px tiles.
 
-## Notas para IA
+## Notes for AI
 
-- `tiles` recebe `multiplier` e `weight` (peso 2 sai duas vezes mais que peso 1); entradas com peso zero ou multiplicador negativo são descartadas, e sem nenhuma válida volta a tabela padrão.
-- `duration` (3.8 s) é o tempo da corrida até parar; `onRoundEnd` chega quando a faixa para, e `random` só é chamado na aposta, para sortear o resultado e preencher a faixa.
-- A tabela padrão tem pesos que somam 100 e paga em média 0.97 da aposta; é dinheiro de mentira, com a própria cópia de `play-money.tsx`.
+- `tiles` takes `multiplier` and `weight` (weight 2 comes up twice as often as weight 1); entries with zero weight or a negative multiplier are discarded, and with none valid the default table is restored.
+- `duration` (3.8 s) is the time of the run until it stops; `onRoundEnd` arrives when the strip stops, and `random` is only called at bet time, to draw the result and fill the strip.
+- The default table has weights that add up to 100 and pays 0.97 of the bet on average; it is play money, with its own copy of `play-money.tsx`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slide-game · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slide-game · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

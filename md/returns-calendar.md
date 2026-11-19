@@ -2,48 +2,48 @@
 
 > Calendário de retornos diários, mês a mês, com cada dia colorido pela força do ganho ou da perda e o total do mês.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/returns-calendar
-- Descrição original (inglês): Small month calendars of daily returns tinted by gain or loss, with month totals, months and cells that wave in, and a tooltip that glides between days.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/returns-calendar
+- Original description: Small month calendars of daily returns tinted by gain or loss, with month totals, months and cells that wave in, and a tooltip that glides between days.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json`. Caminho do registro, relativo ao endereço do site: `r/returns-calendar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/returns-calendar.json`. Registry path, relative to the site address: `r/returns-calendar.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/returns-calendar/returns-calendar.tsx`
   - `components/ryan-ui/returns-calendar/returns-calendar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/returns-calendar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/returns-calendar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar o retorno diário de uma carteira, fundo ou estratégia ao longo de vários meses, com o total de cada mês ao lado do nome.
-- Quando o padrão importa mais que a curva: sequências de dias bons ou ruins, o melhor e o pior dia, quantos dias fecharam em alta.
-- Como seletor de um pregão para detalhar em outro ponto da tela, com `onSelectDate`.
+- Showing the daily return of a portfolio, fund, or strategy over several months, with each month's total next to its name.
+- When the pattern matters more than the curve: streaks of good or bad days, the best and worst day, how many days closed up.
+- As a trading-day picker to drill down elsewhere on the screen, with `onSelectDate`.
 
-## Quando não usar
+## When not to use
 
-- Use [`activity-heatmap`](activity-heatmap.md) para contagens diárias sem sinal, como contribuições ou acessos ao longo de um ano.
-- Use [`calendar`](calendar.md) ou [`date-picker`](date-picker.md) quando a pessoa precisa escolher uma data qualquer; aqui só os dias com dado são clicáveis.
-- Use [`line-chart`](line-chart.md) quando o que importa é a evolução acumulada, e não cada dia isolado.
+- Use [`activity-heatmap`](activity-heatmap.md) for unsigned daily counts, such as contributions or visits over a year.
+- Use [`calendar`](calendar.md) or [`date-picker`](date-picker.md) when the user needs to pick any date; here only days with data are clickable.
+- Use [`line-chart`](line-chart.md) when what matters is the cumulative evolution, not each day in isolation.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -103,16 +103,16 @@ export default function ReturnsCalendarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ReturnsCalendar`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `returns` (obrigatória) | `DailyReturn[]` | — | One entry per trading day, in any order. Days without an entry are drawn as closed. |
-| `label` (obrigatória) | `string` | — | Accessible name of the calendar, such as "Daily returns, first half of 2026". |
+| `returns` (required) | `DailyReturn[]` | — | One entry per trading day, in any order. Days without an entry are drawn as closed. |
+| `label` (required) | `string` | — | Accessible name of the calendar, such as "Daily returns, first half of 2026". |
 | `period` | `string` | — | Text beside the overall total. Defaults to the range of months the data covers. |
 | `weekends` | `boolean` | `false` | Shows Saturday and Sunday columns. Off by default, for markets that close on weekends. |
 | `scale` | `number` | — | Return in percent at which the color saturates. Defaults to a high percentile of the data. |
@@ -123,53 +123,53 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `locale` | `string` | `"en-US"` | Formatting locale. Fixed by default so server and client render the same labels. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
 #### `DailyReturn`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `date` (obrigatória) | `string` | Trading day as YYYY-MM-DD. |
-| `value` (obrigatória) | `number` | Return of the day in percent: 1.2 means the day closed 1.2% up. |
+| `date` (required) | `string` | Trading day as YYYY-MM-DD. |
+| `value` (required) | `number` | Return of the day in percent: 1.2 means the day closed 1.2% up. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Leva o foco ao dia com dado anterior ou seguinte, atravessando os meses, e mostra a dica desse dia. |
-| `↑` ou `↓` | Recua ou avança cinco dias com dado (sete com `weekends`), o que equivale a uma semana quando não há feriados no caminho. |
-| `Home` ou `End` | Vai ao primeiro ou ao último dia do período. |
-| `Enter` ou `Espaço` | Seleciona o dia em foco; de novo, desfaz a seleção. |
-| `Esc` | Fecha a dica. |
-| `Tab` | Entra no calendário por um único dia (o último focado ou o mais recente) e sai dele. |
+| `←` or `→` | Move focus to the previous or next day with data, crossing months, and show that day's tooltip. |
+| `↑` or `↓` | Step back or forward five days with data (seven with `weekends`), which equals one week when there are no holidays in the way. |
+| `Home` or `End` | Go to the first or last day of the period. |
+| `Enter` or `Space` | Select the focused day; press again to clear the selection. |
+| `Esc` | Closes the tooltip. |
+| `Tab` | Enters the calendar on a single day (the last focused or the most recent) and leaves it. |
 
-## Acessibilidade
+## Accessibility
 
-- O conjunto é um `role="group"` nomeado por `label`; cada mês é uma `<section>` com mês e total no nome, e cada dia com dado é um `<button>` com `aria-pressed`.
-- O foco usa tabindex itinerante: só um dia fica na ordem de `Tab` e as setas levam aos outros; dias sem dado são decorativos e ficam fora da navegação.
-- O nome de cada dia traz a data por extenso e o retorno (`up`, `down` ou `flat` mais o percentual); esses termos e os rótulos visíveis, como `Best day` e `Closed`, são fixos em inglês.
+- The whole is a `role="group"` named by `label`; each month is a `<section>` with month and total in its name, and each day with data is a `<button>` with `aria-pressed`.
+- Focus uses a roving tabindex: only one day is in the `Tab` order and the arrow keys lead to the others; days without data are decorative and outside navigation.
+- Each day's name carries the full date and the return (`up`, `down`, or `flat` plus the percentage); these terms and the visible labels, such as `Best day` and `Closed`, are hardcoded in English.
 
-## Movimento
+## Motion
 
-- Ao entrar na tela, os meses sobem um após o outro e as células de cada um aparecem em onda diagonal, crescendo a partir da metade do tamanho; o total geral conta de zero até o valor.
-- A dica é uma só: aparece já no lugar e depois desliza com mola de um dia para o outro; com mouse, o dia sob o cursor cresce um pouco.
-- Com “reduzir movimento” ligado, meses e células apenas esmaecem, o total aparece direto e a dica não desliza.
+- On entering the viewport, the months rise one after another and each month's cells appear in a diagonal wave, growing from half size; the grand total counts up from zero to the value.
+- The tooltip is a single one: it appears already in place and then glides on a spring from one day to the next; with a mouse, the day under the cursor grows slightly.
+- With “reduced motion” on, months and cells only fade, the total appears directly, and the tooltip doesn't glide.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Os meses se distribuem em colunas de pelo menos 128 px conforme a largura do contêiner; abaixo de 420 px ficam sempre em duas colunas.
-- No toque, a dica continua visível por cerca de dois segundos depois que o dedo sai, para dar tempo de ler.
+- Months are distributed into columns of at least 128 px according to the container's width; below 420 px they always sit in two columns.
+- On touch, the tooltip stays visible for about two seconds after the finger leaves, to give time to read.
 
-## Desempenho
+## Performance
 
-- Cada dia com dado é um `<button>` (um ano de pregões dá cerca de 250), e a entrada em onda usa só transições CSS com atraso, sem JavaScript por célula.
+- Each day with data is a `<button>` (a year of trading days gives about 250), and the wave entrance uses only CSS transitions with delay, with no JavaScript per cell.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `returns` como `{ date: "YYYY-MM-DD", value }`, com `value` em pontos percentuais (`1.2` = +1,2%); dias sem entrada aparecem como fechados e meses sem entrada não são desenhados.
-- Os totais são compostos por padrão: `compound={false}` soma os retornos, `weekends` mostra sábado e domingo e `scale` fixa o percentual em que a cor satura.
-- Seleção controlada com `selectedDate` e `onSelectDate` (`null` = nenhuma) ou interna com `defaultSelectedDate`; guarde `returns` em `useMemo`, pois o calendário inteiro é recalculado quando o array muda.
+- Pass `returns` as `{ date: "YYYY-MM-DD", value }`, with `value` in percentage points (`1.2` = +1.2%); days without an entry appear as closed and months without an entry aren't drawn.
+- Totals are compounded by default: `compound={false}` sums the returns, `weekends` shows Saturday and Sunday, and `scale` fixes the percentage at which the color saturates.
+- Controlled selection with `selectedDate` and `onSelectDate` (`null` = none) or internal with `defaultSelectedDate`; keep `returns` in `useMemo`, since the whole calendar is recomputed when the array changes.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/returns-calendar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/returns-calendar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

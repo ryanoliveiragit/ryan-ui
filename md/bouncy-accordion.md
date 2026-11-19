@@ -2,48 +2,48 @@
 
 > Acordeão em que o item aberto se solta dos vizinhos: o espaço cresce e os cantos arredondam com um leve quique.
 
-- Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bouncy-accordion
-- Descrição original (inglês): An accordion whose open item detaches from its neighbors: the gaps widen and the facing corners round off with a small bounce.
+- Type: component (category Disclosure), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/bouncy-accordion
+- Original description: An accordion whose open item detaches from its neighbors: the gaps widen and the facing corners round off with a small bounce.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json`. Caminho do registro, relativo ao endereço do site: `r/bouncy-accordion.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bouncy-accordion.json`. Registry path, relative to the site address: `r/bouncy-accordion.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/bouncy-accordion/bouncy-accordion.tsx`
   - `components/ryan-ui/bouncy-accordion/bouncy-accordion.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/bouncy-accordion.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/bouncy-accordion.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Perguntas frequentes de uma landing page em que o item aberto deve se destacar do bloco, com um ícone antes de cada pergunta.
-- Listas em que várias respostas podem ficar abertas ao mesmo tempo, com `multiple`.
-- Acordeões cujo estado vem de fora, como da URL ou de um formulário, com `value` e `onValueChange`.
+- Frequently asked questions on a landing page where the open item should stand out from the block, with an icon before each question.
+- Lists where several answers can stay open at the same time, with `multiple`.
+- Accordions whose state comes from outside, such as the URL or a form, with `value` and `onValueChange`.
 
-## Quando não usar
+## When not to use
 
-- Use [`accordion`](accordion.md) em páginas densas ou documentação, onde separadores finos e menos movimento combinam melhor.
-- Use [`collapsible`](collapsible.md) para uma única região que abre e fecha.
-- Use [`faq-section`](faq-section.md) quando precisar da seção de perguntas inteira, com tópicos ou busca.
+- Use [`accordion`](accordion.md) on dense pages or documentation, where thin dividers and less motion fit better.
+- Use [`collapsible`](collapsible.md) for a single region that opens and closes.
+- Use [`faq-section`](faq-section.md) when you need the whole question section, with topics or search.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -72,15 +72,15 @@ export default function BouncyAccordionDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BouncyAccordion`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `BouncyAccordionItem[]` | — | The sections, in order. |
+| `items` (required) | `BouncyAccordionItem[]` | — | The sections, in order. |
 | `value` | `string[]` | — | Values of the open items (controlled). |
 | `defaultValue` | `string[]` | — | Values of the items open at first when uncontrolled. |
 | `onValueChange` | `(value: string[]) => void` | — | Called with the values of the open items after each change. |
@@ -90,44 +90,44 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `headingLevel` | `2 \| 3 \| 4 \| 5 \| 6` | `3` | Heading level that wraps each trigger, to fit the page outline. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
 #### `BouncyAccordionItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | Unique id of the item; this is what `value` and `onValueChange` carry. |
-| `title` (obrigatória) | `ReactNode` | The question or section name shown on the trigger. |
-| `content` (obrigatória) | `ReactNode` | The content revealed when the item opens. |
+| `value` (required) | `string` | Unique id of the item; this is what `value` and `onValueChange` carry. |
+| `title` (required) | `ReactNode` | The question or section name shown on the trigger. |
+| `content` (required) | `ReactNode` | The content revealed when the item opens. |
 | `icon` | `ReactNode` | Optional leading icon. |
 | `disabled` | `boolean` | Keeps the item closed and skips it during keyboard navigation. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Abre ou fecha o item em foco; sem `multiple`, abrir um fecha os outros. |
-| `↓` ou `↑` | Move o foco para o título seguinte ou anterior, pulando os desativados e voltando ao primeiro depois do último. |
-| `Home` ou `End` | Leva o foco ao primeiro ou ao último título ativo. |
+| `Enter` or `Space` | Opens or closes the focused item; without `multiple`, opening one closes the others. |
+| `↓` or `↑` | Moves focus to the next or previous title, skipping disabled ones and wrapping to the first after the last. |
+| `Home` or `End` | Moves focus to the first or last enabled title. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada título é um `<button>` dentro de um cabeçalho de nível `headingLevel` (padrão 3), com `aria-expanded` e `aria-controls`; o painel é uma `region` ligada ao título.
-- Ao terminar de fechar, o painel recebe `visibility: hidden` e sai da ordem de Tab e da árvore de acessibilidade; ícone e sinal de mais ficam ocultos para o leitor de tela.
-- Itens com `disabled` usam o `disabled` nativo do botão e são pulados pelas setas.
+- Each title is a `<button>` inside a heading of level `headingLevel` (default 3), with `aria-expanded` and `aria-controls`; the panel is a `region` tied to the title.
+- When it finishes closing, the panel gets `visibility: hidden` and leaves the Tab order and the accessibility tree; the icon and plus sign are hidden from the screen reader.
+- Items with `disabled` use the button's native `disabled` and are skipped by the arrows.
 
-## Movimento
+## Motion
 
-- O item aberto se solta dos vizinhos: as margens crescem de 3 px até `gap` e os cantos voltados para o espaço arredondam até `radius`, numa mola com um pequeno quique.
-- A altura abre com o mesmo quique e fecha numa mola sem ultrapassagem; o conteúdo desce 10 px enquanto aparece e o sinal de mais gira 135° até virar um x.
-- Com “reduzir movimento” ligado, margens, cantos, altura e ícone mudam na hora, e o aumento do botão ao passar o mouse é desligado.
+- The open item breaks away from its neighbors: the margins grow from 3 px up to `gap` and the corners facing the space round up to `radius`, on a spring with a small bounce.
+- The height opens with the same bounce and closes on a no-overshoot spring; the content moves down 10 px as it appears and the plus sign rotates 135° until it becomes an x.
+- With “reduce motion” on, margins, corners, height, and icon change instantly, and the button's grow on hover is turned off.
 
-## Notas para IA
+## Notes for AI
 
-- `value` é sempre uma lista de strings, mesmo sem `multiple`, e `onValueChange` recebe a lista inteira; todos começam fechados (`defaultValue` é `[]`).
-- Ao desligar `multiple` com estado controlado, corte a lista você mesmo, como o demo faz com `current.slice(-1)`; o componente não faz isso.
-- Cada item precisa de `value` único; `title` aceita qualquer nó React e `icon` é opcional. Importe de `@/components/ryan-ui/bouncy-accordion/bouncy-accordion`.
+- `value` is always a list of strings, even without `multiple`, and `onValueChange` receives the whole list; all start closed (`defaultValue` is `[]`).
+- When turning off `multiple` with controlled state, trim the list yourself, as the demo does with `current.slice(-1)`; the component does not do this.
+- Each item needs a unique `value`; `title` accepts any React node and `icon` is optional. Import from `@/components/ryan-ui/bouncy-accordion/bouncy-accordion`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bouncy-accordion · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bouncy-accordion · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

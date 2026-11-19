@@ -1,794 +1,794 @@
 {
  "alert": {
   "quandoUsar": [
-   "Um problema que a pessoa precisa resolver para seguir, como pagamento recusado ou armazenamento quase cheio, mostrado no lugar onde ele acontece.",
-   "Uma mensagem que muda de estado no mesmo lugar, como uma verificação que vai de `info` para `success`: o ícone se transforma e a altura acompanha o texto novo com uma mola.",
-   "Avisos que a pessoa pode dispensar (`onDismiss`): ao sumir, o alerta recolhe a altura e o conteúdo de baixo sobe sem pular."
+   "A problem the user must resolve to continue, such as a declined payment or nearly full storage, shown where it happens.",
+   "A message that changes state in place, such as a check that goes from `info` to `success`: the icon morphs and the height follows the new text with a spring.",
+   "Notices the user can dismiss (`onDismiss`): when it goes away, the alert collapses its height and the content below moves up without jumping."
   ],
   "quandoEvitar": [
-   "Use `toast` para confirmar uma ação concluída em segundo plano, que não pede nada da pessoa.",
-   "Use `announcement-bar` para um recado do site inteiro no topo da página, como uma promoção ou um lançamento.",
-   "Use `dialog` quando a pessoa precisa decidir algo antes de continuar."
+   "Use `toast` to confirm an action completed in the background that asks nothing of the user.",
+   "Use `announcement-bar` for a site-wide message at the top of the page, such as a promotion or a launch.",
+   "Use `dialog` when the user must decide something before continuing."
   ],
   "acessibilidade": [
-   "O tom `danger` usa `role=\"alert\"`, que interrompe o leitor de tela; os outros tons usam `role=\"status\"`, lido sem interromper. Reserve `danger` para o que é urgente.",
-   "O ícone é decorativo (`aria-hidden`), então o título precisa dizer o que aconteceu; ao trocar título ou texto, a cópia que sai fica oculta e só o texto atual é lido.",
-   "O botão de fechar é um `<button>` nativo com `aria-label` fixo em inglês (`Dismiss: <título>`); num site em português, ajuste esse texto no arquivo copiado."
+   "The `danger` tone uses `role=\"alert\"`, which interrupts the screen reader; the other tones use `role=\"status\"`, which is read without interrupting. Reserve `danger` for what is urgent.",
+   "The icon is decorative (`aria-hidden`), so the title must say what happened; when the title or text changes, the outgoing copy is hidden and only the current text is read.",
+   "The close button is a native `<button>` with a fixed English `aria-label` (`Dismiss: <título>`); on a non-English site, adjust that text in the copied file."
   ],
   "movimento": [
-   "Trocar `tone` transforma o ícone no lugar (o antigo encolhe com leve desfoque e o novo cresce), e um título ou texto novo sobe enquanto o anterior sai por cima.",
-   "A coluna de texto anima a altura com uma mola sem ultrapassagem logo depois de uma troca de conteúdo; mudanças passivas, como redimensionar a janela, seguem na hora.",
-   "Com `open` ou `onDismiss`, aparecer e sumir recolhem a altura junto com o esmaecer; com “reduzir movimento”, o texto só esmaece e altura, entrada e saída mudam sem animação."
+   "Changing `tone` morphs the icon in place (the old one shrinks with a slight blur and the new one grows), and a new title or text rises while the previous one exits upward.",
+   "The text column animates its height with a no-overshoot spring right after a content change; passive changes, such as resizing the window, follow immediately.",
+   "With `open` or `onDismiss`, appearing and disappearing collapse the height along with the fade; with “reduce motion”, the text only fades, and height, entrance, and exit change without animation."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/alert/alert`; `title` é obrigatório e os filhos viram a descrição. Sem `open` e sem `onDismiss`, o alerta aparece sem animação de entrada (trocas de tom e texto ainda animam).",
-   "Controlado: passe `open` e, em `onDismiss`, ponha `open` em `false`. Sem `open`, o próprio alerta se recolhe ao fechar e só depois chama `onDismiss`.",
-   "Escolha `tone` pelo efeito: `danger` só para erro que bloqueia, porque é anunciado na hora; `warning` para risco próximo; `success` e `info` para o resto."
+   "Import from `@/components/ryan-ui/alert/alert`; `title` is required and the children become the description. Without `open` and without `onDismiss`, the alert appears without an entrance animation (tone and text changes still animate).",
+   "Controlled: pass `open` and, in `onDismiss`, set `open` to `false`. Without `open`, the alert collapses itself on close and only then calls `onDismiss`.",
+   "Choose `tone` by its effect: `danger` only for a blocking error, because it is announced immediately; `warning` for imminent risk; `success` and `info` for the rest."
   ]
  },
  "announcement-bar": {
   "quandoUsar": [
-   "Um recado para o site inteiro no topo da página: promoção com prazo, versão nova ou evento ao vivo, com um link de ação.",
-   "Duas a quatro mensagens que se revezam no mesmo espaço, com pausa ao passar o mouse ou focar e, com `controls`, botões de anterior, próximo e pausa.",
-   "Campanhas que a pessoa fecha uma vez: com `id`, a dispensa fica salva em `localStorage` e a barra não volta; troque o `id` para mostrar uma campanha nova a todos."
+   "A site-wide message at the top of the page: a time-limited promotion, a new version, or a live event, with an action link.",
+   "Two to four messages that rotate in the same space, pausing on hover or focus and, with `controls`, previous, next, and pause buttons.",
+   "Campaigns the user closes once: with `id`, the dismissal is saved in `localStorage` and the bar does not come back; change the `id` to show a new campaign to everyone."
   ],
   "quandoEvitar": [
-   "Use `alert` para uma mensagem ligada a uma tela ou formulário específico, que ajuda a resolver um problema ali.",
-   "Use `toast` ou `toast-stack` para o resultado de algo que a pessoa acabou de fazer.",
-   "Use `countdown` quando a contagem regressiva é o centro da página, como a tela de um lançamento, e não um detalhe numa faixa."
+   "Use `alert` for a message tied to a specific screen or form, helping to resolve a problem there.",
+   "Use `toast` or `toast-stack` for the result of something the user just did.",
+   "Use `countdown` when the countdown is the centerpiece of the page, such as a launch screen, and not a detail in a strip."
   ],
   "teclado": [
    {
     "teclas": ["Tab", "Shift + Tab"],
-    "acao": "Percorre o link de ação e os botões de anterior, pausa, próximo e fechar; enquanto o foco estiver dentro da barra, a rotação fica parada."
+    "acao": "Moves through the action link and the previous, pause, next, and close buttons; while focus is inside the bar, rotation stays paused."
    }
   ],
   "acessibilidade": [
-   "É uma `<section>` com `aria-label` (padrão “Announcements”); com mais de uma mensagem vira um carrossel (`aria-roledescription`) e cada mensagem é um grupo rotulado “N of M”.",
-   "Enquanto gira sozinha, a área das mensagens fica com `aria-live=\"off\"` para não falar a cada troca; parada por pausa, foco, mouse ou “reduzir movimento”, passa a `polite`.",
-   "Os rótulos dos botões (“Previous announcement”, “Pause announcements”, “Dismiss”) e a leitura da contagem estão fixos em inglês; passe `label` em português e ajuste os demais no arquivo copiado."
+   "It is a `<section>` with `aria-label` (default “Announcements”); with more than one message it becomes a carousel (`aria-roledescription`) and each message is a labeled group “N of M”.",
+   "While it rotates on its own, the messages area has `aria-live=\"off\"` so it does not speak on every change; when stopped by pause, focus, mouse, or “reduce motion”, it switches to `polite`.",
+   "The button labels (“Previous announcement”, “Pause announcements”, “Dismiss”) and the countdown reading are fixed in English; pass `label` in your language and adjust the rest in the copied file."
   ],
   "movimento": [
-   "A próxima mensagem sobe de baixo com um leve desfoque enquanto a anterior sai por cima (voltar faz o caminho inverso), e a barra acompanha a altura da nova com uma mola sem ultrapassagem.",
-   "O anel de pausa é o relógio da rotação: enche de forma linear durante `interval`, para onde está ao pausar e completa o resto ao retomar; na contagem, cada dígito que muda cai de cima.",
-   "Fechar recolhe a altura com uma mola e a página sobe junto. Com “reduzir movimento”, a rotação automática é desligada, as mensagens só esmaecem e fechar vira um esmaecer curto."
+   "The next message rises from below with a slight blur while the previous one exits upward (going back reverses the path), and the bar follows the new message's height with a no-overshoot spring.",
+   "The pause ring is the rotation clock: it fills linearly during `interval`, stops where it is when paused, and completes the rest on resume; in the countdown, each digit that changes drops in from above.",
+   "Closing collapses the height with a spring and the page moves up with it. With “reduce motion”, automatic rotation is turned off, messages only fade, and closing becomes a short fade."
   ],
   "responsivo": [
-   "Abaixo de 560 px de largura da própria barra (container query), a coluna que espelha os botões some e a mensagem passa a alinhar à esquerda em vez de centralizar.",
-   "Mensagem, contagem e link quebram em linhas quando falta espaço (a contagem e o link não se partem por dentro), e a barra cresce até a nova altura com a mola."
+   "Below 560 px of the bar's own width (container query), the column that mirrors the buttons disappears and the message aligns left instead of centering.",
+   "Message, countdown, and link wrap onto lines when space runs out (the countdown and the link do not break internally), and the bar grows to the new height with the spring."
   ],
   "desempenho": [
-   "Cada contagem acorda uma vez por segundo, alinhada ao segundo cheio; a rotação é uma animação linear que para com a aba oculta, o mouse em cima ou o foco dentro."
+   "Each countdown wakes once per second, aligned to the full second; the rotation is a linear animation that stops when the tab is hidden, the mouse is over it, or focus is inside."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/announcement-bar/announcement-bar`; cada item de `messages` precisa de `id` estável. A barra fica no fluxo (não é fixa nem sticky): ponha-a acima do cabeçalho.",
-   "Com `open` controlado, a dispensa é gravada em `localStorage` (havendo `id`), mas não é lida; para lembrar, deixe o estado com o componente. `clearAnnouncementDismissal(id)` apaga a dispensa, e a barra volta na próxima montagem.",
-   "`controls` vem desligado (só o botão de fechar aparece). `countdown.to` passa por `new Date()`; use uma data ISO com fuso (`Z` ou `-03:00`) para não depender do fuso do visitante."
+   "Import from `@/components/ryan-ui/announcement-bar/announcement-bar`; each item in `messages` needs a stable `id`. The bar stays in the flow (it is not fixed or sticky): place it above the header.",
+   "With controlled `open`, the dismissal is written to `localStorage` (when there is an `id`) but not read; to remember it, keep the state in the component. `clearAnnouncementDismissal(id)` erases the dismissal, and the bar returns on the next mount.",
+   "`controls` is off by default (only the close button appears). `countdown.to` goes through `new Date()`; use an ISO date with a time zone (`Z` or `-03:00`) so it does not depend on the visitor's time zone."
   ]
  },
  "cookie-consent": {
   "quandoUsar": [
-   "Pedir consentimento para cookies opcionais na primeira visita, com aceitar, rejeitar e personalizar lado a lado, e recusar tão fácil quanto aceitar.",
-   "Deixar a pessoa mudar de ideia depois: a escolha vira um botão redondo no canto que reabre as preferências, e `openPreferences()` pelo `ref` atende um link “Cookies” no rodapé.",
-   "Pedir de novo quando a política muda: aumente `version` e a escolha salva em `storageKey` deixa de valer."
+   "Ask for consent to optional cookies on the first visit, with accept, reject, and customize side by side, and declining as easy as accepting.",
+   "Let the user change their mind later: the choice becomes a round button in the corner that reopens the preferences, and `openPreferences()` through the `ref` serves a “Cookies” link in the footer.",
+   "Ask again when the policy changes: increase `version` and the choice saved under `storageKey` stops being valid."
   ],
   "quandoEvitar": [
-   "Use `announcement-bar` para um recado de topo que não pede escolha nenhuma.",
-   "Use `dialog` quando o fluxo exige bloquear a página até a decisão; esta camada não é modal e o site segue usável por trás.",
-   "Use `switch` direto numa página de configurações quando as preferências de privacidade fazem parte de um formulário maior."
+   "Use `announcement-bar` for a top message that asks for no choice.",
+   "Use `dialog` when the flow requires blocking the page until a decision is made; this layer is not modal and the site remains usable behind it.",
+   "Use `switch` directly on a settings page when the privacy preferences are part of a larger form."
   ],
   "teclado": [
    {
     "teclas": ["Esc"],
-    "acao": "Com o foco no painel de preferências, fecha sem salvar e devolve o foco ao botão “Customize” da barra ou ao botão de reabrir."
+    "acao": "With focus in the preferences panel, closes without saving and returns focus to the bar's “Customize” button or to the reopen button."
    },
    {
-    "teclas": ["Espaço", "Enter"],
-    "acao": "No interruptor de uma categoria, liga ou desliga no rascunho; nada é salvo até “Save choices”, “Accept all” ou “Reject all”."
+    "teclas": ["Space", "Enter"],
+    "acao": "On a category's switch, toggles it in the draft; nothing is saved until “Save choices”, “Accept all”, or “Reject all”."
    },
    {
     "teclas": ["Tab", "Shift + Tab"],
-    "acao": "Percorre botões e interruptores; não há trap de foco, porque a camada não é modal."
+    "acao": "Moves through buttons and switches; there is no focus trap, because the layer is not modal."
    }
   ],
   "acessibilidade": [
-   "Barra e painel são `role=\"dialog\"` com `aria-modal=\"false\"`, sem trap de foco; abrir o painel leva o foco ao título, e salvar ou fechar devolve o foco à barra ou ao botão de reabrir.",
-   "Cada interruptor tem `<label>` e `aria-describedby` com a descrição da categoria, e “Save choices” informa em texto oculto quantas categorias opcionais estão permitidas.",
-   "Os textos padrão estão em inglês; passe `labels` (mensagem, botões, título, `reopen`, `alwaysOn`, `close`) para traduzir, inclusive os nomes acessíveis do botão de reabrir e do fechar."
+   "Bar and panel are `role=\"dialog\"` with `aria-modal=\"false\"`, with no focus trap; opening the panel moves focus to the title, and saving or closing returns focus to the bar or to the reopen button.",
+   "Each switch has a `<label>` and `aria-describedby` with the category description, and “Save choices” reports in hidden text how many optional categories are allowed.",
+   "The default texts are in English; pass `labels` (message, buttons, title, `reopen`, `alwaysOn`, `close`) to translate them, including the accessible names of the reopen and close buttons."
   ],
   "movimento": [
-   "Uma única superfície muda de posição, largura, altura e raio com uma mola sem ultrapassagem entre barra, painel e botão redondo; crescer é um pouco mais lento que encolher.",
-   "O conteúdo de cada forma troca com um esmaecer curto, subindo poucos pixels a partir de um leve desfoque, e a superfície entra de baixo com uma escala quase cheia.",
-   "Com “reduzir movimento”, a forma muda na hora e só o conteúdo esmaece."
+   "A single surface changes position, width, height, and radius with a no-overshoot spring between bar, panel, and round button; growing is slightly slower than shrinking.",
+   "The content of each shape swaps with a short fade, rising a few pixels from a slight blur, and the surface enters from below at nearly full scale.",
+   "With “reduce motion”, the shape changes immediately and only the content fades."
   ],
   "responsivo": [
-   "A barra vai até 660 px e o painel até 420 px; abaixo de 560 px a barra empilha texto e botões, e numa barra bem estreita (perto de 340 px) “Customize” desce para uma linha própria.",
-   "A lista de categorias rola por dentro acima de `min(46vh, 300px)`; mude o limite com a variável `--cookie-consent-list-max`."
+   "The bar goes up to 660 px and the panel up to 420 px; below 560 px the bar stacks text and buttons, and in a very narrow bar (around 340 px) “Customize” drops to its own line.",
+   "The category list scrolls internally above `min(46vh, 300px)`; change the limit with the `--cookie-consent-list-max` variable."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/cookie-consent/cookie-consent` (usa `button` e `switch`). Ela só registra a escolha: carregue scripts de análise ou marketing você mesmo, a partir de `onChange` ou `readCookieConsent(storageKey, version)`.",
-   "Monte uma vez no layout com `storageKey`; nada aparece no servidor nem antes de ler o armazenamento. Numa prévia dentro de um cartão, use `strategy=\"absolute\"` com um pai posicionado.",
-   "Para um link “Cookies” no rodapé, guarde um `ref` e chame `openPreferences()`; `reset()` apaga a escolha e mostra a barra de novo."
+   "Import from `@/components/ryan-ui/cookie-consent/cookie-consent` (it uses `button` and `switch`). It only records the choice: load analytics or marketing scripts yourself, from `onChange` or `readCookieConsent(storageKey, version)`.",
+   "Mount it once in the layout with `storageKey`; nothing appears on the server or before storage is read. In a preview inside a card, use `strategy=\"absolute\"` with a positioned parent.",
+   "For a “Cookies” link in the footer, keep a `ref` and call `openPreferences()`; `reset()` erases the choice and shows the bar again."
   ]
  },
  "countdown": {
   "quandoUsar": [
-   "Um momento fixo que as pessoas esperam, como lançamento, evento ao vivo ou fim de inscrição, com dígitos grandes no centro de uma seção (`variant=\"large\"`).",
-   "Um prazo dentro de um banner, cartão ou célula de tabela, numa linha só (`variant=\"compact\"`).",
-   "Telas que devem mudar sozinhas no zero: os dígitos viram `completeLabel` (padrão “Live now”) e `onComplete` dispara uma vez, na hora, mesmo com a aba oculta."
+   "A fixed moment people are waiting for, such as a launch, a live event, or a registration deadline, with large digits in the center of a section (`variant=\"large\"`).",
+   "A deadline inside a banner, card, or table cell, on a single line (`variant=\"compact\"`).",
+   "Screens that must change on their own at zero: the digits become `completeLabel` (default “Live now”) and `onComplete` fires once, immediately, even with the tab hidden."
   ],
   "quandoEvitar": [
-   "Para tempo decorrido, como um cronômetro que sobe, ela não serve: só conta para baixo até `target`.",
-   "Use `announcement-bar` quando o prazo acompanha um recado no topo do site; ela tem uma contagem própria dentro da mensagem.",
-   "Use `slot-text` ou `animated-counter` para números que mudam por evento, como preço ou total, sem um relógio por trás."
+   "It does not suit elapsed time, such as a stopwatch counting up: it only counts down to `target`.",
+   "Use `announcement-bar` when the deadline accompanies a message at the top of the site; it has its own countdown inside the message.",
+   "Use `slot-text` or `animated-counter` for numbers that change by event, such as a price or total, with no clock behind them."
   ],
   "acessibilidade": [
-   "A raiz é `role=\"timer\"` com o nome de `label` (padrão “Time remaining”); os dígitos animados ficam ocultos e um texto oculto diz o tempo por extenso, sem os segundos enquanto falta mais de um minuto.",
-   "`role=\"timer\"` não anuncia mudanças; se o fim importa para quem usa leitor de tela, anuncie numa região viva sua a partir de `onComplete`.",
-   "Os nomes das unidades, visíveis e lidos (“Days”, “3 days, 4 hours”), estão em inglês; passe `label` em português e traduza as unidades no arquivo copiado."
+   "The root is `role=\"timer\"` named by `label` (default “Time remaining”); the animated digits are hidden and a hidden text states the time in full, without seconds while more than a minute remains.",
+   "`role=\"timer\"` does not announce changes; if the end matters to screen reader users, announce it in your own live region from `onComplete`.",
+   "The unit names, both visible and read aloud (“Days”, “3 days, 4 hours”), are in English; pass `label` in your language and translate the units in the copied file."
   ],
   "movimento": [
-   "Cada dígito é uma roda que gira pelo caminho mais curto, para baixo a cada segundo (00 → 59 é um passo só); na primeira exibição, as rodas entram em sequência, da esquerda para a direita.",
-   "No zero, os dígitos se desfazem com escala e desfoque leves e dão lugar a `completeLabel`, e a caixa acompanha a nova largura e altura com uma mola; no `compact`, a pílula assume o tom de sucesso.",
-   "Com “reduzir movimento”, os dígitos trocam sem girar, a troca final é um esmaecer curto e o ponto que pulsa ao lado do rótulo fica parado."
+   "Each digit is a wheel that turns by the shortest path, downward each second (00 → 59 is a single step); on first display, the wheels enter in sequence, left to right.",
+   "At zero, the digits dissolve with slight scale and blur and give way to `completeLabel`, and the box follows the new width and height with a spring; in `compact`, the pill takes on the success tone.",
+   "With “reduce motion”, the digits change without turning, the final swap is a short fade, and the pulsing dot next to the label stays still."
   ],
   "responsivo": [
-   "No `large`, o tamanho dos dígitos acompanha a largura do contêiner (unidade `cqi`), de 1,75 rem até o tamanho de display, e quatro grupos cabem em 320 px."
+   "In `large`, the digit size follows the container width (`cqi` unit), from 1.75 rem up to display size, and four groups fit in 320 px."
   ],
   "desempenho": [
-   "O relógio só avança com o componente na tela e a aba visível, e ao voltar relê a hora, sem acumular atraso; um temporizador separado garante o fim no horário."
+   "The clock only advances while the component is on screen and the tab is visible, and on return it rereads the time, without accumulating delay; a separate timer guarantees the end on time."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/countdown/countdown`. Para um horário local, passe `target=\"2026-12-01T10:00\"` e `timeZone=\"America/Sao_Paulo\"`; uma string sem fuso e sem `timeZone` é lida como UTC.",
-   "`units` define o que aparece, e a maior unidade absorve o resto: com `[\"hours\", \"minutes\"]`, as horas passam de 24. Se o relógio do aparelho não for confiável, passe `clock` com a hora do servidor.",
-   "`onComplete` só dispara se a contagem chega a zero com o componente montado; se `target` já passou ao montar, mostra `completeLabel` sem contar e sem chamar o callback."
+   "Import from `@/components/ryan-ui/countdown/countdown`. For a local time, pass `target=\"2026-12-01T10:00\"` and `timeZone=\"America/Sao_Paulo\"`; a string without a time zone and without `timeZone` is read as UTC.",
+   "`units` defines what appears, and the largest unit absorbs the rest: with `[\"hours\", \"minutes\"]`, hours go past 24. If the device clock is not reliable, pass `clock` with the server time.",
+   "`onComplete` only fires if the count reaches zero while the component is mounted; if `target` has already passed on mount, it shows `completeLabel` without counting and without calling the callback."
   ]
  },
  "loader": {
   "quandoUsar": [
-   "Uma espera curta sem progresso conhecido, como abrir uma fatura, enviar um formulário ou buscar resultados.",
-   "Dentro de um botão ou de uma frase, com `size=\"sm\"` e `tone=\"current\"` para herdar a cor do texto.",
-   "Esperas com sentido próprio: `dots` para “alguém está digitando”, `bars` para áudio carregando, `ring` para aguardar um sinal ao vivo e `orbit` para tarefas mais longas."
+   "A short wait with no known progress, such as opening an invoice, submitting a form, or fetching results.",
+   "Inside a button or a sentence, with `size=\"sm\"` and `tone=\"current\"` to inherit the text color.",
+   "Waits with their own meaning: `dots` for “someone is typing”, `bars` for audio loading, `ring` for waiting on a live signal, and `orbit` for longer tasks."
   ],
   "quandoEvitar": [
-   "Use `progress` quando você sabe quanto falta: uma barra com número diz mais que um giro sem fim.",
-   "Use `skeleton` quando a espera é pelo conteúdo de uma área cujo formato você já conhece.",
-   "Use `loading-states` ou `text-shimmer` para o “pensando” de interfaces de IA, com texto de status."
+   "Use `progress` when you know how much remains: a bar with a number says more than an endless spin.",
+   "Use `skeleton` when the wait is for the content of an area whose shape you already know.",
+   "Use `loading-states` or `text-shimmer` for the “thinking” state of AI interfaces, with status text."
   ],
   "acessibilidade": [
-   "A raiz é `role=\"status\"` com `aria-live=\"polite\"`, e `label` (padrão “Loading”) é o texto lido; o desenho é decorativo (`aria-hidden`).",
-   "Escreva em `label` o que está carregando (“Salvando alterações”), não só “Carregando”; `showLabel` mostra o mesmo texto ao lado do desenho.",
-   "Cada loader é uma região viva: evite vários ao mesmo tempo na tela e, dentro de um botão, marque o botão com `aria-busy`, como no demo."
+   "The root is `role=\"status\"` with `aria-live=\"polite\"`, and `label` (default “Loading”) is the text that is read; the drawing is decorative (`aria-hidden`).",
+   "Write in `label` what is loading (“Saving changes”), not just “Loading”; `showLabel` shows the same text next to the drawing.",
+   "Each loader is a live region: avoid several on screen at once and, inside a button, mark the button with `aria-busy`, as in the demo."
   ],
   "movimento": [
-   "Tudo é animação CSS em laço: o arco do `spinner` estica e encolhe enquanto gira, os pontos fazem uma onda, as barras pulsam como um equalizador, o anel solta duas ondas e três satélites orbitam juntos.",
-   "`speed` multiplica o ritmo de qualquer variante: 2 é o dobro da velocidade e 0,5 a metade.",
-   "Com “reduzir movimento”, nada se desloca: cada variante para numa forma legível e o desenho inteiro só pulsa a opacidade devagar, para ainda dizer “trabalhando”."
+   "Everything is a looping CSS animation: the `spinner` arc stretches and shrinks as it turns, the dots make a wave, the bars pulse like an equalizer, the ring emits two waves, and three satellites orbit together.",
+   "`speed` multiplies the pace of any variant: 2 is double speed and 0.5 is half.",
+   "With “reduce motion”, nothing moves: each variant stops in a readable shape and the whole drawing only pulses its opacity slowly, so it still says “working”."
   ],
   "desempenho": [
-   "A animação é só CSS (keyframes), sem timers nem re-render do React, então vários loaders na página não custam JavaScript."
+   "The animation is CSS only (keyframes), with no timers or React re-renders, so several loaders on the page cost no JavaScript."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/loader/loader`. As props que importam são `variant`, `size` (`sm` 16 px, `md` 24 px, `lg` 40 px) e `label`; o quadrado é o mesmo em todas as variantes, então trocar não mexe no layout.",
-   "Dentro de um botão, use `size=\"sm\"` e `tone=\"current\"` para herdar a cor do texto; o padrão `accent` pinta com a cor de destaque.",
-   "Não há prop de atraso nem de visibilidade: renderize o loader só durante a espera e tire-o quando ela acabar."
+   "Import from `@/components/ryan-ui/loader/loader`. The props that matter are `variant`, `size` (`sm` 16 px, `md` 24 px, `lg` 40 px), and `label`; the square is the same in every variant, so switching does not shift the layout.",
+   "Inside a button, use `size=\"sm\"` and `tone=\"current\"` to inherit the text color; the default `accent` paints with the accent color.",
+   "There is no delay or visibility prop: render the loader only during the wait and remove it when the wait ends."
   ]
  },
  "onboarding-checklist": {
   "quandoUsar": [
-   "A configuração inicial de uma conta ou workspace, com três a oito passos que podem ser feitos em qualquer ordem.",
-   "Passos que a própria interface executa: com `actionLabel` e um `onAction` assíncrono, o botão mostra carregando, marca o passo ao terminar e mostra a mensagem do erro se ele falhar.",
-   "Um cartão de boas-vindas que a pessoa pode recolher (`defaultHidden`, `onHiddenChange`) e que, no fim, troca `title` por `doneTitle`."
+   "The initial setup of an account or workspace, with three to eight steps that can be done in any order.",
+   "Steps the interface itself performs: with `actionLabel` and an asynchronous `onAction`, the button shows loading, marks the step when done, and shows the error message if it fails.",
+   "A welcome card the user can collapse (`defaultHidden`, `onHiddenChange`) and which, at the end, swaps `title` for `doneTitle`."
   ],
   "quandoEvitar": [
-   "Use `stepper` quando a ordem é obrigatória, como num checkout em que uma etapa libera a próxima.",
-   "Use `todo-list` para mostrar o plano de um agente de IA avançando sozinho, sem a pessoa marcar nada.",
-   "Use `checkbox` para uma lista simples de tarefas, sem detalhes nem ações por item."
+   "Use `stepper` when the order is mandatory, such as in a checkout where one step unlocks the next.",
+   "Use `todo-list` to show an AI agent's plan advancing on its own, with the user checking nothing.",
+   "Use `checkbox` for a simple task list, with no details or per-item actions."
   ],
   "teclado": [
    {
     "teclas": ["↑", "↓"],
-    "acao": "Com o foco no título de um passo, vai para o título anterior ou o próximo, dando a volta no fim da lista."
+    "acao": "With focus on a step's title, moves to the previous or next title, wrapping around at the end of the list."
    },
    {
     "teclas": ["Home", "End"],
-    "acao": "Vai para o título do primeiro ou do último passo da lista."
+    "acao": "Moves to the title of the first or last step in the list."
    },
    {
-    "teclas": ["Enter", "Espaço"],
-    "acao": "No título, abre ou fecha os detalhes do passo; no círculo, marca ou desmarca; na ação, executa `onAction`."
+    "teclas": ["Enter", "Space"],
+    "acao": "On the title, opens or closes the step's details; on the circle, checks or unchecks; on the action, runs `onAction`."
    }
   ],
   "acessibilidade": [
-   "Cada círculo é um botão com `role=\"checkbox\"` e `aria-checked`, nomeado pelo título do passo; o título abre os detalhes com `aria-expanded` e `aria-controls`.",
-   "O anel é `role=\"progressbar\"` (“N of M steps done”) e uma região `role=\"status\"` anuncia cada passo feito ou desfeito; o erro de `onAction` aparece com `role=\"alert\"`.",
-   "Quando um passo com foco se recolhe, o foco vai para a ação do próximo passo aberto, e desmarcar no grupo de concluídos leva o foco ao círculo do passo que voltou."
+   "Each circle is a button with `role=\"checkbox\"` and `aria-checked`, named by the step's title; the title opens the details with `aria-expanded` and `aria-controls`.",
+   "The ring is `role=\"progressbar\"` (“N of M steps done”) and a `role=\"status\"` region announces each step done or undone; the `onAction` error appears with `role=\"alert\"`.",
+   "When a focused step collapses, focus moves to the action of the next open step, and unchecking in the completed group moves focus to the circle of the step that came back."
   ],
   "movimento": [
-   "Ao marcar, o círculo se preenche do centro e o visto se desenha; o título ganha um risco que atravessa a linha e, depois de 0,72 s, o passo se recolhe para o grupo de concluídos.",
-   "Linhas e painéis abrem e fecham a altura com uma mola sem ultrapassagem; o anel enche a cada passo, os números giram na direção da mudança e um visto aparece no anel quando tudo termina.",
-   "Com “reduzir movimento”, as alturas mudam na hora com um esmaecer curto, risco e preenchimento aparecem sem transição e o giro do botão de ação para."
+   "On checking, the circle fills from the center and the checkmark draws itself; the title gets a strikethrough that crosses the line and, after 0.72 s, the step collapses into the completed group.",
+   "Rows and panels open and close their height with a no-overshoot spring; the ring fills with each step, the numbers turn in the direction of the change, and a checkmark appears in the ring when everything is finished.",
+   "With “reduce motion”, heights change immediately with a short fade, strikethrough and fill appear without transition, and the action button's spinner stops."
   ],
   "responsivo": [
-   "Num cartão com menos de 380 px (container query), o botão de esconder mostra só a seta e mantém o nome falado."
+   "In a card narrower than 380 px (container query), the hide button shows only the arrow and keeps its spoken name."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/onboarding-checklist/onboarding-checklist`. É não controlado: passe `defaultCompleted` com os ids já feitos e salve o progresso a partir de `onCompletedChange`.",
-   "Em `onAction`, devolva uma Promise: resolver marca o passo; lançar `new Error(\"mensagem\")` mantém o passo aberto com a mensagem. Sem `actionLabel`, o passo só é marcado à mão.",
-   "Os textos fixos (“Setup progress”, “Hide”, “completed”, a mensagem de erro padrão) estão em inglês; traduza no arquivo copiado. Cada passo precisa de `id` estável."
+   "Import from `@/components/ryan-ui/onboarding-checklist/onboarding-checklist`. It is uncontrolled: pass `defaultCompleted` with the ids already done and save progress from `onCompletedChange`.",
+   "In `onAction`, return a Promise: resolving marks the step; throwing `new Error(\"mensagem\")` keeps the step open with the message. Without `actionLabel`, the step is only checked by hand.",
+   "The fixed texts (“Setup progress”, “Hide”, “completed”, the default error message) are in English; translate them in the copied file. Each step needs a stable `id`."
   ]
  },
  "progress": {
   "quandoUsar": [
-   "Uma tarefa com fim conhecido, como envio de arquivo, importação ou processamento em etapas, com o número ao lado (`showValue`).",
-   "Medidas de preenchimento que não são tempo, como perfil 72% completo ou 18 de 50 GB usados (`value` e `max`).",
-   "Quando o fim merece um sinal: em 100% a barra assume a cor de sucesso e um visto aparece ao lado do número."
+   "A task with a known end, such as a file upload, an import, or multi-stage processing, with the number alongside (`showValue`).",
+   "Fill measures that are not time, such as a profile 72% complete or 18 of 50 GB used (`value` and `max`).",
+   "When the end deserves a signal: at 100% the bar takes on the success color and a checkmark appears next to the number."
   ],
   "quandoEvitar": [
-   "Use `loader` quando não dá para saber quanto falta; esta barra não tem modo indeterminado.",
-   "Use `usage-meter` para uma cota dividida por categorias, com limite e aviso de quase cheio.",
-   "Use `toast-progress` para acompanhar uma tarefa em segundo plano sem ocupar espaço na página."
+   "Use `loader` when there is no way to know how much remains; this bar has no indeterminate mode.",
+   "Use `usage-meter` for a quota split by category, with a limit and a nearly-full warning.",
+   "Use `toast-progress` to track a background task without taking up space on the page."
   ],
   "acessibilidade": [
-   "É `role=\"progressbar\"` com `aria-valuenow`, `aria-valuemax` e `aria-valuetext` em porcentagem; o nome vem de `label` e, sem ele, é o genérico “Progress”.",
-   "Passe sempre `label` dizendo o que avança (“Enviando relatório.pdf”): ele é o nome acessível e também o texto visível acima da barra."
+   "It is `role=\"progressbar\"` with `aria-valuenow`, `aria-valuemax`, and `aria-valuetext` as a percentage; the name comes from `label` and, without it, is the generic “Progress”.",
+   "Always pass `label` saying what is advancing (“Uploading report.pdf”): it is the accessible name and also the visible text above the bar."
   ],
   "movimento": [
-   "Uma única mola sem ultrapassagem move o preenchimento e conta o número, então os dois sempre batem; o preenchimento desliza da esquerda em vez de esticar, e a ponta arredondada mantém a forma.",
-   "Ao chegar a 100%, o visto entra com um pequeno atraso ao lado do número e a cor muda para a de sucesso; trocar `label` faz o texto novo subir com um leve desfoque.",
-   "Com “reduzir movimento”, a barra salta para o valor, o rótulo só esmaece e a cor muda sem transição."
+   "A single no-overshoot spring moves the fill and counts the number, so the two always match; the fill slides in from the left instead of stretching, and the rounded tip keeps its shape.",
+   "On reaching 100%, the checkmark enters with a small delay next to the number and the color changes to the success one; changing `label` makes the new text rise with a slight blur.",
+   "With “reduce motion”, the bar jumps to the value, the label only fades, and the color changes without transition."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/progress/progress`. `value` vai de 0 a `max` (padrão 100) e é limitado a esse intervalo; não há modo indeterminado.",
-   "Ocupa toda a largura do pai, então dê largura ao contêiner. Atualize `value` à vontade: cada mudança só redireciona a mola.",
-   "Com `max`, o número mostrado continua em porcentagem (18 de 50 vira 36%); se quiser “18 de 50 GB”, escreva isso em `label`."
+   "Import from `@/components/ryan-ui/progress/progress`. `value` goes from 0 to `max` (default 100) and is clamped to that range; there is no indeterminate mode.",
+   "It fills the parent's full width, so give the container a width. Update `value` freely: each change only redirects the spring.",
+   "With `max`, the displayed number remains a percentage (18 of 50 becomes 36%); if you want “18 of 50 GB”, write that in `label`."
   ]
  },
  "pull-to-refresh": {
   "quandoUsar": [
-   "Listas em que puxar para baixo é o gesto esperado no celular, como caixa de entrada, feed ou notificações.",
-   "Uma área com rolagem própria dentro de um painel ou de uma moldura de app (`height`), que atualiza o conteúdo sem recarregar a página.",
-   "Atualizações que às vezes começam fora do gesto, por um botão ou um timer: `refreshing` mostra o mesmo estado de atualização."
+   "Lists where pulling down is the expected gesture on mobile, such as an inbox, a feed, or notifications.",
+   "An area with its own scrolling inside a panel or an app frame (`height`), which refreshes the content without reloading the page.",
+   "Updates that sometimes start outside the gesture, from a button or a timer: `refreshing` shows the same refresh state."
   ],
   "quandoEvitar": [
-   "Para a página inteira rolando no `body` ele não serve: o gesto só existe dentro do próprio contêiner, que precisa de altura.",
-   "Use `infinite-masonry` quando o conteúdo novo deve chegar ao rolar até o fim, e não ao puxar o topo.",
-   "Use `message-scroller` para conversas, em que o conteúdo novo chega no fim da lista."
+   "It does not suit a whole page scrolling on the `body`: the gesture only exists inside its own container, which needs a height.",
+   "Use `infinite-masonry` when new content should arrive on scrolling to the end, not on pulling the top.",
+   "Use `message-scroller` for conversations, where new content arrives at the end of the list."
   ],
   "teclado": [
    {
     "teclas": ["Tab"],
-    "acao": "O primeiro foco do componente é o botão `refreshLabel` (padrão “Refresh”), que só aparece com foco de teclado; o próximo `Tab` vai para a área de rolagem."
+    "acao": "The component's first focus stop is the `refreshLabel` button (default “Refresh”), which only appears with keyboard focus; the next `Tab` goes to the scroll area."
    },
    {
-    "teclas": ["Enter", "Espaço"],
-    "acao": "No botão, dispara o mesmo `onRefresh` do gesto; durante a atualização ele fica `aria-disabled` e não repete."
+    "teclas": ["Enter", "Space"],
+    "acao": "On the button, triggers the same `onRefresh` as the gesture; during the refresh it is `aria-disabled` and does not repeat."
    },
    {
     "teclas": ["↑", "↓", "Page Up", "Page Down"],
-    "acao": "Com o foco na área de rolagem, rolam o conteúdo (comportamento nativo)."
+    "acao": "With focus on the scroll area, scroll the content (native behavior)."
    }
   ],
   "acessibilidade": [
-   "A área de rolagem é `role=\"region\"`, focável, com `aria-busy` durante a atualização; troque o nome genérico de `label` (padrão “Content”) pelo nome da lista.",
-   "Uma região `role=\"status\"` anuncia “Refreshing” e “Updated” (fixos em inglês no código), e o indicador visual é `aria-hidden`."
+   "The scroll area is `role=\"region\"`, focusable, with `aria-busy` during the refresh; replace the generic name from `label` (default “Content”) with the name of the list.",
+   "A `role=\"status\"` region announces “Refreshing” and “Updated” (fixed in English in the code), and the visual indicator is `aria-hidden`."
   ],
   "movimento": [
-   "O conteúdo segue o dedo 1:1 no começo e com resistência crescente até `maxPull`; o indicador aparece, cresce, a seta vira e, passado `threshold`, ele estica numa cápsula na cor de destaque.",
-   "Ao soltar depois do limite, o conteúdo fica parado a até 56 px enquanto o indicador gira; quando a Promise termina, um visto aparece por 0,65 s e tudo volta com uma mola sem ultrapassagem.",
-   "Com “reduzir movimento”, as voltas viram saltos, os ícones só esmaecem e o giro fica mais lento (2,4 s por volta)."
+   "The content follows the finger 1:1 at the start and with increasing resistance up to `maxPull`; the indicator appears, grows, the arrow flips and, past `threshold`, it stretches into a capsule in the accent color.",
+   "On release past the limit, the content holds at up to 56 px while the indicator spins; when the Promise finishes, a checkmark appears for 0.65 s and everything returns with a no-overshoot spring.",
+   "With “reduce motion”, the returns become jumps, the icons only fade, and the spin slows down (2.4 s per turn)."
   ],
   "responsivo": [
-   "Ocupa a altura do pai por padrão; se o pai não tiver altura definida, passe `height` para a área poder rolar.",
-   "`overscroll-behavior` impede que o puxão passe para a página e dispare o recarregar do próprio navegador no celular."
+   "It fills the parent's height by default; if the parent has no defined height, pass `height` so the area can scroll.",
+   "`overscroll-behavior` prevents the pull from passing to the page and triggering the browser's own reload on mobile."
   ],
   "desempenho": [
-   "O puxão anima um único valor de movimento (transform), sem re-render do React a cada quadro; o toque usa um listener não passivo para poder bloquear a rolagem só durante o gesto."
+   "The pull animates a single motion value (transform), with no React re-render on every frame; touch uses a non-passive listener so it can block scrolling only during the gesture."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/pull-to-refresh/pull-to-refresh`. `onRefresh` deve devolver uma Promise: o indicador gira até ela terminar; sem Promise, gira 0,6 s.",
-   "Dê altura ao componente (`height` ou um pai com altura) e ponha a lista dentro dele: ele mesmo é a área que rola.",
-   "No desktop, arrastar com o mouse não é óbvio; mantenha também um botão visível que chama a mesma função e mostre o estado com `refreshing`."
+   "Import from `@/components/ryan-ui/pull-to-refresh/pull-to-refresh`. `onRefresh` should return a Promise: the indicator spins until it finishes; without a Promise, it spins for 0.6 s.",
+   "Give the component a height (`height` or a parent with a height) and put the list inside it: it is itself the scrolling area.",
+   "On desktop, dragging with the mouse is not obvious; also keep a visible button that calls the same function and show the state with `refreshing`."
   ]
  },
  "skeleton": {
   "quandoUsar": [
-   "Reservar o espaço de um comentário, cartão ou bloco de texto enquanto os dados chegam, para a página não pular quando eles aparecem.",
-   "Trocar o espaço reservado pelo conteúdo real no mesmo lugar: com filhos e `loading`, o esqueleto esmaece no conteúdo e a altura acompanha com uma mola.",
-   "Itens de lista com foto e texto, como comentários ou contatos (`avatar` e `lines`)."
+   "Reserve the space of a comment, card, or block of text while the data arrives, so the page does not jump when it appears.",
+   "Swap the placeholder for the real content in the same place: with children and `loading`, the skeleton fades into the content and the height follows with a spring.",
+   "List items with a photo and text, such as comments or contacts (`avatar` and `lines`)."
   ],
   "quandoEvitar": [
-   "Use `loader` para uma ação curta, como salvar, em que não há um bloco de conteúdo para reservar.",
-   "Use `progress` quando a espera tem fim conhecido e vale mostrar quanto falta.",
-   "Para tabelas, gráficos ou layouts que não se parecem com linhas de texto, desenhe um esqueleto próprio: este só faz um avatar e até seis linhas."
+   "Use `loader` for a short action, such as saving, where there is no block of content to reserve.",
+   "Use `progress` when the wait has a known end and it is worth showing how much remains.",
+   "For tables, charts, or layouts that do not look like lines of text, draw a custom skeleton: this one only makes an avatar and up to six lines."
   ],
   "acessibilidade": [
-   "O espaço reservado é `role=\"status\"` com `aria-busy` e o nome de `label` (padrão “Loading content”, em inglês); os blocos são `aria-hidden`. Diga em `label` o que carrega.",
-   "Com filhos, o contêiner tem `aria-busy` enquanto `loading` é `true`, e o conteúdo só entra no DOM quando a espera termina."
+   "The placeholder is `role=\"status\"` with `aria-busy` and the name from `label` (default “Loading content”, in English); the blocks are `aria-hidden`. Say in `label` what is loading.",
+   "With children, the container has `aria-busy` while `loading` is `true`, and the content only enters the DOM when the wait ends."
   ],
   "movimento": [
-   "Os blocos pulsam a opacidade em onda, cada um um pouco depois do de cima, e param depois de cerca de 20 s para não pulsar para sempre.",
-   "Quando `loading` vira `false`, o esqueleto esmaece, o conteúdo entra subindo 4 px e a altura vai do tamanho do esqueleto ao do conteúdo com uma mola sem ultrapassagem.",
-   "Com “reduzir movimento”, o pulso é desligado e a troca vira um esmaecer curto, sem animar a altura."
+   "The blocks pulse their opacity in a wave, each one a little after the one above, and stop after about 20 s so they do not pulse forever.",
+   "When `loading` becomes `false`, the skeleton fades, the content enters rising 4 px, and the height goes from the skeleton's size to the content's with a no-overshoot spring.",
+   "With “reduce motion”, the pulse is turned off and the swap becomes a short fade, without animating the height."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/skeleton/skeleton`. Dois usos: sozinho, como espaço reservado, ou envolvendo o conteúdo real com `loading={isLoading}`, que cuida da troca e da altura.",
-   "`lines` vai de 1 a 6 e `avatar` põe um círculo à esquerda; escolha um número de linhas parecido com o conteúdo final para a altura mudar pouco.",
-   "`loading` só tem efeito com filhos; sem filhos, o componente sempre mostra o esqueleto, então renderize-o só durante a espera."
+   "Import from `@/components/ryan-ui/skeleton/skeleton`. Two uses: standalone, as a placeholder, or wrapping the real content with `loading={isLoading}`, which handles the swap and the height.",
+   "`lines` goes from 1 to 6 and `avatar` adds a circle on the left; choose a number of lines similar to the final content so the height changes little.",
+   "`loading` only has an effect with children; without children, the component always shows the skeleton, so render it only during the wait."
   ]
  },
  "stepper": {
   "quandoUsar": [
-   "Mostrar em que etapa de um checkout, cadastro ou configuração a pessoa está, acima do conteúdo (`horizontal`) ou ao lado dele (`vertical`).",
-   "Fluxos em que dá para voltar a uma etapa já feita: com `onStepSelect`, os passos concluídos viram botões.",
-   "Sinalizar uma etapa que falhou, como um cartão recusado: `error` troca o número por um alerta e a mensagem toma o lugar da descrição."
+   "Show which step of a checkout, sign-up, or setup the user is on, above the content (`horizontal`) or beside it (`vertical`).",
+   "Flows where it is possible to go back to a step already done: with `onStepSelect`, completed steps become buttons.",
+   "Flag a step that failed, such as a declined card: `error` swaps the number for an alert and the message takes the place of the description."
   ],
   "quandoEvitar": [
-   "Use `onboarding-checklist` quando os passos podem ser feitos em qualquer ordem e marcados à mão.",
-   "Use `tabs` quando as seções são independentes e a pessoa pode ir e voltar entre elas livremente.",
-   "Use `adaptive-stepper` para escolher um número com botões de menos e mais; apesar do nome parecido, este item indica etapas."
+   "Use `onboarding-checklist` when the steps can be done in any order and checked by hand.",
+   "Use `tabs` when the sections are independent and the user can move back and forth between them freely.",
+   "Use `adaptive-stepper` to choose a number with minus and plus buttons; despite the similar name, this item indicates steps."
   ],
   "teclado": [
    {
     "teclas": ["←", "→", "↑", "↓"],
-    "acao": "Com `onStepSelect`, movem o foco entre os passos concluídos e o atual, sem dar a volta; em texto da direita para a esquerda, ← e → se invertem."
+    "acao": "With `onStepSelect`, move focus between the completed steps and the current one, without wrapping; in right-to-left text, ← and → are swapped."
    },
    {
     "teclas": ["Home", "End"],
-    "acao": "Vai para o primeiro passo ou para o passo atual."
+    "acao": "Moves to the first step or to the current step."
    },
    {
-    "teclas": ["Enter", "Espaço"],
-    "acao": "Num passo concluído, chama `onStepSelect` com o índice dele."
+    "teclas": ["Enter", "Space"],
+    "acao": "On a completed step, calls `onStepSelect` with its index."
    }
   ],
   "acessibilidade": [
-   "Sem `onStepSelect` é um `role=\"group\"` só de leitura; com ele vira `<nav>` de botões. O passo atual tem `aria-current=\"step\"` e cada passo tem o estado em texto oculto (“Completed”, “Error”).",
-   "Uma região `aria-live=\"polite\"` anuncia “Step N of M: rótulo” a cada mudança de `current`, e `completeLabel` no fim; esses textos fixos estão em inglês.",
-   "Só os passos concluídos entram na ordem do `Tab`; o atual e os futuros têm `aria-disabled`, e as setas também chegam ao atual."
+   "Without `onStepSelect` it is a read-only `role=\"group\"`; with it, it becomes a `<nav>` of buttons. The current step has `aria-current=\"step\"` and each step has its state in hidden text (“Completed”, “Error”).",
+   "An `aria-live=\"polite\"` region announces “Step N of M: label” on each change of `current`, and `completeLabel` at the end; these fixed texts are in English.",
+   "Only completed steps enter the `Tab` order; the current and future ones have `aria-disabled`, and the arrow keys also reach the current one."
   ],
   "movimento": [
-   "Ao avançar, a linha entre os passos se preenche com uma mola a partir do passo que terminou; pular vários passos preenche uma linha depois da outra, e o anel do passo atual aparece por último.",
-   "O número de um passo concluído encolhe e dá lugar a um visto desenhado (num erro, a um ponto de exclamação); descrições novas sobem com leve desfoque e a altura acompanha.",
-   "Com “reduzir movimento”, linhas, marcadores e textos mudam na hora."
+   "On advancing, the line between steps fills with a spring starting from the step that finished; skipping several steps fills one line after another, and the current step's ring appears last.",
+   "A completed step's number shrinks and gives way to a drawn checkmark (on an error, an exclamation mark); new descriptions rise with a slight blur and the height follows.",
+   "With “reduce motion”, lines, markers, and texts change immediately."
   ],
   "responsivo": [
-   "O horizontal mede a própria largura (container query): abaixo de 30 rem esconde os rótulos, mantém os marcadores e mostra embaixo o rótulo e a descrição do passo atual; `compact` força esse modo.",
-   "Com `details=\"current\"`, só o passo atual mostra a descrição, o que economiza altura; erros aparecem sempre."
+   "The horizontal one measures its own width (container query): below 30 rem it hides the labels, keeps the markers, and shows the current step's label and description underneath; `compact` forces this mode.",
+   "With `details=\"current\"`, only the current step shows its description, which saves height; errors always appear."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/stepper/stepper`. É controlado por `current`, o índice da etapa em andamento; use `current={steps.length}` para marcar o fluxo inteiro como concluído.",
-   "O stepper só indica: o conteúdo de cada etapa e os botões de voltar e continuar ficam com você, mudando `current`.",
-   "Para voltar a etapas feitas, passe `onStepSelect={setCurrent}`; só índices menores que `current` disparam. O erro vai no próprio passo, em `steps[i].error`."
+   "Import from `@/components/ryan-ui/stepper/stepper`. It is controlled by `current`, the index of the step in progress; use `current={steps.length}` to mark the whole flow as completed.",
+   "The stepper only indicates: each step's content and the back and continue buttons are up to you, by changing `current`.",
+   "To go back to completed steps, pass `onStepSelect={setCurrent}`; only indices lower than `current` fire. The error goes on the step itself, in `steps[i].error`."
   ]
  },
  "toast": {
   "quandoUsar": [
-   "Confirmar uma ação que deu certo e não pede mais nada: rascunho salvo, link copiado, convite enviado.",
-   "Um único aviso por vez, num lugar que você controla, com `open` e `onOpenChange` ligados ao estado da tela.",
-   "Telas de toque em que deslizar o aviso para o lado é o jeito natural de dispensar."
+   "Confirm an action that succeeded and asks nothing more: draft saved, link copied, invitation sent.",
+   "A single notice at a time, in a place you control, with `open` and `onOpenChange` tied to the screen's state.",
+   "Touch screens where swiping the notice sideways is the natural way to dismiss it."
   ],
   "quandoEvitar": [
-   "Use `toast-action` quando o aviso oferece desfazer ou outra ação; o tempo dele pausa com mouse e foco.",
-   "Use `toast-stack` para vários avisos seguidos ou de tipos diferentes (erro, aviso, carregando); este só mostra o visto de sucesso.",
-   "Use `alert` para erros e avisos que precisam ficar na tela até a pessoa agir."
+   "Use `toast-action` when the notice offers undo or another action; its timer pauses on mouse and focus.",
+   "Use `toast-stack` for several notices in a row or of different types (error, warning, loading); this one only shows the success checkmark.",
+   "Use `alert` for errors and warnings that must stay on screen until the user acts."
   ],
   "acessibilidade": [
-   "É `role=\"status\"` com `aria-live=\"polite\"` e `aria-atomic`: o leitor de tela lê título e descrição juntos, sem interromper, e as cópias que saem ficam ocultas.",
-   "O tempo não pausa com mouse nem com foco e não há atalho para chegar ao aviso; não ponha nele nada que a pessoa precise ler com calma ou acionar.",
-   "O botão de fechar é um `<button>` com `aria-label` “Dismiss notification”, fixo em inglês no arquivo."
+   "It is `role=\"status\"` with `aria-live=\"polite\"` and `aria-atomic`: the screen reader reads title and description together, without interrupting, and the outgoing copies are hidden.",
+   "The timer does not pause on mouse or focus and there is no shortcut to reach the notice; do not put anything in it that the user needs to read carefully or act on.",
+   "The close button is a `<button>` with `aria-label` “Dismiss notification”, fixed in English in the file."
   ],
   "movimento": [
-   "Entra subindo 16 px de uma escala um pouco menor, com uma mola sem ultrapassagem, enquanto o visto se desenha; ao fechar, desce um pouco e esmaece.",
-   "Arrastado para o lado, segue o dedo; passando de 80 px ou solto rápido, sai voando na direção do gesto com a velocidade da soltura, senão volta com uma mola.",
-   "Com “reduzir movimento”, entrada e saída viram um esmaecer curto e o arraste fica desligado."
+   "It enters rising 16 px from a slightly smaller scale, with a no-overshoot spring, while the checkmark draws itself; on closing, it drops a little and fades.",
+   "When dragged sideways, it follows the finger; past 80 px or released quickly, it flies off in the direction of the gesture at the release velocity, otherwise it springs back.",
+   "With “reduce motion”, entrance and exit become a short fade and dragging is turned off."
   ],
   "responsivo": [
-   "A largura vai até 26 rem e cabe no pai; o título fica numa linha e é cortado com reticências, então ponha detalhes longos em `description`, que quebra linha."
+   "The width goes up to 26 rem and fits the parent; the title stays on one line and is truncated with an ellipsis, so put long details in `description`, which wraps."
   ],
   "notasIA": [
-   "Importe o padrão: `import Toast from \"@/components/ryan-ui/toast/toast\"` (não há exportação nomeada). Ele aparece onde é renderizado; posicione-o você, por exemplo num contêiner fixo no canto.",
-   "O fechamento automático (`duration`, padrão 4500 ms) só funciona com `onOpenChange`; passe uma função estável, como o `setOpen` do `useState`, porque uma função nova a cada render reinicia a contagem.",
-   "Para mostrar o aviso de novo, volte `open` para `true`; mudar `title` com ele aberto troca o texto no lugar, sem reiniciar o tempo."
+   "Import the default: `import Toast from \"@/components/ryan-ui/toast/toast\"` (there is no named export). It appears where it is rendered; position it yourself, for example in a fixed container in the corner.",
+   "Automatic closing (`duration`, default 4500 ms) only works with `onOpenChange`; pass a stable function, such as the `setOpen` from `useState`, because a new function on every render restarts the countdown.",
+   "To show the notice again, set `open` back to `true`; changing `title` while it is open swaps the text in place, without restarting the timer."
   ]
  },
  "toast-action": {
   "quandoUsar": [
-   "Logo depois de algo reversível, como excluir, arquivar ou enviar, oferecendo “Desfazer” enquanto a barra de tempo corre.",
-   "Quando a pessoa precisa de tempo para reagir: a contagem para com o mouse em cima, com foco ou com a aba oculta e retoma de onde parou.",
-   "Quando o resultado da ação deve ficar claro: ao tocar nela, o texto troca por `confirmation` com um visto desenhado antes de o aviso sair."
+   "Right after something reversible, such as deleting, archiving, or sending, offering “Undo” while the timer bar runs.",
+   "When the user needs time to react: the countdown stops with the mouse over it, with focus, or with the tab hidden and resumes where it left off.",
+   "When the result of the action should be clear: on tapping it, the text swaps to `confirmation` with a drawn checkmark before the notice leaves."
   ],
   "quandoEvitar": [
-   "Use `toast` para uma confirmação simples, sem ação.",
-   "Use `toast-stack` quando vários avisos podem chegar em sequência; este mostra um por vez.",
-   "Use `confirm-morph` ou `hold-to-confirm` quando a ação destrutiva deve ser confirmada antes, e não desfeita depois."
+   "Use `toast` for a simple confirmation, with no action.",
+   "Use `toast-stack` when several notices may arrive in sequence; this one shows one at a time.",
+   "Use `confirm-morph` or `hold-to-confirm` when the destructive action should be confirmed beforehand, not undone afterward."
   ],
   "teclado": [
    {
     "teclas": ["Alt + T"],
-    "acao": "Leva o foco à ação do aviso aberto (ou ao botão de fechar, depois da ação), para alcançá-la antes do fim do tempo; desligue com `hotkey={false}`."
+    "acao": "Moves focus to the open notice's action (or to the close button, after the action), to reach it before the time runs out; turn off with `hotkey={false}`."
    },
    {
     "teclas": ["Tab", "Shift + Tab"],
-    "acao": "Com o foco dentro do aviso, a contagem pausa; ao sair, retoma de onde parou."
+    "acao": "With focus inside the notice, the countdown pauses; on leaving, it resumes where it left off."
    },
    {
-    "teclas": ["Enter", "Espaço"],
-    "acao": "Na ação, executa `onAction` e mostra a confirmação; o foco passa para o botão de fechar."
+    "teclas": ["Enter", "Space"],
+    "acao": "On the action, runs `onAction` and shows the confirmation; focus moves to the close button."
    },
    {
     "teclas": ["Esc"],
-    "acao": "Com o foco dentro, fecha o aviso e devolve o foco para onde ele estava antes."
+    "acao": "With focus inside, closes the notice and returns focus to where it was before."
    }
   ],
   "acessibilidade": [
-   "É `role=\"status\"` com `aria-live=\"polite\"`; a cópia que sai fica oculta, então só o texto atual é lido, inclusive a confirmação.",
-   "Ao fechar com o foco dentro, ele volta para onde estava antes de entrar no aviso; depois da ação, vai para o botão de fechar em vez de cair na página.",
-   "`duration={0}` mantém o aviso até ser fechado, para quem precisa de mais tempo; o `aria-label` do fechar é fixo em inglês (“Dismiss notification”)."
+   "It is `role=\"status\"` with `aria-live=\"polite\"`; the outgoing copy is hidden, so only the current text is read, including the confirmation.",
+   "On closing with focus inside, it returns to where it was before entering the notice; after the action, it goes to the close button instead of dropping onto the page.",
+   "`duration={0}` keeps the notice until it is closed, for those who need more time; the close `aria-label` is fixed in English (“Dismiss notification”)."
   ],
   "movimento": [
-   "Uma barra fina no rodapé esvazia em ritmo linear até o aviso sair; enquanto a contagem está pausada, ela fica mais apagada.",
-   "Ao tomar a ação, o ícone encolhe com desfoque e um visto se desenha no lugar, o texto troca subindo e a altura acompanha com uma mola; o botão da ação sai do fluxo e esmaece.",
-   "Entra subindo com uma mola e sai voando quando arrastado para o lado. Com “reduzir movimento”, a barra desce em 8 degraus, tudo só esmaece e o arraste fica desligado."
+   "A thin bar at the bottom empties at a linear pace until the notice leaves; while the countdown is paused, it appears dimmer.",
+   "On taking the action, the icon shrinks with blur and a checkmark draws itself in its place, the text swaps rising and the height follows with a spring; the action button leaves the flow and fades.",
+   "It enters rising with a spring and flies off when dragged sideways. With “reduce motion”, the bar drops in 8 steps, everything only fades, and dragging is turned off."
   ],
   "responsivo": [
-   "Nas posições `bottom-*` fica fixo na janela com até 24 rem e, em telas abaixo de 30 rem, centraliza no rodapé; com `contained`, prende-se ao ancestral posicionado.",
-   "Num aviso com menos de 23 rem de largura, a ação desce para baixo do texto em vez de espremê-lo."
+   "In `bottom-*` positions it is fixed to the window at up to 24 rem and, on screens below 30 rem, centers at the bottom; with `contained`, it attaches to the positioned ancestor.",
+   "In a notice narrower than 23 rem, the action drops below the text instead of squeezing it."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/toast-action/toast-action`. Desfaça a operação em `onAction` e só apague de vez em `onOpenChange` quando o motivo não for `\"action\"`.",
-   "Para repetir o aviso num evento igual (o mesmo arquivo excluído duas vezes), mude `resetKey`: a ação volta e a barra enche de novo.",
-   "Use `position=\"bottom-center\"` (ou outro canto) para fixar na janela, ou `inline` para ficar no fluxo; numa prévia dentro de um painel, some `contained` e dê `position: relative` ao pai."
+   "Import from `@/components/ryan-ui/toast-action/toast-action`. Undo the operation in `onAction` and only delete for good in `onOpenChange` when the reason is not `\"action\"`.",
+   "To repeat the notice on an identical event (the same file deleted twice), change `resetKey`: the action comes back and the bar fills again.",
+   "Use `position=\"bottom-center\"` (or another corner) to fix it to the window, or `inline` to stay in the flow; in a preview inside a panel, add `contained` and give the parent `position: relative`."
   ]
  },
  "toast-progress": {
   "quandoUsar": [
-   "Acompanhar uma tarefa em segundo plano com porcentagem conhecida, como envio, exportação ou importação, sem bloquear a tela.",
-   "Fechar o ciclo no mesmo aviso: a barra completa e vira um visto de sucesso, ou congela no tom de perigo com “Retry” quando falha.",
-   "Progresso com um detalhe que muda a cada atualização (“27 of 42 MB”, “3 seconds left”) em `description`, sem animar a troca de texto a cada vez."
+   "Track a background task with a known percentage, such as an upload, export, or import, without blocking the screen.",
+   "Close the loop in the same notice: the bar completes and becomes a success checkmark, or freezes in the danger tone with “Retry” on failure.",
+   "Progress with a detail that changes on each update (“27 of 42 MB”, “3 seconds left”) in `description`, without animating the text swap every time."
   ],
   "quandoEvitar": [
-   "Use `progress` quando o andamento deve ficar visível na própria página, perto do que está sendo processado.",
-   "Use `toast-stack` com `update` para várias tarefas ao mesmo tempo; este acompanha uma só.",
-   "Use `toast` para um resultado que não precisou de progresso."
+   "Use `progress` when the progress should be visible on the page itself, near what is being processed.",
+   "Use `toast-stack` with `update` for several tasks at once; this one tracks only one.",
+   "Use `toast` for a result that needed no progress."
   ],
   "teclado": [
    {
     "teclas": ["Alt + T"],
-    "acao": "Leva o foco ao “Retry”, quando a tarefa falhou, ou ao botão de fechar; desligue com `hotkey={false}`."
+    "acao": "Moves focus to “Retry”, when the task failed, or to the close button; turn off with `hotkey={false}`."
    },
    {
     "teclas": ["Esc"],
-    "acao": "Com o foco dentro, fecha o aviso (motivo `dismiss`) e devolve o foco para onde ele estava."
+    "acao": "With focus inside, closes the notice (reason `dismiss`) and returns focus to where it was."
    },
    {
-    "teclas": ["Enter", "Espaço"],
-    "acao": "Em “Retry”, chama `onRetry`; o foco passa para o botão de fechar enquanto a tarefa recomeça."
+    "teclas": ["Enter", "Space"],
+    "acao": "On “Retry”, calls `onRetry`; focus moves to the close button while the task restarts."
    }
   ],
   "acessibilidade": [
-   "O aviso é `role=\"status\"` com `aria-live=\"polite\"`, e a barra é `role=\"progressbar\"` nomeada pelo título, com `aria-valuetext` vindo de `formatValue`.",
-   "Enquanto a tarefa roda, a descrição que muda a cada atualização fica com `aria-live=\"off\"` e o número ao lado do título é `aria-hidden`, para não haver leitura a cada passo.",
-   "Ao fechar com o foco dentro, ele volta para onde estava; o `aria-label` do fechar é fixo em inglês (“Dismiss notification”)."
+   "The notice is `role=\"status\"` with `aria-live=\"polite\"`, and the bar is `role=\"progressbar\"` named by the title, with `aria-valuetext` coming from `formatValue`.",
+   "While the task runs, the description that changes on each update has `aria-live=\"off\"` and the number next to the title is `aria-hidden`, so there is no reading at every step.",
+   "On closing with focus inside, it returns to where it was; the close `aria-label` is fixed in English (“Dismiss notification”)."
   ],
   "movimento": [
-   "Barra e número deslizam juntos até cada novo `value` com uma mola; no fim, a barra completa em 0,32 s e só então o aviso muda para sucesso.",
-   "Na mudança de estado, o giro encolhe com desfoque e um visto ou um ponto de exclamação se desenha; o texto troca subindo, o número dá lugar ao “Retry” e, no sucesso, a barra afina e some.",
-   "Com “reduzir movimento”, a barra salta para o valor, o giro fica parado, as trocas só esmaecem e o arraste para dispensar fica desligado."
+   "Bar and number slide together to each new `value` with a spring; at the end, the bar completes in 0.32 s and only then does the notice change to success.",
+   "On the state change, the spinner shrinks with blur and a checkmark or an exclamation mark draws itself; the text swaps rising, the number gives way to “Retry” and, on success, the bar thins and disappears.",
+   "With “reduce motion”, the bar jumps to the value, the spinner stays still, swaps only fade, and drag-to-dismiss is turned off."
   ],
   "responsivo": [
-   "Nas posições `bottom-*` fica fixo na janela com até 24 rem e centraliza no rodapé abaixo de 30 rem; com `contained`, prende-se ao ancestral posicionado.",
-   "Num aviso estreito (menos de 23 rem), o “Retry” desce para baixo do texto."
+   "In `bottom-*` positions it is fixed to the window at up to 24 rem and centers at the bottom below 30 rem; with `contained`, it attaches to the positioned ancestor.",
+   "In a narrow notice (under 23 rem), “Retry” drops below the text."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/toast-progress/toast-progress`. Atualize `value`; sem `status`, chegar a 100 já mostra sucesso. A falha precisa de `status=\"error\"`, e para retomar volte a `\"loading\"`.",
-   "Passe em `title` o texto do estado atual. Rodando ou com erro, o aviso não fecha sozinho; o sucesso fecha após `duration`, que recomeça do zero se a pessoa segurar o aviso com mouse ou foco.",
-   "Sem `onRetry`, o erro aparece sem botão. Se outro aviso da página também usa `Alt + T` (`toast-stack`, `toast-action`), desligue `hotkey` num deles."
+   "Import from `@/components/ryan-ui/toast-progress/toast-progress`. Update `value`; without `status`, reaching 100 already shows success. Failure needs `status=\"error\"`, and to resume go back to `\"loading\"`.",
+   "Pass the current state's text in `title`. While running or in error, the notice does not close on its own; success closes after `duration`, which restarts from zero if the user holds the notice with the mouse or focus.",
+   "Without `onRetry`, the error appears without a button. If another notice on the page also uses `Alt + T` (`toast-stack`, `toast-action`), turn off `hotkey` on one of them."
   ]
  },
  "toast-stack": {
   "quandoUsar": [
-   "Resultados curtos de várias ações em sequência, como salvar, excluir e sincronizar, empilhados num canto sem cobrir a tela.",
-   "Avisos que mudam no lugar: um `loading` que vira `success` com `update(id, …)`, ou um “Desfazer” que vira “Restaurado”.",
-   "Avisos de tipos diferentes no mesmo lugar (`success`, `info`, `warning`, `error`, `loading`), com tempo maior para alertas e erros."
+   "Short results of several actions in sequence, such as save, delete, and sync, stacked in a corner without covering the screen.",
+   "Notices that change in place: a `loading` that becomes `success` with `update(id, …)`, or an “Undo” that becomes “Restored”.",
+   "Notices of different types in the same place (`success`, `info`, `warning`, `error`, `loading`), with a longer duration for warnings and errors."
   ],
   "quandoEvitar": [
-   "Use `toast` ou `toast-action` quando só aparece um aviso por vez e você quer controlar `open` direto no componente.",
-   "Use `notification-center` para um histórico que a pessoa consulta depois, com lido e não lido.",
-   "Use `alert` para erros que precisam ficar visíveis até serem resolvidos."
+   "Use `toast` or `toast-action` when only one notice appears at a time and you want to control `open` directly on the component.",
+   "Use `notification-center` for a history the user consults later, with read and unread.",
+   "Use `alert` for errors that must stay visible until they are resolved."
   ],
   "teclado": [
    {
     "teclas": ["Alt + T"],
-    "acao": "Leva o foco ao primeiro botão do aviso da frente e abre a pilha em lista; desligue com `hotkey={false}`."
+    "acao": "Moves focus to the first button of the front notice and opens the stack as a list; turn off with `hotkey={false}`."
    },
    {
     "teclas": ["Tab", "Shift + Tab"],
-    "acao": "Percorre ações e botões de fechar; com foco de teclado dentro, a pilha fica aberta e os tempos pausam."
+    "acao": "Moves through actions and close buttons; with keyboard focus inside, the stack stays open and the timers pause."
    },
    {
     "teclas": ["Esc"],
-    "acao": "Fecha o aviso que tem o foco; o foco passa para o próximo aviso ou volta para onde estava antes."
+    "acao": "Closes the focused notice; focus moves to the next notice or returns to where it was before."
    },
    {
-    "teclas": ["Enter", "Espaço"],
-    "acao": "Na ação, executa `onClick`; o aviso fecha, a menos que o handler o atualize."
+    "teclas": ["Enter", "Space"],
+    "acao": "On the action, runs `onClick`; the notice closes, unless the handler updates it."
    }
   ],
   "acessibilidade": [
-   "A pilha é uma `<section>` com `aria-live=\"polite\"` que anuncia avisos novos e mudanças de texto; cada aviso começa com o tipo em texto oculto (“Success:”, “Error:”), em inglês.",
-   "O nome da região inclui o atalho (“Notifications (Alt+T)”), e os avisos além de `visibleToasts` ficam `inert` até chegarem à frente.",
-   "Quando uma ação atualiza o aviso e some, o foco de teclado vai para o botão de fechar; ao fechar, ele segue para o próximo aviso ou volta para onde estava."
+   "The stack is a `<section>` with `aria-live=\"polite\"` that announces new notices and text changes; each notice starts with its type in hidden text (“Success:”, “Error:”), in English.",
+   "The region's name includes the shortcut (“Notifications (Alt+T)”), and notices beyond `visibleToasts` stay `inert` until they reach the front.",
+   "When an action updates the notice and it goes away, keyboard focus moves to the close button; on closing, it moves on to the next notice or returns to where it was."
   ],
   "movimento": [
-   "Avisos novos sobem da borda e os anteriores ficam atrás, 14 px acima e um pouco menores; passar o mouse ou focar abre a pilha numa lista, com uma mola sem ultrapassagem.",
-   "Arrastado para a direita, o aviso segue o dedo e sai voando quando passa de 40% da largura, contando o impulso; para a esquerda, resiste como no fim de uma rolagem.",
-   "`update` troca ícone, texto e altura no lugar e reinicia o tempo. Com “reduzir movimento”, posições e tamanhos mudam na hora e só a opacidade anima."
+   "New notices rise from the edge and earlier ones stay behind, 14 px higher and slightly smaller; hovering or focusing opens the stack into a list, with a no-overshoot spring.",
+   "Dragged to the right, the notice follows the finger and flies off when it passes 40% of the width, counting momentum; to the left, it resists as at the end of a scroll.",
+   "`update` swaps icon, text, and height in place and restarts the timer. With “reduce motion”, positions and sizes change immediately and only opacity animates."
   ],
   "responsivo": [
-   "A pilha tem até 22,5 rem e fica fixa no canto escolhido; em telas abaixo de 30 rem centraliza no rodapé. No toque, que não tem hover, tocar num aviso abre ou fecha a pilha.",
-   "Num aviso com menos de 21 rem, a ação desce para baixo do texto."
+   "The stack is up to 22.5 rem wide and fixed in the chosen corner; on screens below 30 rem it centers at the bottom. On touch, which has no hover, tapping a notice opens or closes the stack.",
+   "In a notice narrower than 21 rem, the action drops below the text."
   ],
   "desempenho": [
-   "A geometria da pilha vive em valores de movimento, então seguir o dedo, o mouse ou um timer não re-renderiza o React a cada quadro; a fila guarda no máximo `limit` avisos (padrão 12)."
+   "The stack's geometry lives in motion values, so following the finger, the mouse, or a timer does not re-render React on every frame; the queue holds at most `limit` notices (default 12)."
   ],
   "notasIA": [
-   "Importe `ToastStackProvider`, `useToastStack` e o padrão `ToastStack` de `@/components/ryan-ui/toast-stack/toast-stack`; envolva o app no provider, renderize `<ToastStack />` uma vez e chame `toast()` abaixo dele.",
-   "`toast()` devolve o id: guarde-o para `update(id, { type: \"success\", … })` ou `dismiss(id)`. Repetir um `id` em `toast()` atualiza em vez de empilhar.",
-   "Avisos `loading` não fecham sozinhos, então sempre atualize ou dispense depois. Numa prévia, use `contained` dentro de um pai com `position: relative`."
+   "Import `ToastStackProvider`, `useToastStack`, and the default `ToastStack` from `@/components/ryan-ui/toast-stack/toast-stack`; wrap the app in the provider, render `<ToastStack />` once, and call `toast()` below it.",
+   "`toast()` returns the id: keep it for `update(id, { type: \"success\", … })` or `dismiss(id)`. Repeating an `id` in `toast()` updates instead of stacking.",
+   "`loading` notices do not close on their own, so always update or dismiss them later. In a preview, use `contained` inside a parent with `position: relative`."
   ]
  },
  "usage-meter": {
   "quandoUsar": [
-   "Uma cota fixa do plano, como armazenamento, assentos ou créditos, quando importa ver o que ocupa o espaço e quanto falta para o limite.",
-   "Avisar antes do limite: a partir de `warnAt` (padrão 90%) o selo mostra “Almost full”, e acima do limite a parte excedente aparece hachurada, com um marcador no limite.",
-   "Telas de plano e cobrança em que a pessoa explora as categorias passando o mouse, tocando ou usando as setas na legenda."
+   "A fixed plan quota, such as storage, seats, or credits, when it matters to see what takes up the space and how much remains until the limit.",
+   "Warn before the limit: from `warnAt` (default 90%) the badge shows “Almost full”, and above the limit the excess portion appears hatched, with a marker at the limit.",
+   "Plan and billing screens where the user explores the categories by hovering, tapping, or using the arrow keys in the legend."
   ],
   "quandoEvitar": [
-   "Use `progress` para uma única medida de andamento, sem categorias nem limite de plano.",
-   "Use `composition-chart` ou `donut-chart` para a divisão de um todo sem limite, ou com mais de quatro partes.",
-   "Use `gauge` para um valor único dentro de uma faixa conhecida."
+   "Use `progress` for a single progress measure, without categories or a plan limit.",
+   "Use `composition-chart` or `donut-chart` for the breakdown of a whole with no limit, or with more than four parts.",
+   "Use `gauge` for a single value within a known range."
   ],
   "teclado": [
    {
     "teclas": ["Tab"],
-    "acao": "A legenda é uma única parada de `Tab` (tabindex móvel); o foco já destaca a categoria na barra e no número grande."
+    "acao": "The legend is a single `Tab` stop (roving tabindex); focus already highlights the category in the bar and in the big number."
    },
    {
     "teclas": ["←", "→", "↑", "↓"],
-    "acao": "Movem o foco entre as categorias e o item de espaço livre, dando a volta."
+    "acao": "Move focus between the categories and the free-space item, wrapping around."
    },
    {
     "teclas": ["Home", "End"],
-    "acao": "Vai para a primeira categoria ou para o item de espaço livre (ou de excedente)."
+    "acao": "Moves to the first category or to the free-space (or excess) item."
    },
    {
-    "teclas": ["Enter", "Espaço"],
-    "acao": "Fixa o destaque da categoria em foco (`aria-pressed`); de novo, solta."
+    "teclas": ["Enter", "Space"],
+    "acao": "Pins the highlight on the focused category (`aria-pressed`); again, unpins."
    },
    {
     "teclas": ["Esc"],
-    "acao": "Solta a categoria fixada."
+    "acao": "Unpins the pinned category."
    }
   ],
   "acessibilidade": [
-   "A barra é `role=\"img\"` com um resumo completo em `aria-label` (total, cada categoria e espaço livre); os números que giram são `aria-hidden` e há um texto oculto com o total.",
-   "A legenda é um grupo de botões com tabindex móvel e `aria-pressed`; uma região viva só fala quando o estado muda (normal, quase cheio, acima do limite) ou o excedente muda.",
-   "Acima do limite, o excedente é hachurado além de colorido e o selo ganha um ícone, então o estado não depende só da cor."
+   "The bar is `role=\"img\"` with a full summary in `aria-label` (total, each category, and free space); the spinning numbers are `aria-hidden` and there is a hidden text with the total.",
+   "The legend is a group of buttons with roving tabindex and `aria-pressed`; a live region only speaks when the state changes (normal, almost full, over the limit) or the excess changes.",
+   "Above the limit, the excess is hatched as well as colored and the badge gains an icon, so the state does not depend on color alone."
   ],
   "movimento": [
-   "Na primeira vez que aparece na tela, os segmentos crescem da esquerda para a direita, um após o outro; depois, cada mudança faz todos deslizarem com uma mola sem ultrapassagem.",
-   "Os números giram como um odômetro na direção da mudança, o selo ajusta a largura com uma mola e destacar uma categoria apaga as outras.",
-   "Com “reduzir movimento”, valores e larguras mudam na hora e os textos só esmaecem."
+   "The first time it appears on screen, the segments grow from left to right, one after another; afterward, each change makes them all slide with a no-overshoot spring.",
+   "The numbers spin like an odometer in the direction of the change, the badge adjusts its width with a spring, and highlighting a category dims the others.",
+   "With “reduce motion”, values and widths change immediately and the texts only fade."
   ],
   "responsivo": [
-   "A legenda é uma grade `auto-fit` com colunas de pelo menos 108 px, que vira mais linhas num cartão estreito; um título longo quebra ao lado do selo."
+   "The legend is an `auto-fit` grid with columns of at least 108 px, which becomes more rows in a narrow card; a long title wraps next to the badge."
   ],
   "desempenho": [
-   "Espera 40% do medidor entrar na tela para animar e observa a largura da barra com um `ResizeObserver`; as posições dos segmentos vêm de valores de movimento, sem re-render por quadro."
+   "It waits for 40% of the meter to enter the screen before animating and watches the bar's width with a `ResizeObserver`; the segment positions come from motion values, with no per-frame re-render."
   ],
   "notasIA": [
-   "Importe de `@/components/ryan-ui/usage-meter/usage-meter`. Passe `segments` com `id` estável (mudar o valor mantém o segmento e anima), `limit` na mesma unidade e `unit`, como `\"GB\"`.",
-   "Use no máximo quatro segmentos: o CSS só define cores para quatro, e um quinto fica sem cor na barra e na legenda.",
-   "Os números saem no formato en-US (ponto decimal) e os textos (“of 50 GB used”, “Almost full”) estão em inglês; `freeLabel` e `overLabel` traduzem só parte, o resto se ajusta no arquivo copiado."
+   "Import from `@/components/ryan-ui/usage-meter/usage-meter`. Pass `segments` with a stable `id` (changing the value keeps the segment and animates), `limit` in the same unit, and `unit`, such as `\"GB\"`.",
+   "Use at most four segments: the CSS only defines colors for four, and a fifth has no color in the bar and the legend.",
+   "Numbers come out in en-US format (decimal point) and the texts (“of 50 GB used”, “Almost full”) are in English; `freeLabel` and `overLabel` translate only part, the rest is adjusted in the copied file."
   ]
  },
  "in-view-title": {
   "quandoUsar": [
-   "Títulos de seção em páginas longas, como landing pages e páginas de produto, que entram quando a seção chega à tela.",
-   "Tons diferentes de entrada: `blur` serve para quase todo título, `word` e `line` para páginas editoriais, `tracking` para títulos curtos de destaque e `wipe` para revelar da esquerda para a direita.",
-   "Títulos com quebras de linha escolhidas a dedo, passando `lines` na variante `line`."
+   "Section titles on long pages, such as landing pages and product pages, that enter when the section reaches the screen.",
+   "Different entrance tones: `blur` suits almost any title, `word` and `line` suit editorial pages, `tracking` suits short highlight titles, and `wipe` reveals from left to right.",
+   "Titles with hand-picked line breaks, by passing `lines` in the `line` variant."
   ],
   "quandoEvitar": [
-   "Use `text-reveal` para um título que deve animar logo ao montar, como no topo da página, sem esperar a rolagem.",
-   "Use `scroll-reveal` para revelar blocos inteiros ao rolar, como cartões, listas e parágrafos, e não só o título.",
-   "Em telas de trabalho que a pessoa usa todo dia, como painéis e formulários, título animado só atrasa a leitura; use um título comum."
+   "Use `text-reveal` for a title that should animate right on mount, such as at the top of the page, without waiting for scroll.",
+   "Use `scroll-reveal` to reveal whole blocks on scroll, such as cards, lists, and paragraphs, not just the title.",
+   "On work screens the user uses every day, such as dashboards and forms, an animated title only delays reading; use a plain title."
   ],
   "acessibilidade": [
-   "O título é um `h2` de verdade (ou `h1` e `h3` via `as`) com `aria-label` igual a `text`; palavras e letras animadas são `aria-hidden`, então o leitor de tela lê a frase inteira uma vez.",
-   "Títulos que já ficaram acima da tela são revelados mesmo sem passar por ela, e no servidor um fallback em CSS mostra o título após 2,4 s se o JavaScript atrasar, então o texto não fica escondido."
+   "The title is a real `h2` (or `h1` and `h3` via `as`) with `aria-label` equal to `text`; animated words and letters are `aria-hidden`, so the screen reader reads the whole phrase once.",
+   "Titles that are already above the screen are revealed even without passing through it, and on the server a CSS fallback shows the title after 2.4 s if JavaScript is late, so the text is not left hidden."
   ],
   "movimento": [
-   "`blur` sobe cada palavra enquanto ela sai de um desfoque; `word` e `line` sobem palavras ou linhas de dentro de um recorte; `tracking` aproxima as letras até o espaçamento normal; `wipe` descobre o título por uma borda suave.",
-   "Nas variantes por palavra, a sequência inteira dura no máximo cerca de 0,4 s; a opacidade chega primeiro, o desfoque depois e o deslocamento por último, para dar para ler antes de assentar.",
-   "Dispara quando 45% do título está visível; com `once={false}`, volta a se esconder rápido ao sair e anima de novo na volta. Com “reduzir movimento”, aparece pronto, sem animação."
+   "`blur` raises each word as it comes out of a blur; `word` and `line` raise words or lines from inside a clip; `tracking` brings the letters closer to normal spacing; `wipe` uncovers the title through a soft edge.",
+   "In the per-word variants, the whole sequence lasts at most about 0.4 s; opacity arrives first, blur next, and displacement last, so it is possible to read before it settles.",
+   "It fires when 45% of the title is visible; with `once={false}`, it hides again quickly on leaving and animates again on return. With “reduce motion”, it appears finished, without animation."
   ],
   "desempenho": [
-   "A variante `tracking` cria um elemento por letra; em títulos longos, prefira `blur` ou `line`."
+   "The `tracking` variant creates one element per letter; in long titles, prefer `blur` or `line`."
   ],
   "notasIA": [
-   "Importe `InViewTitle` de `@/components/ryan-ui/in-view-title/in-view-title`; o texto vai em `text` (não em filhos) e o nível do título em `as`.",
-   "Na variante `line`, passe `lines` com as quebras; sem ela, o título inteiro vira uma linha só. As outras variantes quebram entre as palavras.",
-   "A animação roda uma vez por padrão; `once={false}` repete a cada entrada na tela, e trocar a `key` remonta o título e anima de novo, como no demo."
+   "Import `InViewTitle` from `@/components/ryan-ui/in-view-title/in-view-title`; the text goes in `text` (not in children) and the heading level in `as`.",
+   "In the `line` variant, pass `lines` with the breaks; without it, the whole title becomes a single line. The other variants break between words.",
+   "The animation runs once by default; `once={false}` repeats on every entrance to the screen, and changing the `key` remounts the title and animates again, as in the demo."
   ]
  },
  "text-morph": {
   "quandoUsar": [
-   "Rótulos de estado que mudam poucas letras, como “Publicar”, “Publicando” e “Publicado”, ou “Seguir” e “Seguindo”.",
-   "Status curtos em botões, selos ou títulos, em que a largura nova deve deslizar em vez de pular e empurrar o que está ao lado."
+   "State labels that change a few letters, such as “Publish”, “Publishing”, and “Published”, or “Follow” and “Following”.",
+   "Short statuses in buttons, badges, or titles, where the new width should slide instead of jumping and pushing what is beside it."
   ],
   "quandoEvitar": [
-   "Use `slot-text` para números e valores que devem girar como roletas, como preços e contadores.",
-   "Use `action-swap` para um botão compacto que passa por estados como ocioso, trabalhando e concluído, com ícone e largura mudando juntos.",
-   "Para frases longas ou texto de várias linhas ele não serve: fica numa linha só e anima letra por letra."
+   "Use `slot-text` for numbers and values that should spin like reels, such as prices and counters.",
+   "Use `action-swap` for a compact button that goes through states such as idle, working, and done, with icon and width changing together.",
+   "It does not suit long sentences or multi-line text: it stays on a single line and animates letter by letter."
   ],
   "acessibilidade": [
-   "O texto atual fica num `span` visualmente oculto e as letras animadas são `aria-hidden`, então o leitor de tela lê a palavra inteira, nunca letras soltas.",
-   "A troca não é anunciada; se a mudança precisa ser ouvida, ponha o componente dentro de uma região `aria-live` sua."
+   "The current text sits in a visually hidden `span` and the animated letters are `aria-hidden`, so the screen reader reads the whole word, never loose letters.",
+   "The swap is not announced; if the change needs to be heard, put the component inside your own `aria-live` region."
   ],
   "movimento": [
-   "Letras em comum deslizam até a nova posição com uma mola sem ultrapassagem; as novas surgem de um leve desfoque, em ordem de leitura, e as removidas se desfazem.",
-   "A largura acompanha o texto novo com a mesma mola e uma borda suave revela as letras que chegam, então o layout em volta desliza em vez de pular.",
-   "Com “reduzir movimento”, o texto troca na hora."
+   "Shared letters slide to the new position with a no-overshoot spring; new ones emerge from a slight blur, in reading order, and removed ones dissolve.",
+   "The width follows the new text with the same spring and a soft edge reveals the incoming letters, so the surrounding layout slides instead of jumping.",
+   "With “reduce motion”, the text swaps immediately."
   ],
   "notasIA": [
-   "Importe `TextMorph` de `@/components/ryan-ui/text-morph/text-morph` e passe uma string como filho: `<TextMorph>{status}</TextMorph>`; elementos como filhos não funcionam.",
-   "Rende mais quando os rótulos compartilham letras, que ficam no lugar; com palavras sem nada em comum, todas as letras saem e entram de novo. Use `as` para o elemento certo (`h2`, `strong`).",
-   "Fica numa linha só (`nowrap`): reserve espaço para o rótulo mais longo ou deixe a largura variar com o texto."
+   "Import `TextMorph` from `@/components/ryan-ui/text-morph/text-morph` and pass a string as the child: `<TextMorph>{status}</TextMorph>`; elements as children do not work.",
+   "It works best when labels share letters, which stay in place; with words that have nothing in common, all letters leave and enter again. Use `as` for the right element (`h2`, `strong`).",
+   "It stays on a single line (`nowrap`): reserve space for the longest label or let the width vary with the text."
   ]
  },
  "text-reveal": {
   "quandoUsar": [
-   "Um título ou uma frase curta no topo de uma página ou seção, que deve animar logo ao aparecer, sem esperar rolagem.",
-   "Páginas renderizadas no servidor: a entrada é só CSS, começa na primeira pintura e nunca deixa o texto escondido se o JavaScript atrasar.",
-   "Repetir a entrada depois de uma ação, trocando a `key` do componente."
+   "A title or short phrase at the top of a page or section, which should animate right as it appears, without waiting for scroll.",
+   "Server-rendered pages: the entrance is CSS only, starts on the first paint, and never leaves the text hidden if JavaScript is late.",
+   "Repeat the entrance after an action, by changing the component's `key`."
   ],
   "quandoEvitar": [
-   "Use `in-view-title` quando o título fica mais abaixo na página e deve animar ao entrar na tela.",
-   "Use `streaming-response` para texto que chega aos poucos, palavra por palavra, como a resposta de um assistente.",
-   "Para parágrafos longos ele não serve: cada palavra vira um elemento e a largura máxima é de 24 caracteres."
+   "Use `in-view-title` when the title is further down the page and should animate on entering the screen.",
+   "Use `streaming-response` for text that arrives gradually, word by word, such as an assistant's reply.",
+   "It does not suit long paragraphs: each word becomes an element and the maximum width is 24 characters."
   ],
   "acessibilidade": [
-   "Em títulos (`h1` a `h3`), o nome acessível vem de `aria-label` com a frase inteira; num `p`, que não aceita nome, há uma cópia oculta. As palavras animadas são `aria-hidden`."
+   "In headings (`h1` to `h3`), the accessible name comes from `aria-label` with the whole phrase; in a `p`, which does not accept a name, there is a hidden copy. The animated words are `aria-hidden`."
   ],
   "movimento": [
-   "Cada palavra sobe de dentro de um recorte de borda suave enquanto sai de um desfoque (8 px em títulos, 4 px em parágrafos); o esmaecer termina primeiro e a subida por último.",
-   "As palavras entram em sequência, com cerca de 0,5 s no total por mais longo que seja o texto, e `delay` atrasa o começo; no fim, nenhuma palavra fica com transform ou filtro.",
-   "Com “reduzir movimento”, sobra só um esmaecer curto, sem subida nem desfoque."
+   "Each word rises from inside a soft-edged clip while coming out of a blur (8 px on headings, 4 px on paragraphs); the fade finishes first and the rise last.",
+   "Words enter in sequence, taking about 0.5 s in total however long the text is, and `delay` postpones the start; at the end, no word is left with a transform or filter.",
+   "With “reduce motion”, only a short fade remains, with no rise or blur."
   ],
   "responsivo": [
-   "A largura máxima é `24ch` e as linhas são equilibradas (`text-wrap: balance`); para um texto mais largo, mude a largura com `className`."
+   "The maximum width is `24ch` and lines are balanced (`text-wrap: balance`); for wider text, change the width with `className`."
   ],
   "notasIA": [
-   "Importe `TextReveal` de `@/components/ryan-ui/text-reveal/text-reveal`; o texto vai em `text`, com `\\n` para uma quebra de linha escolhida. Não há prop de visibilidade: anima ao montar.",
-   "Para repetir, mude a `key` do componente ou de um pai; para animar só quando a pessoa rolar até ele, use `in-view-title`.",
-   "Ele não se centraliza sozinho (`margin: 0` e largura máxima de `24ch`): para centralizar, use `margin-inline: auto` via `className` ou um pai flex centralizado, como no demo."
+   "Import `TextReveal` from `@/components/ryan-ui/text-reveal/text-reveal`; the text goes in `text`, with `\\n` for a chosen line break. There is no visibility prop: it animates on mount.",
+   "To repeat, change the `key` of the component or of a parent; to animate only when the user scrolls to it, use `in-view-title`.",
+   "It does not center itself (`margin: 0` and a maximum width of `24ch`): to center it, use `margin-inline: auto` via `className` or a centered flex parent, as in the demo."
   ]
  },
  "text-shimmer": {
   "quandoUsar": [
-   "Uma linha curta de status enquanto algo trabalha: “Pensando”, “Gerando resumo”, “Analisando 1.284 transações…”.",
-   "Status que termina no mesmo lugar: com `active={false}`, a luz sai, o texto fica sólido e um rótulo novo, como “Análise concluída”, sobe no lugar."
+   "A short status line while something is working: “Thinking”, “Generating summary”, “Analyzing 1,284 transactions…”.",
+   "A status that ends in the same place: with `active={false}`, the light leaves, the text turns solid, and a new label, such as “Analysis complete”, rises in its place."
   ],
   "quandoEvitar": [
-   "Use `loading-states` para um indicador de IA mais completo, com pontos, frases que se revezam ou contador de passos.",
-   "Use `skeleton` para reservar o espaço de um conteúdo que ainda não chegou.",
-   "Use `progress` quando dá para mostrar quanto falta."
+   "Use `loading-states` for a fuller AI indicator, with dots, rotating phrases, or a step counter.",
+   "Use `skeleton` to reserve the space of content that has not arrived yet.",
+   "Use `progress` when it is possible to show how much remains."
   ],
   "acessibilidade": [
-   "Com `active`, o elemento recebe `aria-busy`; o fim do trabalho não é anunciado, então avise numa região viva sua.",
-   "Em alto contraste (`forced-colors`) ou sem suporte a `color-mix`, o efeito some e o texto aparece na cor normal."
+   "With `active`, the element gets `aria-busy`; the end of the work is not announced, so announce it in your own live region.",
+   "In high contrast (`forced-colors`) or without `color-mix` support, the effect disappears and the text appears in its normal color."
   ],
   "movimento": [
-   "Uma faixa de luz na cor do texto atravessa as palavras em ritmo linear a cada `duration` (padrão 1,8 s), com uma pausa curta entre as passagens.",
-   "Ao desligar `active`, a faixa termina de passar e o texto assenta na cor sólida; um rótulo novo sobe com leve desfoque e a largura acompanha com uma mola.",
-   "Com “reduzir movimento”, não há faixa: o texto fica na cor base, mais apagada, enquanto `active`, e sólido no fim; a troca de rótulo vira um esmaecer."
+   "A band of light in the text color crosses the words at a linear pace every `duration` (default 1.8 s), with a short pause between passes.",
+   "When `active` is turned off, the band finishes passing and the text settles into the solid color; a new label rises with a slight blur and the width follows with a spring.",
+   "With “reduce motion”, there is no band: the text stays in the dimmer base color while `active`, and solid at the end; the label swap becomes a fade."
   ],
   "desempenho": [
-   "A faixa só anda com o texto na tela (com 64 px de margem) e a aba visível, e retoma de onde parou; fora da tela, nenhuma animação roda."
+   "The band only moves while the text is on screen (with a 64 px margin) and the tab is visible, and resumes where it left off; off screen, no animation runs."
   ],
   "notasIA": [
-   "Importe `TextShimmer` de `@/components/ryan-ui/text-shimmer/text-shimmer`; o texto vai como filho (string) e `active` liga e desliga a luz.",
-   "Mantenha numa linha curta; a cor da faixa vem da cor do texto, e dá para ajustar com `--text-shimmer-highlight` e `--text-shimmer-base`."
+   "Import `TextShimmer` from `@/components/ryan-ui/text-shimmer/text-shimmer`; the text goes as the child (a string) and `active` turns the light on and off.",
+   "Keep it to a short line; the band color comes from the text color, and can be adjusted with `--text-shimmer-highlight` and `--text-shimmer-base`."
   ]
  },
  "scroll-reveal": {
   "quandoUsar": [
-   "Seções de landing page ou de notas de versão em que cartões, números e listas chegam um depois do outro ao rolar.",
-   "Grades e fileiras de cartões: cada filho direto vira um passo da sequência, e `className` no invólucro monta a grade.",
-   "Leitura longa num painel com rolagem própria, com `root` apontando para o contêiner e `ScrollProgress` no topo mostrando quanto já foi lido."
+   "Landing page or release notes sections where cards, numbers, and lists arrive one after another on scroll.",
+   "Grids and rows of cards: each direct child becomes a step in the sequence, and `className` on the wrapper builds the grid.",
+   "Long reading in a panel with its own scrolling, with `root` pointing to the container and `ScrollProgress` at the top showing how much has been read."
   ],
   "quandoEvitar": [
-   "Use `in-view-title` para animar só o título de uma seção, palavra por palavra.",
-   "Use `infinite-masonry` para um feed que carrega mais itens ao chegar ao fim.",
-   "Em telas de trabalho, como tabelas, formulários e painéis, revelar ao rolar só atrasa a leitura; mostre o conteúdo direto."
+   "Use `in-view-title` to animate only a section's title, word by word.",
+   "Use `infinite-masonry` for a feed that loads more items on reaching the end.",
+   "On work screens, such as tables, forms, and dashboards, revealing on scroll only delays reading; show the content directly."
   ],
   "acessibilidade": [
-   "Os filhos ficam no DOM o tempo todo, só invisíveis antes de entrar na tela, então o leitor de tela os lê normalmente; a animação não muda a ordem nem o foco.",
-   "`ScrollProgress` é `role=\"progressbar\"` com `aria-valuenow` de 0 a 100 atualizado na rolagem; passe `label` em português (padrão “Scroll progress”)."
+   "The children stay in the DOM the whole time, only invisible before entering the screen, so the screen reader reads them normally; the animation changes neither the order nor the focus.",
+   "`ScrollProgress` is `role=\"progressbar\"` with `aria-valuenow` from 0 to 100 updated on scroll; pass `label` in your language (default “Scroll progress”)."
   ],
   "movimento": [
-   "Cada filho entra com o efeito escolhido: `fade` esmaece, `slide` vem de um lado (`from`, `distance`), `scale` cresce de 90% e `blur` sobe 6 px saindo de um desfoque, com uma mola sem ultrapassagem.",
-   "Os filhos entram em sequência a cada `stagger` (padrão 0,08 s) depois de `delay`; com `once={false}`, somem rápido ao sair da tela e entram de novo na volta.",
-   "Com “reduzir movimento”, tudo vira um esmaecer curto, sem deslocamento, escala, desfoque nem sequência, e a barra de progresso segue a rolagem sem suavizar."
+   "Each child enters with the chosen effect: `fade` fades, `slide` comes from one side (`from`, `distance`), `scale` grows from 90%, and `blur` rises 6 px coming out of a blur, with a no-overshoot spring.",
+   "Children enter in sequence every `stagger` (default 0.08 s) after `delay`; with `once={false}`, they quickly disappear on leaving the screen and enter again on return.",
+   "With “reduce motion”, everything becomes a short fade, with no displacement, scale, blur, or sequence, and the progress bar follows the scroll without smoothing."
   ],
   "desempenho": [
-   "Cada `ScrollReveal` usa um observador de interseção e `will-change` só vale durante a animação; `blur` anima filtro, que custa mais que mover ou esmaecer, então em listas longas prefira `fade` ou `slide`."
+   "Each `ScrollReveal` uses an intersection observer and `will-change` only applies during the animation; `blur` animates a filter, which costs more than moving or fading, so in long lists prefer `fade` or `slide`."
   ],
   "notasIA": [
-   "Importe `ScrollReveal` e `ScrollProgress` de `@/components/ryan-ui/scroll-reveal/scroll-reveal`. Cada filho direto é envolvido num `div`: aplique grid ou flex com `className` no próprio `ScrollReveal`.",
-   "Quando quem rola é um contêiner, e não a página, passe o mesmo `ref` em `root` (no `ScrollReveal`) e em `container` (no `ScrollProgress`).",
-   "Os filhos começam invisíveis até 20% do invólucro aparecer (`amount`); não envolva conteúdo que precisa estar visível logo no carregamento."
+   "Import `ScrollReveal` and `ScrollProgress` from `@/components/ryan-ui/scroll-reveal/scroll-reveal`. Each direct child is wrapped in a `div`: apply grid or flex with `className` on the `ScrollReveal` itself.",
+   "When the scroller is a container, not the page, pass the same `ref` in `root` (on `ScrollReveal`) and in `container` (on `ScrollProgress`).",
+   "Children start invisible until 20% of the wrapper appears (`amount`); do not wrap content that must be visible right on load."
   ]
  },
  "shader-background": {
   "quandoUsar": [
-   "O fundo de uma seção de destaque, como o hero de uma landing page ou uma tela de login, com movimento lento na cor de destaque.",
-   "Fundos que devem seguir tema claro e escuro e a cor de destaque sem configuração: as cores vêm dos tokens e são relidas quando o tema muda."
+   "The background of a highlight section, such as a landing page hero or a login screen, with slow motion in the accent color.",
+   "Backgrounds that should follow light and dark themes and the accent color with no configuration: the colors come from tokens and are reread when the theme changes."
   ],
   "quandoEvitar": [
-   "Atrás de texto longo, tabelas ou formulários, um fundo que se mexe atrapalha a leitura; use uma superfície lisa.",
-   "Use `hero-section` quando precisa do hero inteiro pronto, com título, botões e ilustrações, e não só do fundo.",
-   "Como fundo de cada cartão numa lista ou grade ele não serve: cada instância é um canvas WebGL próprio."
+   "Behind long text, tables, or forms, a moving background hurts reading; use a smooth surface.",
+   "Use `hero-section` when you need the whole hero ready-made, with title, buttons, and illustrations, and not just the background.",
+   "It does not suit as the background of every card in a list or grid: each instance is its own WebGL canvas."
   ],
   "acessibilidade": [
-   "O canvas é `aria-hidden` e não recebe ponteiro; o conteúdo vem em `children`, numa camada acima, com a semântica que você der.",
-   "O campo mistura o fundo da página com manchas na cor de destaque; confira o contraste do texto por cima e reduza `intensity` se precisar."
+   "The canvas is `aria-hidden` and receives no pointer; the content comes in `children`, in a layer above, with whatever semantics you give it.",
+   "The field blends the page background with patches in the accent color; check the text contrast on top and reduce `intensity` if needed."
   ],
   "movimento": [
-   "Um campo de ruído dobrado sobre si mesmo flui devagar, como líquido; `speed` muda o ritmo (0 congela), `scale` o tamanho do detalhe e `intensity` a força do destaque.",
-   "O canvas aparece com um esmaecer de 0,48 s quando o primeiro quadro fica pronto; antes disso, e sem WebGL, fica a superfície lisa de `--background`.",
-   "Com “reduzir movimento”, o campo fica parado num quadro fixo e o esmaecer inicial é desligado; `paused` congela o quadro atual e retoma do mesmo ponto."
+   "A noise field folded over itself flows slowly, like liquid; `speed` changes the pace (0 freezes), `scale` the detail size, and `intensity` the strength of the highlight.",
+   "The canvas appears with a 0.48 s fade when the first frame is ready; before that, and without WebGL, the smooth `--background` surface remains.",
+   "With “reduce motion”, the field stays still on a fixed frame and the initial fade is turned off; `paused` freezes the current frame and resumes from the same point."
   ],
   "responsivo": [
-   "Ocupa o tamanho do próprio elemento, com pelo menos 12 rem de altura, e redesenha quando ele muda de tamanho."
+   "It takes the size of its own element, with a height of at least 12 rem, and redraws when it is resized."
   ],
   "desempenho": [
-   "O laço de `requestAnimationFrame` só roda com o fundo na tela, a aba visível, sem `paused` e com `speed` diferente de 0; parado, ele desenha uma vez e não gasta mais.",
-   "`quality` (padrão 0,75) reduz os pixels desenhados, com densidade limitada a 2×; cada instância é um contexto WebGL próprio, então use poucos por página."
+   "The `requestAnimationFrame` loop only runs while the background is on screen, the tab is visible, `paused` is off, and `speed` is not 0; when stopped, it draws once and spends nothing more.",
+   "`quality` (default 0.75) reduces the pixels drawn, with density capped at 2×; each instance is its own WebGL context, so use few per page."
   ],
   "notasIA": [
-   "Importe `ShaderBackground` de `@/components/ryan-ui/shader-background/shader-background` e ponha o conteúdo como filho; defina a altura com `className` ou deixe o conteúdo definir (mínimo de 12 rem).",
-   "As cores vêm de `--background`, `--surface-muted` e `--accent`; para outro tom, mude esses tokens num ancestral em vez de editar o shader.",
-   "Ofereça um botão de pausa ligado a `paused` quando o fundo fica muito tempo na tela, como no demo."
+   "Import `ShaderBackground` from `@/components/ryan-ui/shader-background/shader-background` and put the content as the child; set the height with `className` or let the content set it (minimum 12 rem).",
+   "The colors come from `--background`, `--surface-muted`, and `--accent`; for another tone, change those tokens on an ancestor instead of editing the shader.",
+   "Offer a pause button tied to `paused` when the background stays on screen for a long time, as in the demo."
   ]
  },
  "slot-text": {
   "quandoUsar": [
-   "Números que merecem um momento quando mudam: preço novo, total de visitas, placar, a revelação de um número num lançamento.",
-   "Palavras curtas que trocam como num painel de aeroporto, como o nome de uma cidade em maiúsculas, com as letras embaralhando antes de parar."
+   "Numbers that deserve a moment when they change: a new price, total visits, a score, the reveal of a number at a launch.",
+   "Short words that swap as on an airport board, such as a city name in capitals, with the letters scrambling before stopping."
   ],
   "quandoEvitar": [
-   "Use `animated-counter` para totais de painel que mudam com frequência, com dígitos que rolam como um odômetro.",
-   "Use `text-morph` para rótulos de estado, como “Seguir” e “Seguindo”, em que as letras em comum devem ficar paradas.",
-   "Use `countdown` para contagem regressiva até um horário: ela cuida do relógio, do fuso e do fim."
+   "Use `animated-counter` for dashboard totals that change often, with digits that roll like an odometer.",
+   "Use `text-morph` for state labels, such as “Follow” and “Following”, where shared letters should stay still.",
+   "Use `countdown` for a countdown to a time: it handles the clock, the time zone, and the end."
   ],
   "acessibilidade": [
-   "As rodas são `aria-hidden` e o texto final fica num `span` oculto, então o leitor de tela lê o valor certo, nunca os caracteres girando.",
-   "Com `announce`, cada valor novo é anunciado com `aria-live=\"polite\"`; sem ele, a mudança é silenciosa."
+   "The wheels are `aria-hidden` and the final text sits in a hidden `span`, so the screen reader reads the correct value, never the spinning characters.",
+   "With `announce`, each new value is announced with `aria-live=\"polite\"`; without it, the change is silent."
   ],
   "movimento": [
-   "Cada caractere é uma roda: dígitos contam na direção em que o número mudou, letras passam por letras sorteadas, e as rodas param uma depois da outra, da esquerda para a direita, sem passar do alvo.",
-   "Quanto mais rápido a roda gira, mais ela desfoca; a largura de cada caractere acompanha com uma mola, e caracteres novos crescem a partir do zero.",
-   "Com “reduzir movimento”, o valor novo aparece na hora, sem giro."
+   "Each character is a wheel: digits count in the direction the number changed, letters pass through random letters, and the wheels stop one after another, left to right, without overshooting the target.",
+   "The faster the wheel spins, the more it blurs; each character's width follows with a spring, and new characters grow from zero.",
+   "With “reduce motion”, the new value appears immediately, without spinning."
   ],
   "desempenho": [
-   "Cada caractere monta uma tira com todas as etapas do giro (até 20 células por dígito com `spins={1}`); use em valores curtos, não em textos longos."
+   "Each character builds a strip with all the spin stages (up to 20 cells per digit with `spins={1}`); use it on short values, not long texts."
   ],
   "notasIA": [
-   "Importe `SlotText` de `@/components/ryan-ui/slot-text/slot-text`. Para números, passe `value` numérico e um `format`, como `v => v.toLocaleString(\"pt-BR\")`; o padrão agrupa no estilo en-US (12,480).",
-   "Deixe símbolos de moeda que começam com letra, como “R$”, fora do componente: com a letra no início, quando o número ganha um dígito o prefixo muda de roda e gira.",
-   "O tamanho vem da fonte do pai; para mudanças frequentes, `spins={0}` e um `duration` menor deixam o giro curto."
+   "Import `SlotText` from `@/components/ryan-ui/slot-text/slot-text`. For numbers, pass a numeric `value` and a `format`, such as `v => v.toLocaleString(\"pt-BR\")`; the default groups in en-US style (12,480).",
+   "Keep currency symbols that start with a letter, such as “R$”, outside the component: with the letter at the start, when the number gains a digit the prefix changes wheel and spins.",
+   "The size comes from the parent's font; for frequent changes, `spins={0}` and a smaller `duration` keep the spin short."
   ]
  }
 }

@@ -2,108 +2,80 @@
 
 > Renomeie no próprio lugar: o texto vira campo sem mudar de posição.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/inline-edit
-- Descrição original (inglês): Rename in place: the text becomes a field without moving.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/inline-edit
+- Original description: Rename in place: the text becomes a field without moving.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json`. Caminho do registro, relativo ao endereço do site: `r/inline-edit.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/inline-edit.json`. Registry path, relative to the site address: `r/inline-edit.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/inline-edit/inline-edit.tsx`
   - `components/ryan-ui/inline-edit/inline-edit.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/inline-edit.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/inline-edit.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Nomes e textos curtos que são lidos muito mais do que editados: título de projeto, nome de arquivo, descrição.
-- Edição que salva campo a campo, sem formulário: `onSave` pode devolver uma promessa, e o texto novo aparece na hora enquanto ela corre.
-- Títulos que precisam continuar sendo títulos: `as` mantém o texto num `h1`, `h2`, `h3`, `p` ou `span`.
+- Names and short texts that are read far more than edited: project title, file name, description.
+- Editing that saves field by field, with no form: `onSave` can return a promise, and the new text appears right away while it runs.
+- Headings that need to stay headings: `as` keeps the text in an `h1`, `h2`, `h3`, `p`, or `span`.
 
-## Quando não usar
+## When not to use
 
-- Use [`input`](input.md) ou [`textarea`](textarea.md) num formulário quando vários campos precisam ser salvos juntos.
-- Use [`rich-text-editor`](rich-text-editor.md) quando o texto precisa de formatação.
-- Quando sair do campo não pode gravar: aqui perder o foco salva, como numa renomeação, e só `Esc` descarta.
+- Use [`input`](input.md) or [`textarea`](textarea.md) in a form when several fields need to be saved together.
+- Use [`rich-text-editor`](rich-text-editor.md) when the text needs formatting.
+- When leaving the field must not save: here losing focus saves, as in a rename, and only `Esc` discards.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
-import { useRef, useState } from "react";
+import { useState } from "react";
 import InlineEdit from "@/components/ryan-ui/inline-edit/inline-edit";
-import { Switch } from "@/components/ryan-ui/switch/switch";
-import { Caption, Field, Stack, Surface } from "./_kit";
+import { Caption, Stack, Surface } from "./_kit";
 
 export default function InlineEditDemo() {
-  const [name, setName] = useState("Atlas web app");
-  const [description, setDescription] = useState("Offline-first field notes for the Atlas survey team. Drafts sync the moment a connection returns.");
-  const [failNext, setFailNext] = useState(false);
-  const failRef = useRef(failNext);
-  failRef.current = failNext;
-
-  // Salva com uma pequena demora para mostrar o estado; com o toggle ligado, o próximo save falha e o texto volta ao valor salvo.
-  const save = (setter: (value: string) => void) => (next: string) =>
-    new Promise<void>((resolve, reject) => {
-      window.setTimeout(() => {
-        if (failRef.current) {
-          failRef.current = false;
-          setFailNext(false);
-          reject(new Error("Simulated failure"));
-          return;
-        }
-        setter(next);
-        resolve();
-      }, 700);
-    });
-
+  const [name, setName] = useState("Q4 launch plan");
+  const [desc, setDesc] = useState("Everything we need to ship the new pricing page before the holidays.");
   return (
     <Surface width={440} padding={6}>
-      <Stack gap={4}>
-        <Field label="Project name">
-          <InlineEdit label="Project name" value={name} onSave={save(setName)} validate={value => (value.trim() ? null : "A project needs a name.")} />
-        </Field>
-        <Field label="Description">
-          <InlineEdit variant="body" multiline label="Description" value={description} onSave={save(setDescription)} placeholder="Add a description" />
-        </Field>
-        {/* O divisor separa os campos do rodapé do demo (igual ao demo ao vivo do site). */}
-        <div style={{ borderTop: "1px solid var(--border)", paddingTop: 12 }}>
-          <Switch label="Fail the next save" checked={failNext} onCheckedChange={setFailNext} />
-        </div>
-        <Caption>Last edited by Emma Collins on Mon 15 Sep</Caption>
+      <Stack gap={3}>
+        <InlineEdit as="h2" label="Project name" value={name} onSave={(v) => new Promise((r) => setTimeout(() => { setName(v); r(null); }, 700))} validate={(v) => (v.trim() ? null : "A project needs a name.")} />
+        <InlineEdit as="p" variant="body" multiline label="Description" value={desc} onSave={setDesc} placeholder="Add a description" />
+        <Caption>Click either text to edit. Enter saves, Escape cancels.</Caption>
       </Stack>
     </Surface>
   );
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `InlineEdit`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `string` | — | The saved value. A new value from outside replaces the text while it is not being edited. |
-| `onSave` (obrigatória) | `(next: string) => void \| Promise<unknown>` | — | Persists the new value. Return a promise to show the saving state, and reject it to roll back. |
-| `label` (obrigatória) | `string` | — | Accessible name, for example “Project name”. |
+| `value` (required) | `string` | — | The saved value. A new value from outside replaces the text while it is not being edited. |
+| `onSave` (required) | `(next: string) => void \| Promise<unknown>` | — | Persists the new value. Return a promise to show the saving state, and reject it to roll back. |
+| `label` (required) | `string` | — | Accessible name, for example “Project name”. |
 | `validate` | `(next: string) => string \| null \| undefined` | — | Returns a message when the draft cannot be saved. |
 | `placeholder` | `string` | `""` | Shown when the value is empty. |
 | `multiline` | `boolean` | `false` | Wraps onto several lines and grows in height. Enter still saves; Shift+Enter adds a line break. |
@@ -111,38 +83,38 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `as` | `"span" \| "p" \| "h1" \| "h2" \| "h3"` | `"span"` | The element that holds the text, so a title can stay a heading. |
 | `className` | `string` | — | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No texto, entram em edição com todo o conteúdo selecionado. |
-| `Enter` | No campo, salva; durante uma composição de IME não dispara. |
-| `Shift + Enter` | Com `multiline`, insere uma quebra de linha. |
-| `Esc` | Cancela a edição, restaura o texto e devolve o foco a ele. |
-| `Tab` | Passa pelos botões de salvar e de cancelar; quando o foco sai do componente, o texto é salvo. |
+| `Enter` or `Space` | On the text, enter edit mode with all the content selected. |
+| `Enter` | In the field, saves; does not fire during an IME composition. |
+| `Shift + Enter` | With `multiline`, inserts a line break. |
+| `Esc` | Cancels the edit, restores the text, and returns focus to it. |
+| `Tab` | Moves through the save and cancel buttons; when focus leaves the component, the text is saved. |
 
-## Acessibilidade
+## Accessibility
 
-- Em repouso o texto é um `<button>` com `aria-label` no formato “rótulo: valor” e a dica `Activate to edit.`; em edição vira `<input>` ou `<textarea>` com o mesmo `label`.
-- O erro de `validate` liga-se ao campo por `aria-invalid` e `aria-describedby`, e os avisos de salvando e salvo saem numa região `role="status"`.
-- As dicas, os anúncios e a mensagem de falha (com o botão `Try again`) são fixos em inglês; só `label`, `placeholder` e o texto de `validate` vêm de você.
+- At rest the text is a `<button>` with an `aria-label` in the format “label: value” and the hint `Activate to edit.`; while editing it becomes an `<input>` or `<textarea>` with the same `label`.
+- The `validate` error is tied to the field by `aria-invalid` and `aria-describedby`, and the saving and saved notices go out in a `role="status"` region.
+- The hints, the announcements, and the failure message (with the `Try again` button) are fixed in English; only `label`, `placeholder`, and the `validate` text come from you.
 
-## Movimento
+## Motion
 
-- O texto vira campo no mesmo lugar e com as mesmas métricas; a moldura acompanha a largura do que é digitado com uma mola rápida e, com `multiline`, a altura.
-- Ao salvar, o texto novo fica esmaecido ao lado de um indicador girando até a promessa resolver, e então um visto se desenha; numa falha, o texto salvo volta e a moldura pisca em tom de erro.
-- Com “reduzir movimento” ligado, os tamanhos mudam na hora, os textos só esmaecem e o indicador de salvamento não gira.
+- The text becomes a field in the same place and with the same metrics; the frame follows the width of what is typed with a fast spring and, with `multiline`, the height.
+- On save, the new text stays dimmed next to a spinning indicator until the promise resolves, and then a checkmark draws itself; on failure, the saved text comes back and the frame flashes in an error tone.
+- With “reduce motion” on, sizes change instantly, texts only fade, and the saving indicator does not spin.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A linha reserva 66 px à direita para os botões (38 px com `multiline`), então o texto não muda de quebra ao entrar em edição; em linha única, o excesso é cortado com reticências.
+- The row reserves 66 px on the right for the buttons (38 px with `multiline`), so the text does not change wrapping on entering edit mode; on a single line, the excess is cut with an ellipsis.
 
-## Notas para IA
+## Notes for AI
 
-- `value` é o valor salvo e `onSave(next)` deve gravá-lo: devolva uma promessa e rejeite-a para o componente restaurar o último valor salvo e oferecer nova tentativa.
-- `validate(next)` devolve a mensagem de erro ou nada; antes disso o texto é aparado e, em linha única, espaços repetidos viram um só, e `onSave` não é chamado se nada mudou.
-- `label` é obrigatório (é o nome acessível e não aparece na tela), `variant` é `title` ou `body` e `as` escolhe a tag, por exemplo `as="h2"`.
+- `value` is the saved value and `onSave(next)` must store it: return a promise and reject it for the component to restore the last saved value and offer a retry.
+- `validate(next)` returns the error message or nothing; before that the text is trimmed and, on a single line, repeated spaces become one, and `onSave` is not called if nothing changed.
+- `label` is required (it is the accessible name and does not show on screen), `variant` is `title` or `body`, and `as` chooses the tag, for example `as="h2"`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/inline-edit · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/inline-edit · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

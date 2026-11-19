@@ -2,48 +2,48 @@
 
 > Uma área generosa para soltar um ou vários arquivos, com progresso de envio.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-dropzone
-- Descrição original (inglês): A generous target for dropping one or more files.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-dropzone
+- Original description: A generous target for dropping one or more files.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json`. Caminho do registro, relativo ao endereço do site: `r/file-dropzone.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-dropzone.json`. Registry path, relative to the site address: `r/file-dropzone.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/file-dropzone/file-dropzone.tsx`
   - `components/ryan-ui/file-dropzone/file-dropzone.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/file-dropzone.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/file-dropzone.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Anexar um ou vários arquivos arrastando, escolhendo no dispositivo ou colando uma captura de tela com o ponteiro sobre o alvo ou o foco dentro dele.
-- Envios com retorno por arquivo: com `onUpload`, cada linha mostra progresso, conclusão ou falha, com botão para tentar de novo.
-- Quando há regras de entrada: `accept`, `maxSize` e `maxFiles` recusam arquivos com uma mensagem, e o alvo treme de leve.
+- Attaching one or several files by dragging, picking from the device, or pasting a screenshot with the pointer over the target or focus inside it.
+- Uploads with per-file feedback: with `onUpload`, each row shows progress, completion, or failure, with a retry button.
+- When there are input rules: `accept`, `maxSize`, and `maxFiles` reject files with a message, and the target shakes slightly.
 
-## Quando não usar
+## When not to use
 
-- Use [`file-upload`](file-upload.md) quando a lista de arquivos precisa ser controlada de fora (`value` + `onChange`); aqui ela é estado interno e `defaultItems` só vale na montagem.
-- Use [`prompt-input`](prompt-input.md) para anexos dentro de uma caixa de mensagem, onde eles aparecem como chips.
-- Para trocar uma única imagem, como foto de perfil ou capa, um botão que abre o seletor ocupa menos espaço que o alvo inteiro.
+- Use [`file-upload`](file-upload.md) when the file list needs to be controlled from outside (`value` + `onChange`); here it is internal state and `defaultItems` only applies on mount.
+- Use [`prompt-input`](prompt-input.md) for attachments inside a message box, where they appear as chips.
+- To replace a single image, like a profile photo or cover, a button that opens the picker takes less space than the whole target.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import FileDropzone, { type FileDropzoneUpload } from "@/components/ryan-ui/file-dropzone/file-dropzone";
@@ -80,13 +80,13 @@ export default function FileDropzoneDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FileDropzone`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `accept` | `string` | — | — |
 | `multiple` | `boolean` | `true` | — |
@@ -102,9 +102,9 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `dropLabel` | `string` | — | Label while files hover over the target. |
 | `compactAt` | `number` | — | Once the list holds this many files, the prompt folds to a slim bar so the list has room. A file dragged over brings the icon back. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `FileDropzoneStatus` | `"uploading" \| "uploaded" \| "failed"` |
 | `FileDropzoneUpload`: Report 0 to 100 through onProgress, resolve when the file lands, or reject with an Error whose message becomes the row's reason. Removing the row aborts the signal. | `(item: FileDropzoneItem, options: { onProgress: (percent: number) => void; signal: AbortSignal }) => Promise<void>` |
@@ -113,11 +113,11 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 `preview` is a thumbnail URL; image files added by the visitor get one automatically.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `name` (obrigatória) | `string` | — |
-| `size` (obrigatória) | `number` | — |
+| `id` (required) | `string` | — |
+| `name` (required) | `string` | — |
+| `size` (required) | `number` | — |
 | `status` | `"uploading" \| "uploaded" \| "failed"` | — |
 | `progress` | `number` | — |
 | `error` | `string` | — |
@@ -125,46 +125,46 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `file` | `File` | — |
 | `preview` | `string` | — |
 
-### Outras exportações
+### Other exports
 
-- `formatFileSize` (função)
+- `formatFileSize` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No alvo, abrem o seletor de arquivos do sistema. |
-| `↑` ou `↓` | Na lista, passam o foco para a linha de cima ou de baixo, mantendo a mesma ação (remover ou tentar de novo). |
-| `Delete` ou `Backspace` | Removem o arquivo da linha em foco. |
-| `Tab` | Percorre o alvo e os botões de cada linha. |
+| `Enter` or `Space` | On the target, open the system file picker. |
+| `↑` or `↓` | In the list, move focus to the row above or below, keeping the same action (remove or retry). |
+| `Delete` or `Backspace` | Remove the file in the focused row. |
+| `Tab` | Moves through the target and each row's buttons. |
 
-## Acessibilidade
+## Accessibility
 
-- O alvo inteiro é um único `<button>` descrito por `description` e pela nota; o `<input type="file">` nativo fica oculto e fora da ordem de tabulação.
-- Adições, conclusões, falhas e remoções saem numa região `role="status"`, as recusas num `role="alert"`, e cada envio tem um `role="progressbar"`; esses textos são fixos em inglês.
-- Ao remover uma linha, o foco vai para o botão de remover da linha seguinte (ou da anterior, ou para o alvo); ao tentar de novo, para o botão de remover da própria linha.
+- The whole target is a single `<button>` described by `description` and the note; the native `<input type="file">` stays hidden and outside the tab order.
+- Additions, completions, failures, and removals go out in a `role="status"` region, rejections in a `role="alert"`, and each upload has a `role="progressbar"`; these texts are fixed in English.
+- On removing a row, focus goes to the next row's remove button (or the previous one, or the target); on retry, to the same row's remove button.
 
-## Movimento
+## Motion
 
-- Com um arquivo sobre o alvo, o tracejado fecha numa linha contínua, o alvo pulsa devagar, as três folhas do ícone se abrem e uma luz na borda segue o ponteiro.
-- As linhas novas caem do alvo para a lista em sequência e abrem a própria altura; a barra e a porcentagem seguem a mesma mola e, ao concluir, um visto se desenha.
-- Com “reduzir movimento” ligado, linhas e textos só esmaecem, o progresso salta para o valor e não há pulso nem tremor.
+- With a file over the target, the dashed border closes into a solid line, the target pulses slowly, the icon's three sheets fan out, and a light on the border follows the pointer.
+- New rows drop from the target into the list in sequence and open their own height; the bar and the percentage follow the same spring and, on completion, a checkmark draws itself.
+- With “reduce motion” on, rows and texts only fade, progress jumps to the value, and there is no pulse or shake.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista é um contêiner de consulta: abaixo de 440 px o botão de tentar de novo fica só com o ícone, e abaixo de 300 px o ícone ou a miniatura do arquivo some.
-- `compactAt` dobra o alvo numa barra baixa quando a lista chega a esse número de arquivos, e `listPlacement="inside"` põe a lista dentro da borda do alvo.
+- The list is a query container: below 440 px the retry button keeps only the icon, and below 300 px the file's icon or thumbnail disappears.
+- `compactAt` folds the target into a low bar when the list reaches that number of files, and `listPlacement="inside"` puts the list inside the target's border.
 
-## Desempenho
+## Performance
 
-- Imagens adicionadas ganham miniatura por `URL.createObjectURL`, liberada ao remover a linha ou desmontar; nesses mesmos momentos os envios em andamento são abortados pelo `signal`.
+- Added images get a thumbnail via `URL.createObjectURL`, released on removing the row or unmounting; at those same moments, in-progress uploads are aborted by the `signal`.
 
-## Notas para IA
+## Notes for AI
 
-- `onUpload(item, { onProgress, signal })` deve devolver uma promessa: informe de 0 a 100, resolva ao concluir e rejeite com um `Error` cuja mensagem vira o motivo da falha; respeite o `signal`.
-- Sem `onUpload` a lista mostra só as seleções; `onFilesChange(files)` entrega os `File` atuais, e os padrões são `multiple` ligado e `maxFiles={5}`.
-- `maxSize` é em bytes e `accept` aceita extensões, tipos MIME e curingas como `image/*`; `label`, `description`, `note` e `dropLabel` têm padrões em inglês.
+- `onUpload(item, { onProgress, signal })` must return a promise: report 0 to 100, resolve on completion, and reject with an `Error` whose message becomes the failure reason; respect the `signal`.
+- Without `onUpload` the list shows only the selections; `onFilesChange(files)` delivers the current `File`s, and the defaults are `multiple` on and `maxFiles={5}`.
+- `maxSize` is in bytes and `accept` takes extensions, MIME types, and wildcards like `image/*`; `label`, `description`, `note`, and `dropLabel` default to English.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-dropzone · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-dropzone · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

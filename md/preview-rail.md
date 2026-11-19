@@ -2,47 +2,47 @@
 
 > Trilho de cartões em que o cartão sob o cursor ou em foco se alarga para mostrar a prévia enquanto os outros encolhem.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/preview-rail
-- Descrição original (inglês): A rail of image cards in which the hovered or focused one widens to reveal its preview while the others shrink to a slice.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/preview-rail
+- Original description: A rail of image cards in which the hovered or focused one widens to reveal its preview while the others shrink to a slice.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/preview-rail.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/preview-rail.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/preview-rail.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/preview-rail.json`. Caminho do registro, relativo ao endereço do site: `r/preview-rail.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/preview-rail.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/preview-rail.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/preview-rail.json`. Registry path, relative to the site address: `r/preview-rail.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/preview-rail/preview-rail.tsx`
   - `components/ryan-ui/preview-rail/preview-rail.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/preview-rail.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/preview-rail.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Vitrine de poucos destaques com imagem (destinos, guias, projetos, categorias) em que passar o cursor mostra a prévia e pressionar o cartão aberto leva ao detalhe.
-- Seções de página em que um item fica sempre em evidência e os outros aparecem como fatias com o título.
+- Showcase of a few image highlights (destinations, guides, projects, categories) where hovering shows the preview and pressing the open card leads to the detail.
+- Page sections where one item is always in the spotlight and the others appear as slices with the title.
 
-## Quando não usar
+## When not to use
 
-- Use [`carousel`](carousel.md) quando há muitos itens ou todos precisam do mesmo destaque; aqui, cada cartão a mais estreita as fatias fechadas.
-- Use [`image-viewer`](image-viewer.md) para abrir e ampliar fotos.
-- Use [`tabs`](tabs.md) quando cada opção revela conteúdo próprio (texto, formulários) em vez de uma prévia curta sobre uma imagem.
+- Use [`carousel`](carousel.md) when there are many items or all need the same prominence; here, each additional card narrows the closed slices.
+- Use [`image-viewer`](image-viewer.md) to open and zoom photos.
+- Use [`tabs`](tabs.md) when each option reveals its own content (text, forms) instead of a short preview over an image.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -75,15 +75,15 @@ export default function PreviewRailDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PreviewRail`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `PreviewRailItem[]` | — | The cards, in order. |
+| `items` (required) | `PreviewRailItem[]` | — | The cards, in order. |
 | `value` | `string` | — | Id of the open card (controlled). |
 | `defaultValue` | `string` | — | Open card when uncontrolled. Defaults to the first one. |
 | `onValueChange` | `(value: string) => void` | — | Called when another card opens. |
@@ -94,56 +94,56 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `label` | `string` | `"Previews"` | Accessible name of the group. |
 | `className` | `string` | — | Extra class for the outer element. |
 
-### Tipos exportados
+### Exported types
 
 #### `PreviewRailItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id, used as the rail's value. |
-| `title` (obrigatória) | `string` | Card title, shown on the closed card's label and in the open preview. |
+| `id` (required) | `string` | Unique id, used as the rail's value. |
+| `title` (required) | `string` | Card title, shown on the closed card's label and in the open preview. |
 | `eyebrow` | `string` | Short line above the title: a category, a place, a date. |
 | `description` | `string` | One or two sentences shown only while the card is open. |
 | `meta` | `string` | Detail shown at the bottom of the preview, such as a duration or a count. |
-| `image` (obrigatória) | `string` | Image URL for the card background. |
+| `image` (required) | `string` | Image URL for the card background. |
 | `alt` | `string` | Alternative text for the image. Leave empty when the title already says it. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Movem o foco para o cartão anterior ou o próximo, que se abre ao receber o foco; `↑` e `↓` fazem o mesmo. |
-| `Home` ou `End` | Vão ao primeiro e ao último cartão. |
-| `Enter` ou `Espaço` | No cartão aberto, chamam `onSelect`. |
-| `Tab` | Cada cartão é uma parada de `Tab`, e o foco abre o cartão. |
+| `←` or `→` | Move focus to the previous or next card, which opens on receiving focus; `↑` and `↓` do the same. |
+| `Home` or `End` | Go to the first and last card. |
+| `Enter` or `Space` | On the open card, call `onSelect`. |
+| `Tab` | Each card is a `Tab` stop, and focus opens the card. |
 
-## Acessibilidade
+## Accessibility
 
-- O trilho é um `role="group"` nomeado por `label`; cada cartão é um `<button>` com `aria-expanded` e o título num texto oculto, e os textos da prévia entram no nome do botão quando ele abre.
-- O foco abre o cartão, então quem usa teclado vê a mesma prévia do cursor; no toque, o primeiro toque num cartão fechado só o abre, e o segundo o seleciona.
-- O `alt` da imagem é vazio por padrão: preencha `alt` no item só quando a imagem disser algo que o título não diz.
+- The rail is a `role="group"` named by `label`; each card is a `<button>` with `aria-expanded` and the title in hidden text, and the preview texts enter the button's name when it opens.
+- Focus opens the card, so keyboard users see the same preview as the cursor; on touch, the first tap on a closed card only opens it, and the second selects it.
+- The image's `alt` is empty by default: fill in `alt` on the item only when the image says something the title doesn't.
 
-## Movimento
+## Motion
 
-- Só o `flex-grow` anima, numa mola sem ultrapassagem: o cartão aberto cresce até `ratio` vezes a largura de um fechado, e os demais viram fatias.
-- A imagem do cartão aberto clareia, o rótulo vertical some e as linhas da prévia sobem 10 px em sequência.
-- Com “reduzir movimento”, a largura troca na hora e a prévia só esmaece.
+- Only `flex-grow` animates, on a spring with no overshoot: the open card grows to `ratio` times the width of a closed one, and the rest become slices.
+- The open card's image brightens, the vertical label disappears, and the preview lines rise 10 px in sequence.
+- With “reduced motion”, the width swaps instantly and the preview only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A raiz é um contêiner: com até 520 px o trilho vira coluna, fica 1,5 vez mais alto que `height`, e o cartão aberto cresce na vertical, com os rótulos dos fechados na horizontal.
-- A largura de um cartão fechado é a do trilho, descontados os vãos, dividida por `ratio` + número de itens − 1; com muitos itens, as fatias ficam estreitas demais para o rótulo.
+- The root is a container: at up to 520 px the rail becomes a column, 1.5 times taller than `height`, and the open card grows vertically, with the closed cards' labels horizontal.
+- A closed card's width is the rail's width, minus the gaps, divided by `ratio` + number of items − 1; with many items, the slices become too narrow for the label.
 
-## Desempenho
+## Performance
 
-- Animar `flex-grow` refaz o layout da fileira a cada quadro, por isso imagem e prévia já nascem no tamanho aberto e o cartão só as descobre; todas as imagens carregam de imediato, sem `loading="lazy"`.
+- Animating `flex-grow` redoes the row's layout on every frame, so the image and preview are born at the open size and the card only reveals them; all images load immediately, without `loading="lazy"`.
 
-## Notas para IA
+## Notes for AI
 
-- Cada item precisa de `id`, `title` e `image`; `eyebrow`, `description` (cortada em duas linhas) e `meta` são opcionais.
-- Sempre há um cartão aberto (o primeiro, por padrão): `value` com `onValueChange` controla qual, e `onSelect` dispara ao pressionar o cartão já aberto; faça a navegação nele, pois o cartão é um botão, não um link.
-- `trigger="press"` faz o mouse abrir cartões só no clique, não ao passar por cima (foco e toque continuam abrindo); `height` é em px, e a largura vem do pai.
+- Each item needs `id`, `title`, and `image`; `eyebrow`, `description` (clamped to two lines), and `meta` are optional.
+- There is always one open card (the first, by default): `value` with `onValueChange` controls which, and `onSelect` fires when pressing the already open card; do the navigation in it, since the card is a button, not a link.
+- `trigger="press"` makes the mouse open cards only on click, not on hover (focus and touch still open them); `height` is in px, and the width comes from the parent.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/preview-rail · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/preview-rail · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

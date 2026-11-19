@@ -2,47 +2,47 @@
 
 > Confirma uma ação destrutiva ao segurar o botão, não com um toque.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/hold-to-confirm
-- Descrição original (inglês): Confirm a destructive action by holding, not tapping.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/hold-to-confirm
+- Original description: Confirm a destructive action by holding, not tapping.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hold-to-confirm.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hold-to-confirm.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hold-to-confirm.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hold-to-confirm.json`. Caminho do registro, relativo ao endereço do site: `r/hold-to-confirm.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hold-to-confirm.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hold-to-confirm.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hold-to-confirm.json`. Registry path, relative to the site address: `r/hold-to-confirm.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/hold-to-confirm/hold-to-confirm.tsx`
   - `components/ryan-ui/hold-to-confirm/hold-to-confirm.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/hold-to-confirm.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/hold-to-confirm.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ações destrutivas ou difíceis de desfazer cujas consequências já estão visíveis na tela, como excluir o projeto que está aberto.
-- Ações em que um toque acidental não pode contar e um diálogo seria pesado: publicar, arquivar, liberar um envio.
+- Destructive or hard-to-undo actions whose consequences are already visible on screen, like deleting the project that is open.
+- Actions where an accidental tap must not count and a dialog would be heavy: publish, archive, release a shipment.
 
-## Quando não usar
+## When not to use
 
-- Use [`dialog`](dialog.md) quando a pessoa precisa ler as consequências antes de confirmar.
-- Use [`confirm-morph`](confirm-morph.md) quando a confirmação deve oferecer Cancelar, mostrar o andamento e permitir Desfazer no lugar.
-- Use [`toast-action`](toast-action.md) com Desfazer para ações frequentes e reversíveis: segurar a cada uso deixa o fluxo lento.
+- Use [`dialog`](dialog.md) when the person needs to read the consequences before confirming.
+- Use [`confirm-morph`](confirm-morph.md) when the confirmation should offer Cancel, show progress, and allow Undo in place.
+- Use [`toast-action`](toast-action.md) with Undo for frequent, reversible actions: holding on every use slows the flow.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -77,48 +77,48 @@ export default function HoldToConfirmDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `HoldToConfirm`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | The instruction and the action, for example “Hold to delete project”. |
+| `label` (required) | `string` | — | The instruction and the action, for example “Hold to delete project”. |
 | `confirmedLabel` | `string` | `"Done"` | Shown once the hold completes, for example “Deleted”. |
-| `onConfirm` (obrigatória) | `() => void` | — | Called once when the hold completes. |
+| `onConfirm` (required) | `() => void` | — | Called once when the hold completes. |
 | `duration` | `number` | `1200` | Hold length in milliseconds. |
 | `icon` | `ReactNode` | `<Trash2 strokeWidth={1.75} />` | — |
 | `tone` | `"accent" \| "danger" \| "neutral"` | `"accent"` | `accent` (default) fills with the selected accent; `danger` is for an irreversible action; `neutral` fills with the foreground. |
 | `confirmed` | `boolean` | — | Controls the done state. Set it back to false to reset the button; leave it undefined to let the button keep its own state. |
 | `onHoldChange` | `(holding: boolean) => void` | — | Reports when a hold starts and ends, for surrounding hints such as “Keep holding”. |
-| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Também aceita as props deste tipo, menos `children`, `onClick`, `onDrag`, `onDragEnd`, `onDragStart`, `onAnimationStart` e `onAnimationEnd`. |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Also accepts the props of this type, except `children`, `onClick`, `onDrag`, `onDragEnd`, `onDragStart`, `onAnimationStart` and `onAnimationEnd`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Espaço` ou `Enter` | Mantidas pressionadas no botão, enchem o preenchimento; soltar antes do fim o desfaz, e completar chama `onConfirm`. |
+| `Space` or `Enter` | Held down on the button, they advance the fill; releasing before the end undoes it, and completing calls `onConfirm`. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<button>` com `aria-describedby` apontando para uma instrução oculta (“Press and hold for 1.2 seconds to confirm…”, fixa em inglês); ao concluir, recebe `aria-disabled` e um `role="status"` anuncia `confirmedLabel`.
-- O `aria-label` acompanha o texto visível (`label`, depois `confirmedLabel`); um clique ou toque rápido não confirma, então diga no `label` que é preciso segurar, como “Segure para excluir o projeto”.
-- Arrastar o ponteiro para mais de 24 px fora do botão, ou tirar o foco dele, cancela o pressionamento.
+- It is a `<button>` with `aria-describedby` pointing to a hidden instruction (“Press and hold for 1.2 seconds to confirm…”, fixed in English); on completion, it gets `aria-disabled` and a `role="status"` announces `confirmedLabel`.
+- The `aria-label` follows the visible text (`label`, then `confirmedLabel`); a quick click or tap does not confirm, so say in the `label` that holding is required, like “Hold to delete project”.
+- Dragging the pointer more than 24 px outside the button, or taking focus away from it, cancels the press.
 
-## Movimento
+## Motion
 
-- O preenchimento avança em ritmo linear por `duration` ms, como uma cópia invertida do botão revelada da esquerda (o texto muda de cor na borda); soltar antes o rebobina numa mola, e pressionar de novo continua de onde parou.
-- Na pressão, o botão encolhe levemente (0,97); ao concluir, o ícone vira um visto que se desenha e a largura acompanha o novo rótulo numa mola sem ultrapassagem.
-- Com “reduzir movimento”, o preenchimento ainda avança enquanto se segura (ele é o cronômetro), mas volta de uma vez ao soltar; não há escala, e rótulo e ícone só esmaecem.
+- The fill advances at a linear pace for `duration` ms, like an inverted copy of the button revealed from the left (the text changes color at the edge); releasing early rewinds it on a spring, and pressing again continues from where it stopped.
+- On press, the button shrinks slightly (0.97); on completion, the icon becomes a checkmark that draws itself and the width follows the new label on a spring with no overshoot.
+- With “reduce motion”, the fill still advances while held (it is the timer), but returns at once on release; there is no scale, and label and icon only fade.
 
-## Notas para IA
+## Notes for AI
 
-- `onConfirm` roda uma vez, ao completar; depois o botão fica concluído até remontar (o demo troca a `key`) ou, no modo controlado, até `confirmed` voltar a `false`.
-- `tone="danger"` é para ações irreversíveis (o padrão `accent` usa a cor de destaque); `duration` ajusta o tempo (1200 ms) e `icon` troca a lixeira padrão.
-- Use `onHoldChange` para uma dica ao redor, como “Continue segurando…”; `confirmedLabel` tem padrão em inglês (“Done”), e a instrução oculta só muda no arquivo instalado.
+- `onConfirm` runs once, on completion; afterward the button stays done until it remounts (the demo changes the `key`) or, in controlled mode, until `confirmed` goes back to `false`.
+- `tone="danger"` is for irreversible actions (the default `accent` uses the accent color); `duration` sets the time (1200 ms) and `icon` replaces the default trash can.
+- Use `onHoldChange` for a hint around it, like “Keep holding…”; `confirmedLabel` defaults to English (“Done”), and the hidden instruction only changes in the installed file.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hold-to-confirm · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hold-to-confirm · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

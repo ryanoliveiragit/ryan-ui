@@ -2,48 +2,48 @@
 
 > Painel lateral temporário para tarefas focadas.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/drawer
-- Descrição original (inglês): A temporary side surface for focused work.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/drawer
+- Original description: A temporary side surface for focused work.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json`. Caminho do registro, relativo ao endereço do site: `r/drawer.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/drawer.json`. Registry path, relative to the site address: `r/drawer.json`.
 
-- Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dialog`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/drawer/drawer.tsx`
   - `components/ryan-ui/drawer/drawer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dialog lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/drawer.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dialog lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/drawer.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Editar um registro ou perfil sem perder a lista de vista, com o formulário num painel lateral.
-- Filtros de uma lista abertos pela esquerda (`side="left"`) e aplicados ao fechar.
-- Detalhes de uma linha selecionada que continuam na tela enquanto o painel sai, com `useDrawerItem`.
+- Editing a record or profile without losing the list view, with the form in a side panel.
+- List filters opened from the left (`side="left"`) and applied on close.
+- Details of a selected row that stay on screen while the panel leaves, with `useDrawerItem`.
 
-## Quando não usar
+## When not to use
 
-- Use [`dialog`](dialog.md) para uma decisão curta que precisa de toda a atenção.
-- Use [`bottom-sheet`](bottom-sheet.md) no celular quando o painel deve repousar em alturas diferentes e seguir o dedo.
-- Use [`resizable-panels`](resizable-panels.md) quando o painel lateral é parte permanente do layout.
+- Use [`dialog`](dialog.md) for a short decision that needs full attention.
+- Use [`bottom-sheet`](bottom-sheet.md) on mobile when the panel should rest at different heights and follow the finger.
+- Use [`resizable-panels`](resizable-panels.md) when the side panel is a permanent part of the layout.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -86,60 +86,60 @@ export default function DrawerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Drawer`
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
 ### `DrawerContent`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | — |
+| `title` (required) | `string` | — | — |
 | `description` | `string` | — | — |
-| `children` (obrigatória) | `ReactNode` | — | — |
+| `children` (required) | `ReactNode` | — | — |
 | `side` | `"left" \| "right" \| "top" \| "bottom"` | `"right"` | — |
 | `container` | `HTMLElement \| null` | — | Renders the drawer inside this element instead of the page body, anchored to its edges. The element needs position: relative and overflow: hidden. Pair it with `modal={false}` on Drawer, so the page around the element keeps scrolling and stays usable while the drawer is open (Escape, the close button and a press on the scrim still close it). |
-| `...props` | `ComponentPropsWithoutRef<typeof DialogPrimitive.Content>` | — | Também aceita as props deste tipo. |
+| `...props` | `ComponentPropsWithoutRef<typeof DialogPrimitive.Content>` | — | Also accepts the props of this type. |
 
-### Outras exportações
+### Other exports
 
 - `useDrawerItem` (hook)
-- `DrawerTrigger` (valor)
-- `DrawerClose` (valor)
+- `DrawerTrigger` (value)
+- `DrawerClose` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` ou `Shift + Tab` | Percorrem os controles do painel sem sair dele; ao abrir, o foco vai ao primeiro controle, o botão de fechar. |
-| `Esc` | Fecha o painel e devolve o foco ao `DrawerTrigger`. |
+| `Tab` or `Shift + Tab` | Move through the panel controls without leaving it; on open, focus goes to the first control, the close button. |
+| `Esc` | Closes the panel and returns focus to the `DrawerTrigger`. |
 
-## Acessibilidade
+## Accessibility
 
-- É um diálogo modal do Radix: `title` dá o nome, `description` a descrição, o foco fica preso no painel e o resto da página sai da árvore de acessibilidade.
-- O botão de fechar se chama “Close drawer”, fixo em inglês no código.
+- It is a Radix modal dialog: `title` gives the name, `description` the description, focus is trapped in the panel, and the rest of the page leaves the accessibility tree.
+- The close button is named “Close drawer”, fixed in English in the code.
 
-## Movimento
+## Motion
 
-- O painel entra pela borda de `side` numa mola sem ultrapassagem e sai mais rápido, esmaecendo só no último trecho para a sombra não sumir de repente.
-- O cabeçalho é a alça: arrastar para a borda move o painel, o outro lado resiste como elástico, e passar de um terço do painel ou dar um gesto rápido fecha mantendo a velocidade.
-- Com “reduzir movimento” ligado, não há arraste e o painel só esmaece ao entrar e sair.
+- The panel enters from the `side` edge on a no-overshoot spring and leaves faster, fading only in the last stretch so the shadow does not vanish abruptly.
+- The header is the handle: dragging toward the edge moves the panel, the other side resists like elastic, and passing a third of the panel or making a fast gesture closes it keeping the velocity.
+- With “reduce motion” on, there is no drag and the panel only fades on enter and exit.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Nas laterais o painel tem até 30rem e, abaixo de 40rem, ocupa quase toda a largura, com cantos e espaçamentos menores; em cima ou embaixo ocupa a largura toda, com até 32rem de altura.
-- Com `container`, o painel abre dentro de um elemento, ancorado às bordas dele; esse elemento precisa de `position: relative` e `overflow: hidden`.
+- On the sides the panel is up to 30rem and, below 40rem, takes almost the full width, with smaller corners and spacing; at the top or bottom it takes the full width, up to 32rem tall.
+- With `container`, the panel opens inside an element, anchored to its edges; that element needs `position: relative` and `overflow: hidden`.
 
-## Notas para IA
+## Notes for AI
 
-- Monte `Drawer`, `DrawerTrigger asChild` e `DrawerContent` com `title` e `side`; ações que fecham vão em `DrawerClose asChild`. Importe de `@/components/ryan-ui/drawer/drawer`.
-- Ao abrir a partir de uma linha selecionada, passe o item por `useDrawerItem(item)` e renderize o resultado, para o conteúdo não sumir enquanto o painel sai.
-- O arraste para fechar só existe com a raiz `Drawer` deste arquivo; sob um `Root` do Radix puro, o painel anima por keyframes de CSS e não arrasta.
+- Assemble `Drawer`, `DrawerTrigger asChild`, and `DrawerContent` with `title` and `side`; actions that close go in `DrawerClose asChild`. Import from `@/components/ryan-ui/drawer/drawer`.
+- When opening from a selected row, pass the item through `useDrawerItem(item)` and render the result, so the content does not vanish while the panel leaves.
+- Drag-to-close only exists with this file's `Drawer` root; under a plain Radix `Root`, the panel animates with CSS keyframes and does not drag.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/drawer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/drawer · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

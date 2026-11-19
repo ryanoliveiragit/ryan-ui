@@ -9,10 +9,13 @@ import { MoreSection, Pager, RelatedSection, VersionsSection, versionHref, versi
 import { CodeCard, languageOf } from "@/site/components/item-code-card";
 import { AiNotesSection, KeyboardSection, ListSection, markdownHref } from "@/site/components/item-guide";
 import { InstallChip, InstallSection, installedPath } from "@/site/components/item-install";
+import { PlanBadge } from "@/site/components/plan-badge";
+import { SiteButton } from "@/site/components/site-button";
 import { InlineCode, Section, SegmentedLinks, TabList, panelId, tabId } from "@/site/components/item-ui";
 import { Toc, useToc } from "@/site/components/toc";
 import { describe, findItem, items, relatedItems, versionsOf, type CatalogItem } from "@/site/lib/catalog";
 import type { Guide } from "@/site/lib/guide";
+import { PRICE, proItems } from "@/site/lib/plans";
 import { href, itemPath, navigate, type Route } from "@/site/lib/router";
 import { asset } from "@/site/lib/site-config";
 import { useJson, useText } from "@/site/lib/use-json";
@@ -82,25 +85,25 @@ function pickCards(item: CatalogItem, guide: Guide | null) {
 function SourcePanel({ item, registry }: { item: CatalogItem; registry: Loaded<RegistryItem> }) {
   const base = useId();
   const [selected, setSelected] = useState<string | null>(null);
-  if (registry.status === "loading") return <div className={styles.sourceState}><Skeleton label="Carregando o código" lines={4} /></div>;
-  if (registry.status === "error") return <div className={styles.sourceState}><Alert tone="danger" title="Não deu para carregar o código">{registry.error.message}</Alert></div>;
+  if (registry.status === "loading") return <div className={styles.sourceState}><Skeleton label="Loading the code" lines={4} /></div>;
+  if (registry.status === "error") return <div className={styles.sourceState}><Alert tone="danger" title="The code didn't load">{registry.error.message}</Alert></div>;
   const own = registry.data.files.filter(file => item.ownFiles.includes(file.path));
   const files = [...own, ...registry.data.files.filter(file => !own.includes(file))];
   const file = files.find(entry => entry.path === selected) ?? files[0];
-  if (!file) return <div className={styles.sourceState}><p className={styles.sourceNote}>Este item não tem arquivos no registro.</p></div>;
+  if (!file) return <div className={styles.sourceState}><p className={styles.sourceNote}>This item has no files in the registry.</p></div>;
   const panel = `${base}-codigo`;
   return (
     <>
       <CodeCard
-        label={`Código de ${baseName(file.path)}`}
+        label={`Code for ${baseName(file.path)}`}
         code={file.content.trimEnd()}
         language={languageOf(file.path)}
         maxLines={22}
-        header={<TabList variant="pill" base={base} label="Arquivos do item" items={files.map(entry => ({ value: entry.path, label: own.includes(entry) ? baseName(entry.path) : shortPath(entry.path) }))} value={file.path} onChange={setSelected} panel={panel} />}
+        header={<TabList variant="pill" base={base} label="Item files" items={files.map(entry => ({ value: entry.path, label: own.includes(entry) ? baseName(entry.path) : shortPath(entry.path) }))} value={file.path} onChange={setSelected} panel={panel} />}
         body={{ id: panel, role: "tabpanel", "aria-labelledby": tabId(base, file.path) }}
       />
       <p className={styles.sourceNote}>
-        {files.length === 1 ? "1 arquivo" : `${files.length} arquivos`}{files.length > own.length && own.length ? `, ${own.length} do item e ${files.length - own.length} que vêm junto` : ""}. É seu para copiar e mudar. Depois de instalado, este fica em <InlineCode>{installedPath(file.target)}</InlineCode>.
+        {files.length === 1 ? "1 file" : `${files.length} files`}{files.length > own.length && own.length ? `, ${own.length} from this item and ${files.length - own.length} included with it` : ""}. It's yours to copy and change. Once installed, this file lives at <InlineCode>{installedPath(file.target)}</InlineCode>.
       </p>
     </>
   );
@@ -116,8 +119,8 @@ function UsageSection({ item }: { item: CatalogItem }) {
     .replace(/from "@\/lib\//g, 'from "@/components/ryan-ui/lib/');
   const filename = `${item.name}-demo.tsx`;
   return (
-    <Section id="uso" title="Uso" intro={<>O demo desta página, com os imports como ficam depois de instalar pela CLI.{usesKit ? <> <InlineCode>Stack</InlineCode>, <InlineCode>Row</InlineCode>, <InlineCode>Caption</InlineCode>, <InlineCode>Field</InlineCode> e <InlineCode>Surface</InlineCode> são auxiliares de layout deste site: troque pelo layout do seu projeto.</> : null}</>}>
-      <CodeCard label={`Código de ${filename}`} code={code.trimEnd()} language="tsx" filename={filename} maxLines={24} />
+    <Section id="uso" title="Usage" intro={<>The demo on this page, with imports as they look after installing with the CLI.{usesKit ? <> <InlineCode>Stack</InlineCode>, <InlineCode>Row</InlineCode>, <InlineCode>Caption</InlineCode>, <InlineCode>Field</InlineCode> and <InlineCode>Surface</InlineCode> are layout helpers from this site: replace them with your project's layout.</> : null}</>}>
+      <CodeCard label={`Code for ${filename}`} code={code.trimEnd()} language="tsx" filename={filename} maxLines={24} />
     </Section>
   );
 }
@@ -133,7 +136,8 @@ function ItemDocument({ item, route }: { item: CatalogItem; route: Route }) {
   const active = own.find(version => version.variant && version.variant === route.query.get("v")) ?? own[0] ?? versions[0]!;
   const block = item.kind === "block";
 
-  const registry = useJson<RegistryItem>(asset(`r/${item.name}.json`));
+  const pro = item.isNew;
+  const registry = useJson<RegistryItem>(pro ? null : asset(`r/${item.name}.json`));
   const api = useJson<ApiData>(asset(`api/${item.name}.json`));
   const guideFile = useJson<Guide>(item.hasGuide ? asset(`docs/${item.name}.json`) : null);
   const guide = item.hasGuide && guideFile.status === "ready" ? guideFile.data : null;
@@ -161,10 +165,10 @@ function ItemDocument({ item, route }: { item: CatalogItem; route: Route }) {
     const target = requested === "codigo" ? "preview" : requested;
     if (!entries.some(entry => entry.id === target)) return;
     consumed.current = requested;
-    if (requested === "codigo") setView("code");
+    if (requested === "codigo" && !pro) setView("code");
     // No próximo quadro: a casca volta a página ao topo quando a rota muda, e este pedido vem depois disso.
     requestAnimationFrame(() => { goTo(target, { pin: true }); });
-  }, [requested, entries, goTo]);
+  }, [requested, entries, goTo, pro]);
 
   /** A pessoa escolheu uma seção no índice: a URL passa a apontar para ela, sem novo evento de rota. */
   function onSection(id: string) {
@@ -189,9 +193,9 @@ function ItemDocument({ item, route }: { item: CatalogItem; route: Route }) {
   return (
     <div className={styles.page}>
       <article ref={doc} className={styles.doc} aria-labelledby={`${viewBase}-titulo`}>
-        <nav className={styles.crumbs} aria-label="Você está em">
+        <nav className={styles.crumbs} aria-label="You are here">
           <ol>
-            <li><a href={href(block ? "/blocos" : "/componentes")}>{block ? "Blocos" : "Componentes"}</a></li>
+            <li><a href={href(block ? "/blocks" : "/components")}>{block ? "Blocks" : "Components"}</a></li>
             <li aria-hidden="true"><ChevronRight size={14} strokeWidth={1.75} /></li>
             <li aria-current="page">{item.title}</li>
           </ol>
@@ -200,23 +204,23 @@ function ItemDocument({ item, route }: { item: CatalogItem; route: Route }) {
         <header className={styles.header}>
           <div className={styles.titleRow}>
             <h1 ref={title} id={`${viewBase}-titulo`} tabIndex={-1}>{item.title}</h1>
-            {item.isNew ? <span className={styles.newPill}>Novo</span> : null}
+            <PlanBadge pro={pro} />
           </div>
           <p className={styles.lead}>{describe(item)}</p>
           <div className={styles.actionRow}>
-            <InstallChip item={item} />
+            {pro ? <SiteButton to="/pricing" arrow>Unlock with Pro</SiteButton> : <InstallChip item={item} />}
             <div className={styles.actions}>
               <SaveButton item={item} />
-              <CopyPageButton item={item} pageUrl={pageUrl} previewHref={stage.previewHref} />
+              {pro ? null : <CopyPageButton item={item} pageUrl={pageUrl} previewHref={stage.previewHref} />}
             </div>
           </div>
         </header>
 
         {versions.length > 1 ? (
           <div className={styles.versionRow}>
-            <span className={styles.versionLabel}>Versão</span>
+            <span className={styles.versionLabel}>Version</span>
             <SegmentedLinks
-              label="Versão"
+              label="Version"
               className={styles.versionPicker}
               options={versions.map(version => ({
                 key: versionKey(version),
@@ -227,18 +231,18 @@ function ItemDocument({ item, route }: { item: CatalogItem; route: Route }) {
                 onClick: version.item.name === item.name ? (event: MouseEvent<HTMLAnchorElement>) => { if (!plainClick(event)) return; event.preventDefault(); navigate(itemPath(item), { replace: true, query: { v: version.variant } }); } : undefined,
               }))}
             />
-            <span className={styles.versionCount}>{versions.length} versões</span>
+            <span className={styles.versionCount}>{versions.length} versions</span>
           </div>
         ) : null}
 
-        <section id="preview" className={styles.preview} data-toc="Preview" aria-label={`Demo e código de ${item.title}`} tabIndex={-1}>
+        <section id="preview" className={styles.preview} data-toc="Preview" aria-label={`Demo and code for ${item.title}`} tabIndex={-1}>
           <div className={styles.viewBar}>
             <TabList
               base={viewBase}
-              label={`Ver ${item.title}`}
+              label={`View ${item.title}`}
               items={[
                 { value: "preview", label: "Preview", icon: <Eye size={14} strokeWidth={1.75} aria-hidden="true" /> },
-                { value: "code", label: "Código", icon: <Code size={14} strokeWidth={1.75} aria-hidden="true" /> },
+                ...(pro ? [] : [{ value: "code" as const, label: "Code", icon: <Code size={14} strokeWidth={1.75} aria-hidden="true" /> }]),
               ]}
               value={view}
               onChange={setView}
@@ -251,28 +255,40 @@ function ItemDocument({ item, route }: { item: CatalogItem; route: Route }) {
         </section>
 
         <VersionsSection versions={versions} active={active} />
-        <ListSection id="quando-usar" title="Quando usar" items={guide?.quandoUsar} />
-        <ListSection id="quando-evitar" title="Quando não usar" items={guide?.quandoEvitar} linkItems current={item.name} />
-        <InstallSection item={item} targets={registry.status === "ready" ? registry.data.files.map(file => file.target) : registry.status === "error" ? "error" : null} onOpenCode={openCode} />
-        <UsageSection item={item} />
+        <ListSection id="quando-usar" title="When to use" items={guide?.quandoUsar} />
+        <ListSection id="quando-evitar" title="When not to use" items={guide?.quandoEvitar} linkItems current={item.name} />
+        {pro ? (
+          <Section id="instalacao" title="Get the source code">
+            <div className={styles.locked}>
+              <h3>This item is part of Pro</h3>
+              <p>Unlock the source code of {item.title} and {proItems.length - 1} other Pro items for one payment of {PRICE}.</p>
+              <SiteButton to="/pricing" size="lg" arrow>Unlock with Pro</SiteButton>
+            </div>
+          </Section>
+        ) : (
+          <>
+            <InstallSection item={item} targets={registry.status === "ready" ? registry.data.files.map(file => file.target) : registry.status === "error" ? "error" : null} onOpenCode={openCode} />
+            <UsageSection item={item} />
+          </>
+        )}
         {api.status === "ready" ? <ApiSection api={api.data} /> : null}
         <KeyboardSection rows={guide?.teclado} />
-        <ListSection id="acessibilidade" title="Acessibilidade" items={guide?.acessibilidade} />
-        <ListSection id="movimento" title="Movimento" items={guide?.movimento} />
-        <ListSection id="responsivo" title="Comportamento responsivo" items={guide?.responsivo} />
-        <ListSection id="desempenho" title="Desempenho" items={guide?.desempenho} />
-        <AiNotesSection name={item.name} notes={guide?.notasIA} />
+        <ListSection id="acessibilidade" title="Accessibility" items={guide?.acessibilidade} />
+        <ListSection id="movimento" title="Motion" items={guide?.movimento} />
+        <ListSection id="responsivo" title="Responsive behavior" items={guide?.responsivo} />
+        <ListSection id="desempenho" title="Performance" items={guide?.desempenho} />
+        {pro ? null : <AiNotesSection name={item.name} notes={guide?.notasIA} />}
         <RelatedSection items={related} />
         <MoreSection items={more} />
 
         <Pager item={item} />
         <footer className={styles.footline}>
-          <span>ryan-ui · {items.length} itens</span>
+          <span>ryan-ui · {items.length} items</span>
           <a href={asset("llms.txt")} target="_blank" rel="noreferrer">llms.txt</a>
         </footer>
       </article>
 
-      <Toc className={styles.rail} toc={toc} hrefFor={sectionHref} onNavigate={onSection} markdownHref={markdownHref(item.name)} onTop={backToTop} />
+      <Toc className={styles.rail} toc={toc} hrefFor={sectionHref} onNavigate={onSection} markdownHref={pro ? undefined : markdownHref(item.name)} onTop={backToTop} />
     </div>
   );
 }

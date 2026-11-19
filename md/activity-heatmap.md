@@ -2,48 +2,48 @@
 
 > Um ano de atividade num relance, com um quadradinho para cada dia.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/activity-heatmap
-- Descrição original (inglês): See a year of activity at a glance, one square per day.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/activity-heatmap
+- Original description: See a year of activity at a glance, one square per day.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/activity-heatmap.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/activity-heatmap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/activity-heatmap.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/activity-heatmap.json`. Caminho do registro, relativo ao endereço do site: `r/activity-heatmap.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/activity-heatmap.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/activity-heatmap.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/activity-heatmap.json`. Registry path, relative to the site address: `r/activity-heatmap.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/activity-heatmap/activity-heatmap.tsx`
   - `components/ryan-ui/activity-heatmap/activity-heatmap.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/activity-heatmap.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/activity-heatmap.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um ano de atividade diária (commits, acessos, treinos) em que o ritmo, as sequências e as semanas paradas importam mais que o número exato de cada dia.
-- Trocar de ano ou de intervalo sem redesenhar: com `days` novos a grade recolore numa varredura e o total rola dígito a dígito.
-- Deixar a pessoa escolher um dia para filtrar o que vem abaixo, com `selectedDate` e `onSelectDate`.
+- A year of daily activity (commits, visits, workouts) where rhythm, streaks, and idle weeks matter more than the exact number for each day.
+- Switch years or ranges without redrawing: with new `days`, the grid recolors in a sweep and the total rolls digit by digit.
+- Let the user pick a day to filter what appears below, with `selectedDate` and `onSelectDate`.
 
-## Quando não usar
+## When not to use
 
-- Use [`bar-chart`](bar-chart.md) quando a comparação exata entre os dias é o objetivo.
-- Use [`returns-calendar`](returns-calendar.md) para valores diários que podem ser negativos, como ganhos e perdas; aqui contagens abaixo de zero viram zero.
-- Use [`date-picker`](date-picker.md) quando a tarefa é escolher uma data, não ler atividade.
+- Use [`bar-chart`](bar-chart.md) when exact comparison between days is the goal.
+- Use [`returns-calendar`](returns-calendar.md) for daily values that can be negative, such as gains and losses; here, counts below zero become zero.
+- Use [`date-picker`](date-picker.md) when the task is to choose a date, not to read activity.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -99,17 +99,17 @@ export default function ActivityHeatmapDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ActivityHeatmap`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `days` (obrigatória) | `ActivityDay[]` | — | One entry per day, oldest first. Days missing inside the range count as zero. |
-| `label` (obrigatória) | `string` | — | Accessible name for the grid, such as "Contributions in 2025". |
-| `period` (obrigatória) | `string` | — | Finishes the summary line: "1,284 contributions in {period}". |
+| `days` (required) | `ActivityDay[]` | — | One entry per day, oldest first. Days missing inside the range count as zero. |
+| `label` (required) | `string` | — | Accessible name for the grid, such as "Contributions in 2025". |
+| `period` (required) | `string` | — | Finishes the summary line: "1,284 contributions in {period}". |
 | `unit` | `{ one: string; other: string }` | `CONTRIBUTIONS` | Nouns for the count. |
 | `thresholds` | `[number, number, number]` | — | Upper bounds for levels one to three; anything above the last is level four. Defaults to quarters of the busiest day. |
 | `weekStartsOn` | `0 \| 1` | `0` | — |
@@ -119,53 +119,53 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `locale` | `string` | `"en-US"` | Formatting locale. Fixed by default so server and client render the same labels. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `ActivityDay`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `date` (obrigatória) | `string` | Calendar day as YYYY-MM-DD. |
-| `count` (obrigatória) | `number` | — |
+| `date` (required) | `string` | Calendar day as YYYY-MM-DD. |
+| `count` (required) | `number` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Entra na grade pelo último dia que teve foco (ou o selecionado, ou o mais recente) e segue para a legenda; só um dia e um nível ficam na ordem de tabulação. |
-| `↑` ou `↓` | Vai ao dia anterior ou ao seguinte. |
-| `←` ou `→` | Na grade, recua ou avança uma semana; na legenda, passa ao nível anterior ou ao seguinte. |
-| `Home` ou `End` | Vai ao primeiro ou ao último dia do intervalo; na legenda, ao primeiro ou ao último nível. |
-| `Enter` ou `Espaço` | Na grade, seleciona o dia em foco e chama `onSelectDate`; na legenda, fixa ou solta o destaque do nível. |
-| `Esc` | Fecha a dica do dia em foco; na legenda, desfaz a pré-visualização do nível. |
+| `Tab` | Enters the grid at the last day that had focus (or the selected one, or the most recent) and continues to the legend; only one day and one level are in the tab order. |
+| `↑` or `↓` | Moves to the previous or next day. |
+| `←` or `→` | In the grid, moves back or forward one week; in the legend, moves to the previous or next level. |
+| `Home` or `End` | Moves to the first or last day of the range; in the legend, to the first or last level. |
+| `Enter` or `Space` | In the grid, selects the focused day and calls `onSelectDate`; in the legend, pins or unpins the level highlight. |
+| `Esc` | Closes the tooltip of the focused day; in the legend, cancels the level preview. |
 
-## Acessibilidade
+## Accessibility
 
-- A grade tem `role="grid"` com o nome vindo de `label` (obrigatório), e cada dia é um `gridcell` cujo `aria-label` traz a contagem e a data por extenso.
-- O total fica numa região `role="status"` oculta; os níveis da legenda são botões com `aria-pressed`, e um texto `aria-live` diz quantos dias há no nível destacado.
-- Os textos fixos (“No …”, “in”, “Less”, “More”, “days with”) estão em inglês no código: `locale` só muda datas e números, e `unit` só os substantivos da contagem.
+- The grid has `role="grid"` with its name coming from `label` (required), and each day is a `gridcell` whose `aria-label` carries the count and the full date.
+- The total sits in a hidden `role="status"` region; the legend levels are buttons with `aria-pressed`, and an `aria-live` text says how many days are in the highlighted level.
+- The fixed texts (“No …”, “in”, “Less”, “More”, “days with”) are in English in the code: `locale` only changes dates and numbers, and `unit` only the nouns of the count.
 
-## Movimento
+## Motion
 
-- Na primeira vez que entra na tela, os quadrados surgem numa onda diagonal de cerca de 0,4 s; um intervalo novo recolore a grade na mesma diagonal, para frente ou para trás conforme a data.
-- Uma única dica desliza com mola de um dia para outro, e o anel de seleção desliza até o dia escolhido.
-- Com “reduzir movimento”, a grade aparece de uma vez, a dica salta para o lugar e as trocas viram um esmaecer curto.
+- The first time it enters the screen, the squares appear in a diagonal wave of about 0.4 s; a new range recolors the grid along the same diagonal, forward or backward depending on the date.
+- A single tooltip slides with a spring from one day to another, and the selection ring slides to the chosen day.
+- With “reduce motion”, the grid appears all at once, the tooltip jumps into place, and swaps become a short fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O lado dos quadrados vai de 9 a 15 px conforme a largura do contêiner; abaixo de uns 670 px a grade rola de lado, começa nas semanas mais recentes e mantém os dias da semana fixos à esquerda.
-- Em contêineres de até 440 px a legenda encurta para só a contagem de dias; se o fundo não for `--surface`, defina `--heatmap-surface` para os rótulos fixos cobrirem a grade que rola.
+- The square size goes from 9 to 15 px depending on the container width; below about 670 px the grid scrolls sideways, starts at the most recent weeks, and keeps the weekday labels fixed on the left.
+- In containers up to 440 px the legend shortens to just the day count; if the background is not `--surface`, set `--heatmap-surface` so the fixed labels cover the scrolling grid.
 
-## Desempenho
+## Performance
 
-- São cerca de 370 células memorizadas, com eventos delegados à grade; passe `days`, `thresholds` e `onSelectDate` com referência estável (`useMemo`, `useCallback`) para não refazer todas a cada render.
+- There are about 370 memoized cells, with events delegated to the grid; pass `days`, `thresholds`, and `onSelectDate` with a stable reference (`useMemo`, `useCallback`) so all of them are not redone on every render.
 
-## Notas para IA
+## Notes for AI
 
-- `days` é uma lista `{ date: "YYYY-MM-DD", count }` do dia mais antigo ao mais novo, lida em UTC; dias ausentes contam zero, e `label` e `period` são obrigatórios.
-- A seleção é só controlada: guarde `selectedDate` no pai e atualize em `onSelectDate`; sem esse callback, clicar num dia não faz nada.
-- Ponha o seletor de ano em `actions` (um `segmented-control`, por exemplo) e troque apenas `days`: mudar a `key` do componente remonta a grade e perde a varredura de recoloração.
+- `days` is a list of `{ date: "YYYY-MM-DD", count }` from the oldest day to the newest, read in UTC; missing days count as zero, and `label` and `period` are required.
+- Selection is controlled only: keep `selectedDate` in the parent and update it in `onSelectDate`; without that callback, clicking a day does nothing.
+- Put the year selector in `actions` (a `segmented-control`, for example) and change only `days`: changing the component's `key` remounts the grid and loses the recoloring sweep.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/activity-heatmap · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/activity-heatmap · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

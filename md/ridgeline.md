@@ -2,48 +2,48 @@
 
 > Distribuições sobrepostas, uma crista por grupo: passe o mouse para destacar e ver os quartis.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/ridgeline
-- Descrição original (inglês): Overlapping distributions, one ridge per group: hover to lift a ridge and read its quartiles, switch datasets and every curve morphs.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/ridgeline
+- Original description: Overlapping distributions, one ridge per group: hover to lift a ridge and read its quartiles, switch datasets and every curve morphs.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ridgeline.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ridgeline.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ridgeline.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ridgeline.json`. Caminho do registro, relativo ao endereço do site: `r/ridgeline.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ridgeline.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ridgeline.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ridgeline.json`. Registry path, relative to the site address: `r/ridgeline.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/ridgeline/ridgeline.tsx`
   - `components/ryan-ui/ridgeline/ridgeline.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/ridgeline.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/ridgeline.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Comparar a forma de várias distribuições de uma vez: temperaturas diárias por mês, tempos de resposta por região.
-- Quando a pergunta é sobre deslocamento e espalhamento: onde está a mediana de cada grupo e quão larga é a metade central.
-- Mostrar como as distribuições mudam entre dois conjuntos de dados: com os mesmos `id`, cada curva se transforma na nova.
+- Comparing the shape of several distributions at once: daily temperatures by month, response times by region.
+- When the question is about shift and spread: where each group's median is and how wide the middle half is.
+- Showing how distributions change between two datasets: with the same `id`s, each curve transforms into the new one.
 
-## Quando não usar
+## When not to use
 
-- Use [`bar-chart`](bar-chart.md) quando cada grupo tem um único valor, e não uma coleção de observações.
-- Use [`line-chart`](line-chart.md) ou [`streamgraph`](streamgraph.md) quando o eixo horizontal é o tempo e você quer ver evolução, não distribuição.
-- Com poucas observações por grupo, a curva suavizada sugere uma forma que os dados não sustentam; prefira mostrar os valores.
+- Use [`bar-chart`](bar-chart.md) when each group has a single value, not a collection of observations.
+- Use [`line-chart`](line-chart.md) or [`streamgraph`](streamgraph.md) when the horizontal axis is time and you want to see evolution, not distribution.
+- With few observations per group, the smoothed curve suggests a shape the data doesn't support; prefer showing the values.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -81,16 +81,16 @@ export default function RidgelineDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Ridgeline`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `series` (obrigatória) | `RidgelineSeries[]` | — | One ridge per series, drawn top to bottom. |
-| `label` (obrigatória) | `string` | — | What is measured, such as "Daily highs in Zurich". Names the chart for assistive technology. |
+| `series` (required) | `RidgelineSeries[]` | — | One ridge per series, drawn top to bottom. |
+| `label` (required) | `string` | — | What is measured, such as "Daily highs in Zurich". Names the chart for assistive technology. |
 | `unit` | `string` | `""` | Unit after each value, such as "°C". |
 | `formatValue` | `(value: number) => string` | — | — |
 | `domain` | `[number, number]` | — | Value range of the axis. Defaults to the data with a little room on each side. |
@@ -105,52 +105,52 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `RidgelineSeries`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable identity. A ridge that survives a data change morphs into its new shape. |
-| `label` (obrigatória) | `string` | — |
-| `values` (obrigatória) | `number[]` | Raw observations. The ridge is a smoothed density of these values. |
+| `id` (required) | `string` | Stable identity. A ridge that survives a data change morphs into its new shape. |
+| `label` (required) | `string` | — |
+| `values` (required) | `number[]` | Raw observations. The ridge is a smoothed density of these values. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Com o foco no gráfico, escolhe a crista anterior ou a seguinte e a levanta. |
-| `←` ou `→` | Move o cursor de leitura ao longo dos valores, um passo do eixo por vez. |
-| `Home` ou `End` | Vai à primeira ou à última crista. |
-| `Esc` | Solta a crista levantada e esconde a dica. |
+| `↑` or `↓` | With focus on the chart, pick the previous or next ridge and raise it. |
+| `←` or `→` | Move the reading cursor along the values, one axis step at a time. |
+| `Home` or `End` | Go to the first or last ridge. |
+| `Esc` | Releases the raised ridge and hides the tooltip. |
 
-## Acessibilidade
+## Accessibility
 
-- A `<figure>` leva o `label`; a área do gráfico é um grupo focável com `aria-roledescription="ridgeline chart"` e as instruções de teclado no nome, em inglês.
-- Uma região `aria-live="polite"` lê a série ativa (mediana, metade central, faixa e contagem) e, com o cursor, a fração de valores até aquele ponto.
-- Uma tabela oculta lista mediana, quartis, mínimo, máximo e contagem de cada série, de modo que leitor de tela não depende do desenho.
+- The `<figure>` carries the `label`; the chart area is a focusable group with `aria-roledescription="ridgeline chart"` and the keyboard instructions in its name, in English.
+- An `aria-live="polite"` region reads the active series (median, middle half, range, and count) and, with the cursor, the fraction of values up to that point.
+- A hidden table lists the median, quartiles, minimum, maximum, and count of each series, so screen readers don't depend on the drawing.
 
-## Movimento
+## Motion
 
-- Ao entrar na tela, as cristas crescem da linha de base em onda, de cima para baixo; ao trocar os dados, cada curva e o eixo se transformam com mola até a nova forma.
-- A crista sob o ponteiro sobe 6 px numa cópia desenhada por cima, com a faixa entre os quartis realçada, enquanto as outras esmaecem; a dica segue o ponteiro com mola.
-- Com “reduzir movimento” ligado, as formas são pintadas direto no estado final e a dica acompanha o ponteiro sem mola.
+- On entering the viewport, the ridges grow from the baseline in a wave, from top to bottom; when the data changes, each curve and the axis transform on a spring to the new shape.
+- The ridge under the pointer rises 6 px on a copy drawn on top, with the band between the quartiles highlighted, while the others fade; the tooltip follows the pointer on a spring.
+- With “reduced motion” on, shapes are painted directly in the final state and the tooltip follows the pointer without a spring.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura segue o contêiner e a altura vem do conteúdo: `rowHeight` por série mais o espaço da sobreposição e do eixo; não há prop de altura total.
-- Abaixo de 420 px de largura a coluna de nomes encolhe de 52 para 36 px, com reticências, e o eixo mostra menos marcas (cerca de uma a cada 72 px).
+- The width follows the container and the height comes from the content: `rowHeight` per series plus the overlap and axis space; there is no total height prop.
+- Below 420 px of width the name column shrinks from 52 to 36 px, with ellipses, and the axis shows fewer ticks (about one every 72 px).
 
-## Desempenho
+## Performance
 
-- A densidade é calculada no navegador (96 amostras por série, cada uma contra todas as observações) e `series` é serializado a cada render, inclusive ao mover o ponteiro; com muitos milhares de valores, amostre antes.
+- Density is computed in the browser (96 samples per series, each against all observations) and `series` is serialized on every render, including when moving the pointer; with many thousands of values, downsample first.
 
-## Notas para IA
+## Notes for AI
 
-- Passe observações brutas em `values`, não densidades prontas: o componente estima a curva com a regra de Silverman por série, ou com `bandwidth` em unidades do valor.
-- Use `id` estável por série para as curvas se transformarem na troca de dados, e fixe `domain` quando dois conjuntos precisam do mesmo eixo.
-- `active` com `onActiveChange` controla a crista levantada; `tint` (ligado por padrão) colore cada crista pela mediana e mostra a escala abaixo do gráfico.
+- Pass raw observations in `values`, not ready-made densities: the component estimates the curve with Silverman's rule per series, or with `bandwidth` in value units.
+- Use a stable `id` per series so the curves transform when the data is swapped, and fix `domain` when two datasets need the same axis.
+- `active` with `onActiveChange` controls the raised ridge; `tint` (on by default) colors each ridge by its median and shows the scale below the chart.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ridgeline · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ridgeline · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -1,3 +1,4 @@
+import { PlanBadge } from "@/site/components/plan-badge";
 import { useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Section } from "@/site/components/item-ui";
@@ -31,7 +32,7 @@ export function VersionsSection({ versions, active }: { versions: ItemVersion[];
   const others = versions.filter(version => versionKey(version) !== versionKey(active));
   if (!others.length) return null;
   return (
-    <Section id="versoes" title="Outras versões">
+    <Section id="versoes" title="Other versions">
       <div className={styles.wrap}><ul className={styles.grid}>
         {others.map(version => (
           <li key={versionKey(version)}>
@@ -47,12 +48,12 @@ export function VersionsSection({ versions, active }: { versions: ItemVersion[];
   );
 }
 
-const kindLabel = (item: CatalogItem) => (item.kind === "block" ? "Bloco" : "Componente");
+const kindLabel = (item: CatalogItem) => (item.kind === "block" ? "Block" : "Component");
 
 export function RelatedSection({ items }: { items: CatalogItem[] }) {
   if (!items.length) return null;
   return (
-    <Section id="relacionados" title="Relacionados">
+    <Section id="relacionados" title="Related">
       <div className={styles.wrap}><ul className={styles.grid}>
         {items.map(item => (
           <li key={item.name}>
@@ -72,7 +73,7 @@ export function MoreSection({ items }: { items: CatalogItem[] }) {
   const { theme } = useTheme();
   if (!items.length) return null;
   return (
-    <Section id="mais" title="Mais como este">
+    <Section id="mais" title="More like this">
       <div className={styles.wrap}><ul className={styles.grid}>
         {items.map(item => (
           <li key={item.name}>
@@ -80,7 +81,7 @@ export function MoreSection({ items }: { items: CatalogItem[] }) {
               <Thumb source={asset(`thumbs/${item.name}-${theme}.webp`)} fallback={item.title} />
               <span className={styles.head}>
                 <span className={styles.title}>{item.title}</span>
-                {item.isNew ? <span className={styles.pill}>Novo</span> : null}
+                <PlanBadge pro={item.isNew} />
                 <span className={styles.kind}>{categoryLabel(item.category)}</span>
               </span>
               <span className={styles.text}>{describe(item)}</span>
@@ -97,16 +98,16 @@ export function Pager({ item }: { item: CatalogItem }) {
   const { previous, next } = neighbours(item);
   if (!previous && !next) return null;
   return (
-    <nav className={styles.pager} aria-label="Item anterior e próximo">
+    <nav className={styles.pager} aria-label="Previous and next item">
       {previous ? (
         <a className={styles.pagerLink} data-side="previous" href={href(itemPath(previous))}>
           <ChevronLeft size={16} strokeWidth={1.75} aria-hidden="true" />
-          <span className={styles.pagerText}><span className={styles.pagerLabel}>Anterior</span><span className={styles.pagerTitle}>{previous.title}</span></span>
+          <span className={styles.pagerText}><span className={styles.pagerLabel}>Previous</span><span className={styles.pagerTitle}>{previous.title}</span></span>
         </a>
       ) : null}
       {next ? (
         <a className={styles.pagerLink} data-side="next" href={href(itemPath(next))}>
-          <span className={styles.pagerText}><span className={styles.pagerLabel}>Próximo</span><span className={styles.pagerTitle}>{next.title}</span></span>
+          <span className={styles.pagerText}><span className={styles.pagerLabel}>Next</span><span className={styles.pagerTitle}>{next.title}</span></span>
           <ChevronRight size={16} strokeWidth={1.75} aria-hidden="true" />
         </a>
       ) : null}

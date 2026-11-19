@@ -2,46 +2,46 @@
 
 > Reage a uma publicação com um toque, com contadores que rolam.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/reactions
-- Descrição original (inglês): Acknowledge a post in one tap, with counts that roll.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/reactions
+- Original description: Acknowledge a post in one tap, with counts that roll.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json`. Caminho do registro, relativo ao endereço do site: `r/reactions.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/reactions.json`. Registry path, relative to the site address: `r/reactions.json`.
 
-- Pacotes npm: `@radix-ui/react-popover`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-popover`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/reactions/reactions.tsx`
   - `components/ryan-ui/reactions/reactions.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-popover lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/reactions.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-popover lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/reactions.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Reconhecimento rápido de um post, comentário ou nota de versão, com a contagem de cada reação e as suas em destaque.
-- Quando o conjunto de reações possíveis é fixo e curto (`options`) e só as que já têm votos devem aparecer na barra.
+- Quick acknowledgment of a post, comment, or release note, with the count of each reaction and your own highlighted.
+- When the set of possible reactions is fixed and short (`options`) and only those that already have votes should appear in the bar.
 
-## Quando não usar
+## When not to use
 
-- Use [`comment-thread`](comment-thread.md) quando a pessoa precisa responder com texto, não só reagir.
-- Use [`icon-morph`](icon-morph.md) com `name="heart"` dentro de um botão seu quando há uma única reação de curtir, sem contagem por tipo.
+- Use [`comment-thread`](comment-thread.md) when the person needs to reply with text, not just react.
+- Use [`icon-morph`](icon-morph.md) with `name="heart"` inside your own button when there is a single like reaction, with no count per type.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { Flame, Heart, PartyPopper, Rocket, ThumbsUp, Laugh } from "lucide-react";
@@ -86,15 +86,15 @@ export default function ReactionsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Reactions`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `options` (obrigatória) | `ReactionOption[]` | — | Every reaction the picker offers, in picker order. |
+| `options` (required) | `ReactionOption[]` | — | Every reaction the picker offers, in picker order. |
 | `value` | `Reaction[]` | — | Controlled reactions. Pills keep this order, and a reaction whose count reaches zero leaves the bar. |
 | `defaultValue` | `Reaction[]` | `[]` | — |
 | `onValueChange` | `(next: Reaction[], change: { id: string; reacted: boolean }) => void` | — | Called with the next reactions and the change that produced them. |
@@ -106,57 +106,57 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onOpenAutoFocus` | `(event: Event) => void` | — | Called before the picker moves focus in on open; call event.preventDefault() to keep focus where it is (for a picker that starts open). |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `ReactionOption`
 
 A reaction bar for comments, posts, and release notes. Each pill shows one reaction and how many people chose it; the viewer's own reactions carry the accent. Tapping a pill adds or removes the viewer's reaction, and the add button opens a compact picker that grows from it. Use it for quick acknowledgement; when people need to say something specific, give them a reply field instead.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
-| `icon` (obrigatória) | `LucideIcon` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
+| `icon` (required) | `LucideIcon` | — |
 
 #### `Reaction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `count` (obrigatória) | `number` | — |
-| `reacted` (obrigatória) | `boolean` | — |
+| `id` (required) | `string` | — |
+| `count` (required) | `number` | — |
+| `reacted` (required) | `boolean` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Numa pílula, adicionam ou removem a sua reação; no botão de adicionar, abrem o seletor com o foco na primeira opção. |
-| `→` ou `←` | No seletor, movem o foco entre as opções e dão a volta nas pontas; `↓` e `↑` fazem o mesmo. |
-| `Home` ou `End` | No seletor, vão para a primeira e a última opção. |
-| `Esc` | Fecha o seletor e devolve o foco ao botão de adicionar; escolher uma opção com `Enter` ou `Espaço` faz o mesmo e aplica a reação. |
+| `Enter` or `Space` | On a pill, add or remove your reaction; on the add button, open the picker with focus on the first option. |
+| `→` or `←` | In the picker, move focus between options and wrap around at the ends; `↓` and `↑` do the same. |
+| `Home` or `End` | In the picker, go to the first and last option. |
+| `Esc` | Closes the picker and returns focus to the add button; choosing an option with `Enter` or `Space` does the same and applies the reaction. |
 
-## Acessibilidade
+## Accessibility
 
-- A barra é `role="group"` com `label` como nome; cada pílula é um botão com `aria-pressed` e um nome com a reação e a contagem, como “Love, 11 reactions, including yours”.
-- O botão de adicionar abre um diálogo do Radix com uma barra `role="toolbar"` de opções em tabindex móvel; cada mudança é anunciada num `role="status"`, e se a pílula em foco some, o foco passa à vizinha.
-- Nomes e anúncios são montados em inglês no código (“reactions”, “including yours”, “Add reaction”, “Added …”); numa interface em português, traduza essas strings no arquivo instalado e passe `label`.
+- The bar is `role="group"` with `label` as its name; each pill is a button with `aria-pressed` and a name with the reaction and the count, like “Love, 11 reactions, including yours”.
+- The add button opens a Radix dialog with a `role="toolbar"` bar of options on a roving tabindex; each change is announced in a `role="status"`, and if the focused pill disappears, focus moves to its neighbor.
+- Names and announcements are built in English in the code (“reactions”, “including yours”, “Add reaction”, “Added …”); in a Portuguese interface, translate those strings in the installed file and pass `label`.
 
-## Movimento
+## Motion
 
-- Os dígitos da contagem rolam na direção da mudança, para cima quando sobe e para baixo quando desce, e só os que mudam se movem; ao reagir, o ícone recebe um impulso de mola em escala e giro.
-- Pílulas novas surgem de meia escala saindo de um desfoque, as outras deslizam para abrir espaço e a altura da barra acompanha numa mola ao quebrar linha; o seletor cresce a partir do botão, com as opções em sequência.
-- Com “reduzir movimento”, os números trocam sem rolar, o ícone não pula, as pílulas só esmaecem e o seletor aparece sem crescer.
+- The count digits roll in the direction of the change, up when it increases and down when it decreases, and only the ones that change move; on reacting, the icon gets a spring impulse in scale and rotation.
+- New pills appear at half scale out of a blur, the others slide to make room, and the bar height follows on a spring when wrapping; the picker grows from the button, with the options in sequence.
+- With “reduce motion”, numbers swap without rolling, the icon does not hop, pills only fade, and the picker appears without growing.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- As pílulas quebram linha conforme a largura, e a altura da barra muda numa mola em vez de empurrar o conteúdo de baixo de uma vez; o seletor abre acima do botão e fica a 12 px das bordas da janela.
+- Pills wrap according to the width, and the bar height changes on a spring instead of pushing the content below all at once; the picker opens above the button and stays 12 px from the window edges.
 
-## Notas para IA
+## Notes for AI
 
-- Em `options`, `icon` é o componente da Lucide (`ThumbsUp`), não um elemento (`<ThumbsUp />`); cada reação em `value` ou `defaultValue` é `{ id, count, reacted }`.
-- Controlado, guarde a lista que chega em `onValueChange(next, change)` e devolva em `value`; as pílulas seguem a ordem da lista, e uma reação com `count` 0 sai da barra.
-- A barra só conta: não sabe quem reagiu nem fala com o servidor; envie `change` (`id` e `reacted`) à sua API.
+- In `options`, `icon` is the Lucide component (`ThumbsUp`), not an element (`<ThumbsUp />`); each reaction in `value` or `defaultValue` is `{ id, count, reacted }`.
+- When controlled, keep the list that arrives in `onValueChange(next, change)` and return it in `value`; pills follow the list order, and a reaction with `count` 0 leaves the bar.
+- The bar only counts: it does not know who reacted nor talk to the server; send `change` (`id` and `reacted`) to your API.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/reactions · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/reactions · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

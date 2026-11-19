@@ -2,47 +2,47 @@
 
 > Página 404 com uma ilustração animada feita de formas, um campo de busca e atalhos para voltar ao site.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/not-found
-- Descrição original (inglês): A 404 page with an illustration built from shapes (a zero with eyes that follow the pointer between two fours), a search field that filters the suggested pages, and links back.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/not-found
+- Original description: A 404 page with an illustration built from shapes (a zero with eyes that follow the pointer between two fours), a search field that filters the suggested pages, and links back.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json`. Caminho do registro, relativo ao endereço do site: `r/not-found.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/not-found.json`. Registry path, relative to the site address: `r/not-found.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/not-found/not-found.tsx`
   - `components/ryan-ui/blocks/not-found/not-found.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/not-found.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/not-found.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Página 404 de um site ou app que tem alguns destinos conhecidos para sugerir e, de preferência, uma busca para onde mandar a consulta.
-- Produtos em que uma página de erro pode ter tom leve: a ilustração tem um zero com rosto que segue o mouse e pula ao ser clicado.
+- 404 page of a site or app that has a few known destinations to suggest and, preferably, a search to send the query to.
+- Products where an error page can have a light tone: the illustration has a zero with a face that follows the mouse and jumps when clicked.
 
-## Quando não usar
+## When not to use
 
-- Use [`empty-state`](empty-state.md) quando a página existe, mas uma lista ou busca não tem o que mostrar.
-- Use [`alert`](alert.md) para um erro recuperável dentro de uma tela que continua útil.
-- Para erro 500 ou manutenção a arte não serve: os dois quatros e o zero estão desenhados no SVG do arquivo.
+- Use [`empty-state`](empty-state.md) when the page exists but a list or search has nothing to show.
+- Use [`alert`](alert.md) for a recoverable error inside a screen that is still useful.
+- For a 500 error or maintenance the art does not fit: the two fours and the zero are drawn in the file's SVG.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import NotFoundPreview from "@/components/ryan-ui/blocks/not-found/not-found";
@@ -56,15 +56,15 @@ export default function NotFoundDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `NotFound`
 
 A 404 page that is pleasant to land on. The picture is built from plain shapes: two fours and a round zero with eyes that follow the pointer, blink, and hop when poked, while small shapes drift around with depth. Below it, a search field filters the suggested pages as you type.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `eyebrow` | `string` | `"Error 404"` | Small label above the title. |
 | `title` | `string` | `"This page wandered off"` | Main heading. |
@@ -81,48 +81,48 @@ A 404 page that is pleasant to land on. The picture is built from plain shapes: 
 
 Ready preview. Links stay on the page and report what they would open.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `NotFoundLink`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | Link text. |
-| `href` (obrigatória) | `string` | Where the link goes. |
+| `label` (required) | `string` | Link text. |
+| `href` (required) | `string` | Where the link goes. |
 | `description` | `string` | One short line under the label. |
 | `icon` | `ReactNode` | Icon in the link's tile. |
 | `keywords` | `string` | Extra words the search should match, separated by spaces. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | No campo de busca, envia o formulário e chama `onSearch` com o texto sem espaços nas pontas. |
+| `Enter` | In the search field, submits the form and calls `onSearch` with the text trimmed at both ends. |
 
-## Acessibilidade
+## Accessibility
 
-- A seção é nomeada pelo `<h1>` do título, e a ilustração é um `role="img"` com `aria-label` em inglês, fixo no arquivo.
-- A busca é um formulário `role="search"` cujo campo usa `searchPlaceholder` como `aria-label`; a linha “N of M pages match” é `aria-live="polite"` e anuncia o resultado do filtro.
-- O pulo do zero ao clique não tem equivalente no teclado nem papel de botão: é enfeite e não carrega informação.
+- The section is named by the title's `<h1>`, and the illustration is a `role="img"` with an English `aria-label`, hardcoded in the file.
+- The search is a `role="search"` form whose field uses `searchPlaceholder` as its `aria-label`; the “N of M pages match” line is `aria-live="polite"` and announces the filter result.
+- The zero's jump on click has no keyboard equivalent or button role: it is decoration and carries no information.
 
-## Movimento
+## Motion
 
-- As peças pousam uma após a outra com uma mola de pequeno salto: os quatros e o zero caem de cima e as formas menores surgem crescendo.
-- Em repouso, animações CSS fazem o zero flutuar e piscar, o segundo quatro balançar e as formas derivar e girar; com mouse, os olhos seguem o ponteiro e as camadas se deslocam em profundidades diferentes.
-- Com “reduzir movimento” ligado, a ilustração aparece parada, sem laços, sem seguir o ponteiro e sem pulo, e os links filtrados trocam na hora.
+- The pieces land one after another with a slightly bouncy spring: the fours and the zero fall from above and the smaller shapes appear growing.
+- At rest, CSS animations make the zero float and blink, the second four sway, and the shapes drift and rotate; with a mouse, the eyes follow the pointer and the layers shift at different depths.
+- With “reduce motion” on, the illustration appears still, with no loops, no pointer following, and no jump, and the filtered links change instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O bloco é uma coluna centralizada de até 36rem; abaixo de 30rem de viewport a grade de links passa de duas colunas para uma e os espaços diminuem.
+- The block is a centered column up to 36rem; below 30rem of viewport the link grid goes from two columns to one and the spacing shrinks.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `NotFound`; o export padrão é `NotFoundPreview`, que bloqueia a navegação dos links para a demonstração.
-- Passe os `links` do seu site (cada `href` é usado como chave e precisa ser único) e `onSearch` para levar a consulta à sua busca; sem `onSearch`, enviar o formulário não faz nada.
-- Para roteamento no cliente, use `onNavigate(link, event)` e chame `event.preventDefault()`; o bloco renderiza um `<h1>`, então deve ser o conteúdo principal da página.
+- Import the named component `NotFound`; the default export is `NotFoundPreview`, which blocks link navigation for the demo.
+- Pass your site's `links` (each `href` is used as a key and must be unique) and `onSearch` to carry the query to your search; without `onSearch`, submitting the form does nothing.
+- For client-side routing, use `onNavigate(link, event)` and call `event.preventDefault()`; the block renders an `<h1>`, so it should be the page's main content.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/not-found · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/not-found · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

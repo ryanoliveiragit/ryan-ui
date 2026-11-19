@@ -2,48 +2,48 @@
 
 > Uma região que abre e fecha no lugar, com altura em mola, conteúdo que entra em foco e seta que gira.
 
-- Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/collapsible
-- Descrição original (inglês): One region that opens in place: the height follows on a spring, the content fades in from a small blur and the chevron turns; controlled or uncontrolled.
+- Type: component (category Disclosure), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/collapsible
+- Original description: One region that opens in place: the height follows on a spring, the content fades in from a small blur and the chevron turns; controlled or uncontrolled.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json`. Caminho do registro, relativo ao endereço do site: `r/collapsible.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/collapsible.json`. Registry path, relative to the site address: `r/collapsible.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/collapsible/collapsible.tsx`
   - `components/ryan-ui/collapsible/collapsible.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/collapsible.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/collapsible.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Configurações avançadas ao lado de um título, como opções de build, com um resumo em `hint` que muda conforme o estado.
-- “Mostrar mais” abaixo de uma lista curta, com a variante `plain` e o gatilho colocado depois do conteúdo.
-- Formulários com um bloco opcional: o conteúdo continua montado quando fechado, então os campos guardam o valor.
+- Advanced settings beside a title, such as build options, with a summary in `hint` that changes with the state.
+- “Show more” below a short list, with the `plain` variant and the trigger placed after the content.
+- Forms with an optional block: the content stays mounted when closed, so the fields keep their value.
 
-## Quando não usar
+## When not to use
 
-- Use [`accordion`](accordion.md) para um conjunto de seções relacionadas em que só uma fica aberta por vez.
-- Use [`expandable-text`](expandable-text.md) para um parágrafo longo cortado em poucas linhas.
-- Use [`popover`](popover.md) quando o detalhe deve flutuar sobre a página em vez de empurrar o conteúdo abaixo.
+- Use [`accordion`](accordion.md) for a set of related sections where only one is open at a time.
+- Use [`expandable-text`](expandable-text.md) for a long paragraph clipped to a few lines.
+- Use [`popover`](popover.md) when the detail should float over the page instead of pushing the content below.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -95,13 +95,13 @@ export default function CollapsibleDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Collapsible`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `open` | `boolean` | — | Whether the region is open. Pass it together with `onOpenChange` to control the state yourself. |
 | `defaultOpen` | `boolean` | `false` | Initial state when uncontrolled. |
@@ -109,54 +109,54 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `disabled` | `boolean` | `false` | Keeps the current state and ignores the trigger. |
 | `variant` | `"card" \| "plain"` | `"card"` | "card" draws one bordered surface around the trigger and the content; "plain" leaves both bare for your own layout. |
 | `className` | `string` | — | Extra class for the root element. |
-| `children` (obrigatória) | `ReactNode` | — | A `CollapsibleTrigger`, a `CollapsibleContent`, and anything that should stay visible between them. |
+| `children` (required) | `ReactNode` | — | A `CollapsibleTrigger`, a `CollapsibleContent`, and anything that should stay visible between them. |
 
 ### `CollapsibleTrigger`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `hint` | `ReactNode` | — | Short supporting text shown under the label, such as a summary of what is inside. |
 | `icon` | `ReactNode` | — | Leading icon or avatar. |
 | `hideChevron` | `boolean` | `false` | Removes the chevron, for triggers that carry their own affordance. |
 | `className` | `string` | — | Extra class for the button. |
-| `children` (obrigatória) | `ReactNode` | — | The label. |
-| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Também aceita as props deste tipo, menos `type`. |
+| `children` (required) | `ReactNode` | — | The label. |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Also accepts the props of this type, except `type`. |
 
 ### `CollapsibleContent`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `className` | `string` | — | Extra class for the padded inner element that holds the content. |
-| `children` (obrigatória) | `ReactNode` | — | The content that opens and closes. It stays mounted, so fields inside keep their values. |
+| `children` (required) | `ReactNode` | — | The content that opens and closes. It stays mounted, so fields inside keep their values. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No gatilho, abre ou fecha a região. |
+| `Enter` or `Space` | On the trigger, opens or closes the region. |
 
-## Acessibilidade
+## Accessibility
 
-- O gatilho é um `<button>` com `aria-expanded` e `aria-controls`; o conteúdo é uma `region` nomeada pelo gatilho.
-- Depois de fechar, a região recebe `visibility: hidden` e sai da ordem de Tab e da árvore de acessibilidade, embora continue montada.
-- Com `disabled` no `Collapsible`, o gatilho fica desativado e o estado atual é mantido; ícone e seta ficam ocultos para o leitor de tela.
+- The trigger is a `<button>` with `aria-expanded` and `aria-controls`; the content is a `region` named by the trigger.
+- After closing, the region gets `visibility: hidden` and leaves the Tab order and the accessibility tree, although it stays mounted.
+- With `disabled` on the `Collapsible`, the trigger is disabled and the current state is kept; icon and arrow are hidden from the screen reader.
 
-## Movimento
+## Motion
 
-- A altura acompanha o conteúdo numa mola sem ultrapassagem, e o conteúdo sobe 8 px saindo de um desfoque de 4 px enquanto aparece.
-- A seta gira 180° numa mola curta; um novo clique no meio da animação inverte o movimento a partir de onde ele está.
-- Com “reduzir movimento” ligado, a região abre e fecha na hora e as transições de cor e borda são desligadas.
+- The height follows the content on a no-overshoot spring, and the content rises 8 px out of a 4 px blur as it appears.
+- The arrow rotates 180° on a short spring; a new click mid-animation reverses the motion from where it is.
+- With “reduce motion” on, the region opens and closes instantly and the color and border transitions are turned off.
 
-## Desempenho
+## Performance
 
-- O conteúdo fica montado mesmo fechado, então é renderizado desde o início; numa página com muitos `Collapsible` de conteúdo pesado, todo esse conteúdo existe ao mesmo tempo.
+- The content stays mounted even when closed, so it is rendered from the start; on a page with many `Collapsible`s with heavy content, all of that content exists at the same time.
 
-## Notas para IA
+## Notes for AI
 
-- Monte as três partes: `Collapsible` por fora, `CollapsibleTrigger` e `CollapsibleContent` dentro; fora de um `Collapsible`, as partes lançam erro.
-- Para controlar, passe `open` com `onOpenChange`; um `onClick` no gatilho que chama `preventDefault()` cancela a troca.
-- `variant="card"` (padrão) desenha uma superfície com borda; `plain` deixa gatilho e conteúdo sem moldura. Importe de `@/components/ryan-ui/collapsible/collapsible`.
+- Assemble the three parts: `Collapsible` on the outside, `CollapsibleTrigger` and `CollapsibleContent` inside; outside a `Collapsible`, the parts throw an error.
+- To control it, pass `open` with `onOpenChange`; an `onClick` on the trigger that calls `preventDefault()` cancels the toggle.
+- `variant="card"` (default) draws a bordered surface; `plain` leaves trigger and content without a frame. Import from `@/components/ryan-ui/collapsible/collapsible`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/collapsible · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/collapsible · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

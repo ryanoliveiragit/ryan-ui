@@ -1,5 +1,5 @@
-/* Rodapé grande (início e 404), no mesmo contêiner central do cabeçalho. */
-.footer { margin-top: var(--space-24); border-top: 1px solid var(--border-subtle); padding: var(--space-12) 0 var(--space-10); }
+/* Rodapé de todas as páginas, no mesmo contêiner central do cabeçalho. */
+.footer { margin-top: var(--space-20); border-top: 1px solid var(--border); padding: var(--space-12) 0 var(--space-10); }
 .inner { display: flex; width: min(100% - 2 * var(--site-gutter), var(--site-max)); flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-8); margin: 0 auto; }
 .about { display: grid; max-width: 26rem; gap: var(--space-3); }
 .about p { color: var(--text-secondary); font-size: var(--text-sm); line-height: 1.55; }
@@ -10,8 +10,4 @@
 .credit { width: min(100% - 2 * var(--site-gutter), var(--site-max)); margin: var(--space-10) auto 0; color: var(--text-muted); font-size: var(--text-xs); line-height: 1.6; }
 .credit a { color: var(--text-secondary); text-underline-offset: 3px; }
 
-/* Linha de rodapé das páginas com barra lateral. */
-.line { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; margin-top: 4rem; border-top: 1px solid var(--border-subtle); padding: 1.25rem 0 2.5rem; color: var(--text-muted); font-size: .75rem; line-height: 1.4; }
-.line a { border-radius: .25rem; color: var(--text-secondary); text-decoration: none; transition: color var(--duration-fast) var(--ease-standard); }
-@media (hover: hover) and (pointer: fine) { .line a:hover { color: var(--foreground); } }
-@media (prefers-reduced-motion: reduce) { .links a, .line a { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .links a { transition: none; } }

@@ -1,6 +1,6 @@
 /* Página Salvos. O quadro, o título e a grade vêm de catalog.module.css; aqui só o que é próprio dela. */
 .bar { display: flex; align-items: center; margin-top: 1.5rem; }
-.bar p { margin-left: 0; }
+.summary { color: var(--text-secondary); font-size: var(--text-sm); }
 .grid { margin-top: .75rem; }
 
 /* O cartão é o link; o botão de remover fica por cima, no canto da miniatura. */

@@ -1,755 +1,755 @@
 {
  "availability-scheduler": {
   "quandoUsar": [
-   "Perguntar a alguém em que horários da semana está livre, para marcar reuniões, plantões ou atendimentos em blocos de uma hora.",
-   "Configurar janelas que se repetem toda semana, como horário de funcionamento ou período em que notificações podem chegar.",
-   "Quando o resultado precisa ser conferido de relance: o resumo ao lado junta os blocos vizinhos em faixas por dia e soma as horas."
+   "Asking someone which times of the week they are free, to schedule meetings, on-call shifts, or appointments in one-hour blocks.",
+   "Setting up windows that repeat every week, such as business hours or the period when notifications may arrive.",
+   "When the result needs to be checked at a glance: the summary alongside merges adjacent blocks into per-day ranges and totals the hours."
   ],
   "quandoEvitar": [
-   "Use `date-picker` ou `date-range-picker` quando a escolha é de datas do calendário, e não de horários que se repetem toda semana.",
-   "Use `time-picker` quando basta um único horário.",
-   "Evite quando a precisão precisa ser menor que uma hora: cada célula é um bloco de uma hora cheia, sem meia hora nem quinze minutos."
+   "Use `date-picker` or `date-range-picker` when the choice is calendar dates rather than times that repeat every week.",
+   "Use `time-picker` when a single time is enough.",
+   "Avoid when precision needs to be finer than one hour: each cell is a full one-hour block, with no half hours or quarter hours."
   ],
   "teclado": [
-   { "teclas": ["↑", "↓", "←", "→"], "acao": "Movem o foco pela grade, uma célula por vez." },
-   { "teclas": ["Espaço", "Enter"], "acao": "Marca ou desmarca o horário em foco." },
-   { "teclas": ["Shift + ↑", "Shift + ↓", "Shift + ←", "Shift + →"], "acao": "Pintam: a célula de destino recebe o estado (marcada ou não) da célula de onde o foco saiu." },
-   { "teclas": ["Home", "End"], "acao": "Levam o foco ao primeiro ou ao último dia, na mesma hora." },
-   { "teclas": ["Tab"], "acao": "Passa pelos atalhos prontos, por “Clear”, pelos botões de dia (que marcam ou limpam o dia inteiro) e entra na grade pela célula atual." }
+   { "teclas": ["↑", "↓", "←", "→"], "acao": "Move focus around the grid, one cell at a time." },
+   { "teclas": ["Space", "Enter"], "acao": "Select or deselect the focused time slot." },
+   { "teclas": ["Shift + ↑", "Shift + ↓", "Shift + ←", "Shift + →"], "acao": "Paint: the destination cell takes the state (selected or not) of the cell focus came from." },
+   { "teclas": ["Home", "End"], "acao": "Move focus to the first or last day, at the same hour." },
+   { "teclas": ["Tab"], "acao": "Moves through the ready-made presets, “Clear”, and the day buttons (which select or clear a whole day), then enters the grid at the current cell." }
   ],
   "acessibilidade": [
-   "A grade usa `role=\"grid\"` com `aria-multiselectable`; cada célula é um `gridcell` com `aria-selected` e um nome como “Monday, 9 AM to 10 AM”, e só a célula atual fica na ordem do Tab (roving tabindex).",
-   "O total de horas fica numa região `aria-live=\"polite\"`, os atalhos prontos expõem `aria-pressed` e cada cabeçalho de dia é um botão com nome próprio.",
-   "Os textos internos (ajuda, “Clear”, “Available”, “Unavailable”, nomes das células e o relógio AM/PM) estão fixos em inglês no código; só `title`, `days` e os rótulos de `presets` vêm por props."
+   "The grid uses `role=\"grid\"` with `aria-multiselectable`; each cell is a `gridcell` with `aria-selected` and a name like “Monday, 9 AM to 10 AM”, and only the current cell is in the Tab order (roving tabindex).",
+   "The total hours sit in an `aria-live=\"polite\"` region, the ready-made presets expose `aria-pressed`, and each day header is a button with its own name.",
+   "The internal texts (help, “Clear”, “Available”, “Unavailable”, cell names, and the AM/PM clock) are hardcoded in English; only `title`, `days`, and the `presets` labels come through props."
   ],
   "movimento": [
-   "Cada horário marcado cresce do centro da célula numa curva de mola sem ultrapassagem e some com um esmaecer simples; em mudanças em lote (atalho pronto, dia inteiro) as células se preenchem em onda a partir da origem.",
-   "O total de horas troca rolando: o número antigo sobe e o novo entra por baixo, com uma mola sem ultrapassagem.",
-   "Com “reduzir movimento” ligado, as transições das células e dos botões são desligadas e o total troca na hora."
+   "Each selected slot grows from the center of the cell on a no-overshoot spring curve and disappears with a simple fade; in batch changes (preset, whole day) the cells fill in a wave from the origin.",
+   "The total hours change by scrolling: the old number moves up and the new one enters from below, on a no-overshoot spring.",
+   "With “reduce motion” on, cell and button transitions are turned off and the total changes instantly."
   ],
   "responsivo": [
-   "Usa container query: abaixo de 46rem de largura do bloco o resumo desce para baixo da grade, e abaixo de 30rem os dias mostram só a inicial.",
-   "O corpo da grade tem `touch-action: none`: no toque, arrastar sobre os horários seleciona em vez de rolar a página, então deixe área livre ao redor para a rolagem."
+   "Uses a container query: below 46rem of block width the summary drops below the grid, and below 30rem the days show only the initial.",
+   "The grid body has `touch-action: none`: on touch, dragging over the slots selects them instead of scrolling the page, so leave free space around it for scrolling."
   ],
   "desempenho": [
-   "Cada horário é um elemento do DOM (`days` × horas visíveis, 84 no padrão), e durante o arrasto o estado só muda quando o ponteiro entra em outra célula, não a cada pixel."
+   "Each time slot is one DOM element (`days` × visible hours, 84 by default), and during a drag the state changes only when the pointer enters another cell, not on every pixel."
   ],
   "notasIA": [
-   "Controle com `value` e `onValueChange`: a seleção é uma lista de ids `\"dia-hora\"`, com o dia contado a partir de 0 e a hora no relógio de 24 h (`\"0-9\"` é o primeiro dia às 9h).",
-   "Sem `value` nem `defaultValue`, a grade já nasce com as cinco primeiras colunas marcadas das 9h às 17h, menos o meio-dia; passe `defaultValue={[]}` para começar vazia.",
-   "`startHour` e `endHour` definem as linhas (8 e 20 por padrão), `days` as colunas e `presets` os atalhos, cada um com `label` e uma função `includes(day, hour)`."
+   "Controlled with `value` and `onValueChange`: the selection is a list of `\"dia-hora\"` ids, with the day counted from 0 and the hour on a 24-hour clock (`\"0-9\"` is the first day at 9 AM).",
+   "Without `value` or `defaultValue`, the grid starts with the first five columns selected from 9 AM to 5 PM, except noon; pass `defaultValue={[]}` to start empty.",
+   "`startHour` and `endHour` define the rows (8 and 20 by default), `days` the columns, and `presets` the shortcuts, each with a `label` and an `includes(day, hour)` function."
   ]
  },
  "blog-grid": {
   "quandoUsar": [
-   "Índice de blog ou de novidades de um site, com um post em destaque, filtro por categoria e paginação, tudo a partir de uma lista de posts em memória.",
-   "Protótipos e sites estáticos sem roteador: sem `getHref`, o clique abre o post num leitor no próprio lugar e “All posts” volta ao índice.",
-   "Listas editoriais com imagem de capa, resumo, autor e tempo de leitura em cada cartão."
+   "A blog or news index for a site, with a featured post, category filter, and pagination, all from an in-memory list of posts.",
+   "Prototypes and static sites without a router: without `getHref`, clicking opens the post in an in-place reader and “All posts” returns to the index.",
+   "Editorial lists with a cover image, summary, author, and reading time on each card."
   ],
   "quandoEvitar": [
-   "Use `changelog-feed` para notas de versão, com tipo de mudança, número da versão e navegação por mês.",
-   "Use `infinite-masonry` quando o conteúdo é um feed de imagens de alturas diferentes que carrega ao rolar.",
-   "Evite quando os posts chegam paginados do servidor: o bloco ordena, filtra e pagina no cliente a lista inteira passada em `posts`."
+   "Use `changelog-feed` for release notes, with change type, version number, and month navigation.",
+   "Use `infinite-masonry` when the content is an image feed of varying heights that loads on scroll.",
+   "Avoid when posts arrive paginated from the server: the block sorts, filters, and paginates the whole list passed in `posts` on the client."
   ],
   "teclado": [
-   { "teclas": ["Enter"], "acao": "Num cartão, abre o post no leitor e leva o foco ao botão “All posts”; com `getHref`, segue o link." },
-   { "teclas": ["Enter", "Espaço"], "acao": "Acionam os filtros de categoria, os números de página e os botões “Previous”, “Next” e “All posts”." }
+   { "teclas": ["Enter"], "acao": "On a card, opens the post in the reader and moves focus to the “All posts” button; with `getHref`, follows the link." },
+   { "teclas": ["Enter", "Space"], "acao": "Activate the category filters, the page numbers, and the “Previous”, “Next”, and “All posts” buttons." }
   ],
   "acessibilidade": [
-   "Os cartões são links (`<a>`), os filtros são botões com `aria-pressed` e a paginação é um `<nav>` com `aria-current=\"page\"` na página atual.",
-   "Ao abrir o leitor o foco vai para “All posts”; ao fechar, volta ao cartão de origem, que é rolado para a área visível; não há tecla Esc para fechar.",
-   "Preencha `image.alt` de cada post: é o texto alternativo da capa no cartão e no leitor; o avatar do autor é decorativo (`alt=\"\"`)."
+   "The cards are links (`<a>`), the filters are buttons with `aria-pressed`, and pagination is a `<nav>` with `aria-current=\"page\"` on the current page.",
+   "When the reader opens, focus goes to “All posts”; when it closes, focus returns to the originating card, which is scrolled into view; there is no Esc key to close.",
+   "Fill in `image.alt` for each post: it is the cover's alternative text on the card and in the reader; the author avatar is decorative (`alt=\"\"`)."
   ],
   "movimento": [
-   "A capa do cartão viaja e cresce até virar a imagem do leitor (elemento compartilhado, mola sem ultrapassagem) e faz o caminho de volta ao fechar, enquanto o resto do índice some e reaparece aos poucos.",
-   "Trocar de página desliza o conteúdo no sentido da navegação, os realces do filtro e da página deslizam até o novo item e a altura acompanha com uma mola, sem salto da paginação.",
-   "Com “reduzir movimento” ligado, a capa não viaja, as trocas viram um esmaecer, os realces e a altura mudam na hora e a rolagem até o topo deixa de ser suave."
+   "The card cover travels and grows into the reader image (shared element, no-overshoot spring) and makes the trip back on close, while the rest of the index fades out and gradually reappears.",
+   "Changing page slides the content in the direction of navigation, the filter and page highlights slide to the new item, and the height follows with a spring, with no pagination jump.",
+   "With “reduce motion” on, the cover does not travel, transitions become a fade, the highlights and height change instantly, and scrolling to the top is no longer smooth."
   ],
   "responsivo": [
-   "Container query no próprio bloco: três colunas, duas abaixo de 900px e uma abaixo de 540px; abaixo de 680px o destaque empilha a imagem sobre o texto.",
-   "A faixa de filtros rola na horizontal sem barra de rolagem, e abaixo de 540px “Previous” e “Next” ficam só com o ícone."
+   "Container query on the block itself: three columns, two below 900px, and one below 540px; below 680px the featured post stacks the image above the text.",
+   "The filter strip scrolls horizontally without a scrollbar, and below 540px “Previous” and “Next” show only the icon."
   ],
   "desempenho": [
-   "As capas usam `<img>` simples com `loading=\"lazy\"` (a do destaque carrega na hora), então sirva arquivos já redimensionados; um `ResizeObserver` mede a página para animar a altura."
+   "Covers use a plain `<img>` with `loading=\"lazy\"` (the featured one loads immediately), so serve files that are already resized; a `ResizeObserver` measures the page to animate the height."
   ],
   "notasIA": [
-   "Importe `BlogGrid` pelo nome para passar props (a exportação padrão, `BlogGridBlock`, é só a prévia); `category` e `page` aceitam uso controlado com `onCategoryChange` e `onPageChange`.",
-   "Com `getHref` os cartões viram links reais e o leitor é desligado; sem ele, preencha `body` de cada post (parágrafos em texto puro), senão o leitor mostra só o resumo.",
-   "Passe `categories` com as mesmas categorias usadas em `posts` (o padrão é a lista de exemplo; “All” é acrescentada pelo bloco) e datas ISO em `date` (`2026-09-18`), que ordenam os posts e geram a data exibida."
+   "Import `BlogGrid` by name to pass props (the default export, `BlogGridBlock`, is only the preview); `category` and `page` support controlled use with `onCategoryChange` and `onPageChange`.",
+   "With `getHref` the cards become real links and the reader is turned off; without it, fill in `body` for each post (paragraphs as plain text), otherwise the reader shows only the summary.",
+   "Pass `categories` with the same categories used in `posts` (the default is the example list; “All” is added by the block) and ISO dates in `date` (`2026-09-18`), which sort the posts and generate the displayed date."
   ]
  },
  "bloom-menu": {
   "quandoUsar": [
-   "Botão flutuante de criação com três a seis ações rápidas, como nova nota, tarefa, foto ou áudio, num canto da tela.",
-   "Telas em que uma barra de ferramentas fixa roubaria espaço do conteúdo, como quadros, mapas e listas de captura no celular."
+   "A floating create button with three to six quick actions, such as new note, task, photo, or audio, in a corner of the screen.",
+   "Screens where a fixed toolbar would take space from the content, such as boards, maps, and capture lists on mobile."
   ],
   "quandoEvitar": [
-   "Use `dropdown-menu` quando há mais de seis ações ou quando cada uma precisa de texto sempre visível: aqui os nomes só aparecem ao passar o mouse ou ao focar pelo teclado.",
-   "Use `expandable-action-bar` para ações sobre uma seleção, com rótulos e uma fileira secundária.",
-   "Use `button` quando só existe uma ação principal."
+   "Use `dropdown-menu` when there are more than six actions or when each one needs always-visible text: here the names appear only on mouse hover or keyboard focus.",
+   "Use `expandable-action-bar` for actions on a selection, with labels and a secondary row.",
+   "Use `button` when there is only one main action."
   ],
   "teclado": [
-   { "teclas": ["Enter", "Espaço"], "acao": "No botão flutuante, abrem ou fecham o menu (aberto pelo teclado, o foco vai para a primeira ação); numa ação, executam, fecham e devolvem o foco ao botão." },
-   { "teclas": ["↓", "→"], "acao": "Com o menu aberto, focam a próxima ação e dão a volta no fim; com ele fechado, `↓` ou `↑` no botão abre o menu e foca a primeira ação." },
-   { "teclas": ["↑", "←"], "acao": "Com o menu aberto, focam a ação anterior; ações desabilitadas são puladas." },
-   { "teclas": ["Home", "End"], "acao": "Focam a primeira ou a última ação." },
-   { "teclas": ["Esc"], "acao": "Fecha o menu e devolve o foco ao botão." },
-   { "teclas": ["Tab"], "acao": "Fecha o menu e deixa o foco seguir a ordem normal de tabulação." }
+   { "teclas": ["Enter", "Space"], "acao": "On the floating button, open or close the menu (when opened by keyboard, focus goes to the first action); on an action, run it, close the menu, and return focus to the button." },
+   { "teclas": ["↓", "→"], "acao": "With the menu open, focus the next action and wrap around at the end; with it closed, `↓` or `↑` on the button opens the menu and focuses the first action." },
+   { "teclas": ["↑", "←"], "acao": "With the menu open, focus the previous action; disabled actions are skipped." },
+   { "teclas": ["Home", "End"], "acao": "Focus the first or last action." },
+   { "teclas": ["Esc"], "acao": "Closes the menu and returns focus to the button." },
+   { "teclas": ["Tab"], "acao": "Closes the menu and lets focus follow the normal tab order." }
   ],
   "acessibilidade": [
-   "O botão expõe `aria-haspopup=\"menu\"`, `aria-expanded` e `aria-controls`; as ações ficam num `role=\"menu\"` como `menuitem`, fora da ordem do Tab, com o foco movido pelas setas.",
-   "`label` nomeia o botão e o menu para o leitor de tela, e o `label` de cada ação é o nome acessível dela: escreva os dois dizendo o que a ação faz.",
-   "Esc e a escolha de uma ação devolvem o foco ao botão; o clique fora fecha o menu sem mexer no foco."
+   "The button exposes `aria-haspopup=\"menu\"`, `aria-expanded`, and `aria-controls`; the actions sit in a `role=\"menu\"` as `menuitem`, outside the Tab order, with focus moved by the arrow keys.",
+   "`label` names the button and the menu for the screen reader, and each action's `label` is its accessible name: write both so they say what the action does.",
+   "Esc and choosing an action return focus to the button; clicking outside closes the menu without touching focus."
   ],
   "movimento": [
-   "As ações saem do centro do botão para seus lugares no arco, uma após a outra, com uma mola levemente elástica que passa um pouco do ponto; ao fechar, voltam ao centro na ordem inversa.",
-   "O ícone do botão gira 135° (o mais vira um x) e um anel se expande a partir dele quando o menu abre.",
-   "Com “reduzir movimento” ligado, as ações ainda saem do centro, mas num deslocamento curto (0,16 s) sem mola nem escala; ao fechar só esmaecem no lugar, o ícone gira na hora e o anel não aparece."
+   "The actions leave the center of the button for their places on the arc, one after another, with a slightly elastic spring that overshoots the point a little; on close, they return to the center in reverse order.",
+   "The button icon rotates 135° (the plus becomes an x) and a ring expands from it when the menu opens.",
+   "With “reduce motion” on, the actions still leave the center, but with a short shift (0.16 s) with no spring or scale; on close they only fade in place, the icon rotates instantly, and the ring does not appear."
   ],
   "responsivo": [
-   "Não há detecção de colisão: o arco abre sempre em `direction` e é posicionado por transform, então pode sair da tela ou ser cortado por um pai com `overflow: hidden`.",
-   "O raio cresce sozinho para manter 58px entre ações vizinhas: com muitas ações num arco de 90°, o menu ocupa bem mais que os 96px de `radius`."
+   "There is no collision detection: the arc always opens in `direction` and is positioned by transform, so it can go off screen or be clipped by a parent with `overflow: hidden`.",
+   "The radius grows on its own to keep 58px between neighboring actions: with many actions on a 90° arc, the menu takes up well over the 96px of `radius`."
   ],
   "notasIA": [
-   "Importe `BloomMenu` pelo nome: a exportação padrão do arquivo é a prévia (um quadro de captura), não o componente.",
-   "O componente não se fixa na tela: posicione-o com um contêiner (por exemplo, `position: fixed` no canto) e aponte `direction` para dentro da tela, usando as diagonais nos cantos.",
-   "Cada ação tem `id`, `label` e `icon`; trate a escolha em `onAction(id)` ou no `onSelect` da ação, e use `open` com `onOpenChange` só se precisar controlar a abertura."
+   "Import `BloomMenu` by name: the file's default export is the preview (a capture board), not the component.",
+   "The component does not pin itself to the screen: position it with a container (for example, `position: fixed` in the corner) and point `direction` toward the inside of the screen, using the diagonals in the corners.",
+   "Each action has `id`, `label`, and `icon`; handle the choice in `onAction(id)` or in the action's `onSelect`, and use `open` with `onOpenChange` only if you need to control opening."
   ]
  },
  "card-dealer": {
   "quandoUsar": [
-   "Demonstrações e protótipos de jogos de cartas: distribui de uma a sete cartas do baralho para a mesa e, com cinco posições, dá nome à mão de pôquer.",
-   "Seções lúdicas de uma página, como um sorteio ou uma “mão do dia”, em que a animação de dar as cartas é o próprio conteúdo.",
-   "Exemplo de referência de movimento em sequência: trajetória em arco, virada em 3D e embaralhamento."
+   "Card game demos and prototypes: deals one to seven cards from the deck to the table and, with five positions, names the poker hand.",
+   "Playful sections of a page, such as a draw or a “hand of the day”, where the dealing animation is the content itself.",
+   "Reference example of sequential motion: arc trajectory, 3D flip, and shuffling."
   ],
   "quandoEvitar": [
-   "Use `card-stack` para percorrer cartões de conteúdo um a um, com arremesso e desfazer.",
-   "Evite em jogos com dinheiro ou resultado auditável: o embaralhamento usa `Math.random` no navegador e o baralho vive no estado do componente.",
-   "Evite quando as cartas precisam de conteúdo próprio: as faces só desenham valor e naipe."
+   "Use `card-stack` to go through content cards one by one, with throw and undo.",
+   "Avoid in games involving money or an auditable outcome: shuffling uses `Math.random` in the browser and the deck lives in the component state.",
+   "Avoid when the cards need their own content: the faces only draw value and suit."
   ],
   "teclado": [
-   { "teclas": ["Enter", "Espaço"], "acao": "No baralho, dão uma carta para a próxima posição livre; nos botões, distribuem a mão (“Deal hand”), embaralham (“Shuffle”) ou recomeçam (“Reset”)." }
+   { "teclas": ["Enter", "Space"], "acao": "On the deck, deal a card to the next free position; on the buttons, deal the hand (“Deal hand”), shuffle (“Shuffle”), or start over (“Reset”)." }
   ],
   "acessibilidade": [
-   "A mesa é um `role=\"group\"` nomeado por `label`, e o baralho é um botão cujo nome informa quantas cartas restam.",
-   "As cartas desenhadas ficam em `aria-hidden`; quem conta o que há na mesa é um parágrafo oculto com `aria-live=\"polite\"`, que lista as cartas e o nome da mão, em inglês."
+   "The table is a `role=\"group\"` named by `label`, and the deck is a button whose name says how many cards remain.",
+   "The drawn cards are `aria-hidden`; what is on the table is announced by a hidden paragraph with `aria-live=\"polite\"`, which lists the cards and the name of the hand, in English."
   ],
   "movimento": [
-   "Cada carta sai do baralho para a sua posição em arco (corre de lado primeiro e desce depois), levanta um pouco e vira de frente no caminho, com 0,13 s entre uma carta e a seguinte.",
-   "“Shuffle” recolhe a mesa e faz as cartas do topo abrirem para os lados duas vezes; com a mesa cheia, as cartas voltam para o baralho antes da próxima mão.",
-   "Com “reduzir movimento” ligado, as cartas mudam de lugar na hora, sem trajetória, virada nem espera entre as etapas."
+   "Each card leaves the deck for its position on the arc (it moves sideways first and then down), lifts slightly and flips face up on the way, with 0.13 s between one card and the next.",
+   "“Shuffle” gathers the table and makes the top cards fan out to the sides twice; with a full table, the cards return to the deck before the next hand.",
+   "With “reduce motion” on, the cards change place instantly, with no trajectory, flip, or wait between steps."
   ],
   "responsivo": [
-   "A largura das cartas é calculada em unidades de container para caber na fileira (até 5,25rem), e as posições são medidas por `ResizeObserver`, então a mesa encolhe sem quebrar a linha."
+   "The card width is computed in container units to fit the row (up to 5.25rem), and positions are measured by `ResizeObserver`, so the table shrinks without breaking the row."
   ],
   "desempenho": [
-   "Só as cinco cartas do topo do baralho são desenhadas, além das que estão na mesa (no máximo doze elementos animados); o resto do baralho é só um número."
+   "Only the top five cards of the deck are drawn, plus those on the table (at most twelve animated elements); the rest of the deck is just a number."
   ],
   "notasIA": [
-   "Importe `CardDealer` pelo nome; a exportação padrão é a prévia com cinco posições.",
-   "O baralho e a mesa são estado interno, sem props para controlar as cartas: a única saída é `onDeal(hand)`, chamado no clique (antes de a animação terminar) com as cartas da mesa na ordem das posições.",
-   "`positions` aceita de 1 a 7; a mão só recebe nome com a mesa cheia e ao menos duas posições, e sequências e flushes exigem exatamente cinco cartas."
+   "Import `CardDealer` by name; the default export is the preview with five positions.",
+   "The deck and the table are internal state, with no props to control the cards: the only output is `onDeal(hand)`, called on click (before the animation ends) with the table's cards in position order.",
+   "`positions` accepts 1 to 7; the hand is named only with a full table and at least two positions, and straights and flushes require exactly five cards."
   ]
  },
  "card-folder": {
   "quandoUsar": [
-   "De três a cinco visões curtas do mesmo assunto, como resumo, tarefas, arquivos e equipe de um projeto, em que a metáfora de fichas empilhadas ajuda.",
-   "Seções de apresentação em que trocar de aba deve ser um gesto visível: a ficha escolhida sobe, cai na frente e as outras se acomodam atrás."
+   "Three to five short views of the same subject, such as a project's summary, tasks, files, and team, where the stacked-index-card metaphor helps.",
+   "Presentation sections where switching tabs should be a visible gesture: the chosen card rises, drops to the front, and the others settle behind."
   ],
   "quandoEvitar": [
-   "Use `tabs` para abas comuns de aplicativo, com conteúdo de altura variável ou muitas seções.",
-   "Use `card-stack` quando a pessoa percorre os cartões um a um e descarta, em vez de escolher por aba.",
-   "Evite com conteúdo longo: todas as fichas têm a mesma altura (`height`) e o corpo corta o que passar dela, sem rolagem."
+   "Use `tabs` for ordinary application tabs, with variable-height content or many sections.",
+   "Use `card-stack` when the person goes through the cards one by one and dismisses them, instead of choosing by tab.",
+   "Avoid with long content: all cards have the same height (`height`) and the body clips whatever exceeds it, with no scrolling."
   ],
   "teclado": [
-   { "teclas": ["←", "→"], "acao": "Selecionam a aba anterior ou a próxima e levam o foco junto, dando a volta nas pontas." },
-   { "teclas": ["Home", "End"], "acao": "Selecionam a primeira ou a última aba." },
-   { "teclas": ["Tab"], "acao": "Entra na aba selecionada (a única na ordem do Tab) e depois segue para os controles da ficha da frente, se houver; os das fichas de trás ficam fora do alcance." }
+   { "teclas": ["←", "→"], "acao": "Select the previous or next tab and move focus along with it, wrapping at the ends." },
+   { "teclas": ["Home", "End"], "acao": "Select the first or last tab." },
+   { "teclas": ["Tab"], "acao": "Enters the selected tab (the only one in the Tab order) and then moves on to the controls of the front card, if any; those on the back cards are out of reach." }
   ],
   "acessibilidade": [
-   "Segue o padrão de abas: um `tablist` nomeado por `label` (ligado às abas por `aria-owns`), cada aba com `aria-selected` e `aria-controls`, e um `tabpanel` por ficha.",
-   "As fichas de trás recebem `inert` e `aria-hidden`, então nem o foco nem o leitor de tela entram no conteúdo coberto."
+   "Follows the tabs pattern: a `tablist` named by `label` (tied to the tabs by `aria-owns`), each tab with `aria-selected` and `aria-controls`, and one `tabpanel` per card.",
+   "The back cards get `inert` and `aria-hidden`, so neither focus nor the screen reader enters the covered content."
   ],
   "movimento": [
-   "Ao escolher uma aba, a ficha é puxada 58px para cima num movimento curto e depois cai na frente com uma mola de leve quique, enquanto as que estavam na frente dela recuam um degrau, menores e mais apagadas.",
-   "O conteúdo da ficha que sai da frente fica visível até a nova pousar, e um marcador de destaque cresce no topo da aba ativa.",
-   "Com “reduzir movimento” ligado, a ordem da pilha troca na hora, sem subida, quique nem transições."
+   "When a tab is chosen, the card is pulled 58px upward in a short movement and then drops to the front with a slightly bouncy spring, while those that were in front of it step back one level, smaller and dimmer.",
+   "The content of the card leaving the front stays visible until the new one lands, and a highlight marker grows at the top of the active tab.",
+   "With “reduce motion” on, the stack order changes instantly, with no rise, bounce, or transitions."
   ],
   "responsivo": [
-   "A pasta ocupa `min(30rem, 100%)` e as abas dividem a largura por igual, cortando rótulos longos com reticências; abaixo de 26rem (container query) os ícones das abas somem e o texto diminui."
+   "The folder takes `min(30rem, 100%)` and the tabs share the width equally, truncating long labels with ellipses; below 26rem (container query) the tab icons disappear and the text shrinks."
   ],
   "desempenho": [
-   "Todas as fichas ficam montadas o tempo todo (as de trás só escondidas), então o conteúdo de cada uma é renderizado mesmo sem estar à frente."
+   "All cards stay mounted at all times (the back ones only hidden), so each one's content is rendered even when it is not in front."
   ],
   "notasIA": [
-   "Importe `CardFolder` pelo nome (a exportação padrão é a prévia) e passe `cards` com `id`, `label`, `icon` opcional e `content`: sem `cards`, aparece uma pasta de projeto de exemplo.",
-   "Controle a ficha da frente com `value` e `onValueChange`, ou defina só a inicial com `defaultValue`.",
-   "`height` (296 por padrão) é a altura em px do corpo de todas as fichas; dimensione pelo conteúdo mais alto, porque o excesso é cortado."
+   "Import `CardFolder` by name (the default export is the preview) and pass `cards` with `id`, `label`, optional `icon`, and `content`: without `cards`, an example project folder appears.",
+   "Control the front card with `value` and `onValueChange`, or set only the initial one with `defaultValue`.",
+   "`height` (296 by default) is the height in px of the body of all cards; size it by the tallest content, because the excess is clipped."
   ]
  },
  "changelog-feed": {
   "quandoUsar": [
-   "Página de novidades ou notas de versão de um produto, com cada entrada marcada como New, Improved ou Fixed e detalhes que abrem no lugar.",
-   "Históricos longos agrupados por mês, em que a barra de meses mostra em que mês a rolagem está e salta para outro.",
-   "Notas que pedem uma imagem com legenda ou um trecho de código com botão de copiar, sem sair da lista."
+   "A product's what's-new or release notes page, with each entry tagged New, Improved, or Fixed and details that open in place.",
+   "Long histories grouped by month, where the month bar shows which month the scroll is in and jumps to another.",
+   "Notes that call for an image with a caption or a code snippet with a copy button, without leaving the list."
   ],
   "quandoEvitar": [
-   "Use `timeline` para uma sequência de eventos agrupada por dia, sem filtros por tipo nem versões.",
-   "Use `blog-grid` quando as novidades são artigos com capa, autor e leitura completa.",
-   "Evite quando os tipos de mudança são outros: New, Improved e Fixed são fixos no código, assim como os textos da interface, em inglês."
+   "Use `timeline` for a sequence of events grouped by day, with no type filters or versions.",
+   "Use `blog-grid` when the updates are articles with a cover, author, and full reading view.",
+   "Avoid when the change types are different: New, Improved, and Fixed are hardcoded, as are the interface texts, in English."
   ],
   "teclado": [
-   { "teclas": ["Enter", "Espaço"], "acao": "Numa nota, abrem ou fecham os detalhes; nos filtros, ligam ou desligam o tipo; num mês da barra, rolam a lista até ele." },
-   { "teclas": ["↑", "↓", "Page Up", "Page Down"], "acao": "Com a área das notas em foco (ela entra na ordem do Tab), rolam a lista como qualquer área de rolagem." },
-   { "teclas": ["Enter"], "acao": "No campo de e-mail de “Subscribe”, envia; um endereço inválido faz o campo tremer, mostra o erro e mantém o foco nele." },
-   { "teclas": ["Esc"], "acao": "No campo de e-mail, volta ao botão “Subscribe” e devolve o foco a ele." }
+   { "teclas": ["Enter", "Space"], "acao": "On a note, open or close the details; on the filters, turn the type on or off; on a month in the bar, scroll the list to it." },
+   { "teclas": ["↑", "↓", "Page Up", "Page Down"], "acao": "With the notes area focused (it joins the Tab order), scroll the list like any scroll area." },
+   { "teclas": ["Enter"], "acao": "In the “Subscribe” email field, submits; an invalid address makes the field shake, shows the error, and keeps focus on it." },
+   { "teclas": ["Esc"], "acao": "In the email field, goes back to the “Subscribe” button and returns focus to it." }
   ],
   "acessibilidade": [
-   "Cada nota é um botão com `aria-expanded` e `aria-controls`, os filtros usam `aria-pressed` e uma região `role=\"status\"` oculta anuncia quantas notas ficaram visíveis depois de filtrar.",
-   "O e-mail tem rótulo oculto, `aria-invalid` no erro e mensagem num `role=\"status\"`; ao confirmar, o foco vai para “Undo”, cujo nome inclui o endereço inscrito.",
-   "O mês atual e as contagens animadas são `aria-hidden`; para o leitor de tela, cada mês é uma `section` com título próprio e a barra de meses é um `nav` com botões “Jump to …”."
+   "Each note is a button with `aria-expanded` and `aria-controls`, the filters use `aria-pressed`, and a hidden `role=\"status\"` region announces how many notes remain visible after filtering.",
+   "The email has a hidden label, `aria-invalid` on error, and a message in a `role=\"status\"`; on confirmation, focus goes to “Undo”, whose name includes the subscribed address.",
+   "The current month and the animated counts are `aria-hidden`; for the screen reader, each month is a `section` with its own heading and the month bar is a `nav` with “Jump to …” buttons."
   ],
   "movimento": [
-   "Os detalhes abrem com a altura numa mola e o conteúdo sobe de um leve desfoque; ao filtrar, as notas restantes deslizam para o novo lugar enquanto as que saem esmaecem.",
-   "Os números rolam para cima quando crescem e para baixo quando diminuem, o nome do mês entra no sentido da rolagem e a pílula da barra de meses desliza até o mês atual.",
-   "Com “reduzir movimento” ligado, as transições CSS vão a zero, molas e tremor do erro são desligados, as trocas viram corte ou esmaecer curto e o salto até um mês deixa de ser suave."
+   "The details open with the height on a spring and the content rises from a slight blur; when filtering, the remaining notes slide to their new place while those leaving fade out.",
+   "The numbers scroll up when they grow and down when they shrink, the month name enters in the scroll direction, and the month bar's pill slides to the current month.",
+   "With “reduce motion” on, CSS transitions go to zero, springs and the error shake are turned off, changes become a cut or short fade, and the jump to a month is no longer smooth."
   ],
   "responsivo": [
-   "A lista rola dentro de uma altura fixa de 560px (520px em telas de até 640px); abaixo de 640px o cabeçalho empilha e data e versão vão para cima do título de cada nota.",
-   "Usa media queries da janela, não do contêiner: abaixo de 480px somem o ano, a contagem do mês e o total de notas visíveis."
+   "The list scrolls inside a fixed height of 560px (520px on screens up to 640px); below 640px the header stacks and the date and version move above each note's title.",
+   "Uses window media queries, not container ones: below 480px the year, the month count, and the total of visible notes disappear."
   ],
   "desempenho": [
-   "A rolagem é lida no máximo uma vez por quadro (`requestAnimationFrame`) e um `ResizeObserver` refaz a conta quando a lista muda de altura; fotos e código só entram no DOM quando a nota abre.",
-   "Todas as notas ficam no DOM, cada uma com animação de layout; para centenas de versões, corte ou pagine a lista antes de passar `entries`."
+   "Scroll is read at most once per frame (`requestAnimationFrame`) and a `ResizeObserver` redoes the calculation when the list changes height; photos and code enter the DOM only when the note opens.",
+   "All notes stay in the DOM, each with a layout animation; for hundreds of versions, trim or paginate the list before passing `entries`."
   ],
   "notasIA": [
-   "Cada entrada precisa de `month` igual a uma `key` de `months` (os dois do mais novo para o mais antigo): entradas sem mês correspondente não aparecem.",
-   "O “Subscribe” só valida o e-mail e mostra a confirmação, sem prop de envio; para inscrever de verdade, edite `SubscribeControl` no arquivo instalado.",
-   "Depende de `copy-button` (instalado junto) para copiar os trechos de código; `defaultOpen` recebe ids e, sem ele, a primeira entrada já começa aberta."
+   "Each entry needs a `month` equal to a `key` from `months` (both from newest to oldest): entries without a matching month do not appear.",
+   "“Subscribe” only validates the email and shows the confirmation, with no submit prop; to really subscribe, edit `SubscribeControl` in the installed file.",
+   "Depends on `copy-button` (installed along with it) to copy the code snippets; `defaultOpen` takes ids and, without it, the first entry starts open."
   ]
  },
  "chat-app": {
   "quandoUsar": [
-   "Protótipo ou demonstração de um produto de chat com IA: lista de conversas e respostas que “pensam”, chegam palavra por palavra e podem ser paradas, copiadas ou refeitas.",
-   "Testes de usabilidade, tours guiados ou páginas de apresentação em que respostas prontas (`reply`) bastam e não há servidor.",
-   "Telas que precisam ir do desktop ao celular: abaixo de 760px de largura, a lista de conversas vira uma gaveta."
+   "Prototype or demo of an AI chat product: conversation list and replies that “think”, arrive word by word, and can be stopped, copied, or redone.",
+   "Usability tests, guided tours, or presentation pages where ready-made replies (`reply`) are enough and there is no server.",
+   "Screens that need to go from desktop to mobile: below 760px of width, the conversation list becomes a drawer."
   ],
   "quandoEvitar": [
-   "Use `chat-thread` para conversa entre pessoas, com reações, confirmação de leitura e anexos.",
-   "Use `ai-sidebar` quando o assistente fica num painel ao lado da página, e não numa tela própria.",
-   "Evite ligar direto a um modelo com streaming: `reply` é síncrona e devolve o texto inteiro; para respostas reais, combine `prompt-input`, `message` e `message-scroller` ou edite o bloco."
+   "Use `chat-thread` for conversation between people, with reactions, read receipts, and attachments.",
+   "Use `ai-sidebar` when the assistant sits in a panel beside the page, rather than on its own screen.",
+   "Avoid connecting directly to a streaming model: `reply` is synchronous and returns the whole text; for real replies, combine `prompt-input`, `message`, and `message-scroller`, or edit the block."
   ],
   "teclado": [
-   { "teclas": ["Enter"], "acao": "Na caixa de mensagem, envia o texto; enquanto uma resposta chega, não faz nada (o botão ao lado vira o de parar)." },
-   { "teclas": ["Shift + Enter"], "acao": "Quebra a linha; a caixa cresce até 168px e depois rola." },
-   { "teclas": ["Esc"], "acao": "Na largura estreita, fecha a gaveta de conversas e devolve o foco ao botão que a abriu." },
-   { "teclas": ["Enter", "Espaço"], "acao": "Nos botões, abrem uma conversa, criam outra, enviam uma sugestão ou param, copiam e refazem a resposta." }
+   { "teclas": ["Enter"], "acao": "In the message box, sends the text; while a reply is arriving, it does nothing (the button beside it becomes the stop button)." },
+   { "teclas": ["Shift + Enter"], "acao": "Breaks the line; the box grows up to 168px and then scrolls." },
+   { "teclas": ["Esc"], "acao": "At narrow width, closes the conversation drawer and returns focus to the button that opened it." },
+   { "teclas": ["Enter", "Space"], "acao": "On the buttons, open a conversation, create another, send a suggestion, or stop, copy, and redo the reply." }
   ],
   "acessibilidade": [
-   "As mensagens ficam numa lista `ol`, cada fala começa com “You:” ou com `assistantName` só para o leitor de tela, e uma região `role=\"status\"` avisa quando o assistente está respondendo.",
-   "Na largura estreita, a gaveta recebe `inert` quando fechada e o resto da tela quando aberta; abrir leva o foco a “New chat” e fechar o devolve ao botão de conversas.",
-   "A conversa aberta tem `aria-current`, o botão de envio passa a se chamar “Stop the reply” durante a resposta e o de copiar vira “Copied”; os textos fixos estão em inglês."
+   "The messages sit in an `ol` list, each turn starts with “You:” or with `assistantName` for the screen reader only, and a `role=\"status\"` region announces when the assistant is replying.",
+   "At narrow width, the drawer gets `inert` when closed and the rest of the screen gets it when open; opening moves focus to “New chat” and closing returns it to the conversations button.",
+   "The open conversation has `aria-current`, the send button is renamed “Stop the reply” during the reply, and the copy button becomes “Copied”; the fixed texts are in English."
   ],
   "movimento": [
-   "As mensagens sobem com uma mola suave; a resposta “pensa” por cerca de um segundo com um brilho no texto e depois chega palavra por palavra na velocidade de `speed`.",
-   "O marcador da conversa ativa desliza entre os itens, a gaveta entra de lado com uma mola sem ultrapassagem e o ícone de enviar gira até virar o de parar.",
-   "Com “reduzir movimento” ligado, molas, deslizes e pressões são desligados e a resposta aparece inteira depois do intervalo de “pensando”, sem o efeito palavra por palavra."
+   "Messages rise with a soft spring; the reply “thinks” for about a second with a shimmer on the text and then arrives word by word at the speed of `speed`.",
+   "The active conversation marker slides between items, the drawer enters from the side with a no-overshoot spring, and the send icon rotates until it becomes the stop icon.",
+   "With “reduce motion” on, springs, slides, and press effects are turned off and the reply appears whole after the “thinking” interval, without the word-by-word effect."
   ],
   "responsivo": [
-   "Abaixo de 760px de largura do próprio bloco (medida por `ResizeObserver`), a lista de conversas vira uma gaveta sobre a conversa, com fundo escurecido e um botão no cabeçalho.",
-   "Ocupa `100dvh` por padrão, com mínimo de 30rem; dentro de uma página ou de um quadro, passe `height` para não empurrar o resto do layout."
+   "Below 760px of the block's own width (measured by `ResizeObserver`), the conversation list becomes a drawer over the conversation, with a darkened backdrop and a button in the header.",
+   "Takes `100dvh` by default, with a minimum of 30rem; inside a page or a frame, pass `height` so it does not push the rest of the layout."
   ],
   "desempenho": [
-   "Usa dois `ResizeObserver` (largura do bloco e altura da conversa, para seguir a resposta até o fim) e um temporizador por resposta; todas as mensagens da conversa aberta ficam no DOM."
+   "Uses two `ResizeObserver`s (block width and conversation height, to follow the reply to the end) and one timer per reply; all messages of the open conversation stay in the DOM."
   ],
   "notasIA": [
-   "Importe `ChatApp` pelo nome (a exportação padrão é a prévia); `conversations` só define o estado inicial: depois disso, conversas e mensagens vivem dentro do bloco.",
-   "As respostas são simuladas: `reply(prompt, attempt)` devolve o texto (linhas em branco separam parágrafos) e `onSend` avisa cada envio; o selo “Simulated replies” do cabeçalho é fixo no código.",
-   "Depende de `streaming-response` e `loading-states`, instalados junto; passe `user` para trocar a pessoa de exemplo no pé da lista e `assistantName` para os rótulos."
+   "Import `ChatApp` by name (the default export is the preview); `conversations` only sets the initial state: after that, conversations and messages live inside the block.",
+   "Replies are simulated: `reply(prompt, attempt)` returns the text (blank lines separate paragraphs) and `onSend` reports each send; the “Simulated replies” badge in the header is hardcoded.",
+   "Depends on `streaming-response` and `loading-states`, installed along with it; pass `user` to change the example person at the bottom of the list and `assistantName` for the labels."
   ]
  },
  "command-palette": {
   "quandoUsar": [
-   "Paleta de comandos de um app: buscar e executar ações, ir para outras páginas ou trocar configurações sem tirar as mãos do teclado.",
-   "Até algumas centenas de ações com grupos, ícones e atalhos visíveis, em que a busca aceita abreviações (“dup pr” acha “Duplicate project”).",
-   "Busca rápida embutida numa página ou num painel, já que o componente é um painel comum, não um modal."
+   "An app's command palette: search and run actions, go to other pages, or change settings without taking your hands off the keyboard.",
+   "Up to a few hundred actions with groups, icons, and visible shortcuts, where search accepts abbreviations (“dup pr” finds “Duplicate project”).",
+   "Quick search embedded in a page or panel, since the component is an ordinary panel, not a modal."
   ],
   "quandoEvitar": [
-   "Use `combobox` quando a pessoa escolhe um valor para um campo de formulário, e não uma ação.",
-   "Use `search-field` ou `expanding-search` para buscar conteúdo com resultados próprios da página.",
-   "Evite com milhares de itens ou busca no servidor: a filtragem roda no cliente a cada tecla sobre a lista inteira e todos os resultados são renderizados."
+   "Use `combobox` when the person chooses a value for a form field, not an action.",
+   "Use `search-field` or `expanding-search` to search content with results specific to the page.",
+   "Avoid with thousands of items or server-side search: filtering runs on the client on every keystroke over the whole list and all results are rendered."
   ],
   "teclado": [
-   { "teclas": ["↑", "↓"], "acao": "Movem o destaque entre os resultados, na ordem em que aparecem, e param no primeiro e no último." },
-   { "teclas": ["Home", "End"], "acao": "Levam o destaque ao primeiro ou ao último resultado (no campo, não movem o cursor do texto)." },
-   { "teclas": ["Enter"], "acao": "Executa o resultado destacado (depois de digitar, o primeiro); a busca é limpa e o foco continua no campo." },
-   { "teclas": ["Esc"], "acao": "Limpa a busca; com o campo já vazio, chama `onClose`." },
-   { "teclas": ["Ctrl + K", "⌘ + K"], "acao": "Em qualquer ponto da página, levam o foco ao campo enquanto a paleta estiver montada." }
+   { "teclas": ["↑", "↓"], "acao": "Move the highlight between results, in the order they appear, and stop at the first and last." },
+   { "teclas": ["Home", "End"], "acao": "Move the highlight to the first or last result (in the field, they do not move the text cursor)." },
+   { "teclas": ["Enter"], "acao": "Runs the highlighted result (after typing, the first one); the search is cleared and focus stays in the field." },
+   { "teclas": ["Esc"], "acao": "Clears the search; with the field already empty, calls `onClose`." },
+   { "teclas": ["Ctrl + K", "⌘ + K"], "acao": "Anywhere on the page, move focus to the field while the palette is mounted." }
   ],
   "acessibilidade": [
-   "O campo é um `combobox` ligado à lista (`role=\"listbox\"`) por `aria-controls`, e o resultado ativo vai em `aria-activedescendant`: o foco nunca sai do campo.",
-   "Os grupos são `role=\"group\"` com o nome do grupo, cada resultado é um `option` com `aria-selected`, e uma região `aria-live` anuncia o total de resultados ou “No results”.",
-   "`label` vira o rótulo oculto do campo; o componente não prende o foco nem cobre a página, então, para usá-lo como modal, coloque-o num `dialog` que devolva o foco ao fechar."
+   "The field is a `combobox` tied to the list (`role=\"listbox\"`) by `aria-controls`, and the active result goes in `aria-activedescendant`: focus never leaves the field.",
+   "Groups are `role=\"group\"` with the group name, each result is an `option` with `aria-selected`, and an `aria-live` region announces the total number of results or “No results”.",
+   "`label` becomes the field's hidden label; the component does not trap focus or cover the page, so to use it as a modal, put it in a `dialog` that returns focus on close."
   ],
   "movimento": [
-   "Um único destaque desliza com uma mola rápida até o resultado ativo, pelo ponteiro ou pelas setas, e a moldura dos resultados acompanha a altura da lista ao filtrar.",
-   "Ao digitar, as linhas que saem esmaecem e as restantes deslizam para o novo lugar; se a nova ordem mover alguma linha mais de seis posições, a lista troca de uma vez.",
-   "Com “reduzir movimento” ligado, a entrada, o destaque, a altura e as linhas mudam na hora, sem deslize nem esmaecer."
+   "A single highlight slides on a fast spring to the active result, by pointer or arrow keys, and the results frame follows the list height when filtering.",
+   "When typing, the rows that leave fade out and the remaining ones slide to their new place; if the new order moves any row more than six positions, the list switches all at once.",
+   "With “reduce motion” on, the entrance, highlight, height, and rows change instantly, with no slide or fade."
   ],
   "responsivo": [
-   "A lista tem altura máxima de 342px e rola por dentro, trazendo o resultado ativo para a área visível; em janelas de até 480px, as teclas de atalho e a dica “⌘ K” somem."
+   "The list has a maximum height of 342px and scrolls inside, bringing the active result into view; in windows up to 480px, the shortcut keys and the “⌘ K” hint disappear."
   ],
   "desempenho": [
-   "A busca pontua todos os itens a cada tecla e cada resultado é um botão com animação de layout; um `ResizeObserver` mede a lista para a moldura acompanhar a altura."
+   "Search scores all items on every keystroke and each result is a button with a layout animation; a `ResizeObserver` measures the list so the frame follows the height."
   ],
   "notasIA": [
-   "Apesar de estar entre os blocos, instala em `@/components/ryan-ui/command-palette/command-palette`; passe `items` com `id` e `label` e, opcionais, `group`, `keywords`, `description`, `icon` e `shortcut`.",
-   "Ela não abre nem fecha sozinha: para um modal, monte-a num `dialog` quando o atalho for pressionado, com `autoFocus`, e feche em `onClose`, chamado pelo Esc com o campo vazio e pelo botão “Esc”.",
-   "`shortcut` só desenha as teclas na linha, sem registrar atalho; o único atalho real é o Ctrl+K/⌘+K global, que foca o campo e pode colidir com um atalho seu."
+   "Although it is among the blocks, it installs at `@/components/ryan-ui/command-palette/command-palette`; pass `items` with `id` and `label` and, optionally, `group`, `keywords`, `description`, `icon`, and `shortcut`.",
+   "It does not open or close by itself: for a modal, mount it in a `dialog` when the shortcut is pressed, with `autoFocus`, and close it in `onClose`, called by Esc with the field empty and by the “Esc” button.",
+   "`shortcut` only draws the keys on the row, without registering a shortcut; the only real shortcut is the global Ctrl+K/⌘+K, which focuses the field and may collide with one of your own."
   ]
  },
  "comparison-table": {
   "quandoUsar": [
-   "Página de preços ou de produto que compara a sua oferta com alternativas, recurso por recurso, com a sua coluna destacada.",
-   "Tabelas longas em que o cabeçalho precisa continuar visível na rolagem e a opção “Only differences” enxuga a leitura.",
-   "Comparações que precisam funcionar no celular: abaixo de `stackBelow` ficam só a sua coluna e uma concorrente, escolhida por botões."
+   "A pricing or product page that compares your offering with alternatives, feature by feature, with your column highlighted.",
+   "Long tables where the header must stay visible while scrolling and the “Only differences” option streamlines reading.",
+   "Comparisons that must work on mobile: below `stackBelow`, only your column and one competitor, chosen by buttons, remain."
   ],
   "quandoEvitar": [
-   "Use `plan-comparison` para comparar os seus próprios planos e períodos de cobrança.",
-   "Use `sortable-data-table` para dados tabulares de verdade, com ordenação e muitas linhas.",
-   "Evite com muitas colunas: todas dividem a largura, sem rolagem horizontal, até o modo empilhado entrar abaixo de `stackBelow`."
+   "Use `plan-comparison` to compare your own plans and billing periods.",
+   "Use `sortable-data-table` for real tabular data, with sorting and many rows.",
+   "Avoid with many columns: all of them share the width, with no horizontal scroll, until the stacked mode kicks in below `stackBelow`."
   ],
   "teclado": [
-   { "teclas": ["Espaço"], "acao": "No interruptor “Only differences”, liga ou desliga a filtragem das linhas iguais." },
-   { "teclas": ["Enter", "Espaço"], "acao": "Nos botões de concorrente (modo empilhado) e no botão de chamada da sua coluna, acionam a escolha." },
-   { "teclas": ["↑", "↓", "Page Up", "Page Down"], "acao": "Com `maxHeight`, a área da tabela entra na ordem do Tab e rola pelo teclado, com o cabeçalho preso no topo." }
+   { "teclas": ["Space"], "acao": "On the “Only differences” switch, turns the filtering of identical rows on or off." },
+   { "teclas": ["Enter", "Space"], "acao": "On the competitor buttons (stacked mode) and on your column's call-to-action button, trigger the choice." },
+   { "teclas": ["↑", "↓", "Page Up", "Page Down"], "acao": "With `maxHeight`, the table area joins the Tab order and scrolls by keyboard, with the header pinned to the top." }
   ],
   "acessibilidade": [
-   "A grade é uma tabela ARIA (`role=\"table\"`, `row`, `columnheader`, `rowheader`, `cell`) nomeada pelo título, e cada marca tem texto oculto: “Included”, “Partial” ou “Not included”.",
-   "“Only differences” é um checkbox nativo com `role=\"switch\"` dentro do rótulo, e uma região `aria-live` diz se todas as linhas estão visíveis ou só as que diferem.",
-   "Com `maxHeight`, a área de rolagem vira uma `region` focável com o título como nome; os textos fixos (o interruptor, a legenda, “Compare … with”) estão em inglês."
+   "The grid is an ARIA table (`role=\"table\"`, `row`, `columnheader`, `rowheader`, `cell`) named by the title, and each mark has hidden text: “Included”, “Partial”, or “Not included”.",
+   "“Only differences” is a native checkbox with `role=\"switch\"` inside the label, and an `aria-live` region says whether all rows are visible or only those that differ.",
+   "With `maxHeight`, the scroll area becomes a focusable `region` with the title as its name; the fixed texts (the switch, the legend, “Compare … with”) are in English."
   ],
   "movimento": [
-   "As marcas de incluído se desenham quando entram na tela, em cascata na sua coluna; ao filtrar, as linhas fecham e abrem a altura com uma mola sem ultrapassagem.",
-   "No modo empilhado, o realce desliza até a concorrente escolhida e os valores trocam com um leve zoom; o botão de chamada muda de largura ao confirmar com `doneLabel`.",
-   "Com “reduzir movimento” ligado, as marcas já aparecem desenhadas, as linhas somem e voltam na hora, o botão troca de largura sem animar e as trocas viram só esmaecer."
+   "The included marks are drawn as they enter the screen, in a cascade down your column; when filtering, rows close and open their height with a no-overshoot spring.",
+   "In stacked mode, the highlight slides to the chosen competitor and the values swap with a slight zoom; the call-to-action button changes width on confirmation with `doneLabel`.",
+   "With “reduce motion” on, the marks appear already drawn, rows disappear and return instantly, the button changes width without animating, and swaps become just a fade."
   ],
   "responsivo": [
-   "Abaixo de `stackBelow` (640px por padrão, medido no próprio bloco), mostra só a sua coluna e a concorrente escolhida; as colunas também se estreitam por container query em 820px e 640px.",
-   "O cabeçalho gruda no topo da rolagem da página ou, com `maxHeight`, no topo da própria tabela; `stickyTop` desconta a altura de um cabeçalho fixo do site."
+   "Below `stackBelow` (640px by default, measured on the block itself), it shows only your column and the chosen competitor; the columns also narrow through a container query at 820px and 640px.",
+   "The header sticks to the top of the page scroll or, with `maxHeight`, to the top of the table itself; `stickyTop` offsets the height of a fixed site header."
   ],
   "notasIA": [
-   "Importe `ComparisonTable` pelo nome (a exportação padrão é a prévia com altura limitada) e marque a sua coluna com `highlight: true`; sem ela, vale a primeira.",
-   "Valores por coluna: `true`, `false`, `\"partial\"`, um texto (limite ou preço) ou `{ value, note }`; “Only differences” compara só `value`, então notas diferentes não contam como diferença.",
-   "Sem `cta` não há botão: com `href` e sem `onClick` vira link, e com `doneLabel` o botão confirma no lugar. No modo empilhado, `compareWith` controla a concorrente (o padrão é a primeira)."
+   "Import `ComparisonTable` by name (the default export is the preview with limited height) and mark your column with `highlight: true`; without it, the first one counts.",
+   "Values per column: `true`, `false`, `\"partial\"`, a text (limit or price), or `{ value, note }`; “Only differences” compares only `value`, so different notes do not count as a difference.",
+   "Without `cta` there is no button: with `href` and no `onClick` it becomes a link, and with `doneLabel` the button confirms in place. In stacked mode, `compareWith` controls the competitor (the default is the first)."
   ]
  },
  "contact-section": {
   "quandoUsar": [
-   "Página ou seção de contato com formulário validado (nome, e-mail, assunto e mensagem) que vira uma confirmação no mesmo cartão, na variante `form`.",
-   "Central de suporte com vários canais (chat, e-mail, vendas, comunidade), cada um com seu painel de detalhe, na variante `channels`.",
-   "Empresas com escritórios em fusos diferentes: a variante `offices` mostra a hora local de cada um e se está aberto agora."
+   "A contact page or section with a validated form (name, email, subject, and message) that turns into a confirmation in the same card, in the `form` variant.",
+   "A support center with several channels (chat, email, sales, community), each with its own detail panel, in the `channels` variant.",
+   "Companies with offices in different time zones: the `offices` variant shows each one's local time and whether it is open now."
   ],
   "quandoEvitar": [
-   "Use `feedback-widget` para colher uma opinião rápida sem a pessoa sair da página.",
-   "Use `signup-form` para criar conta, com força de senha e estado de conclusão próprios.",
-   "Evite quando o formulário precisa de outros campos: nome, e-mail, assunto e mensagem são fixos no código, e só a lista de assuntos vem por prop."
+   "Use `feedback-widget` to collect a quick opinion without the person leaving the page.",
+   "Use `signup-form` to create an account, with its own password strength and completion state.",
+   "Avoid when the form needs other fields: name, email, subject, and message are hardcoded, and only the list of subjects comes through a prop."
   ],
   "teclado": [
-   { "teclas": ["↑", "↓", "←", "→"], "acao": "No grupo de assuntos, marcam o assunto anterior ou o próximo, dando a volta nas pontas." },
-   { "teclas": ["↑", "↓", "←", "→"], "acao": "Na lista de canais (variante `channels`), selecionam o canal anterior ou o próximo e trocam o painel, dando a volta." },
-   { "teclas": ["Home", "End"], "acao": "Na lista de canais, selecionam o primeiro ou o último canal." },
-   { "teclas": ["Enter"], "acao": "Num campo de linha única, envia o formulário; com erro, o foco vai para o primeiro campo inválido." }
+   { "teclas": ["↑", "↓", "←", "→"], "acao": "In the subject group, select the previous or next subject, wrapping at the ends." },
+   { "teclas": ["↑", "↓", "←", "→"], "acao": "In the channel list (`channels` variant), select the previous or next channel and switch the panel, wrapping around." },
+   { "teclas": ["Home", "End"], "acao": "In the channel list, select the first or last channel." },
+   { "teclas": ["Enter"], "acao": "In a single-line field, submits the form; on error, focus goes to the first invalid field." }
   ],
   "acessibilidade": [
-   "Os campos vêm de `input` e `textarea`, com rótulo visível, `aria-invalid` e erro ligado ao campo em `role=\"alert\"`; uma falha de envio também aparece em `role=\"alert\"`.",
-   "Os assuntos são um `radiogroup` com foco itinerante e os canais, um `tablist` vertical ligado ao `tabpanel`; durante a troca, a face que sai fica `inert`.",
-   "Na confirmação, o foco vai para o título “Thanks, …”, e “Send another message” limpa o formulário e devolve o foco ao campo Name; os textos fixos estão em inglês."
+   "The fields come from `input` and `textarea`, with a visible label, `aria-invalid`, and an error tied to the field in `role=\"alert\"`; a submit failure also appears in `role=\"alert\"`.",
+   "The subjects are a `radiogroup` with roving focus and the channels a vertical `tablist` tied to the `tabpanel`; during the swap, the outgoing face is `inert`.",
+   "On confirmation, focus goes to the “Thanks, …” heading, and “Send another message” clears the form and returns focus to the Name field; the fixed texts are in English."
   ],
   "movimento": [
-   "O cartão muda de altura numa mola ao virar confirmação, enquanto as faces trocam deslizando um pouco e saindo de um leve desfoque; o visto da confirmação se desenha.",
-   "Nos assuntos e nos canais, um realce desliza até a opção escolhida, e o painel do canal ajusta a altura enquanto o conteúdo novo entra no sentido da navegação.",
-   "Com “reduzir movimento” ligado, as faces só esmaecem, a altura troca na hora, os realces não deslizam e o visto já aparece desenhado."
+   "The card changes height on a spring when it turns into the confirmation, while the faces swap by sliding slightly and coming out of a slight blur; the confirmation checkmark is drawn.",
+   "On subjects and channels, a highlight slides to the chosen option, and the channel panel adjusts its height while the new content enters in the navigation direction.",
+   "With “reduce motion” on, the faces only fade, the height changes instantly, the highlights do not slide, and the checkmark appears already drawn."
   ],
   "responsivo": [
-   "Container query: abaixo de 820px o formulário desce para baixo do texto e os canais viram uma fileira que rola na horizontal, sem a linha de detalhe; abaixo de 520px os campos empilham.",
-   "Os cartões de escritório se organizam em colunas automáticas de no mínimo 240px (`auto-fit`)."
+   "Container query: below 820px the form drops below the text and the channels become a horizontally scrolling row, without the detail row; below 520px the fields stack.",
+   "The office cards arrange themselves in automatic columns of at least 240px (`auto-fit`)."
   ],
   "desempenho": [
-   "A variante `offices` atualiza a hora local a cada 15 segundos; antes de montar no navegador mostra “--:--”, então a primeira renderização bate com a do servidor."
+   "The `offices` variant updates the local time every 15 seconds; before mounting in the browser it shows “--:--”, so the first render matches the server's."
   ],
   "notasIA": [
-   "Importe `ContactSection` pelo nome (a exportação padrão é a prévia com seletor de variantes); `avatar`, `button`, `copy-button`, `input`, `segmented-control` e `textarea` são instalados junto.",
-   "`onSubmit` recebe `{ name, email, topic, message }`: devolva uma promessa e rejeite para manter o formulário com a mensagem de falha; sem ele, o envio é só simulado (1,1 s) e nada sai da página.",
-   "O e-mail “hello@example.com” e os prazos de resposta da variante `form` estão escritos no código; canais e escritórios de exemplo trocam por `channels` e `offices`."
+   "Import `ContactSection` by name (the default export is the preview with a variant selector); `avatar`, `button`, `copy-button`, `input`, `segmented-control`, and `textarea` are installed along with it.",
+   "`onSubmit` receives `{ name, email, topic, message }`: return a promise and reject it to keep the form with the failure message; without it, the submit is only simulated (1.1 s) and nothing leaves the page.",
+   "The email “hello@example.com” and the reply times of the `form` variant are written in the code; example channels and offices are swapped through `channels` and `offices`."
   ]
  },
  "cta-section": {
   "quandoUsar": [
-   "Fechamento de uma landing page com título, texto e duas ações, na variante `centered`, com rostos e uma nota curta como prova social.",
-   "Chamada ao lado de uma demonstração do produto, na variante `split`, com lista de benefícios e um cartão de configuração que se completa ao entrar na tela (ou o seu `visual`).",
-   "Aviso de lançamento numa linha só, na variante `banner`, que pode ser dispensado e fecha o espaço que ocupava."
+   "The closing of a landing page with a title, text, and two actions, in the `centered` variant, with faces and a short note as social proof.",
+   "A call-to-action beside a product demo, in the `split` variant, with a benefits list and a setup card that completes itself on entering the screen (or your own `visual`).",
+   "A single-line launch notice, in the `banner` variant, which can be dismissed and closes the space it occupied."
   ],
   "quandoEvitar": [
-   "Use `announcement-bar` para uma faixa no topo que alterna mensagens ou faz contagem regressiva.",
-   "Use `newsletter-signup` quando a ação é deixar o e-mail.",
-   "Use `hero-section` para a abertura da página; esta seção é pensada para o meio ou o fim dela."
+   "Use `announcement-bar` for a strip at the top that alternates messages or runs a countdown.",
+   "Use `newsletter-signup` when the action is leaving an email.",
+   "Use `hero-section` for the page opening; this section is meant for the middle or end of the page."
   ],
   "acessibilidade": [
-   "Cada variante é uma `section` nomeada pelo título (`h2` em `centered` e `split`, texto em negrito no `banner`); o botão de dispensar se chama “Dismiss” e só aparece com `onDismiss`.",
-   "O cartão de configuração e os rostos são decorativos (`aria-hidden`); ações sem `href` nem `onClick` trocam o rótulo numa região `aria-live` quando clicadas."
+   "Each variant is a `section` named by the title (`h2` in `centered` and `split`, bold text in `banner`); the dismiss button is called “Dismiss” and appears only with `onDismiss`.",
+   "The setup card and the faces are decorative (`aria-hidden`); actions with neither `href` nor `onClick` swap the label in an `aria-live` region when clicked."
   ],
   "movimento": [
-   "Em `split`, o palco sobe ao entrar na tela e o cartão marca as etapas uma a uma, a cada 0,6 s, enchendo a barra de progresso até “Ready”.",
-   "No `banner`, dispensar fecha a altura com uma mola sem ultrapassagem e só então chama `onDismiss`; a seta das ações avança um pouco ao passar o mouse.",
-   "Com “reduzir movimento” ligado, o cartão já aparece completo, o palco não sobe, o banner some sem fechar a altura aos poucos e as transições CSS são desligadas."
+   "In `split`, the stage rises on entering the screen and the card checks off the steps one by one, every 0.6 s, filling the progress bar up to “Ready”.",
+   "In `banner`, dismissing closes the height with a no-overshoot spring and only then calls `onDismiss`; the actions' arrow advances slightly on hover.",
+   "With “reduce motion” on, the card already appears complete, the stage does not rise, the banner disappears without gradually closing its height, and CSS transitions are turned off."
   ],
   "responsivo": [
-   "Container query: abaixo de 860px o `split` empilha o texto sobre o palco; abaixo de 560px as ações ocupam a largura, uma sobre a outra, e o `banner` vira um bloco com as ações embaixo."
+   "Container query: below 860px the `split` stacks the text above the stage; below 560px the actions take the full width, one above the other, and the `banner` becomes a block with the actions underneath."
   ],
   "notasIA": [
-   "Importe `CtaSection` pelo nome (a exportação padrão é a prévia com seletor de variantes); todos os textos têm padrão de exemplo, então passe sempre `title`, `description` e `primaryAction`.",
-   "Cada ação é `{ label, href?, onClick?, confirmedLabel? }`: com `href` vira link, com `onClick` chama a função e, sem os dois, só alterna o rótulo, o que serve para prévias e não para produção.",
-   "No `banner`, o botão de fechar só existe se você passar `onDismiss`; `secondaryAction={null}` esconde a segunda ação e `faces={[]}` tira os rostos de `centered`."
+   "Import `CtaSection` by name (the default export is the preview with a variant selector); all texts have example defaults, so always pass `title`, `description`, and `primaryAction`.",
+   "Each action is `{ label, href?, onClick?, confirmedLabel? }`: with `href` it becomes a link, with `onClick` it calls the function, and with neither it only toggles the label, which suits previews and not production.",
+   "In `banner`, the close button exists only if you pass `onDismiss`; `secondaryAction={null}` hides the second action and `faces={[]}` removes the faces from `centered`."
   ]
  },
  "dynamic-island": {
   "quandoUsar": [
-   "Mostrar uma atividade em andamento no topo de uma interface móvel, ou de um app que imita um celular: chamada, cronômetro ou música, compacta e expansível.",
-   "Demonstrações e protótipos em que a mudança de forma da pílula entre os estados é o destaque."
+   "Showing an ongoing activity at the top of a mobile interface, or of an app that imitates a phone: call, timer, or music, compact and expandable.",
+   "Demos and prototypes where the pill's shape change between states is the highlight."
   ],
   "quandoEvitar": [
-   "Use `toast` ou `toast-progress` para avisar o andamento ou o resultado de uma tarefa sem ocupar um lugar fixo na tela.",
-   "Use `announcement-bar` para uma mensagem de largura total no topo da página.",
-   "Evite para outras atividades: as visões de chamada, cronômetro e música são fixas no código, e o tempo, a faixa e o mudo vivem dentro do componente."
+   "Use `toast` or `toast-progress` to report the progress or result of a task without taking up a fixed place on the screen.",
+   "Use `announcement-bar` for a full-width message at the top of the page.",
+   "Avoid for other activities: the call, timer, and music views are hardcoded, and the time, the track, and the mute state live inside the component."
   ],
   "teclado": [
-   { "teclas": ["Enter", "Espaço"], "acao": "Na pílula compacta, expandem a atividade; nos botões redondos, atendem, recusam, silenciam, pausam, reiniciam ou trocam de faixa." },
-   { "teclas": ["Esc"], "acao": "Com a ilha expandida, recolhe e, se o foco estava dentro dela, devolve-o à pílula compacta." }
+   { "teclas": ["Enter", "Space"], "acao": "On the compact pill, expand the activity; on the round buttons, accept, decline, mute, pause, restart, or switch tracks." },
+   { "teclas": ["Esc"], "acao": "With the island expanded, collapses it and, if focus was inside it, returns focus to the compact pill." }
   ],
   "acessibilidade": [
-   "A ilha é um `role=\"group\"` chamado “Live activity”; compacta, é um botão cujo nome descreve a atividade, como “Jasmine Brooks is calling. Expand” ou “Timer, 4:12 left. Expand”.",
-   "Os botões só com ícone têm nome (“Accept”, “Decline”, “Mute” com `aria-pressed`), o cronômetro usa `role=\"timer\"` e a música tem um `progressbar` com texto como “0:48 of 3:34”.",
-   "Não há botão de recolher na visão expandida: Esc e o clique fora da ilha são os únicos jeitos de voltar à forma compacta."
+   "The island is a `role=\"group\"` called “Live activity”; when compact, it is a button whose name describes the activity, such as “Jasmine Brooks is calling. Expand” or “Timer, 4:12 left. Expand”.",
+   "The icon-only buttons have names (“Accept”, “Decline”, “Mute” with `aria-pressed`), the timer uses `role=\"timer\"`, and the music has a `progressbar` with text such as “0:48 of 3:34”.",
+   "There is no collapse button in the expanded view: Esc and clicking outside the island are the only ways back to the compact form."
   ],
   "movimento": [
-   "A pílula muda de largura, altura e raio numa única mola com um leve quique, e o conteúdo de cada visão entra de um desfoque e de uma escala um pouco menor, já no tamanho final.",
-   "As barras de som pulsam em ritmos diferentes enquanto há áudio, o telefone da forma compacta balança enquanto a chamada toca e as barras de progresso andam em ritmo constante a cada segundo.",
-   "Com “reduzir movimento” ligado, a pílula troca de tamanho na hora, o conteúdo só esmaece, as barras de som ficam paradas em alturas fixas e o telefone não balança."
+   "The pill changes width, height, and radius on a single spring with a slight bounce, and each view's content enters from a blur and a slightly smaller scale, already at its final size.",
+   "The sound bars pulse at different rhythms while there is audio, the phone in the compact form wobbles while the call rings, and the progress bars advance at a steady pace every second.",
+   "With “reduce motion” on, the pill changes size instantly, the content only fades, the sound bars stay still at fixed heights, and the phone does not wobble."
   ],
   "responsivo": [
-   "A pílula expandida tem largura fixa de 344px, limitada a `100vw - 1.5rem`; o conteúdo é desenhado nesse tamanho e não se reorganiza, então em telas mais estreitas as bordas ficam cortadas."
+   "The expanded pill has a fixed width of 344px, capped at `100vw - 1.5rem`; the content is drawn at that size and does not reflow, so on narrower screens the edges are clipped."
   ],
   "desempenho": [
-   "Fora do repouso, um único intervalo de 1 segundo atualiza a chamada, o cronômetro ou a música, mesmo na forma compacta; as barras de som e o toque são animações CSS."
+   "Outside the idle state, a single 1-second interval updates the call, timer, or music, even in the compact form; the sound bars and the ring are CSS animations."
   ],
   "notasIA": [
-   "Importe `DynamicIsland` pelo nome (a exportação padrão é a prévia com celular e seletor); o componente não se posiciona, então centralize-o no topo pelo pai.",
-   "Controle `activity` e `expanded` com `onActivityChange` e `onExpandedChange`: recusar ou encerrar a chamada e cancelar o cronômetro voltam a ilha para `\"idle\"` por conta própria.",
-   "`caller`, `tracks` e `timerSeconds` trocam os dados de exemplo; a ilha fica quase preta nos dois temas porque usa a escala neutra fixa, e não as superfícies do tema."
+   "Import `DynamicIsland` by name (the default export is the preview with a phone and selector); the component does not position itself, so center it at the top from the parent.",
+   "Control `activity` and `expanded` with `onActivityChange` and `onExpandedChange`: declining or ending the call and canceling the timer return the island to `\"idle\"` on their own.",
+   "`caller`, `tracks`, and `timerSeconds` replace the example data; the island is nearly black in both themes because it uses the fixed neutral scale, not the theme surfaces."
   ]
  },
  "empty-states": {
   "quandoUsar": [
-   "Vitrine ou página de demonstração de estados vazios ilustrados (sem resultados, offline, caixa em dia, página não encontrada), em que trocar de aba transforma a ilustração.",
-   "Ponto de partida para estados vazios próprios com formas que se transformam, adaptando textos, ações e cenas no código."
+   "A showcase or demo page of illustrated empty states (no results, offline, inbox zero, page not found), where switching tabs transforms the illustration.",
+   "A starting point for your own empty states with shapes that morph, adapting texts, actions, and scenes in the code."
   ],
   "quandoEvitar": [
-   "Use `empty-state` para um estado vazio de verdade dentro de uma tela, com título, texto e ação por props.",
-   "Use `not-found` para uma página 404 completa, com busca e links de volta.",
-   "Evite quando textos e ações precisam vir de props: o bloco não recebe nenhuma, e as ações só simulam o resultado na própria tela."
+   "Use `empty-state` for a real empty state inside a screen, with title, text, and action through props.",
+   "Use `not-found` for a complete 404 page, with search and links back.",
+   "Avoid when texts and actions must come from props: the block takes none, and the actions only simulate the result on the screen itself."
   ],
   "teclado": [
-   { "teclas": ["←", "→"], "acao": "Selecionam a aba anterior ou a próxima, dando a volta, e levam o foco junto." },
-   { "teclas": ["Home", "End"], "acao": "Selecionam a primeira ou a última aba." },
-   { "teclas": ["Enter", "Espaço"], "acao": "No botão, executam a ação da cena: limpar filtros, tentar de novo, verificar o e-mail ou achar a página." }
+   { "teclas": ["←", "→"], "acao": "Select the previous or next tab, wrapping around, and move focus along with it." },
+   { "teclas": ["Home", "End"], "acao": "Select the first or last tab." },
+   { "teclas": ["Enter", "Space"], "acao": "On the button, run the scene's action: clear filters, try again, check the email, or find the page." }
   ],
   "acessibilidade": [
-   "As cenas seguem o padrão de abas (`tablist`, `tab` com `aria-selected`, `tabpanel`) com foco itinerante, e a ilustração é um `role=\"img\"` com descrição própria de cada cena.",
-   "O resultado de cada ação é anunciado numa região `aria-live=\"polite\"` oculta, e o botão fica em estado de carregamento enquanto a ação simulada espera."
+   "The scenes follow the tabs pattern (`tablist`, `tab` with `aria-selected`, `tabpanel`) with roving focus, and the illustration is a `role=\"img\"` with its own description for each scene.",
+   "The result of each action is announced in a hidden `aria-live=\"polite\"` region, and the button stays in a loading state while the simulated action waits."
   ],
   "movimento": [
-   "Ao trocar de aba, cada uma das dez formas da ilustração viaja para nova posição, tamanho, raio e cor numa mola própria, e as linhas se redesenham um instante depois.",
-   "Com mouse, as camadas da ilustração se deslocam levemente acompanhando o ponteiro; título e texto trocam subindo de um leve desfoque, e a altura do texto acompanha com uma mola.",
-   "Com “reduzir movimento” ligado, a ilustração troca por esmaecimento cruzado, sem viagem das formas, a paralaxe é desligada e os textos só esmaecem."
+   "When switching tabs, each of the illustration's ten shapes travels to a new position, size, radius, and color on its own spring, and the lines redraw a moment later.",
+   "With a mouse, the illustration layers shift slightly following the pointer; title and text swap rising from a slight blur, and the text height follows with a spring.",
+   "With “reduce motion” on, the illustration switches by crossfade, with no shape travel, the parallax is turned off, and the texts only fade."
   ],
   "responsivo": [
-   "A ilustração tem proporção fixa e no máximo 360px de largura, então trocar de cena não muda o layout; em contêineres de até 420px as abas ficam menores e rolam se faltar espaço."
+   "The illustration has a fixed aspect ratio and a maximum width of 360px, so switching scenes does not change the layout; in containers up to 420px the tabs get smaller and scroll if space runs out."
   ],
   "desempenho": [
-   "Um único laço de `requestAnimationFrame` move todas as formas escrevendo direto nos atributos do SVG, sem renderizar o React a cada quadro, e dorme quando tudo assenta."
+   "A single `requestAnimationFrame` loop moves all shapes by writing directly to the SVG attributes, without rendering React on every frame, and sleeps when everything settles."
   ],
   "notasIA": [
-   "O bloco não tem props: textos e ações estão em `COPY`, no componente, e as cenas em `empty-states-art.ts`; para um estado vazio configurável, use `empty-state`.",
-   "As ações são locais e simuladas (limpar filtros, reconectar, checar o e-mail, achar a página); para ligá-las a dados reais, troque a função `act()` no arquivo instalado.",
-   "Depende de `button`, instalado junto; o cartão ocupa a largura do pai, e o conteúdo se limita a 480px no centro."
+   "The block has no props: texts and actions are in `COPY`, inside the component, and the scenes in `empty-states-art.ts`; for a configurable empty state, use `empty-state`.",
+   "The actions are local and simulated (clear filters, reconnect, check the email, find the page); to connect them to real data, replace the `act()` function in the installed file.",
+   "Depends on `button`, installed along with it; the card takes the parent's width, and the content is limited to 480px in the center."
   ]
  },
  "expandable-action-bar": {
   "quandoUsar": [
-   "Barra flutuante de ações em massa sobre uma seleção (arquivos, fotos, linhas), com as três ou quatro ações principais sempre à mão e o resto a um toque.",
-   "Telas de celular ou painéis estreitos, em que a pílula compacta cabe sobre o conteúdo e só se abre numa grade rotulada quando pedida."
+   "A floating bulk-action bar over a selection (files, photos, rows), with the three or four main actions always at hand and the rest a tap away.",
+   "Mobile screens or narrow panels, where the compact pill fits over the content and opens into a labeled grid only when requested."
   ],
   "quandoEvitar": [
-   "Use `overflow-actions` para uma barra fixa que leva para um menu “mais” só as ações que não cabem na largura.",
-   "Use `bloom-menu` para criar itens novos a partir de um botão flutuante, sem seleção.",
-   "Use `dropdown-menu` quando a lista de ações é longa ou tem submenus."
+   "Use `overflow-actions` for a fixed bar that moves to a “more” menu only the actions that do not fit the width.",
+   "Use `bloom-menu` to create new items from a floating button, without a selection.",
+   "Use `dropdown-menu` when the action list is long or has submenus."
   ],
   "teclado": [
-   { "teclas": ["←", "→"], "acao": "Movem o foco entre todos os botões da barra, incluindo o de expandir e os da fileira secundária, dando a volta." },
-   { "teclas": ["Home", "End"], "acao": "Focam o primeiro ou o último botão da barra." },
-   { "teclas": ["Esc"], "acao": "Com a barra expandida, recolhe e devolve o foco ao botão de expandir." },
-   { "teclas": ["Enter", "Espaço"], "acao": "Acionam a ação em foco, ou expandem e recolhem a barra no botão da seta." }
+   { "teclas": ["←", "→"], "acao": "Move focus between all the bar's buttons, including the expand button and those of the secondary row, wrapping around." },
+   { "teclas": ["Home", "End"], "acao": "Focus the first or last button of the bar." },
+   { "teclas": ["Esc"], "acao": "With the bar expanded, collapses it and returns focus to the expand button." },
+   { "teclas": ["Enter", "Space"], "acao": "Trigger the focused action, or expand and collapse the bar on the arrow button." }
   ],
   "acessibilidade": [
-   "A barra é um `role=\"toolbar\"` horizontal com nome fixo “Actions”, e o botão de expandir tem `aria-expanded` e nome “Show all actions” ou “Show fewer actions”.",
-   "Na forma compacta, cada botão recebe `aria-label` e `title` com o `label` da ação; expandida, o texto visível vira o nome. A fileira secundária é um `group` nomeado por `shortcutsLabel`.",
-   "Todos os botões ficam na ordem do Tab (não há foco itinerante); as setas são um atalho a mais para percorrê-los."
+   "The bar is a horizontal `role=\"toolbar\"` with the fixed name “Actions”, and the expand button has `aria-expanded` and the name “Show all actions” or “Show fewer actions”.",
+   "In the compact form, each button gets `aria-label` and `title` with the action's `label`; when expanded, the visible text becomes the name. The secondary row is a `group` named by `shortcutsLabel`.",
+   "All buttons are in the Tab order (there is no roving focus); the arrow keys are an extra shortcut for moving through them."
   ],
   "movimento": [
-   "A barra é uma janela que muda de largura e altura numa mola com leve quique, crescendo para cima a partir da pílula, enquanto os ícones que já estavam lá deslizam para o novo lugar.",
-   "Os ícones extras surgem em cascata, os rótulos sobem logo depois e a seta gira 180°; quando `label` muda, o texto novo entra por baixo e o antigo sai por cima.",
-   "Com “reduzir movimento” ligado, a barra assume o novo tamanho na hora e ícones e rótulos só aparecem, sem deslize nem cascata."
+   "The bar is a window that changes width and height on a spring with a slight bounce, growing upward from the pill, while the icons that were already there slide to their new place.",
+   "The extra icons appear in a cascade, the labels rise right after, and the arrow rotates 180°; when `label` changes, the new text enters from below and the old one exits above.",
+   "With “reduce motion” on, the bar takes the new size instantly and icons and labels just appear, with no slide or cascade."
   ],
   "responsivo": [
-   "A largura expandida é `width` (416px por padrão), limitada ao espaço do contêiner; a fileira secundária rola na horizontal, com a borda final esmaecida indicando que há mais."
+   "The expanded width is `width` (416px by default), limited to the container's space; the secondary row scrolls horizontally, with a faded end edge indicating there is more."
   ],
   "desempenho": [
-   "Um `ResizeObserver` acompanha o contêiner e o conteúdo, e só um novo tamanho-alvo dispara a mola, então redimensionar a janela não reinicia a animação a cada quadro."
+   "A `ResizeObserver` follows the container and the content, and only a new target size triggers the spring, so resizing the window does not restart the animation on every frame."
   ],
   "notasIA": [
-   "Importe `ExpandableActionBar` pelo nome (a exportação padrão é a prévia com o quadro de arquivos) e marque com `primary: true` as três ou quatro ações da pílula compacta.",
-   "O componente ocupa a largura do pai e se ancora na borda de baixo dele: posicione o pai (por exemplo, `position: absolute` no rodapé) e mostre a barra só quando houver seleção.",
-   "Trate os cliques em `onAction(id)` e `onShortcut(id)`; `label` (como “3 selected”) é o texto que troca com animação, e `shortcuts={[]}` remove a fileira secundária."
+   "Import `ExpandableActionBar` by name (the default export is the preview with the file board) and mark the compact pill's three or four actions with `primary: true`.",
+   "The component takes the parent's width and anchors to its bottom edge: position the parent (for example, `position: absolute` at the footer) and show the bar only when there is a selection.",
+   "Handle clicks in `onAction(id)` and `onShortcut(id)`; `label` (such as “3 selected”) is the text that swaps with animation, and `shortcuts={[]}` removes the secondary row."
   ]
  },
  "expandable-tabs": {
   "quandoUsar": [
-   "Barra inferior de app ou alternador compacto com quatro ou cinco destinos, em que só o ativo precisa mostrar o nome.",
-   "Navegação por ícones conhecidos (início, busca, caixa de entrada, perfil), com contador de não lidos no ícone (`badge: 3`)."
+   "An app bottom bar or compact switcher with four or five destinations, where only the active one needs to show its name.",
+   "Navigation through familiar icons (home, search, inbox, profile), with an unread counter on the icon (`badge: 3`)."
   ],
   "quandoEvitar": [
-   "Use `tabs` ou `segmented-control` quando todos os rótulos devem ficar visíveis o tempo todo.",
-   "Use `morphing-tabs` quando as abas têm rótulo e o destaque deve viajar entre elas.",
-   "Evite com ícones ambíguos ou muitos destinos: os nomes ficam escondidos e a lista não rola nem quebra linha."
+   "Use `tabs` or `segmented-control` when all labels must stay visible at all times.",
+   "Use `morphing-tabs` when the tabs have labels and the highlight should travel between them.",
+   "Avoid with ambiguous icons or many destinations: the names are hidden and the list neither scrolls nor wraps."
   ],
   "teclado": [
-   { "teclas": ["←", "→"], "acao": "Selecionam a aba anterior ou a próxima, pulando as desabilitadas e dando a volta, e levam o foco junto." },
-   { "teclas": ["Home", "End"], "acao": "Selecionam a primeira ou a última aba habilitada." }
+   { "teclas": ["←", "→"], "acao": "Select the previous or next tab, skipping disabled ones and wrapping around, and move focus along with it." },
+   { "teclas": ["Home", "End"], "acao": "Select the first or last enabled tab." }
   ],
   "acessibilidade": [
-   "Segue o padrão de abas com foco itinerante: `tablist` nomeado por `label`, `aria-selected` em cada aba e, quando há `content`, um `tabpanel` ligado à aba ativa.",
-   "O nome de cada aba é sempre o `label` (com “, 3 new” quando há `badge`), mesmo com o texto escondido; o rótulo visível fica em `aria-hidden` para não ser lido duas vezes."
+   "Follows the tabs pattern with roving focus: a `tablist` named by `label`, `aria-selected` on each tab and, when there is `content`, a `tabpanel` tied to the active tab.",
+   "Each tab's name is always the `label` (with “, 3 new” when there is a `badge`), even with the text hidden; the visible label is `aria-hidden` so it is not read twice."
   ],
   "movimento": [
-   "O rótulo da aba ativa se abre numa mola sem ultrapassagem enquanto o da anterior se fecha, o fundo de destaque cresce a partir da própria aba e o ícone pulsa uma vez.",
-   "Quando há `content`, o painel troca subindo de um leve desfoque.",
-   "Com “reduzir movimento” ligado, rótulos e painéis trocam na hora, sem pulso nem desfoque, e as transições CSS do fundo são desligadas."
+   "The active tab's label opens on a no-overshoot spring while the previous one's closes, the highlight background grows from the tab itself, and the icon pulses once.",
+   "When there is `content`, the panel swaps rising from a slight blur.",
+   "With “reduce motion” on, labels and panels swap instantly, with no pulse or blur, and the background's CSS transitions are turned off."
   ],
   "responsivo": [
-   "A lista se centraliza e cresce com o rótulo ativo, sem rolagem nem quebra de linha: confira se os ícones mais o rótulo mais longo cabem na tela mais estreita."
+   "The list centers itself and grows with the active label, with no scrolling or line wrapping: check that the icons plus the longest label fit on the narrowest screen."
   ],
   "notasIA": [
-   "Importe `ExpandableTabs` pelo nome (a exportação padrão é a prévia de um app); cada aba precisa de `id`, `label` e `icon`, e contagens acima de 9 em `tab.badge` aparecem como “9+”.",
-   "Sem `content` em nenhuma aba, vira um alternador simples, sem `tabpanel`: use `value` e `onValueChange` para trocar a tela por fora, como numa barra inferior.",
-   "Com `content`, o painel aparece acima da lista; para fixar a barra no rodapé da tela, posicione o componente pelo pai."
+   "Import `ExpandableTabs` by name (the default export is an app preview); each tab needs `id`, `label`, and `icon`, and counts above 9 in `tab.badge` appear as “9+”.",
+   "Without `content` on any tab, it becomes a simple switcher, with no `tabpanel`: use `value` and `onValueChange` to switch the screen externally, as in a bottom bar.",
+   "With `content`, the panel appears above the list; to pin the bar to the bottom of the screen, position the component from the parent."
   ]
  },
  "faq-section": {
   "quandoUsar": [
-   "Seção de perguntas frequentes numa página de produto ou de preços, com respostas que abrem no lugar, na variante `accordion`.",
-   "Muitas perguntas agrupadas por tema, na variante `columns`, com um trilho de categorias que fica fixo ao lado durante a rolagem.",
-   "Centrais de ajuda em que a pessoa procura por palavra: a variante `search` filtra perguntas e respostas, ignora acentos e destaca o trecho encontrado."
+   "A frequently-asked-questions section on a product or pricing page, with answers that open in place, in the `accordion` variant.",
+   "Many questions grouped by topic, in the `columns` variant, with a category rail that stays fixed beside them while scrolling.",
+   "Help centers where the person searches by word: the `search` variant filters questions and answers, ignores accents, and highlights the match."
   ],
   "quandoEvitar": [
-   "Use `accordion` para revelar seções de qualquer conteúdo, e não só perguntas com respostas em texto.",
-   "Evite quando as respostas precisam de links, listas ou formatação: `answer` é texto puro, porque também é o que a busca compara e destaca."
+   "Use `accordion` to reveal sections of any content, not just questions with text answers.",
+   "Avoid when answers need links, lists, or formatting: `answer` is plain text, because it is also what the search compares and highlights."
   ],
   "teclado": [
-   { "teclas": ["↑", "↓"], "acao": "Movem o foco para a pergunta anterior ou a próxima da mesma lista, dando a volta." },
-   { "teclas": ["Home", "End"], "acao": "Focam a primeira ou a última pergunta da lista." },
-   { "teclas": ["Enter", "Espaço"], "acao": "Abrem ou fecham a resposta da pergunta em foco; nas categorias de `columns`, trocam o tema." }
+   { "teclas": ["↑", "↓"], "acao": "Move focus to the previous or next question in the same list, wrapping around." },
+   { "teclas": ["Home", "End"], "acao": "Focus the first or last question in the list." },
+   { "teclas": ["Enter", "Space"], "acao": "Open or close the answer of the focused question; on the `columns` categories, switch the topic." }
   ],
   "acessibilidade": [
-   "Cada pergunta é um botão dentro de um `h3`, com `aria-expanded` e `aria-controls`, e a resposta é uma `region` nomeada pela própria pergunta.",
-   "Na busca, a contagem de respostas encontradas é anunciada numa região `aria-live`; nas categorias, o tema ativo usa `aria-pressed`.",
-   "`title` vira o `h2` que nomeia a seção; o cartão de contato do fim é um link quando recebe `href` e um botão nos outros casos."
+   "Each question is a button inside an `h3`, with `aria-expanded` and `aria-controls`, and the answer is a `region` named by the question itself.",
+   "In search, the count of answers found is announced in an `aria-live` region; on the categories, the active topic uses `aria-pressed`.",
+   "`title` becomes the `h2` that names the section; the contact card at the end is a link when it receives `href` and a button otherwise."
   ],
   "movimento": [
-   "A resposta abre com a altura numa mola sem ultrapassagem e o texto desce de um leve desfoque, enquanto o sinal de mais gira 45° e vira um x.",
-   "Na busca, as perguntas que deixam de bater fecham a altura e as restantes deslizam; em `columns`, a lista do novo tema entra no sentido da troca e o realce desliza até ele.",
-   "Com “reduzir movimento” ligado, respostas, filtros e temas trocam na hora e o ícone não anima."
+   "The answer opens with the height on a no-overshoot spring and the text descends from a slight blur, while the plus sign rotates 45° and becomes an x.",
+   "In search, questions that stop matching close their height and the remaining ones slide; in `columns`, the new topic's list enters in the direction of the switch and the highlight slides to it.",
+   "With “reduce motion” on, answers, filters, and topics swap instantly and the icon does not animate."
   ],
   "responsivo": [
-   "Container query: abaixo de 760px o trilho de `columns` deixa de ficar fixo e as categorias viram uma fileira que rola na horizontal, acima das perguntas."
+   "Container query: below 760px the `columns` rail stops being fixed and the categories become a horizontally scrolling row above the questions."
   ],
   "notasIA": [
-   "Importe `FaqSection` pelo nome (a exportação padrão é a prévia com seletor) e escolha `variant`: `accordion`, `columns` ou `search`; `search-field` e `segmented-control` vêm junto.",
-   "Por padrão a primeira pergunta abre e só uma fica aberta por vez: use `multiple` para várias e `defaultValue={[]}` para começar fechado; o id de cada item é `id` ou, sem ele, a pergunta.",
-   "Em `columns`, dê `category` a cada item (sem ela, vira “General”); `contact={null}` remove o cartão “Still have a question?”, que sem `href` nem `onClick` não faz nada."
+   "Import `FaqSection` by name (the default export is the preview with a selector) and choose `variant`: `accordion`, `columns`, or `search`; `search-field` and `segmented-control` come along.",
+   "By default the first question opens and only one stays open at a time: use `multiple` for several and `defaultValue={[]}` to start closed; each item's id is `id` or, without it, the question.",
+   "In `columns`, give each item a `category` (without it, it becomes “General”); `contact={null}` removes the “Still have a question?” card, which does nothing without `href` or `onClick`."
   ]
  },
  "feedback-widget": {
   "quandoUsar": [
-   "Coletar uma opinião rápida em qualquer página (central de ajuda, artigo, painel) com um botão fixo no canto que não tira a pessoa do que estava fazendo.",
-   "Pesquisas de satisfação de um clique, com cinco rostos e uma mensagem opcional."
+   "Collecting quick feedback on any page (help center, article, dashboard) with a fixed button in the corner that does not take the person away from what they were doing.",
+   "One-click satisfaction surveys, with five faces and an optional message."
   ],
   "quandoEvitar": [
-   "Use `contact-section` quando a mensagem precisa de nome, e-mail e assunto para receber resposta.",
-   "Use `rating` para uma nota dentro de um formulário.",
-   "Evite com outro botão flutuante no mesmo canto, como um chat de suporte: o widget fica fixo no canto inferior, numa camada alta (`z-index: 50`), e os dois disputariam o lugar."
+   "Use `contact-section` when the message needs name, email, and subject in order to get a reply.",
+   "Use `rating` for a score inside a form.",
+   "Avoid with another floating button in the same corner, such as a support chat: the widget is fixed to the bottom corner, on a high layer (`z-index: 50`), and the two would compete for the spot."
   ],
   "teclado": [
-   { "teclas": ["Enter", "Espaço"], "acao": "No botão “Feedback”, abrem o formulário e levam o foco ao primeiro rosto." },
-   { "teclas": ["↑", "↓", "←", "→"], "acao": "No grupo de rostos, escolhem o anterior ou o próximo, dando a volta; sem escolha, `→` e `↓` começam no primeiro e `←` e `↑` no último." },
-   { "teclas": ["Ctrl + Enter", "⌘ + Enter"], "acao": "No campo de mensagem, enviam o formulário, desde que um rosto tenha sido escolhido." },
-   { "teclas": ["Esc"], "acao": "Fecha o formulário e devolve o foco ao botão, exceto durante o envio." }
+   { "teclas": ["Enter", "Space"], "acao": "On the “Feedback” button, open the form and move focus to the first face." },
+   { "teclas": ["↑", "↓", "←", "→"], "acao": "In the faces group, choose the previous or next one, wrapping around; with no choice, `→` and `↓` start at the first and `←` and `↑` at the last." },
+   { "teclas": ["Ctrl + Enter", "⌘ + Enter"], "acao": "In the message field, submit the form, as long as a face has been chosen." },
+   { "teclas": ["Esc"], "acao": "Closes the form and returns focus to the button, except during submission." }
   ],
   "acessibilidade": [
-   "O botão tem `aria-haspopup=\"dialog\"`; o painel é um `role=\"dialog\"` nomeado pelo título, mas não modal: o foco não fica preso, e Esc ou um clique fora fecham e devolvem o foco ao botão.",
-   "Os rostos formam um `radiogroup` com foco itinerante e nomes (de “Terrible” a “Great”), e o nome do rosto escolhido é anunciado numa região `aria-live`.",
-   "O envio expõe `aria-busy`, a falha aparece em `role=\"alert\"` e o agradecimento em `role=\"status\"`; o campo de mensagem tem o rótulo oculto “Your feedback”."
+   "The button has `aria-haspopup=\"dialog\"`; the panel is a `role=\"dialog\"` named by the title, but not modal: focus is not trapped, and Esc or a click outside closes it and returns focus to the button.",
+   "The faces form a `radiogroup` with roving focus and names (from “Terrible” to “Great”), and the name of the chosen face is announced in an `aria-live` region.",
+   "Submission exposes `aria-busy`, the failure appears in `role=\"alert\"` and the thank-you in `role=\"status\"`; the message field has the hidden label “Your feedback”."
   ],
   "movimento": [
-   "O próprio botão se transforma no painel, a partir do seu canto, numa mola de layout sem ultrapassagem, e o conteúdo surge aos poucos logo depois.",
-   "O destaque desliza até o rosto escolhido, que cresce e gira um pouco; ao concluir, o selo aparece com um quique, o visto se desenha e o painel fecha sozinho após 2,6 s.",
-   "Com “reduzir movimento” ligado, o painel abre e fecha na hora, sem morph nem giro, e o indicador de envio fica parado."
+   "The button itself transforms into the panel, from its corner, on a no-overshoot layout spring, and the content appears gradually right after.",
+   "The highlight slides to the chosen face, which grows and rotates slightly; on completion, the badge appears with a bounce, the checkmark is drawn, and the panel closes by itself after 2.6 s.",
+   "With “reduce motion” on, the panel opens and closes instantly, with no morph or rotation, and the submit indicator stays still."
   ],
   "responsivo": [
-   "Fica fixo na janela (`position: fixed`) no canto escolhido por `placement`; com `contained`, prende-se ao ancestral posicionado mais próximo, como num painel ou numa prévia.",
-   "O painel tem 21rem de largura, limitado ao espaço disponível; em telas de até 30rem, a distância até as bordas diminui."
+   "It stays fixed to the window (`position: fixed`) in the corner chosen by `placement`; with `contained`, it attaches to the nearest positioned ancestor, as in a panel or a preview.",
+   "The panel is 21rem wide, limited to the available space; on screens up to 30rem, the distance to the edges shrinks."
   ],
   "notasIA": [
-   "Importe `FeedbackWidget` pelo nome (a exportação padrão é a prévia com um artigo de ajuda) e monte-o uma vez no layout da página: ele se fixa sozinho no canto.",
-   "`onSubmit` recebe `{ mood, message }`, com a mensagem já aparada: devolva uma promessa para segurar o estado de envio e rejeite-a para mostrar o erro e manter o formulário.",
-   "Os nomes dos rostos e os textos de falha, de envio e de “Close” estão fixos em inglês; `label`, `title`, `placeholder`, `thanksTitle` e `thanksMessage` vêm por props."
+   "Import `FeedbackWidget` by name (the default export is the preview with a help article) and mount it once in the page layout: it pins itself to the corner.",
+   "`onSubmit` receives `{ mood, message }`, with the message already trimmed: return a promise to hold the submitting state and reject it to show the error and keep the form.",
+   "The face names and the failure, submitting, and “Close” texts are hardcoded in English; `label`, `title`, `placeholder`, `thanksTitle`, and `thanksMessage` come through props."
   ]
  },
  "file-upload": {
   "quandoUsar": [
-   "Formulários que pedem um ou mais arquivos com regras de tipo e tamanho, mostrando o motivo da recusa na própria linha do arquivo.",
-   "Envio com progresso por arquivo, cancelamento ao remover e botão de tentar de novo quando falha, ligado ao seu `onUpload`."
+   "Forms that ask for one or more files with type and size rules, showing the reason for rejection on the file's own row.",
+   "Upload with per-file progress, cancellation on removal, and a retry button on failure, wired to your `onUpload`."
   ],
   "quandoEvitar": [
-   "Use `file-dropzone` quando basta uma área generosa para soltar arquivos, sem lista nem progresso.",
-   "Evite para escolher uma imagem de perfil com recorte ou prévia: cada linha mostra só um ícone pelo tipo, o nome e o tamanho."
+   "Use `file-dropzone` when a generous area to drop files is enough, with no list or progress.",
+   "Avoid for choosing a profile image with cropping or a preview: each row shows only a type icon, the name, and the size."
   ],
   "teclado": [
-   { "teclas": ["Enter", "Espaço"], "acao": "Na área de envio, abrem a janela de escolha de arquivos do sistema." },
-   { "teclas": ["Enter", "Espaço"], "acao": "Nos botões de cada linha, removem o arquivo ou tentam de novo; ao remover, o foco vai para o “remover” do arquivo vizinho ou volta à área de envio." }
+   { "teclas": ["Enter", "Space"], "acao": "On the upload area, open the system file-picker window." },
+   { "teclas": ["Enter", "Space"], "acao": "On each row's buttons, remove the file or retry; on removal, focus goes to the neighboring file's “remove” or back to the upload area." }
   ],
   "acessibilidade": [
-   "A área de envio é um `role=\"button\"` focável, com `aria-disabled` e a descrição ligada por `aria-describedby`; o `input` de arquivo real fica escondido e fora do Tab.",
-   "Uma região `aria-live` anuncia arquivos adicionados, recusados, enviados, com falha e removidos, e os botões de cada linha incluem o nome do arquivo (“Remove foto.png”, “Retry foto.png”)."
+   "The upload area is a focusable `role=\"button\"`, with `aria-disabled` and the description tied by `aria-describedby`; the real file `input` is hidden and out of the Tab order.",
+   "An `aria-live` region announces files added, rejected, uploaded, failed, and removed, and each row's buttons include the file name (“Remove foto.png”, “Retry foto.png”)."
   ],
   "movimento": [
-   "Cada linha abre e fecha a altura numa mola; a barra de progresso e a porcentagem seguem a mesma mola, e a barra só se recolhe depois de mostrar 100%.",
-   "Os textos de estado trocam subindo de um leve desfoque, o visto de pronto se desenha e a nuvem sobe um pouco quando um arquivo paira sobre a área.",
-   "Com “reduzir movimento” ligado, linhas, barra e textos mudam na hora ou só esmaecem, e a nuvem não se move."
+   "Each row opens and closes its height on a spring; the progress bar and the percentage follow the same spring, and the bar only collapses after showing 100%.",
+   "The status texts swap rising from a slight blur, the done checkmark is drawn, and the cloud rises slightly when a file hovers over the area.",
+   "With “reduce motion” on, rows, bar, and texts change instantly or only fade, and the cloud does not move."
   ],
   "desempenho": [
-   "Cada envio tem seu `AbortController`: remover o arquivo ou desmontar o componente cancela o sinal, então o seu `onUpload` precisa respeitar `signal` para parar a rede."
+   "Each upload has its own `AbortController`: removing the file or unmounting the component cancels the signal, so your `onUpload` must respect `signal` to stop the network request."
   ],
   "notasIA": [
-   "Apesar de estar entre os blocos, instala em `@/components/ryan-ui/file-upload/file-upload`; sem `onUpload`, os arquivos só aparecem como prontos e nada é enviado.",
-   "`onUpload(file, { onProgress, signal })` deve chamar `onProgress` de 0 a 100, resolver ao terminar e rejeitar na falha; recusados por `accept` ou `maxSize` (em bytes) ficam na lista e não são enviados.",
-   "`value` e `onChange` controlam a lista de `{ id, file, error }`; com `multiple={false}`, um arquivo novo substitui o anterior e cancela o envio em andamento."
+   "Although it is among the blocks, it installs at `@/components/ryan-ui/file-upload/file-upload`; without `onUpload`, files just appear as ready and nothing is sent.",
+   "`onUpload(file, { onProgress, signal })` must call `onProgress` from 0 to 100, resolve when finished, and reject on failure; files rejected by `accept` or `maxSize` (in bytes) stay in the list and are not sent.",
+   "`value` and `onChange` control the `{ id, file, error }` list; with `multiple={false}`, a new file replaces the previous one and cancels the upload in progress."
   ]
  },
  "hero-section": {
   "quandoUsar": [
-   "Abertura de uma landing page de produto: uma janela de produto viva (`product`), um fluxo de automação rodando (`workflow`) ou tipografia grande sobre uma faixa de palavras (`editorial`).",
-   "Hero com o seu próprio conteúdo (título, descrição, ações, comando de instalação e um visual ao lado), passando `title`, sem montar o layout do zero."
+   "The opening of a product landing page: a live product window (`product`), an automation flow running (`workflow`), or large typography over a word strip (`editorial`).",
+   "A hero with your own content (title, description, actions, install command, and a visual beside it), passing `title`, without building the layout from scratch."
   ],
   "quandoEvitar": [
-   "Use `cta-section` para uma chamada no meio ou no fim da página.",
-   "Use `site-header` para a navegação do site: a barra das versões desenhadas rola junto com o hero e perde os links em telas estreitas.",
-   "Evite usar as versões desenhadas com a sua marca sem editar o código: textos, números e nomes (Lumen, Relay, Cadence) são de exemplo, e só as ações vêm por props."
+   "Use `cta-section` for a call to action in the middle or end of the page.",
+   "Use `site-header` for site navigation: the bar in the built-in versions scrolls along with the hero and loses its links on narrow screens.",
+   "Avoid using the built-in versions with your brand without editing the code: texts, numbers, and names (Lumen, Relay, Cadence) are examples, and only the actions come through props."
   ],
   "acessibilidade": [
-   "Cada versão tem um único `h1`; os cartões flutuantes são `aria-hidden`, e a janela do produto e o grafo são grupos com nome resumido, como “Lumen revenue dashboard, sample data”.",
-   "No grafo, cada etapa tem estado com nome (“Running”, “Done”, “Skipped”, “Waiting”), e a frase sob o marca-texto é desenhada duas vezes, com a cópia em `aria-hidden`, para ser lida uma vez só."
+   "Each version has a single `h1`; the floating cards are `aria-hidden`, and the product window and the graph are groups with a summary name, such as “Lumen revenue dashboard, sample data”.",
+   "In the graph, each step has a named state (“Running”, “Done”, “Skipped”, “Waiting”), and the phrase under the highlighter is drawn twice, with the copy in `aria-hidden`, so it is read only once."
   ],
   "movimento": [
-   "Ao montar, as partes sobem em ordem de leitura saindo de um leve desfoque, e um marca-texto na cor de destaque passa da esquerda para a direita sobre uma frase do título.",
-   "Na `product`, os números rolam, o gráfico se desenha e os cartões flutuam; na `workflow`, um pulso percorre as linhas a cada evento; na `editorial`, as palavras correm numa faixa.",
-   "Com “reduzir movimento” ligado, nada se desloca (só esmaece), o gráfico já aparece pronto, o fluxo mostra cada evento concluído, a faixa vira uma área de rolagem comum e o marca-texto já vem pintado."
+   "On mount, the parts rise in reading order coming out of a slight blur, and a highlighter in the accent color sweeps left to right over a phrase of the title.",
+   "In `product`, the numbers scroll, the chart is drawn, and the cards float; in `workflow`, a pulse travels along the lines on each event; in `editorial`, the words run along a strip.",
+   "With “reduce motion” on, nothing moves (it only fades), the chart already appears ready, the flow shows each event as completed, the strip becomes an ordinary scroll area, and the highlighter comes already painted."
   ],
   "responsivo": [
-   "As versões desenhadas ocupam no mínimo a altura da tela (`100svh`) e se ajustam por container query; abaixo de 760px os links da barra e o “Sign in” somem, sem menu no lugar.",
-   "Na `workflow`, o grafo é desenhado em tamanho fixo e reduzido em escala para caber na coluna, com um arranjo estreito abaixo de 520px."
+   "The built-in versions take at least the screen height (`100svh`) and adjust through a container query; below 760px the bar links and “Sign in” disappear, with no menu in their place.",
+   "In `workflow`, the graph is drawn at a fixed size and scaled down to fit the column, with a narrow arrangement below 520px."
   ],
   "desempenho": [
-   "Os laços de eventos e de avisos param quando o hero sai da tela ou a aba fica oculta (`IntersectionObserver` e `visibilitychange`); ainda assim, use uma versão por página."
+   "The event and notice loops stop when the hero leaves the screen or the tab is hidden (`IntersectionObserver` and `visibilitychange`); even so, use one version per page."
   ],
   "notasIA": [
-   "Importe `HeroSection` pelo nome (a exportação padrão é a prévia com seletor de versões) e escolha `variant`: `product`, `workflow` ou `editorial`; `centered`, `split` e `minimal` também valem.",
-   "Com `title`, o bloco troca a vitrine pelo seu conteúdo (`description`, `announcement`, `install`, `meta` e, em `workflow`, `media`), com altura natural; sem `title`, só as duas ações são suas.",
-   "Depende de `animated-counter`, `avatar`, `badge`, `button`, `copy-button`, `marquee` e `segmented-control`; `HeroNav`, `HeroBackdrop` e `HeroMark` também são exportados para montar a sua versão."
+   "Import `HeroSection` by name (the default export is the preview with a version selector) and choose `variant`: `product`, `workflow`, or `editorial`; `centered`, `split`, and `minimal` also work.",
+   "With `title`, the block replaces the showcase with your content (`description`, `announcement`, `install`, `meta` and, in `workflow`, `media`), with natural height; without `title`, only the two actions are yours.",
+   "Depends on `animated-counter`, `avatar`, `badge`, `button`, `copy-button`, `marquee`, and `segmented-control`; `HeroNav`, `HeroBackdrop`, and `HeroMark` are also exported so you can build your own version."
   ]
  },
  "infinite-masonry": {
   "quandoUsar": [
-   "Galerias e feeds de imagens com proporções diferentes (portfólios, inspiração, fotos de produtos) que carregam a próxima página ao chegar perto do fim.",
-   "Conteúdo vindo de uma API paginada: `loadPage(page)` recebe o número da página e devolve os cartões, e uma lista vazia encerra o feed."
+   "Image galleries and feeds with varying aspect ratios (portfolios, inspiration, product photos) that load the next page when nearing the end.",
+   "Content coming from a paginated API: `loadPage(page)` receives the page number and returns the cards, and an empty list ends the feed."
   ],
   "quandoEvitar": [
-   "Use `blog-grid` quando os itens são posts com texto, categoria e paginação numerada.",
-   "Use `pagination` com uma grade comum quando a pessoa precisa voltar a uma posição exata ou chegar ao rodapé da página.",
-   "Evite para milhares de itens: não há virtualização, e todos os cartões carregados ficam no DOM."
+   "Use `blog-grid` when the items are posts with text, category, and numbered pagination.",
+   "Use `pagination` with an ordinary grid when the person needs to return to an exact position or reach the page footer.",
+   "Avoid for thousands of items: there is no virtualization, and all loaded cards stay in the DOM."
   ],
   "acessibilidade": [
-   "O contêiner usa `role=\"feed\"` com `aria-busy` durante o carregamento, e cada cartão é um `article` com `aria-posinset`, `aria-setsize` (−1 até o fim do feed) e nome “título by autor”.",
-   "O botão de curtir expõe `aria-pressed` e um nome com o total de curtidas, e o rodapé `role=\"status\"` anuncia o carregamento e o fim do feed.",
-   "Preencha `alt` de cada item: é o texto alternativo da imagem; o avatar do autor é decorativo."
+   "The container uses `role=\"feed\"` with `aria-busy` while loading, and each card is an `article` with `aria-posinset`, `aria-setsize` (−1 until the end of the feed), and the name “title by author”.",
+   "The like button exposes `aria-pressed` and a name with the total likes, and the `role=\"status\"` footer announces loading and the end of the feed.",
+   "Fill in `alt` for each item: it is the image's alternative text; the author avatar is decorative."
   ],
   "movimento": [
-   "Os cartões novos sobem e crescem um pouco com uma mola suave, em cascata dentro da página que chegou; os que já apareceram não repetem a entrada ao mudar de coluna.",
-   "Enquanto carrega, cada coluna ganha um bloco de espera com um brilho que passa e três pontos saltam no rodapé; curtir faz o coração pular.",
-   "Com “reduzir movimento” ligado, os cartões só esmaecem, o coração não pula, o brilho e os pontos param e a imagem não amplia ao passar o mouse."
+   "New cards rise and grow slightly on a soft spring, in a cascade within the page that arrived; those that already appeared do not repeat the entrance when changing column.",
+   "While loading, each column gets a placeholder block with a shimmer passing over it and three dots bounce in the footer; liking makes the heart jump.",
+   "With “reduce motion” on, the cards only fade, the heart does not jump, the shimmer and dots stop, and the image does not zoom on hover."
   ],
   "responsivo": [
-   "O número de colunas sai da largura do próprio bloco (`minColumnWidth`, até `maxColumns`), medida por `ResizeObserver`; colunas com menos de 200px escondem o avatar.",
-   "Cada imagem reserva a altura por `ratio` antes de carregar, então a grade não pula quando as fotos chegam."
+   "The number of columns comes from the block's own width (`minColumnWidth`, up to `maxColumns`), measured by `ResizeObserver`; columns under 200px hide the avatar.",
+   "Each image reserves its height through `ratio` before loading, so the grid does not jump when the photos arrive."
   ],
   "desempenho": [
-   "Um `IntersectionObserver` dispara `loadPage` 320px antes do fim e continua pedindo páginas enquanto o fim estiver à vista; as imagens usam `loading=\"lazy\"`."
+   "An `IntersectionObserver` triggers `loadPage` 320px before the end and keeps requesting pages while the end is in view; images use `loading=\"lazy\"`."
   ],
   "notasIA": [
-   "Passe `loadPage` (sem ele, o bloco simula quatro páginas de exemplo) e devolva `[]` para encerrar; um erro também encerra o feed, sem nova tentativa.",
-   "Cada item precisa de `ratio` (altura dividida pela largura da imagem): é com ele que o bloco reserva espaço e equilibra as colunas; ids repetidos são descartados.",
-   "As curtidas são estado interno e começam vazias: `onLikeChange(id, liked)` avisa a mudança, mas não há prop para carregar o que a pessoa já curtiu."
+   "Pass `loadPage` (without it, the block simulates four example pages) and return `[]` to end; an error also ends the feed, with no retry.",
+   "Each item needs `ratio` (image height divided by width): the block uses it to reserve space and balance the columns; repeated ids are discarded.",
+   "Likes are internal state and start empty: `onLikeChange(id, liked)` reports the change, but there is no prop to load what the person already liked."
   ]
  },
  "knockout-bracket": {
   "quandoUsar": [
-   "Chaves de mata-mata de torneios, campeonatos internos ou bolões, em que a pessoa escolhe o vencedor de cada partida até chegar ao campeão.",
-   "Simuladores de “quem passa” com 4, 8 ou 16 participantes, com preenchimento automático pelo melhor cabeça de chave e botão para recomeçar."
+   "Knockout brackets for tournaments, internal championships, or prediction pools, where the person picks the winner of each match until reaching the champion.",
+   "“Who advances” simulators with 4, 8, or 16 participants, with automatic filling by the best seed and a button to start over."
   ],
   "quandoEvitar": [
-   "Use `sortable-data-table` para uma classificação com pontos e saldo, como a de pontos corridos ou de fase de grupos.",
-   "Evite para dupla eliminação ou chaves com número de participantes fora de potência de dois: o bloco só monta eliminação simples e não trata folgas.",
-   "Evite com 32 ou mais participantes: as rodadas dividem a largura, sem rolagem horizontal, e a primeira coluna fica muito alta."
+   "Use `sortable-data-table` for a standings table with points and goal difference, such as round-robin or group-stage tables.",
+   "Avoid for double elimination or brackets whose number of participants is not a power of two: the block only builds single elimination and does not handle byes.",
+   "Avoid with 32 or more participants: the rounds share the width, with no horizontal scroll, and the first column gets very tall."
   ],
   "teclado": [
-   { "teclas": ["Enter", "Espaço"], "acao": "Num time, marcam-no como vencedor da partida ou desmarcam, se já for; nos botões, preenchem tudo (“Auto-fill”) ou recomeçam (“Reset”)." }
+   { "teclas": ["Enter", "Space"], "acao": "On a team, mark it as the match winner or unmark it, if it already is; on the buttons, fill everything in (“Auto-fill”) or start over (“Reset”)." }
   ],
   "acessibilidade": [
-   "Cada rodada é um `group` com o nome da fase, e cada time é um botão com `aria-pressed` e nome completo, como “Harbor City, seed 1. Pick to win quarterfinal 1”.",
-   "O campeão é anunciado numa região `role=\"status\"`; as linhas de ligação são `aria-hidden`, e os textos fixos estão em inglês."
+   "Each round is a `group` with the phase name, and each team is a button with `aria-pressed` and a full name, such as “Harbor City, seed 1. Pick to win quarterfinal 1”.",
+   "The champion is announced in a `role=\"status\"` region; the connector lines are `aria-hidden`, and the fixed texts are in English."
   ],
   "movimento": [
-   "Escolher um vencedor desenha a linha dele até a próxima rodada, desliza o destaque entre as duas vagas da partida e faz o time entrar na vaga seguinte vindo da esquerda, de um leve desfoque.",
-   "“Auto-fill” decide uma partida por vez, a cada 0,32 s, para que cada avanço seja visto; o campeão aparece com uma mola de leve quique.",
-   "Com “reduzir movimento” ligado, linhas e destaques mudam na hora, os times só esmaecem e o preenchimento automático não espera entre as partidas."
+   "Choosing a winner draws its line to the next round, slides the highlight between the match's two slots, and makes the team enter the next slot coming from the left, from a slight blur.",
+   "“Auto-fill” decides one match at a time, every 0.32 s, so that each advance can be seen; the champion appears with a slightly bouncy spring.",
+   "With “reduce motion” on, lines and highlights change instantly, the teams only fade, and auto-fill does not wait between matches."
   ],
   "responsivo": [
-   "As linhas são medidas das caixas reais e refeitas por `ResizeObserver` quando a chave muda de tamanho; abaixo de 44rem de contêiner, os nomes viram códigos de três letras e as fases ganham nomes curtos."
+   "The lines are measured from the real boxes and redrawn by `ResizeObserver` when the bracket changes size; below 44rem of container width, the names become three-letter codes and the phases get short names."
   ],
   "notasIA": [
-   "Importe `KnockoutBracket` e passe `teams` na ordem da chave (os dois primeiros se enfrentam na primeira partida); a quantidade precisa ser potência de dois.",
-   "As escolhas são `{ \"rodada-partida\": idDoTime }`, ambos a partir de zero (`\"0-0\"` é a primeira partida); use `value` com `onValueChange`, que já recebe as escolhas sem as que perderam o sentido.",
-   "`seed` decide o “Auto-fill” (vence o menor número) e `code` aparece no lugar do nome quando a chave fica estreita."
+   "Import `KnockoutBracket` and pass `teams` in bracket order (the first two face each other in the first match); the count must be a power of two.",
+   "Picks are `{ \"rodada-partida\": idDoTime }`, both counted from zero (`\"0-0\"` is the first match); use `value` with `onValueChange`, which already receives the picks without those that lost their meaning.",
+   "`seed` decides the “Auto-fill” (the lower number wins) and `code` appears in place of the name when the bracket gets narrow."
   ]
  }
 }

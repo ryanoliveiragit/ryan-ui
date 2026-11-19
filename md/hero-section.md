@@ -2,24 +2,24 @@
 
 > Hero em três versões sem gradientes: janela de produto viva, fluxo de automação com pulso e tipografia editorial com marquee.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/hero-section
-- Descrição original (inglês): A landing page hero in three versions on a solid page with a faint dot grid: a live product window with counting figures, a self-drawing chart and floating cards; an automation graph with a pulse travelling along its lines; and editorial type over a marquee of words.
-- Versões: Produto (`hero-section` com `variant="product"`), Fluxo (`hero-section` com `variant="workflow"`), Editorial (`hero-section` com `variant="editorial"`)
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/hero-section
+- Original description: A landing page hero in three versions on a solid page with a faint dot grid: a live product window with counting figures, a self-drawing chart and floating cards; an automation graph with a pulse travelling along its lines; and editorial type over a marquee of words.
+- Versions: Produto (`hero-section` with `variant="product"`), Fluxo (`hero-section` with `variant="workflow"`), Editorial (`hero-section` with `variant="editorial"`)
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json`. Caminho do registro, relativo ao endereço do site: `r/hero-section.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hero-section.json`. Registry path, relative to the site address: `r/hero-section.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Animated counter](animated-counter.md), [Avatar](avatar.md), [Badge](badge.md), [Button](button.md), [Copy button](copy-button.md), [Marquee](marquee.md), [Segmented control](segmented-control.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Animated counter](animated-counter.md), [Avatar](avatar.md), [Badge](badge.md), [Button](button.md), [Copy button](copy-button.md), [Marquee](marquee.md), [Segmented control](segmented-control.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/hero-section/hero-section.tsx`
   - `components/ryan-ui/blocks/hero-section/hero-section.module.css`
   - `components/ryan-ui/blocks/hero-section/hero-parts.tsx`
@@ -50,79 +50,81 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/segmented-control/segmented-control.tsx`
   - `components/ryan-ui/segmented-control/segmented-control.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/hero-section.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/hero-section.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Abertura de uma landing page de produto: uma janela de produto viva (`product`), um fluxo de automação rodando (`workflow`) ou tipografia grande sobre uma faixa de palavras (`editorial`).
-- Hero com o seu próprio conteúdo (título, descrição, ações, comando de instalação e um visual ao lado), passando `title`, sem montar o layout do zero.
+- The opening of a product landing page: a live product window (`product`), an automation flow running (`workflow`), or large typography over a word strip (`editorial`).
+- A hero with your own content (title, description, actions, install command, and a visual beside it), passing `title`, without building the layout from scratch.
 
-## Quando não usar
+## When not to use
 
-- Use [`cta-section`](cta-section.md) para uma chamada no meio ou no fim da página.
-- Use [`site-header`](site-header.md) para a navegação do site: a barra das versões desenhadas rola junto com o hero e perde os links em telas estreitas.
-- Evite usar as versões desenhadas com a sua marca sem editar o código: textos, números e nomes (Lumen, Relay, Cadence) são de exemplo, e só as ações vêm por props.
+- Use [`cta-section`](cta-section.md) for a call to action in the middle or end of the page.
+- Use [`site-header`](site-header.md) for site navigation: the bar in the built-in versions scrolls along with the hero and loses its links on narrow screens.
+- Avoid using the built-in versions with your brand without editing the code: texts, numbers, and names (Lumen, Relay, Cadence) are examples, and only the actions come through props.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
-import HeroSectionBlock, { HeroSection, type HeroSectionVariant } from "@/components/ryan-ui/blocks/hero-section/hero-section";
+import HeroSectionBlock, { HeroSection, heroSectionVariants } from "@/components/ryan-ui/blocks/hero-section/hero-section";
 import type { DemoStage } from "./_kit";
 
 /** Tall enough for the product window to show under the copy; the frame lets the hero follow its own width. */
 export const stage: DemoStage = { layout: "fill", frame: true, height: 920 };
 
-/** With `variant` ("centered", "split" or "minimal") the demo shows exactly that version; without it, the block's own switcher. */
+/** With `variant` ("product", "workflow" or "editorial") the demo shows exactly that version; without it, the block's own switcher. */
 export default function HeroSectionDemo({ variant }: { variant?: string }) {
-  const chosen = (["centered", "split", "minimal"] as const).find(v => v === variant);
-  return chosen ? <HeroSection key={chosen} variant={chosen as HeroSectionVariant} /> : <HeroSectionBlock />;
+  const chosen = heroSectionVariants.find(option => option.value === variant);
+  return chosen ? <HeroSection key={chosen.value} variant={chosen.value} /> : <HeroSectionBlock />;
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `HeroSection`
 
-A full screen landing page hero in three designs: a product screenshot in perspective over a drifting mesh, a live workflow graph that routes sample events, and editorial type over a mesh gradient.
+A landing page hero in three designs on a solid page with a faint dot grid: a live product window with floating cards, an automation graph that routes sample events, and editorial type over a strip of scrolling words. No gradients.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `variant` | `"centered" \| "split" \| "minimal"` | `"centered"` | `centered` is a headline over a drifting mesh with a live dashboard rising from the bottom edge, `split` sets the copy beside a live workflow graph that runs sample events node by node, and `minimal` is large type over a mesh gradient. Each design fills one full screen. |
+| `variant` | `HeroSectionVariant \| HeroSectionLegacyVariant` | `"product"` | `product` is centered copy over a live product window with floating cards, `workflow` sets the copy beside an automation graph that runs sample events with a pulse along each line, and `editorial` is very large type over a scrolling strip of words. The earlier names `centered`, `split` and `minimal` map to them in that order. |
 | `animateIn` | `boolean` | `true` | Plays the entrance once on mount. Defaults to true. |
 | `primaryAction` | `HeroAction \| null` | — | The main call to action. With `doneLabel` and no `href`, the button confirms in place. |
 | `secondaryAction` | `HeroAction \| null` | — | The second call to action. |
 | `title` | `string` | — | Your own headline. When set, the hero renders your content in the chosen layout (see `HeroContent`) instead of the designed sample, together with the props below. |
-| `description` | `string` | — | — |
-| `announcement` | `HeroAction \| null` | — | — |
+| `description` | `string` | — | One or two sentences under your own headline. |
+| `announcement` | `HeroAction \| null` | — | A small pill above your own headline. |
 | `install` | `HeroInstallCommand[] \| null` | — | Install commands for your own content; the first one is shown with a copy button. |
-| `media` | `ReactNode` | — | A visual beside your own content in the split layout. |
+| `media` | `ReactNode` | — | A visual beside your own content in the workflow layout. |
 | `meta` | `string[]` | — | Small facts under your own content, such as the version and license. |
 | `highlight` | `string` | — | Kept for compatibility; highlighted phrases render as plain text. |
 | `className` | `string` | — | — |
 
 ### `HeroSectionBlock`
 
-Preview: the hero, full screen, with a small glass switch floating over its top edge. The switch takes no space of its own, so every design fills the screen exactly. Switching replays the entrance.
+Preview: a slim bar to choose the version, and the chosen hero filling the rest of the screen. Switching replays the entrance.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `"product" \| "workflow" \| "editorial"` | `"product"` | The version shown first. Defaults to `product`. |
 
 ### `HeroNav`
 
 The bar across the top of a hero: brand, section links, and the way in.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `brand` (obrigatória) | `string` | — | Product name beside the mark. |
+| `brand` (required) | `string` | — | Product name beside the mark. |
 | `mark` | `ReactNode` | — | A small glyph drawn on the accent tile, in the accent's text color. |
 | `brandHref` | `string` | — | Where the brand links to. Without it the brand is plain text. |
 | `links` | `HeroNavLink[]` | `[]` | Section links. They hide on narrow screens. |
@@ -134,166 +136,188 @@ The bar across the top of a hero: brand, section links, and the way in.
 
 The faint grid of solid dots behind a hero. Set `--dots-fade` on it (a mask image) to choose where the grid fades out.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
 ### `HeroMark`
 
 One phrase of a headline under a solid accent marker that draws in from left to right.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `string` | — | The phrase to mark. Keep it short: it never breaks across lines. |
+| `children` (required) | `string` | — | The phrase to mark. Keep it short: it never breaks across lines. |
 | `animateIn` | `boolean` | `true` | Draws the marker in from the left on mount. Defaults to true; reduced motion shows it drawn. |
 
 ### `ActionLink`
 
-A link or button that looks like an ryan-ui button. Links keep native navigation; a button with `doneLabel` confirms in place.
+A link or button that looks like a ryan-ui button. Links keep native navigation; a button with `doneLabel` confirms in place.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
 ### `HeroContent`
 
-The hero with your own content: announcement, headline, description, actions, an optional install line, and an optional visual beside the copy. Use it when none of the three designed variants fits the product.
+The hero with your own content: announcement, headline, description, actions, an optional install line, and an optional visual beside the copy, on a solid page. Use it when none of the three designed variants fits the product.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `layout` (obrigatória) | `"centered" \| "split" \| "minimal"` | — | — |
-| `announcement` | `HeroAction \| null` | — | — |
-| `title` (obrigatória) | `string` | — | — |
-| `description` | `string` | — | — |
-| `primaryAction` | `HeroAction \| null` | — | — |
-| `secondaryAction` | `HeroAction \| null` | — | — |
-| `install` | `HeroInstallCommand[] \| null` | — | — |
-| `media` | `ReactNode` | — | — |
-| `meta` | `string[]` | — | — |
-| `animateIn` | `boolean` | `true` | — |
+| `layout` (required) | `"centered" \| "split" \| "minimal"` | — | `centered` stacks the copy in the middle, `split` puts `media` beside it, `minimal` aligns large copy to the left. |
+| `announcement` | `HeroAction \| null` | — | A small pill above the headline, such as a release note. |
+| `title` (required) | `string` | — | The headline. |
+| `description` | `string` | — | One or two sentences under the headline. |
+| `primaryAction` | `HeroAction \| null` | — | The main call to action, filled with the accent. |
+| `secondaryAction` | `HeroAction \| null` | — | The second call to action, outlined. |
+| `install` | `HeroInstallCommand[] \| null` | — | Install commands; the first one is shown with a copy button. |
+| `media` | `ReactNode` | — | A visual beside the copy in the split layout. |
+| `meta` | `string[]` | — | Small facts under the copy, such as the version and license. |
+| `animateIn` | `boolean` | `true` | Plays the entrance once on mount. Defaults to true. |
 | `className` | `string` | — | — |
 
 ### `HeroLumen`
 
-Centered hero, one full screen: a headline over a drifting mesh, and a live revenue dashboard rising from the bottom edge. The window settles from a tilt as it enters and runs off the bottom of the screen into a fade. It is real markup built from ryan-ui charts; its range control works.
+Product hero: a navigation bar, a headline with one phrase under a solid accent marker, two actions, social proof, and a live product window on a solid page with a faint dot grid. In the window the figures roll up, the chart draws itself and its range control changes every number; two small cards float over its edges. Everything enters in a stagger, and nothing moves under reduced motion.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `primaryAction` | `HeroAction` | `{ label: "Start free trial", doneLabel: "Tria…` | — |
-| `secondaryAction` | `HeroAction` | `{ label: "Book a demo", doneLabel: "Demo requ…` | — |
-| `animateIn` | `boolean` | `true` | — |
+| `primaryAction` | `HeroAction` | `{ label: "Start free trial", doneLabel: "Tria…` | The main call to action. With `doneLabel` and no `href`, the button confirms in place. |
+| `secondaryAction` | `HeroAction` | `{ label: "Book a demo", doneLabel: "Demo requ…` | The second call to action. |
+| `animateIn` | `boolean` | `true` | Plays the entrance once on mount. Defaults to true. |
 | `className` | `string` | — | — |
 
 ### `HeroRelay`
 
-Split hero, one full screen: the copy beside a live workflow graph on a dotted canvas. Sample Stripe events arrive on their own and run the workflow node by node; the data draws along each edge, the branch decides which actions run, and every step reports its time. "Send test event" runs the next sample at once. The run pauses off screen, and under reduced motion each event shows its finished run without playing.
+Workflow hero, one full screen: the copy beside a live automation graph on a dotted canvas. Sample events arrive on their own and run the workflow node by node: a pulse in the accent travels along each line as the data moves, the branch decides which actions run, and every step reports its time. "Send test event" runs the next sample at once. The run pauses off screen, and under reduced motion each event shows its finished run without playing.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `primaryAction` | `HeroAction` | `{ label: "Start building", doneLabel: "Worksp…` | — |
-| `secondaryAction` | `HeroAction` | `{ label: "Read the docs", doneLabel: "Opening…` | — |
-| `animateIn` | `boolean` | `true` | — |
+| `primaryAction` | `HeroAction` | `{ label: "Start building", doneLabel: "Worksp…` | The main call to action. With `doneLabel` and no `href`, the button confirms in place. |
+| `secondaryAction` | `HeroAction` | `{ label: "Read the docs", doneLabel: "Opening…` | The second call to action. |
+| `animateIn` | `boolean` | `true` | Plays the entrance once on mount. Defaults to true. |
 | `className` | `string` | — | — |
 
 ### `HeroCadence`
 
-Minimal hero, one full screen: large type over a slowly drifting mesh gradient with grain, and the teams that use the product along the bottom edge.
+Editorial hero, one full screen: very large type with one phrase under a solid accent marker, a short paragraph beside the actions, and a strip of words that scrolls along the bottom edge. No product window and no imagery: type does the work.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `primaryAction` | `HeroAction` | `{ label: "Download for Mac", doneLabel: "Down…` | — |
-| `secondaryAction` | `HeroAction` | `{ label: "Try it on the web", doneLabel: "Ope…` | — |
-| `animateIn` | `boolean` | `true` | — |
+| `primaryAction` | `HeroAction` | `{ label: "Download for Mac", doneLabel: "Down…` | The main call to action. With `doneLabel` and no `href`, the button confirms in place. |
+| `secondaryAction` | `HeroAction` | `{ label: "Try it on the web", doneLabel: "Ope…` | The second call to action. |
+| `animateIn` | `boolean` | `true` | Plays the entrance once on mount. Defaults to true. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
-| `HeroSectionVariant` | `"centered" \| "split" \| "minimal"` |
+| `HeroSectionVariant` | `"product" \| "workflow" \| "editorial"` |
+| `HeroSectionLegacyVariant`: Names the versions had before; they still work. | `"centered" \| "split" \| "minimal"` |
 | `Bezier` | `[number, number, number, number]` |
-| `LumenRange`: Sample data for Lumen, a revenue analytics product. Replace it with your own product's numbers. | `"30d" \| "90d" \| "12m"` |
+| `LumenRange`: Sample data for Lumen, an invented revenue analytics product. Replace it with your own product's numbers. | `"7d" \| "30d" \| "90d"` |
 
 #### `HeroNavLink`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | Text of the link. |
+| `label` (required) | `string` | Text of the link. |
 | `href` | `string` | Where it goes. Without it the entry is a button that only calls `onClick`. |
 | `onClick` | `() => void` | Called on press. |
 
 #### `HeroAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
-| `href` | `string` | — |
-| `onClick` | `() => void` | — |
+| `label` (required) | `string` | Text of the button or link. |
+| `href` | `string` | Makes it a link. Without it the action is a button. |
+| `onClick` | `() => void` | Called on press. |
 | `external` | `boolean` | Opens in a new tab and shows an outward arrow. |
 | `doneLabel` | `string` | Shown in place of the label for a moment after a press, such as "Trial started". Buttons only. |
 
 #### `HeroInstallCommand`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | Short label, such as npm or pnpm. The first command is shown. |
-| `command` (obrigatória) | `string` | — |
+| `label` (required) | `string` | Short label, such as npm or pnpm. The first command is shown. |
+| `command` (required) | `string` | — |
 
 #### `LumenKpi`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
-| `tone` (obrigatória) | `"accent" \| "success" \| "warning" \| "danger"` | — |
-| `byRange` (obrigatória) | `Record<LumenRange, { value: string; change: string; data: number[] }>` | — |
+| `id` (required) | `"revenue" \| "conversion" \| "sessions"` | — |
+| `label` (required) | `string` | — |
+| `value` (required) | `number` | — |
+| `prefix` | `string` | — |
+| `suffix` | `string` | — |
+| `decimals` | `number` | — |
+| `change` (required) | `string` | Change against the period before, as shown in the badge. |
+| `up` (required) | `boolean` | Whether the change is good news. |
 
-#### `LumenMover`
+#### `LumenPeriod`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | — |
-| `logo` (obrigatória) | `string` | — |
-| `mono` | `boolean` | Mono marks draw in the text color through a mask; color marks keep their own colors. |
-| `change` (obrigatória) | `string` | — |
-| `amount` (obrigatória) | `number` | — |
+| `against` (required) | `string` | What the change is compared with. |
+| `caption` (required) | `string` | Line under the chart title. |
+| `kpis` (required) | `LumenKpi[]` | — |
+| `line` (required) | `number[]` | Revenue through the period, as a share of the top grid line (0 to 100). Every period has the same number of points, so the line morphs between them. |
+| `previous` (required) | `number[]` | The period before, on the same scale. |
+| `yTicks` (required) | `string[]` | Value axis labels from the top grid line down. |
+| `xTicks` (required) | `string[]` | Date axis labels, spread evenly from the first point to the last. |
 
-### Outras exportações
+#### `LumenTransaction`
 
-- `ease` (valor)
-- `heroGroup` (valor)
-- `heroRise` (valor)
-- `heroFade` (valor)
-- `instant` (valor)
+| Field | Type | Description |
+| --- | --- | --- |
+| `customer` (required) | `string` | — |
+| `plan` (required) | `string` | — |
+| `amount` (required) | `string` | — |
+| `status` (required) | `"Paid" \| "Pending" \| "Refunded"` | — |
+| `tone` (required) | `string` | Token behind the customer's initial, such as `--tone-teal`. |
+
+### Other exports
+
+- `heroSectionVariants` (value)
+- `ease` (value)
+- `heroGroup` (value)
+- `heroRise` (value)
+- `heroFade` (value)
+- `instant` (value)
 - `useHeroReducedMotion` (hook)
-- `lumenRanges` (valor)
-- `lumenSeries` (valor)
-- `lumenKpis` (valor)
-- `lumenMovers` (valor)
-- `lumenInsight` (valor)
+- `useOnScreen` (hook)
+- `useAfter` (hook)
+- `lumenRanges` (value)
+- `lumenPeriods` (value)
+- `lumenTransactions` (value)
+- `lumenPayments` (value)
+- `lumenGoal` (value)
+- `lumenFaces` (value)
+- `lumenCustomers` (value)
 
-## Acessibilidade
+## Accessibility
 
-- Cada versão tem um único `h1`; os cartões flutuantes são `aria-hidden`, e a janela do produto e o grafo são grupos com nome resumido, como “Lumen revenue dashboard, sample data”.
-- No grafo, cada etapa tem estado com nome (“Running”, “Done”, “Skipped”, “Waiting”), e a frase sob o marca-texto é desenhada duas vezes, com a cópia em `aria-hidden`, para ser lida uma vez só.
+- Each version has a single `h1`; the floating cards are `aria-hidden`, and the product window and the graph are groups with a summary name, such as “Lumen revenue dashboard, sample data”.
+- In the graph, each step has a named state (“Running”, “Done”, “Skipped”, “Waiting”), and the phrase under the highlighter is drawn twice, with the copy in `aria-hidden`, so it is read only once.
 
-## Movimento
+## Motion
 
-- Ao montar, as partes sobem em ordem de leitura saindo de um leve desfoque, e um marca-texto na cor de destaque passa da esquerda para a direita sobre uma frase do título.
-- Na `product`, os números rolam, o gráfico se desenha e os cartões flutuam; na `workflow`, um pulso percorre as linhas a cada evento; na `editorial`, as palavras correm numa faixa.
-- Com “reduzir movimento” ligado, nada se desloca (só esmaece), o gráfico já aparece pronto, o fluxo mostra cada evento concluído, a faixa vira uma área de rolagem comum e o marca-texto já vem pintado.
+- On mount, the parts rise in reading order coming out of a slight blur, and a highlighter in the accent color sweeps left to right over a phrase of the title.
+- In `product`, the numbers scroll, the chart is drawn, and the cards float; in `workflow`, a pulse travels along the lines on each event; in `editorial`, the words run along a strip.
+- With “reduce motion” on, nothing moves (it only fades), the chart already appears ready, the flow shows each event as completed, the strip becomes an ordinary scroll area, and the highlighter comes already painted.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- As versões desenhadas ocupam no mínimo a altura da tela (`100svh`) e se ajustam por container query; abaixo de 760px os links da barra e o “Sign in” somem, sem menu no lugar.
-- Na `workflow`, o grafo é desenhado em tamanho fixo e reduzido em escala para caber na coluna, com um arranjo estreito abaixo de 520px.
+- The built-in versions take at least the screen height (`100svh`) and adjust through a container query; below 760px the bar links and “Sign in” disappear, with no menu in their place.
+- In `workflow`, the graph is drawn at a fixed size and scaled down to fit the column, with a narrow arrangement below 520px.
 
-## Desempenho
+## Performance
 
-- Os laços de eventos e de avisos param quando o hero sai da tela ou a aba fica oculta (`IntersectionObserver` e `visibilitychange`); ainda assim, use uma versão por página.
+- The event and notice loops stop when the hero leaves the screen or the tab is hidden (`IntersectionObserver` and `visibilitychange`); even so, use one version per page.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `HeroSection` pelo nome (a exportação padrão é a prévia com seletor de versões) e escolha `variant`: `product`, `workflow` ou `editorial`; `centered`, `split` e `minimal` também valem.
-- Com `title`, o bloco troca a vitrine pelo seu conteúdo (`description`, `announcement`, `install`, `meta` e, em `workflow`, `media`), com altura natural; sem `title`, só as duas ações são suas.
-- Depende de `animated-counter`, `avatar`, `badge`, `button`, `copy-button`, `marquee` e `segmented-control`; `HeroNav`, `HeroBackdrop` e `HeroMark` também são exportados para montar a sua versão.
+- Import `HeroSection` by name (the default export is the preview with a version selector) and choose `variant`: `product`, `workflow`, or `editorial`; `centered`, `split`, and `minimal` also work.
+- With `title`, the block replaces the showcase with your content (`description`, `announcement`, `install`, `meta` and, in `workflow`, `media`), with natural height; without `title`, only the two actions are yours.
+- Depends on `animated-counter`, `avatar`, `badge`, `button`, `copy-button`, `marquee`, and `segmented-control`; `HeroNav`, `HeroBackdrop`, and `HeroMark` are also exported so you can build your own version.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/hero-section · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/hero-section · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

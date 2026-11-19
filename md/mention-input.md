@@ -2,48 +2,48 @@
 
 > Caixa de texto com menções a @pessoas e #canais que funcionam como um único bloco.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/mention-input
-- Descrição original (inglês): A textarea with @people and #channel mentions that act as single tokens, with suggestions at the caret.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/mention-input
+- Original description: A textarea with @people and #channel mentions that act as single tokens, with suggestions at the caret.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json`. Caminho do registro, relativo ao endereço do site: `r/mention-input.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mention-input.json`. Registry path, relative to the site address: `r/mention-input.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/mention-input/mention-input.tsx`
   - `components/ryan-ui/mention-input/mention-input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/mention-input.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/mention-input.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Comentários, mensagens e notas em que se cita gente com `@` ou canais com `#` e é preciso saber quem foi mencionado.
-- Quando o texto vai ser guardado ou gerar notificações: o valor traz o texto puro e `mentions` com `id` e posições, e `serializeMentions` o converte para `<@id>` e `<#id>`.
-- Caixas de envio rápido: com `submitOnEnter`, `Enter` chama `onSubmit` e `Shift + Enter` quebra a linha.
+- Comments, messages, and notes where people are cited with `@` or channels with `#` and you need to know who was mentioned.
+- When the text will be stored or generate notifications: the value carries the plain text and `mentions` with `id` and positions, and `serializeMentions` converts it to `<@id>` and `<#id>`.
+- Quick-send boxes: with `submitOnEnter`, `Enter` calls `onSubmit` and `Shift + Enter` breaks the line.
 
-## Quando não usar
+## When not to use
 
-- Use [`textarea`](textarea.md) quando o texto não tem menções.
-- Use [`rich-text-editor`](rich-text-editor.md) quando é preciso formatação, como negrito, listas e títulos.
-- Use [`prompt-input`](prompt-input.md) para a caixa de mensagem de um assistente, com anexos e botão de enviar.
+- Use [`textarea`](textarea.md) when the text has no mentions.
+- Use [`rich-text-editor`](rich-text-editor.md) when you need formatting, like bold, lists, and headings.
+- Use [`prompt-input`](prompt-input.md) for an assistant's message box, with attachments and a send button.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -84,15 +84,15 @@ export default function MentionInputDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MentionInput`
 
 A textarea with `@` people and `#` channel mentions. Mentions are atomic: the caret steps over them and one Backspace removes the whole token. The value carries plain text plus a structured `mentions` array with offsets, ready to store or notify.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `MentionValue` | — | — |
 | `defaultValue` | `MentionValue` | — | — |
@@ -115,27 +115,27 @@ A textarea with `@` people and `#` channel mentions. Mentions are atomic: the ca
 | `aria-describedby` | `string` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `MentionKind` | `"person" \| "channel"` |
 
 #### `MentionPerson`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `name` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `name` (required) | `string` | — |
 | `role` | `string` | One short line under the name, such as a job title. |
 | `avatar` | `string` | Portrait URL. Initials show when it is missing. |
 
 #### `MentionChannel`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `name` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `name` (required) | `string` | — |
 | `description` | `string` | — |
 | `members` | `number` | — |
 
@@ -143,73 +143,73 @@ A textarea with `@` people and `#` channel mentions. Mentions are atomic: the ca
 
 A mention inside `text`. `start` and `end` are character offsets; the text between them is `@label` or `#label`.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `kind` (obrigatória) | `"person" \| "channel"` | — |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
-| `start` (obrigatória) | `number` | — |
-| `end` (obrigatória) | `number` | — |
+| `kind` (required) | `"person" \| "channel"` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
+| `start` (required) | `number` | — |
+| `end` (required) | `number` | — |
 
 #### `MentionValue`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `text` (obrigatória) | `string` | — |
-| `mentions` (obrigatória) | `Mention[]` | — |
+| `text` (required) | `string` | — |
+| `mentions` (required) | `Mention[]` | — |
 
 #### `MentionInputHandle`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `focus` (obrigatória) | `() => void` | — |
-| `insert` (obrigatória) | `(text: string) => void` | Inserts text at the caret, as if typed. |
-| `openSuggestions` (obrigatória) | `(kind: MentionKind) => void` | Types a trigger at the caret so the suggestions open, adding a space first when needed. |
-| `clear` (obrigatória) | `() => void` | — |
-| `textarea` (obrigatória) | `HTMLTextAreaElement \| null` | — |
+| `focus` (required) | `() => void` | — |
+| `insert` (required) | `(text: string) => void` | Inserts text at the caret, as if typed. |
+| `openSuggestions` (required) | `(kind: MentionKind) => void` | Types a trigger at the caret so the suggestions open, adding a space first when needed. |
+| `clear` (required) | `() => void` | — |
+| `textarea` (required) | `HTMLTextAreaElement \| null` | — |
 
-### Outras exportações
+### Other exports
 
-- `mentionText` (função)
-- `serializeMentions` (função)
+- `mentionText` (function)
+- `serializeMentions` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `↑` | Com as sugestões abertas, movem o destaque, dando a volta nas pontas. |
-| `Enter` ou `Tab` | Com as sugestões abertas, inserem a que está em destaque como menção. |
-| `Esc` | Fecha as sugestões sem apagar o que foi digitado. |
-| `Backspace` ou `Delete` | Junto de uma menção, apagam o token inteiro de uma vez. |
-| `←` ou `→` | Saltam por cima de uma menção: o cursor nunca para dentro dela. |
-| `Shift + Enter` | Com `submitOnEnter`, quebra a linha, enquanto `Enter` sozinho envia. |
+| `↓` or `↑` | With suggestions open, move the highlight, wrapping around at the ends. |
+| `Enter` or `Tab` | With suggestions open, insert the highlighted one as a mention. |
+| `Esc` | Closes the suggestions without erasing what was typed. |
+| `Backspace` or `Delete` | Next to a mention, erase the whole token at once. |
+| `←` or `→` | Jump over a mention: the cursor never stops inside it. |
+| `Shift + Enter` | With `submitOnEnter`, breaks the line, while `Enter` alone sends. |
 
-## Acessibilidade
+## Accessibility
 
-- A caixa é um `<textarea>` com `role="combobox"`, `aria-expanded` e `aria-activedescendant`; as sugestões são um `role="listbox"`, e o foco nunca sai do texto.
-- Não há rótulo visível embutido: passe `aria-label`, ou um `id` com um `<label>` seu apontando para ele.
-- Uma região `aria-live` anuncia quantas pessoas ou canais combinam, mas em inglês fixo (`3 people`, `No matches`), assim como os nomes das listas.
+- The box is a `<textarea>` with `role="combobox"`, `aria-expanded`, and `aria-activedescendant`; the suggestions are a `role="listbox"`, and focus never leaves the text.
+- There is no built-in visible label: pass `aria-label`, or an `id` with your own `<label>` pointing to it.
+- An `aria-live` region announces how many people or channels match, but in fixed English (`3 people`, `No matches`), as are the list names.
 
-## Movimento
+## Motion
 
-- A altura da caixa acompanha o texto com uma mola, entre `minRows` e `maxRows`; daí em diante o conteúdo rola.
-- As sugestões surgem junto ao caractere `@` ou `#`, o destaque desliza entre as linhas e a altura do painel segue a quantidade de resultados.
-- Com “reduzir movimento” ligado, alturas e destaque mudam na hora e o painel só esmaece.
+- The box height follows the text with a spring, between `minRows` and `maxRows`; beyond that the content scrolls.
+- Suggestions appear next to the `@` or `#` character, the highlight slides between rows, and the panel height follows the number of results.
+- With “reduce motion” on, heights and highlight change instantly and the panel only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% da largura; o painel de sugestões tem 272 px, fica preso dentro da largura da caixa e, com `placement="auto"`, abre para cima quando há menos de 300 px livres abaixo.
+- Takes 100% of the width; the suggestions panel is 272 px, stays clamped within the box width and, with `placement="auto"`, opens upward when there are less than 300 px free below.
 
-## Desempenho
+## Performance
 
-- O texto é desenhado por uma camada espelho refeita a cada tecla, e a busca percorre `people` ou `channels` inteiros para mostrar no máximo `maxSuggestions` (padrão 6); os avatares usam `loading="lazy"`.
+- The text is drawn by a mirror layer redone on every key, and the search scans all of `people` or `channels` to show at most `maxSuggestions` (default 6); avatars use `loading="lazy"`.
 
-## Notas para IA
+## Notes for AI
 
-- O valor é `{ text, mentions }`, não uma string: use `value` + `onChange` ou `defaultValue`, e leia `mentions` (`kind`, `id`, `label`, `start`, `end`) na hora de salvar.
-- Passe `people` para ativar `@` e `channels` para ativar `#`; sem a lista, o gatilho correspondente fica desligado.
-- O `ref` expõe `focus()`, `insert(texto)`, `openSuggestions(kind)` e `clear()`: serve para um botão “@” na barra e para limpar a caixa depois do envio.
+- The value is `{ text, mentions }`, not a string: use `value` + `onChange` or `defaultValue`, and read `mentions` (`kind`, `id`, `label`, `start`, `end`) when saving.
+- Pass `people` to enable `@` and `channels` to enable `#`; without the list, the matching trigger is turned off.
+- The `ref` exposes `focus()`, `insert(texto)`, `openSuggestions(kind)`, and `clear()`: useful for an “@” button in the toolbar and for clearing the box after sending.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/mention-input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/mention-input · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,48 +2,48 @@
 
 > Diagrama de fluxo em colunas: as faixas têm a espessura do valor e, ao passar o mouse, só o caminho escolhido fica aceso.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/sankey-chart
-- Descrição original (inglês): Flow diagram with nodes in columns joined by curved ribbons sized by value: ribbons draw in column by column, and hovering a node or ribbon dims everything else.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/sankey-chart
+- Original description: Flow diagram with nodes in columns joined by curved ribbons sized by value: ribbons draw in column by column, and hovering a node or ribbon dims everything else.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json`. Caminho do registro, relativo ao endereço do site: `r/sankey-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/sankey-chart.json`. Registry path, relative to the site address: `r/sankey-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/sankey-chart/sankey-chart.tsx`
   - `components/ryan-ui/sankey-chart/sankey-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/sankey-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/sankey-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar como um total se divide e se recombina em duas ou mais etapas: origem do tráfego, página de entrada e resultado.
-- Quando o leitor precisa seguir um caminho: apontar um nó acende suas faixas e os nós nas pontas; apontar uma faixa acende os dois nós que ela liga.
-- Comparar dois períodos com os mesmos nós: ao trocar `links`, barras e faixas deslizam até os novos tamanhos.
+- Showing how a total splits and recombines across two or more stages: traffic source, landing page, and outcome.
+- When the reader needs to follow a path: pointing at a node lights up its ribbons and the nodes at their ends; pointing at a ribbon lights up the two nodes it connects.
+- Comparing two periods with the same nodes: when `links` changes, bars and ribbons glide to the new sizes.
 
-## Quando não usar
+## When not to use
 
-- Use [`funnel-chart`](funnel-chart.md) quando o fluxo é uma sequência única de etapas e o que interessa é a perda entre uma e a próxima.
-- Use [`composition-chart`](composition-chart.md) ou [`donut-chart`](donut-chart.md) quando o total se divide uma única vez, sem etapas seguintes.
-- Fluxos que voltam a uma etapa anterior não cabem: o layout põe cada nó numa coluna, da esquerda para a direita, pelo caminho mais longo desde a origem.
+- Use [`funnel-chart`](funnel-chart.md) when the flow is a single sequence of stages and what matters is the loss between one and the next.
+- Use [`composition-chart`](composition-chart.md) or [`donut-chart`](donut-chart.md) when the total splits only once, with no following stages.
+- Flows that return to an earlier stage don't fit: the layout puts each node in a column, left to right, by the longest path from the source.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -102,17 +102,17 @@ export default function SankeyChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SankeyChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `nodes` (obrigatória) | `SankeyNode[]` | — | Every node, in the order they should stack inside the first column. |
-| `links` (obrigatória) | `SankeyLink[]` | — | Flows between nodes. One link per source and target pair. |
-| `label` (obrigatória) | `string` | — | What flows, such as "Visits by source and outcome". Names the chart for assistive technology. |
+| `nodes` (required) | `SankeyNode[]` | — | Every node, in the order they should stack inside the first column. |
+| `links` (required) | `SankeyLink[]` | — | Flows between nodes. One link per source and target pair. |
+| `label` (required) | `string` | — | What flows, such as "Visits by source and outcome". Names the chart for assistive technology. |
 | `columns` | `string[]` | — | Optional heading above each column, such as ["Source", "Landing page", "Outcome"]. |
 | `height` | `number` | `300` | Plot height in pixels. |
 | `nodeWidth` | `number` | `10` | Width of each node bar in pixels. |
@@ -124,60 +124,60 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onActiveChange` | `(id: string \| null) => void` | — | Called when hover, touch or the keyboard moves the focus to another node or ribbon, or clears it. |
 | `className` | `string` | — | Extra class on the root figure. |
 
-### Tipos exportados
+### Exported types
 
 #### `SankeyNode`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable identity, used by links. A node that survives a data change keeps its place and morphs. |
-| `label` (obrigatória) | `string` | Name beside the node, in the tooltip and in the table. |
+| `id` (required) | `string` | Stable identity, used by links. A node that survives a data change keeps its place and morphs. |
+| `label` (required) | `string` | Name beside the node, in the tooltip and in the table. |
 | `color` | `string` | Any CSS color. First-column nodes default to the shared --series-* palette; later nodes default to a neutral ink. |
 
 #### `SankeyLink`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `source` (obrigatória) | `string` | Id of the node the flow leaves. |
-| `target` (obrigatória) | `string` | Id of the node the flow enters. |
-| `value` (obrigatória) | `number` | Size of the flow. The ribbon is as thick as this value on the shared scale. |
+| `source` (required) | `string` | Id of the node the flow leaves. |
+| `target` (required) | `string` | Id of the node the flow enters. |
+| `value` (required) | `number` | Size of the flow. The ribbon is as thick as this value on the shared scale. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Com o foco no gráfico, passa ao nó anterior ou seguinte, coluna por coluna. |
-| `←` ou `→` | Salta para o nó mais próximo, na vertical, da coluna anterior ou da seguinte. |
-| `Home` ou `End` | Vai ao primeiro ou ao último nó. |
-| `Esc` | Tira o destaque. |
+| `↑` or `↓` | With focus on the chart, move to the previous or next node, column by column. |
+| `←` or `→` | Jump to the vertically nearest node in the previous or next column. |
+| `Home` or `End` | Go to the first or last node. |
+| `Esc` | Removes the highlight. |
 
-## Acessibilidade
+## Accessibility
 
-- O gráfico é um `role="slider"` vertical focável: ao receber foco pelo teclado, destaca o primeiro nó, e `aria-valuetext` lê nome, valor e coluna do nó atual.
-- O teclado percorre só os nós; as faixas respondem ao ponteiro ou a `activeId`, e todos os fluxos estão numa tabela oculta para leitor de tela.
-- O `label` vira a legenda oculta da `<figure>`; os textos da dica (`Total`, `To`, `From`, `Flow`) e o nome do slider são fixos em inglês.
+- The chart is a focusable vertical `role="slider"`: on receiving focus by keyboard, it highlights the first node, and `aria-valuetext` reads the current node's name, value, and column.
+- The keyboard moves through nodes only; ribbons respond to the pointer or to `activeId`, and all flows are in a hidden table for screen readers.
+- The `label` becomes the `<figure>`'s hidden caption; the tooltip texts (`Total`, `To`, `From`, `Flow`) and the slider's name are hardcoded in English.
 
-## Movimento
+## Motion
 
-- Na primeira vez em tela, as barras dos nós crescem a partir do centro e as faixas se desenham saindo da origem, uma coluna depois da outra.
-- Depois disso, mudanças de dados não repetem a entrada: nós, faixas e rótulos que continuam existindo deslizam com mola até a nova posição e espessura.
-- Com “reduzir movimento” ligado, tudo é desenhado direto no estado final e o destaque troca sem transição.
+- The first time on screen, the node bars grow from the center and the ribbons draw out from the source, one column after another.
+- After that, data changes don't repeat the entrance: nodes, ribbons, and labels that still exist glide on a spring to the new position and thickness.
+- With “reduced motion” on, everything is drawn directly in the final state and the highlight changes without a transition.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura segue o contêiner e a altura é a prop `height` (300 px); as colunas dividem a largura por igual, então muitas etapas em pouco espaço apertam os rótulos.
-- Quando o espaço entre colunas aperta, os rótulos passam para `--text-xs` e são cortados com reticências; o valor ao lado do nome só aparece com 100 px livres.
+- The width follows the container and the height is the `height` prop (300 px); columns split the width equally, so many stages in little space squeeze the labels.
+- When the space between columns tightens, labels switch to `--text-xs` and are truncated with an ellipsis; the value beside the name only appears with 100 px free.
 
-## Desempenho
+## Performance
 
-- O layout é recalculado quando `nodes`, `links` ou a largura mudam; mantenha os dois arrays estáveis (constante ou `useMemo`) para não refazê-lo a cada render.
+- The layout is recomputed when `nodes`, `links`, or the width change; keep both arrays stable (a constant or `useMemo`) so it isn't rebuilt on every render.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `nodes` (`{ id, label, color? }`) e `links` (`{ source, target, value }`), com um único link por par de origem e destino: o id do link é `source>target`.
-- A ordem de `nodes` define o empilhamento da primeira coluna e `columns` dá os títulos; nós sem fluxo e links com valor zero ou negativo são ignorados.
-- Só os quatro primeiros nós da primeira coluna recebem cor de série (`--series-1` a `--series-4`); os demais ficam em tom neutro, a menos que você passe `color`.
+- Pass `nodes` (`{ id, label, color? }`) and `links` (`{ source, target, value }`), with a single link per source and target pair: the link's id is `source>target`.
+- The order of `nodes` sets the stacking of the first column and `columns` provides the titles; nodes with no flow and links with zero or negative value are ignored.
+- Only the first four nodes in the first column get a series color (`--series-1` through `--series-4`); the rest stay in a neutral tone unless you pass `color`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/sankey-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/sankey-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

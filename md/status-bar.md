@@ -2,48 +2,48 @@
 
 > Faixa de disponibilidade com uma barra por dia, colorida pelo estado, dica por dia e o percentual geral.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/status-bar
-- Descrição original (inglês): An uptime strip with one bar per day colored by status, bars that lift around the pointer, a gliding tooltip and an overall percentage that counts up.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/status-bar
+- Original description: An uptime strip with one bar per day colored by status, bars that lift around the pointer, a gliding tooltip and an overall percentage that counts up.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json`. Caminho do registro, relativo ao endereço do site: `r/status-bar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/status-bar.json`. Registry path, relative to the site address: `r/status-bar.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/status-bar/status-bar.tsx`
   - `components/ryan-ui/status-bar/status-bar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/status-bar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/status-bar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Página de status: a disponibilidade de um serviço nos últimos dias, uma barra por dia, com o percentual geral e o estado atual no cabeçalho.
-- Quando cada dia pode trazer uma nota de incidente: a dica mostra data, estado, disponibilidade e o texto de `note`.
-- Como seletor de dia para abrir o detalhe do incidente em outro ponto da tela, com `onSelectDate`.
+- A status page: a service's availability over the last days, one bar per day, with the overall percentage and the current state in the header.
+- When each day may carry an incident note: the tooltip shows date, state, availability, and the `note` text.
+- As a day picker to open incident details elsewhere on the screen, with `onSelectDate`.
 
-## Quando não usar
+## When not to use
 
-- Use [`activity-heatmap`](activity-heatmap.md) para volume de atividade por dia ao longo de um ano, sem estados de serviço.
-- Use [`line-chart`](line-chart.md) ou [`sparkline`](sparkline.md) para uma métrica contínua, como latência, em vez de um estado por dia.
-- Estados fora dos cinco previstos (`operational`, `degraded`, `outage`, `maintenance`, `unknown`) não têm como ser representados.
+- Use [`activity-heatmap`](activity-heatmap.md) for activity volume per day over a year, with no service states.
+- Use [`line-chart`](line-chart.md) or [`sparkline`](sparkline.md) for a continuous metric, such as latency, instead of one state per day.
+- States outside the five provided (`operational`, `degraded`, `outage`, `maintenance`, `unknown`) can't be represented.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -119,16 +119,16 @@ export default function StatusBarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `StatusBar`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `days` (obrigatória) | `StatusDay[]` | — | One entry per day, oldest first. |
-| `label` (obrigatória) | `string` | — | Name of the service. It also names the strip for assistive technology. |
+| `days` (required) | `StatusDay[]` | — | One entry per day, oldest first. |
+| `label` (required) | `string` | — | Name of the service. It also names the strip for assistive technology. |
 | `uptime` | `number` | — | Overall uptime in percent. Defaults to the average of the days that have data. |
 | `precision` | `number` | `2` | Decimal places of the overall percentage. |
 | `caption` | `string` | — | Text under the percentage. Defaults to "uptime, last {n} days". |
@@ -138,59 +138,59 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `locale` | `string` | `"en-US"` | Formatting locale. Fixed by default so server and client render the same labels. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `DayStatus` | `"operational" \| "degraded" \| "outage" \| "maintenance" \| "unknown"` |
 
 #### `StatusDay`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `date` (obrigatória) | `string` | Calendar day as YYYY-MM-DD. |
-| `status` (obrigatória) | `"operational" \| "degraded" \| "outage" \| "maintenance" \| "unknown"` | Worst state the service reached that day. |
+| `date` (required) | `string` | Calendar day as YYYY-MM-DD. |
+| `status` (required) | `"operational" \| "degraded" \| "outage" \| "maintenance" \| "unknown"` | Worst state the service reached that day. |
 | `uptime` | `number` | Share of the day the service answered, from 0 to 100. Defaults by status when omitted; days without data are left out of the average. |
 | `note` | `string` | Short note for the tooltip, such as the incident title. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Leva o foco ao dia anterior ou seguinte e mostra a dica desse dia. |
-| `↑` ou `Page Up` | Recua sete dias. |
-| `↓` ou `Page Down` | Avança sete dias. |
-| `Home` ou `End` | Vai ao primeiro ou ao último dia. |
-| `Enter` ou `Espaço` | Num dia, seleciona ou desfaz a seleção; na legenda, fixa ou solta o realce daquele estado. |
-| `Esc` | Fecha a dica. |
+| `←` or `→` | Move focus to the previous or next day and show that day's tooltip. |
+| `↑` or `Page Up` | Step back seven days. |
+| `↓` or `Page Down` | Step forward seven days. |
+| `Home` or `End` | Go to the first or last day. |
+| `Enter` or `Space` | On a day, select or clear the selection; in the legend, pin or release that state's highlight. |
+| `Esc` | Closes the tooltip. |
 
-## Acessibilidade
+## Accessibility
 
-- A faixa é um `role="group"` nomeado com o serviço e o número de dias; cada dia é um `<button>` com `aria-pressed` cujo nome traz data por extenso, estado, disponibilidade e nota.
-- O foco usa tabindex itinerante (um só dia na ordem de `Tab`, a princípio o mais recente); a legenda é um grupo de botões de alternância com a contagem de dias de cada estado.
-- Os nomes de estado e as frases do cabeçalho (`All systems operational`, `Degraded performance`) são fixos em inglês; só `caption` e os formatos de `locale` mudam.
+- The strip is a `role="group"` named with the service and the number of days; each day is a `<button>` with `aria-pressed` whose name carries the full date, state, availability, and note.
+- Focus uses a roving tabindex (a single day in the `Tab` order, initially the most recent); the legend is a group of toggle buttons with each state's day count.
+- The state names and header phrases (`All systems operational`, `Degraded performance`) are hardcoded in English; only `caption` and the `locale` formats change.
 
-## Movimento
+## Motion
 
-- Quando metade da faixa entra na tela, as barras sobem em onda da esquerda para a direita (cerca de meio segundo no total) e o percentual conta até o valor.
-- A barra sob o ponteiro se alonga e as duas vizinhas de cada lado a acompanham cada vez menos; a dica única desliza com mola entre os dias e um anel pulsa sem parar no ponto do estado atual.
-- Com “reduzir movimento” ligado, as barras apenas esmaecem, sem escala, o pulso é desligado e o percentual aparece direto.
+- When half of the strip enters the viewport, the bars rise in a wave from left to right (about half a second in total) and the percentage counts up to the value.
+- The bar under the pointer stretches and the two neighbors on each side follow it progressively less; the single tooltip glides on a spring between days and a ring pulses endlessly on the current state's point.
+- With “reduced motion” on, the bars only fade, with no scale, the pulse is turned off, and the percentage appears directly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- As barras dividem a largura do contêiner por igual, com vão de 1 a 3 px: muitos dias num contêiner estreito dão barras muito finas, então encurte o período no celular.
-- Abaixo de 380 px de contêiner o percentual diminui; a dica desliza de lado para não sair do componente e, no toque, fica visível por cerca de dois segundos.
+- Bars divide the container's width equally, with a 1 to 3 px gap: many days in a narrow container give very thin bars, so shorten the period on phones.
+- Below 380 px of container width the percentage shrinks; the tooltip slides sideways to stay inside the component and, on touch, stays visible for about two seconds.
 
-## Desempenho
+## Performance
 
-- Cada dia é um `<button>`, e o realce em volta do ponteiro é calculado em CSS a partir de uma variável, sem JavaScript por barra; o custo cresce com o número de dias.
+- Each day is a `<button>`, and the highlight around the pointer is computed in CSS from a variable, with no JavaScript per bar; the cost grows with the number of days.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `days` do mais antigo para o mais recente (`{ date, status, uptime?, note? }`) e `label` com o nome do serviço; o estado do cabeçalho é o do último dia.
-- Sem `uptime` em cada dia, a média usa valores presumidos por estado (99,4 para `degraded`, 96 para `outage`); informe o valor real por dia ou o total na prop `uptime`.
-- Apesar do nome, não é a barra de status de um aplicativo: é a faixa de disponibilidade de um serviço; a seleção é controlada com `selectedDate` e `onSelectDate`.
+- Pass `days` from oldest to most recent (`{ date, status, uptime?, note? }`) and `label` with the service name; the header state is that of the last day.
+- Without `uptime` on each day, the average uses assumed values per state (99.4 for `degraded`, 96 for `outage`); provide the real value per day or the total in the `uptime` prop.
+- Despite the name, it isn't an application's status bar: it is a service's availability strip; selection is controlled with `selectedDate` and `onSelectDate`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/status-bar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/status-bar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

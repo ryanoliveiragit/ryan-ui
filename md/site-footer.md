@@ -2,23 +2,23 @@
 
 > Rodapé de site em três layouts, com colunas de links, redes sociais, newsletter e status.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/site-footer
-- Descrição original (inglês): A website footer with link columns and newsletter, a minimal layout, and a large fading logo mark.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/site-footer
+- Original description: A website footer with link columns and newsletter, a minimal layout, and a large fading ryan-ui mark.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-footer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-footer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-footer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-footer.json`. Caminho do registro, relativo ao endereço do site: `r/site-footer.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-footer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-footer.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-footer.json`. Registry path, relative to the site address: `r/site-footer.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Segmented control](segmented-control.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md), [Segmented control](segmented-control.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/site-footer/site-footer.tsx`
   - `components/ryan-ui/blocks/site-footer/site-footer.module.css`
   - `components/ryan-ui/segmented-control/segmented-control.tsx`
@@ -26,56 +26,47 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/site-footer.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/site-footer.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Rodapé de site de produto ou documentação com colunas de links, inscrição de newsletter, links legais, redes sociais e um link de status do sistema.
-- Rodapé discreto de duas linhas (`variant="minimal"`) para páginas em que as colunas seriam excesso.
-- Fechar uma landing do próprio ryan-ui com a marca grande em degradê (`variant="logo"`).
+- Footer for a product or documentation site with link columns, newsletter signup, legal links, social networks, and a system status link.
+- Discreet two-line footer (`variant="minimal"`) for pages where columns would be excessive.
+- Closing a ryan-ui landing page with the large gradient brand (`variant="logo"`).
 
-## Quando não usar
+## When not to use
 
-- Use [`newsletter-signup`](newsletter-signup.md) quando a inscrição é a chamada principal da seção, com a pilha de edições e a contagem de leitores.
-- Use [`cta-section`](cta-section.md) para fechar a página com uma chamada para ação em vez de navegação.
-- A variante `variant="logo"` só serve para a marca do ryan-ui: o arco grande está desenhado no arquivo e `brand.mark` troca apenas o ícone pequeno.
+- Use [`newsletter-signup`](newsletter-signup.md) when the signup is the section's main call, with the issue stack and the reader count.
+- Use [`cta-section`](cta-section.md) to close the page with a call to action instead of navigation.
+- The `variant="logo"` variant only works for the ryan-ui brand: the large arc is drawn in the file and `brand.mark` only changes the small icon.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import SiteFooter from "@/components/ryan-ui/blocks/site-footer/site-footer";
-import type { DemoStage } from "./_kit";
-
-// Mesma regra do faq-section: a faixa pintada do canvas do site mede 774×612 com respiro de 14;
-// o iframe fica em 610 (= 612 − 2 bordas) e o excesso do respiro inferior corta na viewport.
-export const stage: DemoStage = { height: 610 };
 
 export default function SiteFooterDemo() {
-  return (
-    <div style={{ display: "grid", placeItems: "center", padding: 14, background: "var(--surface-muted)" }}>
-      <SiteFooter />
-    </div>
-  );
+  return <SiteFooter />;
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SiteFooter`
 
-A website footer in three layouts: link columns with a newsletter signup, a single quiet row, and a closing variant where the ryan-ui arch rises in, oversized and cropped by the bottom edge, fading into the page.
+A website footer in three layouts: link columns with a newsletter signup, a single quiet row, and a closing variant where the ryan-ui mark rises in, oversized and cropped by the bottom edge, fading into the page.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"columns" \| "minimal" \| "logo"` | `"columns"` | `columns` pairs a newsletter with link columns, `minimal` is one quiet row, `logo` ends in a large fading ryan-ui mark. |
 | `brand` | `{ name: string; href?: string; mark?: ReactNode }` | `{ name: "ryan-ui" }` | — |
@@ -94,70 +85,70 @@ A website footer in three layouts: link columns with a newsletter signup, a sing
 
 Preview: the footer with a switch between its three layouts and a note of the last link pressed.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `SiteFooterVariant` | `"columns" \| "minimal" \| "logo"` |
 
 #### `SiteFooterLink`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `href` | `string` | — |
 | `external` | `boolean` | Opens in a new tab and shows an outward arrow. |
 
 #### `SiteFooterColumn`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `title` (obrigatória) | `string` | — |
-| `links` (obrigatória) | `SiteFooterLink[]` | — |
+| `title` (required) | `string` | — |
+| `links` (required) | `SiteFooterLink[]` | — |
 
 #### `SiteFooterNewsletter`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `title` | `string` | — |
 | `description` | `string` | — |
 | `placeholder` | `string` | — |
 | `onSubscribe` | `(email: string) => void \| Promise<void>` | Called with a valid address. Throw or reject to show an error; resolve to show the subscribed state. |
 
-### Outras exportações
+### Other exports
 
-- `siteFooterExampleColumns` (valor)
+- `siteFooterExampleColumns` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | No campo da newsletter, envia a inscrição; vazio ou inválido, o erro aparece ali mesmo. |
+| `Enter` | In the newsletter field, submits the signup; if empty or invalid, the error appears right there. |
 
-## Acessibilidade
+## Accessibility
 
-- As colunas ficam num `<nav aria-label="Footer">` com cada título em `<h2>`, as listas legal e social têm `aria-label` e links sem `href` viram `<button>`.
-- O campo da newsletter tem rótulo escondido, `aria-invalid` e `aria-describedby` para a linha de mensagem, que é `aria-live="polite"` e vira `role="alert"` em erro.
-- Links `external` abrem em nova aba com `rel="noopener noreferrer"`, mas o aviso é só a seta com `aria-hidden`; se importar, inclua “nova aba” no `label`.
+- The columns sit in a `<nav aria-label="Footer">` with each heading in an `<h2>`, the legal and social lists have an `aria-label`, and links without `href` become a `<button>`.
+- The newsletter field has a hidden label, `aria-invalid`, and `aria-describedby` for the message line, which is `aria-live="polite"` and becomes `role="alert"` on error.
+- `external` links open in a new tab with `rel="noopener noreferrer"`, but the notice is only the `aria-hidden` arrow; if it matters, include “new tab” in the `label`.
 
-## Movimento
+## Motion
 
-- Na variante `logo`, o arco grande sobe 40 px e aparece em 0,9 s na primeira vez que 30% dele entra na tela, cortado pela borda de baixo e esmaecendo no degradê da marca.
-- A linha da newsletter troca no lugar entre dica, erro e confirmação, subindo de um leve desfoque, e a seta dos links externos se desloca no hover.
-- Com “reduzir movimento” ligado, o arco aparece pronto, as mensagens trocam na hora e as transições dos links e do campo são removidas.
+- In the `logo` variant, the large arc rises 40 px and appears in 0.9 s the first time 30% of it enters the screen, cut off by the bottom edge and fading into the brand gradient.
+- The newsletter line swaps in place between hint, error, and confirmation, rising from a slight blur, and the arrow on external links shifts on hover.
+- With “reduce motion” on, the arc appears already drawn, messages change instantly, and the link and field transitions are removed.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Container queries do rodapé: até 760 px a marca e a newsletter empilham sobre as colunas; até 520 px as colunas passam para duas, a newsletter ocupa a largura toda e a linha de baixo empilha.
+- The footer's container queries: up to 760 px the brand and newsletter stack above the columns; up to 520 px the columns become two, the newsletter takes the full width, and the bottom line stacks.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `SiteFooter`; o export padrão é `SiteFooterBlock`, o preview com troca de layout, e todas as props têm valores de exemplo do ryan-ui para você substituir.
-- Passe `columns`, `legal` e `socials` com `href`, porque sem ele os links viram botões que só chamam `onNavigate`; `newsletter={null}` e `status={null}` escondem essas partes.
-- `newsletter.onSubscribe(email)` pode devolver uma Promise: rejeitar mostra o erro e resolver mostra “Subscribed”; sem a função, o bloco espera 0,9 s e finge sucesso.
+- Import the named component `SiteFooter`; the default export is `SiteFooterBlock`, the preview with layout switching, and all props have ryan-ui example values for you to replace.
+- Pass `columns`, `legal`, and `socials` with `href`, because without it the links become buttons that only call `onNavigate`; `newsletter={null}` and `status={null}` hide those parts.
+- `newsletter.onSubscribe(email)` can return a Promise: rejecting shows the error and resolving shows “Subscribed”; without the function, the block waits 0.9 s and pretends success.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/site-footer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/site-footer · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

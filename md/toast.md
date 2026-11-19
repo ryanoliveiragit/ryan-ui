@@ -2,49 +2,49 @@
 
 > Aviso rápido e discreto que aparece, some sozinho e pode ser dispensado com um gesto.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast
-- Descrição original (inglês): Brief confirmation for a completed background action.
-- Versões: Padrão (este item), Pilha ([`toast-stack`](toast-stack.md)), Com ação ([`toast-action`](toast-action.md)), Progresso ([`toast-progress`](toast-progress.md))
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast
+- Original description: Brief confirmation for a completed background action.
+- Versions: Padrão (this item), Pilha ([`toast-stack`](toast-stack.md)), Com ação ([`toast-action`](toast-action.md)), Progresso ([`toast-progress`](toast-progress.md))
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json`. Caminho do registro, relativo ao endereço do site: `r/toast.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast.json`. Registry path, relative to the site address: `r/toast.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/toast/toast.tsx`
   - `components/ryan-ui/toast/toast.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/toast.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/toast.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Confirmar uma ação que deu certo e não pede mais nada: rascunho salvo, link copiado, convite enviado.
-- Um único aviso por vez, num lugar que você controla, com `open` e `onOpenChange` ligados ao estado da tela.
-- Telas de toque em que deslizar o aviso para o lado é o jeito natural de dispensar.
+- Confirm an action that succeeded and asks nothing more: draft saved, link copied, invitation sent.
+- A single notice at a time, in a place you control, with `open` and `onOpenChange` tied to the screen's state.
+- Touch screens where swiping the notice sideways is the natural way to dismiss it.
 
-## Quando não usar
+## When not to use
 
-- Use [`toast-action`](toast-action.md) quando o aviso oferece desfazer ou outra ação; o tempo dele pausa com mouse e foco.
-- Use [`toast-stack`](toast-stack.md) para vários avisos seguidos ou de tipos diferentes (erro, aviso, carregando); este só mostra o visto de sucesso.
-- Use [`alert`](alert.md) para erros e avisos que precisam ficar na tela até a pessoa agir.
+- Use [`toast-action`](toast-action.md) when the notice offers undo or another action; its timer pauses on mouse and focus.
+- Use [`toast-stack`](toast-stack.md) for several notices in a row or of different types (error, warning, loading); this one only shows the success checkmark.
+- Use [`alert`](alert.md) for errors and warnings that must stay on screen until the user acts.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -69,42 +69,42 @@ export default function ToastDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Toast`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | — |
+| `title` (required) | `string` | — | — |
 | `description` | `string` | — | — |
 | `open` | `boolean` | `true` | — |
 | `onOpenChange` | `(open: boolean) => void` | — | — |
 | `duration` | `number` | `4500` | — |
 
-## Acessibilidade
+## Accessibility
 
-- É `role="status"` com `aria-live="polite"` e `aria-atomic`: o leitor de tela lê título e descrição juntos, sem interromper, e as cópias que saem ficam ocultas.
-- O tempo não pausa com mouse nem com foco e não há atalho para chegar ao aviso; não ponha nele nada que a pessoa precise ler com calma ou acionar.
-- O botão de fechar é um `<button>` com `aria-label` “Dismiss notification”, fixo em inglês no arquivo.
+- It is `role="status"` with `aria-live="polite"` and `aria-atomic`: the screen reader reads title and description together, without interrupting, and the outgoing copies are hidden.
+- The timer does not pause on mouse or focus and there is no shortcut to reach the notice; do not put anything in it that the user needs to read carefully or act on.
+- The close button is a `<button>` with `aria-label` “Dismiss notification”, fixed in English in the file.
 
-## Movimento
+## Motion
 
-- Entra subindo 16 px de uma escala um pouco menor, com uma mola sem ultrapassagem, enquanto o visto se desenha; ao fechar, desce um pouco e esmaece.
-- Arrastado para o lado, segue o dedo; passando de 80 px ou solto rápido, sai voando na direção do gesto com a velocidade da soltura, senão volta com uma mola.
-- Com “reduzir movimento”, entrada e saída viram um esmaecer curto e o arraste fica desligado.
+- It enters rising 16 px from a slightly smaller scale, with a no-overshoot spring, while the checkmark draws itself; on closing, it drops a little and fades.
+- When dragged sideways, it follows the finger; past 80 px or released quickly, it flies off in the direction of the gesture at the release velocity, otherwise it springs back.
+- With “reduce motion”, entrance and exit become a short fade and dragging is turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura vai até 26 rem e cabe no pai; o título fica numa linha e é cortado com reticências, então ponha detalhes longos em `description`, que quebra linha.
+- The width goes up to 26 rem and fits the parent; the title stays on one line and is truncated with an ellipsis, so put long details in `description`, which wraps.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o padrão: `import Toast from "@/components/ryan-ui/toast/toast"` (não há exportação nomeada). Ele aparece onde é renderizado; posicione-o você, por exemplo num contêiner fixo no canto.
-- O fechamento automático (`duration`, padrão 4500 ms) só funciona com `onOpenChange`; passe uma função estável, como o `setOpen` do `useState`, porque uma função nova a cada render reinicia a contagem.
-- Para mostrar o aviso de novo, volte `open` para `true`; mudar `title` com ele aberto troca o texto no lugar, sem reiniciar o tempo.
+- Import the default: `import Toast from "@/components/ryan-ui/toast/toast"` (there is no named export). It appears where it is rendered; position it yourself, for example in a fixed container in the corner.
+- Automatic closing (`duration`, default 4500 ms) only works with `onOpenChange`; pass a stable function, such as the `setOpen` from `useState`, because a new function on every render restarts the countdown.
+- To show the notice again, set `open` back to `true`; changing `title` while it is open swaps the text in place, without restarting the timer.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,48 +2,48 @@
 
 > Campo de escolha compacto com um menu que funciona bem pelo teclado.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/select
-- Descrição original (inglês): A compact choice field with a keyboard friendly menu.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/select
+- Original description: A compact choice field with a keyboard friendly menu.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/select.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/select.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/select.json`. Caminho do registro, relativo ao endereço do site: `r/select.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/select.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/select.json`. Registry path, relative to the site address: `r/select.json`.
 
-- Pacotes npm: `@radix-ui/react-select`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-select`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/select/select.tsx`
   - `components/ryan-ui/select/select.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-select lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/select.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-select lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/select.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolher um valor de uma lista média num formulário, como fuso horário, país ou categoria.
-- Quando o espaço é curto e as opções não precisam ficar à vista o tempo todo.
-- Formulários que pedem teclado completo e envio nativo, com `name` e `required` do Radix.
+- Choosing a value from a medium-sized list in a form, such as time zone, country, or category.
+- When space is tight and the options do not need to stay visible all the time.
+- Forms that need full keyboard support and native submission, with Radix `name` and `required`.
 
-## Quando não usar
+## When not to use
 
-- Use [`radio-group`](radio-group.md) ou [`segmented-control`](segmented-control.md) quando são poucas opções e vale mostrar todas.
-- Use [`combobox`](combobox.md) quando a lista é longa e a pessoa prefere digitar para filtrar.
-- Use [`multi-select`](multi-select.md) quando dá para escolher mais de um valor.
+- Use [`radio-group`](radio-group.md) or [`segmented-control`](segmented-control.md) when there are few options and showing all of them is worthwhile.
+- Use [`combobox`](combobox.md) when the list is long and people prefer to type to filter.
+- Use [`multi-select`](multi-select.md) when more than one value can be chosen.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -80,55 +80,55 @@ export default function SelectDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Select`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `description` | `string` | — | — |
 | `placeholder` | `string` | `"Select an option"` | — |
 | `id` | `string` | — | — |
 | `className` | `string` | — | — |
-| `options` (obrigatória) | `{ value: string; label: string; disabled?: boolean }[]` | — | — |
+| `options` (required) | `{ value: string; label: string; disabled?: boolean }[]` | — | — |
 | `container` | `HTMLElement \| null` | — | Render the list inside this element and limit collisions to it (used by the demo stages). |
-| `...props` | `ComponentPropsWithoutRef<typeof SelectPrimitive.Root>` | — | Também aceita as props deste tipo, menos `children`. |
+| `...props` | `ComponentPropsWithoutRef<typeof SelectPrimitive.Root>` | — | Also accepts the props of this type, except `children`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` ou `↓` ou `↑` | No botão, abrem o menu com o foco na opção escolhida. |
-| `↓` ou `↑` | No menu, movem entre as opções, pulando as desabilitadas. |
-| `Home` ou `End` | Vão à primeira ou à última opção. |
-| `Enter` ou `Espaço` | Escolhem a opção em foco, fecham o menu e devolvem o foco ao botão. |
-| `Esc` | Fecha o menu sem mudar o valor. |
-| `A–Z` | Digitar o começo de um rótulo pula para essa opção; com o menu fechado, já troca o valor. |
+| `Enter` or `Space` or `↓` or `↑` | On the button, open the menu with focus on the selected option. |
+| `↓` or `↑` | In the menu, move between options, skipping disabled ones. |
+| `Home` or `End` | Go to the first or last option. |
+| `Enter` or `Space` | Choose the focused option, close the menu, and return focus to the button. |
+| `Esc` | Closes the menu without changing the value. |
+| `A–Z` | Typing the start of a label jumps to that option; with the menu closed, it changes the value right away. |
 
-## Acessibilidade
+## Accessibility
 
-- O botão é o `combobox` do Radix, ligado ao `<label>` visível e à `description` por `aria-describedby`; o valor real fica num texto oculto para leitores de tela enquanto a cópia visível anima.
-- Com o menu aberto, o foco fica preso nas opções e o resto da página fica oculto para tecnologia assistiva, e ao fechar o foco volta ao botão.
+- The button is the Radix `combobox`, tied to the visible `<label>` and to the `description` by `aria-describedby`; the real value sits in hidden text for screen readers while the visible copy animates.
+- With the menu open, focus is trapped in the options and the rest of the page is hidden from assistive technology, and on close focus returns to the button.
 
-## Movimento
+## Motion
 
-- O menu cresce a partir da borda do botão com um leve deslocamento e escala, e a seta gira; o botão nunca escala, para o menu medir a posição certa.
-- O valor exibido rola na direção da lista, com uma opção mais abaixo entrando por baixo e uma mais acima por cima, e o tique da opção marcada surge com leve desfoque.
-- Com “reduzir movimento” ligado, menu e valor só esmaecem e o tique aparece sem animação.
+- The menu grows from the button edge with a slight offset and scale, and the arrow rotates; the button never scales, so the menu measures the right position.
+- The displayed value rolls in the direction of the list, with an option further down entering from below and one further up from above, and the checkmark of the selected option appears with a slight blur.
+- With “reduce motion” on, menu and value only fade and the checkmark appears without animation.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O menu acompanha a largura do botão e tem no máximo 320px de altura ou o espaço que sobra na tela, com setas de rolagem nas pontas, e o Radix o reposiciona para não sair da tela.
+- The menu follows the button width and has a maximum height of 320px or the space left on screen, with scroll arrows at the ends, and Radix repositions it so it does not leave the screen.
 
-## Notas para IA
+## Notes for AI
 
-- Import nomeado `Select`; passe `options` como `{ value, label, disabled? }` e use `value` com `onValueChange` ou `defaultValue`.
-- Não use `value=""` numa opção: o valor vazio é o estado que mostra o `placeholder`.
-- Para busca dentro da lista prefira `combobox`, e para várias escolhas, `multi-select`; `className` vai para o botão, não para o campo inteiro.
+- Named import `Select`; pass `options` as `{ value, label, disabled? }` and use `value` with `onValueChange` or `defaultValue`.
+- Do not use `value=""` on an option: the empty value is the state that shows the `placeholder`.
+- For search inside the list prefer `combobox`, and for multiple choices, `multi-select`; `className` goes to the button, not to the whole field.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/select · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/select · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

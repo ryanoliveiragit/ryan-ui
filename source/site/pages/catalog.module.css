@@ -70,3 +70,7 @@
   .grid > li { animation: none; }
   .crumbs a, .search, .view, .chip, .reset { transition: none; }
 }
+
+/* Título à esquerda e o convite para o Pro à direita. */
+.headerRow { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-4); }
+.headerRow > a { flex: none; }

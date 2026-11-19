@@ -97,7 +97,7 @@ interface CodeCardProps {
   body?: { id?: string; role?: "tabpanel"; "aria-labelledby"?: string };
 }
 
-export function CodeCard({ label, code, language = "tsx", filename, header, gutter = "lines", maxLines, copyLabel = "Copiar", body }: CodeCardProps) {
+export function CodeCard({ label, code, language = "tsx", filename, header, gutter = "lines", maxLines, copyLabel = "Copy", body }: CodeCardProps) {
   const card = useRef<HTMLDivElement>(null);
   const scroller = useScrollableFocus<HTMLPreElement>();
   const preId = useId();
@@ -130,7 +130,7 @@ export function CodeCard({ label, code, language = "tsx", filename, header, gutt
         </pre>
         {collapsible ? (
           <button type="button" className={styles.more} aria-expanded={expanded} aria-controls={preId} onClick={toggle}>
-            <span>{expanded ? "Mostrar menos" : `Mostrar tudo · ${lines.length} linhas`}</span>
+            <span>{expanded ? "Show less" : `Show all · ${lines.length} lines`}</span>
             <ChevronDown size={14} strokeWidth={1.75} aria-hidden="true" />
           </button>
         ) : null}

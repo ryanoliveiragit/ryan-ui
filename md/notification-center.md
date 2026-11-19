@@ -2,51 +2,51 @@
 
 > Central de notificações com estado de lido, avisos agrupados e abertura animada.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-center
-- Descrição original (inglês): A home for updates with read state, grouped information, and animated disclosure.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-center
+- Original description: A home for updates with read state, grouped information, and animated disclosure.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json`. Caminho do registro, relativo ao endereço do site: `r/notification-center.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/notification-center.json`. Registry path, relative to the site address: `r/notification-center.json`.
 
-- Pacotes npm: `@radix-ui/react-popover`, `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Avatar](avatar.md)
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-popover`, `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Avatar](avatar.md)
+- Files, once installed:
   - `components/ryan-ui/notification-center/notification-center.tsx`
   - `components/ryan-ui/notification-center/notification-center.module.css`
   - `components/ryan-ui/avatar/avatar.tsx`
   - `components/ryan-ui/avatar/avatar.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-popover lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/notification-center.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-popover lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/notification-center.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Caixa de avisos atrás de um sino no cabeçalho de um app, com estado de lido e não lido e contagem no selo.
-- Quando a pessoa precisa triar: abrir o detalhe de um aviso, marcar como lido, dispensar, marcar todos como lidos ou limpar os lidos.
+- Notification inbox behind a bell in an app header, with read and unread state and a count on the badge.
+- When the person needs to triage: open a notification's detail, mark it as read, dismiss it, mark all as read, or clear the read ones.
 
-## Quando não usar
+## When not to use
 
-- Use [`toast`](toast.md) ou [`toast-stack`](toast-stack.md) para o retorno imediato de uma ação que a pessoa acabou de fazer.
-- Use [`notification-stack`](notification-stack.md) quando os avisos ficam visíveis na página como uma pilha de cartões que se dispensa um a um, sem estado de leitura.
-- Use [`timeline`](timeline.md) para um histórico de atividade em página inteira, agrupado por dia.
+- Use [`toast`](toast.md) or [`toast-stack`](toast-stack.md) for the immediate feedback of an action the person just took.
+- Use [`notification-stack`](notification-stack.md) when notifications stay visible on the page as a stack of cards dismissed one by one, with no read state.
+- Use [`timeline`](timeline.md) for a full-page activity history, grouped by day.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { NotificationCenter, type NotificationItem } from "@/components/ryan-ui/notification-center/notification-center";
@@ -75,15 +75,15 @@ export default function NotificationCenterDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `NotificationCenter`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `notifications` (obrigatória) | `NotificationItem[]` | — | — |
+| `notifications` (required) | `NotificationItem[]` | — | — |
 | `label` | `string` | `"Notifications"` | — |
 | `onReadChange` | `(notification: NotificationItem, read: boolean) => void` | — | — |
 | `onDismiss` | `(notification: NotificationItem) => void` | — | — |
@@ -94,55 +94,55 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `container` | `HTMLElement \| null` | — | Render the panel inside this element and limit collisions to it (used by the demo stages). |
 | `onOpenAutoFocus` | `(event: Event) => void` | — | Called before the panel moves focus in on open; call event.preventDefault() to keep focus where it is (for a panel that starts open). |
 
-### Tipos exportados
+### Exported types
 
 #### `NotificationItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `title` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `title` (required) | `string` | — |
 | `description` | `string` | — |
-| `time` (obrigatória) | `string` | — |
+| `time` (required) | `string` | — |
 | `read` | `boolean` | — |
 | `tone` | `"info" \| "success" \| "warning"` | — |
 | `actor` | `{ name: string; photo: string }` | A local portrait asset for person-generated updates. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No sino, abrem ou fecham o painel; numa linha, mostram ou escondem o detalhe com as ações. |
-| `Esc` | Fecha o painel e devolve o foco ao sino. |
-| `Tab` ou `Shift + Tab` | Percorrem os controles do painel: fechar, filtros “All” e “Unread”, linhas e ações. |
+| `Enter` or `Space` | On the bell, open or close the panel; on a row, show or hide the detail with its actions. |
+| `Esc` | Closes the panel and returns focus to the bell. |
+| `Tab` or `Shift + Tab` | Move through the panel's controls: close, the “All” and “Unread” filters, rows, and actions. |
 
-## Acessibilidade
+## Accessibility
 
-- É um popover Radix: o sino recebe `aria-expanded` do primitivo e um `aria-label` com `label` mais a contagem de não lidos; o painel leva `aria-label` e o resumo é `aria-live="polite"`.
-- Cada linha é um botão com `aria-expanded` e um nome que junta título, estado de não lido e a ação de mostrar ou esconder detalhes; os filtros usam `aria-pressed`.
-- O foco é reposicionado depois de cada ação: ao dispensar vai para a linha vizinha, e depois das ações em lote vai para os botões de filtro.
+- It is a Radix popover: the bell receives `aria-expanded` from the primitive and an `aria-label` with `label` plus the unread count; the panel carries an `aria-label` and the summary is `aria-live="polite"`.
+- Each row is a button with `aria-expanded` and a name that combines the title, the unread state, and the show-or-hide-details action; the filters use `aria-pressed`.
+- Focus is repositioned after each action: on dismiss it goes to the neighboring row, and after bulk actions it goes to the filter buttons.
 
-## Movimento
+## Motion
 
-- O painel cresce a partir do sino, que inclina 12° enquanto está aberto; as linhas entram em cascata de 35 ms e fecham a própria altura numa mola ao sair, em sequência nas ações em lote.
-- As contagens rolam como um odômetro (número maior sobe de baixo, menor desce de cima), o destaque do filtro desliza entre “All” e “Unread” e o botão de marcar como lido anima a largura ao trocar de rótulo.
-- Com “reduzir movimento” ligado, as animações CSS são removidas e as trocas viram um esmaecer curto ou acontecem na hora.
+- The panel grows from the bell, which tilts 12° while open; rows enter in a 35 ms cascade and collapse their own height on a spring when leaving, in sequence on bulk actions.
+- The counts roll like an odometer (the larger number rises from below, the smaller one descends from above), the filter highlight slides between “All” and “Unread”, and the mark-as-read button animates its width when its label changes.
+- With “reduce motion” on, the CSS animations are removed and changes become a short fade or happen instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O painel tem largura `min(424px, 100vw - 24px)` e altura máxima `min(590px, 100vh - 24px)`; a lista rola por dentro, com a barra de rolagem escondida.
-- Até 380 px de viewport os espaçamentos encolhem e “Mark all read” perde o texto, ficando só o ícone.
+- The panel has width `min(424px, 100vw - 24px)` and maximum height `min(590px, 100vh - 24px)`; the list scrolls inside, with the scrollbar hidden.
+- Up to 380 px of viewport the spacing shrinks and “Mark all read” loses its text, leaving only the icon.
 
-## Desempenho
+## Performance
 
-- Todas as notificações são renderizadas de uma vez, cada linha com animação de altura e sem virtualização; mantenha a lista na casa das dezenas.
+- All notifications are rendered at once, each row with a height animation and no virtualization; keep the list in the tens.
 
-## Notas para IA
+## Notes for AI
 
-- `notifications` é só o estado inicial (vai para um `useState`): mudanças posteriores na prop são ignoradas, então para injetar avisos novos remonte com outra `key`.
-- Persista com `onReadChange(notification, read)` e `onDismiss(notification)`, chamados uma vez por item também nas ações em lote; `time` é um texto pronto, o componente não formata datas.
-- Importe de `@/components/ryan-ui/notification-center/notification-center` (não fica em `blocks/`); ele já desenha o sino, depende de `avatar` e aceita `open` com `onOpenChange`.
+- `notifications` is only the initial state (it goes into a `useState`): later changes to the prop are ignored, so to inject new notifications remount with a different `key`.
+- Persist with `onReadChange(notification, read)` and `onDismiss(notification)`, called once per item also on bulk actions; `time` is ready-made text, the component does not format dates.
+- Import from `@/components/ryan-ui/notification-center/notification-center` (it does not live in `blocks/`); it already draws the bell, depends on `avatar`, and accepts `open` with `onOpenChange`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-center · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/notification-center · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

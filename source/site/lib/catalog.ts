@@ -34,16 +34,16 @@ export const findItem = (name: string | undefined) => (name ? byName.get(name) :
 
 /** Categorias na ordem em que aparecem no site, com o rótulo em português. */
 export const categories = [
-  { id: "actions", label: "Ações" },
-  { id: "inputs", label: "Entradas" },
-  { id: "disclosure", label: "Revelação" },
+  { id: "actions", label: "Actions" },
+  { id: "inputs", label: "Inputs" },
+  { id: "disclosure", label: "Disclosure" },
   { id: "feedback", label: "Feedback" },
-  { id: "data", label: "Dados" },
-  { id: "text", label: "Texto" },
-  { id: "ai", label: "Agentes de IA" },
-  { id: "games", label: "Jogos" },
-  { id: "special", label: "Especial" },
-  { id: "blocks", label: "Blocos" },
+  { id: "data", label: "Data & charts" },
+  { id: "text", label: "Text" },
+  { id: "ai", label: "AI agents" },
+  { id: "games", label: "Games" },
+  { id: "special", label: "Special" },
+  { id: "blocks", label: "Blocks" },
 ] as const;
 export type CategoryId = (typeof categories)[number]["id"];
 /** Tom de cada categoria (tokens --tone-* de foundation.css), para o ponto e a etiqueta. Sem tom: neutro. */
@@ -52,7 +52,7 @@ export const categoryTone = (id: string): string | undefined => tones[id];
 export const categoryLabel = (id: string) => categories.find(category => category.id === id)?.label ?? id;
 
 export const itemsByCategory = (id: string) => items.filter(item => item.category === id);
-export const describe = (item: CatalogItem) => item.descricao ?? item.description;
+export const describe = (item: CatalogItem) => item.description;
 
 /** Item anterior e próximo dentro da mesma lista (componentes ou blocos), na ordem das categorias. */
 const ordered = categories.flatMap(category => itemsByCategory(category.id));

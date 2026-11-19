@@ -2,48 +2,48 @@
 
 > Pilha de cartões para arrastar e decidir, com botões, desfazer e acessibilidade por teclado.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/card-stack
-- Descrição original (inglês): Review a deck one card at a time, with a throw and an undo.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/card-stack
+- Original description: Review a deck one card at a time, with a throw and an undo.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-stack.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-stack.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-stack.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-stack.json`. Caminho do registro, relativo ao endereço do site: `r/card-stack.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-stack.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-stack.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-stack.json`. Registry path, relative to the site address: `r/card-stack.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/card-stack/card-stack.tsx`
   - `components/ryan-ui/card-stack/card-stack.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/card-stack.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/card-stack.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Triagem rápida, um item por vez, em que cada um merece um momento de atenção: selecionar destinos, candidatos ou opções de design.
-- Decisões de dois lados (ficar ou passar) com desfazer, por arrasto, pelos botões ou pelas setas do teclado.
-- Baralhos longos: só quatro cartões ficam montados de cada vez.
+- Quick triage, one item at a time, where each deserves a moment of attention: selecting destinations, candidates, or design options.
+- Two-sided decisions (keep or pass) with undo, by dragging, with the buttons, or with the keyboard arrow keys.
+- Long decks: only four cards are mounted at a time.
 
-## Quando não usar
+## When not to use
 
-- Use [`sortable-data-table`](sortable-data-table.md) quando as pessoas precisam comparar os itens lado a lado.
-- Use [`carousel`](carousel.md) para navegar por um conjunto sem decidir nada sobre cada item.
-- Use [`swipe-actions`](swipe-actions.md) para ações por deslize nas linhas de uma lista; aqui só existem dois desfechos por cartão.
+- Use [`sortable-data-table`](sortable-data-table.md) when people need to compare items side by side.
+- Use [`carousel`](carousel.md) to browse a set without deciding anything about each item.
+- Use [`swipe-actions`](swipe-actions.md) for swipe actions on the rows of a list; here there are only two outcomes per card.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -91,18 +91,18 @@ export default function CardStackDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CardStack`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `T[]` | — | — |
-| `getKey` (obrigatória) | `(item: T) => string` | — | — |
-| `getLabel` (obrigatória) | `(item: T) => string` | — | A short name for the card, used in its accessible label and announcements, such as "Lisbon". |
-| `renderCard` (obrigatória) | `(item: T) => ReactNode` | — | — |
+| `items` (required) | `T[]` | — | — |
+| `getKey` (required) | `(item: T) => string` | — | — |
+| `getLabel` (required) | `(item: T) => string` | — | A short name for the card, used in its accessible label and announcements, such as "Lisbon". |
+| `renderCard` (required) | `(item: T) => ReactNode` | — | — |
 | `onDecide` | `(item: T, decision: CardDecision) => void` | — | — |
 | `onUndo` | `(item: T, decision: CardDecision) => void` | — | — |
 | `onReset` | `() => void` | — | — |
@@ -112,48 +112,48 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `renderEmpty` | `(reset: () => void) => ReactNode` | — | Shown once every card has been decided. Receives a function that brings all cards back. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `CardDecision` | `"left" \| "right"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Leva o foco à pilha (o contorno aparece no cartão do topo) e depois aos três botões. |
-| `←` ou `→` | Com o foco na pilha, decidem o cartão do topo para a esquerda ou para a direita. |
-| `Backspace` ou `Ctrl + Z` ou `Cmd + Z` | Com o foco na pilha, desfazem a última decisão e trazem o cartão de volta. |
-| `Enter` ou `Espaço` | Acionam o botão em foco: recusar, desfazer ou aceitar. |
+| `Tab` | Moves focus to the stack (the outline appears on the top card) and then to the three buttons. |
+| `←` or `→` | With focus on the stack, decide the top card to the left or to the right. |
+| `Backspace` or `Ctrl + Z` or `Cmd + Z` | With focus on the stack, undo the last decision and bring the card back. |
+| `Enter` or `Space` | Trigger the focused button: reject, undo, or accept. |
 
-## Acessibilidade
+## Accessibility
 
-- A pilha é um grupo focável com `aria-roledescription="card stack"` e uma dica oculta com as teclas; o cartão do topo anuncia nome e posição (via `getLabel`) e os de trás ficam `inert`.
-- Cada decisão, desfazer e recomeço é anunciado numa região `role="status"`; `outcomes` dá o verbo da frase, mas o resto dela (“3 left.”, “restored”) é inglês fixo.
-- Os botões usam `aria-disabled` para manter o foco quando a pilha acaba; a dica de teclas, “Undo” e o estado vazio padrão também estão em inglês (`renderEmpty` troca o estado vazio).
+- The stack is a focusable group with `aria-roledescription="card stack"` and a hidden hint with the keys; the top card announces its name and position (via `getLabel`) and the ones behind are `inert`.
+- Each decision, undo, and restart is announced in a `role="status"` region; `outcomes` supplies the verb of the sentence, but the rest of it (“3 left.”, “restored”) is fixed English.
+- The buttons use `aria-disabled` to keep focus when the stack runs out; the key hint, “Undo”, and the default empty state are also in English (`renderEmpty` replaces the empty state).
 
-## Movimento
+## Motion
 
-- O cartão do topo segue o dedo, gira conforme o deslocamento e mostra o carimbo do lado escolhido; os de trás sobem aos poucos enquanto ele se afasta.
-- Solto além de 35% da largura (no máximo 140 px) ou num deslize rápido, ele sai voando com mola na direção do gesto; antes disso, volta ao lugar com mola.
-- Desfazer traz o cartão de onde ele saiu; com “reduzir movimento”, sair e voltar são só um esmaecer e os de trás trocam de lugar na hora.
+- The top card follows the finger, rotates with the displacement, and shows the stamp of the chosen side; the ones behind rise gradually as it moves away.
+- Released beyond 35% of the width (at most 140 px) or on a fast swipe, it flies off with a spring in the direction of the gesture; before that, it returns to its place with a spring.
+- Undo brings the card back from where it left; with “reduce motion”, leaving and returning are just a fade and the ones behind swap places immediately.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A pilha tem até 20rem de largura e altura fixa de 19rem (17,5rem em telas de até 26rem); o conteúdo de `renderCard` deve preencher 100% da altura.
-- Em telas de até 22,5rem o botão de desfazer fica só com o ícone, mantendo o nome acessível; o cartão usa `touch-action: pan-y`, então arrastar na vertical rola a página.
+- The stack is up to 20rem wide with a fixed height of 19rem (17.5rem on screens up to 26rem); the content of `renderCard` should fill 100% of the height.
+- On screens up to 22.5rem the undo button keeps only the icon, retaining its accessible name; the card uses `touch-action: pan-y`, so dragging vertically scrolls the page.
 
-## Desempenho
+## Performance
 
-- Só os quatro cartões seguintes (e os que ainda estão voando) ficam no DOM, então o tamanho de `items` não pesa na renderização.
+- Only the next four cards (and those still flying off) stay in the DOM, so the size of `items` does not weigh on rendering.
 
-## Notas para IA
+## Notes for AI
 
-- `items`, `getKey`, `getLabel` e `renderCard` são obrigatórios; a posição é estado interno e o pai recebe `onDecide(item, "left" | "right")`, `onUndo` e `onReset`.
-- Mantenha `items` estável: a posição é guardada por índice, então remover o item decidido da lista dentro de `onDecide` faz pular o cartão seguinte.
-- Trate `onUndo` e `onReset` junto com `onDecide`, senão a sua lista de escolhidos fica diferente da pilha; `labels` dá nome aos botões e aos carimbos.
+- `items`, `getKey`, `getLabel`, and `renderCard` are required; position is internal state and the parent receives `onDecide(item, "left" | "right")`, `onUndo`, and `onReset`.
+- Keep `items` stable: position is stored by index, so removing the decided item from the list inside `onDecide` makes the next card get skipped.
+- Handle `onUndo` and `onReset` along with `onDecide`, otherwise your list of chosen items diverges from the stack; `labels` names the buttons and the stamps.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/card-stack · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/card-stack · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
