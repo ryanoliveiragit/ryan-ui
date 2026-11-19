@@ -1,146 +1,146 @@
 {
  "action-button": {
   "quandoUsar": [
-   "Ações assíncronas que devem mostrar andamento e confirmação no próprio botão: salvar rascunho, publicar, sincronizar.",
-   "Quando você quer que os estados de pendente e concluído sejam geridos pelo componente a partir de uma única função `onAction`."
+   "Async actions that should show progress and confirmation on the button itself: save draft, publish, sync.",
+   "When you want the pending and done states managed by the component from a single `onAction` function."
   ],
   "quandoEvitar": [
-   "Use `button` quando precisar de variantes, tamanhos ou de um ícone próprio: aqui a aparência é fixa, preenchida e com uma seta à direita.",
-   "Use `action-swap` quando o botão alterna entre estados que permanecem, como Seguir e Seguindo, ou precisa de tom e ícone por estado.",
-   "Use `confirm-morph` ou `hold-to-confirm` quando a ação é destrutiva e pede confirmação antes de rodar."
+   "Use `button` when you need variants, sizes, or your own icon: here the look is fixed, filled, with an arrow on the right.",
+   "Use `action-swap` when the button toggles between states that persist, like Follow and Following, or needs a tone and icon per state.",
+   "Use `confirm-morph` or `hold-to-confirm` when the action is destructive and needs confirmation before it runs."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Disparam `onAction`; enquanto a ação está pendente, novos acionamentos são ignorados."
+    "acao": "Trigger `onAction`; while the action is pending, further activations are ignored."
    }
   ],
   "acessibilidade": [
-   "É um `<button>` nativo com `type=\"button\"` por padrão; pendente, recebe `aria-busy` e `aria-disabled` em vez de `disabled`, então o foco não se perde no meio da ação.",
-   "O texto animado e os ícones ficam em `aria-hidden`: o leitor de tela recebe o `label` fixo e um `role=\"status\"` que anuncia `pendingLabel` e depois `successLabel`.",
-   "`pendingLabel` e `successLabel` têm padrão em inglês (“Saving” e “Saved”); passe os dois no idioma da interface."
+   "It is a native `<button>` with `type=\"button\"` by default; while pending, it gets `aria-busy` and `aria-disabled` instead of `disabled`, so focus is not lost mid-action.",
+   "The animated text and the icons are `aria-hidden`: the screen reader gets the fixed `label` and a `role=\"status\"` that announces `pendingLabel` and then `successLabel`.",
+   "`pendingLabel` and `successLabel` default to English (“Saving” and “Saved”); pass both in the interface language."
   ],
   "movimento": [
-   "O rótulo troca com um esmaecer curto (o novo sobe 2 px) e a largura do botão acompanha o texto com uma mola sem ultrapassagem.",
-   "A seta sai para a direita quando a ação começa, dá lugar a um indicador giratório e depois a um visto que se desenha; ao voltar ao repouso, a seta entra pela esquerda.",
-   "Com “reduzir movimento”, o rótulo troca na hora, os ícones só esmaecem, a largura salta, o visto aparece pronto e o indicador não gira."
+   "The label swaps with a short fade (the new one rises 2 px) and the button width follows the text with a spring with no overshoot.",
+   "The arrow exits to the right when the action starts, gives way to a spinner and then to a checkmark that draws itself; on return to rest, the arrow enters from the left.",
+   "With “reduce motion”, the label swaps instantly, the icons only fade, the width jumps, the checkmark appears already drawn, and the spinner does not spin."
   ],
   "responsivo": [
-   "O rótulo não quebra linha e a largura muda a cada estado; em linhas apertadas, use textos de comprimento parecido em `label`, `pendingLabel` e `successLabel` para os vizinhos não se deslocarem."
+   "The label does not wrap and the width changes with each state; in tight rows, use text of similar length in `label`, `pendingLabel`, and `successLabel` so neighbors do not shift."
   ],
   "desempenho": [
-   "Cada botão mantém um `ResizeObserver` para medir o rótulo e um temporizador para voltar ao repouso; evite centenas deles numa lista longa."
+   "Each button keeps a `ResizeObserver` to measure the label and a timer to return to rest; avoid hundreds of them in a long list."
   ],
   "notasIA": [
-   "A ação vai em `onAction` (não existe `onClick`): devolva uma Promise para o estado pendente durar enquanto ela roda e rejeite-a para sinalizar falha.",
-   "Na falha o botão volta ao repouso sem mensagem e chama `onActionError`; mostre o erro você mesmo, por exemplo com `toast`.",
-   "`resetAfterMs` (padrão 2400) define quanto tempo o estado concluído fica visível; com `0` ele permanece até o próximo clique."
+   "The action goes in `onAction` (there is no `onClick`): return a Promise so the pending state lasts while it runs, and reject it to signal failure.",
+   "On failure the button returns to rest with no message and calls `onActionError`; show the error yourself, for example with `toast`.",
+   "`resetAfterMs` (default 2400) sets how long the done state stays visible; with `0` it stays until the next click."
   ]
  },
  "action-swap": {
   "quandoUsar": [
-   "Uma ação que percorre poucos estados relacionados no mesmo lugar, como Seguir, Seguindo e Deixar de seguir.",
-   "Envios curtos com confirmação passageira: “Enviar fatura” vira “Enviando”, depois “Enviada”, e volta sozinho ao início com `holdFor`.",
-   "Quando cada estado precisa de ícone e tom próprios (`neutral`, `accent`, `success`, `warning` ou `quiet`)."
+   "An action that cycles through a few related states in the same place, like Follow, Following, and Unfollow.",
+   "Short submissions with a transient confirmation: “Send invoice” becomes “Sending”, then “Sent”, and returns to the start on its own with `holdFor`.",
+   "When each state needs its own icon and tone (`neutral`, `accent`, `success`, `warning`, or `quiet`)."
   ],
   "quandoEvitar": [
-   "Use `action-button` quando há uma única ação com pendente e concluído e você não quer descrever estados.",
-   "Use `split-button` quando a pessoa escolhe entre alternativas: aqui cada clique só avança para o próximo estado da lista.",
-   "Use `switch` quando o controle representa uma configuração ligada ou desligada, e não uma ação."
+   "Use `action-button` when there is a single action with pending and done states and you do not want to describe states.",
+   "Use `split-button` when the person chooses among alternatives: here each click only advances to the next state in the list.",
+   "Use `switch` when the control represents an on or off setting, not an action."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Avançam para o próximo estado de `states` (depois do último, volta ao primeiro), chamando `onAction` antes."
+    "acao": "Advance to the next state in `states` (after the last, back to the first), calling `onAction` first."
    }
   ],
   "acessibilidade": [
-   "É um `<button>` cujo `aria-label` acompanha o rótulo visível; enquanto `onAction` roda, recebe `aria-busy` e `aria-disabled` e continua focável.",
-   "Cada mudança é anunciada por um `role=\"status\"` ao lado do botão: o novo `label`, o `pendingLabel` ou o `failureLabel`.",
-   "Sem `pendingLabel` no estado de destino, o anúncio de espera é o texto fixo “Working”; defina `pendingLabel` e `failureLabel` (padrão “Try again”) no idioma da interface."
+   "It is a `<button>` whose `aria-label` follows the visible label; while `onAction` runs, it gets `aria-busy` and `aria-disabled` and stays focusable.",
+   "Each change is announced by a `role=\"status\"` next to the button: the new `label`, the `pendingLabel`, or the `failureLabel`.",
+   "Without a `pendingLabel` on the target state, the wait announcement is the fixed text “Working”; set `pendingLabel` and `failureLabel` (default “Try again”) in the interface language."
   ],
   "movimento": [
-   "As letras em comum no início e no fim do rótulo ficam paradas e as novas sobem de um leve desfoque, em sequência, enquanto a largura segue uma mola sem ultrapassagem.",
-   "Sem `pendingLabel`, a pílula se dobra num círculo com indicador giratório enquanto a Promise roda (no mínimo 450 ms); uma falha mostra `failureLabel` por 1,8 s e volta ao estado atual.",
-   "Com “reduzir movimento”, letras e ícones trocam com um esmaecer de 0,12 s, a largura salta e o indicador não gira."
+   "Letters shared at the start and end of the label stay still and the new ones rise from a slight blur, in sequence, while the width follows a spring with no overshoot.",
+   "Without `pendingLabel`, the pill folds into a circle with a spinner while the Promise runs (at least 450 ms); a failure shows `failureLabel` for 1.8 s and returns to the current state.",
+   "With “reduce motion”, letters and icons swap with a 0.12 s fade, the width jumps, and the spinner does not spin."
   ],
   "responsivo": [
-   "Os rótulos não quebram linha e a pílula muda de largura a cada estado; mantenha cada `label` curto."
+   "Labels do not wrap and the pill changes width with each state; keep each `label` short."
   ],
   "desempenho": [
-   "Cada letra do rótulo é um elemento animado e há um `ResizeObserver` por botão: serve a rótulos curtos, não a frases."
+   "Each letter of the label is an animated element and there is one `ResizeObserver` per button: it suits short labels, not sentences."
   ],
   "notasIA": [
-   "Descreva os estados em `states` (`id`, `label`, `icon`, `tone`) na ordem do ciclo; com menos de dois estados o botão fica desabilitado.",
-   "`onAction(next, current)` roda antes da troca: devolva uma Promise para mostrar a fase de espera e rejeite-a para exibir `failureLabel`.",
-   "Controle o estado com `value` e `onValueChange` ou deixe-o interno com `defaultValue`; `holdFor` num estado faz o botão avançar sozinho depois desse tempo."
+   "Describe the states in `states` (`id`, `label`, `icon`, `tone`) in cycle order; with fewer than two states the button is disabled.",
+   "`onAction(next, current)` runs before the swap: return a Promise to show the wait phase and reject it to display `failureLabel`.",
+   "Control the state with `value` and `onValueChange` or leave it internal with `defaultValue`; `holdFor` on a state makes the button advance on its own after that time."
   ]
  },
  "button": {
   "quandoUsar": [
-   "Qualquer ação única numa página, formulário ou diálogo: salvar, continuar, cancelar.",
-   "Ações cujo rótulo muda no lugar, como “Salvar” virando “Salvo”: a largura acompanha o texto novo com uma mola, sem pulo.",
-   "Trabalho assíncrono curto, em que um indicador de carregamento no próprio botão já é retorno suficiente (prop `loading`)."
+   "Any single action on a page, form, or dialog: save, continue, cancel.",
+   "Actions whose label changes in place, like “Save” becoming “Saved”: the width follows the new text with a spring, with no jump.",
+   "Short async work where a loading indicator on the button itself is enough feedback (`loading` prop)."
   ],
   "quandoEvitar": [
-   "Use `action-button` quando o botão precisa mostrar sozinho os estados de pendente e concluído depois de uma ação assíncrona.",
-   "Use `split-button` quando a ação principal tem alternativas próximas num menu.",
-   "Use `hold-to-confirm` para ações destrutivas que pedem mais que um clique."
+   "Use `action-button` when the button needs to show the pending and done states by itself after an async action.",
+   "Use `split-button` when the main action has close alternatives in a menu.",
+   "Use `hold-to-confirm` for destructive actions that need more than a click."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão; com `loading`, o acionamento é ignorado."
+    "acao": "Trigger the button; with `loading`, the activation is ignored."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Leva o foco ao próximo controle; o contorno de foco só aparece com teclado (`:focus-visible`, regra do `foundation.css`)."
+    "acao": "Moves focus to the next control; the focus ring only appears with the keyboard (`:focus-visible`, a `foundation.css` rule)."
    }
   ],
   "acessibilidade": [
-   "É um `<button>` nativo: papel, foco e ativação por teclado vêm do navegador.",
-   "Durante `loading` o botão recebe `aria-busy` e `aria-disabled`, continua focável e mantém o rótulo no DOM para leitores de tela.",
-   "Num botão só com ícone, passe `aria-label` com o nome da ação."
+   "It is a native `<button>`: role, focus, and keyboard activation come from the browser.",
+   "During `loading` the button gets `aria-busy` and `aria-disabled`, stays focusable, and keeps the label in the DOM for screen readers.",
+   "On an icon-only button, pass `aria-label` with the action name."
   ],
   "movimento": [
-   "A pressão reduz levemente a escala do botão; âncoras de menus e popovers não escalam, para o painel medir o tamanho certo.",
-   "Quando o conteúdo muda, a largura anima com uma mola sem ultrapassagem e o rótulo troca com um esmaecer curto.",
-   "Com “reduzir movimento”, a escala da pressão e a mola da largura são desligadas, o rótulo troca com um esmaecer de 0,12 s e o indicador de carregamento não gira."
+   "The press slightly reduces the button scale; anchors of menus and popovers do not scale, so the panel measures the right size.",
+   "When the content changes, the width animates with a spring with no overshoot and the label swaps with a short fade.",
+   "With “reduce motion”, the press scale and the width spring are turned off, the label swaps with a 0.12 s fade, and the loading indicator does not spin."
   ],
   "responsivo": [
-   "O rótulo não quebra linha (`white-space: nowrap`); em telas estreitas prefira rótulos curtos ou o tamanho `sm`.",
-   "As alturas mínimas vêm dos tokens `--control-height-sm`, `-md` e `-lg`, então acompanham o resto dos controles."
+   "The label does not wrap (`white-space: nowrap`); on narrow screens prefer short labels or the `sm` size.",
+   "Minimum heights come from the `--control-height-sm`, `-md`, and `-lg` tokens, so they follow the rest of the controls."
   ],
   "desempenho": [
-   "A medição da largura do rótulo usa um observador por botão; é barato, mas evite centenas deles numa lista longa."
+   "Measuring the label width uses one observer per button; it is cheap, but avoid hundreds of them in a long list."
   ],
   "notasIA": [
-   "Escolha padrão para uma ação única; para uma fileira de ações com ícones prefira `floating-button-group` ou `button-group`, e com alternativas próximas, `split-button`.",
-   "Passe o rótulo que muda (Salvar → Salvo) como filho para ganhar a animação de largura sem configuração; `loading` bloqueia o `onClick` sem desabilitar o botão.",
-   "Variantes `primary` (padrão), `secondary`, `ghost` e `danger`, tamanhos `sm`, `md` e `lg`; o componente não define `type`, então dentro de um `<form>` passe `type=\"button\"` quando a ação não envia."
+   "Default choice for a single action; for a row of actions with icons prefer `floating-button-group` or `button-group`, and with close alternatives, `split-button`.",
+   "Pass the changing label (Save → Saved) as the child to get the width animation with no configuration; `loading` blocks `onClick` without disabling the button.",
+   "Variants `primary` (default), `secondary`, `ghost`, and `danger`, sizes `sm`, `md`, and `lg`; the component does not set `type`, so inside a `<form>` pass `type=\"button\"` when the action does not submit."
   ]
  },
  "button-group": {
   "quandoUsar": [
-   "Ações relacionadas sobre o mesmo objeto que devem ler como um controle só: Compartilhar, Baixar, Arquivar.",
-   "Quando as ações menos usadas cabem num menu anexo ao fim da fileira (prop `menu`).",
-   "Barras em que os rótulos podem encolher para ícones quando falta largura (`collapseLabels`)."
+   "Related actions on the same object that should read as a single control: Share, Download, Archive.",
+   "When the less-used actions fit in a menu attached to the end of the row (`menu` prop).",
+   "Bars where labels can shrink to icons when width runs short (`collapseLabels`)."
   ],
   "quandoEvitar": [
-   "Use `toggle-group` ou `segmented-control` quando os botões representam um estado ou uma escolha: aqui nenhum segmento fica marcado como pressionado.",
-   "Use `split-button` quando existe uma ação principal e as demais são alternativas dela.",
-   "Use `overflow-actions` quando a barra deve mandar para um menu as ações que não cabem na largura."
+   "Use `toggle-group` or `segmented-control` when the buttons represent a state or a choice: here no segment is marked as pressed.",
+   "Use `split-button` when there is a main action and the others are alternatives to it.",
+   "Use `overflow-actions` when the bar should send the actions that do not fit the width to a menu."
   ],
   "teclado": [
    {
@@ -148,140 +148,140 @@
      "Tab",
      "Shift + Tab"
     ],
-    "acao": "Passam por cada segmento em ordem; todos são paradas de tabulação."
+    "acao": "Move through each segment in order; all of them are tab stops."
    },
    {
     "teclas": [
      "→",
      "←"
     ],
-    "acao": "Movem o foco entre os segmentos e dão a volta nas pontas; na orientação `vertical` valem `↓` e `↑`, e em RTL as setas se invertem."
+    "acao": "Move focus between segments and wrap around at the ends; in the `vertical` orientation `↓` and `↑` apply, and in RTL the arrows are reversed."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Levam o foco ao primeiro e ao último segmento."
+    "acao": "Move focus to the first and last segment."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o segmento em foco (um segmento com `href` é link e responde só a `Enter`); na seta, abrem o menu."
+    "acao": "Trigger the focused segment (a segment with `href` is a link and responds only to `Enter`); on the arrow, open the menu."
    },
    {
     "teclas": [
      "↓"
     ],
-    "acao": "Na seta, abre o menu; dentro dele, `↓` e `↑` percorrem os itens em laço e `Enter` escolhe."
+    "acao": "On the arrow, opens the menu; inside it, `↓` and `↑` loop through the items and `Enter` selects."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o menu e devolve o foco à seta."
+    "acao": "Closes the menu and returns focus to the arrow."
    }
   ],
   "acessibilidade": [
-   "O contêiner é `role=\"group\"` com o `label` obrigatório como nome; cada segmento é um `<button>` ou, com `href`, um link.",
-   "Segmentos `iconOnly`, com `content` ou recolhidos usam o `label` como `aria-label` (e, sem texto visível, também como `title`); um item `disabled` vira `aria-disabled` e continua focável.",
-   "Um rótulo que muda logo depois do acionamento do próprio segmento, como “Copiado”, é anunciado uma vez por uma região `aria-live=\"polite\"`."
+   "The container is `role=\"group\"` with the required `label` as its name; each segment is a `<button>` or, with `href`, a link.",
+   "`iconOnly` segments, with `content`, or collapsed ones use the `label` as `aria-label` (and, with no visible text, also as `title`); a `disabled` item becomes `aria-disabled` and stays focusable.",
+   "A label that changes right after the segment itself is triggered, like “Copied”, is announced once by an `aria-live=\"polite\"` region."
   ],
   "movimento": [
-   "Um único realce desliza entre os segmentos sob o ponteiro ou o foco do teclado, numa mola sem ultrapassagem, e as divisórias vizinhas somem para ele ler como uma forma só.",
-   "A pressão encolhe só o conteúdo do segmento (0,97; 0,9 nos de ícone); um rótulo novo sobe de um leve desfoque dentro de uma caixa de largura fixa quando `reserve` lista os textos.",
-   "Com “reduzir movimento”, o realce salta para o segmento, não há escala na pressão e o menu apenas esmaece."
+   "A single highlight slides between segments under the pointer or keyboard focus, on a spring with no overshoot, and neighboring dividers disappear so it reads as one shape.",
+   "The press shrinks only the segment content (0.97; 0.9 on icon ones); a new label rises from a slight blur inside a fixed-width box when `reserve` lists the texts.",
+   "With “reduce motion”, the highlight jumps to the segment, there is no press scale, and the menu only fades."
   ],
   "responsivo": [
-   "Com `collapseLabels` (padrão), quando a fileira não cabe no contêiner os segmentos com ícone escondem o rótulo, que passa para `aria-label` e `title`, e o recuperam quando volta a haver espaço.",
-   "O grupo nunca passa de 100% do contêiner: o que ainda sobra rola na horizontal sem barra visível; na orientação `vertical` os segmentos ocupam a largura toda e não recolhem."
+   "With `collapseLabels` (default), when the row does not fit the container, segments with an icon hide the label, which moves to `aria-label` and `title`, and get it back when there is room again.",
+   "The group never exceeds 100% of the container: what is left over scrolls horizontally with no visible scrollbar; in the `vertical` orientation the segments take the full width and do not collapse."
   ],
   "desempenho": [
-   "Cada grupo usa `ResizeObserver` no contêiner pai, em si mesmo e em cada segmento, e testa a posição dos segmentos a cada movimento do ponteiro: adequado a barras, não a dezenas de grupos numa lista."
+   "Each group uses `ResizeObserver` on the parent container, on itself, and on each segment, and tests segment positions on every pointer move: suited to bars, not to dozens of groups in a list."
   ],
   "notasIA": [
-   "`label` nomeia o grupo e é obrigatório; cada item precisa de `id` e `label`, e a ação vai em `onSelect` (ou `href`, para o segmento virar link).",
-   "Se um rótulo muda (Compartilhar → Copiado), liste todos os textos em `reserve` para o segmento manter a largura do maior.",
-   "É um grupo de ações sem estado selecionado; `menu` (`label` e `items`) acrescenta a seta com o menu, e `variant=\"solid\"` é a versão preenchida, de mais destaque."
+   "`label` names the group and is required; each item needs `id` and `label`, and the action goes in `onSelect` (or `href`, for the segment to become a link).",
+   "If a label changes (Share → Copied), list all the texts in `reserve` so the segment keeps the width of the longest.",
+   "It is a group of actions with no selected state; `menu` (`label` and `items`) adds the arrow with the menu, and `variant=\"solid\"` is the filled, more prominent version."
   ]
  },
  "confirm-morph": {
   "quandoUsar": [
-   "Ações destrutivas em que um diálogo modal pesaria: excluir um projeto, revogar um acesso, descartar um rascunho.",
-   "Quando a pergunta, o andamento e o resultado com Desfazer devem acontecer no lugar do próprio botão.",
-   "Ações que pedem uma barreira a mais: `confirmMode=\"hold\"` exige manter pressionado e `countdown` dá alguns segundos para cancelar."
+   "Destructive actions where a modal dialog would be heavy: delete a project, revoke access, discard a draft.",
+   "When the question, the progress, and the result with Undo should happen in place of the button itself.",
+   "Actions that need an extra barrier: `confirmMode=\"hold\"` requires holding down and `countdown` gives a few seconds to cancel."
   ],
   "quandoEvitar": [
-   "Use `dialog` quando a pessoa precisa ler consequências ou preencher algo antes de confirmar: a pergunta aqui é uma linha curta.",
-   "Use `hold-to-confirm` quando basta manter o botão pressionado, sem pergunta nem Cancelar.",
-   "Use `toast-action` quando a ação pode rodar direto e o Desfazer vem depois, num aviso."
+   "Use `dialog` when the person needs to read consequences or fill something in before confirming: here the question is a short line.",
+   "Use `hold-to-confirm` when holding the button is enough, with no question or Cancel.",
+   "Use `toast-action` when the action can run right away and Undo comes afterward, in a notice."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão em repouso, abrem a pergunta e levam o foco ao botão de confirmar, onde as mesmas teclas confirmam (no modo `countdown`, iniciam a contagem)."
+    "acao": "On the resting button, open the question and move focus to the confirm button, where the same keys confirm (in `countdown` mode, they start the countdown)."
    },
    {
     "teclas": [
      "Tab",
      "Shift + Tab"
     ],
-    "acao": "Alternam entre Cancelar e Confirmar."
+    "acao": "Toggle between Cancel and Confirm."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Cancela a pergunta ou a contagem regressiva; num resultado ou erro, volta ao repouso."
+    "acao": "Cancels the question or the countdown; on a result or error, returns to rest."
    },
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "Durante a contagem regressiva, com o foco no controle, executa a ação sem esperar o fim."
+    "acao": "During the countdown, with focus on the control, runs the action without waiting for the end."
    },
    {
     "teclas": [
-     "Espaço",
+     "Space",
      "Enter"
     ],
-    "acao": "No modo `hold`, precisam ficar pressionadas no botão de confirmar até o preenchimento completar; soltar antes desfaz."
+    "acao": "In `hold` mode, must stay pressed on the confirm button until the fill completes; releasing early undoes it."
    }
   ],
   "acessibilidade": [
-   "O foco acompanha as faces se já estava no controle: vai para Confirmar na pergunta, para a raiz durante a contagem e a espera, para Desfazer ou Tentar de novo no resultado e de volta ao botão no repouso.",
-   "A pergunta é um `role=\"group\"` rotulado pelo `prompt`, a raiz recebe `aria-busy` na espera e um `role=\"status\"` anuncia andamento, resultado e erro, e também a pergunta quando `prompt` é texto.",
-   "O tempo limite só pausa com o ponteiro sobre o controle ou com a aba oculta, não com o foco do teclado; aumente ou zere `confirmTimeout` e `resultTimeout` para quem usa teclado ou leitor de tela."
+   "Focus follows the faces if it was already on the control: it goes to Confirm on the question, to the root during the countdown and the wait, to Undo or Try again on the result, and back to the button at rest.",
+   "The question is a `role=\"group\"` labeled by the `prompt`, the root gets `aria-busy` while waiting, and a `role=\"status\"` announces progress, result, and error, and also the question when `prompt` is text.",
+   "The timeout only pauses with the pointer over the control or with the tab hidden, not with keyboard focus; increase or zero out `confirmTimeout` and `resultTimeout` for keyboard or screen reader users."
   ],
   "movimento": [
-   "Uma única pílula muda de largura com uma mola sem ultrapassagem a cada face; as faces trocam por esmaecer, na largura natural, e as partes da nova entram em sequência saindo de um leve desfoque.",
-   "No modo `hold` o botão de confirmar se preenche da esquerda enquanto é pressionado e esvazia numa mola se solto antes; no `countdown` um anel se esgota e os segundos trocam no lugar; o sucesso desenha um visto.",
-   "Com “reduzir movimento”, a largura salta, as faces só esmaecem, o visto aparece pronto e o indicador de espera gira mais devagar (1,6 s por volta)."
+   "A single pill changes width with a spring with no overshoot on each face; faces swap by fading, at natural width, and the parts of the new one enter in sequence from a slight blur.",
+   "In `hold` mode the confirm button fills from the left while pressed and empties on a spring if released early; in `countdown` a ring runs out and the seconds swap in place; success draws a checkmark.",
+   "With “reduce motion”, the width jumps, the faces only fade, the checkmark appears already drawn, and the wait indicator spins more slowly (1.6 s per turn)."
   ],
   "responsivo": [
-   "Nada quebra linha: a pergunta ocupa até `16rem` (o excesso vira reticências) e é seguida de Cancelar e Confirmar, numa única fileira.",
-   "A pílula não passa de 100% do contêiner e corta o que sobra; como Confirmar é o último, num espaço estreito ele fica fora da área visível: reserve largura ou encurte `prompt`."
+   "Nothing wraps: the question takes up to `16rem` (the excess becomes an ellipsis) and is followed by Cancel and Confirm, in a single row.",
+   "The pill does not exceed 100% of the container and clips what is left over; since Confirm comes last, in a narrow space it ends up outside the visible area: reserve width or shorten `prompt`."
   ],
   "notasIA": [
-   "`onConfirm` pode devolver uma Promise: enquanto roda aparece a face de espera, uma rejeição mostra o erro com Tentar de novo, e passar `onUndo` acrescenta Desfazer ao resultado.",
-   "Os rótulos têm padrão em inglês e de exclusão (`confirmLabel` “Delete”, `pendingLabel` “Deleting”, `doneLabel` “Deleted”): passe `prompt` e todos os rótulos; anúncios como “Cancelled” e “Undone” são fixos no código.",
-   "Funciona sem controle externo; use `state` com `onStateChange` só se o pai precisar comandar as faces, e `tone=\"neutral\"` para ações importantes mas reversíveis."
+   "`onConfirm` can return a Promise: while it runs the wait face appears, a rejection shows the error with Try again, and passing `onUndo` adds Undo to the result.",
+   "Labels default to English and to deletion (`confirmLabel` “Delete”, `pendingLabel` “Deleting”, `doneLabel` “Deleted”): pass `prompt` and all the labels; announcements like “Cancelled” and “Undone” are fixed in the code.",
+   "It works with no external control; use `state` with `onStateChange` only if the parent needs to drive the faces, and `tone=\"neutral\"` for important but reversible actions."
   ]
  },
  "context-menu": {
   "quandoUsar": [
-   "Ações secundárias sobre um objeto que a pessoa já está vendo, como um arquivo, um cartão ou um projeto, abertas com o botão direito no próprio objeto.",
-   "Superfícies que não devem exibir um botão de menu, mas cujas ações precisam continuar alcançáveis pelo teclado (`Shift + F10` ou a tecla de menu)."
+   "Secondary actions on an object the person is already looking at, like a file, a card, or a project, opened with a right-click on the object itself.",
+   "Surfaces that should not show a menu button, but whose actions must remain reachable by keyboard (`Shift + F10` or the menu key)."
   ],
   "quandoEvitar": [
-   "Use `dropdown-menu` quando as ações precisam de um gatilho visível ou de separadores entre grupos; este menu é uma lista plana aberta sobre o objeto.",
-   "Evite em objetos que já respondem a clique, como links, cartões que abrem ou linhas selecionáveis: um clique ou toque simples em qualquer ponto do alvo também abre o menu.",
-   "Use `swipe-actions` quando as ações de cada linha de uma lista devem aparecer com um gesto de deslizar no toque."
+   "Use `dropdown-menu` when the actions need a visible trigger or separators between groups; this menu is a flat list opened over the object.",
+   "Avoid on objects that already respond to clicks, like links, cards that open, or selectable rows: a simple click or tap anywhere on the target also opens the menu.",
+   "Use `swipe-actions` when each list row's actions should appear with a swipe gesture on touch."
   ],
   "teclado": [
    {
@@ -289,147 +289,147 @@
      "Shift + F10",
      "Menu"
     ],
-    "acao": "Com o foco no alvo, abrem o menu logo abaixo dele, com o foco no primeiro item habilitado."
+    "acao": "With focus on the target, open the menu just below it, with focus on the first enabled item."
    },
    {
     "teclas": [
      "↓",
      "↑"
     ],
-    "acao": "Percorrem os itens habilitados e dão a volta nas pontas."
+    "acao": "Move through the enabled items and wrap around at the ends."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vão para o primeiro e o último item habilitado."
+    "acao": "Go to the first and last enabled item."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Escolhem o item em foco, fecham o menu e devolvem o foco ao alvo."
+    "acao": "Select the focused item, close the menu, and return focus to the target."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Com o foco no menu, fecha e devolve o foco ao alvo."
+    "acao": "With focus in the menu, closes it and returns focus to the target."
    }
   ],
   "acessibilidade": [
-   "O alvo é um `<div>` com `tabIndex=0`, `aria-haspopup=\"menu\"`, `aria-expanded` e `aria-label`; o menu é `role=\"menu\"`, com itens `role=\"menuitem\"`, e recebe o mesmo `label` (padrão em inglês, “Context menu”).",
-   "Ao abrir, o foco vai para o primeiro item habilitado, mas o menu não prende o foco: `Tab` sai dele sem fechá-lo e, com o foco fora, `Esc` não o fecha mais (só um toque fora ou a rolagem).",
-   "`checked` não vira `aria-checked` e só desenha um visto quando o item não tem `icon`; o estado não chega ao leitor de tela."
+   "The target is a `<div>` with `tabIndex=0`, `aria-haspopup=\"menu\"`, `aria-expanded`, and `aria-label`; the menu is `role=\"menu\"`, with `role=\"menuitem\"` items, and gets the same `label` (default in English, “Context menu”).",
+   "On open, focus goes to the first enabled item, but the menu does not trap focus: `Tab` leaves it without closing it and, with focus outside, `Esc` no longer closes it (only a tap outside or scrolling).",
+   "`checked` does not become `aria-checked` and only draws a checkmark when the item has no `icon`; the state does not reach the screen reader."
   ],
   "movimento": [
-   "O menu cresce a partir do ponto do clique (a origem fica no ponteiro mesmo quando o menu é empurrado para dentro da tela) numa mola curta, e sai esmaecendo mais rápido do que entrou.",
-   "Os itens entram em sequência, 35 ms entre um e outro, e um realce único desliza entre as linhas sob o ponteiro; com o teclado, ele salta direto para o item em foco.",
-   "Com “reduzir movimento”, o menu só esmaece, os itens aparecem sem sequência e o realce não desliza."
+   "The menu grows from the click point (the origin stays at the pointer even when the menu is pushed into the screen) on a short spring, and leaves fading faster than it entered.",
+   "Items enter in sequence, 35 ms apart, and a single highlight slides between rows under the pointer; with the keyboard, it jumps straight to the focused item.",
+   "With “reduce motion”, the menu only fades, items appear with no sequence, and the highlight does not slide."
   ],
   "responsivo": [
-   "O menu usa `position: fixed` e é empurrado para ficar a 8 px das bordas da janela; acima de 300 px de altura (ou da altura da tela) ele rola por dentro, e rótulos longos terminam em reticências.",
-   "Ele fecha quando a página rola ou a janela muda de tamanho, em vez de acompanhar o alvo."
+   "The menu uses `position: fixed` and is pushed to stay 8 px from the window edges; above 300 px in height (or the screen height) it scrolls inside, and long labels end in an ellipsis.",
+   "It closes when the page scrolls or the window is resized, instead of following the target."
   ],
   "notasIA": [
-   "Envolva o objeto: `<ContextMenu label=\"Ações do arquivo\" items={itens}>…</ContextMenu>`; o alvo vira um `<div>` em bloco, e cada item precisa de `id` e `label`, com a ação em `onSelect`.",
-   "Dê um `icon` a todo item: sem ele aparece um ícone de reticências, e `checked` só troca esse ícone por um visto; `destructive` pinta o item com a cor de perigo.",
-   "Não ponha links ou botões dentro do alvo esperando que funcionem sozinhos: o clique neles sobe até o alvo e também abre o menu."
+   "Wrap the object: `<ContextMenu label=\"Ações do arquivo\" items={itens}>…</ContextMenu>`; the target becomes a block `<div>`, and each item needs `id` and `label`, with the action in `onSelect`.",
+   "Give every item an `icon`: without one an ellipsis icon appears, and `checked` only swaps that icon for a checkmark; `destructive` paints the item with the danger color.",
+   "Do not put links or buttons inside the target expecting them to work on their own: the click on them bubbles up to the target and also opens the menu."
   ]
  },
  "copy-button": {
   "quandoUsar": [
-   "Ao lado de um valor que a pessoa vai colar em outro lugar: um comando de instalação, uma chave de API, um link de convite.",
-   "Em tabelas, cartões e campos somente leitura, só com ícone (`iconOnly`) ou sem borda (`variant=\"plain\"`) para ocupar pouco espaço."
+   "Next to a value the person will paste elsewhere: an install command, an API key, an invite link.",
+   "In tables, cards, and read-only fields, icon-only (`iconOnly`) or borderless (`variant=\"plain\"`) to take little space."
   ],
   "quandoEvitar": [
-   "Use `code-block` para exibir trechos de código: ele já inclui este botão.",
-   "Quando copiar é um item de menu ou parte de outro controle, use o hook `useCopyFeedback` (instalado junto, em `lib/use-copy-feedback.ts`) em vez de aninhar este botão."
+   "Use `code-block` to display code snippets: it already includes this button.",
+   "When copying is a menu item or part of another control, use the `useCopyFeedback` hook (installed alongside, in `lib/use-copy-feedback.ts`) instead of nesting this button."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Copiam `value` e mostram a confirmação no próprio botão."
+    "acao": "Copy `value` and show the confirmation on the button itself."
    }
   ],
   "acessibilidade": [
-   "É um `<button type=\"button\">` cujo nome acessível é sempre `label`; a palavra visível e os ícones ficam em `aria-hidden`.",
-   "O resultado é anunciado numa região `aria-live=\"polite\"` como “`label`: Copied” ou “`label`: Could not copy”; o nome do botão não muda.",
-   "Na versão `iconOnly`, `label` é o único nome do botão: passe um texto que diga o que é copiado, como “Copiar link”."
+   "It is a `<button type=\"button\">` whose accessible name is always `label`; the visible word and the icons are `aria-hidden`.",
+   "The result is announced in an `aria-live=\"polite\"` region as “`label`: Copied” or “`label`: Could not copy”; the button name does not change.",
+   "In the `iconOnly` version, `label` is the button's only name: pass text that says what is copied, like “Copy link”."
   ],
   "movimento": [
-   "Ao copiar, o ícone troca por um visto que se desenha (ou por um alerta, na falha) e a palavra troca com um esmaecer curto; a largura acompanha a nova palavra numa mola sem ultrapassagem.",
-   "A pressão reduz a escala para 0,97 (0,96 só com ícone) e solta numa curva de mola; depois de 1,9 s o botão volta ao rótulo original.",
-   "Com “reduzir movimento”, as trocas são instantâneas, o visto aparece pronto, a largura salta e a pressão não altera a escala."
+   "On copy, the icon swaps for a checkmark that draws itself (or for an alert, on failure) and the word swaps with a short fade; the width follows the new word on a spring with no overshoot.",
+   "The press reduces the scale to 0.97 (0.96 for icon-only) and releases on a spring curve; after 1.9 s the button returns to the original label.",
+   "With “reduce motion”, swaps are instant, the checkmark appears already drawn, the width jumps, and the press does not change the scale."
   ],
   "notasIA": [
-   "Passe o texto exato em `value` e um `label` curto; `onCopied` só roda quando a cópia dá certo, e a falha aparece no próprio botão por 1,9 s.",
-   "“Copied”, “Failed” e os anúncios são fixos em inglês; numa interface em português, troque essas strings no arquivo instalado.",
-   "A cópia usa a Clipboard API e, se ela faltar ou for recusada (iframes, contexto inseguro), recorre a um `<textarea>` oculto com `execCommand(\"copy\")`."
+   "Pass the exact text in `value` and a short `label`; `onCopied` only runs when the copy succeeds, and failure shows on the button itself for 1.9 s.",
+   "“Copied”, “Failed”, and the announcements are fixed in English; in a Portuguese interface, replace those strings in the installed file.",
+   "Copying uses the Clipboard API and, if it is missing or refused (iframes, insecure context), falls back to a hidden `<textarea>` with `execCommand(\"copy\")`."
   ]
  },
  "cta-buttons": {
   "quandoUsar": [
-   "A chamada principal de uma página de marketing ou do fim de uma seção, com `ArrowButton` (“Começar teste grátis”) ou `MagneticButton` (“Agendar demonstração”).",
-   "Confirmar algo que não deve acontecer por um toque acidental, como um pagamento, com `SlideToConfirm`."
+   "The main call to action of a marketing page or the end of a section, with `ArrowButton` (“Start free trial”) or `MagneticButton` (“Schedule a demo”).",
+   "Confirming something that should not happen from an accidental tap, like a payment, with `SlideToConfirm`."
   ],
   "quandoEvitar": [
-   "Use `button` para ações comuns de interface, como formulários, diálogos e barras de ferramentas; estes três são botões de destaque.",
-   "Use `hold-to-confirm` ou `confirm-morph` quando a confirmação precisa caber num controle do tamanho de um botão: o `SlideToConfirm` é um trilho de 52 px de altura que ocupa a largura do pai."
+   "Use `button` for common interface actions, like forms, dialogs, and toolbars; these three are showcase buttons.",
+   "Use `hold-to-confirm` or `confirm-morph` when the confirmation needs to fit in a button-sized control: `SlideToConfirm` is a 52 px tall track that takes the parent's width."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No `ArrowButton` e no `MagneticButton`, acionam o botão; com `href` eles são links e respondem só a `Enter`."
+    "acao": "On `ArrowButton` and `MagneticButton`, trigger the button; with `href` they are links and respond only to `Enter`."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No `SlideToConfirm`, com o foco no polegar, confirmam direto, sem arrastar."
+    "acao": "On `SlideToConfirm`, with focus on the thumb, confirm directly, without dragging."
    }
   ],
   "acessibilidade": [
-   "`ArrowButton` e `MagneticButton` são `<button>` nativos, ou `<a>` quando recebem `href`; no `ArrowButton`, a cópia colorida do rótulo fica em `aria-hidden`, e o nome é o texto dos filhos.",
-   "No `SlideToConfirm`, o polegar é um botão com `aria-label` igual a `label` (depois, `confirmedLabel`); a ativação por teclado confirma sem arrastar, e um `role=\"status\"` anuncia a confirmação.",
-   "O texto do trilho é `aria-hidden` e os padrões estão em inglês (“Slide to confirm”, “Confirmed”): escreva em `label` a ação inteira, como “Deslize para pagar R$ 48”."
+   "`ArrowButton` and `MagneticButton` are native `<button>`, or `<a>` when they get `href`; on `ArrowButton`, the colored copy of the label is `aria-hidden`, and the name is the children's text.",
+   "On `SlideToConfirm`, the thumb is a button with an `aria-label` equal to `label` (afterward, `confirmedLabel`); keyboard activation confirms without dragging, and a `role=\"status\"` announces the confirmation.",
+   "The track text is `aria-hidden` and the defaults are in English (“Slide to confirm”, “Confirmed”): write the whole action in `label`, like “Slide to pay R$ 48”."
   ],
   "movimento": [
-   "`ArrowButton`: no hover, no foco por teclado ou na pressão, o disco da seta cresce até cobrir o botão (0,48 s), o rótulo muda de cor na borda do preenchimento e uma seta nova entra pela esquerda.",
-   "`MagneticButton`: com o mouse a até `reach` px, o botão segue o cursor numa mola solta, com um leve balanço ao voltar, e o rótulo vai um pouco além; toque e caneta não movem nada.",
-   "`SlideToConfirm`: as setas do polegar dão um empurrão a cada 1,8 s e soltar antes de `threshold` (90%) o devolve numa mola; com “reduzir movimento”, nada disso anima, o ímã para e o `ArrowButton` preenche sem transição."
+   "`ArrowButton`: on hover, keyboard focus, or press, the arrow disc grows to cover the button (0.48 s), the label changes color at the fill edge, and a new arrow enters from the left.",
+   "`MagneticButton`: with the mouse within `reach` px, the button follows the cursor on a loose spring, with a slight sway on return, and the label moves a bit further; touch and pen move nothing.",
+   "`SlideToConfirm`: the thumb arrows nudge every 1.8 s and releasing before `threshold` (90%) returns it on a spring; with “reduce motion”, none of this animates, the magnet stops, and `ArrowButton` fills with no transition."
   ],
   "responsivo": [
-   "O `SlideToConfirm` ocupa a largura do pai até `20rem` e mede o trilho com um observador, então o curso do polegar se ajusta; com `touch-action: pan-y`, a rolagem vertical continua funcionando sobre ele.",
-   "No `ArrowButton`, o rótulo não quebra linha e termina em reticências quando falta espaço."
+   "`SlideToConfirm` takes the parent's width up to `20rem` and measures the track with an observer, so the thumb travel adjusts; with `touch-action: pan-y`, vertical scrolling still works over it.",
+   "On `ArrowButton`, the label does not wrap and ends in an ellipsis when space runs out."
   ],
   "desempenho": [
-   "Cada `MagneticButton` escuta `pointermove` na janela inteira e mede a própria posição a cada movimento do mouse; use poucos por página."
+   "Each `MagneticButton` listens to `pointermove` on the whole window and measures its own position on every mouse move; use few per page."
   ],
   "notasIA": [
-   "São três exportações do mesmo arquivo: `import ArrowButton, { MagneticButton, SlideToConfirm } from \"@/components/ryan-ui/cta-buttons/cta-buttons\"` (a padrão é o `ArrowButton`).",
-   "No `SlideToConfirm`, a ação vai em `onConfirm`, que roda uma vez (um toque simples só balança o polegar); para controlar, use `confirmed` com `onConfirmedChange`, e `resetAfter` para voltar sozinho ao início.",
-   "`ArrowButton` e `MagneticButton` viram links com `href`; o `ArrowButton` aceita `icon` no lugar da seta e `size` `md` ou `lg`, e o `MagneticButton` aceita `strength` (0 desliga o ímã) e `reach`."
+   "They are three exports from the same file: `import ArrowButton, { MagneticButton, SlideToConfirm } from \"@/components/ryan-ui/cta-buttons/cta-buttons\"` (the default is `ArrowButton`).",
+   "On `SlideToConfirm`, the action goes in `onConfirm`, which runs once (a simple tap only wiggles the thumb); to control it, use `confirmed` with `onConfirmedChange`, and `resetAfter` to return to the start on its own.",
+   "`ArrowButton` and `MagneticButton` become links with `href`; `ArrowButton` accepts `icon` in place of the arrow and `size` `md` or `lg`, and `MagneticButton` accepts `strength` (0 turns off the magnet) and `reach`."
   ]
  },
  "dock": {
   "quandoUsar": [
-   "Um lançador de aplicativos ou de áreas no rodapé de uma tela, com poucos ícones e um item ativo.",
-   "Interfaces de demonstração ou criativas em que a ampliação sob o cursor faz parte da identidade."
+   "An app or area launcher at the bottom of a screen, with few icons and one active item.",
+   "Demo or creative interfaces where magnification under the cursor is part of the identity."
   ],
   "quandoEvitar": [
-   "Use `floating-button-group` para barras de ferramentas de trabalho, com rótulos e atalhos, em que tiles que crescem e quicam atrapalhariam.",
-   "Use `bounce-sidebar` ou `animated-sidebar` para a navegação principal de um app com muitas seções e nomes sempre visíveis.",
-   "Evite como única navegação em telas estreitas: no toque não há ampliação nem balão com o nome, e a fileira não se adapta à largura."
+   "Use `floating-button-group` for work toolbars, with labels and shortcuts, where tiles that grow and bounce would get in the way.",
+   "Use `bounce-sidebar` or `animated-sidebar` for the main navigation of an app with many sections and always-visible names.",
+   "Avoid as the only navigation on narrow screens: on touch there is no magnification or name bubble, and the row does not adapt to the width."
   ],
   "teclado": [
    {
@@ -437,322 +437,322 @@
      "→",
      "←"
     ],
-    "acao": "Movem o foco entre os tiles habilitados e dão a volta nas pontas; o tile em foco é ampliado como se o cursor estivesse sobre ele."
+    "acao": "Move focus between enabled tiles and wrap around at the ends; the focused tile is magnified as if the cursor were over it."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vão para o primeiro e o último tile habilitado."
+    "acao": "Go to the first and last enabled tile."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o tile: ele quica, vira o ativo e chama `onValueChange` e `onSelect`."
+    "acao": "Trigger the tile: it bounces, becomes the active one, and calls `onValueChange` and `onSelect`."
    }
   ],
   "acessibilidade": [
-   "O contêiner é `role=\"toolbar\"` com `aria-label` (padrão em inglês, “Dock”); cada tile é um `<button>` com `aria-label` igual a `label` e `aria-pressed` marcando o ativo.",
-   "O balão com o nome é só visual (`aria-hidden`) e aparece com o ponteiro ou com o foco do teclado; o ponto de `open` também é decorativo e não é anunciado.",
-   "Todos os tiles são paradas de `Tab`, além das setas; `separatorBefore` insere um `role=\"separator\"` vertical."
+   "The container is `role=\"toolbar\"` with `aria-label` (default in English, “Dock”); each tile is a `<button>` with an `aria-label` equal to `label` and `aria-pressed` marking the active one.",
+   "The name bubble is visual only (`aria-hidden`) and appears with the pointer or keyboard focus; the `open` dot is also decorative and is not announced.",
+   "All tiles are `Tab` stops, in addition to the arrows; `separatorBefore` inserts a vertical `role=\"separator\"`."
   ],
   "movimento": [
-   "Com mouse ou caneta, cada tile cresce conforme a proximidade do cursor, numa curva que se apaga em `range` px (140), suavizada por uma mola; o tile sob o cursor chega a `magnification` vezes o tamanho (1,6).",
-   "Ao pressionar, o tile dá dois pulos, um alto e um baixo (0,62 s); o ponto sob o ativo se alonga numa barra curta, e o balão com o nome sobe e esmaece acima do tile.",
-   "No toque não há ampliação nem balão; com “reduzir movimento”, também não há ampliação nem pulos, e o balão só esmaece."
+   "With mouse or pen, each tile grows with the cursor's proximity, on a curve that fades out at `range` px (140), smoothed by a spring; the tile under the cursor reaches `magnification` times its size (1.6).",
+   "On press, the tile makes two hops, one high and one low (0.62 s); the dot under the active one stretches into a short bar, and the name bubble rises and fades above the tile.",
+   "On touch there is no magnification or bubble; with “reduce motion”, there is also no magnification or hops, and the bubble only fades."
   ],
   "responsivo": [
-   "O dock não rola nem quebra linha: os tiles têm largura fixa (`size`), e num contêiner mais estreito que a fileira eles transbordam; dimensione `size` e a quantidade de itens para a menor tela.",
-   "Os tiles crescem para cima a partir da base da barra, que mantém a altura; deixe espaço livre acima do dock para os tiles ampliados e o balão."
+   "The dock does not scroll or wrap: tiles have a fixed width (`size`), and in a container narrower than the row they overflow; size `size` and the number of items for the smallest screen.",
+   "Tiles grow upward from the bar's base, which keeps its height; leave free space above the dock for the magnified tiles and the bubble."
   ],
   "desempenho": [
-   "A cada movimento do ponteiro sobre o dock, cada tile mede a própria posição e anima o tamanho numa mola; pense em uma dezena de tiles, não em dezenas."
+   "On every pointer move over the dock, each tile measures its own position and animates its size on a spring; think a dozen tiles, not dozens."
   ],
   "notasIA": [
-   "Cada item precisa de `id`, `label` e `icon` (um SVG de uns 45% de `size`); controle o ativo com `value` e `onValueChange`, ou deixe interno com `defaultValue`.",
-   "`open` desenha o ponto de “em execução”, `separatorBefore` uma divisória antes do item e `disabled` o deixa visível mas inerte; `size`, `magnification` e `range` ajustam a ampliação.",
-   "Dê ao pai espaço acima do dock (o demo usa `padding-top` de `--space-12`) e largura para a fileira inteira."
+   "Each item needs `id`, `label`, and `icon` (an SVG of about 45% of `size`); control the active one with `value` and `onValueChange`, or leave it internal with `defaultValue`.",
+   "`open` draws the “running” dot, `separatorBefore` a divider before the item, and `disabled` leaves it visible but inert; `size`, `magnification`, and `range` tune the magnification.",
+   "Give the parent space above the dock (the demo uses `padding-top` of `--space-12`) and width for the whole row."
   ]
  },
  "dropdown-menu": {
   "quandoUsar": [
-   "Um conjunto curto de ações sobre a página ou um objeto, atrás de um botão com rótulo, como “Ações do projeto”.",
-   "Escolhas como “Ordenar por”, em que o próprio gatilho mostra a opção atual: troque `label` e o texto novo entra animado, com a largura do gatilho acompanhando numa mola."
+   "A short set of actions on the page or an object, behind a labeled button, like “Project actions”.",
+   "Choices like “Sort by”, where the trigger itself shows the current option: change `label` and the new text enters animated, with the trigger width following on a spring."
   ],
   "quandoEvitar": [
-   "Use `select` quando a escolha é um valor de formulário com a opção marcada: aqui os itens são ações, sem estado selecionado.",
-   "Use `split-button` quando uma ação principal deve rodar com um clique e as outras são alternativas dela.",
-   "Use `context-menu` para ações abertas com o botão direito sobre o próprio objeto, sem gatilho visível."
+   "Use `select` when the choice is a form value with the option marked: here the items are actions, with no selected state.",
+   "Use `split-button` when a main action should run on a click and the others are alternatives to it.",
+   "Use `context-menu` for actions opened with a right-click on the object itself, with no visible trigger."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço",
+     "Space",
      "↓"
     ],
-    "acao": "No gatilho, abrem o menu com o foco no primeiro item."
+    "acao": "On the trigger, open the menu with focus on the first item."
    },
    {
     "teclas": [
      "↓",
      "↑"
     ],
-    "acao": "Percorrem os itens habilitados e dão a volta nas pontas."
+    "acao": "Move through the enabled items and wrap around at the ends."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vão para o primeiro e o último item; `Page Up` e `Page Down` fazem o mesmo."
+    "acao": "Go to the first and last item; `Page Up` and `Page Down` do the same."
    },
    {
     "teclas": [
      "A–Z"
     ],
-    "acao": "Digitar o começo de um rótulo leva o foco a esse item."
+    "acao": "Typing the start of a label moves focus to that item."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Escolhem o item em foco e fecham o menu."
+    "acao": "Select the focused item and close the menu."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o menu e devolve o foco ao gatilho."
+    "acao": "Closes the menu and returns focus to the trigger."
    }
   ],
   "acessibilidade": [
-   "Usa o `DropdownMenu` do Radix: o gatilho recebe `aria-haspopup`, `aria-expanded` e `aria-controls`, os itens são `role=\"menuitem\"`, e itens `disabled` ficam esmaecidos e são pulados pelas setas.",
-   "O menu é modal: enquanto está aberto, o foco fica preso nele, a página não rola, o resto fica oculto para leitores de tela e um clique fora só fecha o menu.",
-   "O gatilho sempre mostra o texto de `label`, que também nomeia o menu; os ícones do gatilho e dos itens são decorativos."
+   "Uses Radix's `DropdownMenu`: the trigger gets `aria-haspopup`, `aria-expanded`, and `aria-controls`, items are `role=\"menuitem\"`, and `disabled` items are dimmed and skipped by the arrows.",
+   "The menu is modal: while open, focus is trapped in it, the page does not scroll, the rest is hidden from screen readers, and a click outside only closes the menu.",
+   "The trigger always shows the `label` text, which also names the menu; the icons on the trigger and items are decorative."
   ],
   "movimento": [
-   "O menu surge deslocado 5 px na direção do gatilho e em escala de 0,97, por transição CSS, e sai mais rápido do que entrou; os itens entram em sequência, 35 ms entre um e outro.",
-   "Um realce único desliza entre os itens numa mola sob o ponteiro e salta direto com as setas; a seta do gatilho gira 180° com o menu aberto.",
-   "Com “reduzir movimento”, o menu só esmaece, os itens aparecem juntos e o realce, a seta e o rótulo do gatilho trocam sem animação."
+   "The menu appears offset 5 px toward the trigger and at 0.97 scale, via a CSS transition, and leaves faster than it entered; items enter in sequence, 35 ms apart.",
+   "A single highlight slides between items on a spring under the pointer and jumps straight with the arrows; the trigger arrow rotates 180° with the menu open.",
+   "With “reduce motion”, the menu only fades, items appear together, and the highlight, the arrow, and the trigger label swap with no animation."
   ],
   "responsivo": [
-   "O menu é alinhado ao fim do gatilho, fica a 12 px das bordas da janela, muda de lado se faltar espaço e nunca passa da largura disponível; o rótulo do gatilho termina em reticências quando o espaço acaba."
+   "The menu is aligned to the end of the trigger, stays 12 px from the window edges, flips sides if there is not enough room, and never exceeds the available width; the trigger label ends in an ellipsis when space runs out."
   ],
   "notasIA": [
-   "Passe `label` e `items` (cada um com `label`, `onSelect` e, se quiser, `icon`, `disabled`, `destructive` e `separatorBefore`); o `label` do item também é a chave React, então não repita rótulos.",
-   "O gatilho é fixo (texto de `label`, `icon` opcional e uma seta) e o estado aberto é interno: não há prop para outro gatilho, para um botão só com ícone nem para controlar `open`.",
-   "Os itens não mostram marca de seleção; para um seletor de valor, prefira `select`, ou mostre a escolha atual no próprio `label`."
+   "Pass `label` and `items` (each with `label`, `onSelect`, and, if you want, `icon`, `disabled`, `destructive`, and `separatorBefore`); the item's `label` is also the React key, so do not repeat labels.",
+   "The trigger is fixed (`label` text, optional `icon`, and an arrow) and the open state is internal: there is no prop for another trigger, for an icon-only button, or to control `open`.",
+   "Items show no selection mark; for a value selector, prefer `select`, or show the current choice in the `label` itself."
   ]
  },
  "expandable-control": {
   "quandoUsar": [
-   "Uma fileira de ícones em que só o controle em uso mostra o nome, como Compartilhar, Salvar e Avisar num artigo.",
-   "Filtros ou estados em forma de chip (`variant=\"chip\"`) que, ativos, mostram o valor e uma ação de limpar, como “Status: Aberto ×”."
+   "A row of icons where only the control in use shows its name, like Share, Save, and Notify on an article.",
+   "Filters or states in chip form (`variant=\"chip\"`) that, when active, show the value and a clear action, like “Status: Open ×”."
   ],
   "quandoEvitar": [
-   "Use `expanding-button-group` quando os ícones formam uma barra única e o rótulo deve seguir o ponteiro ou o foco, sem clique.",
-   "Use `chip-group` quando a pessoa escolhe entre várias opções de filtro.",
-   "Use `button` com rótulo quando a ação é usada com frequência: aqui o nome só aparece depois de um clique."
+   "Use `expanding-button-group` when the icons form a single bar and the label should follow the pointer or focus, with no click.",
+   "Use `chip-group` when the person chooses among several filter options.",
+   "Use `button` with a label when the action is used often: here the name only appears after a click."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão principal, abrem ou fecham o controle; na ação extra, executam `action.onClick`."
+    "acao": "On the main button, open or close the control; on the extra action, run `action.onClick`."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Com o controle aberto, fecha e devolve o foco ao botão principal."
+    "acao": "With the control open, closes it and returns focus to the main button."
    }
   ],
   "acessibilidade": [
-   "O botão principal tem `aria-expanded` e `aria-label` igual a `label`, aberto ou fechado; o rótulo visível e `detail` ficam em `aria-hidden`, então o que estiver só em `detail` não é anunciado.",
-   "A ação extra é um segundo `<button>` com `aria-label` e `title` vindos de `action.label`; ela só existe com o controle aberto e vem logo depois do principal na ordem do `Tab`."
+   "The main button has `aria-expanded` and an `aria-label` equal to `label`, open or closed; the visible label and `detail` are `aria-hidden`, so anything that is only in `detail` is not announced.",
+   "The extra action is a second `<button>` with `aria-label` and `title` from `action.label`; it only exists with the control open and comes right after the main one in the `Tab` order."
   ],
   "movimento": [
-   "Ao abrir, a largura cresce numa mola sem ultrapassagem e o rótulo desliza 8 px saindo de um leve desfoque; ao fechar, ele esmaece rápido enquanto a largura se recolhe, e os vizinhos acompanham sem pulo.",
-   "O ícone fica parado numa caixa do tamanho do controle fechado e encolhe para 0,86 na pressão; a ação extra encolhe para 0,9.",
-   "Com “reduzir movimento”, o rótulo e a ação só esmaecem, a largura muda de uma vez e a pressão não altera a escala."
+   "On open, the width grows on a spring with no overshoot and the label slides 8 px out of a slight blur; on close, it fades quickly while the width shrinks, and neighbors follow with no jump.",
+   "The icon stays still in a box the size of the closed control and shrinks to 0.86 on press; the extra action shrinks to 0.9.",
+   "With “reduce motion”, the label and the action only fade, the width changes at once, and the press does not change the scale."
   ],
   "notasIA": [
-   "Para que só um fique aberto por vez, controle no pai: `expanded={aberto === \"share\"}` e `onExpandedChange={v => setAberto(v ? \"share\" : null)}`.",
-   "`action` recebe `icon`, `label` e `onClick` e só aparece com o controle aberto; `detail` acrescenta um texto depois do rótulo, como uma contagem.",
-   "`tone=\"accent\"` preenche com a cor de destaque quando aberto, e `variant=\"chip\"` é a versão compacta, de 2rem de altura, para filtros e tags."
+   "To keep only one open at a time, control it in the parent: `expanded={aberto === \"share\"}` and `onExpandedChange={v => setAberto(v ? \"share\" : null)}`.",
+   "`action` takes `icon`, `label`, and `onClick` and only appears with the control open; `detail` adds text after the label, like a count.",
+   "`tone=\"accent\"` fills with the accent color when open, and `variant=\"chip\"` is the compact version, 2rem tall, for filters and tags."
   ]
  },
  "expanding-button-group": {
   "quandoUsar": [
-   "Ações de uma mensagem ou de um item de lista em que só uma precisa de nome visível por vez: Responder, Arquivar, Sinalizar, Excluir.",
-   "Ações rápidas que se confirmam no próprio botão com uma palavra no passado, como Arquivar virando Arquivado, sem toast."
+   "Actions on a message or a list item where only one needs a visible name at a time: Reply, Archive, Flag, Delete.",
+   "Quick actions that confirm on the button itself with a past-tense word, like Archive becoming Archived, with no toast."
   ],
   "quandoEvitar": [
-   "Use `floating-button-group` ou `button-group` quando todos os rótulos devem ficar visíveis ao mesmo tempo.",
-   "Use `confirm-morph` ou `hold-to-confirm` para exclusões que pedem confirmação: aqui `tone=\"danger\"` só muda a cor, e a ação roda no clique.",
-   "Evite em telas só de toque para ações urgentes: sem hover, o primeiro toque só revela o rótulo e é preciso um segundo para executar."
+   "Use `floating-button-group` or `button-group` when all labels should be visible at the same time.",
+   "Use `confirm-morph` or `hold-to-confirm` for deletions that need confirmation: here `tone=\"danger\"` only changes the color, and the action runs on click.",
+   "Avoid on touch-only screens for urgent actions: with no hover, the first tap only reveals the label and a second one is needed to run it."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Entra e sai do grupo numa parada só; o foco volta à última ação focada."
+    "acao": "Enters and leaves the group in a single stop; focus returns to the last focused action."
    },
    {
     "teclas": [
      "→",
      "←"
     ],
-    "acao": "Movem o foco entre as ações e dão a volta nas pontas; a ação em foco se expande e mostra o rótulo."
+    "acao": "Move focus between actions and wrap around at the ends; the focused action expands and shows the label."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vão para a primeira e a última ação."
+    "acao": "Go to the first and last action."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Executam a ação em foco; com `doneLabel`, ela confirma no lugar."
+    "acao": "Run the focused action; with `doneLabel`, it confirms in place."
    }
   ],
   "acessibilidade": [
-   "O grupo é `role=\"toolbar\"` com o `label` obrigatório e tabindex móvel; cada botão tem `aria-label` igual ao `label` do item, mesmo recolhido.",
-   "Itens `disabled` usam `aria-disabled`, continuam focáveis e mostram o rótulo, para a pessoa descobrir o que fariam; enquanto a Promise de `onSelect` roda, o botão recebe `aria-busy`.",
-   "A confirmação (`doneLabel`) é anunciada por um `role=\"status\"`, inclusive quando a mesma ação se repete."
+   "The group is `role=\"toolbar\"` with the required `label` and a roving tabindex; each button has an `aria-label` equal to the item's `label`, even when collapsed.",
+   "`disabled` items use `aria-disabled`, stay focusable, and show the label, so the person can discover what they would do; while the `onSelect` Promise runs, the button gets `aria-busy`.",
+   "The confirmation (`doneLabel`) is announced by a `role=\"status\"`, including when the same action repeats."
   ],
   "movimento": [
-   "A ação sob o mouse ou em foco abre a largura numa mola sem ultrapassagem e o rótulo desliza de trás do ícone; as vizinhas se recolhem, e o grupo inteiro acompanha a largura.",
-   "Ao confirmar, o ícone vira um visto que se desenha e a palavra troca para `doneLabel` sem mudar a largura, que já reserva a maior das duas; com uma Promise pendente, o ícone pulsa.",
-   "Com “reduzir movimento”, a largura muda de uma vez, o rótulo só esmaece, o ícone não encolhe na pressão e o pulso de espera vira uma opacidade fixa."
+   "The action under the mouse or in focus opens its width on a spring with no overshoot and the label slides out from behind the icon; the neighbors collapse, and the whole group follows the width.",
+   "On confirm, the icon becomes a checkmark that draws itself and the word swaps to `doneLabel` without changing the width, which already reserves the larger of the two; with a pending Promise, the icon pulses.",
+   "With “reduce motion”, the width changes at once, the label only fades, the icon does not shrink on press, and the wait pulse becomes a fixed opacity."
   ],
   "notasIA": [
-   "Cada item precisa de `id`, `label` curto (um verbo) e `icon`; `onSelect` pode devolver uma Promise, e devolver `false` ou rejeitar pula a confirmação.",
-   "`doneLabel` (“Arquivado”) liga a confirmação no lugar por `confirmDuration` ms (1400); omita-o em ações que abrem algo, como Responder.",
-   "Uma ação está sempre expandida: `defaultExpanded` escolhe qual (por padrão, a primeira habilitada), e `onAction(id)` roda antes do `onSelect` do item."
+   "Each item needs `id`, a short `label` (a verb), and `icon`; `onSelect` can return a Promise, and returning `false` or rejecting skips the confirmation.",
+   "`doneLabel` (“Archived”) turns on the in-place confirmation for `confirmDuration` ms (1400); omit it on actions that open something, like Reply.",
+   "One action is always expanded: `defaultExpanded` chooses which (by default, the first enabled one), and `onAction(id)` runs before the item's `onSelect`."
   ]
  },
  "floating-button-group": {
   "quandoUsar": [
-   "Barras de ações sobre um quadro ou documento, como Desfazer, Refazer, Apresentar e Compartilhar, com dicas de atalho no tooltip.",
-   "Barras flutuantes sobre uma seleção ou sobre o conteúdo (`variant=\"floating\"`), só com ícones e o nome em tooltip."
+   "Action bars over a board or document, like Undo, Redo, Present, and Share, with shortcut hints in the tooltip.",
+   "Floating bars over a selection or over the content (`variant=\"floating\"`), with icons only and the name in a tooltip."
   ],
   "quandoEvitar": [
-   "Use `button-group` quando as ações devem formar uma superfície única com divisórias ou precisam de um menu anexo.",
-   "Use `toggle-group` quando os botões são opções que ligam e desligam em conjunto, como negrito e itálico.",
-   "Use `overflow-actions` quando a barra precisa caber em larguras variáveis: esta bandeja não recolhe nem quebra linha."
+   "Use `button-group` when the actions should form a single surface with dividers or need an attached menu.",
+   "Use `toggle-group` when the buttons are options that turn on and off together, like bold and italic.",
+   "Use `overflow-actions` when the bar needs to fit varying widths: this tray does not collapse or wrap."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Entra e sai da barra numa parada só; o foco volta à última ação focada."
+    "acao": "Enters and leaves the bar in a single stop; focus returns to the last focused action."
    },
    {
     "teclas": [
      "→",
      "←"
     ],
-    "acao": "Movem o foco entre as ações habilitadas e dão a volta nas pontas; na orientação `vertical`, use `↓` e `↑`."
+    "acao": "Move focus between enabled actions and wrap around at the ends; in the `vertical` orientation, use `↓` and `↑`."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vão para a primeira e a última ação habilitada."
+    "acao": "Go to the first and last enabled action."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Executam a ação em foco; o realce escurece enquanto a tecla está pressionada."
+    "acao": "Run the focused action; the highlight darkens while the key is held down."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o tooltip aberto (comportamento do Radix)."
+    "acao": "Closes the open tooltip (Radix behavior)."
    }
   ],
   "acessibilidade": [
-   "A bandeja é `role=\"toolbar\"` com `aria-orientation` e tabindex móvel; cada botão tem `aria-label` igual ao `label`, e `pressed` vira `aria-pressed` para ações de modo, como Apresentar.",
-   "Itens só com ícone ou com `shortcut` ganham um tooltip com o nome e o atalho, ao passar o mouse ou focar pelo teclado; `shortcut` é só uma dica, o componente não registra a tecla.",
-   "Itens `disabled` recebem `aria-disabled` e são pulados pelas setas, por `Home` e por `End`."
+   "The tray is `role=\"toolbar\"` with `aria-orientation` and a roving tabindex; each button has an `aria-label` equal to `label`, and `pressed` becomes `aria-pressed` for mode actions, like Present.",
+   "Icon-only items or items with `shortcut` get a tooltip with the name and shortcut, on mouse hover or keyboard focus; `shortcut` is only a hint, the component does not register the key.",
+   "`disabled` items get `aria-disabled` and are skipped by the arrows, by `Home`, and by `End`."
   ],
   "movimento": [
-   "Um único realce se move e muda de tamanho até o botão sob o ponteiro ou em foco, numa mola sem ultrapassagem; vindo do nada, ele surge no lugar crescendo de 0,94, e esmaece quando o ponteiro sai.",
-   "Na pressão, o realce escurece e encolhe para 0,965 no lugar; um rótulo novo, como Compartilhar → Copiado, sobe de um leve desfoque sem mudar a largura se estiver em `reserveLabels`.",
-   "Com “reduzir movimento”, o realce salta para o botão sem escala e as cores mudam quase na hora."
+   "A single highlight moves and resizes to the button under the pointer or in focus, on a spring with no overshoot; coming from nothing, it appears in place growing from 0.94, and fades when the pointer leaves.",
+   "On press, the highlight darkens and shrinks to 0.965 in place; a new label, like Share → Copied, rises from a slight blur without changing the width if it is in `reserveLabels`.",
+   "With “reduce motion”, the highlight jumps to the button with no scale and colors change almost instantly."
   ],
   "responsivo": [
-   "A bandeja mantém sempre o tamanho natural: não quebra linha nem corta botões, então numa tela estreita ela transborda; use `iconOnly` ou menos itens.",
-   "Na orientação `vertical`, os tooltips abrem à direita por padrão (`tooltipSide`), para não cobrir o botão vizinho."
+   "The tray always keeps its natural size: it does not wrap or clip buttons, so on a narrow screen it overflows; use `iconOnly` or fewer items.",
+   "In the `vertical` orientation, tooltips open to the right by default (`tooltipSide`), so they do not cover the neighboring button."
   ],
   "notasIA": [
-   "Depende de `tooltip`, instalado junto; cada ação precisa de `id` e `label`, e um item `{ type: \"separator\" }` desenha uma divisória.",
-   "Para ações de modo, passe `pressed` controlado pelo pai e alterne no `onSelect`; `onAction(id)` roda depois do `onSelect` do item, bom para registrar uso.",
-   "Se um rótulo muda depois do clique, liste todos os textos em `reserveLabels`; `iconOnly` no grupo vale para todos os itens, e o `iconOnly` de cada item tem prioridade."
+   "Depends on `tooltip`, installed alongside; each action needs `id` and `label`, and an item `{ type: \"separator\" }` draws a divider.",
+   "For mode actions, pass `pressed` controlled by the parent and toggle it in `onSelect`; `onAction(id)` runs after the item's `onSelect`, good for logging usage.",
+   "If a label changes after the click, list all the texts in `reserveLabels`; `iconOnly` on the group applies to all items, and each item's `iconOnly` takes priority."
   ]
  },
  "hold-to-confirm": {
   "quandoUsar": [
-   "Ações destrutivas ou difíceis de desfazer cujas consequências já estão visíveis na tela, como excluir o projeto que está aberto.",
-   "Ações em que um toque acidental não pode contar e um diálogo seria pesado: publicar, arquivar, liberar um envio."
+   "Destructive or hard-to-undo actions whose consequences are already visible on screen, like deleting the project that is open.",
+   "Actions where an accidental tap must not count and a dialog would be heavy: publish, archive, release a shipment."
   ],
   "quandoEvitar": [
-   "Use `dialog` quando a pessoa precisa ler as consequências antes de confirmar.",
-   "Use `confirm-morph` quando a confirmação deve oferecer Cancelar, mostrar o andamento e permitir Desfazer no lugar.",
-   "Use `toast-action` com Desfazer para ações frequentes e reversíveis: segurar a cada uso deixa o fluxo lento."
+   "Use `dialog` when the person needs to read the consequences before confirming.",
+   "Use `confirm-morph` when the confirmation should offer Cancel, show progress, and allow Undo in place.",
+   "Use `toast-action` with Undo for frequent, reversible actions: holding on every use slows the flow."
   ],
   "teclado": [
    {
     "teclas": [
-     "Espaço",
+     "Space",
      "Enter"
     ],
-    "acao": "Mantidas pressionadas no botão, enchem o preenchimento; soltar antes do fim o desfaz, e completar chama `onConfirm`."
+    "acao": "Held down on the button, they advance the fill; releasing before the end undoes it, and completing calls `onConfirm`."
    }
   ],
   "acessibilidade": [
-   "É um `<button>` com `aria-describedby` apontando para uma instrução oculta (“Press and hold for 1.2 seconds to confirm…”, fixa em inglês); ao concluir, recebe `aria-disabled` e um `role=\"status\"` anuncia `confirmedLabel`.",
-   "O `aria-label` acompanha o texto visível (`label`, depois `confirmedLabel`); um clique ou toque rápido não confirma, então diga no `label` que é preciso segurar, como “Segure para excluir o projeto”.",
-   "Arrastar o ponteiro para mais de 24 px fora do botão, ou tirar o foco dele, cancela o pressionamento."
+   "It is a `<button>` with `aria-describedby` pointing to a hidden instruction (“Press and hold for 1.2 seconds to confirm…”, fixed in English); on completion, it gets `aria-disabled` and a `role=\"status\"` announces `confirmedLabel`.",
+   "The `aria-label` follows the visible text (`label`, then `confirmedLabel`); a quick click or tap does not confirm, so say in the `label` that holding is required, like “Hold to delete project”.",
+   "Dragging the pointer more than 24 px outside the button, or taking focus away from it, cancels the press."
   ],
   "movimento": [
-   "O preenchimento avança em ritmo linear por `duration` ms, como uma cópia invertida do botão revelada da esquerda (o texto muda de cor na borda); soltar antes o rebobina numa mola, e pressionar de novo continua de onde parou.",
-   "Na pressão, o botão encolhe levemente (0,97); ao concluir, o ícone vira um visto que se desenha e a largura acompanha o novo rótulo numa mola sem ultrapassagem.",
-   "Com “reduzir movimento”, o preenchimento ainda avança enquanto se segura (ele é o cronômetro), mas volta de uma vez ao soltar; não há escala, e rótulo e ícone só esmaecem."
+   "The fill advances at a linear pace for `duration` ms, like an inverted copy of the button revealed from the left (the text changes color at the edge); releasing early rewinds it on a spring, and pressing again continues from where it stopped.",
+   "On press, the button shrinks slightly (0.97); on completion, the icon becomes a checkmark that draws itself and the width follows the new label on a spring with no overshoot.",
+   "With “reduce motion”, the fill still advances while held (it is the timer), but returns at once on release; there is no scale, and label and icon only fade."
   ],
   "notasIA": [
-   "`onConfirm` roda uma vez, ao completar; depois o botão fica concluído até remontar (o demo troca a `key`) ou, no modo controlado, até `confirmed` voltar a `false`.",
-   "`tone=\"danger\"` é para ações irreversíveis (o padrão `accent` usa a cor de destaque); `duration` ajusta o tempo (1200 ms) e `icon` troca a lixeira padrão.",
-   "Use `onHoldChange` para uma dica ao redor, como “Continue segurando…”; `confirmedLabel` tem padrão em inglês (“Done”), e a instrução oculta só muda no arquivo instalado."
+   "`onConfirm` runs once, on completion; afterward the button stays done until it remounts (the demo changes the `key`) or, in controlled mode, until `confirmed` goes back to `false`.",
+   "`tone=\"danger\"` is for irreversible actions (the default `accent` uses the accent color); `duration` sets the time (1200 ms) and `icon` replaces the default trash can.",
+   "Use `onHoldChange` for a hint around it, like “Keep holding…”; `confirmedLabel` defaults to English (“Done”), and the hidden instruction only changes in the installed file."
   ]
  },
  "hover-highlight": {
   "quandoUsar": [
-   "Linhas de navegação, menus e barras de ícones em que um fundo compartilhado deve seguir o ponteiro e repousar na seção atual (`value`).",
-   "Quando você quer o efeito em itens próprios: qualquer elemento com `data-highlight-item`, em qualquer profundidade, recebe a pílula."
+   "Navigation rows, menus, and icon bars where a shared background should follow the pointer and rest on the current section (`value`).",
+   "When you want the effect on your own items: any element with `data-highlight-item`, at any depth, gets the pill."
   ],
   "quandoEvitar": [
-   "Use `tabs` ou `segmented-control` quando o item escolhido troca o conteúdo exibido: aqui não há `role=\"tablist\"` nem painéis.",
-   "Use `dropdown-menu` ou `context-menu` quando as ações devem ficar num menu flutuante, com semântica de menu.",
-   "Use `floating-button-group` para uma barra de ações pronta, com tooltips e uma única parada de `Tab`."
+   "Use `tabs` or `segmented-control` when the chosen item swaps the displayed content: here there is no `role=\"tablist\"` or panels.",
+   "Use `dropdown-menu` or `context-menu` when the actions should live in a floating menu, with menu semantics.",
+   "Use `floating-button-group` for a ready-made action bar, with tooltips and a single `Tab` stop."
   ],
   "teclado": [
    {
@@ -760,455 +760,455 @@
      "↓",
      "↑"
     ],
-    "acao": "Na orientação `vertical` (padrão), movem o foco entre os itens habilitados e dão a volta nas pontas; em `horizontal`, use `→` e `←`."
+    "acao": "In the `vertical` orientation (default), move focus between enabled items and wrap around at the ends; in `horizontal`, use `→` and `←`."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vão para o primeiro e o último item habilitado; setas, `Home` e `End` são desligados com `arrowNavigation={false}`."
+    "acao": "Go to the first and last enabled item; arrows, `Home`, and `End` are turned off with `arrowNavigation={false}`."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o item em foco, e um item com `value` passa a ser o selecionado; itens com `href` são links e respondem só a `Enter`."
+    "acao": "Trigger the focused item, and an item with `value` becomes the selected one; items with `href` are links and respond only to `Enter`."
    }
   ],
   "acessibilidade": [
-   "O grupo é um `<div>` sem papel: passe `role` e `aria-label`, como `role=\"toolbar\"` ou `role=\"group\"`, como faz o demo.",
-   "Itens são `<button>` ou, com `href`, links; o selecionado recebe `aria-current=\"true\"`, e `disabled` desabilita o botão ou tira o `href` do link e marca `aria-disabled`.",
-   "A pílula é decorativa (`aria-hidden`), e cada item continua sendo uma parada de `Tab`, além das setas."
+   "The group is a `<div>` with no role: pass `role` and `aria-label`, like `role=\"toolbar\"` or `role=\"group\"`, as the demo does.",
+   "Items are `<button>` or, with `href`, links; the selected one gets `aria-current=\"true\"`, and `disabled` disables the button or removes the link's `href` and sets `aria-disabled`.",
+   "The pill is decorative (`aria-hidden`), and each item remains a `Tab` stop, in addition to the arrows."
   ],
   "movimento": [
-   "Um único fundo em pílula desliza e muda de tamanho até o item sob o ponteiro ou com foco do teclado, numa mola sem ultrapassagem, e volta ao selecionado quando o ponteiro sai; entre dois itens ele fica no último, sem piscar.",
-   "Enquanto um item está pressionado, a pílula encolhe para 0,97 e solta numa curva de mola.",
-   "Com “reduzir movimento”, a pílula salta direto para o item e não encolhe na pressão."
+   "A single pill background slides and resizes to the item under the pointer or with keyboard focus, on a spring with no overshoot, and returns to the selected one when the pointer leaves; between two items it stays on the last one, without flickering.",
+   "While an item is pressed, the pill shrinks to 0.97 and releases on a spring curve.",
+   "With “reduce motion”, the pill jumps straight to the item and does not shrink on press."
   ],
   "responsivo": [
-   "Na orientação `horizontal`, os itens quebram linha por padrão (`flex-flow: row wrap`) e a pílula segue para a linha nova; passe `style={{ flexWrap: \"nowrap\" }}` para manter uma fileira só.",
-   "Quando o tamanho do grupo muda (fonte que carrega, seção que abre, janela redimensionada), a pílula se reposiciona sem animar."
+   "In the `horizontal` orientation, items wrap by default (`flex-flow: row wrap`) and the pill follows to the new line; pass `style={{ flexWrap: \"nowrap\" }}` to keep a single row.",
+   "When the group size changes (a font loading, a section opening, a window resized), the pill repositions without animating."
   ],
   "notasIA": [
-   "Monte com `<HoverHighlight>` e filhos `<HoverHighlightItem>`; dê `value` aos itens e controle a seleção com `value` e `onValueChange` no grupo, ou use `defaultValue`.",
-   "Itens sem `value` só recebem o realce de hover; `tone=\"accent\"` usa a cor de destaque com texto escuro, e `--hover-highlight-radius` muda o raio da pílula.",
-   "`HoverHighlightItem` repassa props ao `<button>` ou `<a>` (como `aria-label` e `style`); o seu `onClick` roda antes da seleção, e `event.preventDefault()` nele impede que o item seja selecionado."
+   "Build with `<HoverHighlight>` and `<HoverHighlightItem>` children; give items a `value` and control selection with `value` and `onValueChange` on the group, or use `defaultValue`.",
+   "Items without `value` only get the hover highlight; `tone=\"accent\"` uses the accent color with dark text, and `--hover-highlight-radius` changes the pill radius.",
+   "`HoverHighlightItem` forwards props to the `<button>` or `<a>` (like `aria-label` and `style`); its `onClick` runs before the selection, and `event.preventDefault()` in it prevents the item from being selected."
   ]
  },
  "icon-morph": {
   "quandoUsar": [
-   "Botões de alternância cujo ícone representa o estado: abrir e fechar o menu, tocar e pausar, ativar e silenciar notificações, curtir.",
-   "Confirmações pequenas dentro de um botão seu, como copiar virando visto ou adicionar virando visto (`copy` e `plus`)."
+   "Toggle buttons whose icon represents the state: open and close the menu, play and pause, enable and mute notifications, like.",
+   "Small confirmations inside your own button, like copy becoming a checkmark or add becoming a checkmark (`copy` and `plus`)."
   ],
   "quandoEvitar": [
-   "Use `copy-button` quando precisa copiar um valor com a confirmação já pronta.",
-   "Use `theme-switch` para alternar entre claro e escuro: ele já é um botão completo, com o ícone animado e o nome acessível.",
-   "Para um ícone que não muda de estado, use o ícone comum da biblioteca Lucide; aqui há só oito pares fixos de desenhos."
+   "Use `copy-button` when you need to copy a value with the confirmation ready-made.",
+   "Use `theme-switch` to toggle between light and dark: it is already a complete button, with the animated icon and the accessible name.",
+   "For an icon that does not change state, use the regular icon from the Lucide library; here there are only eight fixed pairs of drawings."
   ],
   "acessibilidade": [
-   "Todo ícone é um SVG com `aria-hidden=\"true\"` e `focusable=\"false\"`: coloque-o num `<button>` que tenha o nome acessível e `aria-pressed` refletindo `state`.",
-   "Como o desenho muda com o estado (o menu vira X, o play vira pausa), atualize junto o nome do botão, por exemplo de “Abrir menu” para “Fechar menu”."
+   "Every icon is an SVG with `aria-hidden=\"true\"` and `focusable=\"false\"`: put it in a `<button>` that has the accessible name and `aria-pressed` reflecting `state`.",
+   "Since the drawing changes with the state (the menu becomes an X, play becomes pause), update the button name along with it, for example from “Open menu” to “Close menu”."
   ],
   "movimento": [
-   "O ícone se transforma em vez de trocar: as linhas do menu giram até formar um X, o play se divide em duas barras, o sol cresce enquanto uma sombra recorta a lua, tudo em molas que podem ser interrompidas no meio.",
-   "Ligar o sino o faz balançar (0,9 s), com o badalo atrasado, e curtir o coração dispara um anel e faíscas uma vez; desligar risca o sino, e descurtir só esvazia o coração.",
-   "Com “reduzir movimento”, o ícone troca de estado na hora, sem o balanço do sino nem a explosão do coração."
+   "The icon transforms instead of swapping: the menu lines rotate into an X, play splits into two bars, the sun grows while a shadow carves out the moon, all on springs that can be interrupted midway.",
+   "Turning the bell on makes it swing (0.9 s), with the clapper delayed, and liking the heart fires a ring and sparks once; turning it off strikes the bell through, and unliking only empties the heart.",
+   "With “reduce motion”, the icon changes state instantly, without the bell swing or the heart burst."
   ],
   "notasIA": [
-   "Use `<IconMorph name=\"menu\" state={aberto} />` ou o componente específico: `MenuIcon`, `PlayPauseIcon`, `PlusCheckIcon`, `CopyCheckIcon`, `SunMoonIcon`, `ChevronIcon`, `BellIcon` ou `HeartIcon`.",
-   "O pai controla `state`, pois o ícone não tem clique nem estado próprio; `size` (24) e `strokeWidth` (1,75) ajustam o desenho, e o `ChevronIcon` aceita `turn` (graus) e `pointing`.",
-   "Herda a cor do texto (`currentColor`); o coração curtido usa `--icon-morph-like`, que por padrão é a cor de perigo."
+   "Use `<IconMorph name=\"menu\" state={aberto} />` or the specific component: `MenuIcon`, `PlayPauseIcon`, `PlusCheckIcon`, `CopyCheckIcon`, `SunMoonIcon`, `ChevronIcon`, `BellIcon`, or `HeartIcon`.",
+   "The parent controls `state`, since the icon has no click or state of its own; `size` (24) and `strokeWidth` (1.75) tune the drawing, and `ChevronIcon` accepts `turn` (degrees) and `pointing`.",
+   "It inherits the text color (`currentColor`); the liked heart uses `--icon-morph-like`, which by default is the danger color."
   ]
  },
  "reactions": {
   "quandoUsar": [
-   "Reconhecimento rápido de um post, comentário ou nota de versão, com a contagem de cada reação e as suas em destaque.",
-   "Quando o conjunto de reações possíveis é fixo e curto (`options`) e só as que já têm votos devem aparecer na barra."
+   "Quick acknowledgment of a post, comment, or release note, with the count of each reaction and your own highlighted.",
+   "When the set of possible reactions is fixed and short (`options`) and only those that already have votes should appear in the bar."
   ],
   "quandoEvitar": [
-   "Use `comment-thread` quando a pessoa precisa responder com texto, não só reagir.",
-   "Use `icon-morph` com `name=\"heart\"` dentro de um botão seu quando há uma única reação de curtir, sem contagem por tipo."
+   "Use `comment-thread` when the person needs to reply with text, not just react.",
+   "Use `icon-morph` with `name=\"heart\"` inside your own button when there is a single like reaction, with no count per type."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Numa pílula, adicionam ou removem a sua reação; no botão de adicionar, abrem o seletor com o foco na primeira opção."
+    "acao": "On a pill, add or remove your reaction; on the add button, open the picker with focus on the first option."
    },
    {
     "teclas": [
      "→",
      "←"
     ],
-    "acao": "No seletor, movem o foco entre as opções e dão a volta nas pontas; `↓` e `↑` fazem o mesmo."
+    "acao": "In the picker, move focus between options and wrap around at the ends; `↓` and `↑` do the same."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "No seletor, vão para a primeira e a última opção."
+    "acao": "In the picker, go to the first and last option."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o seletor e devolve o foco ao botão de adicionar; escolher uma opção com `Enter` ou `Espaço` faz o mesmo e aplica a reação."
+    "acao": "Closes the picker and returns focus to the add button; choosing an option with `Enter` or `Space` does the same and applies the reaction."
    }
   ],
   "acessibilidade": [
-   "A barra é `role=\"group\"` com `label` como nome; cada pílula é um botão com `aria-pressed` e um nome com a reação e a contagem, como “Love, 11 reactions, including yours”.",
-   "O botão de adicionar abre um diálogo do Radix com uma barra `role=\"toolbar\"` de opções em tabindex móvel; cada mudança é anunciada num `role=\"status\"`, e se a pílula em foco some, o foco passa à vizinha.",
-   "Nomes e anúncios são montados em inglês no código (“reactions”, “including yours”, “Add reaction”, “Added …”); numa interface em português, traduza essas strings no arquivo instalado e passe `label`."
+   "The bar is `role=\"group\"` with `label` as its name; each pill is a button with `aria-pressed` and a name with the reaction and the count, like “Love, 11 reactions, including yours”.",
+   "The add button opens a Radix dialog with a `role=\"toolbar\"` bar of options on a roving tabindex; each change is announced in a `role=\"status\"`, and if the focused pill disappears, focus moves to its neighbor.",
+   "Names and announcements are built in English in the code (“reactions”, “including yours”, “Add reaction”, “Added …”); in a Portuguese interface, translate those strings in the installed file and pass `label`."
   ],
   "movimento": [
-   "Os dígitos da contagem rolam na direção da mudança, para cima quando sobe e para baixo quando desce, e só os que mudam se movem; ao reagir, o ícone recebe um impulso de mola em escala e giro.",
-   "Pílulas novas surgem de meia escala saindo de um desfoque, as outras deslizam para abrir espaço e a altura da barra acompanha numa mola ao quebrar linha; o seletor cresce a partir do botão, com as opções em sequência.",
-   "Com “reduzir movimento”, os números trocam sem rolar, o ícone não pula, as pílulas só esmaecem e o seletor aparece sem crescer."
+   "The count digits roll in the direction of the change, up when it increases and down when it decreases, and only the ones that change move; on reacting, the icon gets a spring impulse in scale and rotation.",
+   "New pills appear at half scale out of a blur, the others slide to make room, and the bar height follows on a spring when wrapping; the picker grows from the button, with the options in sequence.",
+   "With “reduce motion”, numbers swap without rolling, the icon does not hop, pills only fade, and the picker appears without growing."
   ],
   "responsivo": [
-   "As pílulas quebram linha conforme a largura, e a altura da barra muda numa mola em vez de empurrar o conteúdo de baixo de uma vez; o seletor abre acima do botão e fica a 12 px das bordas da janela."
+   "Pills wrap according to the width, and the bar height changes on a spring instead of pushing the content below all at once; the picker opens above the button and stays 12 px from the window edges."
   ],
   "notasIA": [
-   "Em `options`, `icon` é o componente da Lucide (`ThumbsUp`), não um elemento (`<ThumbsUp />`); cada reação em `value` ou `defaultValue` é `{ id, count, reacted }`.",
-   "Controlado, guarde a lista que chega em `onValueChange(next, change)` e devolva em `value`; as pílulas seguem a ordem da lista, e uma reação com `count` 0 sai da barra.",
-   "A barra só conta: não sabe quem reagiu nem fala com o servidor; envie `change` (`id` e `reacted`) à sua API."
+   "In `options`, `icon` is the Lucide component (`ThumbsUp`), not an element (`<ThumbsUp />`); each reaction in `value` or `defaultValue` is `{ id, count, reacted }`.",
+   "When controlled, keep the list that arrives in `onValueChange(next, change)` and return it in `value`; pills follow the list order, and a reaction with `count` 0 leaves the bar.",
+   "The bar only counts: it does not know who reacted nor talk to the server; send `change` (`id` and `reacted`) to your API."
   ]
  },
  "split-button": {
   "quandoUsar": [
-   "Uma ação principal com algumas alternativas próximas no menu, como Enviar, com Agendar e Salvar rascunho ao lado.",
-   "Quando a última alternativa escolhida deve virar a ação principal: troque `label` e `icon` no `onSelect` e o botão se transforma no lugar.",
-   "Exportações com um formato padrão e outros no menu, na variante `secondary`."
+   "A main action with a few close alternatives in the menu, like Send, with Schedule and Save draft alongside.",
+   "When the last chosen alternative should become the main action: change `label` and `icon` in `onSelect` and the button transforms in place.",
+   "Exports with a default format and others in the menu, in the `secondary` variant."
   ],
   "quandoEvitar": [
-   "Use `dropdown-menu` quando não existe uma ação claramente principal.",
-   "Use `button-group` quando as ações são independentes e todas merecem ficar à vista.",
-   "Use `action-swap` quando a ação muda de estado sozinha a cada clique, sem a pessoa escolher num menu."
+   "Use `dropdown-menu` when there is no clearly main action.",
+   "Use `button-group` when the actions are independent and all deserve to stay in view.",
+   "Use `action-swap` when the action changes state on its own with each click, without the person choosing from a menu."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão principal, executam `onClick`; na seta, abrem o menu com o foco na primeira alternativa (`↓` também abre)."
+    "acao": "On the main button, run `onClick`; on the arrow, open the menu with focus on the first alternative (`↓` also opens)."
    },
    {
     "teclas": [
      "↓",
      "↑"
     ],
-    "acao": "No menu, percorrem as alternativas habilitadas e dão a volta nas pontas."
+    "acao": "In the menu, move through the enabled alternatives and wrap around at the ends."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "No menu, vão para a primeira e a última alternativa."
+    "acao": "In the menu, go to the first and last alternative."
    },
    {
     "teclas": [
      "A–Z"
     ],
-    "acao": "No menu, digitar o começo de um rótulo leva o foco a essa alternativa."
+    "acao": "In the menu, typing the start of a label moves focus to that alternative."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o menu e devolve o foco à seta; escolher uma alternativa com `Enter` ou `Espaço` também fecha."
+    "acao": "Closes the menu and returns focus to the arrow; choosing an alternative with `Enter` or `Space` also closes it."
    }
   ],
   "acessibilidade": [
-   "São dois botões: o principal, cujo nome é `label` (o texto animado fica em `aria-hidden` e uma cópia oculta em `aria-live=\"polite\"` anuncia a troca), e a seta, com `aria-label` montado em inglês (“Send more actions”).",
-   "O menu é o `DropdownMenu` do Radix em modo modal: enquanto aberto, o foco fica preso nele e a página não rola; ao fechar, o foco volta à seta.",
-   "`disabled` desliga as duas metades juntas; alternativas `disabled` ficam esmaecidas e são puladas pelas setas."
+   "There are two buttons: the main one, whose name is `label` (the animated text is `aria-hidden` and a hidden copy in `aria-live=\"polite\"` announces the swap), and the arrow, with an `aria-label` built in English (“Send more actions”).",
+   "The menu is Radix's `DropdownMenu` in modal mode: while open, focus is trapped in it and the page does not scroll; on close, focus returns to the arrow.",
+   "`disabled` turns off both halves together; `disabled` alternatives are dimmed and skipped by the arrows."
   ],
   "movimento": [
-   "Quando `label` muda, as letras em comum ficam paradas e só as novas sobem de um leve desfoque, em sequência; o ícone troca com escala, e a largura acompanha numa mola sem ultrapassagem.",
-   "Pressionar a ação principal encolhe a pílula inteira para 0,97; a seta responde só com cor, para o Radix medir a âncora sem escala, e gira 180° com o menu aberto.",
-   "O menu cresce a partir da seta, com as alternativas em sequência; com “reduzir movimento”, letras e largura trocam na hora, a pílula não encolhe e o menu só esmaece."
+   "When `label` changes, the shared letters stay still and only the new ones rise from a slight blur, in sequence; the icon swaps with scale, and the width follows on a spring with no overshoot.",
+   "Pressing the main action shrinks the whole pill to 0.97; the arrow responds only with color, so Radix measures the anchor without scale, and rotates 180° with the menu open.",
+   "The menu grows from the arrow, with the alternatives in sequence; with “reduce motion”, letters and width swap instantly, the pill does not shrink, and the menu only fades."
   ],
   "notasIA": [
-   "`label` e `onClick` são a ação principal; `actions` lista as alternativas (`label`, `onSelect`, `icon`, `disabled`, `destructive`), e o `label` de cada uma é a chave React, então não repita rótulos.",
-   "O componente não troca a ação principal sozinho: para lembrar a última escolha, guarde-a no estado do pai e passe o novo `label` e `icon`, como faz o demo.",
-   "O `aria-label` da seta é montado em inglês (“… more actions”): numa interface em português, ajuste essa string no arquivo instalado; `variant=\"secondary\"` é a versão clara e menor."
+   "`label` and `onClick` are the main action; `actions` lists the alternatives (`label`, `onSelect`, `icon`, `disabled`, `destructive`), and each one's `label` is the React key, so do not repeat labels.",
+   "The component does not swap the main action on its own: to remember the last choice, keep it in the parent's state and pass the new `label` and `icon`, as the demo does.",
+   "The arrow's `aria-label` is built in English (“… more actions”): in a Portuguese interface, adjust that string in the installed file; `variant=\"secondary\"` is the lighter, smaller version."
   ]
  },
  "swipe-actions": {
   "quandoUsar": [
-   "Listas curtas para triagem rápida, sobretudo no toque, como uma caixa de entrada: arquivar, excluir, marcar como não lida.",
-   "Quando cada linha precisa de duas ou três ações frequentes sem ocupar espaço fixo, com o menu de mais ações como caminho para teclado e leitor de tela."
+   "Short lists for quick triage, especially on touch, like an inbox: archive, delete, mark as unread.",
+   "When each row needs two or three frequent actions without taking fixed space, with the more-actions menu as the path for keyboard and screen reader."
   ],
   "quandoEvitar": [
-   "Use `context-menu` ou `dropdown-menu` quando a lista é usada sobretudo com mouse e teclado: aqui o gesto é o atalho principal.",
-   "Use `reorderable-list` quando arrastar deve mudar a ordem dos itens.",
-   "Evite em listas longas ou virtualizadas: cada linha mede a própria largura, empilha uma camada animada por ação e anima a altura ao entrar e sair."
+   "Use `context-menu` or `dropdown-menu` when the list is used mostly with mouse and keyboard: here the gesture is the main shortcut.",
+   "Use `reorderable-list` when dragging should change the order of items.",
+   "Avoid in long or virtualized lists: each row measures its own width, stacks one animated layer per action, and animates the height on enter and exit."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Passa pelo botão de mais ações de cada linha; as ações reveladas pelo gesto ficam fora da ordem de tabulação."
+    "acao": "Moves through each row's more-actions button; the actions revealed by the gesture are outside the tab order."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço",
+     "Space",
      "↓"
     ],
-    "acao": "No botão de mais ações, abrem o menu da linha, com as mesmas ações do gesto."
+    "acao": "On the more-actions button, open the row menu, with the same actions as the gesture."
    },
    {
     "teclas": [
      "↓",
      "↑"
     ],
-    "acao": "No menu, percorrem as ações e dão a volta nas pontas; `Enter` ou `Espaço` executam a ação em foco."
+    "acao": "In the menu, move through the actions and wrap around at the ends; `Enter` or `Space` run the focused action."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Recolhe a linha que estiver aberta pelo gesto; com o menu da linha aberto, fecha o menu e devolve o foco ao botão."
+    "acao": "Collapses the row that is open from the gesture; with the row menu open, closes the menu and returns focus to the button."
    }
   ],
   "acessibilidade": [
-   "A lista é um `<ul role=\"list\">` com `label` como nome; cada linha tem um botão com nome montado em inglês (“More actions for …”, a partir do `label` da linha) que abre um menu do Radix com as mesmas ações.",
-   "As ações reveladas pelo gesto são `aria-hidden` e ficam fora do `Tab`: o menu é o caminho para teclado e leitor de tela, e quando a linha sai por ele, o foco vai para o botão da linha vizinha.",
-   "Dê à linha um `label` que identifique o item, como o assunto da mensagem, e às ações com `tone=\"danger\"` um rótulo que diga o resultado, como “Excluir”."
+   "The list is a `<ul role=\"list\">` with `label` as its name; each row has a button with a name built in English (“More actions for …”, from the row's `label`) that opens a Radix menu with the same actions.",
+   "The actions revealed by the gesture are `aria-hidden` and outside `Tab`: the menu is the path for keyboard and screen reader, and when the row leaves through it, focus goes to the neighboring row's button.",
+   "Give the row a `label` that identifies the item, like the message subject, and give actions with `tone=\"danger\"` a label that says the outcome, like “Delete”."
   ],
   "movimento": [
-   "A linha segue o dedo ou o mouse depois de 8 px na horizontal (movimento vertical fica com a rolagem) e resiste como elástico depois da última parada; ao soltar, a velocidade decide se ela abre, fecha ou executa.",
-   "Um deslize longo, além de cerca de 56% da largura, arma a ação mais externa, que se estica sobre a linha inteira; a linha sai na direção do gesto e a lista fecha o espaço numa mola.",
-   "Com “reduzir movimento”, a linha salta para cada parada, a remoção é só um esmaecer e o menu aparece sem crescer."
+   "The row follows the finger or mouse after 8 px horizontally (vertical movement stays with scrolling) and resists like a rubber band past the last stop; on release, the velocity decides whether it opens, closes, or runs.",
+   "A long swipe, past about 56% of the width, arms the outermost action, which stretches over the whole row; the row exits in the direction of the gesture and the list closes the gap on a spring.",
+   "With “reduce motion”, the row jumps to each stop, removal is only a fade, and the menu appears without growing."
   ],
   "responsivo": [
-   "Cada ação ocupa 76 px quando a linha repousa aberta; em telas estreitas, prefira uma ou duas por lado.",
-   "No toque, `touch-action: pan-y` deixa a rolagem vertical com a página; no mouse, a linha mostra o cursor de arrastar."
+   "Each action takes 76 px when the row rests open; on narrow screens, prefer one or two per side.",
+   "On touch, `touch-action: pan-y` leaves vertical scrolling to the page; with a mouse, the row shows the drag cursor."
   ],
   "desempenho": [
-   "Cada linha mantém um `ResizeObserver` e uma camada animada por ação; o componente foi feito para listas curtas de triagem, não para milhares de linhas."
+   "Each row keeps a `ResizeObserver` and one animated layer per action; the component was made for short triage lists, not for thousands of rows."
   ],
   "notasIA": [
-   "Monte `<SwipeActions label=\"Caixa de entrada\">` com um `<SwipeActionsRow key={id} label={assunto} leading={…} trailing={…}>` por item; a `key` estável permite a saída animada e o retorno num Desfazer.",
-   "No `onSelect`, remova o item do estado (a linha sai e a lista fecha o espaço); para ações que mantêm o item, como marcar como não lida, use `keepRow`.",
-   "A ação mais externa de cada lado (`leading[0]` e a última de `trailing`) é a que executa no deslize longo; `fullSwipe={false}` desliga esse atalho."
+   "Build `<SwipeActions label=\"Caixa de entrada\">` with one `<SwipeActionsRow key={id} label={assunto} leading={…} trailing={…}>` per item; the stable `key` allows the animated exit and the return on an Undo.",
+   "In `onSelect`, remove the item from the state (the row leaves and the list closes the gap); for actions that keep the item, like mark as unread, use `keepRow`.",
+   "The outermost action on each side (`leading[0]` and the last of `trailing`) is the one that runs on the long swipe; `fullSwipe={false}` turns off that shortcut."
   ]
  },
  "theme-switch": {
   "quandoUsar": [
-   "Um botão de alternar entre claro e escuro na barra do app ou do site, com o sol e a lua girando no lugar.",
-   "Quando a troca de tema vai ganhar uma transição de página inteira: o botão entrega a variante e o próprio elemento em `onThemeChange`, para a animação partir dele (`reveal`, o padrão)."
+   "A light/dark toggle button in the app or site bar, with the sun and moon rotating in place.",
+   "When the theme change is going to get a full-page transition: the button hands the variant and the element itself to `onThemeChange`, so the animation starts from it (`reveal`, the default)."
   ],
   "quandoEvitar": [
-   "Use o seletor de tema do `user-menu`, ou um `segmented-control`, quando a pessoa deve poder escolher também “Sistema”: aqui há só claro e escuro.",
-   "Use `switch` quando o tema é uma opção numa página de configurações, ao lado de outras chaves.",
-   "Use `icon-morph` com `name=\"theme\"` quando o botão já existe e você só quer o ícone de sol e lua que se transforma."
+   "Use the `user-menu` theme selector, or a `segmented-control`, when the person should also be able to choose “System”: here there are only light and dark.",
+   "Use `switch` when the theme is an option on a settings page, next to other toggles.",
+   "Use `icon-morph` with `name=\"theme\"` when the button already exists and you only want the transforming sun and moon icon."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão, que chama `onThemeChange` com o próximo tema."
+    "acao": "Trigger the button, which calls `onThemeChange` with the next theme."
    }
   ],
   "acessibilidade": [
-   "É o `button` da biblioteca, com `aria-pressed` verdadeiro no tema escuro; os ícones são `aria-hidden`.",
-   "Sem `label`, o nome é montado em inglês e muda com o estado (“Switch to light mode”), o que confunde ao lado de `aria-pressed`; passe um `label` fixo, como “Tema escuro”.",
-   "O texto visível “Switch theme” é fixo em inglês e, com `aria-label`, deixa de ser o nome do botão; numa interface em português, use `iconOnly` ou troque esse texto no arquivo instalado."
+   "It is the library's `button`, with `aria-pressed` true in the dark theme; the icons are `aria-hidden`.",
+   "Without `label`, the name is built in English and changes with the state (“Switch to light mode”), which is confusing next to `aria-pressed`; pass a fixed `label`, like “Dark theme”.",
+   "The visible text “Switch theme” is fixed in English and, with `aria-label`, stops being the button's name; in a Portuguese interface, use `iconOnly` or replace that text in the installed file."
   ],
   "movimento": [
-   "Na troca, o sol e a lua giram no mesmo sentido (horário rumo ao escuro), com escala numa mola curta e esmaecer com leve desfoque; no escuro, a variante `reveal` ainda amplia o ícone para 1,08.",
-   "Uma preferência salva que chega logo depois da hidratação troca o ícone sem animar, então uma página que abre no escuro não gira o botão.",
-   "Com “reduzir movimento”, o ícone só esmaece, o ajuste da variante acontece sem transição e a pressão do botão não escala."
+   "On the swap, the sun and moon rotate in the same direction (clockwise toward dark), with scale on a short spring and a fade with a slight blur; in dark, the `reveal` variant also enlarges the icon to 1.08.",
+   "A saved preference that arrives right after hydration swaps the icon without animating, so a page that opens in dark does not rotate the button.",
+   "With “reduce motion”, the icon only fades, the variant adjustment happens without transition, and the button press does not scale."
   ],
   "notasIA": [
-   "O componente não troca o tema nem anima a página: ele chama `onThemeChange(next, variant, trigger)`, e o app aplica o tema (por exemplo, `data-theme` no `<html>`) e, se quiser, a transição.",
-   "A transição do demo vem do site, não do item instalado: `document.startViewTransition` e um `clip-path` animado em `::view-transition-new(root)`, partindo de `trigger`, pulado com “reduzir movimento”.",
-   "`theme` é controlado e só aceita `light` ou `dark` (resolva “sistema” antes de passar); as outras variantes são `eclipse`, `split` e `rise`."
+   "The component neither switches the theme nor animates the page: it calls `onThemeChange(next, variant, trigger)`, and the app applies the theme (for example, `data-theme` on `<html>`) and, if you want, the transition.",
+   "The demo's transition comes from the site, not from the installed item: `document.startViewTransition` and an animated `clip-path` on `::view-transition-new(root)`, starting from `trigger`, skipped with “reduce motion”.",
+   "`theme` is controlled and only accepts `light` or `dark` (resolve “system” before passing it); the other variants are `eclipse`, `split`, and `rise`."
   ]
  },
  "theme-switch-eclipse": {
   "quandoUsar": [
-   "Um botão de tema numa barra de app, como no demo, quando a troca deve atravessar a tela como um disco que entra pela lateral.",
-   "Quando o tema muda raramente e cabe uma transição mais longa: no demo, o eclipse leva 720 ms, contra 520 a 560 ms das outras variantes."
+   "A theme button in an app bar, as in the demo, when the swap should cross the screen like a disc entering from the side.",
+   "When the theme rarely changes and a longer transition fits: in the demo, the eclipse takes 720 ms, versus 520 to 560 ms for the other variants."
   ],
   "quandoEvitar": [
-   "Use `theme-switch` (variante `reveal`) quando a transição deve partir do próprio botão, onde a pessoa clicou.",
-   "Use `theme-switch-rise` ou `theme-switch-split` para uma troca mais curta."
+   "Use `theme-switch` (`reveal` variant) when the transition should start from the button itself, where the person clicked.",
+   "Use `theme-switch-rise` or `theme-switch-split` for a shorter swap."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão, que chama `onThemeChange` com o próximo tema e `\"eclipse\"`."
+    "acao": "Trigger the button, which calls `onThemeChange` with the next theme and `\"eclipse\"`."
    }
   ],
   "acessibilidade": [
-   "É o `button` da biblioteca, com `aria-pressed` verdadeiro no tema escuro e ícones `aria-hidden`; só com ícone (`iconOnly`, como no demo), `label` é o único nome, então passe um texto fixo, como “Mudar aparência”.",
-   "Sem `label`, o nome padrão é montado em inglês e muda com o estado (“Switch to light mode”); fora do `iconOnly`, o texto visível é o fixo “Switch theme”."
+   "It is the library's `button`, with `aria-pressed` true in the dark theme and `aria-hidden` icons; icon-only (`iconOnly`, as in the demo), `label` is the only name, so pass fixed text, like “Change appearance”.",
+   "Without `label`, the default name is built in English and changes with the state (“Switch to light mode”); outside `iconOnly`, the visible text is the fixed “Switch theme”."
   ],
   "movimento": [
-   "Com `variant=\"eclipse\"`, o ícone se desloca 2 px para a esquerda no tema escuro, numa curva de mola, e volta ao retornar ao claro; o sol e a lua trocam girando.",
-   "A travessia da página não vem no componente: no demo, um círculo do tamanho da diagonal da tela parte de fora, pela esquerda, até cobri-la, via View Transitions.",
-   "Com “reduzir movimento”, o ícone só esmaece e o deslocamento acontece sem transição; o utilitário do demo também troca o tema sem animar a página."
+   "With `variant=\"eclipse\"`, the icon shifts 2 px to the left in the dark theme, on a spring curve, and returns when going back to light; the sun and moon swap by rotating.",
+   "The page crossing does not come with the component: in the demo, a circle the size of the screen diagonal starts from outside, on the left, until it covers the screen, via View Transitions.",
+   "With “reduce motion”, the icon only fades and the shift happens without transition; the demo's utility also swaps the theme without animating the page."
   ],
   "notasIA": [
-   "É o mesmo `ThemeSwitch` com `variant=\"eclipse\"`: importe de `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` recebe `\"eclipse\"` como segundo argumento.",
-   "Implemente a travessia no app: dentro de `document.startViewTransition`, aplique o tema e anime o `clip-path` de `::view-transition-new(root)` de `circle(D at -D 50%)` até `circle(D at 50% 50%)`, com D a diagonal da tela.",
-   "`theme` é controlado e só aceita `light` ou `dark`; pule a animação quando `prefers-reduced-motion` estiver ligado, como faz o demo."
+   "It is the same `ThemeSwitch` with `variant=\"eclipse\"`: import from `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` receives `\"eclipse\"` as the second argument.",
+   "Implement the crossing in the app: inside `document.startViewTransition`, apply the theme and animate the `clip-path` of `::view-transition-new(root)` from `circle(D at -D 50%)` to `circle(D at 50% 50%)`, with D the screen diagonal.",
+   "`theme` is controlled and only accepts `light` or `dark`; skip the animation when `prefers-reduced-motion` is on, as the demo does."
   ]
  },
  "theme-switch-rise": {
   "quandoUsar": [
-   "Um botão de tema perto da base da tela ou num canto inferior, como no demo, quando o tema novo deve subir da borda de baixo.",
-   "Quando a transição deve ser um movimento reto e simples, que não depende de onde o botão está."
+   "A theme button near the bottom of the screen or in a lower corner, as in the demo, when the new theme should rise from the bottom edge.",
+   "When the transition should be a straight, simple movement that does not depend on where the button is."
   ],
   "quandoEvitar": [
-   "Use `theme-switch` (variante `reveal`) quando a transição deve nascer no ponto do clique.",
-   "Use `theme-switch-split` quando o botão fica no centro de uma barra e uma abertura simétrica combina mais."
+   "Use `theme-switch` (`reveal` variant) when the transition should start at the click point.",
+   "Use `theme-switch-split` when the button sits at the center of a bar and a symmetric opening fits better."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão, que chama `onThemeChange` com o próximo tema e `\"rise\"`."
+    "acao": "Trigger the button, which calls `onThemeChange` with the next theme and `\"rise\"`."
    }
   ],
   "acessibilidade": [
-   "É o `button` da biblioteca, com `aria-pressed` verdadeiro no tema escuro e ícones `aria-hidden`; só com ícone (`iconOnly`, como no demo), `label` é o único nome, então passe um texto fixo, como “Mudar aparência”.",
-   "Sem `label`, o nome padrão é montado em inglês e muda com o estado (“Switch to light mode”); fora do `iconOnly`, o texto visível é o fixo “Switch theme”."
+   "It is the library's `button`, with `aria-pressed` true in the dark theme and `aria-hidden` icons; icon-only (`iconOnly`, as in the demo), `label` is the only name, so pass fixed text, like “Change appearance”.",
+   "Without `label`, the default name is built in English and changes with the state (“Switch to light mode”); outside `iconOnly`, the visible text is the fixed “Switch theme”."
   ],
   "movimento": [
-   "Com `variant=\"rise\"`, o ícone sobe 2 px no tema escuro, numa curva de mola, e desce ao voltar ao claro, enquanto o sol e a lua trocam girando.",
-   "A subida da página não vem no componente: no demo, o tema novo é revelado de baixo para cima em 520 ms, recortando `::view-transition-new(root)` de `inset(100% 0 0 0)` até `inset(0 0 0 0)`.",
-   "Com “reduzir movimento”, o ícone só esmaece e o deslocamento acontece sem transição; o utilitário do demo também troca o tema sem animar a página."
+   "With `variant=\"rise\"`, the icon rises 2 px in the dark theme, on a spring curve, and drops when going back to light, while the sun and moon swap by rotating.",
+   "The page rise does not come with the component: in the demo, the new theme is revealed from bottom to top in 520 ms, clipping `::view-transition-new(root)` from `inset(100% 0 0 0)` to `inset(0 0 0 0)`.",
+   "With “reduce motion”, the icon only fades and the shift happens without transition; the demo's utility also swaps the theme without animating the page."
   ],
   "notasIA": [
-   "É o mesmo `ThemeSwitch` com `variant=\"rise\"`: importe de `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` recebe `\"rise\"` como segundo argumento.",
-   "Implemente a subida no app: dentro de `document.startViewTransition`, aplique o tema e anime o `clip-path` de `::view-transition-new(root)`; como ela não parte do botão, o `trigger` pode ser ignorado.",
-   "No demo, o botão flutua no canto inferior direito de um quadro (`position: absolute` no pai); o componente não se posiciona sozinho."
+   "It is the same `ThemeSwitch` with `variant=\"rise\"`: import from `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` receives `\"rise\"` as the second argument.",
+   "Implement the rise in the app: inside `document.startViewTransition`, apply the theme and animate the `clip-path` of `::view-transition-new(root)`; since it does not start from the button, `trigger` can be ignored.",
+   "In the demo, the button floats in the bottom right corner of a frame (`position: absolute` on the parent); the component does not position itself."
   ]
  },
  "theme-switch-split": {
   "quandoUsar": [
-   "Um botão de tema centralizado ou numa barra simétrica, quando o tema novo deve se abrir a partir de uma fenda vertical no meio da tela.",
-   "Quando você quer uma troca curta e simétrica (520 ms no demo), que não depende de onde o botão está."
+   "A centered theme button or one in a symmetric bar, when the new theme should open from a vertical slit in the middle of the screen.",
+   "When you want a short, symmetric swap (520 ms in the demo) that does not depend on where the button is."
   ],
   "quandoEvitar": [
-   "Use `theme-switch` (variante `reveal`) quando a transição deve partir do próprio botão.",
-   "Use `theme-switch-rise` quando o botão fica perto da base da tela e uma subida combina mais."
+   "Use `theme-switch` (`reveal` variant) when the transition should start from the button itself.",
+   "Use `theme-switch-rise` when the button is near the bottom of the screen and a rise fits better."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão, que chama `onThemeChange` com o próximo tema e `\"split\"`."
+    "acao": "Trigger the button, which calls `onThemeChange` with the next theme and `\"split\"`."
    }
   ],
   "acessibilidade": [
-   "É o `button` da biblioteca, com `aria-pressed` verdadeiro no tema escuro e ícones `aria-hidden`; o demo mostra a versão com texto e a só com ícone, ambas com o `label` fixo “Change appearance”.",
-   "Na versão com texto, o rótulo visível é o fixo “Switch theme”, em inglês, e não é o nome do botão quando há `label`; numa interface em português, use `iconOnly` ou troque esse texto no arquivo instalado."
+   "It is the library's `button`, with `aria-pressed` true in the dark theme and `aria-hidden` icons; the demo shows the version with text and the icon-only one, both with the fixed `label` “Change appearance”.",
+   "In the version with text, the visible label is the fixed “Switch theme”, in English, and is not the button's name when there is a `label`; in a Portuguese interface, use `iconOnly` or replace that text in the installed file."
   ],
   "movimento": [
-   "Com `variant=\"split\"`, o ícone se desloca 1 px para a direita no tema escuro, numa curva de mola, e volta ao retornar ao claro, enquanto o sol e a lua trocam girando.",
-   "A abertura da página não vem no componente: no demo, o tema novo surge de uma fenda no centro que se abre para os lados, recortando `::view-transition-new(root)` de `inset(0 50% 0 50%)` até `inset(0 0 0 0)`.",
-   "Com “reduzir movimento”, o ícone só esmaece e o deslocamento acontece sem transição; o utilitário do demo também troca o tema sem animar a página."
+   "With `variant=\"split\"`, the icon shifts 1 px to the right in the dark theme, on a spring curve, and returns when going back to light, while the sun and moon swap by rotating.",
+   "The page opening does not come with the component: in the demo, the new theme appears from a slit in the center that opens to the sides, clipping `::view-transition-new(root)` from `inset(0 50% 0 50%)` to `inset(0 0 0 0)`.",
+   "With “reduce motion”, the icon only fades and the shift happens without transition; the demo's utility also swaps the theme without animating the page."
   ],
   "notasIA": [
-   "É o mesmo `ThemeSwitch` com `variant=\"split\"`: importe de `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` recebe `\"split\"` como segundo argumento.",
-   "Implemente a abertura no app: dentro de `document.startViewTransition`, aplique o tema e anime o `clip-path` de `::view-transition-new(root)`; o `trigger` não é necessário para esta variante.",
-   "`theme` é controlado e só aceita `light` ou `dark`; pule a animação quando `prefers-reduced-motion` estiver ligado, como faz o demo."
+   "It is the same `ThemeSwitch` with `variant=\"split\"`: import from `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` receives `\"split\"` as the second argument.",
+   "Implement the opening in the app: inside `document.startViewTransition`, apply the theme and animate the `clip-path` of `::view-transition-new(root)`; `trigger` is not needed for this variant.",
+   "`theme` is controlled and only accepts `light` or `dark`; skip the animation when `prefers-reduced-motion` is on, as the demo does."
   ]
  },
  "user-menu": {
   "quandoUsar": [
-   "O menu da conta atrás da foto da pessoa na barra superior do app: identidade, atalhos de conta, tema e sair.",
-   "Apps com presença (Disponível, Ocupado, Ausente), em que a pessoa troca o status sem sair da tela.",
-   "Interfaces que precisam do mesmo menu no celular: abaixo de 640 px ele vira uma folha inferior sem configuração extra."
+   "The account menu behind the person's photo in the app's top bar: identity, account shortcuts, theme, and sign out.",
+   "Apps with presence (Available, Busy, Away), where the person changes status without leaving the screen.",
+   "Interfaces that need the same menu on mobile: below 640 px it becomes a bottom sheet with no extra configuration."
   ],
   "quandoEvitar": [
-   "Use `dropdown-menu` para menus de ações gerais, sem a identidade da pessoa nem seletores.",
-   "Evite para listas longas de destinos: o próprio código recomenda três ou quatro itens; navegação maior pertence a `site-header` ou a uma barra lateral como `animated-sidebar`."
+   "Use `dropdown-menu` for general action menus, without the person's identity or selectors.",
+   "Avoid for long lists of destinations: the code itself recommends three or four items; larger navigation belongs in `site-header` or a sidebar like `animated-sidebar`."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço",
+     "Space",
      "↓"
     ],
-    "acao": "No avatar, abrem o menu com o foco na primeira linha; `↑` abre com o foco na última."
+    "acao": "On the avatar, open the menu with focus on the first row; `↑` opens with focus on the last."
    },
    {
     "teclas": [
      "↓",
      "↑"
     ],
-    "acao": "No menu, percorrem linhas e seletores e dão a volta nas pontas; `Home` e `End` vão às pontas."
+    "acao": "In the menu, move through rows and selectors and wrap around at the ends; `Home` and `End` go to the ends."
    },
    {
     "teclas": [
      "←",
      "→"
     ],
-    "acao": "Num seletor (Status ou Tema), escolhem na hora a opção anterior ou a seguinte, sem fechar o menu."
+    "acao": "On a selector (Status or Theme), instantly choose the previous or next option, without closing the menu."
    },
    {
     "teclas": [
      "A–Z"
     ],
-    "acao": "Digitar o começo de um rótulo leva o foco à linha correspondente."
+    "acao": "Typing the start of a label moves focus to the matching row."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam a linha em foco; itens e Sair fecham o menu, e escolhas de status e tema o mantêm aberto."
+    "acao": "Trigger the focused row; items and Sign out close the menu, and status and theme choices keep it open."
    },
    {
     "teclas": [
      "Esc",
      "Tab"
     ],
-    "acao": "Fecham o menu e devolvem o foco ao avatar."
+    "acao": "Close the menu and return focus to the avatar."
    }
   ],
   "acessibilidade": [
-   "O avatar é um botão com `aria-haspopup=\"menu\"`, `aria-expanded` e um nome montado em inglês (“Account menu, Emma Collins, Available”); o painel é `role=\"menu\"` rotulado por ele, e Status e Tema usam `menuitemradio`.",
-   "O foco só entra no menu quando alguém o abre (um menu que já nasce aberto não rouba o foco) e volta ao avatar ao fechar; no celular, a folha tem `aria-modal`, um véu e trava a rolagem da página.",
-   "O status combina cor e forma (círculo cheio, barra ou anel), sem depender só da cor; os textos de Status, Tema, Sair e das opções são fixos em inglês no código."
+   "The avatar is a button with `aria-haspopup=\"menu\"`, `aria-expanded`, and a name built in English (“Account menu, Emma Collins, Available”); the panel is `role=\"menu\"` labeled by it, and Status and Theme use `menuitemradio`.",
+   "Focus only enters the menu when someone opens it (a menu that starts open does not steal focus) and returns to the avatar on close; on mobile, the sheet has `aria-modal`, a scrim, and locks page scrolling.",
+   "Status combines color and shape (filled circle, bar, or ring), without relying on color alone; the texts for Status, Theme, Sign out, and the options are fixed in English in the code."
   ],
   "movimento": [
-   "No desktop, o painel cresce a partir do centro do avatar numa mola sem ultrapassagem, com as linhas entrando em sequência, e fecha com um esmaecer curto; um realce único desliza entre as linhas.",
-   "No celular, a folha sobe da base e pode ser arrastada para baixo para fechar (mais de 80 px ou um gesto rápido); trocar o status transforma o ponto, abrindo o furo do ausente ou a barra do ocupado.",
-   "Com “reduzir movimento”, painel e folha só esmaecem, a folha não arrasta, as transições de cor e forma são desligadas e o indicador de saída gira mais devagar."
+   "On desktop, the panel grows from the center of the avatar on a spring with no overshoot, with rows entering in sequence, and closes with a short fade; a single highlight slides between rows.",
+   "On mobile, the sheet rises from the base and can be dragged down to close (more than 80 px or a quick gesture); changing the status transforms the dot, opening the away hole or the busy bar.",
+   "With “reduce motion”, panel and sheet only fade, the sheet does not drag, color and shape transitions are turned off, and the sign-out indicator spins more slowly."
   ],
   "responsivo": [
-   "Abaixo de 640 px de largura, o mesmo conteúdo abre como folha inferior com véu, linhas mais altas e sem as dicas de atalho; o nome ao lado do avatar (`showName`) também some.",
-   "No desktop, o painel tem 15,5rem, fica a 12 px das bordas, abre abaixo do avatar e vira para cima quando falta espaço, reposicionando-se ao rolar ou redimensionar."
+   "Below 640 px of width, the same content opens as a bottom sheet with a scrim, taller rows, and without the shortcut hints; the name next to the avatar (`showName`) also disappears.",
+   "On desktop, the panel is 15.5rem wide, stays 12 px from the edges, opens below the avatar and flips upward when there is not enough room, repositioning on scroll or resize."
   ],
   "notasIA": [
-   "Passe `user` (`name`, `email` e, se quiser, `plan` e `avatarSrc`, com iniciais quando falta a foto); o status só aparece com `status` ou `onStatusChange`, porque `defaultStatus` sozinho não o mostra.",
-   "`onThemeChange` só informa a escolha (`light`, `dark` ou `system`); aplicar o tema à página é com o app, e `showTheme={false}` esconde o seletor.",
-   "`onSignOut` pode devolver uma Promise: o item mostra o andamento e o menu fecha quando ela termina; as `keys` de cada item (como `[\"⌘\", \",\"]`) são só dica visual."
+   "Pass `user` (`name`, `email`, and, if you want, `plan` and `avatarSrc`, with initials when the photo is missing); the status only appears with `status` or `onStatusChange`, because `defaultStatus` alone does not show it.",
+   "`onThemeChange` only reports the choice (`light`, `dark`, or `system`); applying the theme to the page is up to the app, and `showTheme={false}` hides the selector.",
+   "`onSignOut` can return a Promise: the item shows progress and the menu closes when it finishes; each item's `keys` (like `[\"⌘\", \",\"]`) are only a visual hint."
   ]
  }
 }

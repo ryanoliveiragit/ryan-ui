@@ -2,47 +2,47 @@
 
 > Faixa de preço sobre um histograma dos dados, acendendo as barras dentro do intervalo escolhido.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/range-histogram-slider
-- Descrição original (inglês): A price range over a live histogram of the data, lighting the bars inside the range and settling on bar edges.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/range-histogram-slider
+- Original description: A price range over a live histogram of the data, lighting the bars inside the range and settling on bar edges.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json`. Caminho do registro, relativo ao endereço do site: `r/range-histogram-slider.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/range-histogram-slider.json`. Registry path, relative to the site address: `r/range-histogram-slider.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/range-histogram-slider/range-histogram-slider.tsx`
   - `components/ryan-ui/range-histogram-slider/range-histogram-slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/range-histogram-slider.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/range-histogram-slider.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Filtro de faixa de preço ou de outra medida em que ver a distribuição ajuda a escolher, como diárias, salários ou tamanhos.
-- Buscas com filtro ao vivo, em que as barras acesas mostram quanto do conjunto fica dentro do intervalo.
+- Filtering a price range or another measure where seeing the distribution helps people choose, such as nightly rates, salaries, or sizes.
+- Searches with live filtering, where the lit bars show how much of the set falls inside the range.
 
-## Quando não usar
+## When not to use
 
-- Use [`slider`](slider.md) quando não há dados para mostrar a distribuição ou quando basta um valor só.
-- Use [`number-field`](number-field.md) quando a pessoa já sabe os limites exatos e prefere digitar.
-- Use [`chip-group`](chip-group.md) para filtrar por categorias em vez de números.
+- Use [`slider`](slider.md) when there is no data to show the distribution or when a single value is enough.
+- Use [`number-field`](number-field.md) when people already know the exact limits and prefer to type them.
+- Use [`chip-group`](chip-group.md) to filter by categories instead of numbers.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -73,18 +73,18 @@ export default function RangeHistogramSliderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `RangeHistogramSlider`
 
 A two thumb range over a histogram of the data it filters. Bars inside the range light up, cut exactly at each thumb on the frame it moves; the thumbs follow the pointer 1:1, never cross, rubber-band at the ends, and settle on bar edges with the release velocity. A press anywhere on the histogram or track springs the nearest thumb there. Arrows step, Shift+arrows and PageUp or PageDown move one bar, and Home or End go to a thumb's limit.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Visible label. The thumbs are named from it unless `thumbLabels` says otherwise. |
-| `data` (obrigatória) | `number[]` | — | The raw values the histogram counts, such as every listing's price. |
+| `label` (required) | `string` | — | Visible label. The thumbs are named from it unless `thumbLabels` says otherwise. |
+| `data` (required) | `number[]` | — | The raw values the histogram counts, such as every listing's price. |
 | `value` | `[number, number]` | — | — |
 | `defaultValue` | `[number, number]` | — | — |
 | `onValueChange` | `(value: [number, number]) => void` | — | — |
@@ -101,47 +101,47 @@ A two thumb range over a histogram of the data it filters. Bars inside the range
 | `disabled` | `boolean` | — | — |
 | `className` | `string` | — | — |
 
-### Outras exportações
+### Other exports
 
-- `histogram` (função)
+- `histogram` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↑` | Aumentam o polegar em foco em um `step`. |
-| `←` ou `↓` | Diminuem o polegar em foco; num limite, ele força contra a borda e volta numa mola. |
-| `Shift + →` ou `Shift + ←` ou `Page Up` ou `Page Down` | Levam o polegar até a próxima borda de barra naquela direção, percorrendo o histograma barra a barra. |
-| `Home` ou `End` | Levam o polegar ao seu limite: a ponta da escala ou o outro polegar, respeitando a distância mínima. |
-| `Tab` | Passa do polegar do mínimo para o do máximo. |
+| `→` or `↑` | Increase the focused thumb by one `step`. |
+| `←` or `↓` | Decrease the focused thumb; at a limit, it strains against the edge and springs back. |
+| `Shift + →` or `Shift + ←` or `Page Up` or `Page Down` | Move the thumb to the next bar edge in that direction, walking the histogram bar by bar. |
+| `Home` or `End` | Move the thumb to its limit: the end of the scale or the other thumb, respecting the minimum distance. |
+| `Tab` | Moves from the minimum thumb to the maximum one. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada polegar é um `role="slider"` próprio, chamado “{label}, minimum” e “{label}, maximum” (troque com `thumbLabels`), com `aria-valuetext` vindo de `format`.
-- `aria-valuemin` e `aria-valuemax` de cada polegar acompanham o outro, então o leitor de tela ouve só o trecho que ainda está livre.
-- O histograma e o texto do intervalo são `aria-hidden`; se a quantidade de itens no intervalo importa, mostre-a em texto fora do componente, como faz a demo.
+- Each thumb is its own `role="slider"`, named “{label}, minimum” and “{label}, maximum” (change with `thumbLabels`), with `aria-valuetext` coming from `format`.
+- The `aria-valuemin` and `aria-valuemax` of each thumb follow the other one, so the screen reader hears only the stretch that is still free.
+- The histogram and the range text are `aria-hidden`; if the number of items in the range matters, show it as text outside the component, as the demo does.
 
-## Movimento
+## Motion
 
-- Os polegares seguem o ponteiro 1:1, nunca se cruzam, esticam como elástico além das pontas e, ao soltar, assentam numa borda de barra próxima levando a velocidade do gesto.
-- As barras dentro do intervalo acendem por um recorte que corta exatamente no polegar, no mesmo quadro, e tocar no gráfico ou no trilho leva o polegar mais próximo até lá numa mola.
-- Com “reduzir movimento” ligado, os polegares vão direto ao valor, sem elástico nem tranco nos limites.
+- The thumbs follow the pointer 1:1, never cross, stretch like elastic past the ends, and on release settle on a nearby bar edge carrying the gesture's velocity.
+- The bars inside the range light up through a clip that cuts exactly at the thumb, in the same frame, and tapping the chart or track takes the nearest thumb there on a spring.
+- With “reduce motion” on, the thumbs go straight to the value, with no elastic or bump at the limits.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa a largura do contêiner, e no toque arrastar na vertical continua rolando a página (`touch-action: pan-y`).
+- It fills the container width, and on touch, dragging vertically still scrolls the page (`touch-action: pan-y`).
 
-## Desempenho
+## Performance
 
-- As barras são recontadas quando muda a identidade de `data`, `min`, `max` ou `bins`; memorize o array com `useMemo` para não recontar a cada render.
-- Sem `min` e `max`, os limites saem de `Math.min(...data)` e `Math.max(...data)` a cada render; com muitos valores, passe os dois.
+- The bars are recounted when the identity of `data`, `min`, `max`, or `bins` changes; memoize the array with `useMemo` to avoid recounting on every render.
+- Without `min` and `max`, the limits come from `Math.min(...data)` and `Math.max(...data)` on every render; with many values, pass both.
 
-## Notas para IA
+## Notes for AI
 
-- `data` são os valores brutos (o preço de cada anúncio), não as contagens; o componente distribui os valores em `bins` barras, 32 por padrão.
-- Passe `min` e `max` explícitos, como a demo faz: o mínimo padrão inclui o zero, então preços de 40 a 600 abririam a escala em 0.
-- Use `onValueChange` para o texto ao vivo e `onValueCommit` para filtrar ou buscar, porque ele dispara ao soltar ou a cada tecla; `snapToBins={false}` desliga o encaixe nas bordas.
+- `data` holds the raw values (the price of each listing), not the counts; the component distributes the values into `bins` bars, 32 by default.
+- Pass explicit `min` and `max`, as the demo does: the default minimum includes zero, so prices from 40 to 600 would open the scale at 0.
+- Use `onValueChange` for the live text and `onValueCommit` to filter or search, because it fires on release or on every key; `snapToBins={false}` turns off snapping to the edges.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/range-histogram-slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/range-histogram-slider · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

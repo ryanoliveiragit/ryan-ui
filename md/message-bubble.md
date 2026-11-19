@@ -2,48 +2,48 @@
 
 > Balão de conversa para você e para o assistente, com cauda, agrupamento, horário e tiques de entrega animados.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/message-bubble
-- Descrição original (inglês): A chat bubble for the person and the assistant that pops in from its tail corner, groups consecutive messages, and draws delivery ticks under a timestamp.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/message-bubble
+- Original description: A chat bubble for the person and the assistant that pops in from its tail corner, groups consecutive messages, and draws delivery ticks under a timestamp.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json`. Caminho do registro, relativo ao endereço do site: `r/message-bubble.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-bubble.json`. Registry path, relative to the site address: `r/message-bubble.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/message-bubble/message-bubble.tsx`
   - `components/ryan-ui/message-bubble/message-bubble.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/message-bubble.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/message-bubble.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Conversas em estilo de mensageiro: as bolhas da pessoa ficam à direita na cor de destaque e as do assistente, à esquerda numa superfície neutra.
-- Sequências de mensagens do mesmo remetente: `MessageBubbleGroup` aperta os cantos internos e deixa a cauda só na última bolha.
-- Quando a mensagem enviada deve mostrar hora e estado de entrega (`sending`, `sent`, `delivered`, `read`, `failed`) ou a outra parte está digitando (`typing`).
+- Messenger-style conversations: the person's bubbles sit on the right in the accent color and the assistant's on the left on a neutral surface.
+- Sequences of messages from the same sender: `MessageBubbleGroup` tightens the inner corners and leaves the tail only on the last bubble.
+- When the sent message should show time and delivery state (`sending`, `sent`, `delivered`, `read`, `failed`) or the other party is typing (`typing`).
 
-## Quando não usar
+## When not to use
 
-- Use [`message`](message.md) para respostas longas do assistente, com Markdown e barra de copiar, tentar de novo e avaliar.
-- Use [`chat-thread`](chat-thread.md) quando precisar da conversa pronta, com reações, confirmação de leitura, indicador de digitação e campo de escrita.
-- Use [`chat-app`](chat-app.md) quando quiser a tela de chat inteira, com lista de conversas e caixa de prompt.
+- Use [`message`](message.md) for long assistant replies, with Markdown and a toolbar for copy, retry and rating.
+- Use [`chat-thread`](chat-thread.md) when you need the ready-made conversation, with reactions, read receipts, typing indicator and input field.
+- Use [`chat-app`](chat-app.md) when you want the whole chat screen, with conversation list and prompt box.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useEffect, useRef, useState } from "react";
@@ -125,13 +125,13 @@ export default function MessageBubbleDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MessageBubble`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `from` | `"user" \| "assistant"` | `"assistant"` | Who wrote it. Decides the side, the color and where the tail points. |
 | `children` | `ReactNode` | — | The message. Text wraps; links, emphasis and inline code are fine. |
@@ -148,43 +148,43 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 A run of bubbles from one sender. It spaces them tightly and gives each its place, so only the last one carries the tail.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `from` | `"user" \| "assistant"` | `"assistant"` | Sender of every bubble in the group. |
-| `children` (obrigatória) | `ReactNode` | — | `MessageBubble` elements, as direct children. Each one gets its `from` and `position` from the group. |
+| `children` (required) | `ReactNode` | — | `MessageBubble` elements, as direct children. Each one gets its `from` and `position` from the group. |
 | `label` | `string` | — | Accessible name of the group, for example "Messages from Dana". |
 | `className` | `string` | — | Extra class for the group element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `MessageBubbleFrom` | `"user" \| "assistant"` |
 | `MessageBubblePosition` | `"single" \| "first" \| "middle" \| "last"` |
 | `MessageBubbleStatus` | `"sending" \| "sent" \| "delivered" \| "read" \| "failed"` |
 
-## Acessibilidade
+## Accessibility
 
-- Cada bolha começa com o autor só para leitor de tela (“You”, “Assistant” ou o `author` que você passar), e o estado de entrega tem um texto oculto equivalente aos tiques.
-- Os pontos de digitação são um `role="status"` com `aria-label` “Typing”; `MessageBubbleGroup` é um `role="group"` que recebe o nome de `label`.
-- A bolha não cria região viva para mensagens novas: ponha a lista num contêiner com esse papel, como o `message-scroller`, que usa `role="log"`.
+- Each bubble starts with the author for screen readers only (“You”, “Assistant” or the `author` you pass), and the delivery state has a hidden text equivalent to the ticks.
+- The typing dots are a `role="status"` with `aria-label` “Typing”; `MessageBubbleGroup` is a `role="group"` that gets its name from `label`.
+- The bubble does not create a live region for new messages: put the list in a container with that role, such as `message-scroller`, which uses `role="log"`.
 
-## Movimento
+## Motion
 
-- A bolha surge a partir do canto da cauda, crescendo e subindo com uma mola de leve quique; `animateIn={false}` desliga isso para o histórico.
-- Cada tique novo se desenha quando o `status` muda (os que já existiam ao montar não repetem); `sending` mostra um pequeno giro e `typing`, três pontos em onda.
-- Com “reduzir movimento” ligado, a bolha e os tiques só esmaecem, e o giro e os pontos ficam parados.
+- The bubble emerges from the tail corner, growing and rising with a spring with a slight bounce; `animateIn={false}` turns this off for history.
+- Each new tick draws itself when `status` changes (those already there on mount do not repeat); `sending` shows a small spin and `typing`, three dots in a wave.
+- With “reduce motion” on, the bubble and ticks only fade, and the spin and dots stay still.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A bolha ocupa no máximo 82% da largura do contêiner, até 34rem; o texto preserva as quebras de linha e quebra palavras longas.
+- The bubble takes at most 82% of the container width, up to 34rem; the text preserves line breaks and breaks long words.
 
-## Notas para IA
+## Notes for AI
 
-- Agrupe mensagens seguidas do mesmo remetente num `MessageBubbleGroup from="user"`: ele define `from` e `position` de cada filho, que precisam ser `MessageBubble` diretos (um wrapper no meio quebra isso).
-- `timestamp` já chega formatado (por exemplo “9:41”) e `status` desenha os tiques; num grupo, passe os dois só na última bolha, como faz o demo.
-- Para o indicador de digitação, renderize uma bolha com `typing` e troque-a pela mensagem quando o texto chegar; fora de grupos, `position` e `tail` controlam cantos e cauda.
+- Group consecutive messages from the same sender in a `MessageBubbleGroup from="user"`: it sets `from` and `position` on each child, which must be direct `MessageBubble`s (a wrapper in between breaks this).
+- `timestamp` arrives already formatted (for example “9:41”) and `status` draws the ticks; in a group, pass both only on the last bubble, as the demo does.
+- For the typing indicator, render a bubble with `typing` and swap it for the message when the text arrives; outside groups, `position` and `tail` control corners and tail.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message-bubble · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message-bubble · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

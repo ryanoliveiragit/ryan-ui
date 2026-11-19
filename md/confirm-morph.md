@@ -2,48 +2,48 @@
 
 > Botão destrutivo que vira confirmação no próprio lugar, depois carregamento e resultado com desfazer.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/confirm-morph
-- Descrição original (inglês): A destructive button that morphs into an inline confirmation, a spinner, and a result with undo.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/confirm-morph
+- Original description: A destructive button that morphs into an inline confirmation, a spinner, and a result with undo.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/confirm-morph.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/confirm-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/confirm-morph.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/confirm-morph.json`. Caminho do registro, relativo ao endereço do site: `r/confirm-morph.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/confirm-morph.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/confirm-morph.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/confirm-morph.json`. Registry path, relative to the site address: `r/confirm-morph.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/confirm-morph/confirm-morph.tsx`
   - `components/ryan-ui/confirm-morph/confirm-morph.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/confirm-morph.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/confirm-morph.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ações destrutivas em que um diálogo modal pesaria: excluir um projeto, revogar um acesso, descartar um rascunho.
-- Quando a pergunta, o andamento e o resultado com Desfazer devem acontecer no lugar do próprio botão.
-- Ações que pedem uma barreira a mais: `confirmMode="hold"` exige manter pressionado e `countdown` dá alguns segundos para cancelar.
+- Destructive actions where a modal dialog would be heavy: delete a project, revoke access, discard a draft.
+- When the question, the progress, and the result with Undo should happen in place of the button itself.
+- Actions that need an extra barrier: `confirmMode="hold"` requires holding down and `countdown` gives a few seconds to cancel.
 
-## Quando não usar
+## When not to use
 
-- Use [`dialog`](dialog.md) quando a pessoa precisa ler consequências ou preencher algo antes de confirmar: a pergunta aqui é uma linha curta.
-- Use [`hold-to-confirm`](hold-to-confirm.md) quando basta manter o botão pressionado, sem pergunta nem Cancelar.
-- Use [`toast-action`](toast-action.md) quando a ação pode rodar direto e o Desfazer vem depois, num aviso.
+- Use [`dialog`](dialog.md) when the person needs to read consequences or fill something in before confirming: here the question is a short line.
+- Use [`hold-to-confirm`](hold-to-confirm.md) when holding the button is enough, with no question or Cancel.
+- Use [`toast-action`](toast-action.md) when the action can run right away and Undo comes afterward, in a notice.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -85,15 +85,15 @@ export default function ConfirmMorphDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ConfirmMorph`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `ReactNode` | — | The resting label, such as "Delete project". |
+| `label` (required) | `ReactNode` | — | The resting label, such as "Delete project". |
 | `icon` | `ReactNode` | — | A plain icon before the resting label. |
 | `prompt` | `ReactNode` | — | The question shown while confirming, such as "Delete 3 files?". Defaults to the label with a question mark. |
 | `confirmLabel` | `string` | `"Delete"` | — |
@@ -122,46 +122,46 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | — |
 | `ref` | `Ref<HTMLDivElement>` | — | Receives the root element, which also takes focus while the action is pending. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ConfirmMorphState`: Where the control is in its life: resting, asking, working, finished, or failed. | `"idle" \| "confirming" \| "pending" \| "done" \| "error"` |
 | `ConfirmMorphMode`: How the question is answered: a press, a press held until the fill completes, or a press followed by a short countdown. | `"press" \| "hold" \| "countdown"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão em repouso, abrem a pergunta e levam o foco ao botão de confirmar, onde as mesmas teclas confirmam (no modo `countdown`, iniciam a contagem). |
-| `Tab` ou `Shift + Tab` | Alternam entre Cancelar e Confirmar. |
-| `Esc` | Cancela a pergunta ou a contagem regressiva; num resultado ou erro, volta ao repouso. |
-| `Enter` | Durante a contagem regressiva, com o foco no controle, executa a ação sem esperar o fim. |
-| `Espaço` ou `Enter` | No modo `hold`, precisam ficar pressionadas no botão de confirmar até o preenchimento completar; soltar antes desfaz. |
+| `Enter` or `Space` | On the resting button, open the question and move focus to the confirm button, where the same keys confirm (in `countdown` mode, they start the countdown). |
+| `Tab` or `Shift + Tab` | Toggle between Cancel and Confirm. |
+| `Esc` | Cancels the question or the countdown; on a result or error, returns to rest. |
+| `Enter` | During the countdown, with focus on the control, runs the action without waiting for the end. |
+| `Space` or `Enter` | In `hold` mode, must stay pressed on the confirm button until the fill completes; releasing early undoes it. |
 
-## Acessibilidade
+## Accessibility
 
-- O foco acompanha as faces se já estava no controle: vai para Confirmar na pergunta, para a raiz durante a contagem e a espera, para Desfazer ou Tentar de novo no resultado e de volta ao botão no repouso.
-- A pergunta é um `role="group"` rotulado pelo `prompt`, a raiz recebe `aria-busy` na espera e um `role="status"` anuncia andamento, resultado e erro, e também a pergunta quando `prompt` é texto.
-- O tempo limite só pausa com o ponteiro sobre o controle ou com a aba oculta, não com o foco do teclado; aumente ou zere `confirmTimeout` e `resultTimeout` para quem usa teclado ou leitor de tela.
+- Focus follows the faces if it was already on the control: it goes to Confirm on the question, to the root during the countdown and the wait, to Undo or Try again on the result, and back to the button at rest.
+- The question is a `role="group"` labeled by the `prompt`, the root gets `aria-busy` while waiting, and a `role="status"` announces progress, result, and error, and also the question when `prompt` is text.
+- The timeout only pauses with the pointer over the control or with the tab hidden, not with keyboard focus; increase or zero out `confirmTimeout` and `resultTimeout` for keyboard or screen reader users.
 
-## Movimento
+## Motion
 
-- Uma única pílula muda de largura com uma mola sem ultrapassagem a cada face; as faces trocam por esmaecer, na largura natural, e as partes da nova entram em sequência saindo de um leve desfoque.
-- No modo `hold` o botão de confirmar se preenche da esquerda enquanto é pressionado e esvazia numa mola se solto antes; no `countdown` um anel se esgota e os segundos trocam no lugar; o sucesso desenha um visto.
-- Com “reduzir movimento”, a largura salta, as faces só esmaecem, o visto aparece pronto e o indicador de espera gira mais devagar (1,6 s por volta).
+- A single pill changes width with a spring with no overshoot on each face; faces swap by fading, at natural width, and the parts of the new one enter in sequence from a slight blur.
+- In `hold` mode the confirm button fills from the left while pressed and empties on a spring if released early; in `countdown` a ring runs out and the seconds swap in place; success draws a checkmark.
+- With “reduce motion”, the width jumps, the faces only fade, the checkmark appears already drawn, and the wait indicator spins more slowly (1.6 s per turn).
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Nada quebra linha: a pergunta ocupa até `16rem` (o excesso vira reticências) e é seguida de Cancelar e Confirmar, numa única fileira.
-- A pílula não passa de 100% do contêiner e corta o que sobra; como Confirmar é o último, num espaço estreito ele fica fora da área visível: reserve largura ou encurte `prompt`.
+- Nothing wraps: the question takes up to `16rem` (the excess becomes an ellipsis) and is followed by Cancel and Confirm, in a single row.
+- The pill does not exceed 100% of the container and clips what is left over; since Confirm comes last, in a narrow space it ends up outside the visible area: reserve width or shorten `prompt`.
 
-## Notas para IA
+## Notes for AI
 
-- `onConfirm` pode devolver uma Promise: enquanto roda aparece a face de espera, uma rejeição mostra o erro com Tentar de novo, e passar `onUndo` acrescenta Desfazer ao resultado.
-- Os rótulos têm padrão em inglês e de exclusão (`confirmLabel` “Delete”, `pendingLabel` “Deleting”, `doneLabel` “Deleted”): passe `prompt` e todos os rótulos; anúncios como “Cancelled” e “Undone” são fixos no código.
-- Funciona sem controle externo; use `state` com `onStateChange` só se o pai precisar comandar as faces, e `tone="neutral"` para ações importantes mas reversíveis.
+- `onConfirm` can return a Promise: while it runs the wait face appears, a rejection shows the error with Try again, and passing `onUndo` adds Undo to the result.
+- Labels default to English and to deletion (`confirmLabel` “Delete”, `pendingLabel` “Deleting”, `doneLabel` “Deleted”): pass `prompt` and all the labels; announcements like “Cancelled” and “Undone” are fixed in the code.
+- It works with no external control; use `state` with `onStateChange` only if the parent needs to drive the faces, and `tone="neutral"` for important but reversible actions.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/confirm-morph · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/confirm-morph · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

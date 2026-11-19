@@ -2,48 +2,48 @@
 
 > Seletor de roda como o de hora do celular: arraste, solte com impulso e ele encaixa na opção; aceita várias colunas e teclado.
 
-- Tipo: componente (categoria Entradas), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/wheel-picker
-- Descrição original (inglês): A vertical wheel picker with snap and drag momentum, like a phone time picker, with several columns, disabled options and full keyboard support.
+- Type: component (category Inputs), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/wheel-picker
+- Original description: A vertical wheel picker with snap and drag momentum, like a phone time picker, with several columns, disabled options and full keyboard support.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json`. Caminho do registro, relativo ao endereço do site: `r/wheel-picker.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wheel-picker.json`. Registry path, relative to the site address: `r/wheel-picker.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/wheel-picker/wheel-picker.tsx`
   - `components/ryan-ui/wheel-picker/wheel-picker.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/wheel-picker.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/wheel-picker.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolher hora, duração ou data em telas de toque, com o gesto de roda que as pessoas conhecem do celular.
-- Combinações de várias colunas, como hora, minuto e AM/PM, ou dia e turno.
-- Listas curtas com opções indisponíveis que precisam continuar visíveis, como dias lotados.
+- Choosing a time, duration, or date on touch screens, with the wheel gesture people know from their phones.
+- Multi-column combinations, such as hour, minute, and AM/PM, or day and shift.
+- Short lists with unavailable options that need to stay visible, such as fully booked days.
 
-## Quando não usar
+## When not to use
 
-- Use [`time-picker`](time-picker.md) em formulários de desktop, onde um campo com lista ocupa menos espaço.
-- Use [`select`](select.md) ou [`combobox`](combobox.md) para listas longas de texto, em que ler ou digitar é mais rápido que girar.
-- Use [`date-picker`](date-picker.md) para escolher datas num calendário.
+- Use [`time-picker`](time-picker.md) in desktop forms, where a field with a list takes less space.
+- Use [`select`](select.md) or [`combobox`](combobox.md) for long text lists, where reading or typing is faster than spinning.
+- Use [`date-picker`](date-picker.md) to choose dates on a calendar.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -95,15 +95,15 @@ export default function WheelPickerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `WheelPicker`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `columns` (obrigatória) | `WheelColumn[]` | — | One wheel per entry, left to right. |
+| `columns` (required) | `WheelColumn[]` | — | One wheel per entry, left to right. |
 | `value` | `Record<string, string>` | — | Chosen values by column id (controlled). |
 | `defaultValue` | `Record<string, string>` | — | Values chosen at first (uncontrolled). A column without one starts on its first enabled option. |
 | `onValueChange` | `(value: WheelValue, columnId: string) => void` | — | Runs with every column's value when one settles on a new option; `columnId` says which one moved. |
@@ -113,67 +113,67 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `disabled` | `boolean` | `false` | Turns the control off: it is dimmed and ignores pointer and keyboard input. |
 | `className` | `string` | — | Extra class names for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `WheelValue`: One chosen value per column, keyed by column id. | `Record<string, string>` |
 
 #### `WheelOption`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | The value reported when this option is chosen. |
+| `value` (required) | `string` | The value reported when this option is chosen. |
 | `label` | `string` | What the wheel shows. Falls back to the value. |
 | `disabled` | `boolean` | Shown dimmed; the wheel never comes to rest on it. |
 
 #### `WheelColumn`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Key of this column in the picker's value object, for example "hour". |
-| `label` (obrigatória) | `string` | Accessible name of the column, for example "Hour". |
-| `options` (obrigatória) | `WheelOption[]` | The options from top to bottom. |
+| `id` (required) | `string` | Key of this column in the picker's value object, for example "hour". |
+| `label` (required) | `string` | Accessible name of the column, for example "Hour". |
+| `options` (required) | `WheelOption[]` | The options from top to bottom. |
 | `suffix` | `ReactNode` | Fixed text shown beside the selection band after this column, such as ":" or "min". It does not scroll. |
 | `width` | `number \| string` | Column width in px or any CSS length. By default it fits its widest option. |
 | `align` | `"start" \| "center" \| "end"` | How labels line up inside the column. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `↑` | Giram a coluna em foco uma opção, pulando as desabilitadas. |
-| `Page Down` ou `Page Up` | Giram uma tela de opções (`visibleCount` menos uma). |
-| `Home` ou `End` | Vão à primeira ou à última opção habilitada. |
-| `←` ou `→` | Levam o foco à coluna anterior ou à seguinte. |
-| `A–Z` ou `0–9` | Digitar o começo de um rótulo pula para ele, como numa lista nativa. |
+| `↓` or `↑` | Spin the focused column by one option, skipping disabled ones. |
+| `Page Down` or `Page Up` | Spin one screen of options (`visibleCount` minus one). |
+| `Home` or `End` | Go to the first or last enabled option. |
+| `←` or `→` | Move focus to the previous or next column. |
+| `A–Z` or `0–9` | Typing the start of a label jumps to it, as in a native list. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada coluna é uma `listbox` vertical focável, com o `label` da coluna e `aria-activedescendant` apontando a opção escolhida; opções desabilitadas têm `aria-disabled`.
-- O conjunto é um `role="group"`: passe `label` no `WheelPicker`, como “Alarm time”, e um `label` claro em cada coluna, como “Hour” e “Minute”.
-- O `suffix` (como “:” ou “min”) é `aria-hidden`; se a unidade importa para entender a coluna, coloque-a no `label` da coluna.
+- Each column is a focusable vertical `listbox`, with the column `label` and `aria-activedescendant` pointing to the chosen option; disabled options have `aria-disabled`.
+- The whole is a `role="group"`: pass `label` on `WheelPicker`, such as “Alarm time”, and a clear `label` on each column, such as “Hour” and “Minute”.
+- The `suffix` (such as “:” or “min”) is `aria-hidden`; if the unit matters for understanding the column, put it in the column `label`.
 
-## Movimento
+## Motion
 
-- Arrastar gira a coluna com o dedo; solta com impulso, ela segue com inércia e para na opção habilitada mais próxima, com uma pequena folga elástica nas pontas.
-- As linhas inclinam, encolhem e esmaecem conforme se afastam da faixa central, como num tambor, e teclas e roda do mouse giram com uma mola curta.
-- Com “reduzir movimento” ligado, não há inércia nem inclinação: a coluna para onde foi solta e as teclas saltam direto.
+- Dragging spins the column with the finger; released with momentum, it keeps going with inertia and stops on the nearest enabled option, with a small elastic give at the ends.
+- The rows tilt, shrink, and fade as they move away from the center band, as on a drum, and keys and the mouse wheel spin it with a short spring.
+- With “reduce motion” on, there is no inertia or tilt: the column stops where it was released and the keys jump straight.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- No toque, a coluna bloqueia a rolagem da página (`touch-action: none`) para o arraste girar a roda; com o mouse, a roda gira uma linha por passo e, nas pontas, deixa a página rolar.
+- On touch, the column blocks page scrolling (`touch-action: none`) so the drag spins the wheel; with a mouse, the wheel spins one row per step and, at the ends, lets the page scroll.
 
-## Desempenho
+## Performance
 
-- Cada opção recalcula inclinação e opacidade a cada quadro do giro, então colunas com centenas de opções, como uma lista de anos, pesam mais que as de horas e minutos.
+- Each option recalculates tilt and opacity on every frame of the spin, so columns with hundreds of options, such as a list of years, are heavier than hour and minute ones.
 
-## Notas para IA
+## Notes for AI
 
-- Descreva as colunas em `columns` (`id`, `label`, `options`, `suffix`); o valor é um objeto por coluna, como `{ hour: "7", minute: "30", period: "AM" }`, e `onValueChange` traz o `columnId` que mudou.
-- Toda coluna sempre tem valor: sem um valor válido, ela assume a primeira opção habilitada, e opções `disabled` aparecem riscadas e nunca são a parada da roda.
-- `itemHeight` (38px) e `visibleCount` (5, sempre ímpar) definem a altura; cada coluna se ajusta à opção mais larga, ou use `width`.
+- Describe the columns in `columns` (`id`, `label`, `options`, `suffix`); the value is an object per column, such as `{ hour: "7", minute: "30", period: "AM" }`, and `onValueChange` brings the `columnId` that changed.
+- Every column always has a value: without a valid value, it takes the first enabled option, and `disabled` options appear struck through and are never where the wheel stops.
+- `itemHeight` (38px) and `visibleCount` (5, always odd) define the height; each column fits the widest option, or use `width`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/wheel-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/wheel-picker · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

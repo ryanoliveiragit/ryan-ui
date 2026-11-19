@@ -49,10 +49,10 @@ const at = relative => (base ? `${base}${relative}` : relative);
 
 /* ---------- Dados do site ---------- */
 
-const categories = [["actions", "Ações"], ["inputs", "Entradas"], ["disclosure", "Revelação"], ["feedback", "Feedback"], ["data", "Dados"], ["text", "Texto"], ["ai", "Agentes de IA"], ["games", "Jogos"], ["special", "Especial"], ["blocks", "Blocos"]];
+const categories = [["actions", "Actions"], ["inputs", "Inputs"], ["disclosure", "Disclosure"], ["feedback", "Feedback"], ["data", "Data"], ["text", "Text"], ["ai", "AI agents"], ["games", "Games"], ["special", "Special"], ["blocks", "Blocks"]];
 const categoryLabel = id => categories.find(([key]) => key === id)?.[1] ?? id;
 const describe = item => (item.descricao ?? item.description).replace(/\s+/g, " ").trim();
-const kindLabel = item => (item.kind === "block" ? "bloco" : "componente");
+const kindLabel = item => (item.kind === "block" ? "block" : "component");
 const pagePath = item => `#/${item.kind === "block" ? "b" : "c"}/${item.name}`;
 const installedPath = target => target.replace("@components/", "components/");
 
@@ -86,7 +86,7 @@ const cell = text => String(text).replace(/\s*\n\s*/g, " ").replace(/\|/g, "\\|"
 const row = cells => `| ${cells.map(cell).join(" | ")} |`;
 const table = (head, rows) => [row(head), `| ${head.map(() => "---").join(" | ")} |`, ...rows.map(row)].join("\n");
 /** "a, b e c". */
-const sentence = parts => (parts.length <= 1 ? parts.join("") : `${parts.slice(0, -1).join(", ")} e ${parts.at(-1)}`);
+const sentence = parts => (parts.length <= 1 ? parts.join("") : `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}`);
 /** Nome de item entre crases vira link para o .md dele (mesma pasta). */
 const linkItems = (text, current) => text.replace(/`([a-z0-9]+(?:-[a-z0-9]+)*)`/g, (match, name) => (name !== current && byName.has(name) ? `[\`${name}\`](${name}.md)` : match));
 
@@ -114,7 +114,7 @@ function readInherited(entry) {
 
 function propsTable(type, defaults, aliases) {
   const rows = (type.members ?? []).map(member => [
-    `${code(member.name)}${member.optional ? "" : " (obrigatória)"}`,
+    `${code(member.name)}${member.optional ? "" : " (required)"}`,
     code(aliases.get(member.type) ?? member.type),
     ...(defaults ? [defaults[member.name] ? code(defaults[member.name]) : "—"] : []),
     member.doc || "—",
@@ -122,9 +122,9 @@ function propsTable(type, defaults, aliases) {
   const inherited = (type.extends ?? []).map(readInherited);
   if (inherited.length) {
     const omitted = inherited.flatMap(entry => entry.omitted);
-    rows.push([code("...props"), inherited.map(entry => code(entry.base)).join(", "), ...(defaults ? ["—"] : []), `Também aceita as props ${inherited.length === 1 ? "deste tipo" : "destes tipos"}${omitted.length ? `, menos ${sentence(omitted.map(code))}` : ""}.`]);
+    rows.push([code("...props"), inherited.map(entry => code(entry.base)).join(", "), ...(defaults ? ["—"] : []), `Also accepts the props of ${inherited.length === 1 ? "this type" : "these types"}${omitted.length ? `, except ${sentence(omitted.map(code))}` : ""}.`]);
   }
-  return table([defaults ? "Prop" : "Campo", "Tipo", ...(defaults ? ["Padrão"] : []), "Descrição"], rows);
+  return table([defaults ? "Prop" : "Field", "Type", ...(defaults ? ["Default"] : []), "Description"], rows);
 }
 
 function apiSection(data) {
@@ -138,25 +138,25 @@ function apiSection(data) {
   const shapes = otherTypes.filter(type => type.members?.length);
   const others = exports.filter(entry => entry.kind !== "component");
   if (!components.length && !otherTypes.length && !others.length) return [];
-  const out = ["## Referência da API", "", "Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês."];
+  const out = ["## API reference", "", "Extracted from the source code. Prop descriptions come from code comments."];
   for (const component of components) {
     const type = typeByName.get(component.props);
     out.push("", `### ${code(component.name)}`);
     if (component.doc) out.push("", component.doc);
     if (type && (type.members?.length || type.extends?.length)) out.push("", propsTable(type, component.defaults ?? {}, aliases));
     else if (type?.text) out.push("", `Props: ${code(type.text)}`);
-    else out.push("", "Sem props próprias: aceita as do elemento ou do primitivo que envolve.");
+    else out.push("", "No props of its own: accepts those of the element or primitive it wraps.");
   }
   if (definitions.length || shapes.length) {
-    out.push("", "### Tipos exportados");
-    if (definitions.length) out.push("", table(["Tipo", "Definição"], definitions.map(type => [`${code(type.name)}${type.doc ? `: ${type.doc}` : ""}`, code(type.text)])));
+    out.push("", "### Exported types");
+    if (definitions.length) out.push("", table(["Type", "Definition"], definitions.map(type => [`${code(type.name)}${type.doc ? `: ${type.doc}` : ""}`, code(type.text)])));
     for (const type of shapes) {
       out.push("", `#### ${code(type.name)}`);
       if (type.doc) out.push("", type.doc);
       out.push("", propsTable(type, null, aliases));
     }
   }
-  if (others.length) out.push("", "### Outras exportações", "", ...others.map(entry => `- ${code(entry.name)} (${{ hook: "hook", function: "função", const: "valor" }[entry.kind] ?? entry.kind})`));
+  if (others.length) out.push("", "### Other exports", "", ...others.map(entry => `- ${code(entry.name)} (${{ hook: "hook", function: "function", const: "value" }[entry.kind] ?? entry.kind})`));
   return out;
 }
 
@@ -169,10 +169,10 @@ function usage(item) {
   const source = fs.readFileSync(file, "utf8")
     .replace(/from "@\/registry\/(?:components|blocks)\//g, match => (match.includes("/blocks/") ? 'from "@/components/ryan-ui/blocks/' : 'from "@/components/ryan-ui/'))
     .replace(/from "@\/lib\//g, 'from "@/components/ryan-ui/lib/');
-  const notes = ["O demo da página do item, com os imports como ficam depois de instalar pela CLI."];
-  if (/from "\.\/_kit"/.test(source)) notes.push("`Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.");
-  if (/from "\.\/[\w-]+\.module\.css"/.test(source)) notes.push("O arquivo `.module.css` importado pelo demo é só do exemplo.");
-  return ["## Uso", "", notes.join(" "), "", fence(source, "tsx")];
+  const notes = ["The demo from the item page, with imports as they look after installing through the CLI."];
+  if (/from "\.\/_kit"/.test(source)) notes.push("`Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.");
+  if (/from "\.\/[\w-]+\.module\.css"/.test(source)) notes.push("The `.module.css` file imported by the demo belongs to the example only.");
+  return ["## Usage", "", notes.join(" "), "", fence(source, "tsx")];
 }
 
 /** As seções do guia, na ordem da página: "Quando usar" e "Quando não usar" antes da instalação, o resto depois da API. */
@@ -181,14 +181,14 @@ function guideSections(item) {
   const before = [], after = [];
   if (!guide) return { before, after };
   const list = (target, title, entries, link = false) => { if (entries?.length) target.push(`## ${title}`, "", ...entries.map(text => `- ${link ? linkItems(text, item.name) : text}`), ""); };
-  list(before, "Quando usar", guide.quandoUsar);
-  list(before, "Quando não usar", guide.quandoEvitar, true);
-  if (guide.teclado?.length) after.push("## Teclado", "", table(["Teclas", "O que fazem"], guide.teclado.map(entry => [entry.teclas.map(code).join(" ou "), entry.acao])), "");
-  list(after, "Acessibilidade", guide.acessibilidade);
-  list(after, "Movimento", guide.movimento);
-  list(after, "Comportamento responsivo", guide.responsivo);
-  list(after, "Desempenho", guide.desempenho);
-  list(after, "Notas para IA", guide.notasIA);
+  list(before, "When to use", guide.quandoUsar);
+  list(before, "When not to use", guide.quandoEvitar, true);
+  if (guide.teclado?.length) after.push("## Keyboard", "", table(["Keys", "Action"], guide.teclado.map(entry => [entry.teclas.map(code).join(" or "), entry.acao])), "");
+  list(after, "Accessibility", guide.acessibilidade);
+  list(after, "Motion", guide.movimento);
+  list(after, "Responsive behavior", guide.responsivo);
+  list(after, "Performance", guide.desempenho);
+  list(after, "Notes for AI", guide.notasIA);
   return { before, after };
 }
 
@@ -202,19 +202,19 @@ function itemMarkdown(item) {
   const guide = guideSections(item);
 
   const out = [`# ${item.title}`, "", `> ${describe(item)}`, ""];
-  out.push(`- Tipo: ${kindLabel(item)}${item.kind === "component" ? ` (categoria ${categoryLabel(item.category)})` : ""}${item.isNew ? ", novo no ryan-ui" : ""}`);
-  out.push(`- Página: ${at(pagePath(item))}`);
-  if (item.descricao && item.description) out.push(`- Descrição original (inglês): ${item.description.replace(/\s+/g, " ").trim()}`);
-  if (versions) out.push(`- Versões: ${versions.map(version => `${version.label} (${version.variant ? `${code(version.name)} com ${code(`variant="${version.variant}"`)}` : version.name === item.name ? "este item" : `[${code(version.name)}](${version.name}.md)`})`).join(", ")}`);
+  out.push(`- Type: ${kindLabel(item)}${item.kind === "component" ? ` (category ${categoryLabel(item.category)})` : ""}${item.isNew ? ", new in ryan-ui" : ""}`);
+  out.push(`- Page: ${at(pagePath(item))}`);
+  if (item.descricao && item.description) out.push(`- Original description: ${item.description.replace(/\s+/g, " ").trim()}`);
+  if (versions) out.push(`- Versions: ${versions.map(version => `${version.label} (${version.variant ? `${code(version.name)} with ${code(`variant="${version.variant}"`)}` : version.name === item.name ? "this item" : `[${code(version.name)}](${version.name}.md)`})`).join(", ")}`);
   out.push("");
 
-  out.push("## Instalação", "", "Com a CLI do shadcn (um comando copia o código e instala as dependências):", "", fence(command, "bash"), "");
-  out.push(`Com outro gerenciador: ${code(`pnpm dlx shadcn@latest add ${at(registryPath)}`)}, ${code(`yarn dlx shadcn@latest add ${at(registryPath)}`)} ou ${code(`bunx --bun shadcn@latest add ${at(registryPath)}`)}. Caminho do registro, relativo ao endereço do site: ${code(registryPath)}.`, "");
-  out.push(`- Pacotes npm: ${item.dependencies.length ? item.dependencies.map(code).join(", ") : "nenhum além do React"}`);
-  if (requires.length) out.push(`- Usa outros itens do ryan-ui (vêm junto na instalação): ${requires.map(other => `[${other.title}](${other.name}.md)`).join(", ")}`);
-  if (files.length) out.push("- Arquivos, depois de instalados:", ...files.map(file => `  - ${code(file)}`));
-  out.push("", `Primeira vez no projeto: instale a base uma vez (${code(`npx shadcn@latest add ${at("r/ryan-foundation.json")}`)}) e importe ${code("@/components/ryan-ui/foundation.css")} na raiz do app. Requer React 19 e o alias ${code("@/")}.`, "");
-  out.push("### Manual", "", `1. Instale os pacotes: ${item.dependencies.length ? code(`npm install ${item.dependencies.join(" ")}`) : "não há pacotes para instalar"}.`, `2. Copie os arquivos listados acima. O conteúdo de cada um está em ${code(registryPath)} (campo ${code("files[].content")}).`, `3. Garanta que ${code("foundation.css")} (os tokens) e ${code("motion-tokens.ts")} já estão no projeto.`, "");
+  out.push("## Installation", "", "With the shadcn CLI (one command copies the code and installs the dependencies):", "", fence(command, "bash"), "");
+  out.push(`With another package manager: ${code(`pnpm dlx shadcn@latest add ${at(registryPath)}`)}, ${code(`yarn dlx shadcn@latest add ${at(registryPath)}`)} or ${code(`bunx --bun shadcn@latest add ${at(registryPath)}`)}. Registry path, relative to the site address: ${code(registryPath)}.`, "");
+  out.push(`- npm packages: ${item.dependencies.length ? item.dependencies.map(code).join(", ") : "none besides React"}`);
+  if (requires.length) out.push(`- Uses other ryan-ui items (installed along with it): ${requires.map(other => `[${other.title}](${other.name}.md)`).join(", ")}`);
+  if (files.length) out.push("- Files, once installed:", ...files.map(file => `  - ${code(file)}`));
+  out.push("", `First time in the project: install the foundation once (${code(`npx shadcn@latest add ${at("r/ryan-foundation.json")}`)}) and import ${code("@/components/ryan-ui/foundation.css")} at the root of the app. Requires React 19 and the ${code("@/")} alias.`, "");
+  out.push("### Manual", "", `1. Install the packages: ${item.dependencies.length ? code(`npm install ${item.dependencies.join(" ")}`) : "there are no packages to install"}.`, `2. Copy the files listed above. The content of each one is in ${code(registryPath)} (field ${code("files[].content")}).`, `3. Make sure ${code("foundation.css")} (the tokens) and ${code("motion-tokens.ts")} are already in your project.`, "");
 
   out.push(...guide.before);
   const usageLines = usage(item);
@@ -222,7 +222,7 @@ function itemMarkdown(item) {
   const apiLines = apiSection(api[item.name]);
   if (apiLines.length) out.push(...apiLines, "");
   out.push(...guide.after);
-  out.push("---", "", `ryan-ui · ${at(pagePath(item))} · índice para assistentes: ${at("llms.txt")}`, "");
+  out.push("---", "", `ryan-ui · ${at(pagePath(item))} · index for assistants: ${at("llms.txt")}`, "");
   return out.join("\n").replace(/\n{3,}/g, "\n\n");
 }
 
@@ -243,17 +243,17 @@ const blocks = items.length - components;
 const index = [
   "# ryan-ui",
   "",
-  `> Componentes e blocos React com movimento, em CSS modules e tokens de design, instalados com a CLI do shadcn: ${components} componentes e ${blocks} blocos, código aberto (MIT).`,
+  `> React components and blocks with motion, built with CSS modules and design tokens, installed with the shadcn CLI: ${components} components and ${blocks} blocks.`,
   "",
-  "Cada item abaixo tem um arquivo Markdown com o comando de instalação, os arquivos, o código de uso, a API (props) e, quando existe, o guia (quando usar, teclado, acessibilidade, movimento). Os textos estão em português; nomes de código e descrições das props, em inglês.",
+  "Each item below has a Markdown file with the install command, the files, the usage code, the API (props) and, when available, the guide (when to use, keyboard, accessibility, motion).",
   "",
-  `Antes do primeiro item, instale a base uma vez: ${code(`npx shadcn@latest add ${at("r/ryan-foundation.json")}`)}, e importe ${code("@/components/ryan-ui/foundation.css")} na raiz do app. Passo a passo: ${at("#/docs/instalacao")}.`,
+  `Before the first item, install the foundation once: ${code(`npx shadcn@latest add ${at("r/ryan-foundation.json")}`)}, and import ${code("@/components/ryan-ui/foundation.css")} at the root of the app. Step by step: ${at("#/docs")}.`,
   "",
 ];
 for (const [id, label] of categories) {
   const group = items.filter(item => item.category === id);
   if (!group.length) continue;
-  index.push(`## ${id === "blocks" ? "Blocos" : `Componentes · ${label}`}`, "");
+  index.push(`## ${id === "blocks" ? "Blocks" : `Components · ${label}`}`, "");
   for (const item of group) index.push(`- [${item.title}](${at(`md/${item.name}.md`)}): ${kindLabel(item)}. ${describe(item)}`);
   index.push("");
 }

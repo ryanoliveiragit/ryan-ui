@@ -2,48 +2,48 @@
 
 > Um select cujo gatilho cresce até virar a lista, com destaque deslizante e busca por digitação.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/morph-select
-- Descrição original (inglês): A select whose trigger grows into the list, with a gliding highlight and type-ahead.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/morph-select
+- Original description: A select whose trigger grows into the list, with a gliding highlight and type-ahead.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json`. Caminho do registro, relativo ao endereço do site: `r/morph-select.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morph-select.json`. Registry path, relative to the site address: `r/morph-select.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/morph-select/morph-select.tsx`
   - `components/ryan-ui/morph-select/morph-select.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/morph-select.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/morph-select.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Seletores compactos de propriedade em barras e painéis, como responsável, status ou prioridade, em que o gatilho ocupa só a largura do rótulo escolhido.
-- Opções que pedem ícone ou avatar e um detalhe à direita (`icon`, `meta`), separadas em grupos com título.
-- Listas de até algumas centenas de opções: acima de oito, um campo de busca toma o lugar do gatilho ao abrir (`searchable="auto"`), e nas menores há busca por letra.
+- Compact property selectors in bars and panels, like owner, status, or priority, where the trigger takes only the width of the chosen label.
+- Options that need an icon or avatar and a detail on the right (`icon`, `meta`), split into groups with a heading.
+- Lists of up to a few hundred options: above eight, a search field takes the trigger's place on open (`searchable="auto"`), and on smaller ones there is search by letter.
 
-## Quando não usar
+## When not to use
 
-- Use [`select`](select.md) em formulários com campos alinhados: aqui o gatilho muda de largura com o rótulo escolhido, e não há `description` nem estado de erro.
-- Use [`multi-select`](multi-select.md) quando a pessoa pode escolher vários valores.
-- Use [`combobox`](combobox.md) quando digitar é o caminho principal e o campo deve parecer um campo de texto desde o início.
+- Use [`select`](select.md) in forms with aligned fields: here the trigger changes width with the chosen label, and there is no `description` or error state.
+- Use [`multi-select`](multi-select.md) when the person can choose several values.
+- Use [`combobox`](combobox.md) when typing is the main path and the field should look like a text field from the start.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -85,17 +85,17 @@ export default function MorphSelectDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MorphSelect`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Visible label, also the accessible name of the trigger and the list. |
+| `label` (required) | `string` | — | Visible label, also the accessible name of the trigger and the list. |
 | `hideLabel` | `boolean` | `false` | Keeps the label for assistive technology only. |
-| `items` (obrigatória) | `MorphSelectItem[]` | — | — |
+| `items` (required) | `MorphSelectItem[]` | — | — |
 | `value` | `string \| null` | — | — |
 | `defaultValue` | `string \| null` | `null` | — |
 | `onValueChange` | `(value: string, option: MorphSelectOption) => void` | — | — |
@@ -110,18 +110,18 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `defaultOpen` | `boolean` | `false` | Start with the list open, without moving focus (for previews and onboarding). Later opens move focus as usual. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `MorphSelectItem` | `MorphSelectOption \| MorphSelectGroup` |
 
 #### `MorphSelectOption`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `value` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `icon` | `ReactNode` | A 20px mark shown before the label, in the list and in the trigger. An avatar or a plain icon. |
 | `meta` | `string` | Short trailing detail such as an offset or a count. Rendered with tabular numerals. |
 | `keywords` | `string` | Extra words that match this option when searching. |
@@ -131,49 +131,49 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 A labelled run of options.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
-| `options` (obrigatória) | `MorphSelectOption[]` | — |
+| `label` (required) | `string` | — |
+| `options` (required) | `MorphSelectOption[]` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` ou `↓` ou `↑` | Com a lista fechada, abrem-na com o destaque na opção escolhida, ou na primeira; uma letra também abre, já filtrando a busca por ela ou, sem busca, na opção que começa por ela. |
-| `↓` ou `↑` | Com a lista aberta, movem o destaque uma opção, parando nas pontas; sem campo de busca, letras levam à próxima opção com aquela inicial. |
-| `Page Down` ou `Page Up` | Movem o destaque oito opções. |
-| `Home` ou `End` | Levam o destaque à primeira ou à última opção habilitada, abrindo a lista se preciso; no campo de busca com texto, movem o cursor. |
-| `Enter` ou `Espaço` | Com a lista aberta, escolhem a opção em destaque e devolvem o foco ao gatilho; no campo de busca só `Enter` escolhe, e `Alt + ↑` também serve. |
-| `Esc` | Fecha sem mudar a escolha e devolve o foco ao gatilho; `Tab` também fecha e segue para o próximo controle. |
+| `Enter` or `Space` or `↓` or `↑` | With the list closed, open it with the highlight on the chosen option, or on the first; a letter also opens it, already filtering the search by it or, without search, landing on the option that starts with it. |
+| `↓` or `↑` | With the list open, move the highlight one option, stopping at the ends; without a search field, letters go to the next option with that initial. |
+| `Page Down` or `Page Up` | Move the highlight eight options. |
+| `Home` or `End` | Take the highlight to the first or last enabled option, opening the list if needed; in the search field with text, they move the cursor. |
+| `Enter` or `Space` | With the list open, choose the highlighted option and return focus to the trigger; in the search field only `Enter` chooses, and `Alt + ↑` also works. |
+| `Esc` | Closes without changing the choice and returns focus to the trigger; `Tab` also closes and moves on to the next control. |
 
-## Acessibilidade
+## Accessibility
 
-- O gatilho é um `<button role="combobox">` ligado ao `label` visível, com `aria-expanded`, `aria-controls` e `aria-activedescendant`: sem busca, o foco fica nele enquanto o destaque percorre a lista.
-- Com busca, o foco vai para o campo, que assume o papel de `combobox`, e uma região `role="status"` anuncia quantas opções combinam; os grupos são `role="group"` e as opções têm `aria-selected` e `aria-disabled`.
-- `placeholder` e `searchPlaceholder` trocam os textos de vazio, mas o nome da busca (`Search …`), o do botão de fechar (`Close …`), a contagem e o aviso sem resultados são fixos em inglês.
+- The trigger is a `<button role="combobox">` tied to the visible `label`, with `aria-expanded`, `aria-controls`, and `aria-activedescendant`: without search, focus stays on it while the highlight moves through the list.
+- With search, focus goes to the field, which takes on the `combobox` role, and a `role="status"` region announces how many options match; groups are `role="group"` and options have `aria-selected` and `aria-disabled`.
+- `placeholder` and `searchPlaceholder` change the empty texts, but the search name (`Search …`), the close button name (`Close …`), the count, and the no-results notice are fixed in English.
 
-## Movimento
+## Motion
 
-- O próprio gatilho cresce até virar a lista: largura, altura e cantos seguem uma mola, e as opções aparecem logo atrás da borda; ao fechar, a superfície encolhe de volta.
-- Um destaque desliza entre as opções e, ao escolher, o rótulo sai da lista e voa até o gatilho, que ajusta a largura ao texto novo com uma mola.
-- Com “reduzir movimento” ligado, tamanhos e destaque mudam na hora e o valor só esmaece, sem o voo do rótulo.
+- The trigger itself grows into the list: width, height, and corners follow a spring, and the options appear just behind the edge; on close, the surface shrinks back.
+- A highlight slides between options and, on choosing, the label leaves the list and flies to the trigger, which fits its width to the new text with a spring.
+- With “reduce motion” on, sizes and highlight change instantly and the value only fades, without the label's flight.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Fechado, o gatilho tem a largura do rótulo escolhido, até `min(20rem, 100vw - 2rem)`; aberto, a superfície usa `panelWidth` (padrão 272 px), nunca menos que o gatilho nem mais que `100vw - 2rem`.
-- A lista rola acima de `maxListHeight` (padrão 296 px) e a superfície cresce sobre a página a partir da borda de `align`, sem portal: um ancestral com `overflow: hidden` a corta.
+- Closed, the trigger has the width of the chosen label, up to `min(20rem, 100vw - 2rem)`; open, the surface uses `panelWidth` (default 272 px), never less than the trigger nor more than `100vw - 2rem`.
+- The list scrolls above `maxListHeight` (default 296 px) and the surface grows over the page from the `align` edge, with no portal: an ancestor with `overflow: hidden` clips it.
 
-## Desempenho
+## Performance
 
-- Todas as opções ficam montadas mesmo com a lista fechada (oculta e `inert`) e não há virtualização: o próprio componente se indica para até algumas centenas de opções.
+- All options stay mounted even with the list closed (hidden and `inert`) and there is no virtualization: the component itself is meant for up to a few hundred options.
 
-## Notas para IA
+## Notes for AI
 
-- `items` mistura opções `{ value, label, icon?, meta?, keywords?, disabled? }` e grupos `{ label, options }`; use `value` + `onValueChange(value, option)` ou `defaultValue`, com `null` para nada escolhido.
-- `searchable` vem como `"auto"` e liga a busca acima de oito opções; passe `true` ou `false` para fixar. A busca olha `label`, `meta` e `keywords`.
-- `icon` aceita um nó de 20 px, como um avatar `<img>` ou um ícone, e aparece também no gatilho; `hideLabel` esconde o rótulo visível e `name` envia o valor num campo oculto.
+- `items` mixes options `{ value, label, icon?, meta?, keywords?, disabled? }` and groups `{ label, options }`; use `value` + `onValueChange(value, option)` or `defaultValue`, with `null` for nothing chosen.
+- `searchable` defaults to `"auto"` and turns on search above eight options; pass `true` or `false` to fix it. The search looks at `label`, `meta`, and `keywords`.
+- `icon` accepts a 20 px node, like an `<img>` avatar or an icon, and also appears on the trigger; `hideLabel` hides the visible label and `name` sends the value in a hidden field.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/morph-select · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/morph-select · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

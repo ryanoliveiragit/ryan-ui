@@ -1,243 +1,243 @@
 {
  "agent-activity": {
   "quandoUsar": [
-   "Mostrar ao vivo o que um agente faz numa tarefa longa: cada passo tem um tipo (`search`, `read`, `write`, `think`, `run`) que escolhe o ícone.",
-   "Passos que coletam achados curtos, como arquivos, sites ou resultados: eles aparecem como chips, um a um, enquanto a lista `items` cresce.",
-   "Execuções com muitos passos, em que os concluídos devem dobrar numa linha só, com contagem e tempo total, e abrir de novo sob demanda."
+   "Show live what an agent is doing on a long task: each step has a type (`search`, `read`, `write`, `think`, `run`) that picks the icon.",
+   "Steps that collect short findings, such as files, sites or results: they appear as chips, one by one, as the `items` list grows.",
+   "Runs with many steps, where finished steps should fold into a single line with a count and total time, and reopen on demand."
   ],
   "quandoEvitar": [
-   "Use `todo-list` quando o plano inteiro é conhecido desde o início e basta marcar cada passo como pendente, em andamento ou concluído.",
-   "Use `tool-result` quando é preciso mostrar a entrada e a saída completas de cada chamada de ferramenta.",
-   "Use `loading-states` para uma espera curta, sem passos para listar."
+   "Use `todo-list` when the whole plan is known from the start and you only need to mark each step as pending, in progress or done.",
+   "Use `tool-result` when you need to show the full input and output of each tool call.",
+   "Use `loading-states` for a short wait, with no steps to list."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Com o foco na linha de resumo, abre ou fecha a lista de passos concluídos."
+    "acao": "With focus on the summary line, opens or closes the list of finished steps."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Leva o foco à linha de resumo, o único controle do componente; ela só existe depois que o primeiro passo termina."
+    "acao": "Moves focus to the summary line, the component's only control; it exists only after the first step finishes."
    }
   ],
   "acessibilidade": [
-   "A raiz é uma `<section>` com `aria-label` igual a `title`; o resumo é um `<button>` com `aria-expanded` e `aria-controls`, e a lista recolhida fica `inert`.",
-   "Uma região `role=\"status\"` invisível anuncia o título do passo em andamento e, no fim, quantos passos terminaram; passos pendentes e com erro levam um sufixo só para leitor de tela.",
-   "Os textos fixos (“steps finished”, “Done”, “(waiting)”, “(failed)”) estão em inglês no código e não têm prop de tradução."
+   "The root is a `<section>` with `aria-label` equal to `title`; the summary is a `<button>` with `aria-expanded` and `aria-controls`, and the collapsed list is `inert`.",
+   "An invisible `role=\"status\"` region announces the title of the running step and, at the end, how many steps finished; pending and failed steps get a screen-reader-only suffix.",
+   "The fixed texts (“steps finished”, “Done”, “(waiting)”, “(failed)”) are in English in the code and have no translation prop."
   ],
   "movimento": [
-   "No passo em andamento, um anel pulsa em volta do ícone e um brilho corre pelo título; os chips entram um a um com uma mola curta, sem ultrapassagem.",
-   "Ao terminar, o passo sai da lista ao vivo e dobra para a linha de resumo com uma mola de altura, enquanto o número de concluídos rola para o novo valor.",
-   "Com “reduzir movimento” ligado, pulso, brilho e giro param, as alturas trocam na hora e os chips aparecem sem animação."
+   "On the running step, a ring pulses around the icon and a shimmer runs across the title; chips enter one by one with a short spring, without overshoot.",
+   "When a step finishes, it leaves the live list and folds into the summary line with a height spring, while the finished count rolls to the new value.",
+   "With “reduce motion” on, the pulse, shimmer and spin stop, heights change instantly and chips appear without animation."
   ],
   "responsivo": [
-   "Ocupa 100% da largura do pai: o cabeçalho e o `detail` de cada passo cortam com reticências numa linha, enquanto o título do passo e os chips quebram linha."
+   "Fills 100% of the parent's width: the header and each step's `detail` truncate with an ellipsis on one line, while the step title and chips wrap."
   ],
   "notasIA": [
-   "É controlado pelos dados: passe `steps` com `id` estável e atualize `status` (`pending`, `running`, `done`, `error`), `items` e `duration` enquanto o agente trabalha; o componente não mede o tempo sozinho.",
-   "Cada texto de `items` serve de `key` do chip: não repita o mesmo texto dentro de um passo.",
-   "Os concluídos começam recolhidos; use `defaultExpanded` ou o par `expanded` e `onExpandedChange` para abri-los, por exemplo quando um passo termina com `error`."
+   "It is data-driven: pass `steps` with a stable `id` and update `status` (`pending`, `running`, `done`, `error`), `items` and `duration` while the agent works; the component does not measure time itself.",
+   "Each text in `items` is used as the chip's `key`: do not repeat the same text within a step.",
+   "Finished steps start collapsed; use `defaultExpanded` or the `expanded` and `onExpandedChange` pair to open them, for example when a step ends with `error`."
   ]
  },
  "ai-sidebar": {
   "quandoUsar": [
-   "Um assistente que fica ao lado do conteúdo que comenta (documento, painel, editor) e empurra a página em vez de cobri-la.",
-   "Conversas curtas e contextuais sobre a tela atual, com sugestões prontas que enviam o prompt num toque.",
-   "Layouts divididos: o painel escolhe entre encaixar e sobrepor pela largura do próprio contêiner, não da janela."
+   "An assistant that sits beside the content it comments on (document, dashboard, editor) and pushes the page instead of covering it.",
+   "Short, contextual conversations about the current screen, with ready-made suggestions that send the prompt in one tap.",
+   "Split layouts: the panel chooses between docking and overlaying based on the width of its own container, not the window."
   ],
   "quandoEvitar": [
-   "Use `chat-app` quando a conversa é a tela inteira, com lista de conversas e respostas que podem ser paradas ou refeitas.",
-   "Use `drawer` para um painel lateral temporário que não é uma conversa.",
-   "Use `prompt-input` com `message-scroller` quando precisar de anexos, menu de modelo ou botão de parar: a caixa de prompt embutida aqui só envia texto."
+   "Use `chat-app` when the conversation is the whole screen, with a conversation list and replies that can be stopped or redone.",
+   "Use `drawer` for a temporary side panel that is not a conversation.",
+   "Use `prompt-input` with `message-scroller` when you need attachments, a model menu or a stop button: the prompt box built in here only sends text."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "Na caixa de prompt, envia o texto; durante a composição de um IME não envia."
+    "acao": "In the prompt box, sends the text; during IME composition it does not send."
    },
    {
     "teclas": [
      "Shift + Enter"
     ],
-    "acao": "Quebra a linha sem enviar."
+    "acao": "Inserts a line break without sending."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Com o foco dentro do painel, fecha o painel."
+    "acao": "With focus inside the panel, closes the panel."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Numa sugestão, envia o texto dela como prompt."
+    "acao": "On a suggestion, sends its text as the prompt."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre fechar, sugestões, caixa de prompt e enviar; com o painel fechado, nada dentro dele recebe foco."
+    "acao": "Moves through close, suggestions, prompt box and send; with the panel closed, nothing inside it receives focus."
    }
   ],
   "acessibilidade": [
-   "O painel é um `<aside>` rotulado pelo título; ao abrir, o foco vai para a caixa de prompt e, ao fechar, volta ao elemento que o tinha antes, se ele ainda existir (o `launcher` embutido sai do DOM ao abrir, então não o recebe de volta).",
-   "A lista de mensagens é `aria-live=\"polite\"` e cada mensagem leva um prefixo só para leitor de tela; fechado, o painel fica `inert`, e aberto no modo sobreposto é a página atrás que fica `inert`.",
-   "Rótulos como “Close”, “Send message”, “Conversation” e “Suggestions” estão fixos em inglês; `title`, `subtitle`, `placeholder` e `emptyText` são seus."
+   "The panel is an `<aside>` labeled by the title; on open, focus goes to the prompt box and, on close, returns to the element that had it before, if it still exists (the built-in `launcher` leaves the DOM when the panel opens, so it does not get focus back).",
+   "The message list is `aria-live=\"polite\"` and each message carries a screen-reader-only prefix; when closed, the panel is `inert`, and when open in overlay mode, the page behind it is `inert`.",
+   "Labels such as “Close”, “Send message”, “Conversation” and “Suggestions” are fixed in English; `title`, `subtitle`, `placeholder` and `emptyText` are yours."
   ],
   "movimento": [
-   "Encaixado, o painel abre com uma mola na largura e empurra a página; sobreposto, desliza por cima dela com um véu que esmaece.",
-   "Mensagens novas sobem com um leve ganho de escala, as sugestões entram em sequência quando o painel abre e a lista rola suave até o fim a cada mensagem.",
-   "Com “reduzir movimento” ligado, painel, mensagens e sugestões trocam de estado na hora e a rolagem até o fim deixa de ser suave."
+   "When docked, the panel opens with a width spring and pushes the page; when overlaid, it slides over the page with a fading scrim.",
+   "New messages rise with a slight scale-up, suggestions enter in sequence when the panel opens, and the list scrolls smoothly to the end on each message.",
+   "With “reduce motion” on, the panel, messages and suggestions change state instantly and scrolling to the end is no longer smooth."
   ],
   "responsivo": [
-   "Um `ResizeObserver` mede o contêiner: abaixo de `overlayBelow` (640 px por padrão) o painel desliza sobre a página, com largura `min(100%, max(width, 320px))`.",
-   "A caixa de prompt cresce com o texto até 132 px e depois rola por dentro; as sugestões ficam numa linha só, com rolagem horizontal."
+   "A `ResizeObserver` measures the container: below `overlayBelow` (640 px by default) the panel slides over the page, with width `min(100%, max(width, 320px))`.",
+   "The prompt box grows with the text up to 132 px and then scrolls internally; suggestions stay on a single line, with horizontal scrolling."
   ],
   "desempenho": [
-   "São dois `ResizeObserver` por instância (contêiner e lista) e a lista não é virtualizada: conversas muito longas pesam no DOM."
+   "There are two `ResizeObserver`s per instance (container and list) and the list is not virtualized: very long conversations weigh on the DOM."
   ],
   "notasIA": [
-   "Envolva a página: `children` é o conteúdo ao lado do painel, e a raiz usa `height: 100%`, então o pai precisa ter altura definida.",
-   "A conversa é sua: passe `messages` (`id`, `role`, `content`), acrescente a mensagem em `onSend` e ligue `pending` enquanto a resposta não chega; `content` aceita nós, como um `StreamingResponse`.",
-   "Use `open` com `onOpenChange` e `launcher={false}` quando a página já tem o próprio botão; o item depende de `loading-states` para o indicador de `pending`."
+   "Wrap the page: `children` is the content beside the panel, and the root uses `height: 100%`, so the parent needs a defined height.",
+   "The conversation is yours: pass `messages` (`id`, `role`, `content`), append the message in `onSend` and turn on `pending` until the reply arrives; `content` accepts nodes, such as a `StreamingResponse`.",
+   "Use `open` with `onOpenChange` and `launcher={false}` when the page already has its own button; this item depends on `loading-states` for the `pending` indicator."
   ]
  },
  "approval-card": {
   "quandoUsar": [
-   "Um agente propõe uma ação com efeito real (reembolso, envio, exclusão) e uma pessoa precisa aprovar ou rejeitar antes de ela acontecer.",
-   "Pedidos que precisam de contexto: um resumo, fatos em pares de rótulo e valor e, se quiser, uma prévia da mudança atrás do botão de detalhes.",
-   "Filas de revisão em que o cartão continua na tela depois da decisão, mostrando o que foi decidido e um “Undo”."
+   "An agent proposes an action with a real effect (refund, send, delete) and a person must approve or reject it before it happens.",
+   "Requests that need context: a summary, facts as label and value pairs and, optionally, a preview of the change behind the details button.",
+   "Review queues where the card stays on screen after the decision, showing what was decided and an “Undo”."
   ],
   "quandoEvitar": [
-   "Use `tool-approval` para um pedido compacto dentro da conversa, com permitir uma vez, permitir sempre ou negar.",
-   "Use `confirm-morph` ou `hold-to-confirm` quando é a própria pessoa que dispara uma ação destrutiva e só falta confirmá-la.",
-   "Use `dialog` quando a decisão deve bloquear o resto da tela até ser tomada."
+   "Use `tool-approval` for a compact request inside the conversation, with allow once, allow always or deny.",
+   "Use `confirm-morph` or `hold-to-confirm` when the person themselves triggers a destructive action and only needs to confirm it.",
+   "Use `dialog` when the decision must block the rest of the screen until it is made."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Aciona o botão em foco: detalhes, rejeitar, aprovar ou desfazer."
+    "acao": "Activates the focused button: details, reject, approve or undo."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre os controles na ordem do DOM: botão de detalhes, rejeitar e aprovar."
+    "acao": "Moves through the controls in DOM order: details button, reject and approve."
    }
   ],
   "acessibilidade": [
-   "A raiz é uma `<section>` rotulada pelo `title`; o botão de detalhes expõe `aria-expanded` e `aria-controls`, e o resultado aparece numa região `role=\"status\"`.",
-   "Ao decidir, o botão pressionado sai do DOM e o código não move o foco, que fica no `body`; se a fila é usada pelo teclado, mova o foco você mesmo em `onStatusChange`.",
-   "“Show details”, “Hide details”, “Undo” e “needs your approval” estão fixos em inglês; só `approveLabel`, `rejectLabel` e `resolvedLabels` podem ser traduzidos."
+   "The root is a `<section>` labeled by `title`; the details button exposes `aria-expanded` and `aria-controls`, and the result appears in a `role=\"status\"` region.",
+   "On decision, the pressed button leaves the DOM and the code does not move focus, which lands on `body`; if the queue is used by keyboard, move focus yourself in `onStatusChange`.",
+   "“Show details”, “Hide details”, “Undo” and “needs your approval” are fixed in English; only `approveLabel`, `rejectLabel` and `resolvedLabels` can be translated."
   ],
   "movimento": [
-   "Ao decidir, o ícone vira um visto ou um xis que se desenha, uma onda sai do emblema e os botões dão lugar ao resultado com um esmaecer curto.",
-   "Os detalhes abrem com uma mola de altura e as linhas de fatos entram em sequência.",
-   "Com “reduzir movimento” ligado, sobram só trocas de opacidade: sem onda, sem traço se desenhando e sem transições de cor ou escala."
+   "On decision, the icon becomes a check mark or an X that draws itself, a ripple leaves the badge and the buttons give way to the result with a short fade.",
+   "The details open with a height spring and the fact rows enter in sequence.",
+   "With “reduce motion” on, only opacity changes remain: no ripple, no stroke drawing and no color or scale transitions."
   ],
   "responsivo": [
-   "Quando a janela tem até 26rem de largura (media query, não do contêiner), os dois botões dividem a linha inteira; o cartão sempre ocupa 100% do pai."
+   "When the window is up to 26rem wide (media query, not container), the two buttons split the full row; the card always fills 100% of the parent."
   ],
   "notasIA": [
-   "O cartão só registra a decisão: execute a ação em `onStatusChange` e, para refletir o que o servidor respondeu, controle `status` (`pending`, `approved`, `rejected`).",
-   "“Undo” devolve o cartão a `pending` e chama `onStatusChange(\"pending\")`; se a ação não pode ser desfeita depois de executada, passe `allowUndo={false}`.",
-   "O botão de detalhes só aparece quando há `details` ou `children`; cada `label` de `details` serve de `key`, então não repita rótulos."
+   "The card only records the decision: run the action in `onStatusChange` and, to reflect what the server replied, control `status` (`pending`, `approved`, `rejected`).",
+   "“Undo” returns the card to `pending` and calls `onStatusChange(\"pending\")`; if the action cannot be undone once executed, pass `allowUndo={false}`.",
+   "The details button only appears when there are `details` or `children`; each `label` in `details` is used as the `key`, so do not repeat labels."
   ]
  },
  "citations": {
   "quandoUsar": [
-   "Respostas de IA ou textos de pesquisa em que cada afirmação aponta para uma fonte numerada.",
-   "Quando o leitor deve conferir título, site e trecho da fonte sem sair do parágrafo, e abrir o original só se quiser.",
-   "Quando há uma lista de fontes no fim e ela deve destacar a fonte do chip apontado no texto, e o chip quando se aponta a linha."
+   "AI answers or research texts where each claim points to a numbered source.",
+   "When the reader should check the source's title, site and excerpt without leaving the paragraph, and open the original only if they want to.",
+   "When there is a list of sources at the end and it should highlight the source of the chip pointed at in the text, and the chip when a row is pointed at."
   ],
   "quandoEvitar": [
-   "Use `hover-card` para a prévia de uma pessoa ou de um link solto, sem numeração nem lista de fontes.",
-   "Use `tooltip` quando a nota é só um texto curto, sem link nem conteúdo interativo.",
-   "Fontes sem endereço não cabem aqui: o endereço é obrigatório, e tanto o título do cartão quanto a linha da lista são links para ele."
+   "Use `hover-card` for a preview of a person or a standalone link, with no numbering or source list.",
+   "Use `tooltip` when the note is just short text, with no link or interactive content.",
+   "Sources without an address do not fit here: the address is required, and both the card title and the list row are links to it."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Passa pelos chips no texto e pelas linhas da lista; o foco numa linha acende os chips da mesma fonte."
+    "acao": "Moves through the chips in the text and the list rows; focus on a row lights up the chips of the same source."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No chip, abre o cartão da fonte e leva o foco para ele."
+    "acao": "On a chip, opens the source card and moves focus to it."
    },
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "No título do cartão ou numa linha da lista, abre a fonte em nova aba."
+    "acao": "On the card title or a list row, opens the source in a new tab."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o cartão e devolve o foco ao chip."
+    "acao": "Closes the card and returns focus to the chip."
    }
   ],
   "acessibilidade": [
-   "Cada chip é um `<button>` com `aria-label` “Source N: título”; o cartão é um popover do Radix (`role=\"dialog\"`) que só recebe o foco quando aberto por clique ou teclado, nunca por hover.",
-   "A lista é uma `<section>` rotulada pelo próprio título, com um `<ol>` de links que abrem em nova aba com `rel=\"noreferrer noopener\"`.",
-   "Os rótulos “Source N” estão fixos em inglês; o título da lista vem da prop `title` de `CitationSources` (padrão “Sources”)."
+   "Each chip is a `<button>` with `aria-label` “Source N: title”; the card is a Radix popover (`role=\"dialog\"`) that only receives focus when opened by click or keyboard, never by hover.",
+   "The list is a `<section>` labeled by its own title, with an `<ol>` of links that open in a new tab with `rel=\"noreferrer noopener\"`.",
+   "The “Source N” labels are fixed in English; the list title comes from the `title` prop of `CitationSources` (default “Sources”)."
   ],
   "movimento": [
-   "O cartão cresce a partir do chip, com escala e esmaecer, e suas linhas entram em sequência; o chip ativo aumenta um pouco.",
-   "Um único realce desliza entre as linhas da lista com uma mola, seguindo o ponteiro, o foco ou o chip ativo; as linhas entram escalonadas na montagem.",
-   "Com “reduzir movimento” ligado, cartão e linhas aparecem sem animação e o realce troca de linha na hora."
+   "The card grows from the chip, with scale and fade, and its rows enter in sequence; the active chip grows slightly.",
+   "A single highlight slides between the list rows with a spring, following the pointer, focus or active chip; rows enter staggered on mount.",
+   "With “reduce motion” on, the card and rows appear without animation and the highlight switches rows instantly."
   ],
   "responsivo": [
-   "O cartão tem no máximo 20rem de largura e encolhe com a janela; abre acima do chip e o Radix o reposiciona para caber, com 12 px de folga.",
-   "O chip nunca se separa da palavra anterior na quebra de linha; na lista, o título corta em duas linhas, e no cartão o trecho corta em quatro."
+   "The card is at most 20rem wide and shrinks with the window; it opens above the chip and Radix repositions it to fit, with 12 px of clearance.",
+   "The chip never separates from the preceding word at a line break; in the list, the title truncates at two lines, and in the card the excerpt truncates at four."
   ],
   "notasIA": [
-   "São três partes do mesmo arquivo: `Citations` recebe `sources` e envolve o texto, `Citation source=\"id\"` vai dentro da frase e `CitationSources` lista tudo; as duas últimas lançam erro fora de `Citations`.",
-   "O número vem da posição em `sources` (índice + 1), não da ordem em que o chip aparece no texto; um `source` que não existe em `sources` não renderiza nada.",
-   "Ponha `<Citation>` logo depois da palavra e antes da pontuação; `site` é opcional e, sem ele, aparece o host de `url`."
+   "There are three parts in the same file: `Citations` receives `sources` and wraps the text, `Citation source=\"id\"` goes inside the sentence and `CitationSources` lists everything; the last two throw an error outside `Citations`.",
+   "The number comes from the position in `sources` (index + 1), not from the order in which the chip appears in the text; a `source` that does not exist in `sources` renders nothing.",
+   "Put `<Citation>` right after the word and before the punctuation; `site` is optional and, without it, the host of `url` is shown."
   ]
  },
  "file-diff": {
   "quandoUsar": [
-   "Mostrar a alteração que um agente fez ou propõe num arquivo, a partir do texto de antes e de depois.",
-   "Revisões em que importa ver o trecho exato que mudou dentro da linha e quantas linhas entraram e saíram.",
-   "Arquivos novos, apagados ou renomeados: o cabeçalho ganha a etiqueta “New file”, “Deleted” ou “Renamed” e, no último caso, o caminho anterior."
+   "Show the change an agent made or proposes to a file, from the before and after text.",
+   "Reviews where it matters to see the exact span that changed within the line and how many lines were added and removed.",
+   "New, deleted or renamed files: the header gets the “New file”, “Deleted” or “Renamed” label and, in the last case, the previous path."
   ],
   "quandoEvitar": [
-   "Use `code-block` para mostrar código sem comparação, com botão de copiar.",
-   "Use `image-compare` quando a diferença é visual, entre duas imagens.",
-   "Para diff lado a lado, com cores de sintaxe ou de arquivos enormes, procure outra solução: aqui o diff é unificado, sem realce de sintaxe e calculado no navegador."
+   "Use `code-block` to show code without a comparison, with a copy button.",
+   "Use `image-compare` when the difference is visual, between two images.",
+   "For side-by-side diffs, with syntax colors or for huge files, look for another solution: here the diff is unified, without syntax highlighting and computed in the browser."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre os botões do cabeçalho, a área do diff (que é focável) e as faixas dobradas."
+    "acao": "Moves through the header buttons, the diff area (which is focusable) and the folded ranges."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Aciona o botão em foco: recolher o arquivo, mostrar ou dobrar todas as linhas inalteradas, ou abrir uma faixa dobrada."
+    "acao": "Activates the focused button: collapse the file, show or fold all unchanged lines, or open a folded range."
    },
    {
     "teclas": [
@@ -246,206 +246,206 @@
      "←",
      "→"
     ],
-    "acao": "Com o foco na área do diff, rolam o conteúdo; é a rolagem nativa de uma região com `tabIndex={0}`."
+    "acao": "With focus on the diff area, scroll the content; this is the native scrolling of a region with `tabIndex={0}`."
    }
   ],
   "acessibilidade": [
-   "A área do diff é um `role=\"group\"` focável, rotulado com o nome do arquivo e as contagens; números e sinais ficam `aria-hidden`, e cada linha alterada começa com “Added:” ou “Removed:” só para leitor de tela.",
-   "Os botões do cabeçalho têm `aria-label`, `aria-expanded` ou `aria-pressed`; ao abrir uma faixa dobrada, o foco passa para as linhas reveladas, porque o botão deixa de existir.",
-   "Com o arquivo recolhido, o corpo fica `inert`; todos os rótulos estão fixos em inglês."
+   "The diff area is a focusable `role=\"group\"`, labeled with the file name and the counts; numbers and signs are `aria-hidden`, and each changed line starts with “Added:” or “Removed:” for screen readers only.",
+   "The header buttons have `aria-label`, `aria-expanded` or `aria-pressed`; when a folded range is opened, focus moves to the revealed lines, because the button stops existing.",
+   "With the file collapsed, the body is `inert`; all labels are fixed in English."
   ],
   "movimento": [
-   "As linhas entram em sequência, com um atraso curto entre elas (igual a partir da 25ª), e os cinco blocos do cabeçalho aparecem um após o outro.",
-   "O corpo abre e fecha com uma mola de altura; uma faixa dobrada cresce a partir dos 32 px da própria linha, sem pulo.",
-   "Com “reduzir movimento” ligado, as linhas aparecem de uma vez e as alturas trocam na hora."
+   "Lines enter in sequence, with a short delay between them (the same from the 25th on), and the five header blocks appear one after another.",
+   "The body opens and closes with a height spring; a folded range grows from the 32 px of its own row, without a jump.",
+   "With “reduce motion” on, the lines appear all at once and heights change instantly."
   ],
   "responsivo": [
-   "Linhas longas não quebram: o corpo rola na horizontal com a coluna de números presa à esquerda, e `maxHeight` limita a altura e liga a rolagem vertical.",
-   "Abaixo de 26rem de largura do próprio componente (container query), os cinco blocos somem; no caminho, o diretório corta com reticências antes do nome do arquivo."
+   "Long lines do not wrap: the body scrolls horizontally with the number column pinned to the left, and `maxHeight` limits the height and turns on vertical scrolling.",
+   "Below 26rem of the component's own width (container query), the five blocks disappear; in the path, the directory truncates with an ellipsis before the file name."
   ],
   "desempenho": [
-   "O diff é calculado no navegador por LCS: depois de aparar o início e o fim iguais, a tabela tem o tamanho de (linhas do meio antes) × (linhas do meio depois); o resultado é memorizado por `before` e `after`.",
-   "Não há virtualização: cada linha visível é um nó no DOM; as faixas inalteradas dobradas não são renderizadas, então mantenha `context` baixo em arquivos grandes."
+   "The diff is computed in the browser by LCS: after trimming the equal start and end, the table has the size of (middle lines before) × (middle lines after); the result is memoized by `before` and `after`.",
+   "There is no virtualization: each visible line is a DOM node; folded unchanged ranges are not rendered, so keep `context` low on large files."
   ],
   "notasIA": [
-   "Passe `filename`, `before` e `after` com o texto completo: `before` vazio indica arquivo novo e `after` vazio, arquivo apagado; o componente não lê um patch pronto.",
-   "`context` (padrão 3) define quantas linhas iguais ficam em volta de cada mudança; trechos maiores dobram numa linha clicável, e um diff novo volta a começar dobrado.",
-   "Para vários arquivos, renderize um `FileDiff` por arquivo e use `defaultOpen={false}` ou o par `open` e `onOpenChange` para deixar só alguns abertos."
+   "Pass `filename`, `before` and `after` with the full text: an empty `before` indicates a new file and an empty `after`, a deleted file; the component does not read a ready-made patch.",
+   "`context` (default 3) defines how many equal lines stay around each change; larger spans fold into a clickable line, and a new diff starts folded again.",
+   "For several files, render one `FileDiff` per file and use `defaultOpen={false}` or the `open` and `onOpenChange` pair to leave only some open."
   ]
  },
  "image-generation": {
   "quandoUsar": [
-   "Um pedido de imagem numa conversa ou num editor, com prompt, progresso e resultado no mesmo cartão.",
-   "Gerações que levam alguns segundos e têm progresso conhecido: o cartão mostra a fase e a porcentagem em vez de um spinner.",
-   "Quando o resultado pede ações imediatas: gerar de novo, baixar a imagem e copiar o prompt."
+   "An image request in a conversation or editor, with prompt, progress and result in the same card.",
+   "Generations that take a few seconds and have known progress: the card shows the phase and percentage instead of a spinner.",
+   "When the result calls for immediate actions: generate again, download the image and copy the prompt."
   ],
   "quandoEvitar": [
-   "Use `skeleton` para reservar o lugar de uma imagem comum que só está carregando.",
-   "Use `image-viewer` para uma galeria de imagens prontas, com zoom e navegação.",
-   "Use `progress` ou `toast-progress` para tarefas longas que não terminam numa imagem."
+   "Use `skeleton` to reserve the place of an ordinary image that is just loading.",
+   "Use `image-viewer` for a gallery of finished images, with zoom and navigation.",
+   "Use `progress` or `toast-progress` for long tasks that do not end in an image."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Aciona o botão em foco: “Regenerate”, “Copy prompt”, “Generate” ou “Try again”."
+    "acao": "Activates the focused button: “Regenerate”, “Copy prompt”, “Generate” or “Try again”."
    },
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "Ativa o link “Download”, que aponta para `src` com o atributo `download`."
+    "acao": "Activates the “Download” link, which points to `src` with the `download` attribute."
    }
   ],
   "acessibilidade": [
-   "Enquanto gera, a moldura é um `role=\"progressbar\"` com `aria-valuenow` e `aria-valuetext` (fase e porcentagem); no fim, uma região `role=\"status\"` anuncia “Image ready”.",
-   "O erro aparece num `role=\"alert\"`; a imagem usa `alt`, que por padrão repete o `prompt`, então passe um `alt` que descreva o resultado.",
-   "Fases, botões e anúncios estão fixos em inglês; só `prompt`, `model`, `alt` e `error` são seus."
+   "While generating, the frame is a `role=\"progressbar\"` with `aria-valuenow` and `aria-valuetext` (phase and percentage); at the end, a `role=\"status\"` region announces “Image ready”.",
+   "The error appears in a `role=\"alert\"`; the image uses `alt`, which by default repeats the `prompt`, so pass an `alt` that describes the result.",
+   "Phases, buttons and announcements are fixed in English; only `prompt`, `model`, `alt` and `error` are yours."
   ],
   "movimento": [
-   "Durante a geração, uma onda diagonal de opacidade percorre uma grade de 8 × 6 células, a linha de progresso enche e o rótulo da fase troca saindo de um desfoque.",
-   "Quando a imagem termina de carregar, ela passa de desfocada e levemente ampliada para nítida em menos de um segundo, e as ações entram em sequência no rodapé.",
-   "Com “reduzir movimento” ligado, a onda para e as células ficam fixas, a imagem aparece sem desfoque nem zoom e as trocas são imediatas."
+   "During generation, a diagonal opacity wave sweeps a grid of 8 × 6 cells, the progress line fills and the phase label swaps, leaving through a blur.",
+   "When the image finishes loading, it goes from blurred and slightly enlarged to sharp in under a second, and the actions enter in sequence in the footer.",
+   "With “reduce motion” on, the wave stops and the cells stay fixed, the image appears without blur or zoom and swaps are immediate."
   ],
   "responsivo": [
-   "Ocupa 100% do pai e a moldura mantém `aspectRatio` (padrão `4 / 3`); o prompt corta em duas linhas e as ações quebram para a linha de baixo."
+   "Fills 100% of the parent and the frame keeps `aspectRatio` (default `4 / 3`); the prompt truncates at two lines and the actions wrap to the line below."
   ],
   "desempenho": [
-   "Sem `status`, um `setInterval` de 70 ms move o progresso; cada cartão em geração anima 48 células, e o desfoque de 28 px na revelação é caro: evite vários gerando ao mesmo tempo."
+   "Without `status`, a 70 ms `setInterval` moves the progress; each generating card animates 48 cells, and the 28 px blur in the reveal is expensive: avoid several generating at the same time."
   ],
   "notasIA": [
-   "Sem `status`, o cartão não gera nada: roda uma prévia cronometrada de `duration` ms ao montar e a cada “Regenerate”; em uso real, controle `status` (`idle`, `generating`, `done`, `error`) e `progress` de 0 a 1.",
-   "`onRegenerate` é chamado por “Generate”, “Regenerate” e “Try again”: dispare a nova geração ali e troque `src` quando ela terminar.",
-   "A imagem só aparece com `status` em `done` e `src` carregado; “Download” é um link com `download` para o mesmo `src`."
+   "Without `status`, the card generates nothing: it runs a timed preview of `duration` ms on mount and on each “Regenerate”; in real use, control `status` (`idle`, `generating`, `done`, `error`) and `progress` from 0 to 1.",
+   "`onRegenerate` is called by “Generate”, “Regenerate” and “Try again”: trigger the new generation there and swap `src` when it finishes.",
+   "The image only appears with `status` at `done` and `src` loaded; “Download” is a link with `download` to the same `src`."
   ]
  },
  "loading-states": {
   "quandoUsar": [
-   "O intervalo em que a IA já recebeu o pedido e ainda não tem nada para mostrar.",
-   "`ThinkingDots` dentro de uma bolha de chat e `ThinkingShimmer` em linha, no ponto em que a resposta vai começar.",
-   "Esperas mais longas: `ThinkingPhrases` alterna frases de status e `ThinkingSteps` mostra “Step 2 of 5” quando o número de passos é conhecido."
+   "The interval in which the AI has already received the request and has nothing to show yet.",
+   "`ThinkingDots` inside a chat bubble and `ThinkingShimmer` inline, at the point where the reply will start.",
+   "Longer waits: `ThinkingPhrases` alternates status phrases and `ThinkingSteps` shows “Step 2 of 5” when the number of steps is known."
   ],
   "quandoEvitar": [
-   "Use `loader` para carregamento genérico fora de conversas de IA: spinner, pontos, barras, anel e órbita em três tamanhos.",
-   "Use `skeleton` quando dá para reservar o formato do conteúdo que vai chegar.",
-   "Use `todo-list` ou `agent-activity` quando cada passo do agente precisa aparecer com nome e estado."
+   "Use `loader` for generic loading outside AI conversations: spinner, dots, bars, ring and orbit in three sizes.",
+   "Use `skeleton` when you can reserve the shape of the content that will arrive.",
+   "Use `todo-list` or `agent-activity` when each agent step needs to appear with a name and state."
   ],
   "acessibilidade": [
-   "Cada indicador é um `role=\"status\"`; nos pontos e nos passos o desenho fica `aria-hidden`, e o nome acessível é o `label` ou “Step N of M” seguido do `label`.",
-   "Em `ThinkingPhrases` a frase fica dentro do `role=\"status\"`, então cada troca é uma atualização da região viva: prefira frases curtas e um `interval` folgado.",
-   "Os textos padrão (“Thinking…”, as quatro frases, “Step … of …”) estão em inglês: `label` e `phrases` são traduzíveis, o “Step N of M” não."
+   "Each indicator is a `role=\"status\"`; in the dots and steps the drawing is `aria-hidden`, and the accessible name is the `label` or “Step N of M” followed by the `label`.",
+   "In `ThinkingPhrases` the phrase sits inside the `role=\"status\"`, so each change is a live region update: prefer short phrases and a generous `interval`.",
+   "The default texts (“Thinking…”, the four phrases, “Step … of …”) are in English: `label` and `phrases` are translatable, the “Step N of M” is not."
   ],
   "movimento": [
-   "Um brilho varre as letras (`ThinkingShimmer`), três pontos sobem em onda (`ThinkingDots`), um ponto orbita um anel ao lado da frase (`ThinkingPhrases`) e o pip do passo atual pulsa (`ThinkingSteps`).",
-   "Frases, número do passo e rótulo trocam subindo de um desfoque leve e saindo para cima; os pips enchem com uma mola sem ultrapassagem.",
-   "Com “reduzir movimento” ligado, cada indicador vira um estado parado e legível: texto sem brilho, pontos e órbita imóveis, e trocas de texto imediatas."
+   "A shimmer sweeps across the letters (`ThinkingShimmer`), three dots rise in a wave (`ThinkingDots`), a dot orbits a ring beside the phrase (`ThinkingPhrases`) and the current step's pip pulses (`ThinkingSteps`).",
+   "Phrases, step number and label swap by rising from a light blur and leaving upward; the pips fill with a spring without overshoot.",
+   "With “reduce motion” on, each indicator becomes a still, readable state: text without shimmer, still dots and orbit, and immediate text swaps."
   ],
   "responsivo": [
-   "As frases e o rótulo do passo ficam numa linha e cortam com reticências; `ThinkingSteps` mostra um pip por passo até 8 passos e, acima disso, uma barra única."
+   "Phrases and the step label stay on one line and truncate with an ellipsis; `ThinkingSteps` shows one pip per step up to 8 steps and, above that, a single bar."
   ],
   "desempenho": [
-   "Só `ThinkingPhrases` usa timer (um `setInterval`, com mínimo de 600 ms); os outros indicadores são animações CSS."
+   "Only `ThinkingPhrases` uses a timer (one `setInterval`, with a minimum of 600 ms); the other indicators are CSS animations."
   ],
   "notasIA": [
-   "Importe a variante direto (`ThinkingShimmer`, `ThinkingDots`, `ThinkingPhrases`, `ThinkingSteps`) ou use `LoadingStates` com `variant`; `showLabel` e `duration` só existem nos componentes individuais.",
-   "`ThinkingSteps` é controlado: passe `current` (a partir de 1) e `total`, e troque `label` a cada passo; valores fora da faixa são ajustados para o intervalo válido.",
-   "Monte o indicador só enquanto espera e troque-o pelo conteúdo quando a resposta começar; `ai-sidebar` e `chat-app` já dependem deste item."
+   "Import the variant directly (`ThinkingShimmer`, `ThinkingDots`, `ThinkingPhrases`, `ThinkingSteps`) or use `LoadingStates` with `variant`; `showLabel` and `duration` exist only on the individual components.",
+   "`ThinkingSteps` is controlled: pass `current` (starting at 1) and `total`, and change `label` on each step; out-of-range values are clamped to the valid range.",
+   "Mount the indicator only while waiting and swap it for the content when the reply starts; `ai-sidebar` and `chat-app` already depend on this item."
   ]
  },
  "message": {
   "quandoUsar": [
-   "A resposta do assistente numa conversa em que ele não usa bolha: avatar, nome, texto formatado e ações embaixo.",
-   "Respostas com listas, títulos, código, negrito e links: `content` aceita um subconjunto pequeno de Markdown.",
-   "Quando cada resposta precisa de copiar, tentar de novo e avaliar com polegar para cima ou para baixo."
+   "The assistant's reply in a conversation where it does not use a bubble: avatar, name, formatted text and actions below.",
+   "Replies with lists, headings, code, bold and links: `content` accepts a small subset of Markdown.",
+   "When each reply needs copy, retry and rating with thumbs up or down."
   ],
   "quandoEvitar": [
-   "Use `message-bubble` para as mensagens da pessoa e para conversas em estilo de bolhas.",
-   "Use `streaming-response` enquanto o texto ainda está chegando palavra por palavra.",
-   "Use `chat-thread` ou `comment-thread` para conversas entre pessoas, com reações, respostas e confirmação de leitura."
+   "Use `message-bubble` for the person's messages and for bubble-style conversations.",
+   "Use `streaming-response` while the text is still arriving word by word.",
+   "Use `chat-thread` or `comment-thread` for conversations between people, with reactions, replies and read receipts."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Passa pelos links, pelos blocos de código (focáveis para rolar) e por cada botão de ação; o foco dentro da linha faz a barra aparecer."
+    "acao": "Moves through the links, the code blocks (focusable for scrolling) and each action button; focus inside the row makes the toolbar appear."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Aciona a ação em foco: copiar, tentar de novo ou avaliar; repetir a mesma avaliação a limpa."
+    "acao": "Activates the focused action: copy, retry or rate; repeating the same rating clears it."
    },
    {
     "teclas": [
      "←",
      "→"
     ],
-    "acao": "Com o foco num bloco de código largo, rolam o código na horizontal (rolagem nativa)."
+    "acao": "With focus on a wide code block, scroll the code horizontally (native scrolling)."
    }
   ],
   "acessibilidade": [
-   "A raiz é um `<article>` com `aria-label` “Message from” mais o `name`; o avatar fica `aria-hidden`.",
-   "A barra é um `role=\"toolbar\"` em que cada botão tem `aria-label`; os de avaliação usam `aria-pressed`, e uma região `role=\"status\"` anuncia “Message copied”.",
-   "Em telas de toque a barra fica sempre visível; com mouse ela aparece no hover ou quando o foco entra na linha, e uma avaliação já dada continua à mostra."
+   "The root is an `<article>` with `aria-label` “Message from” plus the `name`; the avatar is `aria-hidden`.",
+   "The toolbar is a `role=\"toolbar\"` in which each button has an `aria-label`; the rating buttons use `aria-pressed`, and a `role=\"status\"` region announces “Message copied”.",
+   "On touch screens the toolbar is always visible; with a mouse it appears on hover or when focus enters the row, and a rating already given stays visible."
   ],
   "movimento": [
-   "Ao montar, os blocos do conteúdo entram em sequência, subindo de um desfoque leve; `animateIn={false}` desliga isso.",
-   "Os botões da barra entram um após o outro, o ícone de copiar vira um visto, o de tentar de novo dá uma volta com uma mola e o polegar escolhido dá um pequeno salto.",
-   "Com “reduzir movimento” ligado, os blocos só esmaecem, sem atraso entre eles, os ícones trocam com esmaecer e não há giro nem salto."
+   "On mount, the content blocks enter in sequence, rising from a light blur; `animateIn={false}` turns this off.",
+   "The toolbar buttons enter one after another, the copy icon turns into a check mark, the retry icon makes a turn with a spring and the chosen thumb makes a small hop.",
+   "With “reduce motion” on, the blocks only fade, with no delay between them, the icons swap with a fade and there is no turn or hop."
   ],
   "responsivo": [
-   "A grade tem a coluna do avatar e uma coluna flexível; textos longos quebram em qualquer ponto e os blocos de código rolam na horizontal em vez de alargar a página."
+   "The grid has the avatar column and a flexible column; long text wraps at any point and the code blocks scroll horizontally instead of widening the page."
   ],
   "notasIA": [
-   "Passe o texto em `content` (parágrafos, listas, títulos com `#`, blocos entre crases triplas, código em linha, `**negrito**` e links `http`, `https`, `mailto`, `/` ou `#`); tabelas e itálico saem como texto comum.",
-   "O botão de tentar de novo só existe com `onRetry`, e os de avaliação só com `onRatingChange`, `defaultRating` ou `rating={…}` (vale `rating={null}`); `actions=\"always\"` ou `\"none\"` fixa ou esconde a barra.",
-   "Com `children`, você renderiza o conteúdo e `content` vira só o texto a copiar; em históricos longos, passe `animateIn={false}`."
+   "Pass the text in `content` (paragraphs, lists, headings with `#`, blocks between triple backticks, inline code, `**negrito**` and links `http`, `https`, `mailto`, `/` or `#`); tables and italics come out as plain text.",
+   "The retry button only exists with `onRetry`, and the rating ones only with `onRatingChange`, `defaultRating` or `rating={…}` (`rating={null}` counts); `actions=\"always\"` or `\"none\"` pins or hides the toolbar.",
+   "With `children`, you render the content and `content` becomes just the text to copy; in long histories, pass `animateIn={false}`."
   ]
  },
  "message-bubble": {
   "quandoUsar": [
-   "Conversas em estilo de mensageiro: as bolhas da pessoa ficam à direita na cor de destaque e as do assistente, à esquerda numa superfície neutra.",
-   "Sequências de mensagens do mesmo remetente: `MessageBubbleGroup` aperta os cantos internos e deixa a cauda só na última bolha.",
-   "Quando a mensagem enviada deve mostrar hora e estado de entrega (`sending`, `sent`, `delivered`, `read`, `failed`) ou a outra parte está digitando (`typing`)."
+   "Messenger-style conversations: the person's bubbles sit on the right in the accent color and the assistant's on the left on a neutral surface.",
+   "Sequences of messages from the same sender: `MessageBubbleGroup` tightens the inner corners and leaves the tail only on the last bubble.",
+   "When the sent message should show time and delivery state (`sending`, `sent`, `delivered`, `read`, `failed`) or the other party is typing (`typing`)."
   ],
   "quandoEvitar": [
-   "Use `message` para respostas longas do assistente, com Markdown e barra de copiar, tentar de novo e avaliar.",
-   "Use `chat-thread` quando precisar da conversa pronta, com reações, confirmação de leitura, indicador de digitação e campo de escrita.",
-   "Use `chat-app` quando quiser a tela de chat inteira, com lista de conversas e caixa de prompt."
+   "Use `message` for long assistant replies, with Markdown and a toolbar for copy, retry and rating.",
+   "Use `chat-thread` when you need the ready-made conversation, with reactions, read receipts, typing indicator and input field.",
+   "Use `chat-app` when you want the whole chat screen, with conversation list and prompt box."
   ],
   "acessibilidade": [
-   "Cada bolha começa com o autor só para leitor de tela (“You”, “Assistant” ou o `author` que você passar), e o estado de entrega tem um texto oculto equivalente aos tiques.",
-   "Os pontos de digitação são um `role=\"status\"` com `aria-label` “Typing”; `MessageBubbleGroup` é um `role=\"group\"` que recebe o nome de `label`.",
-   "A bolha não cria região viva para mensagens novas: ponha a lista num contêiner com esse papel, como o `message-scroller`, que usa `role=\"log\"`."
+   "Each bubble starts with the author for screen readers only (“You”, “Assistant” or the `author` you pass), and the delivery state has a hidden text equivalent to the ticks.",
+   "The typing dots are a `role=\"status\"` with `aria-label` “Typing”; `MessageBubbleGroup` is a `role=\"group\"` that gets its name from `label`.",
+   "The bubble does not create a live region for new messages: put the list in a container with that role, such as `message-scroller`, which uses `role=\"log\"`."
   ],
   "movimento": [
-   "A bolha surge a partir do canto da cauda, crescendo e subindo com uma mola de leve quique; `animateIn={false}` desliga isso para o histórico.",
-   "Cada tique novo se desenha quando o `status` muda (os que já existiam ao montar não repetem); `sending` mostra um pequeno giro e `typing`, três pontos em onda.",
-   "Com “reduzir movimento” ligado, a bolha e os tiques só esmaecem, e o giro e os pontos ficam parados."
+   "The bubble emerges from the tail corner, growing and rising with a spring with a slight bounce; `animateIn={false}` turns this off for history.",
+   "Each new tick draws itself when `status` changes (those already there on mount do not repeat); `sending` shows a small spin and `typing`, three dots in a wave.",
+   "With “reduce motion” on, the bubble and ticks only fade, and the spin and dots stay still."
   ],
   "responsivo": [
-   "A bolha ocupa no máximo 82% da largura do contêiner, até 34rem; o texto preserva as quebras de linha e quebra palavras longas."
+   "The bubble takes at most 82% of the container width, up to 34rem; the text preserves line breaks and breaks long words."
   ],
   "notasIA": [
-   "Agrupe mensagens seguidas do mesmo remetente num `MessageBubbleGroup from=\"user\"`: ele define `from` e `position` de cada filho, que precisam ser `MessageBubble` diretos (um wrapper no meio quebra isso).",
-   "`timestamp` já chega formatado (por exemplo “9:41”) e `status` desenha os tiques; num grupo, passe os dois só na última bolha, como faz o demo.",
-   "Para o indicador de digitação, renderize uma bolha com `typing` e troque-a pela mensagem quando o texto chegar; fora de grupos, `position` e `tail` controlam cantos e cauda."
+   "Group consecutive messages from the same sender in a `MessageBubbleGroup from=\"user\"`: it sets `from` and `position` on each child, which must be direct `MessageBubble`s (a wrapper in between breaks this).",
+   "`timestamp` arrives already formatted (for example “9:41”) and `status` draws the ticks; in a group, pass both only on the last bubble, as the demo does.",
+   "For the typing indicator, render a bubble with `typing` and swap it for the message when the text arrives; outside groups, `position` and `tail` control corners and tail."
   ]
  },
  "message-scroller": {
   "quandoUsar": [
-   "A área de rolagem de uma conversa que recebe mensagens novas ou texto em streaming e deve acompanhar o fim enquanto o leitor está lá.",
-   "Quando rolar para cima deve soltar o acompanhamento, sem puxar o leitor de volta, e oferecer um atalho para a mensagem mais recente.",
-   "Registros ao vivo em geral (logs de execução, feeds de eventos) em que o conteúdo novo entra por baixo."
+   "The scroll area of a conversation that receives new messages or streaming text and should follow the end while the reader is there.",
+   "When scrolling up should release the follow behavior, without pulling the reader back, and offer a shortcut to the latest message.",
+   "Live logs in general (run logs, event feeds) where new content enters from the bottom."
   ],
   "quandoEvitar": [
-   "Use `scroll-area` para conteúdo estático que só precisa de barras finas e esmaecer nas bordas.",
-   "Use `chat-thread` ou `chat-app` quando quiser a conversa pronta, com mensagens e campo de escrita, e não só o contêiner.",
-   "Use `infinite-masonry` para feeds que carregam mais itens ao chegar ao fim, em vez de acompanhar o que chega."
+   "Use `scroll-area` for static content that only needs thin scrollbars and edge fades.",
+   "Use `chat-thread` or `chat-app` when you want the ready-made conversation, with messages and input field, and not just the container.",
+   "Use `infinite-masonry` for feeds that load more items on reaching the end, instead of following what arrives."
   ],
   "teclado": [
    {
@@ -456,77 +456,77 @@
      "Page Down",
      "Home",
      "End",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Com o foco na área, rolam a conversa (rolagem nativa) e interrompem na hora o deslize automático até o fim."
+    "acao": "With focus on the area, scroll the conversation (native scrolling) and immediately interrupt the automatic slide to the end."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Leva o foco à área de rolagem, que é focável, depois ao que houver de interativo nas mensagens e ao botão de pular."
+    "acao": "Moves focus to the scroll area, which is focusable, then to whatever is interactive in the messages and to the jump button."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão “Jump to latest”, volta ao fim; o foco passa para a área de rolagem, porque o botão some."
+    "acao": "On the “Jump to latest” button, returns to the end; focus moves to the scroll area, because the button disappears."
    }
   ],
   "acessibilidade": [
-   "A área visível é um `role=\"region\"` focável com o nome de `label`; o conteúdo é um `role=\"log\"` com `aria-live=\"polite\"`, então mensagens novas são anunciadas.",
-   "O botão de pular mostra o texto de `jumpLabel`, e o contador tem `aria-label` com o número de mensagens novas (em inglês, sem prop de tradução).",
-   "Ao acionar o botão pelo teclado, o foco vai para a área de rolagem em vez de se perder quando o botão sai."
+   "The visible area is a focusable `role=\"region\"` named by `label`; the content is a `role=\"log\"` with `aria-live=\"polite\"`, so new messages are announced.",
+   "The jump button shows the text of `jumpLabel`, and the counter has an `aria-label` with the number of new messages (in English, with no translation prop).",
+   "When the button is activated by keyboard, focus goes to the scroll area instead of being lost when the button leaves."
   ],
   "movimento": [
-   "Mensagens novas sobem com uma mola e um leve ganho de escala; as que já estavam na primeira renderização não animam.",
-   "A volta ao fim é um deslize com mola na posição de rolagem; o botão de pular surge de baixo e o número de não lidas rola a cada novo total.",
-   "Com “reduzir movimento” ligado, a rolagem vai direto ao fim, e mensagens e botão só esmaecem."
+   "New messages rise with a spring and a slight scale-up; those already present on the first render do not animate.",
+   "The return to the end is a spring slide in the scroll position; the jump button emerges from below and the unread number rolls to each new total.",
+   "With “reduce motion” on, scrolling goes straight to the end, and messages and button only fade."
   ],
   "responsivo": [
-   "A altura vem de `--message-scroller-height` (padrão 22rem) ou de `className` e `style`; a rolagem é interna, e as bordas de cima e de baixo esmaecem quando há mais conteúdo naquela direção."
+   "The height comes from `--message-scroller-height` (default 22rem) or from `className` and `style`; scrolling is internal, and the top and bottom edges fade when there is more content in that direction."
   ],
   "desempenho": [
-   "Dois `ResizeObserver` acompanham o conteúdo e a moldura; não há virtualização e cada filho ganha um wrapper animado, então limite o histórico em conversas muito longas."
+   "Two `ResizeObserver`s track the content and the frame; there is no virtualization and each child gets an animated wrapper, so limit the history in very long conversations."
   ],
   "notasIA": [
-   "Cada filho direto conta como uma mensagem: dê `key` estável a cada um; o contador de não lidas compara a quantidade de filhos, então aparar mensagens antigas enquanto chegam novas faz ele parar de subir.",
-   "Defina a altura (variável `--message-scroller-height`, `className` ou `style`); `onAtBottomChange` avisa quando o leitor sai do fim ou volta, e `threshold` (32 px) diz o que ainda conta como fim.",
-   "Combina com `message-bubble` ou `message` como filhos; passe `animateIn={false}` a eles, porque a entrada animada já é feita aqui (`animateItems`)."
+   "Each direct child counts as one message: give each a stable `key`; the unread counter compares the number of children, so trimming old messages while new ones arrive makes it stop going up.",
+   "Set the height (variable `--message-scroller-height`, `className` or `style`); `onAtBottomChange` signals when the reader leaves the end or returns, and `threshold` (32 px) says what still counts as the end.",
+   "It pairs with `message-bubble` or `message` as children; pass `animateIn={false}` to them, because the animated entrance is already handled here (`animateItems`)."
   ]
  },
  "prompt-input": {
   "quandoUsar": [
-   "A caixa de prompt de um assistente: cresce com o texto, envia com Enter e quebra linha com Shift + Enter.",
-   "Respostas que podem ser interrompidas: com `running`, o botão de enviar vira um botão de parar no mesmo lugar.",
-   "Pedidos com anexos em chips e um menu para escolher o modelo, tudo dentro da mesma caixa."
+   "An assistant's prompt box: grows with the text, sends with Enter and inserts a line break with Shift + Enter.",
+   "Replies that can be interrupted: with `running`, the send button becomes a stop button in the same place.",
+   "Requests with attachments as chips and a menu to choose the model, all inside the same box."
   ],
   "quandoEvitar": [
-   "Use `textarea` para um campo de várias linhas num formulário, sem envio por Enter nem botão de parar.",
-   "Use `mention-input` quando o texto precisa de menções a pessoas com @ ou a canais com #.",
-   "Use `chat-app` quando quiser a tela de chat inteira, com conversa, respostas em streaming e caixa de prompt já ligadas."
+   "Use `textarea` for a multi-line field in a form, with no send on Enter or stop button.",
+   "Use `mention-input` when the text needs mentions of people with @ or channels with #.",
+   "Use `chat-app` when you want the whole chat screen, with conversation, streaming replies and prompt box already wired up."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "Na caixa de texto, envia quando há texto ou anexo; durante a composição de um IME não envia."
+    "acao": "In the text box, sends when there is text or an attachment; during IME composition it does not send."
    },
    {
     "teclas": [
      "Shift + Enter"
     ],
-    "acao": "Quebra a linha sem enviar; a caixa cresce até `maxRows` linhas e depois rola por dentro."
+    "acao": "Inserts a line break without sending; the box grows up to `maxRows` rows and then scrolls internally."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço",
+     "Space",
      "↓"
     ],
-    "acao": "No seletor de modelo, abre o menu com o foco no primeiro modelo."
+    "acao": "On the model selector, opens the menu with focus on the first model."
    },
    {
     "teclas": [
@@ -535,334 +535,334 @@
      "Home",
      "End"
     ],
-    "acao": "No menu, move entre os modelos; as setas dão a volta do último ao primeiro."
+    "acao": "In the menu, moves between models; the arrows wrap from the last to the first."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No menu, escolhe o modelo em foco, fecha o menu e devolve o foco ao seletor."
+    "acao": "In the menu, chooses the focused model, closes the menu and returns focus to the selector."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o menu sem trocar o modelo e devolve o foco ao seletor."
+    "acao": "Closes the menu without changing the model and returns focus to the selector."
    }
   ],
   "acessibilidade": [
-   "A caixa de texto tem o nome de `label` (padrão “Prompt”) e a descrição oculta “Press Enter to send, Shift and Enter for a new line.” por `aria-describedby`; a dica visível fica `aria-hidden`.",
-   "Os botões só de ícone têm `aria-label` fixo em inglês (“Attach files”, “Remove …”, “Send prompt”, “Stop response”), o seletor se anuncia como “Model: …” e o menu é um grupo de rádio do Radix.",
-   "Depois de enviar, o foco volta para a caixa de texto; enviar e parar são o mesmo `<button>`, que só troca o `aria-label`, e o parar fica desativado sem `onStop`."
+   "The text box is named by `label` (default “Prompt”) and has the hidden description “Press Enter to send, Shift and Enter for a new line.” via `aria-describedby`; the visible hint is `aria-hidden`.",
+   "The icon-only buttons have a fixed English `aria-label` (“Attach files”, “Remove …”, “Send prompt”, “Stop response”), the selector announces itself as “Model: …” and the menu is a Radix radio group.",
+   "After sending, focus returns to the text box; send and stop are the same `<button>`, which only changes its `aria-label`, and stop is disabled without `onStop`."
   ],
   "movimento": [
-   "A caixa acompanha a altura do texto com uma mola curta; a bandeja de anexos abre a própria altura, cada chip entra crescendo e os outros deslizam quando um sai.",
-   "Quando `running` vira `true`, a seta sai para cima, um quadrado de parar cresce no lugar e um arco gira em volta do botão; o nome do modelo troca deslizando na vertical.",
-   "Com “reduzir movimento” ligado, a altura troca na hora, chips e ícones só esmaecem, o arco para e o menu aparece com um esmaecer rápido."
+   "The box follows the text height with a short spring; the attachment tray opens to its own height, each chip enters growing and the others slide when one leaves.",
+   "When `running` becomes `true`, the arrow leaves upward, a stop square grows in its place and an arc spins around the button; the model name swaps by sliding vertically.",
+   "With “reduce motion” on, the height changes instantly, chips and icons only fade, the arc stops and the menu appears with a quick fade."
   ],
   "responsivo": [
-   "É um contêiner de largura: abaixo de 22rem a dica “Enter to send” some; o nome do modelo corta com reticências, e o nome de cada anexo também, a partir de 11rem.",
-   "O menu de modelos abre acima do seletor, com pelo menos 15rem de largura, e o Radix o reposiciona para caber na tela, com 12 px de folga."
+   "It is a width container: below 22rem the “Enter to send” hint disappears; the model name truncates with an ellipsis, and so does each attachment name, from 11rem.",
+   "The model menu opens above the selector, at least 15rem wide, and Radix repositions it to fit on screen, with 12 px of clearance."
   ],
   "notasIA": [
-   "Ligue `onSubmit`, que recebe `value` já aparado, `attachments` e `model`, e controle `running` com `onStop`; sem `onStop`, o botão de parar fica desativado durante a resposta.",
-   "Sem `onAttach`, o botão abre o seletor do sistema e cria chips só com nome e tamanho, sem guardar o `File`; para enviar arquivos de verdade, passe `onAttach` e controle `attachments`.",
-   "Por padrão, texto e anexos são limpos após o envio (`clearOnSubmit`); com `models` vazio o menu some, e `model` com `onModelChange` deixa a escolha controlada."
+   "Wire up `onSubmit`, which receives the already-trimmed `value`, `attachments` and `model`, and control `running` with `onStop`; without `onStop`, the stop button is disabled during the reply.",
+   "Without `onAttach`, the button opens the system picker and creates chips with only name and size, without keeping the `File`; to actually send files, pass `onAttach` and control `attachments`.",
+   "By default, text and attachments are cleared after sending (`clearOnSubmit`); with empty `models` the menu disappears, and `model` with `onModelChange` makes the choice controlled."
   ]
  },
  "streaming-response": {
   "quandoUsar": [
-   "Mostrar a resposta de um modelo chegando palavra por palavra, com pausas naturais em vírgulas, fins de frase e entre parágrafos.",
-   "Streams reais: se `text` cresce com o novo pedaço anexado ao final, a revelação continua de onde estava em vez de recomeçar.",
-   "Demos e onboarding em que a pessoa pode pausar, pular para o fim ou repetir a resposta pela linha de status."
+   "Show a model's reply arriving word by word, with natural pauses at commas, sentence ends and between paragraphs.",
+   "Real streams: if `text` grows with the new chunk appended at the end, the reveal continues from where it was instead of restarting.",
+   "Demos and onboarding where the person can pause, skip to the end or replay the reply from the status line."
   ],
   "quandoEvitar": [
-   "Use `message` para respostas já prontas, com Markdown e ações de copiar, repetir e avaliar; aqui o texto é simples, dividido só em parágrafos.",
-   "Use `text-reveal` para revelar um trecho curto de interface com movimento contido, sem cursor nem controles.",
-   "Use `loading-states` enquanto ainda não chegou nenhuma palavra."
+   "Use `message` for replies that are already complete, with Markdown and copy, replay and rate actions; here the text is plain, split only into paragraphs.",
+   "Use `text-reveal` to reveal a short piece of interface with restrained motion, without a cursor or controls.",
+   "Use `loading-states` while no word has arrived yet."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Nos controles da linha de status, pausa ou retoma, pula para o fim ou repete; pausar e pular ficam desativados quando o texto termina."
+    "acao": "On the status line controls, pauses or resumes, skips to the end or replays; pause and skip are disabled when the text finishes."
    }
   ],
   "acessibilidade": [
-   "As palavras animadas ficam `aria-hidden`; uma cópia oculta tem o texto inteiro desde o início, então o leitor de tela lê a resposta completa, não uma palavra por vez.",
-   "A linha de status é um `role=\"status\"` com “Streaming”, “Paused” ou “Complete” e, no fim, o total de palavras; os botões só de ícone têm `aria-label` e `title` fixos em inglês.",
-   "Com `controls={false}` não há linha de status: nada anuncia que a resposta terminou, então avise de outro jeito se isso importar."
+   "The animated words are `aria-hidden`; a hidden copy holds the whole text from the start, so the screen reader reads the complete reply, not one word at a time.",
+   "The status line is a `role=\"status\"` with “Streaming”, “Paused” or “Complete” and, at the end, the total word count; the icon-only buttons have a fixed English `aria-label` and `title`.",
+   "With `controls={false}` there is no status line: nothing announces that the reply has finished, so notify in another way if that matters."
   ],
   "movimento": [
-   "Cada palavra sobe de um desfoque suave atrás de um cursor; o ritmo desacelera em vírgulas, fins de frase e entre parágrafos.",
-   "O cursor respira de leve enquanto as palavras chegam, pisca na pausa e some ao terminar; uma barra fina acima da linha de status mostra o progresso.",
-   "Com “reduzir movimento” ligado, o texto inteiro aparece de uma vez e os botões de pausar, pular e repetir somem; a linha de status mostra “Complete”."
+   "Each word rises from a soft blur behind a cursor; the pace slows at commas, sentence ends and between paragraphs.",
+   "The cursor breathes lightly while words arrive, blinks on pause and disappears at the end; a thin bar above the status line shows progress.",
+   "With “reduce motion” on, the whole text appears at once and the pause, skip and replay buttons disappear; the status line shows “Complete”."
   ],
   "responsivo": [
-   "Num contêiner esticado em coluna, a linha de status fica no fundo enquanto o texto cresce acima dela, e quebra em duas linhas quando falta largura."
+   "In a container stretched into a column, the status line stays at the bottom while the text grows above it, and wraps onto two lines when width runs short."
   ],
   "desempenho": [
-   "Cada palavra é um `<span>` e cada passo é um `setTimeout` seguido de nova renderização; para respostas longas que já terminaram, passe `instant`."
+   "Each word is a `<span>` and each step is a `setTimeout` followed by a re-render; for long replies that have already finished, pass `instant`."
   ],
   "notasIA": [
-   "Num stream real, passe o texto acumulado em `text`: anexar ao final continua a revelação, mas qualquer outra mudança recomeça do zero; quebras de linha simples viram espaço.",
-   "`onComplete` dispara uma vez por execução, assim que todas as palavras já recebidas aparecem; se o stream demora entre pedaços, ele dispara antes do fim real, então use um sinal de fim seu.",
-   "Ao parar um stream no meio, guarde só o que a pessoa viu com `takeWords(text, shown)`, usando o número que veio de `onProgress`; para histórico, use `instant`."
+   "In a real stream, pass the accumulated text in `text`: appending at the end continues the reveal, but any other change restarts from zero; single line breaks become spaces.",
+   "`onComplete` fires once per run, as soon as all the words received so far have appeared; if the stream pauses between chunks, it fires before the real end, so use your own end signal.",
+   "When stopping a stream midway, keep only what the person saw with `takeWords(text, shown)`, using the number that came from `onProgress`; for history, use `instant`."
   ]
  },
  "todo-list": {
   "quandoUsar": [
-   "Mostrar o plano de um agente como uma lista em que cada passo avança de pendente para em andamento e depois para concluído.",
-   "Planos de tamanho conhecido, em que vale mostrar “2 of 5” e uma barra de progresso no cabeçalho.",
-   "Transcrições compactas: recolhida, a lista vira uma linha que ainda mostra o passo em andamento."
+   "Show an agent's plan as a list in which each step advances from pending to in progress and then to done.",
+   "Plans of known size, where it is worth showing “2 of 5” and a progress bar in the header.",
+   "Compact transcripts: collapsed, the list becomes a line that still shows the step in progress."
   ],
   "quandoEvitar": [
-   "Use `agent-activity` quando os passos surgem durante o trabalho, coletam achados em chips ou precisam de duração e de estado de erro.",
-   "Use `stepper` para mostrar em que etapa de um fluxo a própria pessoa está.",
-   "Use `onboarding-checklist` quando é a pessoa quem marca as tarefas; aqui os passos não são clicáveis."
+   "Use `agent-activity` when steps appear during the work, collect findings in chips or need a duration and an error state.",
+   "Use `stepper` to show which stage of a flow the person themselves is in.",
+   "Use `onboarding-checklist` when the person is the one who checks off tasks; here the steps are not clickable."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No cabeçalho, recolhe ou abre a lista; é o único controle do componente."
+    "acao": "On the header, collapses or opens the list; it is the component's only control."
    }
   ],
   "acessibilidade": [
-   "O cabeçalho é um `<button>` com `aria-expanded` e `aria-controls`; recolhido, ele mostra o passo em andamento, então o nome do botão continua dizendo o que está acontecendo.",
-   "A contagem é uma região `aria-live=\"polite\"` que lê “N of M steps done”, e a barra é um `role=\"progressbar\"` com `aria-valuenow` igual aos concluídos e `aria-valuemax` igual ao total.",
-   "Cada passo começa com o estado só para leitor de tela (“To do:”, “In progress:”, “Done:”); esses textos, “All steps done” e a palavra “progress” no rótulo da barra estão fixos em inglês."
+   "The header is a `<button>` with `aria-expanded` and `aria-controls`; collapsed, it shows the step in progress, so the button's name keeps saying what is happening.",
+   "The count is an `aria-live=\"polite\"` region that reads “N of M steps done”, and the bar is a `role=\"progressbar\"` with `aria-valuenow` equal to the done count and `aria-valuemax` equal to the total.",
+   "Each step starts with its state for screen readers only (“To do:”, “In progress:”, “Done:”); these texts, “All steps done” and the word “progress” in the bar's label are fixed in English."
   ],
   "movimento": [
-   "O passo em andamento ganha um spinner e um brilho que corre pelo rótulo; ao concluir, o visto pousa com um pequeno quique e se desenha, e um risco atravessa o rótulo da esquerda para a direita.",
-   "Na montagem os passos sobem em sequência; passos acrescentados depois abrem a própria altura, a barra avança com uma mola e o número de concluídos rola.",
-   "Com “reduzir movimento” ligado, tudo só esmaece: o spinner fica parado, não há brilho nem desenho do visto, e o risco aparece de uma vez."
+   "The step in progress gets a spinner and a shimmer that runs across the label; on completion, the check mark lands with a small bounce and draws itself, and a strike crosses the label from left to right.",
+   "On mount the steps rise in sequence; steps added later open to their own height, the bar advances with a spring and the done count rolls.",
+   "With “reduce motion” on, everything only fades: the spinner stays still, there is no shimmer or check mark drawing, and the strike appears at once."
   ],
   "responsivo": [
-   "Ocupa 100% do pai; recolhido, o passo atual no cabeçalho corta com reticências numa linha, e aberto os rótulos dos passos quebram linha."
+   "Fills 100% of the parent; collapsed, the current step in the header truncates with an ellipsis on one line, and when open the step labels wrap."
   ],
   "notasIA": [
-   "É controlado pelos dados: passe `items` com `id` estável e mude o `status` de cada um (`pending`, `running`, `done`); não há estado de erro nem duração.",
-   "`detail` só aparece enquanto o passo está `running`: use-o para o arquivo ou o comando daquele momento.",
-   "Começa aberta; use `defaultOpen={false}` ou o par `open` e `onOpenChange` para recolher, e `showProgress={false}` para tirar a contagem e a barra."
+   "It is data-driven: pass `items` with a stable `id` and change each one's `status` (`pending`, `running`, `done`); there is no error state or duration.",
+   "`detail` only appears while the step is `running`: use it for the file or command of that moment.",
+   "It starts open; use `defaultOpen={false}` or the `open` and `onOpenChange` pair to collapse it, and `showProgress={false}` to remove the count and the bar."
   ]
  },
  "tool-approval": {
   "quandoUsar": [
-   "Pedir permissão dentro da conversa antes de um agente rodar uma ferramenta, mostrando o nome dela e os argumentos exatos da chamada.",
-   "Quando a pessoa precisa de três saídas: permitir uma vez, permitir sempre ou negar.",
-   "Transcrições longas: depois da decisão, o pedido encolhe para uma linha que registra a resposta e pode ser reaberta com “Change”."
+   "Ask permission inside the conversation before an agent runs a tool, showing its name and the exact arguments of the call.",
+   "When the person needs three outcomes: allow once, allow always or deny.",
+   "Long transcripts: after the decision, the request shrinks to a line that records the answer and can be reopened with “Change”."
   ],
   "quandoEvitar": [
-   "Use `approval-card` para uma decisão de negócio com resumo, detalhes em pares de rótulo e valor e um “Undo”.",
-   "Use `tool-result` para registrar uma chamada que já rodou, com entrada, saída e duração.",
-   "Use `dialog` quando a decisão deve bloquear o resto da tela até ser tomada."
+   "Use `approval-card` for a business decision with a summary, details as label and value pairs and an “Undo”.",
+   "Use `tool-result` to record a call that has already run, with input, output and duration.",
+   "Use `dialog` when the decision must block the rest of the screen until it is made."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre “Deny”, “Always allow” e “Allow once”, nessa ordem."
+    "acao": "Moves through “Deny”, “Always allow” and “Allow once”, in that order."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Num botão de decisão, decide e leva o foco ao “Change” da linha de resultado, ou ao próprio pedido com `allowChange={false}`."
+    "acao": "On a decision button, decides and moves focus to the “Change” of the result line, or to the request itself with `allowChange={false}`."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Em “Change”, reabre o pedido e leva o foco a “Allow once”."
+    "acao": "On “Change”, reopens the request and moves focus to “Allow once”."
    }
   ],
   "acessibilidade": [
-   "A raiz é um `role=\"group\"` com o nome “Permission request for” mais o `tool`, e os argumentos ficam num grupo “Arguments”; um valor cortado mostra o texto inteiro no `title`.",
-   "Quando a decisão sai de um botão do pedido, o foco vai para o botão que o substitui e não cai no `body`; o resultado fica numa região `role=\"status\"`.",
-   "“Wants to run”, “Permission request for” e “Arguments” estão fixos em inglês; os textos dos botões e do resultado se traduzem por `labels`."
+   "The root is a `role=\"group\"` named “Permission request for” plus the `tool`, and the arguments sit in an “Arguments” group; a truncated value shows the full text in `title`.",
+   "When the decision comes from a button in the request, focus goes to the button that replaces it and does not fall to `body`; the result sits in a `role=\"status\"` region.",
+   "“Wants to run”, “Permission request for” and “Arguments” are fixed in English; the button and result texts are translated through `labels`."
   ],
   "movimento": [
-   "Ao decidir, o pedido sai subindo com um desfoque leve, a linha de resultado entra no lugar e a moldura acompanha a nova altura com uma mola.",
-   "O ícone do resultado se desenha: um visto para permitir e um xis em dois traços para negar.",
-   "Com “reduzir movimento” ligado, as trocas são só de opacidade, a altura muda na hora e os ícones já aparecem desenhados."
+   "On decision, the request leaves upward with a light blur, the result line enters in its place and the frame follows the new height with a spring.",
+   "The result icon draws itself: a check mark for allow and a two-stroke X for deny.",
+   "With “reduce motion” on, swaps are opacity-only, the height changes instantly and the icons appear already drawn."
   ],
   "responsivo": [
-   "É um contêiner de largura: abaixo de 21rem os dois botões de permitir dividem uma linha e “Deny” desce para baixo deles, em largura total; na linha de resultado, o argumento some."
+   "It is a width container: below 21rem the two allow buttons share one row and “Deny” drops below them, at full width; in the result line, the argument disappears."
   ],
   "notasIA": [
-   "Pause o agente até `onDecisionChange` trazer `once`, `always` ou `denied`; a regra de “Always allow” é sua, porque o componente só registra a escolha.",
-   "`args` aceita um objeto (uma linha `chave: valor` por campo, valores que não são texto em JSON) ou uma string com quebras de linha; a linha de resultado mostra só o primeiro valor.",
-   "Traduza com `labels` (`once`, `always`, `deny`, `allowedOnce`, `allowedAlways`, `denied`, `change`); para o histórico, renderize pedidos já decididos com `defaultDecision`."
+   "Pause the agent until `onDecisionChange` returns `once`, `always` or `denied`; the “Always allow” rule is yours, because the component only records the choice.",
+   "`args` accepts an object (one `chave: valor` line per field, non-text values as JSON) or a string with line breaks; the result line shows only the first value.",
+   "Translate with `labels` (`once`, `always`, `deny`, `allowedOnce`, `allowedAlways`, `denied`, `change`); for history, render already-decided requests with `defaultDecision`."
   ]
  },
  "tool-result": {
   "quandoUsar": [
-   "A transcrição de um agente: cada chamada de ferramenta vira uma linha com estado, nome, resumo e duração, que abre para mostrar entrada e saída.",
-   "Chamadas ainda em execução: um cronômetro conta ao vivo e a saída mostra linhas de espera até o resultado chegar.",
-   "Depuração: objetos aparecem como JSON indentado e colorido, com um botão de copiar em cada bloco."
+   "An agent's transcript: each tool call becomes a row with state, name, summary and duration, which opens to show input and output.",
+   "Calls still running: a timer counts live and the output shows waiting lines until the result arrives.",
+   "Debugging: objects appear as indented, colorized JSON, with a copy button on each block."
   ],
   "quandoEvitar": [
-   "Use `tool-approval` antes da chamada, quando a pessoa precisa permitir ou negar a execução.",
-   "Use `json-viewer` para JSON grande ou aninhado, com árvore recolhível, busca e paginação.",
-   "Use `agent-activity` para uma linha do tempo dos passos do agente, sem a entrada e a saída de cada chamada."
+   "Use `tool-approval` before the call, when the person needs to allow or deny the execution.",
+   "Use `json-viewer` for large or nested JSON, with a collapsible tree, search and pagination.",
+   "Use `agent-activity` for a timeline of the agent's steps, without the input and output of each call."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No cabeçalho, abre ou recolhe o registro."
+    "acao": "On the header, opens or collapses the record."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Com o registro aberto, passa pelos botões de copiar e pelos blocos de código, que são focáveis; recolhido, nada do corpo recebe foco."
+    "acao": "With the record open, moves through the copy buttons and the code blocks, which are focusable; collapsed, nothing in the body receives focus."
    },
    {
     "teclas": [
      "↑",
      "↓"
     ],
-    "acao": "Com o foco num bloco de código, rolam o conteúdo que passa de 15rem de altura (rolagem nativa)."
+    "acao": "With focus on a code block, scroll content taller than 15rem (native scrolling)."
    }
   ],
   "acessibilidade": [
-   "O cabeçalho é um `<button>` com `aria-expanded` e `aria-controls`; o nome dele inclui o estado (“Running”, “Succeeded”, “Failed”), a ferramenta, o resumo e a duração com “running for” ou “took”.",
-   "Recolhido, o corpo continua montado, mas `inert`; cada botão de copiar tem `aria-label` próprio (“Copy input”, “Copy output”, “Copy error”).",
-   "Enquanto roda, a saída é um esqueleto `role=\"status\"` com o nome “Waiting for the result”; todos esses textos estão fixos em inglês."
+   "The header is a `<button>` with `aria-expanded` and `aria-controls`; its name includes the state (“Running”, “Succeeded”, “Failed”), the tool, the summary and the duration with “running for” or “took”.",
+   "Collapsed, the body stays mounted but `inert`; each copy button has its own `aria-label` (“Copy input”, “Copy output”, “Copy error”).",
+   "While running, the output is a `role=\"status\"` skeleton named “Waiting for the result”; all these texts are fixed in English."
   ],
   "movimento": [
-   "O estado troca de spinner para um selo que entra com um pequeno quique e um visto ou xis que se desenha; ao abrir, entrada e saída sobem em sequência.",
-   "O corpo abre e fecha com uma mola na altura medida e cresce do mesmo jeito quando o resultado chega com o registro aberto.",
-   "Com “reduzir movimento” ligado, spinner e esqueleto param, os ícones só esmaecem, as alturas trocam na hora e o cronômetro conta de segundo em segundo."
+   "The state swaps from a spinner to a badge that enters with a small bounce and a check mark or X that draws itself; on open, input and output rise in sequence.",
+   "The body opens and closes with a spring on the measured height and grows the same way when the result arrives with the record open.",
+   "With “reduce motion” on, the spinner and skeleton stop, the icons only fade, heights change instantly and the timer counts second by second."
   ],
   "responsivo": [
-   "O nome da ferramenta ocupa no máximo 55% da linha e o resumo corta com reticências; nos blocos de código as linhas longas quebram, e acima de 15rem o bloco rola por dentro."
+   "The tool name takes at most 55% of the row and the summary truncates with an ellipsis; in the code blocks long lines wrap, and above 15rem the block scrolls internally."
   ],
   "desempenho": [
-   "Cada registro tem um `ResizeObserver`; sem `durationMs`, o estado `running` liga também um `setInterval` de 100 ms (1 s com “reduzir movimento”), que renderiza o registro a cada tique."
+   "Each record has a `ResizeObserver`; without `durationMs`, the `running` state also starts a 100 ms `setInterval` (1 s with “reduce motion”), which re-renders the record on each tick."
   ],
   "notasIA": [
-   "Ao terminar, mude `status` para `success` ou `error` e passe `durationMs` com `output` ou `error`: sem `durationMs`, a duração some quando o estado deixa de ser `running`.",
-   "Objetos passados na entrada e na saída viram JSON indentado e colorido; strings aparecem como estão, então mande o objeto, não o texto já serializado.",
-   "Começa recolhido; numa lista, controle `open` e `onOpenChange` para manter um registro aberto por vez, como faz o demo."
+   "When it finishes, change `status` to `success` or `error` and pass `durationMs` with `output` or `error`: without `durationMs`, the duration disappears when the state stops being `running`.",
+   "Objects passed as input and output become indented, colorized JSON; strings appear as they are, so send the object, not already-serialized text.",
+   "It starts collapsed; in a list, control `open` and `onOpenChange` to keep one record open at a time, as the demo does."
   ]
  },
  "voice-orb": {
   "quandoUsar": [
-   "O rosto de um assistente de voz: mostra de quem é a vez, entre repouso, ouvindo, pensando e falando.",
-   "Quando há um nível de áudio ao vivo, do microfone ou da reprodução, para os anéis e as barras acompanharem a voz.",
-   "Como o botão principal da conversa por voz, para começar a ouvir ou interromper a fala, com `onPress`."
+   "The face of a voice assistant: shows whose turn it is, among idle, listening, thinking and speaking.",
+   "When there is a live audio level, from the microphone or playback, so the rings and bars follow the voice.",
+   "As the main button of the voice conversation, to start listening or interrupt speech, with `onPress`."
   ],
   "quandoEvitar": [
-   "Use `loading-states` para indicar que a IA está pensando numa conversa de texto.",
-   "Use `button` com um ícone de microfone quando basta ligar e desligar a gravação, sem estados nem nível de áudio.",
-   "Use `loader` para um carregamento genérico, sem relação com voz."
+   "Use `loading-states` to indicate that the AI is thinking in a text conversation.",
+   "Use `button` with a microphone icon when you only need to turn recording on and off, without states or an audio level.",
+   "Use `loader` for generic loading, unrelated to voice."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Com `onPress`, o orbe é um `<button>` e essas teclas o acionam; sem `onPress`, ele não recebe foco."
+    "acao": "With `onPress`, the orb is a `<button>` and these keys activate it; without `onPress`, it does not receive focus."
    }
   ],
   "acessibilidade": [
-   "Com `onPress` o orbe é um `<button>` com `aria-label` igual a `label`; sem `onPress`, é um `role=\"img\"` com o mesmo nome.",
-   "O estado fica num `role=\"status\"`, visível como legenda ou só para leitor de tela com `showLabel={false}`; os textos padrão (“Tap to talk”, “Listening”, “Thinking”, “Speaking”) mudam por `stateLabels`.",
-   "O `label` não muda com o estado: se o toque faz coisas diferentes, como começar a ouvir ou interromper, troque o `label` a cada estado."
+   "With `onPress` the orb is a `<button>` with `aria-label` equal to `label`; without `onPress`, it is a `role=\"img\"` with the same name.",
+   "The state sits in a `role=\"status\"`, visible as a caption or for screen readers only with `showLabel={false}`; the default texts (“Tap to talk”, “Listening”, “Thinking”, “Speaking”) change through `stateLabels`.",
+   "The `label` does not change with the state: if the tap does different things, such as start listening or interrupt, change the `label` for each state."
   ],
   "movimento": [
-   "Em repouso o núcleo respira; ouvindo, anéis contornados se abrem em volta; pensando, um arco gira; falando, o núcleo se enche da cor de destaque e os anéis viram discos suaves.",
-   "Ouvindo e falando, as barras e os anéis seguem `level` a cada quadro: a barra do meio sobe mais e os anéis de fora seguem com uma mola mais frouxa, como uma onda; pensando, as barras ondulam sozinhas.",
-   "Com “reduzir movimento” ligado, cada estado vira uma forma parada: barras fixas por estado, anéis num tamanho só, sem respiração, giro nem pulso do núcleo."
+   "At rest the core breathes; listening, outlined rings open around it; thinking, an arc spins; speaking, the core fills with the accent color and the rings become soft discs.",
+   "While listening and speaking, the bars and rings follow `level` on every frame: the middle bar rises most and the outer rings follow with a looser spring, like a wave; while thinking, the bars undulate on their own.",
+   "With “reduce motion” on, each state becomes a still shape: fixed bars per state, rings at a single size, with no breathing, spinning or core pulse."
   ],
   "desempenho": [
-   "Cada uma das cinco barras roda um callback por quadro enquanto o orbe está montado, mesmo em repouso ou com “reduzir movimento”; mantenha um orbe por tela e desmonte-o fora da conversa por voz.",
-   "Passe `level` como `MotionValue`, por exemplo alimentado por um `AnalyserNode`, para atualizar a cada quadro sem renderizar o React; um número em `level` exige uma renderização a cada mudança."
+   "Each of the five bars runs a per-frame callback while the orb is mounted, even at rest or with “reduce motion”; keep one orb per screen and unmount it outside the voice conversation.",
+   "Pass `level` as a `MotionValue`, for example fed by an `AnalyserNode`, to update every frame without rendering React; a number in `level` requires a render on every change."
   ],
   "notasIA": [
-   "O orbe não lê o microfone: calcule o volume de 0 a 1 e passe em `level`, de preferência como `MotionValue`; `state` decide cores, anéis e o movimento das barras.",
-   "Use `onPress` para começar a ouvir ou interromper a fala, e mude `label` conforme o que o toque faz em cada estado.",
-   "`size` é o diâmetro em pixels, anéis incluídos (padrão 176); o orbe não encolhe com o contêiner, então escolha o tamanho pensando na menor tela."
+   "The orb does not read the microphone: compute the volume from 0 to 1 and pass it in `level`, preferably as a `MotionValue`; `state` decides colors, rings and the bars' movement.",
+   "Use `onPress` to start listening or interrupt speech, and change `label` according to what the tap does in each state.",
+   "`size` is the diameter in pixels, rings included (default 176); the orb does not shrink with the container, so choose the size with the smallest screen in mind."
   ]
  },
  "crash-game": {
   "quandoUsar": [
-   "Demos ou áreas de jogo com saldo fictício em que a graça é sacar antes de a curva estourar.",
-   "Mostrar movimento ao vivo: uma curva exponencial desenhada a cada quadro, o histórico de estouros em chips e o saldo contando até o novo valor.",
-   "Simulações e testes de probabilidade, com um `random` próprio para repetir rodadas e `onRoundEnd` para registrar cada resultado."
+   "Demos or game areas with a play-money balance where the fun is cashing out before the curve crashes.",
+   "Show live motion: an exponential curve drawn every frame, the crash history in chips and the balance counting up to the new value.",
+   "Simulations and probability tests, with your own `random` to repeat rounds and `onRoundEnd` to record each result."
   ],
   "quandoEvitar": [
-   "Não use com dinheiro real nem prêmios: o saldo é fictício, o sorteio roda no navegador com `random` e nada prova que a rodada foi justa.",
-   "Use `slide-game` quando o resultado deve sair de uma vez, sem decisão durante a rodada.",
-   "Use `mines-game` quando a pessoa decide passo a passo, no próprio ritmo, sem um relógio correndo."
+   "Do not use with real money or prizes: the balance is play money, the draw runs in the browser with `random` and nothing proves the round was fair.",
+   "Use `slide-game` when the result should come out at once, with no decision during the round.",
+   "Use `mines-game` when the person decides step by step, at their own pace, with no clock running."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão principal, aposta, saca durante a rodada e aposta de novo; é o mesmo `<button>` a rodada inteira, então o foco não sai dele."
+    "acao": "On the main button, bets, cashes out during the round and bets again; it is the same `<button>` for the whole round, so focus does not leave it."
    },
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "No campo de aposta, confirma o valor e o ajusta entre `minBet` e o saldo."
+    "acao": "In the bet field, confirms the value and clamps it between `minBet` and the balance."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Passa por zerar o saldo, aposta, ½, 2×, Max, saque automático e o botão principal; os campos ficam desativados durante a rodada."
+    "acao": "Moves through reset balance, bet, ½, 2×, Max, auto cash-out and the main button; the fields are disabled during the round."
    }
   ],
   "acessibilidade": [
-   "O cartão é uma `<section>` com o nome de `title`, e uma região `role=\"status\"` anuncia início, saque e estouro de cada rodada (“Round started…”, “Cashed out at…”, “Crashed at…”).",
-   "O gráfico é `aria-hidden`; o saldo tem um texto oculto “Play-money balance” com o valor, e os atalhos ½, 2× e Max têm `aria-label` próprio.",
-   "Quando a ação não está disponível, o botão principal usa `aria-disabled` em vez de `disabled`, para continuar focável; todos os textos estão em inglês."
+   "The card is a `<section>` named by `title`, and a `role=\"status\"` region announces the start, cash-out and crash of each round (“Round started…”, “Cashed out at…”, “Crashed at…”).",
+   "The chart is `aria-hidden`; the balance has a hidden “Play-money balance” text with the value, and the ½, 2× and Max shortcuts have their own `aria-label`.",
+   "When the action is not available, the main button uses `aria-disabled` instead of `disabled`, to stay focusable; all texts are in English."
   ],
   "movimento": [
-   "O multiplicador sobe numa curva exponencial redesenhada a cada quadro, com escalas que se esticam junto, como uma câmera se afastando; o ponto da frente pulsa.",
-   "No estouro, curva e número passam para a cor de perigo, um anel se expande do ponto e o número treme; o saque deixa uma marca na curva e o saldo conta até o novo valor com um “+” que sobe.",
-   "Com “reduzir movimento” ligado, a rodada continua, mas a curva avança em poucos passos por segundo, sem pulso, anel nem tremor."
+   "The multiplier rises along an exponential curve redrawn every frame, with scales that stretch along with it, like a camera pulling back; the leading dot pulses.",
+   "On a crash, the curve and number switch to the danger color, a ring expands from the dot and the number shakes; a cash-out leaves a mark on the curve and the balance counts up to the new value with a “+” that rises.",
+   "With “reduce motion” on, the round continues, but the curve advances in a few steps per second, with no pulse, ring or shake."
   ],
   "responsivo": [
-   "O cartão vai até 34rem e é um contêiner: o gráfico tem de 13rem a 16.5rem de altura conforme a largura, e aposta e saque automático ficam lado a lado a partir de 26rem."
+   "The card goes up to 34rem and is a container: the chart is 13rem to 16.5rem tall depending on width, and the bet and auto cash-out sit side by side from 26rem."
   ],
   "desempenho": [
-   "Durante a rodada, um callback por quadro reescreve os caminhos do SVG direto no DOM, sem renderizar o React; um `ResizeObserver` redesenha o gráfico quando ele muda de tamanho."
+   "During the round, a per-frame callback rewrites the SVG paths directly in the DOM, without rendering React; a `ResizeObserver` redraws the chart when it changes size."
   ],
   "notasIA": [
-   "O saldo é fictício e pode viver no componente (`defaultBalance`) ou fora dele (`balance` com `onBalanceChange`); `onRoundEnd` informa aposta, ponto de estouro, saque e pagamento.",
-   "Passe `random` com semente para testes ou replays: ele é chamado uma vez por rodada, na aposta; `margin` (0 a 0.5) deixa estouros cedo um pouco mais prováveis e `maxMultiplier` (50) limita o estouro.",
-   "A pasta traz a própria cópia de `play-money.tsx` (saldo, campo de aposta, botão e histórico); `speed` controla a subida, com o multiplicador igual a e^(`speed` × segundos)."
+   "The balance is play money and can live in the component (`defaultBalance`) or outside it (`balance` with `onBalanceChange`); `onRoundEnd` reports the bet, crash point, cash-out and payout.",
+   "Pass a seeded `random` for tests or replays: it is called once per round, at bet time; `margin` (0 to 0.5) makes early crashes slightly more likely and `maxMultiplier` (50) caps the crash.",
+   "The folder brings its own copy of `play-money.tsx` (balance, bet field, button and history); `speed` controls the climb, with the multiplier equal to e^(`speed` × seconds)."
   ]
  },
  "mines-game": {
   "quandoUsar": [
-   "Demos ou áreas de jogo com saldo fictício em que cada gema encontrada aumenta o multiplicador e a pessoa decide quando parar.",
-   "Jogos jogáveis pelo teclado: o tabuleiro 5 × 5 tem foco itinerante e setas para andar entre as casas.",
-   "Explicar risco e recompensa: mais minas dão saltos maiores no multiplicador, que é o pagamento justo menos `margin`."
+   "Demos or game areas with a play-money balance where each gem found raises the multiplier and the person decides when to stop.",
+   "Games playable by keyboard: the 5 × 5 board has roving focus and arrow keys to move between tiles.",
+   "Explain risk and reward: more mines give bigger jumps in the multiplier, which is the fair payout minus `margin`."
   ],
   "quandoEvitar": [
-   "Não use com dinheiro real nem prêmios: o saldo é fictício e as minas são sorteadas no navegador com `random`.",
-   "Use `crash-game` quando a tensão deve vir do tempo, sacando antes do estouro de uma curva ao vivo.",
-   "Use `plinko-game` ou `slide-game` quando o resultado deve sair sozinho, sem decisões durante a rodada."
+   "Do not use with real money or prizes: the balance is play money and the mines are drawn in the browser with `random`.",
+   "Use `crash-game` when the tension should come from time, cashing out before a live curve crashes.",
+   "Use `plinko-game` or `slide-game` when the result should come out on its own, with no decisions during the round."
   ],
   "teclado": [
    {
@@ -872,79 +872,79 @@
      "←",
      "→"
     ],
-    "acao": "No tabuleiro, movem o foco entre as casas e param na borda, sem dar a volta."
+    "acao": "On the board, move focus between tiles and stop at the edge, without wrapping."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Levam o foco à primeira ou à última casa da linha atual."
+    "acao": "Move focus to the first or last tile of the current row."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Numa casa fechada durante a rodada, vira a casa."
+    "acao": "On a closed tile during the round, flips the tile."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Entra no tabuleiro pela última casa focada, a única na ordem de foco, e depois segue para os controles de aposta e de minas."
+    "acao": "Enters the board at the last focused tile, the only one in the focus order, and then moves on to the bet and mine controls."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão principal, aposta, saca depois da primeira gema e aposta de novo; é o mesmo `<button>` o tempo todo."
+    "acao": "On the main button, bets, cashes out after the first gem and bets again; it is the same `<button>` the whole time."
    },
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "No campo de aposta, confirma o valor e o ajusta entre `minBet` e o saldo."
+    "acao": "In the bet field, confirms the value and clamps it between `minBet` and the balance."
    }
   ],
   "acessibilidade": [
-   "O tabuleiro é um `role=\"group\"` com foco itinerante (só uma casa tem `tabIndex={0}`), e cada casa diz linha, coluna e estado (“hidden”, “gem” ou “mine”) no `aria-label`.",
-   "Casas já viradas ou fora de rodada usam `aria-disabled` e continuam na navegação; cada jogada é anunciada numa região `role=\"status\"`, e o número de minas, noutra região viva.",
-   "Saldo, atalhos de aposta e botão principal seguem o padrão dos outros jogos, com `aria-disabled` para manter o foco; todos os textos estão em inglês."
+   "The board is a `role=\"group\"` with roving focus (only one tile has `tabIndex={0}`), and each tile states row, column and state (“hidden”, “gem” or “mine”) in its `aria-label`.",
+   "Tiles already flipped or outside a round use `aria-disabled` and stay in the navigation; each move is announced in a `role=\"status\"` region, and the mine count in another live region.",
+   "Balance, bet shortcuts and main button follow the pattern of the other games, with `aria-disabled` to keep focus; all texts are in English."
   ],
   "movimento": [
-   "As casas viram em 3D com uma mola de leve quique; no fim da rodada, as que faltam viram numa onda que parte da casa em foco, e uma mina faz o tabuleiro tremer.",
-   "O multiplicador dá um pequeno salto a cada gema, o número de minas rola na direção do ajuste e, numa nova aposta, as casas abertas fecham numa varredura diagonal.",
-   "Com “reduzir movimento” ligado, as casas viram na hora, sem onda, tremor, entrada escalonada nem elevação no hover."
+   "Tiles flip in 3D with a spring with a slight bounce; at the end of the round, the remaining ones flip in a wave starting from the focused tile, and a mine makes the board shake.",
+   "The multiplier makes a small hop on each gem, the mine count rolls in the direction of the adjustment and, on a new bet, the open tiles close in a diagonal sweep.",
+   "With “reduce motion” on, tiles flip instantly, with no wave, shake, staggered entrance or hover lift."
   ],
   "responsivo": [
-   "O cartão vai até 40rem e é um contêiner: estreito, o tabuleiro fica acima dos controles; a partir de 34rem os dois ficam lado a lado, com o painel em 15rem e o tabuleiro em até 24rem."
+   "The card goes up to 40rem and is a container: when narrow, the board sits above the controls; from 34rem they sit side by side, with the panel at 15rem and the board up to 24rem."
   ],
   "notasIA": [
-   "`mines` (1 a 24) pode ser controlado com `onMinesChange`; a cada fim de rodada, `onRoundEnd` traz gemas, multiplicador, resultado (`cashed-out` ou `mine`), aposta e pagamento.",
-   "`random` só é chamado na aposta, para esconder as minas, então um gerador com semente torna o tabuleiro repetível; achar todas as gemas encerra a rodada com saque automático.",
-   "Como os outros jogos, é dinheiro de mentira com a própria cópia de `play-money.tsx`; o saldo pode ser controlado com `balance` e `onBalanceChange`."
+   "`mines` (1 to 24) can be controlled with `onMinesChange`; at the end of each round, `onRoundEnd` brings gems, multiplier, outcome (`cashed-out` or `mine`), bet and payout.",
+   "`random` is only called at bet time, to hide the mines, so a seeded generator makes the board repeatable; finding all the gems ends the round with an automatic cash-out.",
+   "Like the other games, it is play money with its own copy of `play-money.tsx`; the balance can be controlled with `balance` and `onBalanceChange`."
   ]
  },
  "plinko-game": {
   "quandoUsar": [
-   "Demos ou áreas de jogo com saldo fictício em que várias bolas caem ao mesmo tempo, cada uma com a própria aposta.",
-   "Mostrar uma distribuição binomial em ação: as casas do meio saem mais e pagam menos, as das pontas são raras e pagam mais.",
-   "Quando a pessoa escolhe o risco (`low`, `medium`, `high`) e vê a tabela de multiplicadores mudar na hora."
+   "Demos or game areas with a play-money balance where several balls fall at the same time, each with its own bet.",
+   "Show a binomial distribution in action: the middle slots come up more often and pay less, the end ones are rare and pay more.",
+   "When the person chooses the risk (`low`, `medium`, `high`) and sees the multiplier table change instantly."
   ],
   "quandoEvitar": [
-   "Não use com dinheiro real nem prêmios: o saldo é fictício e o caminho de cada bola é sorteado no navegador com `random`.",
-   "Use `crash-game` ou `mines-game` quando a pessoa deve decidir durante a rodada, sacando antes de perder.",
-   "Use `slide-game` para um resultado por aposta com as chances de cada multiplicador à mostra."
+   "Do not use with real money or prizes: the balance is play money and each ball's path is drawn in the browser with `random`.",
+   "Use `crash-game` or `mines-game` when the person should decide during the round, cashing out before losing.",
+   "Use `slide-game` for one result per bet with the odds of each multiplier on display."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão “Drop a ball”, solta uma bola; repetir solta outras, até `maxBalls` caindo juntas."
+    "acao": "On the “Drop a ball” button, drops a ball; repeating drops more, up to `maxBalls` falling together."
    },
    {
     "teclas": [
@@ -953,86 +953,86 @@
      "←",
      "→"
     ],
-    "acao": "No grupo de risco, troca entre “Low”, “Medium” e “High” (rádios nativos); fica bloqueado enquanto há bolas caindo."
+    "acao": "In the risk group, switches between “Low”, “Medium” and “High” (native radios); locked while balls are falling."
    },
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "No campo de aposta, confirma o valor e o ajusta entre `minBet` e o saldo."
+    "acao": "In the bet field, confirms the value and clamps it between `minBet` and the balance."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Passa por zerar o saldo, aposta, ½, 2×, Max, o risco marcado e o botão de soltar."
+    "acao": "Moves through reset balance, bet, ½, 2×, Max, the selected risk and the drop button."
    }
   ],
   "acessibilidade": [
-   "O tabuleiro é `aria-hidden`; o leitor de tela encontra a lista de multiplicadores das casas, da esquerda para a direita, e ouve cada pouso (“Ball N landed on…”) numa região `role=\"status\"`.",
-   "O risco é um grupo de rádios nativos rotulado “Risk”, cada um dentro de um `<label>`; o contorno de foco do teclado aparece no segmento.",
-   "Com várias bolas, cada pouso gera um anúncio novo; textos e anúncios estão fixos em inglês."
+   "The board is `aria-hidden`; the screen reader finds the list of slot multipliers, from left to right, and hears each landing (“Ball N landed on…”) in a `role=\"status\"` region.",
+   "The risk is a group of native radios labeled “Risk”, each inside a `<label>`; the keyboard focus outline appears on the segment.",
+   "With several balls, each landing produces a new announcement; texts and announcements are fixed in English."
   ],
   "movimento": [
-   "Cada bola cai e, em cada fileira, quica para a esquerda ou para a direita com um pequeno impulso para cima antes da gravidade; o pino tocado acende e cresce.",
-   "A casa onde a bola cai afunda e acende, fica com um anel até a próxima queda, e os valores trocam com um leve deslize quando o risco muda.",
-   "Com “reduzir movimento” ligado, nenhuma bola é desenhada: o resultado sai após uma pausa curta e a casa só acende, sem afundar."
+   "Each ball falls and, at each row, bounces left or right with a small upward impulse before gravity; the peg it touches lights up and grows.",
+   "The slot where the ball lands sinks and lights up, keeps a ring until the next drop, and the values swap with a slight slide when the risk changes.",
+   "With “reduce motion” on, no ball is drawn: the result comes out after a short pause and the slot only lights up, without sinking."
   ],
   "responsivo": [
-   "O cartão vai até 42rem e é um contêiner: o tabuleiro fica acima dos controles e passa para o lado a partir de 36rem, com no máximo 27rem de largura.",
-   "O tabuleiro é um SVG que escala inteiro, e as casas acompanham a largura dele; abaixo de 22rem o “×” some dos rótulos."
+   "The card goes up to 42rem and is a container: the board sits above the controls and moves to the side from 36rem, at most 27rem wide.",
+   "The board is an SVG that scales as a whole, and the slots follow its width; below 22rem the “×” disappears from the labels."
   ],
   "desempenho": [
-   "Um callback por quadro move todas as bolas direto no DOM, sem renderizar o React a cada passo; `maxBalls` (8) limita quantas caem juntas e `rows` vai de 6 a 12."
+   "A per-frame callback moves all the balls directly in the DOM, without rendering React on each step; `maxBalls` (8) limits how many fall together and `rows` ranges from 6 to 12."
   ],
   "notasIA": [
-   "`risk` recalcula a tabela pela chance binomial de cada casa; para uma tabela sua, passe `multipliers` com exatamente `rows + 1` valores, senão ela é ignorada.",
-   "A aposta sai do saldo quando a bola é solta e o pagamento entra no pouso, quando `onDrop` chega com casa, multiplicador, aposta e pagamento.",
-   "O campo de aposta continua editável com bolas caindo e cada bola guarda a aposta do momento em que saiu; é dinheiro de mentira, com a própria cópia de `play-money.tsx`."
+   "`risk` recomputes the table from each slot's binomial probability; for your own table, pass `multipliers` with exactly `rows + 1` values, otherwise it is ignored.",
+   "The bet leaves the balance when the ball is dropped and the payout comes in at landing, when `onDrop` arrives with slot, multiplier, bet and payout.",
+   "The bet field stays editable with balls falling and each ball keeps the bet from the moment it was dropped; it is play money, with its own copy of `play-money.tsx`."
   ]
  },
  "slide-game": {
   "quandoUsar": [
-   "Demos ou áreas de jogo com saldo fictício em que uma aposta faz uma faixa de multiplicadores correr e parar sozinha.",
-   "Quando as chances devem ficar à mostra: a lista abaixo da faixa traz a porcentagem de cada multiplicador, calculada dos pesos.",
-   "Sorteios configuráveis: `tiles` define os multiplicadores e o peso de cada um."
+   "Demos or game areas with a play-money balance where a bet makes a strip of multipliers run and stop on its own.",
+   "When the odds should be on display: the list below the strip gives the percentage of each multiplier, computed from the weights.",
+   "Configurable draws: `tiles` defines the multipliers and the weight of each."
   ],
   "quandoEvitar": [
-   "Não use com dinheiro real nem prêmios: o saldo é fictício e o resultado é sorteado no navegador com `random`.",
-   "Use `crash-game` ou `mines-game` quando a pessoa deve decidir durante a rodada.",
-   "Use `plinko-game` quando várias apostas devem rodar ao mesmo tempo, com um risco que a pessoa escolhe."
+   "Do not use with real money or prizes: the balance is play money and the result is drawn in the browser with `random`.",
+   "Use `crash-game` or `mines-game` when the person should decide during the round.",
+   "Use `plinko-game` when several bets should run at the same time, with a risk the person chooses."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "No botão principal, aposta e solta a faixa; durante o deslize ele fica `aria-disabled`, mas mantém o foco."
+    "acao": "On the main button, bets and releases the strip; during the slide it is `aria-disabled`, but keeps focus."
    },
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "No campo de aposta, confirma o valor e o ajusta entre `minBet` e o saldo."
+    "acao": "In the bet field, confirms the value and clamps it between `minBet` and the balance."
    }
   ],
   "acessibilidade": [
-   "A faixa é `aria-hidden`; o resultado chega ao leitor de tela pela região `role=\"status\"` do cartão (“Sliding with a bet of…”, “Landed on…”), e as chances ficam numa lista rotulada.",
-   "Saldo com texto oculto, atalhos de aposta com `aria-label` e botão principal com `aria-disabled` seguem o padrão dos outros jogos; todos os textos estão em inglês."
+   "The strip is `aria-hidden`; the result reaches the screen reader through the card's `role=\"status\"` region (“Sliding with a bet of…”, “Landed on…”), and the odds sit in a labeled list.",
+   "Balance with hidden text, bet shortcuts with `aria-label` and main button with `aria-disabled` follow the pattern of the other games; all texts are in English."
   ],
   "movimento": [
-   "A faixa dispara, passa a maior parte do percurso desacelerando e para um pouco fora do centro, assentando no ladrilho com uma mola; o ponteiro do marcador dá toques conforme os ladrilhos passam por ele.",
-   "Ao parar, o ladrilho vencedor cresce com sombra, os outros esmaecem e o marcador cresce junto; na montagem, os ladrilhos entram do centro para fora.",
-   "Com “reduzir movimento” ligado, a faixa não corre: ela reaparece na posição final com um esmaecer curto, sem o toque do ponteiro, sem crescimento e sem entrada escalonada."
+   "The strip launches, spends most of the run slowing down and stops slightly off-center, settling on the tile with a spring; the marker's pointer ticks as tiles pass it.",
+   "On stopping, the winning tile grows with a shadow, the others fade and the marker grows along with it; on mount, the tiles enter from the center outward.",
+   "With “reduce motion” on, the strip does not run: it reappears at the final position with a short fade, with no pointer tick, no growth and no staggered entrance."
   ],
   "responsivo": [
-   "O cartão vai até 36rem e é um contêiner: aposta e botão ficam lado a lado a partir de 28rem; a faixa ocupa a largura toda e esmaece nas bordas, com ladrilhos fixos de 76 px."
+   "The card goes up to 36rem and is a container: bet and button sit side by side from 28rem; the strip takes the full width and fades at the edges, with fixed 76 px tiles."
   ],
   "notasIA": [
-   "`tiles` recebe `multiplier` e `weight` (peso 2 sai duas vezes mais que peso 1); entradas com peso zero ou multiplicador negativo são descartadas, e sem nenhuma válida volta a tabela padrão.",
-   "`duration` (3.8 s) é o tempo da corrida até parar; `onRoundEnd` chega quando a faixa para, e `random` só é chamado na aposta, para sortear o resultado e preencher a faixa.",
-   "A tabela padrão tem pesos que somam 100 e paga em média 0.97 da aposta; é dinheiro de mentira, com a própria cópia de `play-money.tsx`."
+   "`tiles` takes `multiplier` and `weight` (weight 2 comes up twice as often as weight 1); entries with zero weight or a negative multiplier are discarded, and with none valid the default table is restored.",
+   "`duration` (3.8 s) is the time of the run until it stops; `onRoundEnd` arrives when the strip stops, and `random` is only called at bet time, to draw the result and fill the strip.",
+   "The default table has weights that add up to 100 and pays 0.97 of the bet on average; it is play money, with its own copy of `play-money.tsx`."
   ]
  }
 }

@@ -2,48 +2,48 @@
 
 > Escolha uma opção entre várias visíveis, com um destaque que desliza até a linha escolhida.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-group
-- Descrição original (inglês): Choose one option from a visible set.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-group
+- Original description: Choose one option from a visible set.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json`. Caminho do registro, relativo ao endereço do site: `r/radio-group.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/radio-group.json`. Registry path, relative to the site address: `r/radio-group.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/radio-group/radio-group.tsx`
   - `components/ryan-ui/radio-group/radio-group.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/radio-group.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/radio-group.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolha única entre poucas opções que devem ficar todas à vista, como plano de cobrança ou frequência de envio.
-- Formulários em que cada opção tem uma linha de explicação embaixo do nome.
-- Quando você quer o comportamento nativo do rádio (setas, Tab e envio de formulário) com um destaque animado.
+- Single choice among a few options that should all be visible, such as billing plan or delivery frequency.
+- Forms where each option has an explanation line below its name.
+- When you want native radio behavior (arrows, Tab, and form submission) with an animated highlight.
 
-## Quando não usar
+## When not to use
 
-- Use [`radio-cards`](radio-cards.md) quando cada opção precisa de preço, ícone ou aparência de cartão.
-- Use [`select`](select.md) quando a lista é longa ou o espaço é curto.
-- Use [`segmented-control`](segmented-control.md) para alternar entre visões de uma mesma tela.
+- Use [`radio-cards`](radio-cards.md) when each option needs a price, icon, or card appearance.
+- Use [`select`](select.md) when the list is long or space is tight.
+- Use [`segmented-control`](segmented-control.md) to switch between views of the same screen.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -70,48 +70,48 @@ export default function RadioGroupDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `RadioGroup`
 
 One highlight travels to the chosen row while the new dot springs in and the old one shrinks away, so a change reads as a single physical move. Arrow keys take the same path. Rows and text never resize.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
-| `options` (obrigatória) | `{ value: string; label: string; description?: string }[]` | — | — |
-| `value` (obrigatória) | `string` | — | — |
-| `onValueChange` (obrigatória) | `(value: string) => void` | — | — |
+| `label` (required) | `string` | — | — |
+| `options` (required) | `{ value: string; label: string; description?: string }[]` | — | — |
+| `value` (required) | `string` | — | — |
+| `onValueChange` (required) | `(value: string) => void` | — | — |
 | `name` | `string` | — | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `→` | Selecionam a opção seguinte, como em qualquer rádio nativo, e o destaque desliza junto. |
-| `↑` ou `←` | Selecionam a opção anterior. |
-| `Espaço` | Marca a opção em foco quando nenhuma está marcada. |
-| `Tab` | Entra no grupo pela opção marcada e sai numa tecla só. |
+| `↓` or `→` | Select the next option, as in any native radio, and the highlight slides along. |
+| `↑` or `←` | Select the previous option. |
+| `Space` | Checks the focused option when none is checked. |
+| `Tab` | Enters the group at the checked option and leaves in a single keystroke. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `fieldset` com `legend` e rádios nativos que compartilham o mesmo `name`, então papel, nome do grupo e navegação vêm do navegador.
-- Nome e descrição de cada opção ficam dentro do `<label>`, e os dois entram no nome acessível do rádio.
+- It is a `fieldset` with `legend` and native radios sharing the same `name`, so role, group name, and navigation come from the browser.
+- The name and description of each option live inside the `<label>`, and both become part of the radio's accessible name.
 
-## Movimento
+## Motion
 
-- Um único destaque viaja até a linha escolhida numa mola sem ultrapassagem, enquanto o ponto novo cresce e o antigo encolhe; linhas e textos nunca mudam de tamanho.
-- Ao apertar, a marca afunda rápido e mostra um ponto fraco de prévia, e o ponto de verdade cresce ao soltar.
-- Com “reduzir movimento” ligado, destaque e ponto mudam na hora e as transições de cor e de pressão são desligadas.
+- A single highlight travels to the chosen row on a no-overshoot spring, while the new dot grows and the old one shrinks; rows and texts never change size.
+- On press, the mark sinks quickly and shows a faint preview dot, and the real dot grows on release.
+- With “reduce motion” on, highlight and dot change instantly and the color and press transitions are turned off.
 
-## Notas para IA
+## Notes for AI
 
-- É sempre controlado: `value` e `onValueChange` são obrigatórios e não existe `defaultValue`, então guarde a escolha num `useState`.
-- Import nomeado, `import { RadioGroup } from "@/components/ryan-ui/radio-group/radio-group"`; `label` vira a `legend` e cada opção é `{ value, label, description? }`, só texto.
-- Passe `name` dentro de um formulário nativo; sem ele, os rádios usam um nome gerado.
+- It is always controlled: `value` and `onValueChange` are required and there is no `defaultValue`, so keep the choice in a `useState`.
+- Named import, `import { RadioGroup } from "@/components/ryan-ui/radio-group/radio-group"`; `label` becomes the `legend` and each option is `{ value, label, description? }`, text only.
+- Pass `name` inside a native form; without it, the radios use a generated name.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/radio-group · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,47 +2,47 @@
 
 > Painel inferior que repousa em alturas definidas e acompanha o dedo ao arrastar.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bottom-sheet
-- Descrição original (inglês): A sheet that rests at a peek or full height and follows your finger.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/bottom-sheet
+- Original description: A sheet that rests at a peek or full height and follows your finger.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json`. Caminho do registro, relativo ao endereço do site: `r/bottom-sheet.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bottom-sheet.json`. Registry path, relative to the site address: `r/bottom-sheet.json`.
 
-- Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dialog`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/bottom-sheet/bottom-sheet.tsx`
   - `components/ryan-ui/bottom-sheet/bottom-sheet.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dialog lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/bottom-sheet.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dialog lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/bottom-sheet.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Tarefas secundárias no celular em que uma prévia ajuda antes da vista completa: resumo do pedido, opções de compartilhamento, filtros, detalhes de uma viagem.
-- Conteúdo que a pessoa arrasta entre meia altura e quase tela cheia, com alturas de repouso como `detents={[0.4, 0.85]}`.
-- Fluxos que precisam saber onde a folha parou, pelo índice que `onDetentChange` informa.
+- Secondary tasks on mobile where a preview helps before the full view: order summary, sharing options, filters, trip details.
+- Content that people drag between half height and almost full screen, with rest heights such as `detents={[0.4, 0.85]}`.
+- Flows that need to know where the sheet stopped, through the index that `onDetentChange` reports.
 
-## Quando não usar
+## When not to use
 
-- Use [`dialog`](dialog.md) quando a decisão precisa interromper a pessoa no centro da tela.
-- Use [`drawer`](drawer.md) para painéis laterais em telas largas; esta folha tem no máximo 36rem de largura e fica centrada na borda de baixo.
+- Use [`dialog`](dialog.md) when the decision needs to interrupt the person in the center of the screen.
+- Use [`drawer`](drawer.md) for side panels on wide screens; this sheet is at most 36rem wide and is centered on the bottom edge.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -88,67 +88,67 @@ export default function BottomSheetDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BottomSheet`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `trigger` | `ReactNode` | — | The control that opens the sheet, usually a button. Focus returns to it when the sheet closes. |
 | `open` | `boolean` | — | — |
 | `defaultOpen` | `boolean` | `false` | — |
 | `onOpenChange` | `(open: boolean) => void` | — | — |
-| `title` (obrigatória) | `string` | — | — |
+| `title` (required) | `string` | — | — |
 | `description` | `string` | — | — |
 | `detents` | `number[]` | — | Resting heights as fractions of the viewport height. The sheet opens at `initialDetent` and never grows past the largest. |
 | `initialDetent` | `number` | — | Index into the sorted detents the sheet opens at. Defaults to the smallest. |
 | `onDetentChange` | `(index: number) => void` | — | — |
 | `closeLabel` | `string` | — | — |
 | `className` | `string` | — | — |
-| `children` (obrigatória) | `ReactNode` | — | — |
+| `children` (required) | `ReactNode` | — | — |
 | `container` | `HTMLElement \| null` | — | Renders the sheet inside this element instead of the page body: it rises from the element's bottom edge, the detents become fractions of the element's height and the dim covers only the element. The element needs position: relative and overflow: hidden. The page around it stays usable while the sheet is open: nothing is scroll-locked or hidden from assistive technology. |
 | `onOpenAutoFocus` | `(event: Event) => void` | — | Runs when the sheet opens, before it moves focus to itself. Call `event.preventDefault()` to leave focus where it is. |
 
-### Outras exportações
+### Other exports
 
-- `BottomSheetClose` (valor)
+- `BottomSheetClose` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `Page Down` ou `Espaço` | Com o foco na folha, abre até a maior altura; já aberta, rola o conteúdo. |
-| `↑` ou `Page Up` ou `Shift + Espaço` | Com o foco na folha, rola o conteúdo para cima. |
-| `↑` ou `↓` | No puxador, sobe ou desce uma altura de repouso; para baixo ele para na menor, sem fechar. |
-| `Home` ou `End` | No puxador, vai à maior ou à menor altura. |
-| `Enter` ou `Espaço` | No puxador, alterna entre a menor e a maior altura. |
-| `Esc` | Fecha a folha e devolve o foco ao `trigger`; enquanto ela está aberta, o foco fica preso nela. |
+| `↓` or `Page Down` or `Space` | With focus on the sheet, open to the greatest height; when already open, scroll the content. |
+| `↑` or `Page Up` or `Shift + Space` | With focus on the sheet, scroll the content up. |
+| `↑` or `↓` | On the handle, go up or down one rest height; going down it stops at the smallest, without closing. |
+| `Home` or `End` | On the handle, go to the greatest or smallest height. |
+| `Enter` or `Space` | On the handle, toggle between the smallest and greatest height. |
+| `Esc` | Closes the sheet and returns focus to the `trigger`; while it is open, focus stays trapped in it. |
 
-## Acessibilidade
+## Accessibility
 
-- É um diálogo modal do Radix: `title` vira o nome acessível, `description` a descrição, e o resto da página sai da árvore de acessibilidade enquanto a folha está aberta.
-- Ao abrir, o foco vai para a própria folha; o puxador é um botão com `aria-expanded` e o rótulo “Expand sheet” ou “Collapse sheet”.
-- Cada mudança de altura é anunciada numa região `aria-live` educada (“Sheet expanded”, “Sheet collapsed”); esses textos são fixos em inglês, e só o botão de fechar aceita rótulo próprio (`closeLabel`).
+- It is a Radix modal dialog: `title` becomes the accessible name, `description` the description, and the rest of the page leaves the accessibility tree while the sheet is open.
+- On open, focus goes to the sheet itself; the handle is a button with `aria-expanded` and the label “Expand sheet” or “Collapse sheet”.
+- Each height change is announced in a polite `aria-live` region (“Sheet expanded”, “Sheet collapsed”); these texts are fixed in English, and only the close button accepts its own label (`closeLabel`).
 
-## Movimento
+## Motion
 
-- A folha segue o dedo 1:1 para baixo e resiste como elástico acima da maior altura; ao soltar, a velocidade projeta o destino e um gesto rápido sempre avança pelo menos uma altura.
-- Um gesto rápido para baixo a partir da menor altura fecha a folha mantendo a velocidade; o escurecimento do fundo acompanha a posição em vez de um tempo fixo.
-- Com “reduzir movimento” ligado, a folha vai direto a cada altura e só esmaece ao entrar e sair; a rolagem do conteúdo deixa de ser suave.
+- The sheet follows the finger 1:1 downward and resists like elastic above the greatest height; on release, velocity projects the destination and a fast gesture always advances at least one height.
+- A fast downward gesture from the smallest height closes the sheet keeping its velocity; the backdrop darkening follows the position instead of a fixed time.
+- With “reduce motion” on, the sheet goes straight to each height and only fades on enter and exit; content scrolling is no longer smooth.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura é `min(100%, 36rem)` e as alturas são frações de `100dvh`; o espaço inferior respeita a área segura do aparelho (`safe-area-inset-bottom`).
-- O conteúdo só rola na maior altura; abaixo dela, arrastar, girar a roda ou tabular até um campo fora da tela abre a folha primeiro, e um observador a reposiciona quando a janela muda de altura.
+- The width is `min(100%, 36rem)` and the heights are fractions of `100dvh`; the bottom spacing respects the device safe area (`safe-area-inset-bottom`).
+- The content only scrolls at the greatest height; below it, dragging, spinning the wheel, or tabbing to an off-screen field opens the sheet first, and an observer repositions it when the window height changes.
 
-## Notas para IA
+## Notes for AI
 
-- `title` é obrigatório e `detents` são frações da altura da janela (padrão `[0.45, 0.92]`), ordenadas pelo componente; `initialDetent` é o índice nessa lista ordenada.
-- Passe o botão em `trigger` para o foco voltar a ele ao fechar; para fechar por dentro, envolva a ação em `BottomSheetClose asChild`.
-- No toque, arrastar na vertical sobre o conteúdo move a folha até ela abrir por completo; só então o conteúdo rola. Importe de `@/components/ryan-ui/bottom-sheet/bottom-sheet`.
+- `title` is required and `detents` are fractions of the window height (default `[0.45, 0.92]`), sorted by the component; `initialDetent` is the index in that sorted list.
+- Pass the button in `trigger` so focus returns to it on close; to close from inside, wrap the action in `BottomSheetClose asChild`.
+- On touch, dragging vertically over the content moves the sheet until it is fully open; only then does the content scroll. Import from `@/components/ryan-ui/bottom-sheet/bottom-sheet`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bottom-sheet · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bottom-sheet · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

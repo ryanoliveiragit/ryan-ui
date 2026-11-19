@@ -2,48 +2,48 @@
 
 > Histórico de preço que se abre em leque até os alvos alto, mediano e baixo, cada um com rótulo e variação.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/price-target-fan
-- Descrição original (inglês): A price history line that draws to the last close and fans out into dashed high, median and low target lines with labeled end points you can bring forward.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/price-target-fan
+- Original description: A price history line that draws to the last close and fans out into dashed high, median and low target lines with labeled end points you can bring forward.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/price-target-fan.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/price-target-fan.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/price-target-fan.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/price-target-fan.json`. Caminho do registro, relativo ao endereço do site: `r/price-target-fan.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/price-target-fan.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/price-target-fan.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/price-target-fan.json`. Registry path, relative to the site address: `r/price-target-fan.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/price-target-fan/price-target-fan.tsx`
   - `components/ryan-ui/price-target-fan/price-target-fan.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/price-target-fan.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/price-target-fan.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Página de um ativo que mostra no mesmo gráfico o histórico de fechamentos e os alvos de analistas (alto, mediano e baixo) para uma data futura.
-- Quando o leitor compara cenários: passar o ponteiro ou focar um rótulo traz aquele alvo para a frente, e o clique o mantém em destaque.
-- Quando a distância até o último fechamento importa: cada rótulo traz o preço-alvo e a variação percentual em relação a ele.
+- An asset page that shows, on the same chart, the closing-price history and analyst targets (high, median, and low) for a future date.
+- When the reader compares scenarios: hovering or focusing a label brings that target to the front, and a click keeps it highlighted.
+- When the distance from the last close matters: each label shows the target price and the percentage change relative to it.
 
-## Quando não usar
+## When not to use
 
-- Use [`line-chart`](line-chart.md) quando só há histórico, sem alvos, ou várias séries para comparar.
-- Use [`candlestick-chart`](candlestick-chart.md) quando o leitor precisa de abertura, máxima, mínima e fechamento de cada período.
-- Projeções com mais ou menos de três cenários não cabem: o componente recebe exatamente `high`, `median` e `low`.
+- Use [`line-chart`](line-chart.md) when there is only history, with no targets, or several series to compare.
+- Use [`candlestick-chart`](candlestick-chart.md) when the reader needs the open, high, low, and close of each period.
+- Projections with more or fewer than three scenarios don't fit: the component takes exactly `high`, `median`, and `low`.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -103,17 +103,17 @@ export default function PriceTargetFanDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PriceTargetFan`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `history` (obrigatória) | `PricePoint[]` | — | Price history, one point per close. Any order: the chart sorts by date. |
-| `targets` (obrigatória) | `PriceTargets` | — | The three targets at the end of the horizon. |
-| `label` (obrigatória) | `string` | — | Accessible name of the chart, such as "Northwind price and 12-month analyst targets". |
+| `history` (required) | `PricePoint[]` | — | Price history, one point per close. Any order: the chart sorts by date. |
+| `targets` (required) | `PriceTargets` | — | The three targets at the end of the horizon. |
+| `label` (required) | `string` | — | Accessible name of the chart, such as "Northwind price and 12-month analyst targets". |
 | `targetDate` | `string` | — | Day the targets refer to, as YYYY-MM-DD. Defaults to one year after the last close. |
 | `currency` | `string` | `"USD"` | Currency code used by the default price format. |
 | `formatValue` | `(value: number) => string` | — | Formats a price. Defaults to the currency format of the locale. |
@@ -124,61 +124,61 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `locale` | `string` | `"en-US"` | Formatting locale. Fixed by default so server and client render the same labels. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `PriceTargetKey` | `"high" \| "median" \| "low"` |
 
 #### `PricePoint`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `date` (obrigatória) | `string` | Day of the close as YYYY-MM-DD. |
-| `value` (obrigatória) | `number` | Closing price. |
+| `date` (required) | `string` | Day of the close as YYYY-MM-DD. |
+| `value` (required) | `number` | Closing price. |
 
 #### `PriceTargets`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `high` (obrigatória) | `number` | Most optimistic target. |
-| `median` (obrigatória) | `number` | Median of the targets. |
-| `low` (obrigatória) | `number` | Most cautious target. |
+| `high` (required) | `number` | Most optimistic target. |
+| `median` (required) | `number` | Median of the targets. |
+| `low` (required) | `number` | Most cautious target. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `↓` | Com o foco no histórico, recua um fechamento e mostra data e preço na dica. |
-| `→` ou `↑` | Avança um fechamento. |
-| `Page Up` ou `Page Down` | Avança ou recua dez fechamentos. |
-| `Home` ou `End` | Vai ao primeiro ou ao último fechamento. |
-| `Enter` ou `Espaço` | Num rótulo de alvo, fixa aquele cenário em destaque; de novo, solta. |
-| `Esc` | Fecha a dica do histórico. |
+| `←` or `↓` | With focus on the history, steps back one close and shows the date and price in the tooltip. |
+| `→` or `↑` | Steps forward one close. |
+| `Page Up` or `Page Down` | Move forward or back ten closes. |
+| `Home` or `End` | Go to the first or last close. |
+| `Enter` or `Space` | On a target label, pin that scenario as highlighted; press again to release. |
+| `Esc` | Closes the history tooltip. |
 
-## Acessibilidade
+## Accessibility
 
-- O SVG tem `role="img"` com o `label` e um resumo oculto (último fechamento e os três alvos); o histórico é um `role="slider"` cujo `aria-valuetext` lê data e preço.
-- Cada alvo é um `<button>` com `aria-pressed`, nomeado com preço e variação; o alvo em destaque no cabeçalho fica numa região `aria-live="polite"`.
-- Os textos fixos (`Last close`, `Today`, `High`, `Median`, `Low`) e os nomes para leitor de tela estão em inglês, sem prop de tradução; `locale` só muda números e datas.
+- The SVG has `role="img"` with the `label` and a hidden summary (last close and the three targets); the history is a `role="slider"` whose `aria-valuetext` reads the date and price.
+- Each target is a `<button>` with `aria-pressed`, named with price and change; the highlighted target in the header sits in an `aria-live="polite"` region.
+- The fixed texts (`Last close`, `Today`, `High`, `Median`, `Low`) and the screen-reader names are in English, with no translation prop; `locale` only changes numbers and dates.
 
-## Movimento
+## Motion
 
-- Ao entrar na tela, a linha do histórico se desenha até o último fechamento; em seguida o cone e as três linhas tracejadas se abrem a partir dele com mola e os rótulos surgem em sequência.
-- Um anel pulsa continuamente no último fechamento; a mira e a dica deslizam com mola entre fechamentos, e novos `targets` fazem o leque deslizar até os novos valores.
-- Com “reduzir movimento” ligado, tudo aparece no estado final, o pulso é desligado e a mira salta de um ponto ao outro.
+- On entering the viewport, the history line draws up to the last close; then the cone and the three dashed lines spring open from it and the labels appear in sequence.
+- A ring pulses continuously on the last close; the crosshair and tooltip glide on a spring between closes, and new `targets` make the fan glide to the new values.
+- With “reduced motion” on, everything appears in its final state, the pulse is turned off, and the crosshair jumps from one point to the next.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura acompanha o contêiner e a altura é fixa em `height` (300 px por padrão); a coluna de rótulos à direita reserva pelo menos 72 px.
-- No toque, arrastar na horizontal percorre o histórico e o gesto vertical continua rolando a página; abaixo de 400 px de contêiner os números do cabeçalho diminuem.
+- The width follows the container and the height is fixed by `height` (300 px by default); the label column on the right reserves at least 72 px.
+- On touch, dragging horizontally scans the history and the vertical gesture keeps scrolling the page; below 400 px of container width the header numbers shrink.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `history` (`{ date: "YYYY-MM-DD", value }`), `targets` (`{ high, median, low }`) e `label`; sem `targetDate`, o horizonte é de um ano após o último fechamento.
-- Mantenha `history` com referência estável (constante ou `useMemo`): um array novo a cada render faz a linha se redesenhar toda vez.
-- `activeTarget` com `onActiveTargetChange` controla o cenário fixado (`null` = nenhum); para valores em reais, passe `currency="BRL"` e `locale="pt-BR"`.
+- Pass `history` (`{ date: "YYYY-MM-DD", value }`), `targets` (`{ high, median, low }`), and `label`; without `targetDate`, the horizon is one year after the last close.
+- Keep `history` referentially stable (a constant or `useMemo`): a new array on every render makes the line redraw each time.
+- `activeTarget` with `onActiveTargetChange` controls the pinned scenario (`null` = none); for values in reais, pass `currency="BRL"` and `locale="pt-BR"`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/price-target-fan · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/price-target-fan · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

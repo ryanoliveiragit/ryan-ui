@@ -2,23 +2,23 @@
 
 > Comparação de planos com troca de cobrança mensal ou anual e foco nas diferenças reais.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/plan-comparison
-- Descrição original (inglês): Compare meaningful differences between plans and billing periods.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/plan-comparison
+- Original description: Compare meaningful differences between plans and billing periods.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plan-comparison.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plan-comparison.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plan-comparison.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plan-comparison.json`. Caminho do registro, relativo ao endereço do site: `r/plan-comparison.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plan-comparison.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plan-comparison.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plan-comparison.json`. Registry path, relative to the site address: `r/plan-comparison.json`.
 
-- Pacotes npm: `@radix-ui/react-switch`, `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Segmented control](segmented-control.md), [Switch](switch.md)
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-switch`, `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md), [Segmented control](segmented-control.md), [Switch](switch.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/plan-comparison/plan-comparison.tsx`
   - `components/ryan-ui/blocks/plan-comparison/plan-comparison.module.css`
   - `components/ryan-ui/switch/switch.tsx`
@@ -28,28 +28,28 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-switch lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/plan-comparison.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-switch lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/plan-comparison.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Seção de preços que compara dois planos linha a linha, com troca entre cobrança mensal e anual e um filtro para mostrar só as diferenças.
-- Ponto de partida para editar: planos, preços e recursos são constantes no topo do arquivo, prontos para trocar pelos seus.
+- Pricing section that compares two plans row by row, with a switch between monthly and annual billing and a filter to show only the differences.
+- Starting point for editing: plans, prices, and features are constants at the top of the file, ready to be replaced with your own.
 
-## Quando não usar
+## When not to use
 
-- Use [`comparison-table`](comparison-table.md) para comparar o seu produto com concorrentes, com cabeçalho fixo e uma coluna em destaque.
-- Use [`billing-toggle`](billing-toggle.md) quando só precisa da troca de período com preços que rolam, em cartões de plano.
-- Para três ou mais planos o bloco não serve como está: a grade e o tipo `Feature` têm exatamente duas colunas, Team e Studio.
+- Use [`comparison-table`](comparison-table.md) to compare your product with competitors, with a sticky header and a highlighted column.
+- Use [`billing-toggle`](billing-toggle.md) when you only need the period switch with rolling prices, in plan cards.
+- For three or more plans the block does not work as is: the grid and the `Feature` type have exactly two columns, Team and Studio.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import PlanComparison from "@/components/ryan-ui/blocks/plan-comparison/plan-comparison";
@@ -59,43 +59,43 @@ export default function PlanComparisonDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PlanComparison`
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | No seletor de período, trocam entre mensal e anual e levam o foco junto (`segmented-control`). |
-| `Espaço` ou `Enter` | No interruptor “Show differences only”, ligam ou desligam o filtro; num botão de plano, selecionam ou desfazem a seleção. |
+| `←` or `→` | In the period selector, switch between monthly and annual and move focus along (`segmented-control`). |
+| `Space` or `Enter` | On the “Show differences only” switch, turn the filter on or off; on a plan button, select or clear the selection. |
 
-## Acessibilidade
+## Accessibility
 
-- A matriz usa papéis ARIA de tabela (`table`, `row`, `columnheader`, `rowheader`, `cell`), e cada valor traz o nome do plano em texto escondido, então faz sentido lido sozinho.
-- Os botões de plano expõem `aria-pressed` e uma região `role="status"` anuncia o plano escolhido; o preço de cada plano fica numa região `aria-live="polite"` com `aria-atomic`.
-- O filtro é o `switch` com o rótulo “Show differences only” e o período é o `segmented-control` nomeado “Billing period”.
+- The matrix uses ARIA table roles (`table`, `row`, `columnheader`, `rowheader`, `cell`), and each value carries the plan name in hidden text, so it makes sense read on its own.
+- The plan buttons expose `aria-pressed` and a `role="status"` region announces the chosen plan; each plan's price sits in an `aria-live="polite"` region with `aria-atomic`.
+- The filter is the `switch` labeled “Show differences only” and the period is the `segmented-control` named “Billing period”.
 
-## Movimento
+## Motion
 
-- Trocar o período faz cada preço contar até o novo valor em 0,24 s, e a contagem “N of 8 features” acompanha o filtro.
-- Ligar o filtro fecha a altura das linhas de recursos iguais numa mola sem ultrapassagem e as reabre com esmaecimento; escolher um plano tinge a coluna e um trilho de 2 px desliza até ela.
-- Com “reduzir movimento” ligado, os números trocam na hora, as linhas entram e saem sem animação e o trilho salta.
+- Switching the period makes each price count up to the new value in 0.24 s, and the “N of 8 features” count follows the filter.
+- Turning on the filter collapses the height of the identical feature rows on a spring that does not overshoot and reopens them with a fade; choosing a plan tints the column and a 2 px rail slides to it.
+- With “reduce motion” on, the numbers change instantly, rows enter and leave without animation, and the rail jumps.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O layout segue a largura do bloco, medida por um `ResizeObserver`: até 720 px a introdução empilha e as margens diminuem; até 540 px o nome do recurso sobe para cima dos dois valores e a coluna “What changes” some.
+- The layout follows the block's width, measured by a `ResizeObserver`: up to 720 px the intro stacks and the margins shrink; up to 540 px the feature name moves above the two values and the “What changes” column disappears.
 
-## Notas para IA
+## Notes for AI
 
-- `PlanComparison` não recebe props: edite `features` (com `shared: true` no que o filtro esconde) e `pricing` no topo do arquivo, e os textos fixos no JSX.
-- Os botões “Select …” só marcam o plano com `aria-pressed`, sem callback; ligue o seu checkout trocando o `onClick` deles.
-- Os valores “Included” e “Not included” são comparados como texto exato para ganhar o visto e o tom apagado; o bloco depende de `button`, `segmented-control` e `switch`.
+- `PlanComparison` takes no props: edit `features` (with `shared: true` on what the filter hides) and `pricing` at the top of the file, and the hardcoded texts in the JSX.
+- The “Select …” buttons only mark the plan with `aria-pressed`, with no callback; hook up your checkout by replacing their `onClick`.
+- The “Included” and “Not included” values are compared as exact text to get the checkmark and the muted tone; the block depends on `button`, `segmented-control`, and `switch`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/plan-comparison · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/plan-comparison · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

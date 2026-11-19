@@ -2,48 +2,48 @@
 
 > Medidor de consumo dividido em partes, com alerta quando o uso se aproxima ou passa do limite do plano.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/usage-meter
-- Descrição original (inglês): Show what fills an allowance and how close it is to the limit.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/usage-meter
+- Original description: Show what fills an allowance and how close it is to the limit.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json`. Caminho do registro, relativo ao endereço do site: `r/usage-meter.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/usage-meter.json`. Registry path, relative to the site address: `r/usage-meter.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/usage-meter/usage-meter.tsx`
   - `components/ryan-ui/usage-meter/usage-meter.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/usage-meter.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/usage-meter.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma cota fixa do plano, como armazenamento, assentos ou créditos, quando importa ver o que ocupa o espaço e quanto falta para o limite.
-- Avisar antes do limite: a partir de `warnAt` (padrão 90%) o selo mostra “Almost full”, e acima do limite a parte excedente aparece hachurada, com um marcador no limite.
-- Telas de plano e cobrança em que a pessoa explora as categorias passando o mouse, tocando ou usando as setas na legenda.
+- A fixed plan quota, such as storage, seats, or credits, when it matters to see what takes up the space and how much remains until the limit.
+- Warn before the limit: from `warnAt` (default 90%) the badge shows “Almost full”, and above the limit the excess portion appears hatched, with a marker at the limit.
+- Plan and billing screens where the user explores the categories by hovering, tapping, or using the arrow keys in the legend.
 
-## Quando não usar
+## When not to use
 
-- Use [`progress`](progress.md) para uma única medida de andamento, sem categorias nem limite de plano.
-- Use [`composition-chart`](composition-chart.md) ou [`donut-chart`](donut-chart.md) para a divisão de um todo sem limite, ou com mais de quatro partes.
-- Use [`gauge`](gauge.md) para um valor único dentro de uma faixa conhecida.
+- Use [`progress`](progress.md) for a single progress measure, without categories or a plan limit.
+- Use [`composition-chart`](composition-chart.md) or [`donut-chart`](donut-chart.md) for the breakdown of a whole with no limit, or with more than four parts.
+- Use [`gauge`](gauge.md) for a single value within a known range.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -79,69 +79,69 @@ export default function UsageMeterDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `UsageMeter`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | What is measured, such as "Workspace storage". |
-| `segments` (obrigatória) | `UsageMeterSegment[]` | — | Used amounts in display order. Up to four read clearly. |
-| `limit` (obrigatória) | `number` | — | The plan limit, in the same unit as the segments. |
+| `label` (required) | `string` | — | What is measured, such as "Workspace storage". |
+| `segments` (required) | `UsageMeterSegment[]` | — | Used amounts in display order. Up to four read clearly. |
+| `limit` (required) | `number` | — | The plan limit, in the same unit as the segments. |
 | `unit` | `string` | `""` | — |
 | `decimals` | `number` | `1` | Digits after the decimal point. |
 | `freeLabel` | `string` | `"Free"` | — |
 | `overLabel` | `string` | `"Over limit"` | — |
 | `warnAt` | `number` | `.9` | Share of the limit at which the meter warns that it is almost full. |
 
-### Tipos exportados
+### Exported types
 
 #### `UsageMeterSegment`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable identity. Keep it the same while the value changes, so the segment re-flows instead of being replaced. |
-| `label` (obrigatória) | `string` | — |
-| `value` (obrigatória) | `number` | — |
+| `id` (required) | `string` | Stable identity. Keep it the same while the value changes, so the segment re-flows instead of being replaced. |
+| `label` (required) | `string` | — |
+| `value` (required) | `number` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | A legenda é uma única parada de `Tab` (tabindex móvel); o foco já destaca a categoria na barra e no número grande. |
-| `←` ou `→` ou `↑` ou `↓` | Movem o foco entre as categorias e o item de espaço livre, dando a volta. |
-| `Home` ou `End` | Vai para a primeira categoria ou para o item de espaço livre (ou de excedente). |
-| `Enter` ou `Espaço` | Fixa o destaque da categoria em foco (`aria-pressed`); de novo, solta. |
-| `Esc` | Solta a categoria fixada. |
+| `Tab` | The legend is a single `Tab` stop (roving tabindex); focus already highlights the category in the bar and in the big number. |
+| `←` or `→` or `↑` or `↓` | Move focus between the categories and the free-space item, wrapping around. |
+| `Home` or `End` | Moves to the first category or to the free-space (or excess) item. |
+| `Enter` or `Space` | Pins the highlight on the focused category (`aria-pressed`); again, unpins. |
+| `Esc` | Unpins the pinned category. |
 
-## Acessibilidade
+## Accessibility
 
-- A barra é `role="img"` com um resumo completo em `aria-label` (total, cada categoria e espaço livre); os números que giram são `aria-hidden` e há um texto oculto com o total.
-- A legenda é um grupo de botões com tabindex móvel e `aria-pressed`; uma região viva só fala quando o estado muda (normal, quase cheio, acima do limite) ou o excedente muda.
-- Acima do limite, o excedente é hachurado além de colorido e o selo ganha um ícone, então o estado não depende só da cor.
+- The bar is `role="img"` with a full summary in `aria-label` (total, each category, and free space); the spinning numbers are `aria-hidden` and there is a hidden text with the total.
+- The legend is a group of buttons with roving tabindex and `aria-pressed`; a live region only speaks when the state changes (normal, almost full, over the limit) or the excess changes.
+- Above the limit, the excess is hatched as well as colored and the badge gains an icon, so the state does not depend on color alone.
 
-## Movimento
+## Motion
 
-- Na primeira vez que aparece na tela, os segmentos crescem da esquerda para a direita, um após o outro; depois, cada mudança faz todos deslizarem com uma mola sem ultrapassagem.
-- Os números giram como um odômetro na direção da mudança, o selo ajusta a largura com uma mola e destacar uma categoria apaga as outras.
-- Com “reduzir movimento”, valores e larguras mudam na hora e os textos só esmaecem.
+- The first time it appears on screen, the segments grow from left to right, one after another; afterward, each change makes them all slide with a no-overshoot spring.
+- The numbers spin like an odometer in the direction of the change, the badge adjusts its width with a spring, and highlighting a category dims the others.
+- With “reduce motion”, values and widths change immediately and the texts only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A legenda é uma grade `auto-fit` com colunas de pelo menos 108 px, que vira mais linhas num cartão estreito; um título longo quebra ao lado do selo.
+- The legend is an `auto-fit` grid with columns of at least 108 px, which becomes more rows in a narrow card; a long title wraps next to the badge.
 
-## Desempenho
+## Performance
 
-- Espera 40% do medidor entrar na tela para animar e observa a largura da barra com um `ResizeObserver`; as posições dos segmentos vêm de valores de movimento, sem re-render por quadro.
+- It waits for 40% of the meter to enter the screen before animating and watches the bar's width with a `ResizeObserver`; the segment positions come from motion values, with no per-frame re-render.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/usage-meter/usage-meter`. Passe `segments` com `id` estável (mudar o valor mantém o segmento e anima), `limit` na mesma unidade e `unit`, como `"GB"`.
-- Use no máximo quatro segmentos: o CSS só define cores para quatro, e um quinto fica sem cor na barra e na legenda.
-- Os números saem no formato en-US (ponto decimal) e os textos (“of 50 GB used”, “Almost full”) estão em inglês; `freeLabel` e `overLabel` traduzem só parte, o resto se ajusta no arquivo copiado.
+- Import from `@/components/ryan-ui/usage-meter/usage-meter`. Pass `segments` with a stable `id` (changing the value keeps the segment and animates), `limit` in the same unit, and `unit`, such as `"GB"`.
+- Use at most four segments: the CSS only defines colors for four, and a fifth has no color in the bar and the legend.
+- Numbers come out in en-US format (decimal point) and the texts (“of 50 GB used”, “Almost full”) are in English; `freeLabel` and `overLabel` translate only part, the rest is adjusted in the copied file.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/usage-meter · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/usage-meter · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

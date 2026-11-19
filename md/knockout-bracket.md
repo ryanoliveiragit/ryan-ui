@@ -2,47 +2,47 @@
 
 > Chave de mata-mata em colunas: escolha o vencedor e ele avança pela linha de conexão até a próxima fase.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/knockout-bracket
-- Descrição original (inglês): Single-elimination bracket with rounds in columns and measured connector lines; picking a winner draws its line and slides the team into the next round.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/knockout-bracket
+- Original description: Single-elimination bracket with rounds in columns and measured connector lines; picking a winner draws its line and slides the team into the next round.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json`. Caminho do registro, relativo ao endereço do site: `r/knockout-bracket.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/knockout-bracket.json`. Registry path, relative to the site address: `r/knockout-bracket.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/blocks/knockout-bracket/knockout-bracket.tsx`
   - `components/ryan-ui/blocks/knockout-bracket/knockout-bracket.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/knockout-bracket.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/knockout-bracket.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Chaves de mata-mata de torneios, campeonatos internos ou bolões, em que a pessoa escolhe o vencedor de cada partida até chegar ao campeão.
-- Simuladores de “quem passa” com 4, 8 ou 16 participantes, com preenchimento automático pelo melhor cabeça de chave e botão para recomeçar.
+- Knockout brackets for tournaments, internal championships, or prediction pools, where the person picks the winner of each match until reaching the champion.
+- “Who advances” simulators with 4, 8, or 16 participants, with automatic filling by the best seed and a button to start over.
 
-## Quando não usar
+## When not to use
 
-- Use [`sortable-data-table`](sortable-data-table.md) para uma classificação com pontos e saldo, como a de pontos corridos ou de fase de grupos.
-- Evite para dupla eliminação ou chaves com número de participantes fora de potência de dois: o bloco só monta eliminação simples e não trata folgas.
-- Evite com 32 ou mais participantes: as rodadas dividem a largura, sem rolagem horizontal, e a primeira coluna fica muito alta.
+- Use [`sortable-data-table`](sortable-data-table.md) for a standings table with points and goal difference, such as round-robin or group-stage tables.
+- Avoid for double elimination or brackets whose number of participants is not a power of two: the block only builds single elimination and does not handle byes.
+- Avoid with 32 or more participants: the rounds share the width, with no horizontal scroll, and the first column gets very tall.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import KnockoutBracket from "@/components/ryan-ui/blocks/knockout-bracket/knockout-bracket";
@@ -52,15 +52,15 @@ export default function KnockoutBracketDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `KnockoutBracket`
 
 Single-elimination bracket: pick a winner and it travels along its connector into the next round.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `teams` | `BracketTeam[]` | `sampleTeams` | Teams in bracket order: the first two meet in the first match, and so on. The count must be a power of two. Defaults to eight sample clubs. |
 | `value` | `Record<string, string>` | — | Picked winners. Pass it with `onValueChange` to control the bracket. |
@@ -69,52 +69,52 @@ Single-elimination bracket: pick a winner and it travels along its connector int
 | `title` | `string` | `"Harbor Cup playoffs"` | Heading above the bracket. |
 | `className` | `string` | — | Extra class for the section. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `BracketPicks`: Winner of each decided match: match id (`round-index`, both from zero) to team id. | `Record<string, string>` |
 
 #### `BracketTeam`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id, used in the picks. |
-| `name` (obrigatória) | `string` | Full team name. |
-| `code` (obrigatória) | `string` | Three-letter code, shown instead of the name when the bracket is narrow. |
-| `seed` (obrigatória) | `number` | Seed number shown before the name. Auto-fill favours the lower seed. |
+| `id` (required) | `string` | Unique id, used in the picks. |
+| `name` (required) | `string` | Full team name. |
+| `code` (required) | `string` | Three-letter code, shown instead of the name when the bracket is narrow. |
+| `seed` (required) | `number` | Seed number shown before the name. Auto-fill favours the lower seed. |
 
-### Outras exportações
+### Other exports
 
-- `sampleTeams` (valor)
+- `sampleTeams` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Num time, marcam-no como vencedor da partida ou desmarcam, se já for; nos botões, preenchem tudo (“Auto-fill”) ou recomeçam (“Reset”). |
+| `Enter` or `Space` | On a team, mark it as the match winner or unmark it, if it already is; on the buttons, fill everything in (“Auto-fill”) or start over (“Reset”). |
 
-## Acessibilidade
+## Accessibility
 
-- Cada rodada é um `group` com o nome da fase, e cada time é um botão com `aria-pressed` e nome completo, como “Harbor City, seed 1. Pick to win quarterfinal 1”.
-- O campeão é anunciado numa região `role="status"`; as linhas de ligação são `aria-hidden`, e os textos fixos estão em inglês.
+- Each round is a `group` with the phase name, and each team is a button with `aria-pressed` and a full name, such as “Harbor City, seed 1. Pick to win quarterfinal 1”.
+- The champion is announced in a `role="status"` region; the connector lines are `aria-hidden`, and the fixed texts are in English.
 
-## Movimento
+## Motion
 
-- Escolher um vencedor desenha a linha dele até a próxima rodada, desliza o destaque entre as duas vagas da partida e faz o time entrar na vaga seguinte vindo da esquerda, de um leve desfoque.
-- “Auto-fill” decide uma partida por vez, a cada 0,32 s, para que cada avanço seja visto; o campeão aparece com uma mola de leve quique.
-- Com “reduzir movimento” ligado, linhas e destaques mudam na hora, os times só esmaecem e o preenchimento automático não espera entre as partidas.
+- Choosing a winner draws its line to the next round, slides the highlight between the match's two slots, and makes the team enter the next slot coming from the left, from a slight blur.
+- “Auto-fill” decides one match at a time, every 0.32 s, so that each advance can be seen; the champion appears with a slightly bouncy spring.
+- With “reduce motion” on, lines and highlights change instantly, the teams only fade, and auto-fill does not wait between matches.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- As linhas são medidas das caixas reais e refeitas por `ResizeObserver` quando a chave muda de tamanho; abaixo de 44rem de contêiner, os nomes viram códigos de três letras e as fases ganham nomes curtos.
+- The lines are measured from the real boxes and redrawn by `ResizeObserver` when the bracket changes size; below 44rem of container width, the names become three-letter codes and the phases get short names.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `KnockoutBracket` e passe `teams` na ordem da chave (os dois primeiros se enfrentam na primeira partida); a quantidade precisa ser potência de dois.
-- As escolhas são `{ "rodada-partida": idDoTime }`, ambos a partir de zero (`"0-0"` é a primeira partida); use `value` com `onValueChange`, que já recebe as escolhas sem as que perderam o sentido.
-- `seed` decide o “Auto-fill” (vence o menor número) e `code` aparece no lugar do nome quando a chave fica estreita.
+- Import `KnockoutBracket` and pass `teams` in bracket order (the first two face each other in the first match); the count must be a power of two.
+- Picks are `{ "rodada-partida": idDoTime }`, both counted from zero (`"0-0"` is the first match); use `value` with `onValueChange`, which already receives the picks without those that lost their meaning.
+- `seed` decides the “Auto-fill” (the lower number wins) and `code` appears in place of the name when the bracket gets narrow.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/knockout-bracket · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/knockout-bracket · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

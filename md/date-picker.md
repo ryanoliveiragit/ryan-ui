@@ -2,52 +2,52 @@
 
 > Escolha uma data sem perder o contexto da página.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/date-picker
-- Descrição original (inglês): Choose a date without losing context.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/date-picker
+- Original description: Choose a date without losing context.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-picker.json`. Caminho do registro, relativo ao endereço do site: `r/date-picker.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-picker.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-picker.json`. Registry path, relative to the site address: `r/date-picker.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Calendar](calendar.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Calendar](calendar.md)
+- Files, once installed:
   - `components/ryan-ui/date-picker/date-picker.tsx`
   - `components/ryan-ui/date-picker/date-picker.module.css`
   - `components/ryan-ui/calendar/calendar.tsx`
   - `components/ryan-ui/lib/use-today.ts`
   - `components/ryan-ui/calendar/calendar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/date-picker.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/date-picker.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma data única dentro de um formulário, com rótulo, texto de ajuda e o calendário abrindo sob o campo.
-- Datas com restrição: `minDate`, `maxDate` e `disabledDates` bloqueiam dias, como os fins de semana numa entrega.
-- Quando a data pode ficar vazia: o rodapé do calendário tem um botão de limpar, que chama `onChange(undefined)`.
+- A single date inside a form, with a label, help text, and the calendar opening under the field.
+- Dates with restrictions: `minDate`, `maxDate`, and `disabledDates` block days, like weekends on a delivery.
+- When the date can be left empty: the calendar footer has a clear button, which calls `onChange(undefined)`.
 
-## Quando não usar
+## When not to use
 
-- Use [`date-range-picker`](date-range-picker.md) para escolher o início e o fim de um período.
-- Use [`calendar`](calendar.md) quando o mês deve ficar sempre visível na página, sem campo nem popover.
-- Para datas distantes que a pessoa sabe de cor, como a de nascimento: não há digitação, e o ano só muda pelo teclado ou mês a mês.
+- Use [`date-range-picker`](date-range-picker.md) to choose the start and end of a period.
+- Use [`calendar`](calendar.md) when the month should always be visible on the page, with no field or popover.
+- For distant dates the person knows by heart, like a birth date: there is no typing, and the year only changes by keyboard or month by month.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -72,15 +72,15 @@ export default function DatePickerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `DatePicker`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `value` | `Date` | — | — |
 | `onChange` | `(date: Date \| undefined) => void` | — | — |
 | `description` | `string` | — | — |
@@ -92,42 +92,42 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `format` | `Intl.DateTimeFormatOptions` | `{ month: "short", day: "numeric", year: "nume…` | — |
 | `showToday` | `boolean` | — | Adds a Today button to the calendar header. |
 | `defaultOpen` | `boolean` | `false` | Start with the calendar open, without moving focus into it (for previews and onboarding). Later opens move focus as usual. |
-| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Também aceita as props deste tipo, menos `value` e `onChange`. |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Also accepts the props of this type, except `value` and `onChange`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` ou `↓` | No campo, abrem o calendário e levam o foco ao dia selecionado, a hoje ou ao primeiro dia livre do mês. |
-| `←` ou `→` ou `↑` ou `↓` | No calendário, movem o foco um dia ou uma semana, pulando dias bloqueados. |
-| `Home` ou `End` | Vão para o domingo ou para o sábado da semana em foco. |
-| `Page Up` ou `Page Down` | Trocam de mês; com `Shift`, de ano. |
-| `Enter` ou `Espaço` | Num dia, escolhem a data e fecham o calendário. |
-| `Esc` | Fecha o calendário sem mudar a data e devolve o foco ao campo. |
+| `Enter` or `Space` or `↓` | On the field, open the calendar and move focus to the selected day, to today, or to the first available day of the month. |
+| `←` or `→` or `↑` or `↓` | In the calendar, move focus one day or one week, skipping blocked days. |
+| `Home` or `End` | Go to the Sunday or Saturday of the focused week. |
+| `Page Up` or `Page Down` | Change month; with `Shift`, year. |
+| `Enter` or `Space` | On a day, choose the date and close the calendar. |
+| `Esc` | Closes the calendar without changing the date and returns focus to the field. |
 
-## Acessibilidade
+## Accessibility
 
-- O campo é um `<button>` com `aria-haspopup="dialog"` e `aria-expanded`, ligado ao `label` visível e à `description`; o valor formatado também vai num texto só para leitor de tela.
-- Ao abrir, o foco vai para um dia do calendário; ao escolher um dia ou fechar com `Esc`, volta ao campo, e sair com `Tab` fecha o popover.
-- O popover é um `role="dialog"` sem prisão de foco, e seus textos (`Clear`, `Choose a day`, `Selected …`) são fixos em inglês, mesmo com `locale`.
+- The field is a `<button>` with `aria-haspopup="dialog"` and `aria-expanded`, tied to the visible `label` and to `description`; the formatted value also goes in a screen-reader-only text.
+- On open, focus goes to a day in the calendar; on choosing a day or closing with `Esc`, it returns to the field, and leaving with `Tab` closes the popover.
+- The popover is a `role="dialog"` with no focus trap, and its texts (`Clear`, `Choose a day`, `Selected …`) are fixed in English, even with `locale`.
 
-## Movimento
+## Motion
 
-- O calendário cresce a partir do ícone do campo com uma mola curta e só fecha 300 ms depois da escolha, para o destaque chegar ao dia.
-- No campo, só as partes da data que mudaram rolam: uma data posterior sobe por baixo, uma anterior desce por cima.
-- Com “reduzir movimento” ligado, tudo vira esmaecimento e o calendário fecha na hora depois da escolha.
+- The calendar grows from the field's icon with a short spring and only closes 300 ms after the choice, so the highlight reaches the day.
+- In the field, only the parts of the date that changed roll: a later date rises from below, an earlier one drops from above.
+- With “reduce motion” on, everything becomes a fade and the calendar closes immediately after the choice.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O popover tem `min(320px, 100vw - 32px)`, abre sempre abaixo do campo, alinhado à esquerda, e em telas de até 360 px passa a ter a largura do campo.
-- Não há portal nem inversão para cima: deixe espaço livre abaixo do campo e evite ancestrais com `overflow: hidden`.
+- The popover is `min(320px, 100vw - 32px)`, always opens below the field, left-aligned, and on screens up to 360 px it takes the field's width.
+- There is no portal or flip upward: leave free space below the field and avoid ancestors with `overflow: hidden`.
 
-## Notas para IA
+## Notes for AI
 
-- É sempre controlado: guarde `Date | undefined` em estado e passe `value` e `onChange`; não existe `defaultValue`.
-- Passe `locale="pt-BR"` (o padrão é `en-US`) e, para outro formato no campo, `format` com opções de `Intl.DateTimeFormat`.
-- Depende de `calendar`; as props extras e `disabled` vão para o botão do campo, e `showToday` acrescenta o botão de hoje ao cabeçalho.
+- It is always controlled: keep `Date | undefined` in state and pass `value` and `onChange`; there is no `defaultValue`.
+- Pass `locale="pt-BR"` (the default is `en-US`) and, for another format in the field, `format` with `Intl.DateTimeFormat` options.
+- Depends on `calendar`; extra props and `disabled` go to the field's button, and `showToday` adds the today button to the header.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/date-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/date-picker · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,47 +2,47 @@
 
 > Campo de telefone com seletor de país, formatação enquanto você digita e saída no padrão E.164.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/phone-input
-- Descrição original (inglês): A phone field with a country picker, formatting as you type, and E.164 output.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/phone-input
+- Original description: A phone field with a country picker, formatting as you type, and E.164 output.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json`. Caminho do registro, relativo ao endereço do site: `r/phone-input.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/phone-input.json`. Registry path, relative to the site address: `r/phone-input.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/phone-input/phone-input.tsx`
   - `components/ryan-ui/phone-input/phone-input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/phone-input.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/phone-input.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Cadastro, checkout ou verificação por SMS que precisa do telefone em E.164 (`+5511961234567`).
-- Públicos de vários países: a pessoa escolhe o país na lista ou cola um número com `+` e o país se ajusta sozinho.
-- Formulários em que formatar enquanto se digita evita erro, com a máscara do país e uma sombra do formato que falta.
+- Sign-up, checkout, or SMS verification that needs the phone number in E.164 (`+5511961234567`).
+- Multi-country audiences: people pick the country from the list or paste a number with `+` and the country adjusts on its own.
+- Forms where formatting while typing prevents errors, with the country mask and a ghost of the missing format.
 
-## Quando não usar
+## When not to use
 
-- Use [`input`](input.md) com `type="tel"` quando o público é de um país só e o E.164 não importa.
-- Para países fora da tabela embutida (49) ou para saber se o número existe, use uma biblioteca de telefonia, porque aqui só a quantidade de dígitos é conferida.
+- Use [`input`](input.md) with `type="tel"` when the audience is from a single country and E.164 does not matter.
+- For countries outside the built-in table (49) or to check whether the number exists, use a telephony library, because only the digit count is checked here.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -60,17 +60,17 @@ export default function PhoneInputDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PhoneInput`
 
 A phone number field with a country picker. The country button grows into a searchable list, the number formats as it is typed with a faint guide showing the rest of the expected shape, pasted or autofilled international numbers pick their own country, and the value comes out in E.164. Typing "+" in the number jumps into the picker with a calling code search.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `hideLabel` | `boolean` | `false` | — |
 | `value` | `string` | — | The number in E.164, such as "+14155550132". An empty string clears the field. |
 | `defaultValue` | `string` | — | — |
@@ -90,79 +90,79 @@ A phone number field with a country picker. The country button grows into a sear
 | `className` | `string` | — | — |
 | `onBlur` | `(event: ReactFocusEvent<HTMLInputElement>) => void` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `PhoneStatus` | `"empty" \| "incomplete" \| "valid" \| "too-long"` |
 
 #### `PhoneCountry`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `iso` (obrigatória) | `string` | ISO 3166-1 alpha-2 code, such as "US". |
-| `name` (obrigatória) | `string` | — |
-| `dial` (obrigatória) | `string` | Country calling code without the plus, such as "44". |
-| `patterns` (obrigatória) | `string[]` | National formats from shortest to longest. `#` is a digit, anything else is a separator. |
-| `trunk` (obrigatória) | `string` | A national number people may type before the number itself, such as "0" in "07911 123456". |
-| `example` (obrigatória) | `string` | A realistic national number, used for the placeholder and the typing guide. |
+| `iso` (required) | `string` | ISO 3166-1 alpha-2 code, such as "US". |
+| `name` (required) | `string` | — |
+| `dial` (required) | `string` | Country calling code without the plus, such as "44". |
+| `patterns` (required) | `string[]` | National formats from shortest to longest. `#` is a digit, anything else is a separator. |
+| `trunk` (required) | `string` | A national number people may type before the number itself, such as "0" in "07911 123456". |
+| `example` (required) | `string` | A realistic national number, used for the placeholder and the typing guide. |
 | `areaCodes` | `string[]` | Area codes that pick this country when several share a calling code, such as Canada inside +1. |
 
 #### `PhoneInputDetails`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `country` (obrigatória) | `PhoneCountry` | — |
-| `formatted` (obrigatória) | `string` | The number as shown in the field, without the calling code. |
-| `status` (obrigatória) | `"empty" \| "incomplete" \| "valid" \| "too-long"` | — |
-| `valid` (obrigatória) | `boolean` | — |
+| `country` (required) | `PhoneCountry` | — |
+| `formatted` (required) | `string` | The number as shown in the field, without the calling code. |
+| `status` (required) | `"empty" \| "incomplete" \| "valid" \| "too-long"` | — |
+| `valid` (required) | `boolean` | — |
 
-### Outras exportações
+### Other exports
 
-- `PHONE_COUNTRIES` (valor)
-- `flagOf` (função)
-- `formatNational` (função)
-- `parsePhoneNumber` (função)
-- `formatPhoneNumber` (função)
+- `PHONE_COUNTRIES` (value)
+- `flagOf` (function)
+- `formatNational` (function)
+- `parsePhoneNumber` (function)
+- `formatPhoneNumber` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `+` | No campo do número, abre a lista de países já buscando por código de discagem. |
-| `↓` ou `↑` | No botão do país, abrem a lista; dentro dela, movem o destaque enquanto o foco continua na busca. |
-| `Page Up` ou `Page Down` | Pulam oito países por vez na lista. |
-| `Home` ou `End` | Vão ao primeiro ou ao último país, quando a busca está vazia. |
-| `Enter` | Escolhe o país em destaque e devolve o foco ao número, com o cursor no fim. |
-| `Esc` | Fecha a lista sem trocar o país e devolve o foco ao botão do país. |
+| `+` | In the number field, opens the country list already searching by dialing code. |
+| `↓` or `↑` | On the country button, open the list; inside it, move the highlight while focus stays on the search. |
+| `Page Up` or `Page Down` | Jump eight countries at a time in the list. |
+| `Home` or `End` | Go to the first or last country, when the search is empty. |
+| `Enter` | Selects the highlighted country and returns focus to the number, with the cursor at the end. |
+| `Esc` | Closes the list without changing the country and returns focus to the country button. |
 
-## Acessibilidade
+## Accessibility
 
-- O botão do país diz país e código (“Country, Brazil +55”), e a busca é um `combobox` com `aria-activedescendant`, então o foco fica no campo de busca enquanto o destaque anda pela lista.
-- Uma região `role="status"` anuncia a troca de país ao colar, o número de resultados da busca e “Valid … number” quando o número fecha, e a mensagem de erro tem `role="alert"`.
-- Com `hideLabel`, o rótulo some da tela mas continua como nome do campo para leitores de tela.
+- The country button announces country and code (“Country, Brazil +55”), and the search is a `combobox` with `aria-activedescendant`, so focus stays on the search field while the highlight moves through the list.
+- A `role="status"` region announces the country change on paste, the number of search results, and “Valid … number” when the number is complete, and the error message has `role="alert"`.
+- With `hideLabel`, the label disappears from the screen but remains the field name for screen readers.
 
-## Movimento
+## Motion
 
-- O botão do país e a lista são uma superfície só: largura, altura e cantos crescem numa mola sem ultrapassagem ao abrir e encolhem ao fechar.
-- Ao trocar de país, bandeira e código rolam na direção da lista (um país mais abaixo entra por baixo), e o destaque desliza entre as linhas com mola própria.
-- Com “reduzir movimento” ligado, a superfície troca de tamanho na hora e bandeira, mensagens e o sinal de válido só esmaecem.
+- The country button and the list are a single surface: width, height, and corners grow on a no-overshoot spring on open and shrink on close.
+- When the country changes, flag and code roll in the direction of the list (a country further down enters from below), and the highlight slides between rows on its own spring.
+- With “reduce motion” on, the surface resizes instantly and flag, messages, and the valid indicator only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista abre com a largura do campo, até 340px, e rola por dentro com no máximo 280px de altura, sem arrastar a página.
-- O número usa `type="tel"`, `inputMode="tel"` e `autoComplete="tel"`, então o celular mostra o teclado de telefone e o preenchimento automático funciona.
+- The list opens at the field width, up to 340px, and scrolls inside with a maximum height of 280px, without dragging the page.
+- The number uses `type="tel"`, `inputMode="tel"`, and `autoComplete="tel"`, so phones show the phone keyboard and autofill works.
 
-## Desempenho
+## Performance
 
-- A tabela de países vem dentro do componente, sem baixar metadados nem depender de biblioteca, e cada campo mantém um `ResizeObserver` para medir a superfície.
+- The country table ships inside the component, without downloading metadata or depending on a library, and each field keeps a `ResizeObserver` to measure the surface.
 
-## Notas para IA
+## Notes for AI
 
-- O valor entra e sai em E.164; `onValueChange(valor, details)` traz também país, texto formatado, `status` e `valid`, e com `name` um campo oculto envia o E.164 no formulário.
-- O país padrão é `US`: no Brasil passe `defaultCountry="BR"`; `countries` limita a lista e `preferredCountries` fixa países no topo, em “Suggested”.
-- Nomes de países, busca e mensagens são em inglês e não há prop de tradução; `error` substitui a mensagem de validação, que aparece depois de sair do campo.
+- The value goes in and out as E.164; `onValueChange(valor, details)` also brings country, formatted text, `status`, and `valid`, and with `name` a hidden field submits the E.164 in the form.
+- The default country is `US`: in Brazil pass `defaultCountry="BR"`; `countries` limits the list and `preferredCountries` pins countries at the top, under “Suggested”.
+- Country names, search, and messages are in English and there is no translation prop; `error` replaces the validation message, which appears after leaving the field.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/phone-input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/phone-input · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

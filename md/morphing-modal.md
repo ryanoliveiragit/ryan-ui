@@ -2,48 +2,48 @@
 
 > O botão se transforma no modal a partir do próprio lugar e volta a ser botão ao fechar.
 
-- Tipo: componente (categoria Revelação), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/morphing-modal
-- Descrição original (inglês): A trigger button that morphs into the modal panel from its own position, size and color, and back on close, with a focus trap, Escape and a scrim.
+- Type: component (category Disclosure), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/morphing-modal
+- Original description: A trigger button that morphs into the modal panel from its own position, size and color, and back on close, with a focus trap, Escape and a scrim.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json`. Caminho do registro, relativo ao endereço do site: `r/morphing-modal.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-modal.json`. Registry path, relative to the site address: `r/morphing-modal.json`.
 
-- Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dialog`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/morphing-modal/morphing-modal.tsx`
   - `components/ryan-ui/morphing-modal/morphing-modal.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dialog lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/morphing-modal.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dialog lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/morphing-modal.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um botão de criação, como “Novo projeto”, que abre um formulário curto saindo do próprio botão.
-- Compartilhar ou convidar a partir de um botão da barra, com a lista de pessoas no corpo do modal.
-- Ações principais em que a origem do modal precisa ficar clara: o painel nasce da posição, do tamanho e da cor do botão.
+- A create button, such as “New project”, that opens a short form coming out of the button itself.
+- Sharing or inviting from a toolbar button, with the list of people in the modal body.
+- Primary actions where the origin of the modal must be clear: the panel is born from the position, size, and color of the button.
 
-## Quando não usar
+## When not to use
 
-- Use [`dialog`](dialog.md) quando o modal é aberto por código, por um item de menu ou por mais de um gatilho; aqui o gatilho é sempre o botão do próprio componente.
-- Use [`center-morph-modal`](center-morph-modal.md) quando os modais nascem de cartões de uma grade.
-- Use [`popover`](popover.md) para um conteúdo pequeno que não precisa bloquear a página.
+- Use [`dialog`](dialog.md) when the modal is opened by code, by a menu item, or by more than one trigger; here the trigger is always the component's own button.
+- Use [`center-morph-modal`](center-morph-modal.md) when the modals originate from cards in a grid.
+- Use [`popover`](popover.md) for small content that does not need to block the page.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -112,18 +112,18 @@ export default function MorphingModalDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MorphingModal`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `trigger` (obrigatória) | `ReactNode` | — | Content of the trigger button: a label, optionally with an icon. |
-| `title` (obrigatória) | `string` | — | Title of the modal, also its accessible name. |
+| `trigger` (required) | `ReactNode` | — | Content of the trigger button: a label, optionally with an icon. |
+| `title` (required) | `string` | — | Title of the modal, also its accessible name. |
 | `description` | `string` | — | Supporting line under the title. |
-| `children` (obrigatória) | `Slot` | — | The body. Pass a function to receive `close`. |
+| `children` (required) | `Slot` | — | The body. Pass a function to receive `close`. |
 | `footer` | `Slot` | — | Actions pinned under the body. Pass a function to receive `close`. |
 | `open` | `boolean` | — | Whether the modal is open (controlled). |
 | `defaultOpen` | `boolean` | `false` | Initial state when uncontrolled. |
@@ -135,45 +135,45 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `triggerClassName` | `string` | — | Extra class for the trigger button. |
 | `container` | `HTMLElement \| null` | — | Renders the modal inside this element instead of the page body: the scrim covers only the element and the panel centers in it. The element needs position: relative and overflow: hidden. The page around it stays usable while the modal is open: nothing is scroll-locked or hidden from assistive technology, and Escape, the scrim and the close button still close it. |
 
-### Tipos exportados
+### Exported types
 
 #### `MorphingModalApi`
 
 What the body and the footer receive when they are written as functions.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `close` (obrigatória) | `() => void` | Closes the modal; it morphs back into the trigger. |
+| `close` (required) | `() => void` | Closes the modal; it morphs back into the trigger. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão, abre o modal. |
-| `Tab` ou `Shift + Tab` | Percorrem os controles do modal sem sair dele; ao abrir, o foco vai ao primeiro campo do formulário ou, sem campos, ao botão de fechar. |
-| `Esc` | Fecha o modal, que volta a ser o botão, e devolve o foco a ele. |
+| `Enter` or `Space` | On the button, opens the modal. |
+| `Tab` or `Shift + Tab` | Move through the modal controls without leaving it; on open, focus goes to the first form field or, with no fields, to the close button. |
+| `Esc` | Closes the modal, which turns back into the button, and returns focus to it. |
 
-## Acessibilidade
+## Accessibility
 
-- O botão recebe `aria-haspopup="dialog"` e `aria-expanded`; o painel é um diálogo modal do Radix com `title` como nome e `description` como descrição.
-- Para escolher o foco inicial, marque o elemento com `data-autofocus`; o botão de fechar se chama “Close”, fixo em inglês no código.
+- The button gets `aria-haspopup="dialog"` and `aria-expanded`; the panel is a Radix modal dialog with `title` as its name and `description` as its description.
+- To choose the initial focus, mark the element with `data-autofocus`; the close button is named “Close”, fixed in English in the code.
 
-## Movimento
+## Motion
 
-- O painel cresce a partir da caixa do botão numa mola com um quique leve e volta a ela numa mola exata, sem oscilar; começa na cor do botão e clareia até a cor da superfície.
-- Título, corpo e rodapé chegam um depois do outro, subindo 10 px de um leve desfoque, e saem de uma vez para não acompanhar o encolhimento.
-- Com “reduzir movimento” ligado, não há transformação: o painel só esmaece ao abrir e fechar.
+- The panel grows from the button's box on a spring with a slight bounce and returns to it on an exact spring, without oscillating; it starts at the button color and lightens to the surface color.
+- Title, body, and footer arrive one after another, rising 10 px out of a slight blur, and leave all at once so they do not follow the shrinking.
+- With “reduce motion” on, there is no transformation: the panel only fades on open and close.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O painel ocupa a largura da tela menos 2rem até `width` (padrão 420 px), com altura máxima de `100dvh` menos 2rem e rolagem interna.
+- The panel takes the screen width minus 2rem up to `width` (default 420 px), with a maximum height of `100dvh` minus 2rem and inner scrolling.
 
-## Notas para IA
+## Notes for AI
 
-- `trigger` é o conteúdo do botão (rótulo e ícone), não um botão: o componente desenha o próprio `<button>`; estilize-o com `variant` e `triggerClassName`.
-- `children` e `footer` aceitam uma função que recebe `{ close }`, útil para fechar depois de salvar.
-- Controle com `open` e `onOpenChange` quando precisar; importe `MorphingModal` de `@/components/ryan-ui/morphing-modal/morphing-modal`.
+- `trigger` is the button's content (label and icon), not a button: the component draws its own `<button>`; style it with `variant` and `triggerClassName`.
+- `children` and `footer` accept a function that receives `{ close }`, useful for closing after saving.
+- Control it with `open` and `onOpenChange` when needed; import `MorphingModal` from `@/components/ryan-ui/morphing-modal/morphing-modal`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/morphing-modal · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/morphing-modal · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

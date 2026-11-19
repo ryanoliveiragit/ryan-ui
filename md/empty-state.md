@@ -2,48 +2,48 @@
 
 > Estado vazio com título, explicação e uma ação para ajudar a pessoa a começar.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/empty-state
-- Descrição original (inglês): A useful next step when there is nothing to show yet.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/empty-state
+- Original description: A useful next step when there is nothing to show yet.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-state.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-state.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-state.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-state.json`. Caminho do registro, relativo ao endereço do site: `r/empty-state.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-state.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-state.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-state.json`. Registry path, relative to the site address: `r/empty-state.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/empty-state/empty-state.tsx`
   - `components/ryan-ui/empty-state/empty-state.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/empty-state.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/empty-state.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Lista, tabela ou busca sem nada para mostrar, com uma explicação curta e o próximo passo (criar, importar, limpar filtros).
-- Primeiro uso de uma área do produto, quando ainda não existe nenhum item.
-- Quando o resultado de uma ação troca a mensagem no mesmo lugar: mudar `title`, `description` ou `icon` transforma o conteúdo sem remontar o bloco.
+- A list, table, or search with nothing to show, with a short explanation and the next step (create, import, clear filters).
+- First use of an area of the product, when no item exists yet.
+- When the result of an action swaps the message in place: changing `title`, `description`, or `icon` transforms the content without remounting the block.
 
-## Quando não usar
+## When not to use
 
-- Use [`empty-states`](empty-states.md) quando quiser a versão com ilustração, em que as formas se transformam de uma cena para outra.
-- Use [`skeleton`](skeleton.md) enquanto o conteúdo ainda está carregando; estado vazio é para quando a resposta chegou e não há itens.
-- Use [`alert`](alert.md) para erros e avisos de que a pessoa precisa se recuperar.
+- Use [`empty-states`](empty-states.md) when you want the illustrated version, where shapes transform from one scene to another.
+- Use [`skeleton`](skeleton.md) while content is still loading; an empty state is for when the response arrived and there are no items.
+- Use [`alert`](alert.md) for errors and warnings the user needs to recover from.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -75,44 +75,44 @@ export default function EmptyStateDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `EmptyState`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | — |
-| `description` (obrigatória) | `string` | — | — |
+| `title` (required) | `string` | — | — |
+| `description` (required) | `string` | — | — |
 | `action` | `ReactNode` | — | — |
 | `icon` | `ReactNode` | — | — |
 | `className` | `string` | — | — |
 | `label` | `string` | — | Optional accessible label for the state region. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é uma `<section>`; passe `label` para ela virar uma região nomeada, útil quando a página tem mais de um estado vazio.
-- O título é sempre um `<h3>`: confira se esse nível cabe na hierarquia de títulos da página.
-- O ícone fica em `aria-hidden` e, durante uma troca, a cópia que sai também, para o leitor de tela não ler o texto antigo junto com o novo.
+- The root is a `<section>`; pass `label` to make it a named region, useful when the page has more than one empty state.
+- The title is always an `<h3>`: check that this level fits the page's heading hierarchy.
+- The icon is `aria-hidden` and, during a swap, so is the outgoing copy, so the screen reader doesn't read the old text along with the new.
 
-## Movimento
+## Motion
 
-- Na primeira aparição só a caixa do ícone entra, com um esmaecer e um leve aumento de escala.
-- Quando `title`, `description` ou o ícone mudam, o texto novo sobe saindo de um leve desfoque enquanto o antigo sai, o ícone faz uma troca cruzada e a altura do bloco segue uma mola.
-- Com “reduzir movimento”, as trocas viram um esmaecer rápido e a altura muda na hora.
+- On first appearance only the icon box enters, with a fade and a slight scale-up.
+- When `title`, `description`, or the icon change, the new text rises out of a slight blur while the old one leaves, the icon cross-fades, and the block height follows a spring.
+- With “reduced motion”, swaps become a quick fade and the height changes instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% da largura do pai, com respiro vertical entre `--space-8` e `--space-12` conforme a largura da tela; a descrição fica limitada a 18rem e quebra em linhas equilibradas.
-- As ações quebram linha e continuam centralizadas quando não cabem lado a lado.
+- It takes 100% of the parent's width, with vertical padding between `--space-8` and `--space-12` depending on screen width; the description is capped at 18rem and wraps in balanced lines.
+- Actions wrap and stay centered when they don't fit side by side.
 
-## Notas para IA
+## Notes for AI
 
-- `title` e `description` são strings obrigatórias (servem de chave da animação); `action` aceita qualquer nó, em geral um `button`, e `icon` substitui a pasta padrão.
-- Para ter a transição entre estados, mantenha o mesmo `<EmptyState>` montado e troque as props; mudar a `key` remonta o componente e perde o efeito.
-- O ícone só faz a troca cruzada quando o componente do ícone muda (de `Folder` para `Check`, por exemplo); use ícones de 24 px, como o padrão.
+- `title` and `description` are required strings (they serve as the animation key); `action` accepts any node, usually a `button`, and `icon` replaces the default folder.
+- To get the transition between states, keep the same `<EmptyState>` mounted and change the props; changing the `key` remounts the component and loses the effect.
+- The icon only cross-fades when the icon component changes (from `Folder` to `Check`, for example); use 24 px icons, like the default.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/empty-state · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/empty-state · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

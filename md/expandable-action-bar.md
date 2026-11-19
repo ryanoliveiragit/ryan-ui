@@ -2,48 +2,48 @@
 
 > Barra de ações flutuante que cresce de uma pílula compacta para uma grade com todas as ações e uma linha secundária.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-action-bar
-- Descrição original (inglês): Floating action bar that grows upward from a compact pill into a labeled grid of every action plus a secondary row, with the icons gliding to their new places.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-action-bar
+- Original description: Floating action bar that grows upward from a compact pill into a labeled grid of every action plus a secondary row, with the icons gliding to their new places.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-action-bar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-action-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-action-bar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-action-bar.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-action-bar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-action-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-action-bar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-action-bar.json`. Registry path, relative to the site address: `r/expandable-action-bar.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/blocks/expandable-action-bar/expandable-action-bar.tsx`
   - `components/ryan-ui/blocks/expandable-action-bar/expandable-action-bar.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/expandable-action-bar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/expandable-action-bar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Barra flutuante de ações em massa sobre uma seleção (arquivos, fotos, linhas), com as três ou quatro ações principais sempre à mão e o resto a um toque.
-- Telas de celular ou painéis estreitos, em que a pílula compacta cabe sobre o conteúdo e só se abre numa grade rotulada quando pedida.
+- A floating bulk-action bar over a selection (files, photos, rows), with the three or four main actions always at hand and the rest a tap away.
+- Mobile screens or narrow panels, where the compact pill fits over the content and opens into a labeled grid only when requested.
 
-## Quando não usar
+## When not to use
 
-- Use [`overflow-actions`](overflow-actions.md) para uma barra fixa que leva para um menu “mais” só as ações que não cabem na largura.
-- Use [`bloom-menu`](bloom-menu.md) para criar itens novos a partir de um botão flutuante, sem seleção.
-- Use [`dropdown-menu`](dropdown-menu.md) quando a lista de ações é longa ou tem submenus.
+- Use [`overflow-actions`](overflow-actions.md) for a fixed bar that moves to a “more” menu only the actions that do not fit the width.
+- Use [`bloom-menu`](bloom-menu.md) to create new items from a floating button, without a selection.
+- Use [`dropdown-menu`](dropdown-menu.md) when the action list is long or has submenus.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import ExpandableActionBarPreview from "@/components/ryan-ui/blocks/expandable-action-bar/expandable-action-bar";
@@ -57,15 +57,15 @@ export default function ExpandableActionBarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ExpandableActionBar`
 
 Floating action bar: a compact pill of the main actions that grows upward into a labeled grid of every action plus a secondary row, with the icons gliding to their new places.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | — | Short text at the start of the bar, such as "3 selected". It crossfades when it changes. |
 | `actions` | `BarAction[]` | `sampleActions` | Every action, in order. Defaults to sample file actions. |
@@ -83,67 +83,67 @@ Floating action bar: a compact pill of the main actions that grows upward into a
 
 Ready preview: select files on a board and act on them from the bar that floats over its bottom edge.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `BarAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id, passed to `onAction`. |
-| `label` (obrigatória) | `string` | Visible name: the tile's text when expanded, the button's accessible name when compact. |
-| `icon` (obrigatória) | `ReactNode` | Icon, about 18 px. |
+| `id` (required) | `string` | Unique id, passed to `onAction`. |
+| `label` (required) | `string` | Visible name: the tile's text when expanded, the button's accessible name when compact. |
+| `icon` (required) | `ReactNode` | Icon, about 18 px. |
 | `primary` | `boolean` | Primary actions stay visible in the compact pill. Keep them to three or four. |
 | `tone` | `"danger"` | `danger` tints a destructive action. |
 
 #### `BarShortcut`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id, passed to `onShortcut`. |
-| `label` (obrigatória) | `string` | Text on the chip. |
+| `id` (required) | `string` | Unique id, passed to `onShortcut`. |
+| `label` (required) | `string` | Text on the chip. |
 
-### Outras exportações
+### Other exports
 
-- `sampleActions` (valor)
-- `sampleShortcuts` (valor)
+- `sampleActions` (value)
+- `sampleShortcuts` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Movem o foco entre todos os botões da barra, incluindo o de expandir e os da fileira secundária, dando a volta. |
-| `Home` ou `End` | Focam o primeiro ou o último botão da barra. |
-| `Esc` | Com a barra expandida, recolhe e devolve o foco ao botão de expandir. |
-| `Enter` ou `Espaço` | Acionam a ação em foco, ou expandem e recolhem a barra no botão da seta. |
+| `←` or `→` | Move focus between all the bar's buttons, including the expand button and those of the secondary row, wrapping around. |
+| `Home` or `End` | Focus the first or last button of the bar. |
+| `Esc` | With the bar expanded, collapses it and returns focus to the expand button. |
+| `Enter` or `Space` | Trigger the focused action, or expand and collapse the bar on the arrow button. |
 
-## Acessibilidade
+## Accessibility
 
-- A barra é um `role="toolbar"` horizontal com nome fixo “Actions”, e o botão de expandir tem `aria-expanded` e nome “Show all actions” ou “Show fewer actions”.
-- Na forma compacta, cada botão recebe `aria-label` e `title` com o `label` da ação; expandida, o texto visível vira o nome. A fileira secundária é um `group` nomeado por `shortcutsLabel`.
-- Todos os botões ficam na ordem do Tab (não há foco itinerante); as setas são um atalho a mais para percorrê-los.
+- The bar is a horizontal `role="toolbar"` with the fixed name “Actions”, and the expand button has `aria-expanded` and the name “Show all actions” or “Show fewer actions”.
+- In the compact form, each button gets `aria-label` and `title` with the action's `label`; when expanded, the visible text becomes the name. The secondary row is a `group` named by `shortcutsLabel`.
+- All buttons are in the Tab order (there is no roving focus); the arrow keys are an extra shortcut for moving through them.
 
-## Movimento
+## Motion
 
-- A barra é uma janela que muda de largura e altura numa mola com leve quique, crescendo para cima a partir da pílula, enquanto os ícones que já estavam lá deslizam para o novo lugar.
-- Os ícones extras surgem em cascata, os rótulos sobem logo depois e a seta gira 180°; quando `label` muda, o texto novo entra por baixo e o antigo sai por cima.
-- Com “reduzir movimento” ligado, a barra assume o novo tamanho na hora e ícones e rótulos só aparecem, sem deslize nem cascata.
+- The bar is a window that changes width and height on a spring with a slight bounce, growing upward from the pill, while the icons that were already there slide to their new place.
+- The extra icons appear in a cascade, the labels rise right after, and the arrow rotates 180°; when `label` changes, the new text enters from below and the old one exits above.
+- With “reduce motion” on, the bar takes the new size instantly and icons and labels just appear, with no slide or cascade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura expandida é `width` (416px por padrão), limitada ao espaço do contêiner; a fileira secundária rola na horizontal, com a borda final esmaecida indicando que há mais.
+- The expanded width is `width` (416px by default), limited to the container's space; the secondary row scrolls horizontally, with a faded end edge indicating there is more.
 
-## Desempenho
+## Performance
 
-- Um `ResizeObserver` acompanha o contêiner e o conteúdo, e só um novo tamanho-alvo dispara a mola, então redimensionar a janela não reinicia a animação a cada quadro.
+- A `ResizeObserver` follows the container and the content, and only a new target size triggers the spring, so resizing the window does not restart the animation on every frame.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `ExpandableActionBar` pelo nome (a exportação padrão é a prévia com o quadro de arquivos) e marque com `primary: true` as três ou quatro ações da pílula compacta.
-- O componente ocupa a largura do pai e se ancora na borda de baixo dele: posicione o pai (por exemplo, `position: absolute` no rodapé) e mostre a barra só quando houver seleção.
-- Trate os cliques em `onAction(id)` e `onShortcut(id)`; `label` (como “3 selected”) é o texto que troca com animação, e `shortcuts={[]}` remove a fileira secundária.
+- Import `ExpandableActionBar` by name (the default export is the preview with the file board) and mark the compact pill's three or four actions with `primary: true`.
+- The component takes the parent's width and anchors to its bottom edge: position the parent (for example, `position: absolute` at the footer) and show the bar only when there is a selection.
+- Handle clicks in `onAction(id)` and `onShortcut(id)`; `label` (such as “3 selected”) is the text that swaps with animation, and `shortcuts={[]}` removes the secondary row.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-action-bar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/expandable-action-bar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

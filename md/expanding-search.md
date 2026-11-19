@@ -2,48 +2,48 @@
 
 > Um ícone que se transforma em campo de busca, com resultados logo abaixo.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-search
-- Descrição original (inglês): An icon that morphs into a search field with results beneath it.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-search
+- Original description: An icon that morphs into a search field with results beneath it.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json`. Caminho do registro, relativo ao endereço do site: `r/expanding-search.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expanding-search.json`. Registry path, relative to the site address: `r/expanding-search.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/expanding-search/expanding-search.tsx`
   - `components/ryan-ui/expanding-search/expanding-search.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/expanding-search.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/expanding-search.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Cabeçalhos e barras de ferramentas em que um campo de busca sempre aberto apertaria o layout.
-- Busca num conjunto que já está no cliente (projetos, documentos, pessoas), com resultados agrupados por `group` logo abaixo do campo.
-- Quando vale sugerir algo antes da digitação: `suggestions` aparece assim que o campo abre, sob o título `suggestionsLabel`.
+- Headers and toolbars where an always-open search field would crowd the layout.
+- Searching a set that is already on the client (projects, documents, people), with results grouped by `group` right below the field.
+- When it is worth suggesting something before typing: `suggestions` appears as soon as the field opens, under the `suggestionsLabel` heading.
 
-## Quando não usar
+## When not to use
 
-- Use [`search-field`](search-field.md) quando a busca é a ação principal da tela e deve ficar sempre visível como campo.
-- Use [`command-palette`](command-palette.md) quando os resultados são comandos com atalhos, não itens para abrir.
-- Use [`morphing-search`](morphing-search.md) quando precisa controlar o texto e a abertura de fora ou abrir a busca por um atalho de teclado: aqui consulta e estado são internos.
+- Use [`search-field`](search-field.md) when search is the screen's main action and should always be visible as a field.
+- Use [`command-palette`](command-palette.md) when the results are commands with shortcuts, not items to open.
+- Use [`morphing-search`](morphing-search.md) when you need to control the text and the opening from outside or open the search with a keyboard shortcut: here the query and state are internal.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -86,16 +86,16 @@ export default function ExpandingSearchDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ExpandingSearch`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Names the button, the field, and the results, such as "Search projects and docs". |
-| `items` (obrigatória) | `ExpandingSearchItem[]` | — | — |
+| `label` (required) | `string` | — | Names the button, the field, and the results, such as "Search projects and docs". |
+| `items` (required) | `ExpandingSearchItem[]` | — | — |
 | `suggestions` | `ExpandingSearchItem[]` | `[]` | Shown before anything is typed, such as recent searches. |
 | `suggestionsLabel` | `string` | `"Recent"` | — |
 | `placeholder` | `string` | — | — |
@@ -107,55 +107,55 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `emptyHint` | `string` | `"Try a shorter word or check the spelling."` | A short tip under the empty state. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `ExpandingSearchItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `title` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `title` (required) | `string` | — |
 | `meta` | `string` | One short line under the title, such as the type, owner, or last edit. |
 | `group` | `string` | Results gather under this heading, in the order groups first appear in `items`. |
 | `icon` | `ReactNode` | — |
 | `keywords` | `string[]` | Extra words that should also find this item. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão da lupa, abrem o campo e levam o foco a ele. |
-| `↓` ou `↑` | Movem o destaque pelos resultados ou pelas sugestões, dando a volta nas pontas. |
-| `Enter` | No campo, escolhe o item em destaque, chama `onSelect` e recolhe a busca. |
-| `Esc` | Recolhe o campo de volta ao ícone, limpa o texto e devolve o foco ao botão. |
+| `Enter` or `Space` | On the magnifier button, open the field and move focus to it. |
+| `↓` or `↑` | Move the highlight through the results or suggestions, wrapping around at the ends. |
+| `Enter` | In the field, chooses the highlighted item, calls `onSelect`, and collapses the search. |
+| `Esc` | Collapses the field back to the icon, clears the text, and returns focus to the button. |
 
-## Acessibilidade
+## Accessibility
 
-- Recolhido, é um `<button>` nomeado por `label`; aberto, o campo é um `role="combobox"` com `aria-activedescendant`, e os resultados formam um `role="listbox"` com grupos rotulados.
-- Uma região `role="status"` anuncia a quantidade de resultados ou a falta deles em inglês fixo (`3 results`, `No results for …`); `emptyHint` e `suggestionsLabel` são traduzíveis por prop.
-- Ao digitar, o primeiro resultado já fica em destaque, então `Enter` o escolhe; sair do campo vazio o recolhe, e o botão de limpar fica fora da ordem de tabulação.
+- Collapsed, it is a `<button>` named by `label`; open, the field is a `role="combobox"` with `aria-activedescendant`, and the results form a `role="listbox"` with labeled groups.
+- A `role="status"` region announces the number of results or the lack of them in fixed English (`3 results`, `No results for …`); `emptyHint` and `suggestionsLabel` are translatable via props.
+- When typing, the first result is already highlighted, so `Enter` chooses it; leaving the empty field collapses it, and the clear button stays outside the tab order.
 
-## Movimento
+## Motion
 
-- O botão redondo estica até virar o campo com uma mola, e o raio dos cantos acompanha a largura, do círculo ao raio de controle.
-- O painel desdobra a partir do campo e depois só a altura segue o conteúdo; as linhas deslizam para a nova posição quando a lista muda e o destaque viaja de uma linha a outra.
-- Com “reduzir movimento” ligado, a largura muda na hora e painel e resultados só esmaecem.
+- The round button stretches into the field with a spring, and the corner radius follows the width, from circle to control radius.
+- The panel unfolds from the field and then only the height follows the content; rows slide to the new position when the list changes and the highlight travels from one row to another.
+- With “reduce motion” on, the width changes instantly and panel and results only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% da largura do contêiner como uma faixa que não intercepta cliques; o campo cresce até `expandedWidth` (padrão 360 px) ou até a largura dessa faixa, o que for menor.
-- O painel de resultados rola por dentro acima de `min(22rem, 60vh)`, e títulos longos são cortados com reticências.
+- Takes 100% of the container width as a strip that does not intercept clicks; the field grows up to `expandedWidth` (default 360 px) or the width of that strip, whichever is smaller.
+- The results panel scrolls inside above `min(22rem, 60vh)`, and long titles are cut with an ellipsis.
 
-## Desempenho
+## Performance
 
-- A busca percorre `items` inteiro a cada tecla, mas só `maxResults` linhas (padrão 6) são renderizadas; dois `ResizeObserver` acompanham a faixa e o painel.
+- The search scans all of `items` on every key, but only `maxResults` rows (default 6) are rendered; two `ResizeObserver`s track the strip and the panel.
 
-## Notas para IA
+## Notes for AI
 
-- Coloque-o num contêiner com a largura que o campo pode ocupar e escolha `anchor` (`start` ou `end`, padrão `end`) para dizer em que borda o botão fica.
-- `label` é obrigatório; cada item é `{ id, title, meta?, group?, icon?, keywords? }`, e a ordem dos grupos segue a primeira aparição de cada um em `items`.
-- O texto e o estado aberto são internos: reaja a `onSelect(item)` e `onExpandedChange`; a busca é local, olha `title`, `meta` e `keywords` e não diferencia maiúsculas.
+- Put it in a container with the width the field may take and choose `anchor` (`start` or `end`, default `end`) to say which edge the button sits on.
+- `label` is required; each item is `{ id, title, meta?, group?, icon?, keywords? }`, and the order of the groups follows the first appearance of each one in `items`.
+- The text and the open state are internal: react to `onSelect(item)` and `onExpandedChange`; the search is local, looks at `title`, `meta`, and `keywords`, and is case-insensitive.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-search · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expanding-search · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

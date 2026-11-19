@@ -2,48 +2,48 @@
 
 > Uma mensagem persistente que ajuda a pessoa a se recuperar de um problema ou seguir em frente.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/alert
-- Descrição original (inglês): A persistent message that helps people recover or continue.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/alert
+- Original description: A persistent message that helps people recover or continue.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json`. Caminho do registro, relativo ao endereço do site: `r/alert.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/alert.json`. Registry path, relative to the site address: `r/alert.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/alert/alert.tsx`
   - `components/ryan-ui/alert/alert.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/alert.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/alert.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um problema que a pessoa precisa resolver para seguir, como pagamento recusado ou armazenamento quase cheio, mostrado no lugar onde ele acontece.
-- Uma mensagem que muda de estado no mesmo lugar, como uma verificação que vai de `info` para `success`: o ícone se transforma e a altura acompanha o texto novo com uma mola.
-- Avisos que a pessoa pode dispensar (`onDismiss`): ao sumir, o alerta recolhe a altura e o conteúdo de baixo sobe sem pular.
+- A problem the user must resolve to continue, such as a declined payment or nearly full storage, shown where it happens.
+- A message that changes state in place, such as a check that goes from `info` to `success`: the icon morphs and the height follows the new text with a spring.
+- Notices the user can dismiss (`onDismiss`): when it goes away, the alert collapses its height and the content below moves up without jumping.
 
-## Quando não usar
+## When not to use
 
-- Use [`toast`](toast.md) para confirmar uma ação concluída em segundo plano, que não pede nada da pessoa.
-- Use [`announcement-bar`](announcement-bar.md) para um recado do site inteiro no topo da página, como uma promoção ou um lançamento.
-- Use [`dialog`](dialog.md) quando a pessoa precisa decidir algo antes de continuar.
+- Use [`toast`](toast.md) to confirm an action completed in the background that asks nothing of the user.
+- Use [`announcement-bar`](announcement-bar.md) for a site-wide message at the top of the page, such as a promotion or a launch.
+- Use [`dialog`](dialog.md) when the user must decide something before continuing.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -66,45 +66,45 @@ export default function AlertDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Alert`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `tone` | `"info" \| "success" \| "warning" \| "danger"` | — | — |
-| `title` (obrigatória) | `string` | — | — |
+| `title` (required) | `string` | — | — |
 | `children` | `ReactNode` | — | — |
 | `open` | `boolean` | — | Controls presence. Hiding the alert collapses its height and fades it out. |
 | `onDismiss` | `() => void` | — | Shows a dismiss button. An uncontrolled alert collapses first, then calls this. |
-| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Também aceita as props deste tipo. |
+| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Also accepts the props of this type. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `AlertTone` | `"info" \| "success" \| "warning" \| "danger"` |
 
-## Acessibilidade
+## Accessibility
 
-- O tom `danger` usa `role="alert"`, que interrompe o leitor de tela; os outros tons usam `role="status"`, lido sem interromper. Reserve `danger` para o que é urgente.
-- O ícone é decorativo (`aria-hidden`), então o título precisa dizer o que aconteceu; ao trocar título ou texto, a cópia que sai fica oculta e só o texto atual é lido.
-- O botão de fechar é um `<button>` nativo com `aria-label` fixo em inglês (`Dismiss: <título>`); num site em português, ajuste esse texto no arquivo copiado.
+- The `danger` tone uses `role="alert"`, which interrupts the screen reader; the other tones use `role="status"`, which is read without interrupting. Reserve `danger` for what is urgent.
+- The icon is decorative (`aria-hidden`), so the title must say what happened; when the title or text changes, the outgoing copy is hidden and only the current text is read.
+- The close button is a native `<button>` with a fixed English `aria-label` (`Dismiss: <título>`); on a non-English site, adjust that text in the copied file.
 
-## Movimento
+## Motion
 
-- Trocar `tone` transforma o ícone no lugar (o antigo encolhe com leve desfoque e o novo cresce), e um título ou texto novo sobe enquanto o anterior sai por cima.
-- A coluna de texto anima a altura com uma mola sem ultrapassagem logo depois de uma troca de conteúdo; mudanças passivas, como redimensionar a janela, seguem na hora.
-- Com `open` ou `onDismiss`, aparecer e sumir recolhem a altura junto com o esmaecer; com “reduzir movimento”, o texto só esmaece e altura, entrada e saída mudam sem animação.
+- Changing `tone` morphs the icon in place (the old one shrinks with a slight blur and the new one grows), and a new title or text rises while the previous one exits upward.
+- The text column animates its height with a no-overshoot spring right after a content change; passive changes, such as resizing the window, follow immediately.
+- With `open` or `onDismiss`, appearing and disappearing collapse the height along with the fade; with “reduce motion”, the text only fades, and height, entrance, and exit change without animation.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/alert/alert`; `title` é obrigatório e os filhos viram a descrição. Sem `open` e sem `onDismiss`, o alerta aparece sem animação de entrada (trocas de tom e texto ainda animam).
-- Controlado: passe `open` e, em `onDismiss`, ponha `open` em `false`. Sem `open`, o próprio alerta se recolhe ao fechar e só depois chama `onDismiss`.
-- Escolha `tone` pelo efeito: `danger` só para erro que bloqueia, porque é anunciado na hora; `warning` para risco próximo; `success` e `info` para o resto.
+- Import from `@/components/ryan-ui/alert/alert`; `title` is required and the children become the description. Without `open` and without `onDismiss`, the alert appears without an entrance animation (tone and text changes still animate).
+- Controlled: pass `open` and, in `onDismiss`, set `open` to `false`. Without `open`, the alert collapses itself on close and only then calls `onDismiss`.
+- Choose `tone` by its effect: `danger` only for a blocking error, because it is announced immediately; `warning` for imminent risk; `success` and `info` for the rest.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/alert · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/alert · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

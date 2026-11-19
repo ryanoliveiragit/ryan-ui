@@ -2,48 +2,48 @@
 
 > Paleta de comandos controlada pelo teclado, com busca, resultados agrupados e atalhos.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/command-palette
-- Descrição original (inglês): A complete keyboard driven action surface with search, grouped results, and shortcuts.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/command-palette
+- Original description: A complete keyboard driven action surface with search, grouped results, and shortcuts.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json`. Caminho do registro, relativo ao endereço do site: `r/command-palette.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/command-palette.json`. Registry path, relative to the site address: `r/command-palette.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/command-palette/command-palette.tsx`
   - `components/ryan-ui/command-palette/command-palette.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/command-palette.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/command-palette.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Paleta de comandos de um app: buscar e executar ações, ir para outras páginas ou trocar configurações sem tirar as mãos do teclado.
-- Até algumas centenas de ações com grupos, ícones e atalhos visíveis, em que a busca aceita abreviações (“dup pr” acha “Duplicate project”).
-- Busca rápida embutida numa página ou num painel, já que o componente é um painel comum, não um modal.
+- An app's command palette: search and run actions, go to other pages, or change settings without taking your hands off the keyboard.
+- Up to a few hundred actions with groups, icons, and visible shortcuts, where search accepts abbreviations (“dup pr” finds “Duplicate project”).
+- Quick search embedded in a page or panel, since the component is an ordinary panel, not a modal.
 
-## Quando não usar
+## When not to use
 
-- Use [`combobox`](combobox.md) quando a pessoa escolhe um valor para um campo de formulário, e não uma ação.
-- Use [`search-field`](search-field.md) ou [`expanding-search`](expanding-search.md) para buscar conteúdo com resultados próprios da página.
-- Evite com milhares de itens ou busca no servidor: a filtragem roda no cliente a cada tecla sobre a lista inteira e todos os resultados são renderizados.
+- Use [`combobox`](combobox.md) when the person chooses a value for a form field, not an action.
+- Use [`search-field`](search-field.md) or [`expanding-search`](expanding-search.md) to search content with results specific to the page.
+- Avoid with thousands of items or server-side search: filtering runs on the client on every keystroke over the whole list and all results are rendered.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -77,71 +77,71 @@ export default function CommandPaletteDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CommandPalette`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `CommandItem[]` | — | — |
+| `items` (required) | `CommandItem[]` | — | — |
 | `placeholder` | `string` | `"Search commands"` | — |
 | `onSelect` | `(item: CommandItem) => void` | — | — |
 | `onClose` | `() => void` | — | — |
 | `label` | `string` | `"Command palette"` | — |
 | `autoFocus` | `boolean` | `false` | — |
 
-### Tipos exportados
+### Exported types
 
 #### `CommandItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `description` | `string` | — |
 | `group` | `string` | — |
 | `keywords` | `string[]` | — |
 | `icon` | `ReactNode` | — |
 | `shortcut` | `string` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Movem o destaque entre os resultados, na ordem em que aparecem, e param no primeiro e no último. |
-| `Home` ou `End` | Levam o destaque ao primeiro ou ao último resultado (no campo, não movem o cursor do texto). |
-| `Enter` | Executa o resultado destacado (depois de digitar, o primeiro); a busca é limpa e o foco continua no campo. |
-| `Esc` | Limpa a busca; com o campo já vazio, chama `onClose`. |
-| `Ctrl + K` ou `⌘ + K` | Em qualquer ponto da página, levam o foco ao campo enquanto a paleta estiver montada. |
+| `↑` or `↓` | Move the highlight between results, in the order they appear, and stop at the first and last. |
+| `Home` or `End` | Move the highlight to the first or last result (in the field, they do not move the text cursor). |
+| `Enter` | Runs the highlighted result (after typing, the first one); the search is cleared and focus stays in the field. |
+| `Esc` | Clears the search; with the field already empty, calls `onClose`. |
+| `Ctrl + K` or `⌘ + K` | Anywhere on the page, move focus to the field while the palette is mounted. |
 
-## Acessibilidade
+## Accessibility
 
-- O campo é um `combobox` ligado à lista (`role="listbox"`) por `aria-controls`, e o resultado ativo vai em `aria-activedescendant`: o foco nunca sai do campo.
-- Os grupos são `role="group"` com o nome do grupo, cada resultado é um `option` com `aria-selected`, e uma região `aria-live` anuncia o total de resultados ou “No results”.
-- `label` vira o rótulo oculto do campo; o componente não prende o foco nem cobre a página, então, para usá-lo como modal, coloque-o num `dialog` que devolva o foco ao fechar.
+- The field is a `combobox` tied to the list (`role="listbox"`) by `aria-controls`, and the active result goes in `aria-activedescendant`: focus never leaves the field.
+- Groups are `role="group"` with the group name, each result is an `option` with `aria-selected`, and an `aria-live` region announces the total number of results or “No results”.
+- `label` becomes the field's hidden label; the component does not trap focus or cover the page, so to use it as a modal, put it in a `dialog` that returns focus on close.
 
-## Movimento
+## Motion
 
-- Um único destaque desliza com uma mola rápida até o resultado ativo, pelo ponteiro ou pelas setas, e a moldura dos resultados acompanha a altura da lista ao filtrar.
-- Ao digitar, as linhas que saem esmaecem e as restantes deslizam para o novo lugar; se a nova ordem mover alguma linha mais de seis posições, a lista troca de uma vez.
-- Com “reduzir movimento” ligado, a entrada, o destaque, a altura e as linhas mudam na hora, sem deslize nem esmaecer.
+- A single highlight slides on a fast spring to the active result, by pointer or arrow keys, and the results frame follows the list height when filtering.
+- When typing, the rows that leave fade out and the remaining ones slide to their new place; if the new order moves any row more than six positions, the list switches all at once.
+- With “reduce motion” on, the entrance, highlight, height, and rows change instantly, with no slide or fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista tem altura máxima de 342px e rola por dentro, trazendo o resultado ativo para a área visível; em janelas de até 480px, as teclas de atalho e a dica “⌘ K” somem.
+- The list has a maximum height of 342px and scrolls inside, bringing the active result into view; in windows up to 480px, the shortcut keys and the “⌘ K” hint disappear.
 
-## Desempenho
+## Performance
 
-- A busca pontua todos os itens a cada tecla e cada resultado é um botão com animação de layout; um `ResizeObserver` mede a lista para a moldura acompanhar a altura.
+- Search scores all items on every keystroke and each result is a button with a layout animation; a `ResizeObserver` measures the list so the frame follows the height.
 
-## Notas para IA
+## Notes for AI
 
-- Apesar de estar entre os blocos, instala em `@/components/ryan-ui/command-palette/command-palette`; passe `items` com `id` e `label` e, opcionais, `group`, `keywords`, `description`, `icon` e `shortcut`.
-- Ela não abre nem fecha sozinha: para um modal, monte-a num `dialog` quando o atalho for pressionado, com `autoFocus`, e feche em `onClose`, chamado pelo Esc com o campo vazio e pelo botão “Esc”.
-- `shortcut` só desenha as teclas na linha, sem registrar atalho; o único atalho real é o Ctrl+K/⌘+K global, que foca o campo e pode colidir com um atalho seu.
+- Although it is among the blocks, it installs at `@/components/ryan-ui/command-palette/command-palette`; pass `items` with `id` and `label` and, optionally, `group`, `keywords`, `description`, `icon`, and `shortcut`.
+- It does not open or close by itself: for a modal, mount it in a `dialog` when the shortcut is pressed, with `autoFocus`, and close it in `onClose`, called by Esc with the field empty and by the “Esc” button.
+- `shortcut` only draws the keys on the row, without registering a shortcut; the only real shortcut is the global Ctrl+K/⌘+K, which focuses the field and may collide with one of your own.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/command-palette · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/command-palette · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

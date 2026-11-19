@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type Ref } from "react";
-import { ArrowUpRight, BookOpen, Bookmark, ChevronDown, ChevronRight, Component, LayoutTemplate, Search, X } from "lucide-react";
+import { ArrowUpRight, BookOpen, Bookmark, ChevronDown, ChevronRight, Component, CreditCard, LayoutTemplate, Search, X } from "lucide-react";
 import { categories, findItem, items, itemsByCategory, searchItems, versionsOf, type CatalogItem } from "@/site/lib/catalog";
 import { href, itemPath, navigate, type Route } from "@/site/lib/router";
 import { useSaved } from "@/site/lib/saved";
@@ -31,34 +31,34 @@ export function useSidebarState(): SidebarState {
 }
 
 const filters: { value: SidebarFilter; label: string; title: string }[] = [
-  { value: "todos", label: "Todos", title: "Todos os itens" },
-  { value: "novos", label: "Novos", title: "Só os itens novos" },
-  { value: "versoes", label: "Versões", title: "Só os itens com mais de uma versão" },
+  { value: "todos", label: "All", title: "All items" },
+  { value: "novos", label: "Pro", title: "Only Pro items" },
+  { value: "versoes", label: "Versions", title: "Only items with more than one version" },
 ];
 const jumps: { id: SectionId; label: string }[] = [
-  { id: "componentes", label: "Componentes" },
-  { id: "blocos", label: "Blocos" },
+  { id: "componentes", label: "Components" },
+  { id: "blocos", label: "Blocks" },
   { id: "docs", label: "Docs" },
 ];
 const docLinks = [
-  { label: "Introdução", path: "/" },
-  { label: "Instalação", path: "/docs/instalacao" },
-  { label: "Temas", path: "/docs/temas" },
-  { label: "Licença", path: "/docs/licenca" },
+  { label: "Home", path: "/" },
+  { label: "Installation", path: "/docs" },
+  { label: "Theming", path: "/docs/theming" },
+  { label: "License", path: "/docs/license" },
 ];
-const aiLink = { label: "Para IA", file: "llms.txt" };
+const aiLink = { label: "For AI", file: "llms.txt" };
 
 interface Group { id: string; label: string; items: CatalogItem[] }
 const componentGroups: Group[] = categories.filter(category => category.id !== "blocks").map(category => ({ id: category.id, label: category.label, items: itemsByCategory(category.id) })).filter(group => group.items.length > 0);
 /** Os blocos são um grupo só; o nome evita repetir o título da seção. */
-const blockGroup: Group = { id: "blocks", label: "Seções e telas", items: itemsByCategory("blocks") };
+const blockGroup: Group = { id: "blocks", label: "Sections and screens", items: itemsByCategory("blocks") };
 const newCount = items.filter(item => item.isNew).length;
 
 /** A seção da árvore a que a página aberta pertence. É a que o atalho marca quando a página abre; depois ele segue a rolagem da lista. */
 function routeSection(route: Route): SectionId | null {
   const [first] = route.segments;
-  if (first === "c" || first === "componentes") return "componentes";
-  if (first === "b" || first === "blocos") return "blocos";
+  if (first === "c" || first === "components") return "componentes";
+  if (first === "b" || first === "blocks") return "blocos";
   if (first === "docs" || route.path === "/") return "docs";
   return null;
 }
@@ -82,7 +82,7 @@ function GroupBlock({ group, open, forced, current, listId, onToggle, onNavigate
           <li key={item.name}>
             <a className={styles.item} data-row="" href={href(itemPath(item))} aria-current={item.name === current ? "page" : undefined} onClick={onNavigate}>
               <span className={styles.itemTitle}>{item.title}</span>
-              {item.isNew ? <span className={styles.pill}>Novo</span> : null}
+              {item.isNew ? <span className={styles.pill}>Pro</span> : null}
             </a>
           </li>
         )) : null}
@@ -210,27 +210,28 @@ export function SiteSidebar({ route, state, variant = "rail", searchRef, onNavig
   const setInput = (node: HTMLInputElement | null) => { inputRef.current = node; if (typeof searchRef === "function") searchRef(node); else if (searchRef) searchRef.current = node; };
 
   return (
-    <Root className={styles.sidebar} data-variant={variant} aria-label={variant === "rail" ? "Catálogo" : undefined}>
+    <Root className={styles.sidebar} data-variant={variant} aria-label={variant === "rail" ? "Catalog" : undefined}>
       <label className={styles.search}>
         <Search size={14} strokeWidth={2} aria-hidden="true" />
-        <span className={styles.visuallyHidden}>Filtrar a lista por nome ou uso</span>
-        <input ref={setInput} className={styles.searchInput} type="search" placeholder="Nome ou uso" value={query} autoComplete="off" spellCheck={false} aria-keyshortcuts="/" onChange={event => setQuery(event.target.value)} onKeyDown={onSearchKey} />
+        <span className={styles.visuallyHidden}>Filter the list by name or use</span>
+        <input ref={setInput} className={styles.searchInput} type="search" placeholder="Name or use" value={query} autoComplete="off" spellCheck={false} aria-keyshortcuts="/" onChange={event => setQuery(event.target.value)} onKeyDown={onSearchKey} />
         {query
-          ? <button type="button" className={styles.clear} aria-label="Limpar a busca" onClick={() => { setQuery(""); inputRef.current?.focus(); }}><X size={13} strokeWidth={2} aria-hidden="true" /></button>
+          ? <button type="button" className={styles.clear} aria-label="Clear search" onClick={() => { setQuery(""); inputRef.current?.focus(); }}><X size={13} strokeWidth={2} aria-hidden="true" /></button>
           : <kbd className={styles.kbd} aria-hidden="true">/</kbd>}
       </label>
 
-      <div className={styles.filter} role="group" aria-label="Filtrar itens">
+      <div className={styles.filter} role="group" aria-label="Filter items">
         {filters.map(option => <button key={option.value} type="button" className={styles.filterOption} title={option.title} aria-pressed={filter === option.value} onClick={() => setFilter(option.value)}>{option.label}</button>)}
       </div>
 
-      <a className={styles.saved} href={href("/salvos")} aria-current={route.path === "/salvos" ? "page" : undefined} onClick={onNavigate}>
+      {variant === "drawer" ? <a className={styles.saved} href={href("/pricing")} aria-current={route.path === "/pricing" ? "page" : undefined} onClick={onNavigate}><CreditCard size={14} strokeWidth={2} aria-hidden="true" /><span>Pricing</span></a> : null}
+      <a className={styles.saved} href={href("/saved")} aria-current={route.path === "/saved" ? "page" : undefined} onClick={onNavigate}>
         <Bookmark size={14} strokeWidth={2} aria-hidden="true" />
-        <span>Salvos</span>
+        <span>Saved</span>
         {savedCount ? <span className={styles.count}>{savedCount}</span> : null}
       </a>
 
-      <div className={styles.jump} role="group" aria-label="Ir para a seção">
+      <div className={styles.jump} role="group" aria-label="Go to section">
         {jumps.map(jump => <button key={jump.id} type="button" className={styles.jumpButton} aria-current={section === jump.id && present[jump.id] ? "true" : undefined} disabled={!present[jump.id]} onClick={() => jumpTo(jump.id)}>{jump.label}</button>)}
       </div>
 
@@ -239,7 +240,7 @@ export function SiteSidebar({ route, state, variant = "rail", searchRef, onNavig
           <nav className={styles.section} data-section="docs" aria-labelledby={`${uid}-docs`}>
             <h2 className={styles.heading} id={`${uid}-docs`}>
               <BookOpen size={14} strokeWidth={1.75} aria-hidden="true" />
-              <a href={href("/docs/instalacao")} onClick={onNavigate}>Docs</a>
+              <a href={href("/docs")} onClick={onNavigate}>Docs</a>
             </h2>
             <ul className={styles.items}>
               {docs.map(link => <li key={link.path}><a className={styles.item} data-row="" href={href(link.path)} aria-current={route.path === link.path ? "page" : undefined} onClick={onNavigate}><span className={styles.itemTitle}>{link.label}</span></a></li>)}
@@ -248,7 +249,7 @@ export function SiteSidebar({ route, state, variant = "rail", searchRef, onNavig
                   <a className={styles.item} href={asset(aiLink.file)} target="_blank" rel="noreferrer">
                     <span className={styles.itemTitle}>{aiLink.label}</span>
                     <ArrowUpRight size={13} strokeWidth={1.75} aria-hidden="true" />
-                    <span className={styles.visuallyHidden}>(abre em outra aba)</span>
+                    <span className={styles.visuallyHidden}>(opens in a new tab)</span>
                   </a>
                 </li>
               ) : null}
@@ -260,7 +261,7 @@ export function SiteSidebar({ route, state, variant = "rail", searchRef, onNavig
           <nav className={styles.section} data-section="componentes" aria-labelledby={`${uid}-componentes`}>
             <h2 className={styles.heading} id={`${uid}-componentes`}>
               <Component size={14} strokeWidth={1.75} aria-hidden="true" />
-              <a href={href("/componentes")} aria-current={route.path === "/componentes" ? "page" : undefined} onClick={onNavigate}>Componentes</a>
+              <a href={href("/components")} aria-current={route.path === "/components" ? "page" : undefined} onClick={onNavigate}>Components</a>
               <span className={styles.count}>{componentCount}</span>
             </h2>
             {groups.map(group => <GroupBlock key={group.id} group={group} open={!collapsed.has(group.id)} forced={searching} current={currentItem?.name} listId={`${uid}-${group.id}`} onToggle={() => toggleGroup(group.id)} onNavigate={onNavigate} />)}
@@ -271,7 +272,7 @@ export function SiteSidebar({ route, state, variant = "rail", searchRef, onNavig
           <nav className={styles.section} data-section="blocos" aria-labelledby={`${uid}-blocos`}>
             <h2 className={styles.heading} id={`${uid}-blocos`}>
               <LayoutTemplate size={14} strokeWidth={1.75} aria-hidden="true" />
-              <a href={href("/blocos")} aria-current={route.path === "/blocos" ? "page" : undefined} onClick={onNavigate}>Blocos</a>
+              <a href={href("/blocks")} aria-current={route.path === "/blocks" ? "page" : undefined} onClick={onNavigate}>Blocks</a>
               <span className={styles.count}>{blocks.items.length}</span>
             </h2>
             <GroupBlock group={blocks} open={!collapsed.has(blocks.id)} forced={searching} current={currentItem?.name} listId={`${uid}-${blocks.id}`} onToggle={() => toggleGroup(blocks.id)} onNavigate={onNavigate} />
@@ -280,16 +281,16 @@ export function SiteSidebar({ route, state, variant = "rail", searchRef, onNavig
 
         {nothing ? (
           <div className={styles.empty} role="status">
-            <span>{searching ? <>Nada combina com “{query.trim()}”{filter === "todos" ? "" : " neste filtro"}.</> : "Nenhum item neste filtro."}</span>
-            <button type="button" className={styles.emptyButton} onClick={() => { setQuery(""); setFilter("todos"); }}>Limpar</button>
+            <span>{searching ? <>Nothing matches “{query.trim()}”{filter === "todos" ? "" : " in this filter"}.</> : "No items in this filter."}</span>
+            <button type="button" className={styles.emptyButton} onClick={() => { setQuery(""); setFilter("todos"); }}>Clear</button>
           </div>
         ) : null}
       </div>
 
-      <a className={styles.news} href={href("/componentes", { novos: "1" })} onClick={onNavigate}>
+      <a className={styles.news} href={href("/pricing")} onClick={onNavigate}>
         <span className={styles.newsDot} aria-hidden="true" />
-        <span>Novidades</span>
-        <span className={styles.newsCount}>{newCount} novos</span>
+        <span>Get Pro</span>
+        <span className={styles.newsCount}>{newCount} items</span>
         <ChevronRight size={14} strokeWidth={2} aria-hidden="true" />
       </a>
     </Root>

@@ -2,48 +2,48 @@
 
 > Série temporal densa com faixa de visão geral: arraste a janela para dar zoom e leia eventos no próprio gráfico.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/brush-chart
-- Descrição original (inglês): A dense time series with an overview strip: drag a window to zoom, resize it by its handles, and read events in place.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/brush-chart
+- Original description: A dense time series with an overview strip: drag a window to zoom, resize it by its handles, and read events in place.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/brush-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/brush-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/brush-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/brush-chart.json`. Caminho do registro, relativo ao endereço do site: `r/brush-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/brush-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/brush-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/brush-chart.json`. Registry path, relative to the site address: `r/brush-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/brush-chart/brush-chart.tsx`
   - `components/ryan-ui/brush-chart/brush-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/brush-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/brush-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Série temporal longa e densa em que a pessoa precisa do histórico inteiro e de olhar de perto qualquer trecho.
-- Marcar eventos na série (lançamentos, mudanças de preço) com `annotations` e ler cada um no próprio gráfico.
-- Sincronizar a janela com atalhos ou com outros painéis, por `range` e `onRangeChange`.
+- A long, dense time series where the user needs the whole history and a close look at any stretch.
+- Mark events in the series (launches, price changes) with `annotations` and read each one on the chart itself.
+- Sync the window with shortcuts or other panels, through `range` and `onRangeChange`.
 
-## Quando não usar
+## When not to use
 
-- Use [`line-chart`](line-chart.md) para comparar mais de uma série: aqui há uma só.
-- Use [`bar-chart`](bar-chart.md) para poucos períodos comparados um a um e com a média.
-- Use [`sparkline`](sparkline.md) para uma tendência compacta ao lado de um número.
+- Use [`line-chart`](line-chart.md) to compare more than one series: here there is only one.
+- Use [`bar-chart`](bar-chart.md) for a few periods compared one by one and against the average.
+- Use [`sparkline`](sparkline.md) for a compact trend next to a number.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -101,16 +101,16 @@ export default function BrushChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BrushChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `BrushChartDatum[]` | — | — |
-| `label` (obrigatória) | `string` | — | What is measured, such as "Daily active users". Names the chart for assistive technology. |
+| `data` (required) | `BrushChartDatum[]` | — | — |
+| `label` (required) | `string` | — | What is measured, such as "Daily active users". Names the chart for assistive technology. |
 | `unit` | `string` | `""` | Unit after each value, such as "users". |
 | `formatValue` | `(value: number) => string` | `value => grouped.format(value)` | — |
 | `formatTick` | `(value: number) => string` | `value => compact.format(value)` | Formats the value axis. Defaults to a compact number, such as 12K. |
@@ -126,62 +126,62 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `BrushChartDatum`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `date` (obrigatória) | `Date \| number` | A point in time, as a Date or epoch milliseconds. Points must be in ascending order. |
-| `value` (obrigatória) | `number` | — |
+| `date` (required) | `Date \| number` | A point in time, as a Date or epoch milliseconds. Points must be in ascending order. |
+| `value` (required) | `number` | — |
 
 #### `BrushChartAnnotation`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `date` (obrigatória) | `Date \| number` | — |
-| `label` (obrigatória) | `string` | Short label printed beside the marker, such as "v2 launch". |
+| `date` (required) | `Date \| number` | — |
+| `label` (required) | `string` | Short label printed beside the marker, such as "v2 launch". |
 | `description` | `string` | Longer note for the tooltip and screen readers. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Passa por quatro paradas: o gráfico, a janela da faixa de visão geral, a alça inicial e a alça final. |
-| `←` ou `→` ou `Home` ou `End` | No gráfico, levam a leitura ao ponto anterior, ao seguinte, ao primeiro e ao último ponto visível. |
-| `←` ou `→` ou `↑` ou `↓` | Na janela, deslocam o intervalo em 10% da sua largura; numa alça, movem aquela borda um ponto; com `Shift`, o passo vira 50% ou dez pontos. |
-| `Page Up` ou `Page Down` | No gráfico, saltam cerca de um oitavo dos pontos visíveis; na janela e nas alças, dão o passo grande. |
-| `+` ou `-` | Com o foco na janela, aproximam (metade do intervalo) ou afastam (o dobro). |
-| `Esc` ou `0` | Na janela ou nas alças, voltam à série inteira; no gráfico, `Esc` apaga a leitura. |
+| `Tab` | Goes through four stops: the chart, the overview strip window, the start handle, and the end handle. |
+| `←` or `→` or `Home` or `End` | On the chart, move the reading to the previous point, the next, the first, and the last visible point. |
+| `←` or `→` or `↑` or `↓` | On the window, shift the range by 10% of its width; on a handle, move that edge one point; with `Shift`, the step becomes 50% or ten points. |
+| `Page Up` or `Page Down` | On the chart, jump about one eighth of the visible points; on the window and handles, take the large step. |
+| `+` or `-` | With focus on the window, zoom in (half the range) or out (double). |
+| `Esc` or `0` | On the window or handles, return to the whole series; on the chart, `Esc` clears the reading. |
 
-## Acessibilidade
+## Accessibility
 
-- O gráfico é um grupo focável que anuncia a data e o valor do ponto lido numa região `aria-live`; uma tabela oculta traz os pontos e os eventos da janela atual.
-- A janela e as duas alças são `role="slider"` com `aria-valuetext` em datas, e cada uma é uma parada de `Tab`.
-- `label` é obrigatório; a instrução do grupo, os nomes das alças e as datas dos eixos estão em inglês no código (`formatDate` só muda a dica e os anúncios).
+- The chart is a focusable group that announces the date and value of the point being read in an `aria-live` region; a hidden table carries the points and events of the current window.
+- The window and the two handles are `role="slider"` with `aria-valuetext` in dates, and each one is a `Tab` stop.
+- `label` is required; the group instruction, the handle names, and the axis dates are in English in the code (`formatDate` only changes the tooltip and announcements).
 
-## Movimento
+## Motion
 
-- A linha se desenha da esquerda para a direita na primeira vez que aparece; ao aproximar, o eixo de valores se ajusta com mola ao ponto mais alto da janela.
-- A janela segue o dedo sem atraso no arrasto e desliza com mola quando `range` muda por fora ou quando volta à série inteira; a dica acompanha a mira com mola.
-- Com “reduzir movimento”, a linha já aparece inteira, a janela e o eixo saltam para o destino e a dica acompanha sem mola.
+- The line draws from left to right the first time it appears; on zoom in, the value axis adjusts with a spring to the highest point in the window.
+- The window follows the finger with no delay while dragging and slides with a spring when `range` changes externally or when it returns to the whole series; the tooltip follows the crosshair with a spring.
+- With “reduce motion”, the line already appears whole, the window and axis jump to the destination, and the tooltip follows without a spring.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Mede a própria largura: os rótulos de data passam de dias a semanas, meses, trimestres e anos conforme o espaço, e rótulos de evento que colidiriam ficam ocultos.
-- Gráfico e faixa usam `touch-action: pan-y`, então arrastar na vertical continua rolando a página; as alturas vêm de `height` (240) e `overviewHeight` (52), em pixels.
+- It measures its own width: date labels move from days to weeks, months, quarters, and years depending on space, and event labels that would collide are hidden.
+- Chart and strip use `touch-action: pan-y`, so dragging vertically keeps scrolling the page; heights come from `height` (240) and `overviewHeight` (52), in pixels.
 
-## Desempenho
+## Performance
 
-- Acima de dois pontos por pixel a linha guarda só o mínimo e o máximo de cada coluna; a tabela oculta, porém, tem uma linha por ponto da janela, então agregue séries muito longas antes de passar.
-- Mantenha `data` e `annotations` com referência estável (`useMemo`): a suavização e a faixa de visão geral são recalculadas sempre que elas mudam.
+- Above two points per pixel the line keeps only the minimum and maximum of each column; the hidden table, however, has one row per point in the window, so aggregate very long series before passing them.
+- Keep `data` and `annotations` with a stable reference (`useMemo`): smoothing and the overview strip are recalculated whenever they change.
 
-## Notas para IA
+## Notes for AI
 
-- `data` é `{ date, value }` com `date` em `Date` ou milissegundos, em ordem crescente; com menos de dois pontos aparece `emptyLabel`, e o eixo de valores sempre parte do zero.
-- `range` é um destino, não uma trava: a janela anda sozinha no arrasto e só desliza quando `range` muda, então guarde em estado o que vier de `onRangeChange`; sem `range`, use `defaultRange`.
-- O componente pressupõe um ponto por dia: com o zoom afastado a linha vira uma média de sete pontos com faixa, e a dica compara com sete pontos antes chamando isso de “a week earlier”.
+- `data` is `{ date, value }` with `date` as a `Date` or milliseconds, in ascending order; with fewer than two points `emptyLabel` appears, and the value axis always starts at zero.
+- `range` is a target, not a lock: the window moves on its own while dragging and only slides when `range` changes, so keep what comes from `onRangeChange` in state; without `range`, use `defaultRange`.
+- The component assumes one point per day: when zoomed out the line becomes a seven-point average with a band, and the tooltip compares with seven points earlier, calling it “a week earlier”.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/brush-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/brush-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

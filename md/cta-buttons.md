@@ -2,46 +2,46 @@
 
 > Três botões de chamada: seta que se expande e preenche o botão, deslize para confirmar e botão magnético que segue o cursor.
 
-- Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/cta-buttons
-- Descrição original (inglês): Three call-to-action buttons: an arrow disc that expands to fill the button on hover, a slide-to-confirm thumb, and a magnetic button that leans toward the cursor.
+- Type: component (category Actions), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/cta-buttons
+- Original description: Three call-to-action buttons: an arrow disc that expands to fill the button on hover, a slide-to-confirm thumb, and a magnetic button that leans toward the cursor.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json`. Caminho do registro, relativo ao endereço do site: `r/cta-buttons.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cta-buttons.json`. Registry path, relative to the site address: `r/cta-buttons.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/cta-buttons/cta-buttons.tsx`
   - `components/ryan-ui/cta-buttons/cta-buttons.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/cta-buttons.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/cta-buttons.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- A chamada principal de uma página de marketing ou do fim de uma seção, com `ArrowButton` (“Começar teste grátis”) ou `MagneticButton` (“Agendar demonstração”).
-- Confirmar algo que não deve acontecer por um toque acidental, como um pagamento, com `SlideToConfirm`.
+- The main call to action of a marketing page or the end of a section, with `ArrowButton` (“Start free trial”) or `MagneticButton` (“Schedule a demo”).
+- Confirming something that should not happen from an accidental tap, like a payment, with `SlideToConfirm`.
 
-## Quando não usar
+## When not to use
 
-- Use [`button`](button.md) para ações comuns de interface, como formulários, diálogos e barras de ferramentas; estes três são botões de destaque.
-- Use [`hold-to-confirm`](hold-to-confirm.md) ou [`confirm-morph`](confirm-morph.md) quando a confirmação precisa caber num controle do tamanho de um botão: o `SlideToConfirm` é um trilho de 52 px de altura que ocupa a largura do pai.
+- Use [`button`](button.md) for common interface actions, like forms, dialogs, and toolbars; these three are showcase buttons.
+- Use [`hold-to-confirm`](hold-to-confirm.md) or [`confirm-morph`](confirm-morph.md) when the confirmation needs to fit in a button-sized control: `SlideToConfirm` is a 52 px tall track that takes the parent's width.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -79,15 +79,15 @@ export default function CtaButtonsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ArrowButton`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | The label. |
+| `children` (required) | `ReactNode` | — | The label. |
 | `href` | `string` | — | Renders a link instead of a button. |
 | `target` | `string` | — | Link target, used with `href`. |
 | `rel` | `string` | — | Link relationship, used with `href`. |
@@ -100,9 +100,9 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ### `MagneticButton`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | The label. |
+| `children` (required) | `ReactNode` | — | The label. |
 | `href` | `string` | — | Renders a link instead of a button. |
 | `onClick` | `(event: MouseEvent<HTMLElement>) => void` | — | Runs when the button is pressed. |
 | `strength` | `number` | `0.32` | How far the button follows the cursor, as a share of the cursor's distance from its center. 0 turns the pull off. |
@@ -114,7 +114,7 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ### `SlideToConfirm`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | `"Slide to confirm"` | The prompt on the track, and the thumb's accessible name. |
 | `confirmedLabel` | `string` | `"Confirmed"` | Shown once the action is confirmed. |
@@ -127,40 +127,40 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `disabled` | `boolean` | `false` | Turns the control off: it is dimmed and ignores pointer and keyboard input. |
 | `className` | `string` | — | Extra class names for the root element. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No `ArrowButton` e no `MagneticButton`, acionam o botão; com `href` eles são links e respondem só a `Enter`. |
-| `Enter` ou `Espaço` | No `SlideToConfirm`, com o foco no polegar, confirmam direto, sem arrastar. |
+| `Enter` or `Space` | On `ArrowButton` and `MagneticButton`, trigger the button; with `href` they are links and respond only to `Enter`. |
+| `Enter` or `Space` | On `SlideToConfirm`, with focus on the thumb, confirm directly, without dragging. |
 
-## Acessibilidade
+## Accessibility
 
-- `ArrowButton` e `MagneticButton` são `<button>` nativos, ou `<a>` quando recebem `href`; no `ArrowButton`, a cópia colorida do rótulo fica em `aria-hidden`, e o nome é o texto dos filhos.
-- No `SlideToConfirm`, o polegar é um botão com `aria-label` igual a `label` (depois, `confirmedLabel`); a ativação por teclado confirma sem arrastar, e um `role="status"` anuncia a confirmação.
-- O texto do trilho é `aria-hidden` e os padrões estão em inglês (“Slide to confirm”, “Confirmed”): escreva em `label` a ação inteira, como “Deslize para pagar R$ 48”.
+- `ArrowButton` and `MagneticButton` are native `<button>`, or `<a>` when they get `href`; on `ArrowButton`, the colored copy of the label is `aria-hidden`, and the name is the children's text.
+- On `SlideToConfirm`, the thumb is a button with an `aria-label` equal to `label` (afterward, `confirmedLabel`); keyboard activation confirms without dragging, and a `role="status"` announces the confirmation.
+- The track text is `aria-hidden` and the defaults are in English (“Slide to confirm”, “Confirmed”): write the whole action in `label`, like “Slide to pay R$ 48”.
 
-## Movimento
+## Motion
 
-- `ArrowButton`: no hover, no foco por teclado ou na pressão, o disco da seta cresce até cobrir o botão (0,48 s), o rótulo muda de cor na borda do preenchimento e uma seta nova entra pela esquerda.
-- `MagneticButton`: com o mouse a até `reach` px, o botão segue o cursor numa mola solta, com um leve balanço ao voltar, e o rótulo vai um pouco além; toque e caneta não movem nada.
-- `SlideToConfirm`: as setas do polegar dão um empurrão a cada 1,8 s e soltar antes de `threshold` (90%) o devolve numa mola; com “reduzir movimento”, nada disso anima, o ímã para e o `ArrowButton` preenche sem transição.
+- `ArrowButton`: on hover, keyboard focus, or press, the arrow disc grows to cover the button (0.48 s), the label changes color at the fill edge, and a new arrow enters from the left.
+- `MagneticButton`: with the mouse within `reach` px, the button follows the cursor on a loose spring, with a slight sway on return, and the label moves a bit further; touch and pen move nothing.
+- `SlideToConfirm`: the thumb arrows nudge every 1.8 s and releasing before `threshold` (90%) returns it on a spring; with “reduce motion”, none of this animates, the magnet stops, and `ArrowButton` fills with no transition.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O `SlideToConfirm` ocupa a largura do pai até `20rem` e mede o trilho com um observador, então o curso do polegar se ajusta; com `touch-action: pan-y`, a rolagem vertical continua funcionando sobre ele.
-- No `ArrowButton`, o rótulo não quebra linha e termina em reticências quando falta espaço.
+- `SlideToConfirm` takes the parent's width up to `20rem` and measures the track with an observer, so the thumb travel adjusts; with `touch-action: pan-y`, vertical scrolling still works over it.
+- On `ArrowButton`, the label does not wrap and ends in an ellipsis when space runs out.
 
-## Desempenho
+## Performance
 
-- Cada `MagneticButton` escuta `pointermove` na janela inteira e mede a própria posição a cada movimento do mouse; use poucos por página.
+- Each `MagneticButton` listens to `pointermove` on the whole window and measures its own position on every mouse move; use few per page.
 
-## Notas para IA
+## Notes for AI
 
-- São três exportações do mesmo arquivo: `import ArrowButton, { MagneticButton, SlideToConfirm } from "@/components/ryan-ui/cta-buttons/cta-buttons"` (a padrão é o `ArrowButton`).
-- No `SlideToConfirm`, a ação vai em `onConfirm`, que roda uma vez (um toque simples só balança o polegar); para controlar, use `confirmed` com `onConfirmedChange`, e `resetAfter` para voltar sozinho ao início.
-- `ArrowButton` e `MagneticButton` viram links com `href`; o `ArrowButton` aceita `icon` no lugar da seta e `size` `md` ou `lg`, e o `MagneticButton` aceita `strength` (0 desliga o ímã) e `reach`.
+- They are three exports from the same file: `import ArrowButton, { MagneticButton, SlideToConfirm } from "@/components/ryan-ui/cta-buttons/cta-buttons"` (the default is `ArrowButton`).
+- On `SlideToConfirm`, the action goes in `onConfirm`, which runs once (a simple tap only wiggles the thumb); to control it, use `confirmed` with `onConfirmedChange`, and `resetAfter` to return to the start on its own.
+- `ArrowButton` and `MagneticButton` become links with `href`; `ArrowButton` accepts `icon` in place of the arrow and `size` `md` or `lg`, and `MagneticButton` accepts `strength` (0 turns off the magnet) and `reach`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cta-buttons · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cta-buttons · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

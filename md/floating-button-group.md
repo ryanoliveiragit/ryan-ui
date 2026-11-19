@@ -2,50 +2,50 @@
 
 > Botões soltos numa bandeja discreta, com um realce único que passa de um para o outro.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/floating-button-group
-- Descrição original (inglês): Separate soft buttons in a quiet tray, with one shared highlight that morphs from button to button as you move, and a pressed state that settles in place.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/floating-button-group
+- Original description: Separate soft buttons in a quiet tray, with one shared highlight that morphs from button to button as you move, and a pressed state that settles in place.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json`. Caminho do registro, relativo ao endereço do site: `r/floating-button-group.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/floating-button-group.json`. Registry path, relative to the site address: `r/floating-button-group.json`.
 
-- Pacotes npm: `@radix-ui/react-tooltip`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Tooltip](tooltip.md)
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-tooltip`, `motion`
+- Uses other ryan-ui items (installed along with it): [Tooltip](tooltip.md)
+- Files, once installed:
   - `components/ryan-ui/floating-button-group/floating-button-group.tsx`
   - `components/ryan-ui/floating-button-group/floating-button-group.module.css`
   - `components/ryan-ui/tooltip/tooltip.tsx`
   - `components/ryan-ui/tooltip/tooltip.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-tooltip motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/floating-button-group.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-tooltip motion`.
+2. Copy the files listed above. The content of each one is in `r/floating-button-group.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Barras de ações sobre um quadro ou documento, como Desfazer, Refazer, Apresentar e Compartilhar, com dicas de atalho no tooltip.
-- Barras flutuantes sobre uma seleção ou sobre o conteúdo (`variant="floating"`), só com ícones e o nome em tooltip.
+- Action bars over a board or document, like Undo, Redo, Present, and Share, with shortcut hints in the tooltip.
+- Floating bars over a selection or over the content (`variant="floating"`), with icons only and the name in a tooltip.
 
-## Quando não usar
+## When not to use
 
-- Use [`button-group`](button-group.md) quando as ações devem formar uma superfície única com divisórias ou precisam de um menu anexo.
-- Use [`toggle-group`](toggle-group.md) quando os botões são opções que ligam e desligam em conjunto, como negrito e itálico.
-- Use [`overflow-actions`](overflow-actions.md) quando a barra precisa caber em larguras variáveis: esta bandeja não recolhe nem quebra linha.
+- Use [`button-group`](button-group.md) when the actions should form a single surface with dividers or need an attached menu.
+- Use [`toggle-group`](toggle-group.md) when the buttons are options that turn on and off together, like bold and italic.
+- Use [`overflow-actions`](overflow-actions.md) when the bar needs to fit varying widths: this tray does not collapse or wrap.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -87,18 +87,18 @@ export default function FloatingButtonGroupDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FloatingButtonGroup`
 
 Separate soft buttons in a quiet tray. One shared highlight morphs, in position and size, to whichever button the pointer or keyboard focus is on, fades when the pointer leaves the tray, and settles darker in place while a button is pressed. It is the toolbar's only hover and focus indicator. Arrow keys move focus, Home and End jump to the ends, Enter and Space act.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `readonly FloatingButtonGroupItem[]` | — | — |
-| `label` (obrigatória) | `string` | — | Accessible name of the toolbar, such as "Board actions". |
+| `items` (required) | `readonly FloatingButtonGroupItem[]` | — | — |
+| `label` (required) | `string` | — | Accessible name of the toolbar, such as "Board actions". |
 | `variant` | `"muted" \| "floating"` | `"muted"` | muted sits quietly on a page; floating raises the tray with the floating shadow for overlays such as a selection toolbar. |
 | `size` | `"sm" \| "md"` | `"md"` | — |
 | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | — |
@@ -108,9 +108,9 @@ Separate soft buttons in a quiet tray. One shared highlight morphs, in position 
 | `className` | `string` | — | — |
 | `style` | `CSSProperties` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `FloatingButtonGroupVariant` | `"muted" \| "floating"` |
 | `FloatingButtonGroupSize` | `"sm" \| "md"` |
@@ -119,11 +119,11 @@ Separate soft buttons in a quiet tray. One shared highlight morphs, in position 
 
 #### `FloatingButtonGroupAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `type` | `"action"` | — |
-| `id` (obrigatória) | `string` | Stable key, also passed to onAction. |
-| `label` (obrigatória) | `string` | Visible label, and the accessible name when the item shows only its icon. |
+| `id` (required) | `string` | Stable key, also passed to onAction. |
+| `label` (required) | `string` | Visible label, and the accessible name when the item shows only its icon. |
 | `icon` | `ReactNode` | — |
 | `iconOnly` | `boolean` | Shows only the icon. The label moves into a tooltip and the accessible name. Overrides the group's iconOnly. |
 | `onSelect` | `() => void` | — |
@@ -134,44 +134,44 @@ Separate soft buttons in a quiet tray. One shared highlight morphs, in position 
 
 #### `FloatingButtonGroupSeparator`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `type` (obrigatória) | `"separator"` | — |
+| `type` (required) | `"separator"` | — |
 | `id` | `string` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Entra e sai da barra numa parada só; o foco volta à última ação focada. |
-| `→` ou `←` | Movem o foco entre as ações habilitadas e dão a volta nas pontas; na orientação `vertical`, use `↓` e `↑`. |
-| `Home` ou `End` | Vão para a primeira e a última ação habilitada. |
-| `Enter` ou `Espaço` | Executam a ação em foco; o realce escurece enquanto a tecla está pressionada. |
-| `Esc` | Fecha o tooltip aberto (comportamento do Radix). |
+| `Tab` | Enters and leaves the bar in a single stop; focus returns to the last focused action. |
+| `→` or `←` | Move focus between enabled actions and wrap around at the ends; in the `vertical` orientation, use `↓` and `↑`. |
+| `Home` or `End` | Go to the first and last enabled action. |
+| `Enter` or `Space` | Run the focused action; the highlight darkens while the key is held down. |
+| `Esc` | Closes the open tooltip (Radix behavior). |
 
-## Acessibilidade
+## Accessibility
 
-- A bandeja é `role="toolbar"` com `aria-orientation` e tabindex móvel; cada botão tem `aria-label` igual ao `label`, e `pressed` vira `aria-pressed` para ações de modo, como Apresentar.
-- Itens só com ícone ou com `shortcut` ganham um tooltip com o nome e o atalho, ao passar o mouse ou focar pelo teclado; `shortcut` é só uma dica, o componente não registra a tecla.
-- Itens `disabled` recebem `aria-disabled` e são pulados pelas setas, por `Home` e por `End`.
+- The tray is `role="toolbar"` with `aria-orientation` and a roving tabindex; each button has an `aria-label` equal to `label`, and `pressed` becomes `aria-pressed` for mode actions, like Present.
+- Icon-only items or items with `shortcut` get a tooltip with the name and shortcut, on mouse hover or keyboard focus; `shortcut` is only a hint, the component does not register the key.
+- `disabled` items get `aria-disabled` and are skipped by the arrows, by `Home`, and by `End`.
 
-## Movimento
+## Motion
 
-- Um único realce se move e muda de tamanho até o botão sob o ponteiro ou em foco, numa mola sem ultrapassagem; vindo do nada, ele surge no lugar crescendo de 0,94, e esmaece quando o ponteiro sai.
-- Na pressão, o realce escurece e encolhe para 0,965 no lugar; um rótulo novo, como Compartilhar → Copiado, sobe de um leve desfoque sem mudar a largura se estiver em `reserveLabels`.
-- Com “reduzir movimento”, o realce salta para o botão sem escala e as cores mudam quase na hora.
+- A single highlight moves and resizes to the button under the pointer or in focus, on a spring with no overshoot; coming from nothing, it appears in place growing from 0.94, and fades when the pointer leaves.
+- On press, the highlight darkens and shrinks to 0.965 in place; a new label, like Share → Copied, rises from a slight blur without changing the width if it is in `reserveLabels`.
+- With “reduce motion”, the highlight jumps to the button with no scale and colors change almost instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A bandeja mantém sempre o tamanho natural: não quebra linha nem corta botões, então numa tela estreita ela transborda; use `iconOnly` ou menos itens.
-- Na orientação `vertical`, os tooltips abrem à direita por padrão (`tooltipSide`), para não cobrir o botão vizinho.
+- The tray always keeps its natural size: it does not wrap or clip buttons, so on a narrow screen it overflows; use `iconOnly` or fewer items.
+- In the `vertical` orientation, tooltips open to the right by default (`tooltipSide`), so they do not cover the neighboring button.
 
-## Notas para IA
+## Notes for AI
 
-- Depende de `tooltip`, instalado junto; cada ação precisa de `id` e `label`, e um item `{ type: "separator" }` desenha uma divisória.
-- Para ações de modo, passe `pressed` controlado pelo pai e alterne no `onSelect`; `onAction(id)` roda depois do `onSelect` do item, bom para registrar uso.
-- Se um rótulo muda depois do clique, liste todos os textos em `reserveLabels`; `iconOnly` no grupo vale para todos os itens, e o `iconOnly` de cada item tem prioridade.
+- Depends on `tooltip`, installed alongside; each action needs `id` and `label`, and an item `{ type: "separator" }` draws a divider.
+- For mode actions, pass `pressed` controlled by the parent and toggle it in `onSelect`; `onAction(id)` runs after the item's `onSelect`, good for logging usage.
+- If a label changes after the click, list all the texts in `reserveLabels`; `iconOnly` on the group applies to all items, and each item's `iconOnly` takes priority.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/floating-button-group · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/floating-button-group · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

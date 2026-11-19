@@ -2,48 +2,48 @@
 
 > Gráfico de várias linhas com mira deslizante, legenda interativa e curvas que se transformam entre períodos.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/line-chart
-- Descrição original (inglês): A multi-series line chart with a gliding crosshair, legend toggles, and paths that morph between ranges.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/line-chart
+- Original description: A multi-series line chart with a gliding crosshair, legend toggles, and paths that morph between ranges.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/line-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/line-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/line-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/line-chart.json`. Caminho do registro, relativo ao endereço do site: `r/line-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/line-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/line-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/line-chart.json`. Registry path, relative to the site address: `r/line-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/line-chart/line-chart.tsx`
   - `components/ryan-ui/line-chart/line-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/line-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/line-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma ou mais medidas ao longo do tempo, quando a forma da tendência importa mais que um valor isolado.
-- Comparar o período atual com o anterior ou com uma meta, usando uma série tracejada (`dashed`).
-- Painéis com troca de intervalo (7, 14, 30 dias): com as mesmas `key`, as linhas se transformam em vez de redesenhar.
+- One or more measures over time, when the shape of the trend matters more than an isolated value.
+- Comparing the current period with the previous one or with a target, using a dashed series (`dashed`).
+- Dashboards with a range switch (7, 14, 30 days): with the same `key`s, the lines transform instead of redrawing.
 
-## Quando não usar
+## When not to use
 
-- Use [`sparkline`](sparkline.md) para uma tendência compacta ao lado de um número, sem eixos nem legenda.
-- Use [`bar-chart`](bar-chart.md) para comparar uma medida período a período, lendo cada barra contra a média.
-- Use [`brush-chart`](brush-chart.md) para séries densas em que a pessoa precisa ampliar uma janela de tempo.
+- Use [`sparkline`](sparkline.md) for a compact trend next to a number, with no axes or legend.
+- Use [`bar-chart`](bar-chart.md) to compare a measure period by period, reading each bar against the average.
+- Use [`brush-chart`](brush-chart.md) for dense series where the user needs to zoom into a time window.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -95,17 +95,17 @@ export default function LineChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `LineChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `LineChartDatum[]` | — | — |
-| `series` (obrigatória) | `LineChartSeries[]` | — | — |
-| `label` (obrigatória) | `string` | — | What is measured, such as "Signups". Names the chart for assistive technology. |
+| `data` (required) | `LineChartDatum[]` | — | — |
+| `series` (required) | `LineChartSeries[]` | — | — |
+| `label` (required) | `string` | — | What is measured, such as "Signups". Names the chart for assistive technology. |
 | `unit` | `string` | `""` | Unit after each value in the tooltip, such as "ms". |
 | `height` | `number` | `220` | Plot height in pixels. The width follows the container. |
 | `formatValue` | `(value: number, series: LineChartSeries) => string` | — | Formats values in the tooltip and data table. |
@@ -122,65 +122,65 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `LineChartSeries`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. A series keeps its line across data changes, so switching ranges morphs the path instead of redrawing it. |
-| `label` (obrigatória) | `string` | Name in the legend, the tooltip, and the data table. |
+| `key` (required) | `string` | Stable identity. A series keeps its line across data changes, so switching ranges morphs the path instead of redrawing it. |
+| `label` (required) | `string` | Name in the legend, the tooltip, and the data table. |
 | `color` | `string` | Any CSS color. Defaults to the accent for the first series, then quieter neutral steps. |
 | `dashed` | `boolean` | Draws a dashed stroke, useful for a previous period or a target. |
 | `area` | `boolean` | Fills the area under the line with a faint tint of its color. Defaults to true for the first series. |
 
 #### `LineChartDatum`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity, such as an ISO date. |
-| `label` (obrigatória) | `string` | Full label for the tooltip and screen readers, such as "Tue, Sep 15". |
+| `key` (required) | `string` | Stable identity, such as an ISO date. |
+| `label` (required) | `string` | Full label for the tooltip and screen readers, such as "Tue, Sep 15". |
 | `axisLabel` | `string` | Short label on the x axis, such as "Sep 15". Leave it out to keep the axis quiet at that point. |
-| `values` (obrigatória) | `Record<string, number \| undefined>` | One value per series key. A missing value counts as zero. |
+| `values` (required) | `Record<string, number \| undefined>` | One value per series key. A missing value counts as zero. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Com o foco no gráfico, movem a mira para o ponto anterior ou o próximo; `↓` e `↑` fazem o mesmo. |
-| `Page Up` ou `Page Down` | `Page Up` avança e `Page Down` recua cerca de um sexto dos pontos. |
-| `Home` ou `End` | Vão ao primeiro e ao último ponto. |
-| `Esc` | Solta a mira e esconde o tooltip. |
-| `Enter` ou `Espaço` | Nos botões da legenda, escondem ou mostram a série. |
-| `Tab` | Passa pelos botões da legenda e pelo gráfico; ao receber o foco pelo teclado, a mira começa no ponto mais recente. |
+| `←` or `→` | With focus on the chart, move the crosshair to the previous or next point; `↓` and `↑` do the same. |
+| `Page Up` or `Page Down` | `Page Up` moves forward and `Page Down` moves back about a sixth of the points. |
+| `Home` or `End` | Go to the first and last point. |
+| `Esc` | Releases the crosshair and hides the tooltip. |
+| `Enter` or `Space` | On the legend buttons, hide or show the series. |
+| `Tab` | Moves through the legend buttons and the chart; on receiving focus by keyboard, the crosshair starts at the most recent point. |
 
-## Acessibilidade
+## Accessibility
 
-- A área do gráfico é um `role="slider"` cujo `aria-valuetext` lê o ponto atual com o valor de cada série visível; SVG, eixos e tooltip ficam em `aria-hidden`.
-- Há um resumo oculto com o intervalo e o último valor de cada série, e uma tabela oculta com todos os pontos, cuja primeira coluna usa `categoryLabel`.
-- Os botões da legenda usam `aria-pressed`, e a série escondida fica com o nome riscado, não só sem cor; `label` é obrigatório, e `loading` marca a figura com `aria-busy`.
+- The chart area is a `role="slider"` whose `aria-valuetext` reads the current point with the value of each visible series; SVG, axes, and tooltip are `aria-hidden`.
+- There is a hidden summary with the range and the last value of each series, and a hidden table with all points, whose first column uses `categoryLabel`.
+- The legend buttons use `aria-pressed`, and a hidden series gets a struck-through name, not just a missing color; `label` is required, and `loading` marks the figure with `aria-busy`.
 
-## Movimento
+## Motion
 
-- Na primeira vez que entra na tela com dados, as linhas se desenham da esquerda para a direita em cerca de 0,8 s.
-- Trocar `data` transforma cada linha a partir da forma atual, mesmo com outro número de pontos, enquanto a escala e as linhas de grade se reajustam; esconder uma série a achata até a base.
-- A mira desliza entre os pontos e o tooltip a segue numa mola própria, mudando de lado antes de sair do gráfico; com “reduzir movimento”, tudo isso é imediato.
+- The first time it enters the viewport with data, the lines draw from left to right in about 0.8 s.
+- Swapping `data` transforms each line from its current shape, even with a different number of points, while the scale and gridlines readjust; hiding a series flattens it to the baseline.
+- The crosshair slides between points and the tooltip follows it on its own spring, switching sides before leaving the chart; with “reduced motion”, all of this is immediate.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura acompanha o contêiner e a altura é fixa pela prop `height` (220 px por padrão); o eixo de valores ocupa 48 px à direita.
-- O eixo de datas mostra no máximo um rótulo a cada 76 px, contando a partir do mais recente; no toque, pressionar e arrastar na horizontal move a mira.
+- The width follows the container and the height is fixed by the `height` prop (220 px by default); the value axis takes 48 px on the right.
+- The date axis shows at most one label every 76 px, counting from the most recent; on touch, pressing and dragging horizontally moves the crosshair.
 
-## Desempenho
+## Performance
 
-- Um único pintor escreve os caminhos direto no SVG a cada quadro, sem re-renderizar o React; a tabela oculta para leitor de tela tem uma linha por ponto, o que pesa com milhares de pontos.
+- A single painter writes the paths straight to the SVG on each frame, without re-rendering React; the hidden screen-reader table has one row per point, which is heavy with thousands of points.
 
-## Notas para IA
+## Notes for AI
 
-- `label`, `data` e `series` são obrigatórios; cada ponto traz `values` indexado pela `key` das séries, e um valor ausente conta como zero, não como lacuna.
-- Só os pontos com `axisLabel` ganham rótulo no eixo; a primeira série usa a cor de destaque com área preenchida, e as demais ficam em tons neutros até receberem `color`.
-- Use `onActiveChange` para alimentar um número de destaque fora do gráfico e `loading` para manter as linhas atuais esmaecidas enquanto o próximo intervalo carrega.
+- `label`, `data`, and `series` are required; each point carries `values` indexed by the series `key`, and a missing value counts as zero, not as a gap.
+- Only points with `axisLabel` get an axis label; the first series uses the accent color with a filled area, and the rest stay in neutral tones until they receive `color`.
+- Use `onActiveChange` to feed a highlight number outside the chart and `loading` to keep the current lines faded while the next range loads.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/line-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/line-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

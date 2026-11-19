@@ -9,13 +9,13 @@ button, input, select, textarea { font: inherit; letter-spacing: inherit; }
 img, svg { max-width: 100%; }
 code, pre, kbd { font-family: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace; }
 ::selection { background: color-mix(in oklab, var(--accent) 22%, transparent); }
-/* Medidas da casca do site (cabeçalho, barra lateral, coluna de conteúdo e índice da página). */
+/* Medidas da casca do site (cabeçalho, coluna de conteúdo e índice da página). */
 :root {
   --site-header-height: 4.0625rem; /* 64px + 1px de borda */
-  --site-max: 95rem; /* 1520px: largura máxima do conteúdo, centralizado em telas largas */
-  --site-gutter: clamp(1.125rem, 1.8vw, 1.625rem); /* 18px no celular, 26px no computador */
+  --site-max: 76rem; /* 1216px: largura máxima do conteúdo, centralizado em telas largas */
+  --site-gutter: clamp(1rem, 4vw, 2.5rem);
+  --site-content-pad: 0px; /* as páginas já ficam no contêiner central */
   --site-sidebar-width: 15.125rem; /* 242px */
-  --site-content-pad: clamp(1.125rem, 4vw, 4rem); /* respiro lateral do conteúdo: 57.6px em 1440, 64px no máximo */
   --site-rail-width: 12.5rem; /* índice "Nesta página": 200px */
   --site-rail-gap: 3.5rem; /* 56px entre o conteúdo e o índice */
   --site-mark: var(--accent-strong); /* linhas de destaque: sublinhado da aba ativa, marcador do índice */
@@ -27,3 +27,7 @@ code, pre, kbd { font-family: "Geist Mono Variable", ui-monospace, SFMono-Regula
    e o floating-ui passa a medir relativo a ele (o palco é o offsetParent). Assim o painel abre inteiro dentro do quadro,
    ao lado do gatilho, e nunca é cortado pela borda do palco nem escapa por cima da página. */
 [data-demo-stage] [data-radix-popper-content-wrapper] { position: absolute !important; }
+/* Identidade do site: fundo branco e azul. Só o site muda; os tokens que vão para os projetos ficam em foundation.css. */
+:root[data-theme="light"] { --background: #fff; --surface: #fff; --surface-raised: #fff; --surface-muted: #f4f5f6; --foreground: #14161a; --text-secondary: #565b66; --border: #e5e7eb; --border-subtle: #eff0f2; --border-strong: #c9cdd4; }
+:root[data-theme="light"][data-accent="blue"] { --accent: #1f5eff; --accent-strong: #1746c7; --accent-subtle: rgb(31 94 255 / .1); --accent-foreground: #fff; --control-on: #1f5eff; --control-fill: #1f5eff; --control-thumb-on: #fff; --control-glyph: #fff; --series-1: #1f5eff; }
+:root[data-theme="dark"][data-accent="blue"] { --accent-foreground: #071a3a; }

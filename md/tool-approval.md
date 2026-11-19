@@ -2,48 +2,48 @@
 
 > Pedido compacto para rodar uma ferramenta: permita uma vez, sempre ou negue, e ele se recolhe em uma linha de resultado.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-approval
-- Descrição original (inglês): A compact inline request to run a tool, with its arguments and allow once, always allow or deny, that collapses into a one-line result once decided.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-approval
+- Original description: A compact inline request to run a tool, with its arguments and allow once, always allow or deny, that collapses into a one-line result once decided.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json`. Caminho do registro, relativo ao endereço do site: `r/tool-approval.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-approval.json`. Registry path, relative to the site address: `r/tool-approval.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/tool-approval/tool-approval.tsx`
   - `components/ryan-ui/tool-approval/tool-approval.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/tool-approval.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/tool-approval.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Pedir permissão dentro da conversa antes de um agente rodar uma ferramenta, mostrando o nome dela e os argumentos exatos da chamada.
-- Quando a pessoa precisa de três saídas: permitir uma vez, permitir sempre ou negar.
-- Transcrições longas: depois da decisão, o pedido encolhe para uma linha que registra a resposta e pode ser reaberta com “Change”.
+- Ask permission inside the conversation before an agent runs a tool, showing its name and the exact arguments of the call.
+- When the person needs three outcomes: allow once, allow always or deny.
+- Long transcripts: after the decision, the request shrinks to a line that records the answer and can be reopened with “Change”.
 
-## Quando não usar
+## When not to use
 
-- Use [`approval-card`](approval-card.md) para uma decisão de negócio com resumo, detalhes em pares de rótulo e valor e um “Undo”.
-- Use [`tool-result`](tool-result.md) para registrar uma chamada que já rodou, com entrada, saída e duração.
-- Use [`dialog`](dialog.md) quando a decisão deve bloquear o resto da tela até ser tomada.
+- Use [`approval-card`](approval-card.md) for a business decision with a summary, details as label and value pairs and an “Undo”.
+- Use [`tool-result`](tool-result.md) to record a call that has already run, with input, output and duration.
+- Use [`dialog`](dialog.md) when the decision must block the rest of the screen until it is made.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -83,15 +83,15 @@ export default function ToolApprovalDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ToolApproval`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `tool` (obrigatória) | `string` | — | Name of the tool, as the agent calls it (for example "run_command"). |
+| `tool` (required) | `string` | — | Name of the tool, as the agent calls it (for example "run_command"). |
 | `args` | `Record<string, unknown> \| string` | — | Arguments of the call: an object shown as key and value lines, or a ready-made string. |
 | `description` | `string` | — | Why the agent wants to run it, in a short sentence. |
 | `icon` | `ReactNode` | — | Icon of the tool. |
@@ -102,42 +102,42 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `labels` | `Partial<Record<"once" \| "always" \| "deny" \| "allowedOnce" \| "allowedAlways" \| "denied" \| "change", string>>` | — | Button and result texts, to translate or reword them. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ToolDecision` | `"pending" \| "once" \| "always" \| "denied"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Percorre “Deny”, “Always allow” e “Allow once”, nessa ordem. |
-| `Enter` ou `Espaço` | Num botão de decisão, decide e leva o foco ao “Change” da linha de resultado, ou ao próprio pedido com `allowChange={false}`. |
-| `Enter` ou `Espaço` | Em “Change”, reabre o pedido e leva o foco a “Allow once”. |
+| `Tab` | Moves through “Deny”, “Always allow” and “Allow once”, in that order. |
+| `Enter` or `Space` | On a decision button, decides and moves focus to the “Change” of the result line, or to the request itself with `allowChange={false}`. |
+| `Enter` or `Space` | On “Change”, reopens the request and moves focus to “Allow once”. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é um `role="group"` com o nome “Permission request for” mais o `tool`, e os argumentos ficam num grupo “Arguments”; um valor cortado mostra o texto inteiro no `title`.
-- Quando a decisão sai de um botão do pedido, o foco vai para o botão que o substitui e não cai no `body`; o resultado fica numa região `role="status"`.
-- “Wants to run”, “Permission request for” e “Arguments” estão fixos em inglês; os textos dos botões e do resultado se traduzem por `labels`.
+- The root is a `role="group"` named “Permission request for” plus the `tool`, and the arguments sit in an “Arguments” group; a truncated value shows the full text in `title`.
+- When the decision comes from a button in the request, focus goes to the button that replaces it and does not fall to `body`; the result sits in a `role="status"` region.
+- “Wants to run”, “Permission request for” and “Arguments” are fixed in English; the button and result texts are translated through `labels`.
 
-## Movimento
+## Motion
 
-- Ao decidir, o pedido sai subindo com um desfoque leve, a linha de resultado entra no lugar e a moldura acompanha a nova altura com uma mola.
-- O ícone do resultado se desenha: um visto para permitir e um xis em dois traços para negar.
-- Com “reduzir movimento” ligado, as trocas são só de opacidade, a altura muda na hora e os ícones já aparecem desenhados.
+- On decision, the request leaves upward with a light blur, the result line enters in its place and the frame follows the new height with a spring.
+- The result icon draws itself: a check mark for allow and a two-stroke X for deny.
+- With “reduce motion” on, swaps are opacity-only, the height changes instantly and the icons appear already drawn.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- É um contêiner de largura: abaixo de 21rem os dois botões de permitir dividem uma linha e “Deny” desce para baixo deles, em largura total; na linha de resultado, o argumento some.
+- It is a width container: below 21rem the two allow buttons share one row and “Deny” drops below them, at full width; in the result line, the argument disappears.
 
-## Notas para IA
+## Notes for AI
 
-- Pause o agente até `onDecisionChange` trazer `once`, `always` ou `denied`; a regra de “Always allow” é sua, porque o componente só registra a escolha.
-- `args` aceita um objeto (uma linha `chave: valor` por campo, valores que não são texto em JSON) ou uma string com quebras de linha; a linha de resultado mostra só o primeiro valor.
-- Traduza com `labels` (`once`, `always`, `deny`, `allowedOnce`, `allowedAlways`, `denied`, `change`); para o histórico, renderize pedidos já decididos com `defaultDecision`.
+- Pause the agent until `onDecisionChange` returns `once`, `always` or `denied`; the “Always allow” rule is yours, because the component only records the choice.
+- `args` accepts an object (one `chave: valor` line per field, non-text values as JSON) or a string with line breaks; the result line shows only the first value.
+- Translate with `labels` (`once`, `always`, `deny`, `allowedOnce`, `allowedAlways`, `denied`, `change`); for history, render already-decided requests with `defaultDecision`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-approval · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-approval · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -46,7 +46,7 @@ export function InstallChip({ item }: { item: CatalogItem }) {
     <div className={styles.chip}>
       <span className={styles.prompt} aria-hidden="true">$</span>
       <code className={styles.command} title={command}><span className={styles.head}>{command.slice(0, cut)}</span><span className={styles.tail}>{command.slice(cut)}</span></code>
-      <CopyButton iconOnly className={styles.chipCopy} value={command} label="Copiar o comando de instalação" />
+      <CopyButton iconOnly className={styles.chipCopy} value={command} label="Copy install command" />
     </div>
   );
 }
@@ -54,7 +54,7 @@ export function InstallChip({ item }: { item: CatalogItem }) {
 /** As pílulas pnpm / npm / yarn / bun no cabeçalho de um cartão de comando. */
 function ManagerTabs({ base, panel }: { base: string; panel: string }) {
   const pm = usePackageManager();
-  return <TabList variant="pill" base={base} label="Gerenciador de pacotes" items={managers.map(value => ({ value, label: value }))} value={pm} onChange={setManager} panel={panel} />;
+  return <TabList variant="pill" base={base} label="Package manager" items={managers.map(value => ({ value, label: value }))} value={pm} onChange={setManager} panel={panel} />;
 }
 
 function CommandCard({ label, command }: { label: string; command: (pm: PackageManager) => string }) {
@@ -66,7 +66,7 @@ function CommandCard({ label, command }: { label: string; command: (pm: PackageM
 
 /** "a, b e c": junta nomes numa frase. */
 function sentence(parts: ReactNode[]) {
-  return parts.map((part, index) => <Fragment key={index}>{index === 0 ? "" : index === parts.length - 1 ? " e " : ", "}{part}</Fragment>);
+  return parts.map((part, index) => <Fragment key={index}>{index === 0 ? "" : index === parts.length - 1 ? " and " : ", "}{part}</Fragment>);
 }
 
 interface InstallSectionProps {
@@ -87,17 +87,17 @@ export function InstallSection({ item, targets, onOpenCode }: InstallSectionProp
   const shownRequires = requires.slice(0, 3);
 
   return (
-    <Section id="instalacao" title="Instalação" intro={<>Adicione {item.title} com a CLI do shadcn, ou copie o código à mão.</>}>
-      <TabList className={styles.modes} base={base} label="Forma de instalar" hairline items={[{ value: "cli", label: "CLI" }, { value: "manual", label: "Manual" }]} value={mode} onChange={setMode} />
+    <Section id="instalacao" title="Installation" intro={<>Add {item.title} with the shadcn CLI, or copy the code by hand.</>}>
+      <TabList className={styles.modes} base={base} label="Install method" hairline items={[{ value: "cli", label: "CLI" }, { value: "manual", label: "Manual" }]} value={mode} onChange={setMode} />
       <div role="tabpanel" id={panelId(base, mode)} aria-labelledby={tabId(base, mode)} className={styles.panel}>
         {mode === "cli" ? (
           <>
-            <CommandCard label={`Comando para instalar ${item.title}`} command={pm => installCommand(pm, item.name)} />
+            <CommandCard label={`Command to install ${item.title}`} command={pm => installCommand(pm, item.name)} />
             <p className={styles.note}>
-              Copia o código do item para o seu projeto
-              {packages.length ? <> e instala {sentence(packages.map(name => <InlineCode key={name}>{name}</InlineCode>))}</> : null}.
-              {requires.length ? <> Traz junto {sentence([...shownRequires.map(entry => <a key={entry.name} href={href(itemPath(entry))}>{entry.title}</a>), ...(requires.length > shownRequires.length ? [`mais ${requires.length - shownRequires.length}`] : [])])}.</> : null}
-              {" "}Primeira vez? <a href={href("/docs/instalacao")}>Instale a base</a> (os tokens e o CSS) antes; é uma vez só.
+              Copies the item code into your project
+              {packages.length ? <> and installs {sentence(packages.map(name => <InlineCode key={name}>{name}</InlineCode>))}</> : null}.
+              {requires.length ? <> Also brings in {sentence([...shownRequires.map(entry => <a key={entry.name} href={href(itemPath(entry))}>{entry.title}</a>), ...(requires.length > shownRequires.length ? [`${requires.length - shownRequires.length} more`] : [])])}.</> : null}
+              {" "}First time? <a href={href("/docs")}>Install the foundation</a> (the tokens and CSS) first; you only do it once.
             </p>
           </>
         ) : (
@@ -105,19 +105,19 @@ export function InstallSection({ item, targets, onOpenCode }: InstallSectionProp
             <li>
               {packages.length ? (
                 <>
-                  <p>Instale os pacotes que o item usa.</p>
-                  <CommandCard label="Comando para instalar os pacotes" command={pm => `${adder[pm]} ${packages.join(" ")}`} />
+                  <p>Install the packages the item uses.</p>
+                  <CommandCard label="Command to install the packages" command={pm => `${adder[pm]} ${packages.join(" ")}`} />
                 </>
-              ) : <p>Este item não usa nenhum pacote além do React: não há nada para instalar.</p>}
+              ) : <p>This item uses no packages besides React: there is nothing to install.</p>}
             </li>
             <li>
-              <p>Copie os arquivos da aba <button type="button" className={styles.inlineButton} onClick={onOpenCode}>Código</button>, no topo da página, para estes caminhos:</p>
-              {targets === "error" ? <p className={styles.muted}>A lista de arquivos não carregou. Os caminhos aparecem na aba Código.</p>
-                : targets === null ? <p className={styles.muted}>Carregando a lista de arquivos…</p>
+              <p>Copy the files from the <button type="button" className={styles.inlineButton} onClick={onOpenCode}>Code</button> tab at the top of the page to these paths:</p>
+              {targets === "error" ? <p className={styles.muted}>The file list did not load. The paths appear in the Code tab.</p>
+                : targets === null ? <p className={styles.muted}>Loading the file list…</p>
                 : <ul className={styles.files}>{targets.map(target => <li key={target}><InlineCode>{installedPath(target)}</InlineCode></li>)}</ul>}
             </li>
             <li>
-              <p>Garanta que <InlineCode>foundation.css</InlineCode> (os tokens) e <InlineCode>motion-tokens.ts</InlineCode> já estão no projeto. <a href={href("/docs/instalacao")}>Como instalar a base</a>.</p>
+              <p>Make sure <InlineCode>foundation.css</InlineCode> (the tokens) and <InlineCode>motion-tokens.ts</InlineCode> are already in your project. <a href={href("/docs")}>How to install the foundation</a>.</p>
             </li>
           </ol>
         )}

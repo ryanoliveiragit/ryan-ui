@@ -2,48 +2,48 @@
 
 > Caixa de prompt que cresce com o texto, com anexos, menu de modelo e um botão de enviar que vira parar durante a resposta.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/prompt-input
-- Descrição original (inglês): An auto-growing prompt box with attachment chips and a model menu whose send button morphs into stop while a response runs; Enter sends and Shift+Enter adds a line.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/prompt-input
+- Original description: An auto-growing prompt box with attachment chips and a model menu whose send button morphs into stop while a response runs; Enter sends and Shift+Enter adds a line.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prompt-input.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prompt-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prompt-input.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prompt-input.json`. Caminho do registro, relativo ao endereço do site: `r/prompt-input.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prompt-input.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prompt-input.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/prompt-input.json`. Registry path, relative to the site address: `r/prompt-input.json`.
 
-- Pacotes npm: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/prompt-input/prompt-input.tsx`
   - `components/ryan-ui/prompt-input/prompt-input.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/prompt-input.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/prompt-input.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- A caixa de prompt de um assistente: cresce com o texto, envia com Enter e quebra linha com Shift + Enter.
-- Respostas que podem ser interrompidas: com `running`, o botão de enviar vira um botão de parar no mesmo lugar.
-- Pedidos com anexos em chips e um menu para escolher o modelo, tudo dentro da mesma caixa.
+- An assistant's prompt box: grows with the text, sends with Enter and inserts a line break with Shift + Enter.
+- Replies that can be interrupted: with `running`, the send button becomes a stop button in the same place.
+- Requests with attachments as chips and a menu to choose the model, all inside the same box.
 
-## Quando não usar
+## When not to use
 
-- Use [`textarea`](textarea.md) para um campo de várias linhas num formulário, sem envio por Enter nem botão de parar.
-- Use [`mention-input`](mention-input.md) quando o texto precisa de menções a pessoas com @ ou a canais com #.
-- Use [`chat-app`](chat-app.md) quando quiser a tela de chat inteira, com conversa, respostas em streaming e caixa de prompt já ligadas.
+- Use [`textarea`](textarea.md) for a multi-line field in a form, with no send on Enter or stop button.
+- Use [`mention-input`](mention-input.md) when the text needs mentions of people with @ or channels with #.
+- Use [`chat-app`](chat-app.md) when you want the whole chat screen, with conversation, streaming replies and prompt box already wired up.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useEffect, useRef, useState } from "react";
@@ -106,13 +106,13 @@ export default function PromptInputDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PromptInput`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `string` | — | Controlled text. |
 | `defaultValue` | `string` | `""` | Text the box starts with when uncontrolled. |
@@ -136,66 +136,66 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `container` | `HTMLElement \| null` | — | Render the model menu inside this element and limit collisions to it (used by the demo stages). |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
 #### `PromptAttachment`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable id, used as the key and passed back on removal. |
-| `name` (obrigatória) | `string` | File or item name shown on the chip. |
+| `id` (required) | `string` | Stable id, used as the key and passed back on removal. |
+| `name` (required) | `string` | File or item name shown on the chip. |
 | `detail` | `string` | Short note after the name, such as a size or a type. |
 
 #### `PromptModel`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Value reported by `onModelChange` and `onSubmit`. |
-| `label` (obrigatória) | `string` | Name shown on the trigger and in the menu. |
+| `id` (required) | `string` | Value reported by `onModelChange` and `onSubmit`. |
+| `label` (required) | `string` | Name shown on the trigger and in the menu. |
 | `description` | `string` | One line under the name in the menu. |
 
 #### `PromptSubmission`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | The trimmed prompt text. |
-| `attachments` (obrigatória) | `PromptAttachment[]` | Attachments on the prompt when it was sent. |
+| `value` (required) | `string` | The trimmed prompt text. |
+| `attachments` (required) | `PromptAttachment[]` | Attachments on the prompt when it was sent. |
 | `model` | `string` | Selected model id, when models are given. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | Na caixa de texto, envia quando há texto ou anexo; durante a composição de um IME não envia. |
-| `Shift + Enter` | Quebra a linha sem enviar; a caixa cresce até `maxRows` linhas e depois rola por dentro. |
-| `Enter` ou `Espaço` ou `↓` | No seletor de modelo, abre o menu com o foco no primeiro modelo. |
-| `↑` ou `↓` ou `Home` ou `End` | No menu, move entre os modelos; as setas dão a volta do último ao primeiro. |
-| `Enter` ou `Espaço` | No menu, escolhe o modelo em foco, fecha o menu e devolve o foco ao seletor. |
-| `Esc` | Fecha o menu sem trocar o modelo e devolve o foco ao seletor. |
+| `Enter` | In the text box, sends when there is text or an attachment; during IME composition it does not send. |
+| `Shift + Enter` | Inserts a line break without sending; the box grows up to `maxRows` rows and then scrolls internally. |
+| `Enter` or `Space` or `↓` | On the model selector, opens the menu with focus on the first model. |
+| `↑` or `↓` or `Home` or `End` | In the menu, moves between models; the arrows wrap from the last to the first. |
+| `Enter` or `Space` | In the menu, chooses the focused model, closes the menu and returns focus to the selector. |
+| `Esc` | Closes the menu without changing the model and returns focus to the selector. |
 
-## Acessibilidade
+## Accessibility
 
-- A caixa de texto tem o nome de `label` (padrão “Prompt”) e a descrição oculta “Press Enter to send, Shift and Enter for a new line.” por `aria-describedby`; a dica visível fica `aria-hidden`.
-- Os botões só de ícone têm `aria-label` fixo em inglês (“Attach files”, “Remove …”, “Send prompt”, “Stop response”), o seletor se anuncia como “Model: …” e o menu é um grupo de rádio do Radix.
-- Depois de enviar, o foco volta para a caixa de texto; enviar e parar são o mesmo `<button>`, que só troca o `aria-label`, e o parar fica desativado sem `onStop`.
+- The text box is named by `label` (default “Prompt”) and has the hidden description “Press Enter to send, Shift and Enter for a new line.” via `aria-describedby`; the visible hint is `aria-hidden`.
+- The icon-only buttons have a fixed English `aria-label` (“Attach files”, “Remove …”, “Send prompt”, “Stop response”), the selector announces itself as “Model: …” and the menu is a Radix radio group.
+- After sending, focus returns to the text box; send and stop are the same `<button>`, which only changes its `aria-label`, and stop is disabled without `onStop`.
 
-## Movimento
+## Motion
 
-- A caixa acompanha a altura do texto com uma mola curta; a bandeja de anexos abre a própria altura, cada chip entra crescendo e os outros deslizam quando um sai.
-- Quando `running` vira `true`, a seta sai para cima, um quadrado de parar cresce no lugar e um arco gira em volta do botão; o nome do modelo troca deslizando na vertical.
-- Com “reduzir movimento” ligado, a altura troca na hora, chips e ícones só esmaecem, o arco para e o menu aparece com um esmaecer rápido.
+- The box follows the text height with a short spring; the attachment tray opens to its own height, each chip enters growing and the others slide when one leaves.
+- When `running` becomes `true`, the arrow leaves upward, a stop square grows in its place and an arc spins around the button; the model name swaps by sliding vertically.
+- With “reduce motion” on, the height changes instantly, chips and icons only fade, the arc stops and the menu appears with a quick fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- É um contêiner de largura: abaixo de 22rem a dica “Enter to send” some; o nome do modelo corta com reticências, e o nome de cada anexo também, a partir de 11rem.
-- O menu de modelos abre acima do seletor, com pelo menos 15rem de largura, e o Radix o reposiciona para caber na tela, com 12 px de folga.
+- It is a width container: below 22rem the “Enter to send” hint disappears; the model name truncates with an ellipsis, and so does each attachment name, from 11rem.
+- The model menu opens above the selector, at least 15rem wide, and Radix repositions it to fit on screen, with 12 px of clearance.
 
-## Notas para IA
+## Notes for AI
 
-- Ligue `onSubmit`, que recebe `value` já aparado, `attachments` e `model`, e controle `running` com `onStop`; sem `onStop`, o botão de parar fica desativado durante a resposta.
-- Sem `onAttach`, o botão abre o seletor do sistema e cria chips só com nome e tamanho, sem guardar o `File`; para enviar arquivos de verdade, passe `onAttach` e controle `attachments`.
-- Por padrão, texto e anexos são limpos após o envio (`clearOnSubmit`); com `models` vazio o menu some, e `model` com `onModelChange` deixa a escolha controlada.
+- Wire up `onSubmit`, which receives the already-trimmed `value`, `attachments` and `model`, and control `running` with `onStop`; without `onStop`, the stop button is disabled during the reply.
+- Without `onAttach`, the button opens the system picker and creates chips with only name and size, without keeping the `File`; to actually send files, pass `onAttach` and control `attachments`.
+- By default, text and attachments are cleared after sending (`clearOnSubmit`); with empty `models` the menu disappears, and `model` with `onModelChange` makes the choice controlled.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/prompt-input · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/prompt-input · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

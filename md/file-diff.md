@@ -2,48 +2,48 @@
 
 > Diff unificado de um arquivo, com números de linha, contagem de mudanças e trechos iguais que se abrem com um clique.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-diff
-- Descrição original (inglês): A unified diff of one file with line numbers, tinted added and removed lines, header stats, and unchanged ranges that fold into a row and spring open.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-diff
+- Original description: A unified diff of one file with line numbers, tinted added and removed lines, header stats, and unchanged ranges that fold into a row and spring open.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json`. Caminho do registro, relativo ao endereço do site: `r/file-diff.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-diff.json`. Registry path, relative to the site address: `r/file-diff.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/file-diff/file-diff.tsx`
   - `components/ryan-ui/file-diff/file-diff.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/file-diff.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/file-diff.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar a alteração que um agente fez ou propõe num arquivo, a partir do texto de antes e de depois.
-- Revisões em que importa ver o trecho exato que mudou dentro da linha e quantas linhas entraram e saíram.
-- Arquivos novos, apagados ou renomeados: o cabeçalho ganha a etiqueta “New file”, “Deleted” ou “Renamed” e, no último caso, o caminho anterior.
+- Show the change an agent made or proposes to a file, from the before and after text.
+- Reviews where it matters to see the exact span that changed within the line and how many lines were added and removed.
+- New, deleted or renamed files: the header gets the “New file”, “Deleted” or “Renamed” label and, in the last case, the previous path.
 
-## Quando não usar
+## When not to use
 
-- Use [`code-block`](code-block.md) para mostrar código sem comparação, com botão de copiar.
-- Use [`image-compare`](image-compare.md) quando a diferença é visual, entre duas imagens.
-- Para diff lado a lado, com cores de sintaxe ou de arquivos enormes, procure outra solução: aqui o diff é unificado, sem realce de sintaxe e calculado no navegador.
+- Use [`code-block`](code-block.md) to show code without a comparison, with a copy button.
+- Use [`image-compare`](image-compare.md) when the difference is visual, between two images.
+- For side-by-side diffs, with syntax colors or for huge files, look for another solution: here the diff is unified, without syntax highlighting and computed in the browser.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -186,20 +186,20 @@ export default function FileDiffDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FileDiff`
 
 A unified diff of one file, computed from the text before and after. Changed lines carry line numbers, a sign and a tint; the part of a line that actually changed is marked. Long unchanged runs fold into one row that springs open, and the header counts additions and removals.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `filename` (obrigatória) | `string` | — | Path of the file, shown in the header. The last segment is emphasized. |
+| `filename` (required) | `string` | — | Path of the file, shown in the header. The last segment is emphasized. |
 | `previousFilename` | `string` | — | Earlier path, when the change also renamed the file. |
-| `before` (obrigatória) | `string` | — | Text of the file before the change. Empty for a new file. |
-| `after` (obrigatória) | `string` | — | Text of the file after the change. Empty for a deleted file. |
+| `before` (required) | `string` | — | Text of the file before the change. Empty for a new file. |
+| `after` (required) | `string` | — | Text of the file after the change. Empty for a deleted file. |
 | `context` | `number` | `3` | Unchanged lines kept visible around every change. Longer unchanged runs fold into one expandable row. |
 | `maxHeight` | `number \| string` | — | Tallest the diff body grows before it scrolls, as a CSS length or a number of pixels. |
 | `open` | `boolean` | — | Whether the diff body is open (controlled). |
@@ -207,42 +207,42 @@ A unified diff of one file, computed from the text before and after. Changed lin
 | `onOpenChange` | `(open: boolean) => void` | — | Called when the header toggle opens or closes the diff body. |
 | `className` | `string` | — | Class name added to the root element. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Percorre os botões do cabeçalho, a área do diff (que é focável) e as faixas dobradas. |
-| `Enter` ou `Espaço` | Aciona o botão em foco: recolher o arquivo, mostrar ou dobrar todas as linhas inalteradas, ou abrir uma faixa dobrada. |
-| `↑` ou `↓` ou `←` ou `→` | Com o foco na área do diff, rolam o conteúdo; é a rolagem nativa de uma região com `tabIndex={0}`. |
+| `Tab` | Moves through the header buttons, the diff area (which is focusable) and the folded ranges. |
+| `Enter` or `Space` | Activates the focused button: collapse the file, show or fold all unchanged lines, or open a folded range. |
+| `↑` or `↓` or `←` or `→` | With focus on the diff area, scroll the content; this is the native scrolling of a region with `tabIndex={0}`. |
 
-## Acessibilidade
+## Accessibility
 
-- A área do diff é um `role="group"` focável, rotulado com o nome do arquivo e as contagens; números e sinais ficam `aria-hidden`, e cada linha alterada começa com “Added:” ou “Removed:” só para leitor de tela.
-- Os botões do cabeçalho têm `aria-label`, `aria-expanded` ou `aria-pressed`; ao abrir uma faixa dobrada, o foco passa para as linhas reveladas, porque o botão deixa de existir.
-- Com o arquivo recolhido, o corpo fica `inert`; todos os rótulos estão fixos em inglês.
+- The diff area is a focusable `role="group"`, labeled with the file name and the counts; numbers and signs are `aria-hidden`, and each changed line starts with “Added:” or “Removed:” for screen readers only.
+- The header buttons have `aria-label`, `aria-expanded` or `aria-pressed`; when a folded range is opened, focus moves to the revealed lines, because the button stops existing.
+- With the file collapsed, the body is `inert`; all labels are fixed in English.
 
-## Movimento
+## Motion
 
-- As linhas entram em sequência, com um atraso curto entre elas (igual a partir da 25ª), e os cinco blocos do cabeçalho aparecem um após o outro.
-- O corpo abre e fecha com uma mola de altura; uma faixa dobrada cresce a partir dos 32 px da própria linha, sem pulo.
-- Com “reduzir movimento” ligado, as linhas aparecem de uma vez e as alturas trocam na hora.
+- Lines enter in sequence, with a short delay between them (the same from the 25th on), and the five header blocks appear one after another.
+- The body opens and closes with a height spring; a folded range grows from the 32 px of its own row, without a jump.
+- With “reduce motion” on, the lines appear all at once and heights change instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Linhas longas não quebram: o corpo rola na horizontal com a coluna de números presa à esquerda, e `maxHeight` limita a altura e liga a rolagem vertical.
-- Abaixo de 26rem de largura do próprio componente (container query), os cinco blocos somem; no caminho, o diretório corta com reticências antes do nome do arquivo.
+- Long lines do not wrap: the body scrolls horizontally with the number column pinned to the left, and `maxHeight` limits the height and turns on vertical scrolling.
+- Below 26rem of the component's own width (container query), the five blocks disappear; in the path, the directory truncates with an ellipsis before the file name.
 
-## Desempenho
+## Performance
 
-- O diff é calculado no navegador por LCS: depois de aparar o início e o fim iguais, a tabela tem o tamanho de (linhas do meio antes) × (linhas do meio depois); o resultado é memorizado por `before` e `after`.
-- Não há virtualização: cada linha visível é um nó no DOM; as faixas inalteradas dobradas não são renderizadas, então mantenha `context` baixo em arquivos grandes.
+- The diff is computed in the browser by LCS: after trimming the equal start and end, the table has the size of (middle lines before) × (middle lines after); the result is memoized by `before` and `after`.
+- There is no virtualization: each visible line is a DOM node; folded unchanged ranges are not rendered, so keep `context` low on large files.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `filename`, `before` e `after` com o texto completo: `before` vazio indica arquivo novo e `after` vazio, arquivo apagado; o componente não lê um patch pronto.
-- `context` (padrão 3) define quantas linhas iguais ficam em volta de cada mudança; trechos maiores dobram numa linha clicável, e um diff novo volta a começar dobrado.
-- Para vários arquivos, renderize um `FileDiff` por arquivo e use `defaultOpen={false}` ou o par `open` e `onOpenChange` para deixar só alguns abertos.
+- Pass `filename`, `before` and `after` with the full text: an empty `before` indicates a new file and an empty `after`, a deleted file; the component does not read a ready-made patch.
+- `context` (default 3) defines how many equal lines stay around each change; larger spans fold into a clickable line, and a new diff starts folded again.
+- For several files, render one `FileDiff` per file and use `defaultOpen={false}` or the `open` and `onOpenChange` pair to leave only some open.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-diff · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-diff · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

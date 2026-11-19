@@ -2,48 +2,48 @@
 
 > Linha do tempo ao vivo do que o agente está fazendo: a etapa atual pulsa e as concluídas se recolhem num resumo.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-activity
-- Descrição original (inglês): A live timeline of an agent at work: the current step pulses and collects what it finds as chips, and finished steps fold into one summary row that opens again.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-activity
+- Original description: A live timeline of an agent at work: the current step pulses and collects what it finds as chips, and finished steps fold into one summary row that opens again.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json`. Caminho do registro, relativo ao endereço do site: `r/agent-activity.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/agent-activity.json`. Registry path, relative to the site address: `r/agent-activity.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/agent-activity/agent-activity.tsx`
   - `components/ryan-ui/agent-activity/agent-activity.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/agent-activity.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/agent-activity.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar ao vivo o que um agente faz numa tarefa longa: cada passo tem um tipo (`search`, `read`, `write`, `think`, `run`) que escolhe o ícone.
-- Passos que coletam achados curtos, como arquivos, sites ou resultados: eles aparecem como chips, um a um, enquanto a lista `items` cresce.
-- Execuções com muitos passos, em que os concluídos devem dobrar numa linha só, com contagem e tempo total, e abrir de novo sob demanda.
+- Show live what an agent is doing on a long task: each step has a type (`search`, `read`, `write`, `think`, `run`) that picks the icon.
+- Steps that collect short findings, such as files, sites or results: they appear as chips, one by one, as the `items` list grows.
+- Runs with many steps, where finished steps should fold into a single line with a count and total time, and reopen on demand.
 
-## Quando não usar
+## When not to use
 
-- Use [`todo-list`](todo-list.md) quando o plano inteiro é conhecido desde o início e basta marcar cada passo como pendente, em andamento ou concluído.
-- Use [`tool-result`](tool-result.md) quando é preciso mostrar a entrada e a saída completas de cada chamada de ferramenta.
-- Use [`loading-states`](loading-states.md) para uma espera curta, sem passos para listar.
+- Use [`todo-list`](todo-list.md) when the whole plan is known from the start and you only need to mark each step as pending, in progress or done.
+- Use [`tool-result`](tool-result.md) when you need to show the full input and output of each tool call.
+- Use [`loading-states`](loading-states.md) for a short wait, with no steps to list.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useEffect, useMemo, useState } from "react";
@@ -108,71 +108,71 @@ export default function AgentActivityDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AgentActivity`
 
 A live timeline of what an agent is doing. The step in progress pulses and collects what it finds as chips; a step that finishes leaves the live list and folds into one summary row that counts steps and time, which opens to show them again.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `steps` (obrigatória) | `AgentStep[]` | — | The steps in order. Update their status as the agent works. |
+| `steps` (required) | `AgentStep[]` | — | The steps in order. Update their status as the agent works. |
 | `title` | `string` | `"Agent activity"` | Heading of the timeline: usually the task the agent was given. |
 | `expanded` | `boolean` | — | Whether the finished steps are shown in full (controlled). |
 | `defaultExpanded` | `boolean` | `false` | Whether the finished steps start shown in full (uncontrolled). By default they fold into one summary row. |
 | `onExpandedChange` | `(expanded: boolean) => void` | — | Called when the summary row opens or closes the finished steps. |
 | `className` | `string` | — | Class name added to the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `AgentStepKind` | `"search" \| "read" \| "write" \| "think" \| "run"` |
 | `AgentStepStatus` | `"pending" \| "running" \| "done" \| "error"` |
 
 #### `AgentStep`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable id of the step. |
-| `kind` (obrigatória) | `"search" \| "read" \| "write" \| "think" \| "run"` | What kind of work the step is; it picks the icon. |
-| `title` (obrigatória) | `string` | What the agent is doing, in a few words: "Searching the codebase". |
+| `id` (required) | `string` | Stable id of the step. |
+| `kind` (required) | `"search" \| "read" \| "write" \| "think" \| "run"` | What kind of work the step is; it picks the icon. |
+| `title` (required) | `string` | What the agent is doing, in a few words: "Searching the codebase". |
 | `detail` | `string` | One line of detail: the query, the file, the command. |
 | `items` | `string[]` | Short things the step found or touched (file names, sites, results). They appear as chips, one by one as the list grows. |
-| `status` (obrigatória) | `"pending" \| "running" \| "done" \| "error"` | Where the step is. |
+| `status` (required) | `"pending" \| "running" \| "done" \| "error"` | Where the step is. |
 | `duration` | `number` | How long the step took, in milliseconds. Shown once it has finished. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Com o foco na linha de resumo, abre ou fecha a lista de passos concluídos. |
-| `Tab` | Leva o foco à linha de resumo, o único controle do componente; ela só existe depois que o primeiro passo termina. |
+| `Enter` or `Space` | With focus on the summary line, opens or closes the list of finished steps. |
+| `Tab` | Moves focus to the summary line, the component's only control; it exists only after the first step finishes. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é uma `<section>` com `aria-label` igual a `title`; o resumo é um `<button>` com `aria-expanded` e `aria-controls`, e a lista recolhida fica `inert`.
-- Uma região `role="status"` invisível anuncia o título do passo em andamento e, no fim, quantos passos terminaram; passos pendentes e com erro levam um sufixo só para leitor de tela.
-- Os textos fixos (“steps finished”, “Done”, “(waiting)”, “(failed)”) estão em inglês no código e não têm prop de tradução.
+- The root is a `<section>` with `aria-label` equal to `title`; the summary is a `<button>` with `aria-expanded` and `aria-controls`, and the collapsed list is `inert`.
+- An invisible `role="status"` region announces the title of the running step and, at the end, how many steps finished; pending and failed steps get a screen-reader-only suffix.
+- The fixed texts (“steps finished”, “Done”, “(waiting)”, “(failed)”) are in English in the code and have no translation prop.
 
-## Movimento
+## Motion
 
-- No passo em andamento, um anel pulsa em volta do ícone e um brilho corre pelo título; os chips entram um a um com uma mola curta, sem ultrapassagem.
-- Ao terminar, o passo sai da lista ao vivo e dobra para a linha de resumo com uma mola de altura, enquanto o número de concluídos rola para o novo valor.
-- Com “reduzir movimento” ligado, pulso, brilho e giro param, as alturas trocam na hora e os chips aparecem sem animação.
+- On the running step, a ring pulses around the icon and a shimmer runs across the title; chips enter one by one with a short spring, without overshoot.
+- When a step finishes, it leaves the live list and folds into the summary line with a height spring, while the finished count rolls to the new value.
+- With “reduce motion” on, the pulse, shimmer and spin stop, heights change instantly and chips appear without animation.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa 100% da largura do pai: o cabeçalho e o `detail` de cada passo cortam com reticências numa linha, enquanto o título do passo e os chips quebram linha.
+- Fills 100% of the parent's width: the header and each step's `detail` truncate with an ellipsis on one line, while the step title and chips wrap.
 
-## Notas para IA
+## Notes for AI
 
-- É controlado pelos dados: passe `steps` com `id` estável e atualize `status` (`pending`, `running`, `done`, `error`), `items` e `duration` enquanto o agente trabalha; o componente não mede o tempo sozinho.
-- Cada texto de `items` serve de `key` do chip: não repita o mesmo texto dentro de um passo.
-- Os concluídos começam recolhidos; use `defaultExpanded` ou o par `expanded` e `onExpandedChange` para abri-los, por exemplo quando um passo termina com `error`.
+- It is data-driven: pass `steps` with a stable `id` and update `status` (`pending`, `running`, `done`, `error`), `items` and `duration` while the agent works; the component does not measure time itself.
+- Each text in `items` is used as the chip's `key`: do not repeat the same text within a step.
+- Finished steps start collapsed; use `defaultExpanded` or the `expanded` and `onExpandedChange` pair to open them, for example when a step ends with `error`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-activity · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/agent-activity · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

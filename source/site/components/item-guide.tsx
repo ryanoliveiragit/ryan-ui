@@ -22,14 +22,14 @@ function Keys({ value }: { value: string }) {
 export function KeyboardSection({ rows }: { rows?: GuideKey[] }) {
   if (!rows?.length) return null;
   return (
-    <Section id="teclado" title="Teclado">
-      <TableCard label="Atalhos de teclado">
+    <Section id="teclado" title="Keyboard">
+      <TableCard label="Keyboard shortcuts">
         {/* Os papéis vão escritos porque no celular a tabela vira blocos (teclas em cima, texto embaixo) e não pode perder a semântica. */}
         <table className={styles.keys} role="table">
           <tbody role="rowgroup">
             {rows.map((row, index) => (
               <tr key={index} role="row">
-                <th role="rowheader" scope="row"><span className={styles.combo}>{row.teclas.map((key, at) => <Fragment key={at}>{at > 0 ? <span className={styles.join}>ou</span> : null}<Keys value={key} /></Fragment>)}</span></th>
+                <th role="rowheader" scope="row"><span className={styles.combo}>{row.teclas.map((key, at) => <Fragment key={at}>{at > 0 ? <span className={styles.join}>or</span> : null}<Keys value={key} /></Fragment>)}</span></th>
                 <td role="cell"><Rich text={row.acao} /></td>
               </tr>
             ))}
@@ -47,14 +47,14 @@ export const markdownUrl = (name: string) => `${siteBase()}md/${name}.md`;
 export function AiNotesSection({ name, notes }: { name: string; notes?: string[] }) {
   const url = markdownUrl(name);
   return (
-    <Section id="notas-ia" title="Notas para IA" intro="Dê ao seu assistente de código a referência em Markdown, em vez de capturas de tela.">
+    <Section id="notas-ia" title="Notes for AI" intro="Give your coding assistant the Markdown reference instead of screenshots.">
       {notes?.length ? <Bullets items={notes} /> : null}
       <div className={styles.file} data-alone={notes?.length ? undefined : "true"}>
         <FileText size={15} strokeWidth={1.75} aria-hidden="true" />
         <a className={styles.path} href={markdownHref(name)} target="_blank" rel="noreferrer">{new URL(url).pathname}</a>
-        <CopyButton value={url} label="Copiar URL" />
+        <CopyButton value={url} label="Copy URL" />
       </div>
-      <p className={styles.index}>O índice completo da biblioteca para assistentes está em <a href={asset("llms.txt")} target="_blank" rel="noreferrer">llms.txt</a>.</p>
+      <p className={styles.index}>The full library index for assistants is at <a href={asset("llms.txt")} target="_blank" rel="noreferrer">llms.txt</a>.</p>
     </Section>
   );
 }

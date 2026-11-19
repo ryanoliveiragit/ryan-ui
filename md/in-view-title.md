@@ -2,48 +2,48 @@
 
 > Título que entra com animação ao aparecer na rolagem.
 
-- Tipo: componente (categoria Texto)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/in-view-title
-- Descrição original (inglês): Bring a section title in as it scrolls into view.
+- Type: component (category Text)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/in-view-title
+- Original description: Bring a section title in as it scrolls into view.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/in-view-title.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/in-view-title.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/in-view-title.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/in-view-title.json`. Caminho do registro, relativo ao endereço do site: `r/in-view-title.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/in-view-title.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/in-view-title.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/in-view-title.json`. Registry path, relative to the site address: `r/in-view-title.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/in-view-title/in-view-title.tsx`
   - `components/ryan-ui/in-view-title/in-view-title.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/in-view-title.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/in-view-title.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Títulos de seção em páginas longas, como landing pages e páginas de produto, que entram quando a seção chega à tela.
-- Tons diferentes de entrada: `blur` serve para quase todo título, `word` e `line` para páginas editoriais, `tracking` para títulos curtos de destaque e `wipe` para revelar da esquerda para a direita.
-- Títulos com quebras de linha escolhidas a dedo, passando `lines` na variante `line`.
+- Section titles on long pages, such as landing pages and product pages, that enter when the section reaches the screen.
+- Different entrance tones: `blur` suits almost any title, `word` and `line` suit editorial pages, `tracking` suits short highlight titles, and `wipe` reveals from left to right.
+- Titles with hand-picked line breaks, by passing `lines` in the `line` variant.
 
-## Quando não usar
+## When not to use
 
-- Use [`text-reveal`](text-reveal.md) para um título que deve animar logo ao montar, como no topo da página, sem esperar a rolagem.
-- Use [`scroll-reveal`](scroll-reveal.md) para revelar blocos inteiros ao rolar, como cartões, listas e parágrafos, e não só o título.
-- Em telas de trabalho que a pessoa usa todo dia, como painéis e formulários, título animado só atrasa a leitura; use um título comum.
+- Use [`text-reveal`](text-reveal.md) for a title that should animate right on mount, such as at the top of the page, without waiting for scroll.
+- Use [`scroll-reveal`](scroll-reveal.md) to reveal whole blocks on scroll, such as cards, lists, and paragraphs, not just the title.
+- On work screens the user uses every day, such as dashboards and forms, an animated title only delays reading; use a plain title.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -69,15 +69,15 @@ export default function InViewTitleDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `InViewTitle`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `text` (obrigatória) | `string` | — | — |
+| `text` (required) | `string` | — | — |
 | `variant` | `"word" \| "line" \| "blur" \| "tracking" \| "wipe"` | `"blur"` | — |
 | `as` | `"h1" \| "h2" \| "h3"` | `"h2"` | — |
 | `lines` | `string[]` | — | — |
@@ -85,33 +85,33 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `id` | `string` | — | — |
 | `once` | `boolean` | `true` | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `InViewTitleVariant` | `"word" \| "line" \| "blur" \| "tracking" \| "wipe"` |
 
-## Acessibilidade
+## Accessibility
 
-- O título é um `h2` de verdade (ou `h1` e `h3` via `as`) com `aria-label` igual a `text`; palavras e letras animadas são `aria-hidden`, então o leitor de tela lê a frase inteira uma vez.
-- Títulos que já ficaram acima da tela são revelados mesmo sem passar por ela, e no servidor um fallback em CSS mostra o título após 2,4 s se o JavaScript atrasar, então o texto não fica escondido.
+- The title is a real `h2` (or `h1` and `h3` via `as`) with `aria-label` equal to `text`; animated words and letters are `aria-hidden`, so the screen reader reads the whole phrase once.
+- Titles that are already above the screen are revealed even without passing through it, and on the server a CSS fallback shows the title after 2.4 s if JavaScript is late, so the text is not left hidden.
 
-## Movimento
+## Motion
 
-- `blur` sobe cada palavra enquanto ela sai de um desfoque; `word` e `line` sobem palavras ou linhas de dentro de um recorte; `tracking` aproxima as letras até o espaçamento normal; `wipe` descobre o título por uma borda suave.
-- Nas variantes por palavra, a sequência inteira dura no máximo cerca de 0,4 s; a opacidade chega primeiro, o desfoque depois e o deslocamento por último, para dar para ler antes de assentar.
-- Dispara quando 45% do título está visível; com `once={false}`, volta a se esconder rápido ao sair e anima de novo na volta. Com “reduzir movimento”, aparece pronto, sem animação.
+- `blur` raises each word as it comes out of a blur; `word` and `line` raise words or lines from inside a clip; `tracking` brings the letters closer to normal spacing; `wipe` uncovers the title through a soft edge.
+- In the per-word variants, the whole sequence lasts at most about 0.4 s; opacity arrives first, blur next, and displacement last, so it is possible to read before it settles.
+- It fires when 45% of the title is visible; with `once={false}`, it hides again quickly on leaving and animates again on return. With “reduce motion”, it appears finished, without animation.
 
-## Desempenho
+## Performance
 
-- A variante `tracking` cria um elemento por letra; em títulos longos, prefira `blur` ou `line`.
+- The `tracking` variant creates one element per letter; in long titles, prefer `blur` or `line`.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `InViewTitle` de `@/components/ryan-ui/in-view-title/in-view-title`; o texto vai em `text` (não em filhos) e o nível do título em `as`.
-- Na variante `line`, passe `lines` com as quebras; sem ela, o título inteiro vira uma linha só. As outras variantes quebram entre as palavras.
-- A animação roda uma vez por padrão; `once={false}` repete a cada entrada na tela, e trocar a `key` remonta o título e anima de novo, como no demo.
+- Import `InViewTitle` from `@/components/ryan-ui/in-view-title/in-view-title`; the text goes in `text` (not in children) and the heading level in `as`.
+- In the `line` variant, pass `lines` with the breaks; without it, the whole title becomes a single line. The other variants break between words.
+- The animation runs once by default; `once={false}` repeats on every entrance to the screen, and changing the `key` remounts the title and animates again, as in the demo.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/in-view-title · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/in-view-title · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

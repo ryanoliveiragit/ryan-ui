@@ -2,47 +2,47 @@
 
 > Botão de ícone ou chip que se alarga com mola ao ser pressionado e revela o rótulo ou uma ação extra.
 
-- Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-control
-- Descrição original (inglês): An icon button or chip that widens on a spring when pressed to reveal its label and an optional trailing action.
+- Type: component (category Actions), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-control
+- Original description: An icon button or chip that widens on a spring when pressed to reveal its label and an optional trailing action.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-control.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-control.json`. Registry path, relative to the site address: `r/expandable-control.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/expandable-control/expandable-control.tsx`
   - `components/ryan-ui/expandable-control/expandable-control.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/expandable-control.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/expandable-control.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma fileira de ícones em que só o controle em uso mostra o nome, como Compartilhar, Salvar e Avisar num artigo.
-- Filtros ou estados em forma de chip (`variant="chip"`) que, ativos, mostram o valor e uma ação de limpar, como “Status: Aberto ×”.
+- A row of icons where only the control in use shows its name, like Share, Save, and Notify on an article.
+- Filters or states in chip form (`variant="chip"`) that, when active, show the value and a clear action, like “Status: Open ×”.
 
-## Quando não usar
+## When not to use
 
-- Use [`expanding-button-group`](expanding-button-group.md) quando os ícones formam uma barra única e o rótulo deve seguir o ponteiro ou o foco, sem clique.
-- Use [`chip-group`](chip-group.md) quando a pessoa escolhe entre várias opções de filtro.
-- Use [`button`](button.md) com rótulo quando a ação é usada com frequência: aqui o nome só aparece depois de um clique.
+- Use [`expanding-button-group`](expanding-button-group.md) when the icons form a single bar and the label should follow the pointer or focus, with no click.
+- Use [`chip-group`](chip-group.md) when the person chooses among several filter options.
+- Use [`button`](button.md) with a label when the action is used often: here the name only appears after a click.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -95,16 +95,16 @@ export default function ExpandableControlDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ExpandableControl`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `icon` (obrigatória) | `ReactNode` | — | Always visible. Usually a 16 to 18 px icon. |
-| `label` (obrigatória) | `string` | — | The text revealed when the control opens. Also its accessible name while only the icon shows. |
+| `icon` (required) | `ReactNode` | — | Always visible. Usually a 16 to 18 px icon. |
+| `label` (required) | `string` | — | The text revealed when the control opens. Also its accessible name while only the icon shows. |
 | `expanded` | `boolean` | — | Open state (controlled). |
 | `defaultExpanded` | `boolean` | `false` | Open at first (uncontrolled). |
 | `onExpandedChange` | `(expanded: boolean) => void` | — | Runs when the control opens or closes. |
@@ -115,40 +115,40 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `disabled` | `boolean` | `false` | Turns the control off: it is dimmed and ignores pointer and keyboard input. |
 | `className` | `string` | — | Extra class names for the root element. |
 
-### Tipos exportados
+### Exported types
 
 #### `ExpandableControlAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `icon` (obrigatória) | `ReactNode` | Icon of the trailing button. |
-| `label` (obrigatória) | `string` | Accessible name of the trailing button, for example "Copy link". |
-| `onClick` (obrigatória) | `() => void` | Runs when the trailing button is pressed. |
+| `icon` (required) | `ReactNode` | Icon of the trailing button. |
+| `label` (required) | `string` | Accessible name of the trailing button, for example "Copy link". |
+| `onClick` (required) | `() => void` | Runs when the trailing button is pressed. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão principal, abrem ou fecham o controle; na ação extra, executam `action.onClick`. |
-| `Esc` | Com o controle aberto, fecha e devolve o foco ao botão principal. |
+| `Enter` or `Space` | On the main button, open or close the control; on the extra action, run `action.onClick`. |
+| `Esc` | With the control open, closes it and returns focus to the main button. |
 
-## Acessibilidade
+## Accessibility
 
-- O botão principal tem `aria-expanded` e `aria-label` igual a `label`, aberto ou fechado; o rótulo visível e `detail` ficam em `aria-hidden`, então o que estiver só em `detail` não é anunciado.
-- A ação extra é um segundo `<button>` com `aria-label` e `title` vindos de `action.label`; ela só existe com o controle aberto e vem logo depois do principal na ordem do `Tab`.
+- The main button has `aria-expanded` and an `aria-label` equal to `label`, open or closed; the visible label and `detail` are `aria-hidden`, so anything that is only in `detail` is not announced.
+- The extra action is a second `<button>` with `aria-label` and `title` from `action.label`; it only exists with the control open and comes right after the main one in the `Tab` order.
 
-## Movimento
+## Motion
 
-- Ao abrir, a largura cresce numa mola sem ultrapassagem e o rótulo desliza 8 px saindo de um leve desfoque; ao fechar, ele esmaece rápido enquanto a largura se recolhe, e os vizinhos acompanham sem pulo.
-- O ícone fica parado numa caixa do tamanho do controle fechado e encolhe para 0,86 na pressão; a ação extra encolhe para 0,9.
-- Com “reduzir movimento”, o rótulo e a ação só esmaecem, a largura muda de uma vez e a pressão não altera a escala.
+- On open, the width grows on a spring with no overshoot and the label slides 8 px out of a slight blur; on close, it fades quickly while the width shrinks, and neighbors follow with no jump.
+- The icon stays still in a box the size of the closed control and shrinks to 0.86 on press; the extra action shrinks to 0.9.
+- With “reduce motion”, the label and the action only fade, the width changes at once, and the press does not change the scale.
 
-## Notas para IA
+## Notes for AI
 
-- Para que só um fique aberto por vez, controle no pai: `expanded={aberto === "share"}` e `onExpandedChange={v => setAberto(v ? "share" : null)}`.
-- `action` recebe `icon`, `label` e `onClick` e só aparece com o controle aberto; `detail` acrescenta um texto depois do rótulo, como uma contagem.
-- `tone="accent"` preenche com a cor de destaque quando aberto, e `variant="chip"` é a versão compacta, de 2rem de altura, para filtros e tags.
+- To keep only one open at a time, control it in the parent: `expanded={aberto === "share"}` and `onExpandedChange={v => setAberto(v ? "share" : null)}`.
+- `action` takes `icon`, `label`, and `onClick` and only appears with the control open; `detail` adds text after the label, like a count.
+- `tone="accent"` fills with the accent color when open, and `variant="chip"` is the compact version, 2rem tall, for filters and tags.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-control · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-control · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

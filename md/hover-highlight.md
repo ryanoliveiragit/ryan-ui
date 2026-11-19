@@ -2,47 +2,47 @@
 
 > Grupo em que um único fundo desliza até o item sob o cursor ou em foco, ideal para menus, navegação e barras de ferramentas.
 
-- Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-highlight
-- Descrição original (inglês): A group in which one shared background pill glides to the hovered or focused item and returns to the selected one.
+- Type: component (category Actions), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-highlight
+- Original description: A group in which one shared background pill glides to the hovered or focused item and returns to the selected one.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json`. Caminho do registro, relativo ao endereço do site: `r/hover-highlight.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-highlight.json`. Registry path, relative to the site address: `r/hover-highlight.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/hover-highlight/hover-highlight.tsx`
   - `components/ryan-ui/hover-highlight/hover-highlight.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/hover-highlight.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/hover-highlight.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Linhas de navegação, menus e barras de ícones em que um fundo compartilhado deve seguir o ponteiro e repousar na seção atual (`value`).
-- Quando você quer o efeito em itens próprios: qualquer elemento com `data-highlight-item`, em qualquer profundidade, recebe a pílula.
+- Navigation rows, menus, and icon bars where a shared background should follow the pointer and rest on the current section (`value`).
+- When you want the effect on your own items: any element with `data-highlight-item`, at any depth, gets the pill.
 
-## Quando não usar
+## When not to use
 
-- Use [`tabs`](tabs.md) ou [`segmented-control`](segmented-control.md) quando o item escolhido troca o conteúdo exibido: aqui não há `role="tablist"` nem painéis.
-- Use [`dropdown-menu`](dropdown-menu.md) ou [`context-menu`](context-menu.md) quando as ações devem ficar num menu flutuante, com semântica de menu.
-- Use [`floating-button-group`](floating-button-group.md) para uma barra de ações pronta, com tooltips e uma única parada de `Tab`.
+- Use [`tabs`](tabs.md) or [`segmented-control`](segmented-control.md) when the chosen item swaps the displayed content: here there is no `role="tablist"` or panels.
+- Use [`dropdown-menu`](dropdown-menu.md) or [`context-menu`](context-menu.md) when the actions should live in a floating menu, with menu semantics.
+- Use [`floating-button-group`](floating-button-group.md) for a ready-made action bar, with tooltips and a single `Tab` stop.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -110,13 +110,13 @@ export default function HoverHighlightDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `HoverHighlight`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Direction the items flow in. It also decides which arrow keys move focus. |
 | `tone` | `"muted" \| "accent"` | `"muted"` | Pill color: a quiet neutral wash, or the solid accent with dark text on top. |
@@ -125,51 +125,51 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onValueChange` | `(value: string) => void` | — | Called when someone picks an item that has a `value`. |
 | `arrowNavigation` | `boolean` | `true` | Arrow keys, Home and End move focus between items. |
 | `className` | `string` | — | Extra class for the group element. |
-| `children` (obrigatória) | `ReactNode` | — | `HoverHighlightItem`s, or any elements carrying `data-highlight-item`, at any depth. |
-| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Também aceita as props deste tipo, menos `defaultValue` e `onChange`. |
+| `children` (required) | `ReactNode` | — | `HoverHighlightItem`s, or any elements carrying `data-highlight-item`, at any depth. |
+| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Also accepts the props of this type, except `defaultValue` and `onChange`. |
 
 ### `HoverHighlightItem`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `string` | — | Identifies the item for `value` and `onValueChange`. Items without a value only take the hover pill. |
 | `href` | `string` | — | Renders a link instead of a button. |
 | `disabled` | `boolean` | `false` | Leaves the item out of hover, focus and selection. |
 | `className` | `string` | — | Extra class for the item. |
-| `children` (obrigatória) | `ReactNode` | — | Item content: text, icons, shortcuts. |
-| `...props` | `HTMLAttributes<HTMLElement>` | — | Também aceita as props deste tipo, menos `children`. |
+| `children` (required) | `ReactNode` | — | Item content: text, icons, shortcuts. |
+| `...props` | `HTMLAttributes<HTMLElement>` | — | Also accepts the props of this type, except `children`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `↑` | Na orientação `vertical` (padrão), movem o foco entre os itens habilitados e dão a volta nas pontas; em `horizontal`, use `→` e `←`. |
-| `Home` ou `End` | Vão para o primeiro e o último item habilitado; setas, `Home` e `End` são desligados com `arrowNavigation={false}`. |
-| `Enter` ou `Espaço` | Acionam o item em foco, e um item com `value` passa a ser o selecionado; itens com `href` são links e respondem só a `Enter`. |
+| `↓` or `↑` | In the `vertical` orientation (default), move focus between enabled items and wrap around at the ends; in `horizontal`, use `→` and `←`. |
+| `Home` or `End` | Go to the first and last enabled item; arrows, `Home`, and `End` are turned off with `arrowNavigation={false}`. |
+| `Enter` or `Space` | Trigger the focused item, and an item with `value` becomes the selected one; items with `href` are links and respond only to `Enter`. |
 
-## Acessibilidade
+## Accessibility
 
-- O grupo é um `<div>` sem papel: passe `role` e `aria-label`, como `role="toolbar"` ou `role="group"`, como faz o demo.
-- Itens são `<button>` ou, com `href`, links; o selecionado recebe `aria-current="true"`, e `disabled` desabilita o botão ou tira o `href` do link e marca `aria-disabled`.
-- A pílula é decorativa (`aria-hidden`), e cada item continua sendo uma parada de `Tab`, além das setas.
+- The group is a `<div>` with no role: pass `role` and `aria-label`, like `role="toolbar"` or `role="group"`, as the demo does.
+- Items are `<button>` or, with `href`, links; the selected one gets `aria-current="true"`, and `disabled` disables the button or removes the link's `href` and sets `aria-disabled`.
+- The pill is decorative (`aria-hidden`), and each item remains a `Tab` stop, in addition to the arrows.
 
-## Movimento
+## Motion
 
-- Um único fundo em pílula desliza e muda de tamanho até o item sob o ponteiro ou com foco do teclado, numa mola sem ultrapassagem, e volta ao selecionado quando o ponteiro sai; entre dois itens ele fica no último, sem piscar.
-- Enquanto um item está pressionado, a pílula encolhe para 0,97 e solta numa curva de mola.
-- Com “reduzir movimento”, a pílula salta direto para o item e não encolhe na pressão.
+- A single pill background slides and resizes to the item under the pointer or with keyboard focus, on a spring with no overshoot, and returns to the selected one when the pointer leaves; between two items it stays on the last one, without flickering.
+- While an item is pressed, the pill shrinks to 0.97 and releases on a spring curve.
+- With “reduce motion”, the pill jumps straight to the item and does not shrink on press.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Na orientação `horizontal`, os itens quebram linha por padrão (`flex-flow: row wrap`) e a pílula segue para a linha nova; passe `style={{ flexWrap: "nowrap" }}` para manter uma fileira só.
-- Quando o tamanho do grupo muda (fonte que carrega, seção que abre, janela redimensionada), a pílula se reposiciona sem animar.
+- In the `horizontal` orientation, items wrap by default (`flex-flow: row wrap`) and the pill follows to the new line; pass `style={{ flexWrap: "nowrap" }}` to keep a single row.
+- When the group size changes (a font loading, a section opening, a window resized), the pill repositions without animating.
 
-## Notas para IA
+## Notes for AI
 
-- Monte com `<HoverHighlight>` e filhos `<HoverHighlightItem>`; dê `value` aos itens e controle a seleção com `value` e `onValueChange` no grupo, ou use `defaultValue`.
-- Itens sem `value` só recebem o realce de hover; `tone="accent"` usa a cor de destaque com texto escuro, e `--hover-highlight-radius` muda o raio da pílula.
-- `HoverHighlightItem` repassa props ao `<button>` ou `<a>` (como `aria-label` e `style`); o seu `onClick` roda antes da seleção, e `event.preventDefault()` nele impede que o item seja selecionado.
+- Build with `<HoverHighlight>` and `<HoverHighlightItem>` children; give items a `value` and control selection with `value` and `onValueChange` on the group, or use `defaultValue`.
+- Items without `value` only get the hover highlight; `tone="accent"` uses the accent color with dark text, and `--hover-highlight-radius` changes the pill radius.
+- `HoverHighlightItem` forwards props to the `<button>` or `<a>` (like `aria-label` and `style`); its `onClick` runs before the selection, and `event.preventDefault()` in it prevents the item from being selected.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-highlight · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-highlight · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

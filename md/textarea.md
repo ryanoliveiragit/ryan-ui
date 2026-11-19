@@ -2,47 +2,47 @@
 
 > Campo de várias linhas para notas, descrições e textos mais longos.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/textarea
-- Descrição original (inglês): A multiline field for notes, descriptions, and longer text.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/textarea
+- Original description: A multiline field for notes, descriptions, and longer text.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json`. Caminho do registro, relativo ao endereço do site: `r/textarea.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/textarea.json`. Registry path, relative to the site address: `r/textarea.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/textarea/textarea.tsx`
   - `components/ryan-ui/textarea/textarea.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/textarea.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/textarea.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Comentários, descrições, observações de pedido e outros textos de várias linhas sem formatação.
-- Campos de feedback ou suporte com uma linha de ajuda e um erro de validação animados.
+- Comments, descriptions, order notes, and other multi-line texts without formatting.
+- Feedback or support fields with an animated help line and validation error.
 
-## Quando não usar
+## When not to use
 
-- Use [`input`](input.md) para respostas de uma linha, como nome ou assunto.
-- Use [`rich-text-editor`](rich-text-editor.md) quando o texto precisa de títulos, listas ou links.
-- Use [`prompt-input`](prompt-input.md) para caixas de mensagem de chat ou IA que crescem e enviam com Enter.
+- Use [`input`](input.md) for single-line answers, such as a name or subject.
+- Use [`rich-text-editor`](rich-text-editor.md) when the text needs headings, lists, or links.
+- Use [`prompt-input`](prompt-input.md) for chat or AI message boxes that grow and send with Enter.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -62,36 +62,36 @@ export default function TextareaDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Textarea`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `description` | `string` | — | — |
 | `error` | `string` | — | — |
-| `...props` | `TextareaHTMLAttributes<HTMLTextAreaElement>` | — | Também aceita as props deste tipo. |
+| `...props` | `TextareaHTMLAttributes<HTMLTextAreaElement>` | — | Also accepts the props of this type. |
 
-## Acessibilidade
+## Accessibility
 
-- O `label` é um `<label>` ligado ao campo, e `description` e `error` entram em `aria-describedby` junto de qualquer `aria-describedby` que você passar.
-- Com `error`, o campo recebe `aria-invalid` e a mensagem tem `role="alert"`, então é lida assim que aparece.
+- The `label` is a `<label>` tied to the field, and `description` and `error` go into `aria-describedby` together with any `aria-describedby` you pass.
+- With `error`, the field gets `aria-invalid` and the message has `role="alert"`, so it is read as soon as it appears.
 
-## Movimento
+## Motion
 
-- As mensagens de ajuda e de erro abrem a altura numa mola e as palavras sobem com desfoque; só as palavras que mudaram se movem.
-- Números dentro da mensagem, como em “12 characters over the limit”, rolam só os dígitos que mudaram.
-- Com “reduzir movimento” ligado, as mensagens já aparecem na altura final e só esmaecem.
+- The help and error messages open their height on a spring and the words rise with a blur; only the words that changed move.
+- Numbers inside the message, as in “12 characters over the limit”, roll only the digits that changed.
+- With “reduce motion” on, the messages already appear at their final height and only fade.
 
-## Notas para IA
+## Notes for AI
 
-- Aceita as props de `<textarea>` (`rows`, `maxLength`, `value`, `onChange`) mais `label`, `description` e `error`; não há contador embutido.
-- A altura mínima é 110px, redimensionável só na vertical e sem crescer com o texto; use `rows` para a altura inicial.
-- Por estar num `role="alert"`, o `error` é relido a cada mudança; evite um erro que muda a cada tecla e mostre contadores fora dele.
+- It accepts the `<textarea>` props (`rows`, `maxLength`, `value`, `onChange`) plus `label`, `description`, and `error`; there is no built-in counter.
+- The minimum height is 110px, resizable only vertically and not growing with the text; use `rows` for the initial height.
+- Because it sits in a `role="alert"`, `error` is re-read on every change; avoid an error that changes on every keystroke and show counters outside it.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/textarea · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/textarea · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

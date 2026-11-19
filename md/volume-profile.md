@@ -2,48 +2,48 @@
 
 > Histograma horizontal do volume em cada faixa de preço, ao lado da linha de preço, com o ponto de controle em destaque.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/volume-profile
-- Descrição original (inglês): Horizontal histogram of volume by price level beside a price line: bars grow outward from the point of control, which is highlighted along with the value area.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/volume-profile
+- Original description: Horizontal histogram of volume by price level beside a price line: bars grow outward from the point of control, which is highlighted along with the value area.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json`. Caminho do registro, relativo ao endereço do site: `r/volume-profile.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/volume-profile.json`. Registry path, relative to the site address: `r/volume-profile.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/volume-profile/volume-profile.tsx`
   - `components/ryan-ui/volume-profile/volume-profile.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/volume-profile.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/volume-profile.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar em que preços a negociação se concentrou num pregão ou em poucas sessões, ao lado de como o preço andou no tempo.
-- Destacar o ponto de controle, o nível com mais volume, e a área de valor, que por padrão reúne 70% do volume em volta dele.
-- Ler cada faixa de preço com volume, fatia do total e posição em relação à área de valor, pelo ponteiro ou pelas setas.
+- Showing at which prices trading concentrated in a session or a few sessions, alongside how the price moved over time.
+- Highlighting the point of control, the level with the most volume, and the value area, which by default gathers 70% of the volume around it.
+- Reading each price band with its volume, share of the total, and position relative to the value area, by pointer or arrow keys.
 
-## Quando não usar
+## When not to use
 
-- Use [`candlestick-chart`](candlestick-chart.md) quando o foco é abertura, máxima, mínima e fechamento de cada período.
-- Use [`order-book`](order-book.md) para a profundidade das ordens de compra e venda em aberto, e não para o que já foi negociado.
-- Use [`bar-chart`](bar-chart.md) para volume por período, como por dia ou por hora; aqui o volume é agrupado por preço.
+- Use [`candlestick-chart`](candlestick-chart.md) when the focus is the open, high, low, and close of each period.
+- Use [`order-book`](order-book.md) for the depth of open buy and sell orders, not for what has already traded.
+- Use [`bar-chart`](bar-chart.md) for volume per period, such as per day or per hour; here volume is grouped by price.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -104,16 +104,16 @@ export default function VolumeProfileDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `VolumeProfile`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `VolumePoint[]` | — | Trades or intervals in time order, oldest first. |
-| `label` (obrigatória) | `string` | — | What is traded, such as "Northwind Corp." Names the chart for assistive technology and heads the readout. |
+| `data` (required) | `VolumePoint[]` | — | Trades or intervals in time order, oldest first. |
+| `label` (required) | `string` | — | What is traded, such as "Northwind Corp." Names the chart for assistive technology and heads the readout. |
 | `levels` | `number` | `16` | Number of price levels the range is split into. |
 | `valueArea` | `number` | `.7` | Share of the total volume that defines the value area around the point of control, from 0 to 1. |
 | `height` | `number` | `260` | Plot height in pixels. |
@@ -125,55 +125,55 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onActiveChange` | `(level: number \| null) => void` | — | Called when hover, touch or the keyboard moves to another price level, or leaves the plot. |
 | `className` | `string` | — | Extra class on the root figure. |
 
-### Tipos exportados
+### Exported types
 
 #### `VolumePoint`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity, such as an ISO timestamp. |
-| `label` (obrigatória) | `string` | Full label for screen readers, such as "Nov 10, 10:35". |
+| `key` (required) | `string` | Stable identity, such as an ISO timestamp. |
+| `label` (required) | `string` | Full label for screen readers, such as "Nov 10, 10:35". |
 | `axisLabel` | `string` | Short label under the price line, such as "10:00". Leave it out on most points to keep the axis quiet. |
-| `price` (obrigatória) | `number` | Price traded in this interval. |
-| `volume` (obrigatória) | `number` | Volume traded in this interval. It is added to the price level the price falls in. |
+| `price` (required) | `number` | Price traded in this interval. |
+| `volume` (required) | `number` | Volume traded in this interval. It is added to the price level the price falls in. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `→` | Com o foco no gráfico, sobe para a faixa de preço seguinte. |
-| `↓` ou `←` | Desce para a faixa anterior. |
-| `Page Up` ou `Page Down` | Sobe ou desce quatro faixas. |
-| `Home` ou `End` | Vai à faixa de preço mais baixa ou à mais alta. |
-| `Esc` | Encerra a leitura e esconde a dica. |
+| `↑` or `→` | With focus on the chart, move up to the next price band. |
+| `↓` or `←` | Move down to the previous band. |
+| `Page Up` or `Page Down` | Move up or down four bands. |
+| `Home` or `End` | Go to the lowest or highest price band. |
+| `Esc` | Ends the reading and hides the tooltip. |
 
-## Acessibilidade
+## Accessibility
 
-- O gráfico é um `role="slider"` vertical: ao receber foco pelo teclado começa no ponto de controle, e `aria-valuetext` lê a faixa, o volume, a fatia do total e se ela está na área de valor.
-- A `<figure>` tem legenda oculta e uma tabela oculta com todas as faixas, da mais alta para a mais baixa, com volume e fatia; o SVG, o cabeçalho e a dica ficam ocultos para leitor de tela.
-- As frases lidas e o cabeçalho (`point of control`, `Inside the value area`, `Value area`) são fixos em inglês; `formatPrice` e `formatVolume` mudam só os números.
+- The chart is a vertical `role="slider"`: on receiving focus by keyboard it starts at the point of control, and `aria-valuetext` reads the band, the volume, the share of the total, and whether it is in the value area.
+- The `<figure>` has a hidden caption and a hidden table with all bands, from highest to lowest, with volume and share; the SVG, header, and tooltip are hidden from screen readers.
+- The read-out phrases and the header (`point of control`, `Inside the value area`, `Value area`) are hardcoded in English; `formatPrice` and `formatVolume` change only the numbers.
 
-## Movimento
+## Motion
 
-- Ao entrar na tela, as barras crescem a partir do eixo, começando pelo ponto de controle e se espalhando para os níveis mais distantes, enquanto a linha de preço se desenha da esquerda para a direita.
-- Depois disso, dados novos não repetem a entrada: barras, linha e marca do ponto de controle deslizam com mola, e uma série com outro número de pontos redesenha a linha desde o início.
-- Com “reduzir movimento” ligado, tudo aparece no estado final, e a faixa realçada e a dica saltam de um nível ao outro.
+- On entering the viewport, the bars grow from the axis, starting at the point of control and spreading to the farthest levels, while the price line draws from left to right.
+- After that, new data doesn't repeat the entrance: bars, line, and the point-of-control mark glide on a spring, and a series with a different number of points redraws the line from the start.
+- With “reduced motion” on, everything appears in its final state, and the highlighted band and the tooltip jump from one level to the next.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura segue o contêiner: o histograma fica com 32% dela (entre 64 e 190 px), a linha de preço com o resto, e uma coluna fixa de 62 px à direita guarda os preços; a altura é `height` (260 px).
-- No toque, tocar numa altura lê aquela faixa; arrastar na vertical rola a página e encerra a leitura.
+- The width follows the container: the histogram takes 32% of it (between 64 and 190 px), the price line takes the rest, and a fixed 62 px column on the right holds the prices; the height is `height` (260 px).
+- On touch, tapping at a height reads that band; dragging vertically scrolls the page and ends the reading.
 
-## Desempenho
+## Performance
 
-- A linha de preço é refeita a cada render, inclusive quando o ponteiro muda de faixa; com milhares de negócios, agregue em intervalos antes, como o demo faz com 5 e 15 minutos.
+- The price line is rebuilt on every render, including when the pointer changes band; with thousands of trades, aggregate into intervals first, as the demo does with 5 and 15 minutes.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `data` em ordem de tempo com `{ key, label, price, volume }` e `axisLabel` só em alguns pontos; cada ponto soma seu volume à faixa em que o preço cai, e `levels` (16) define quantas faixas há.
-- `valueArea` (0,7) é a fração do volume que forma a área de valor; `formatPrice` e `formatVolume` formatam eixo, cabeçalho e dica, e `hideHeader` esconde o título com o ponto de controle.
-- `activeLevel` com `onActiveChange` controla a faixa lida, contada a partir do preço mais baixo (0), ou `null` para nenhuma; sem controle, `defaultActiveLevel` define a inicial.
+- Pass `data` in time order with `{ key, label, price, volume }` and `axisLabel` on only some points; each point adds its volume to the band the price falls in, and `levels` (16) sets how many bands there are.
+- `valueArea` (0.7) is the fraction of volume that forms the value area; `formatPrice` and `formatVolume` format the axis, header, and tooltip, and `hideHeader` hides the title with the point of control.
+- `activeLevel` with `onActiveChange` controls the band being read, counted from the lowest price (0), or `null` for none; without control, `defaultActiveLevel` sets the initial one.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/volume-profile · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/volume-profile · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

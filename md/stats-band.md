@@ -2,23 +2,23 @@
 
 > Faixa de números que contam até o valor final, em layout simples ou em cartões.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/stats-band
-- Descrição original (inglês): Headline numbers that count up in view, each with a tiny visual that proves it and a context line on hover, plain or in a hairline grid.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/stats-band
+- Original description: Headline numbers that count up in view, each with a tiny visual that proves it and a context line on hover, plain or in a hairline grid.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json`. Caminho do registro, relativo ao endereço do site: `r/stats-band.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/stats-band.json`. Registry path, relative to the site address: `r/stats-band.json`.
 
-- Pacotes npm: `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Segmented control](segmented-control.md)
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Uses other ryan-ui items (installed along with it): [Segmented control](segmented-control.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/stats-band/stats-band.tsx`
   - `components/ryan-ui/blocks/stats-band/stats-band-data.ts`
   - `components/ryan-ui/blocks/stats-band/stats-band.module.css`
@@ -26,28 +26,28 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/segmented-control/segmented-control.tsx`
   - `components/ryan-ui/segmented-control/segmented-control.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/stats-band.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/stats-band.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Faixa de três ou quatro números de destaque numa landing ou página institucional, cada um com um gráfico mínimo que o comprova: tendência, disponibilidade, distribuição ou mapa.
-- Quando cada número tem uma linha de contexto que vale mostrar sob demanda, no hover ou no foco.
+- Strip of three or four highlight numbers on a landing or corporate page, each with a minimal chart that backs it up: trend, availability, distribution, or map.
+- When each number has a context line worth showing on demand, on hover or focus.
 
-## Quando não usar
+## When not to use
 
-- Use [`metric-card`](metric-card.md) para um número com contexto num painel; esta faixa é uma seção de página e conta só uma vez, ao entrar na tela.
-- Use [`animated-counter`](animated-counter.md) quando precisa só de um número que anima entre valores.
-- Use [`bar-chart`](bar-chart.md) ou [`line-chart`](line-chart.md) quando o gráfico é o conteúdo principal e a pessoa precisa ler valores nele.
+- Use [`metric-card`](metric-card.md) for a number with context in a dashboard; this strip is a page section and counts only once, when it enters the screen.
+- Use [`animated-counter`](animated-counter.md) when you only need a number that animates between values.
+- Use [`bar-chart`](bar-chart.md) or [`line-chart`](line-chart.md) when the chart is the main content and the person needs to read values from it.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import StatsBand from "@/components/ryan-ui/blocks/stats-band/stats-band";
@@ -57,15 +57,15 @@ export default function StatsBandDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `StatsBand`
 
 A band of three or four headline numbers, each with an optional tiny visual that proves it: a trend, an uptime strip, a latency histogram, or a dotted world. The numbers count up in a staggered sequence the first time the band is in view, then the visuals draw in. Hovering or focusing a stat swaps its detail line for one line of context and gives its visual the accent. Numbers use tabular figures and reserve their final width; screen readers get final values.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `stats` | `Stat[]` | `exampleStats` | Three or four stats read best. |
 | `layout` | `"plain" \| "divided"` | `"plain"` | `plain` lets the stats float on whitespace; `divided` sets them in a hairline grid ruled above and below. |
@@ -79,69 +79,69 @@ A band of three or four headline numbers, each with an optional tiny visual that
 
 Preview: the band in either layout. Switching layouts plays the sequence again.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `StatsBandLayout` | `"plain" \| "divided"` |
 | `StatVisual`: A small visual that proves the number beside it. Every kind is optional; a stat without one is just the number. - `trend`: a sparkline of a series, oldest first, such as twelve monthly totals. - `uptime`: one bar per day as a percentage. Full days are full height; a day with downtime is visibly shorter. - `distribution`: a histogram of equal width bins across `0..max`, with the bars below `marker` (the median) inked. - `map`: a dotted world with a dot lit for each [longitude, latitude] point. | `\| { kind: "trend"; values: number[] } \| { kind: "uptime"; days: number[] } \| { kind: "distribution"; bins: number[]; max: number; marker: number } \| { kind: "map"; points: [number, number][] }` |
 
 #### `Stat`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `number` | The final number. The band counts up to it. |
+| `value` (required) | `number` | The final number. The band counts up to it. |
 | `prefix` | `string` | Text before the number, such as "$". |
 | `suffix` | `string` | Text after the number, such as "%", "ms", or "+". |
 | `decimals` | `number` | Digits after the decimal point. Defaults to 0. |
 | `notation` | `"standard" \| "compact"` | `compact` shortens large numbers to 2.3M or 12K. The unit renders like a suffix. Defaults to `standard`. |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `detail` | `string` | One short supporting line under the number. |
 | `context` | `string` | One line of context that replaces the detail while the stat is hovered or focused, such as "Up from 41% last year". |
 | `visual` | `StatVisual` | A tiny chart that draws in after the number lands. |
 
-### Outras exportações
+### Other exports
 
-- `stats` (valor)
-- `WORLD` (valor)
-- `worldLand` (função)
+- `stats` (value)
+- `WORLD` (value)
+- `worldLand` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Chega a cada número que tem `context`; com foco, a linha de detalhe dá lugar à de contexto e o visual ganha a cor de destaque. |
+| `Tab` | Reaches each number that has `context`; with focus, the detail line gives way to the context line and the visual takes the accent color. |
 
-## Acessibilidade
+## Accessibility
 
-- Leitores de tela recebem só o valor final de cada número, em texto escondido; a contagem animada e os visuais ficam com `aria-hidden`, então ponha em `detail` ou `context` o que o gráfico mostra.
-- A faixa é uma `<section>` nomeada pelo `title` (ou “Key numbers”) e os números formam uma `<dl>`; `detail` e `context` ficam os dois no DOM, então ambos são lidos.
-- Um número com `context` recebe `tabIndex=0`, mas o contorno de foco é removido: o foco aparece só pela troca de linha e pela cor do visual.
+- Screen readers receive only the final value of each number, in hidden text; the animated count and the visuals are `aria-hidden`, so put in `detail` or `context` what the chart shows.
+- The strip is a `<section>` named by `title` (or “Key numbers”) and the numbers form a `<dl>`; `detail` and `context` both stay in the DOM, so both are read.
+- A number with `context` receives `tabIndex=0`, but the focus outline is removed: focus shows only through the line swap and the visual's color.
 
-## Movimento
+## Motion
 
-- Na primeira vez que 40% da lista entra na tela, os números sobem em sequência (90 ms de intervalo) e contam de zero ao valor em 1,6 s (`duration`); números compactos contam já na unidade final, de 0,0M a 2,3M.
-- Quando cada número está quase no valor, o visual se desenha: linha e mapa se revelam da esquerda para a direita, as barras crescem em onda e, em `divided`, as linhas finas correm pela faixa e entre os números.
-- Com “reduzir movimento” ligado (lido depois da hidratação, com o CSS cobrindo a primeira pintura), os números já aparecem no valor final e visuais e linhas ficam prontos, sem transição.
+- The first time 40% of the list enters the screen, the numbers rise in sequence (90 ms apart) and count from zero to the value in 1.6 s (`duration`); compact numbers count already in the final unit, from 0.0M to 2.3M.
+- When each number is almost at its value, the visual draws itself: line and map reveal from left to right, the bars grow in a wave and, in `divided`, the thin lines run across the strip and between the numbers.
+- With “reduce motion” on (read after hydration, with CSS covering the first paint), the numbers already appear at their final value and visuals and lines are ready, with no transition.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Container queries da faixa: até 800 px os números ficam dois a dois e uma faixa de três empilha numa coluna; até 520 px vai um por linha, com o visual ao lado do número.
-- A largura final de cada número fica reservada desde o início, então a contagem nunca empurra o layout.
+- The strip's container queries: up to 800 px the numbers go two by two and a strip of three stacks into one column; up to 520 px it goes one per row, with the visual beside the number.
+- The final width of each number is reserved from the start, so the count never pushes the layout.
 
-## Desempenho
+## Performance
 
-- A contagem escreve direto no `textContent` do número a cada quadro, sem re-renderizar o React, e `useInView` com `once` dispara uma vez só.
-- O visual `map` desenha cerca de 760 círculos SVG, um por ponto de terra da grade de 80 × 30, e é o mais pesado dos quatro.
+- The count writes directly to the number's `textContent` on every frame, without re-rendering React, and `useInView` with `once` fires only once.
+- The `map` visual draws about 760 SVG circles, one per land point of the 80 × 30 grid, and is the heaviest of the four.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `StatsBand`; o export padrão é `StatsBandBlock`, o preview com troca de layout, e `stats` usa os dados de exemplo de `stats-band-data.ts`.
-- Cada `Stat` leva `value`, `label` e, se quiser, `prefix`, `suffix`, `decimals`, `notation: "compact"`, `detail`, `context` e `visual` (`trend`, `uptime`, `distribution` ou `map`); a grade vai até 4 colunas.
-- `locale` é `en-US` por padrão para servidor e cliente formatarem igual; use `pt-BR` para vírgula decimal, e troque a `key` para tocar a contagem de novo.
+- Import the named component `StatsBand`; the default export is `StatsBandBlock`, the preview with layout switching, and `stats` uses the example data from `stats-band-data.ts`.
+- Each `Stat` takes `value`, `label` and, if you want, `prefix`, `suffix`, `decimals`, `notation: "compact"`, `detail`, `context`, and `visual` (`trend`, `uptime`, `distribution`, or `map`); the grid goes up to 4 columns.
+- `locale` is `en-US` by default so server and client format the same; use `pt-BR` for a decimal comma, and change the `key` to play the count again.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/stats-band · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/stats-band · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

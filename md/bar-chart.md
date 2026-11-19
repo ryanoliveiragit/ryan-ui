@@ -2,48 +2,48 @@
 
 > Compare uma medida ao longo dos dias e passe o dedo por qualquer barra para ver o valor.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/bar-chart
-- Descrição original (inglês): Compare one measure across days and scrub any bar for its value.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/bar-chart
+- Original description: Compare one measure across days and scrub any bar for its value.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bar-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bar-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bar-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bar-chart.json`. Caminho do registro, relativo ao endereço do site: `r/bar-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bar-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bar-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/bar-chart.json`. Registry path, relative to the site address: `r/bar-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/bar-chart/bar-chart.tsx`
   - `components/ryan-ui/bar-chart/bar-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/bar-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/bar-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma medida ao longo de dias, semanas ou meses, quando a pessoa compara cada período com os outros e com a média.
-- Trocar de intervalo (semana, 30 dias) sem redesenhar: barras com a mesma `key` ficam no lugar e o eixo aproxima ou afasta em torno da mais recente.
-- Leitura por toque: arrastar o dedo sobre as barras mostra o valor de cada uma no título.
+- A measure over days, weeks, or months, when the user compares each period with the others and with the average.
+- Switch ranges (week, 30 days) without redrawing: bars with the same `key` stay in place and the axis zooms in or out around the most recent one.
+- Touch reading: dragging a finger over the bars shows each one's value in the title.
 
-## Quando não usar
+## When not to use
 
-- Use [`line-chart`](line-chart.md) para mais de uma série ou quando a forma da tendência importa mais que cada valor.
-- Use [`sparkline`](sparkline.md) para uma tendência compacta ao lado de um número, sem eixos.
-- Use [`composition-chart`](composition-chart.md) para as partes de um todo; este gráfico mostra uma única medida e não desenha valores negativos.
+- Use [`line-chart`](line-chart.md) for more than one series or when the shape of the trend matters more than each value.
+- Use [`sparkline`](sparkline.md) for a compact trend next to a number, without axes.
+- Use [`composition-chart`](composition-chart.md) for the parts of a whole; this chart shows a single measure and does not draw negative values.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -89,17 +89,17 @@ export default function BarChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BarChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `BarChartDatum[]` | — | — |
-| `label` (obrigatória) | `string` | — | What is measured, such as "Active minutes". Names the chart for assistive technology. |
-| `period` (obrigatória) | `string` | — | The range on show, such as "Sep 15–21, 2026". It rests under the headline. |
+| `data` (required) | `BarChartDatum[]` | — | — |
+| `label` (required) | `string` | — | What is measured, such as "Active minutes". Names the chart for assistive technology. |
+| `period` (required) | `string` | — | The range on show, such as "Sep 15–21, 2026". It rests under the headline. |
 | `unit` | `string` | `""` | Unit after each value, such as "min". |
 | `averageLabel` | `string` | `"Daily average"` | Headline label at rest, above the average. |
 | `valueLabel` | `string` | `"Total"` | Headline label while a bar is scrubbed. |
@@ -108,55 +108,55 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `height` | `number` | `176` | Plot height in pixels. |
 | `formatValue` | `(value: number) => string` | `value => grouped.format(value)` | — |
 
-### Tipos exportados
+### Exported types
 
 #### `BarChartDatum`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity, such as an ISO date. A bar whose key survives a data change keeps its place, so switching ranges morphs instead of redrawing. |
-| `label` (obrigatória) | `string` | Full label for the headline and screen readers, such as "Tue, Sep 15". |
+| `key` (required) | `string` | Stable identity, such as an ISO date. A bar whose key survives a data change keeps its place, so switching ranges morphs instead of redrawing. |
+| `label` (required) | `string` | Full label for the headline and screen readers, such as "Tue, Sep 15". |
 | `axisLabel` | `string` | Short label under the bar, such as "T" or "Sep 14". Leave it out to keep the axis quiet. |
-| `value` (obrigatória) | `number` | — |
+| `value` (required) | `number` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Leva o foco à área do gráfico, que se comporta como um `slider`, e ativa a barra mais recente. |
-| `←` ou `↓` | Vai à barra anterior. |
-| `→` ou `↑` | Vai à barra seguinte. |
-| `Page Up` ou `Page Down` | Avança ou recua sete barras. |
-| `Home` ou `End` | Vai à primeira ou à última barra. |
-| `Esc` | Sai da leitura: o título volta a mostrar a média. |
+| `Tab` | Moves focus to the chart area, which behaves as a `slider`, and activates the most recent bar. |
+| `←` or `↓` | Moves to the previous bar. |
+| `→` or `↑` | Moves to the next bar. |
+| `Page Up` or `Page Down` | Moves forward or back seven bars. |
+| `Home` or `End` | Moves to the first or last bar. |
+| `Esc` | Leaves reading mode: the title shows the average again. |
 
-## Acessibilidade
+## Accessibility
 
-- A área de leitura é um `role="slider"` focável cujo `aria-valuetext` diz o rótulo e o valor da barra ativa; o SVG é um `img` com um resumo de média, maior e menor valor.
-- Uma tabela oculta lista todos os pontos para o leitor de tela, e uma região `aria-live` anuncia período e média quando os dados mudam.
-- `label` e `period` são obrigatórios e nomeiam o gráfico; “Avg”, “Highest” e “Lowest” ficam em inglês no código, mas `averageLabel`, `valueLabel` e `categoryLabel` são seus.
+- The reading area is a focusable `role="slider"` whose `aria-valuetext` states the label and value of the active bar; the SVG is an `img` with a summary of the average, highest, and lowest value.
+- A hidden table lists every point for the screen reader, and an `aria-live` region announces the period and average when the data changes.
+- `label` and `period` are required and name the chart; “Avg”, “Highest”, and “Lowest” are in English in the code, but `averageLabel`, `valueLabel`, and `categoryLabel` are yours.
 
-## Movimento
+## Motion
 
-- As barras crescem da base, da esquerda para a direita, quando o gráfico entra na tela, e a linha da média sobe junto.
-- Num intervalo novo, o eixo do tempo aproxima ou afasta com mola em torno da barra mais recente: as barras que ficam mudam de altura no lugar, as que saem afundam na base e a média desliza.
-- Com “reduzir movimento”, alturas, escala e cursor saltam para o valor final e os textos do título só esmaecem.
+- The bars grow from the base, left to right, when the chart enters the screen, and the average line rises with them.
+- On a new range, the time axis zooms in or out with a spring around the most recent bar: the bars that stay change height in place, those that leave sink to the base, and the average slides.
+- With “reduce motion”, heights, scale, and cursor jump to the final value and the title texts only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O gráfico mede a própria largura, e os rótulos do eixo rareiam (um sim, um não, e assim por diante, contando da barra mais recente) para não se tocarem.
-- A camada de leitura usa `touch-action: pan-y`: arrastar na horizontal lê as barras e na vertical continua rolando a página; a altura é fixa em `height` (176 px por padrão).
+- The chart measures its own width, and the axis labels thin out (every other one, and so on, counting from the most recent bar) so they do not touch.
+- The reading layer uses `touch-action: pan-y`: dragging horizontally reads the bars and vertically keeps scrolling the page; the height is fixed at `height` (176 px by default).
 
-## Desempenho
+## Performance
 
-- Cada barra é um `path` recalculado a cada quadro durante as transições e ocupa 58% da sua fatia (no máximo 28 px): o componente serve a dezenas de barras, não a centenas.
+- Each bar is a `path` recalculated on every frame during transitions and takes 58% of its slice (at most 28 px): the component serves dozens of bars, not hundreds.
 
-## Notas para IA
+## Notes for AI
 
-- Cada ponto é `{ key, label, axisLabel?, value }`, do mais antigo ao mais novo; a `key` tem de ser estável (uma data ISO) para a troca de intervalo transformar as barras em vez de redesenhar.
-- A barra ativa é estado interno: não há prop nem callback para ler ou controlar qual está sendo lida.
-- A média do título é arredondada para inteiro antes de `formatValue`, e o formato padrão não tem casas decimais: para medidas fracionárias, passe os valores numa unidade menor.
+- Each point is `{ key, label, axisLabel?, value }`, from oldest to newest; the `key` must be stable (an ISO date) so the range swap transforms the bars instead of redrawing.
+- The active bar is internal state: there is no prop or callback to read or control which one is being read.
+- The title average is rounded to an integer before `formatValue`, and the default format has no decimal places: for fractional measures, pass the values in a smaller unit.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bar-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/bar-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

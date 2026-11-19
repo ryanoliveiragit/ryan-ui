@@ -2,47 +2,47 @@
 
 > Fundo animado em canvas: um campo de ruído que flui na cor de destaque e pausa quando sai da tela.
 
-- Tipo: componente (categoria Especial), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/shader-background
-- Descrição original (inglês): An animated WebGL backdrop: a flowing noise field tinted with the accent that pauses off screen, holds still under reduced motion and falls back to a flat surface.
+- Type: component (category Special), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/shader-background
+- Original description: An animated WebGL backdrop: a flowing noise field tinted with the accent that pauses off screen, holds still under reduced motion and falls back to a flat surface.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shader-background.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shader-background.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shader-background.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shader-background.json`. Caminho do registro, relativo ao endereço do site: `r/shader-background.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shader-background.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shader-background.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/shader-background.json`. Registry path, relative to the site address: `r/shader-background.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/shader-background/shader-background.tsx`
   - `components/ryan-ui/shader-background/shader-background.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/shader-background.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/shader-background.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- O fundo de uma seção de destaque, como o hero de uma landing page ou uma tela de login, com movimento lento na cor de destaque.
-- Fundos que devem seguir tema claro e escuro e a cor de destaque sem configuração: as cores vêm dos tokens e são relidas quando o tema muda.
+- The background of a highlight section, such as a landing page hero or a login screen, with slow motion in the accent color.
+- Backgrounds that should follow light and dark themes and the accent color with no configuration: the colors come from tokens and are reread when the theme changes.
 
-## Quando não usar
+## When not to use
 
-- Atrás de texto longo, tabelas ou formulários, um fundo que se mexe atrapalha a leitura; use uma superfície lisa.
-- Use [`hero-section`](hero-section.md) quando precisa do hero inteiro pronto, com título, botões e ilustrações, e não só do fundo.
-- Como fundo de cada cartão numa lista ou grade ele não serve: cada instância é um canvas WebGL próprio.
+- Behind long text, tables, or forms, a moving background hurts reading; use a smooth surface.
+- Use [`hero-section`](hero-section.md) when you need the whole hero ready-made, with title, buttons, and illustrations, and not just the background.
+- It does not suit as the background of every card in a list or grid: each instance is its own WebGL canvas.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -82,13 +82,13 @@ export default function ShaderBackgroundDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ShaderBackground`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `speed` | `number` | `1` | Flow speed multiplier. 1 is a calm drift; 0 freezes the field. |
 | `scale` | `number` | `1` | Zoom of the noise field. Larger values show finer, busier detail. |
@@ -97,34 +97,34 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `quality` | `number` | `0.75` | Render resolution as a fraction of the display pixels, from 0.25 to 1. The field is soft, so a lower value costs less and rarely shows. |
 | `children` | `ReactNode` | — | Content shown above the field. |
 | `className` | `string` | — | Extra class for the root element. |
-| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Também aceita as props deste tipo. |
+| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Also accepts the props of this type. |
 
-## Acessibilidade
+## Accessibility
 
-- O canvas é `aria-hidden` e não recebe ponteiro; o conteúdo vem em `children`, numa camada acima, com a semântica que você der.
-- O campo mistura o fundo da página com manchas na cor de destaque; confira o contraste do texto por cima e reduza `intensity` se precisar.
+- The canvas is `aria-hidden` and receives no pointer; the content comes in `children`, in a layer above, with whatever semantics you give it.
+- The field blends the page background with patches in the accent color; check the text contrast on top and reduce `intensity` if needed.
 
-## Movimento
+## Motion
 
-- Um campo de ruído dobrado sobre si mesmo flui devagar, como líquido; `speed` muda o ritmo (0 congela), `scale` o tamanho do detalhe e `intensity` a força do destaque.
-- O canvas aparece com um esmaecer de 0,48 s quando o primeiro quadro fica pronto; antes disso, e sem WebGL, fica a superfície lisa de `--background`.
-- Com “reduzir movimento”, o campo fica parado num quadro fixo e o esmaecer inicial é desligado; `paused` congela o quadro atual e retoma do mesmo ponto.
+- A noise field folded over itself flows slowly, like liquid; `speed` changes the pace (0 freezes), `scale` the detail size, and `intensity` the strength of the highlight.
+- The canvas appears with a 0.48 s fade when the first frame is ready; before that, and without WebGL, the smooth `--background` surface remains.
+- With “reduce motion”, the field stays still on a fixed frame and the initial fade is turned off; `paused` freezes the current frame and resumes from the same point.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa o tamanho do próprio elemento, com pelo menos 12 rem de altura, e redesenha quando ele muda de tamanho.
+- It takes the size of its own element, with a height of at least 12 rem, and redraws when it is resized.
 
-## Desempenho
+## Performance
 
-- O laço de `requestAnimationFrame` só roda com o fundo na tela, a aba visível, sem `paused` e com `speed` diferente de 0; parado, ele desenha uma vez e não gasta mais.
-- `quality` (padrão 0,75) reduz os pixels desenhados, com densidade limitada a 2×; cada instância é um contexto WebGL próprio, então use poucos por página.
+- The `requestAnimationFrame` loop only runs while the background is on screen, the tab is visible, `paused` is off, and `speed` is not 0; when stopped, it draws once and spends nothing more.
+- `quality` (default 0.75) reduces the pixels drawn, with density capped at 2×; each instance is its own WebGL context, so use few per page.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `ShaderBackground` de `@/components/ryan-ui/shader-background/shader-background` e ponha o conteúdo como filho; defina a altura com `className` ou deixe o conteúdo definir (mínimo de 12 rem).
-- As cores vêm de `--background`, `--surface-muted` e `--accent`; para outro tom, mude esses tokens num ancestral em vez de editar o shader.
-- Ofereça um botão de pausa ligado a `paused` quando o fundo fica muito tempo na tela, como no demo.
+- Import `ShaderBackground` from `@/components/ryan-ui/shader-background/shader-background` and put the content as the child; set the height with `className` or let the content set it (minimum 12 rem).
+- The colors come from `--background`, `--surface-muted`, and `--accent`; for another tone, change those tokens on an ancestor instead of editing the shader.
+- Offer a pause button tied to `paused` when the background stays on screen for a long time, as in the demo.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/shader-background · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/shader-background · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,50 +2,50 @@
 
 > Tabuleiro de plinko de mentirinha: a bolinha quica nos pinos, para a esquerda ou a direita, e acende a casa do multiplicador.
 
-- Tipo: componente (categoria Jogos), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/plinko-game
-- Descrição original (inglês): A play-money plinko board: each ball bounces left or right off every row of pegs and lights up the multiplier slot it lands in.
+- Type: component (category Games), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/plinko-game
+- Original description: A play-money plinko board: each ball bounces left or right off every row of pegs and lights up the multiplier slot it lands in.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json`. Caminho do registro, relativo ao endereço do site: `r/plinko-game.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/plinko-game.json`. Registry path, relative to the site address: `r/plinko-game.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/plinko-game/plinko-game.tsx`
   - `components/ryan-ui/plinko-game/plinko-game.module.css`
   - `components/ryan-ui/plinko-game/play-money.tsx`
   - `components/ryan-ui/plinko-game/play-money.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/plinko-game.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/plinko-game.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Demos ou áreas de jogo com saldo fictício em que várias bolas caem ao mesmo tempo, cada uma com a própria aposta.
-- Mostrar uma distribuição binomial em ação: as casas do meio saem mais e pagam menos, as das pontas são raras e pagam mais.
-- Quando a pessoa escolhe o risco (`low`, `medium`, `high`) e vê a tabela de multiplicadores mudar na hora.
+- Demos or game areas with a play-money balance where several balls fall at the same time, each with its own bet.
+- Show a binomial distribution in action: the middle slots come up more often and pay less, the end ones are rare and pay more.
+- When the person chooses the risk (`low`, `medium`, `high`) and sees the multiplier table change instantly.
 
-## Quando não usar
+## When not to use
 
-- Não use com dinheiro real nem prêmios: o saldo é fictício e o caminho de cada bola é sorteado no navegador com `random`.
-- Use [`crash-game`](crash-game.md) ou [`mines-game`](mines-game.md) quando a pessoa deve decidir durante a rodada, sacando antes de perder.
-- Use [`slide-game`](slide-game.md) para um resultado por aposta com as chances de cada multiplicador à mostra.
+- Do not use with real money or prizes: the balance is play money and each ball's path is drawn in the browser with `random`.
+- Use [`crash-game`](crash-game.md) or [`mines-game`](mines-game.md) when the person should decide during the round, cashing out before losing.
+- Use [`slide-game`](slide-game.md) for one result per bet with the odds of each multiplier on display.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -76,15 +76,15 @@ export default function PlinkoGameDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PlinkoGame`
 
 A plinko board with fake money: each ball bounces left or right off every row of pegs and lights up the multiplier slot it lands in.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `balance` | `number` | — | Controlled play-money balance. |
 | `defaultBalance` | `number` | `1000` | Starting balance when uncontrolled; the reset button returns to it. |
@@ -107,25 +107,25 @@ A plinko board with fake money: each ball bounces left or right off every row of
 
 The card around a game: title, a "Play money" tag, the balance and its reset.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | Name of the game, shown in the header and used as the region label. |
-| `money` (obrigatória) | `PlayMoney` | — | The balance from `usePlayMoney`. |
+| `title` (required) | `string` | — | Name of the game, shown in the header and used as the region label. |
+| `money` (required) | `PlayMoney` | — | The balance from `usePlayMoney`. |
 | `busy` | `boolean` | `false` | True while a round is running: the reset button waits for it to end. |
 | `announcement` | `string` | `""` | Result text for screen readers, announced politely. |
 | `className` | `string` | — | Extra class for the card. |
-| `children` (obrigatória) | `ReactNode` | — | The stage and controls of the game. |
+| `children` (required) | `ReactNode` | — | The stage and controls of the game. |
 
 ### `BetField`
 
 Bet amount with half, double and max shortcuts. Typing is free; the amount is clamped when the field loses focus.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `number` | — | Bet amount. |
-| `onValueChange` (obrigatória) | `(value: number) => void` | — | Called with the new amount, already clamped between `min` and `max`. |
+| `value` (required) | `number` | — | Bet amount. |
+| `onValueChange` (required) | `(value: number) => void` | — | Called with the new amount, already clamped between `min` and `max`. |
 | `min` | `number` | `1` | Smallest bet. |
-| `max` (obrigatória) | `number` | — | Largest bet, usually the balance. |
+| `max` (required) | `number` | — | Largest bet, usually the balance. |
 | `disabled` | `boolean` | `false` | Locks the field, for example while a round runs. |
 | `label` | `string` | `"Bet"` | Field label. |
 
@@ -133,11 +133,11 @@ Bet amount with half, double and max shortcuts. Typing is free; the amount is cl
 
 A small optional number, such as a target multiplier.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Field label. |
-| `value` (obrigatória) | `string` | — | Text in the field (digits and one dot). Empty means "not set". |
-| `onValueChange` (obrigatória) | `(value: string) => void` | — | Called with the cleaned text on every edit. |
+| `label` (required) | `string` | — | Field label. |
+| `value` (required) | `string` | — | Text in the field (digits and one dot). Empty means "not set". |
+| `onValueChange` (required) | `(value: string) => void` | — | Called with the cleaned text on every edit. |
 | `placeholder` | `string` | — | Shown while the field is empty. |
 | `suffix` | `string` | — | Short unit after the number, for example "×". |
 | `disabled` | `boolean` | `false` | Locks the field. |
@@ -146,124 +146,124 @@ A small optional number, such as a target multiplier.
 
 A labelled slot for a custom control, aligned with the bet field.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Label above the control. |
-| `children` (obrigatória) | `ReactNode` | — | The control: a stepper, a segmented choice… |
+| `label` (required) | `string` | — | Label above the control. |
+| `children` (required) | `ReactNode` | — | The control: a stepper, a segmented choice… |
 
 ### `PlayButton`
 
 The main action of a game. One button keeps focus while its label changes (Bet, Cash out, …).
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `labelKey` (obrigatória) | `string` | — | Identifies the label: when it changes, the old label slides out and the new one slides in. |
+| `labelKey` (required) | `string` | — | Identifies the label: when it changes, the old label slides out and the new one slides in. |
 | `tone` | `"accent" \| "neutral"` | `"accent"` | "accent" for the main action, "neutral" for a waiting state. |
 | `disabled` | `boolean` | `false` | Turns the action off. The button stays focusable (aria-disabled), so keyboard focus is never lost while a round runs. |
-| `onClick` (obrigatória) | `() => void` | — | Runs the action. |
-| `children` (obrigatória) | `ReactNode` | — | Label content. |
+| `onClick` (required) | `() => void` | — | Runs the action. |
+| `children` (required) | `ReactNode` | — | Label content. |
 
 ### `HistoryChips`
 
 A row of past results. A new chip springs in at the start and pushes the others along.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `entries` (obrigatória) | `HistoryEntry[]` | — | Past results, newest first. |
-| `label` (obrigatória) | `string` | — | Label of the list for screen readers. |
+| `entries` (required) | `HistoryEntry[]` | — | Past results, newest first. |
+| `label` (required) | `string` | — | Label of the list for screen readers. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `PlinkoRisk` | `"low" \| "medium" \| "high"` |
 
 #### `PlinkoDrop`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number` | Ball number, starting at 1. |
-| `slot` (obrigatória) | `number` | Slot the ball landed in, counted from the left starting at 0. |
-| `multiplier` (obrigatória) | `number` | Multiplier of that slot. |
-| `bet` (obrigatória) | `number` | Amount bet on the ball. |
-| `payout` (obrigatória) | `number` | Amount paid back. |
+| `id` (required) | `number` | Ball number, starting at 1. |
+| `slot` (required) | `number` | Slot the ball landed in, counted from the left starting at 0. |
+| `multiplier` (required) | `number` | Multiplier of that slot. |
+| `bet` (required) | `number` | Amount bet on the ball. |
+| `payout` (required) | `number` | Amount paid back. |
 
 #### `PlayMoneyOptions`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `balance` | `number` | Controlled balance. |
-| `defaultBalance` (obrigatória) | `number` | Starting balance when uncontrolled; a reset returns to it. |
+| `defaultBalance` (required) | `number` | Starting balance when uncontrolled; a reset returns to it. |
 | `onBalanceChange` | `(balance: number) => void` | Called with the new balance after a bet, a payout or a reset. |
 
 #### `PlayMoneyGain`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number` | Changes on every payout, so the same amount twice still animates. |
-| `amount` (obrigatória) | `number` | Amount paid. |
+| `id` (required) | `number` | Changes on every payout, so the same amount twice still animates. |
+| `amount` (required) | `number` | Amount paid. |
 
 #### `PlayMoney`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `balance` (obrigatória) | `number` | Current fake balance. |
-| `gain` (obrigatória) | `PlayMoneyGain \| null` | The latest payout, for the "+12.40" flyer next to the balance. |
-| `spend` (obrigatória) | `(amount: number) => boolean` | Takes a bet out of the balance. Returns false (and takes nothing) when the balance is too low. |
-| `pay` (obrigatória) | `(amount: number) => void` | Adds a payout to the balance. |
-| `reset` (obrigatória) | `() => void` | Returns the balance to its starting amount. |
+| `balance` (required) | `number` | Current fake balance. |
+| `gain` (required) | `PlayMoneyGain \| null` | The latest payout, for the "+12.40" flyer next to the balance. |
+| `spend` (required) | `(amount: number) => boolean` | Takes a bet out of the balance. Returns false (and takes nothing) when the balance is too low. |
+| `pay` (required) | `(amount: number) => void` | Adds a payout to the balance. |
+| `reset` (required) | `() => void` | Returns the balance to its starting amount. |
 
 #### `HistoryEntry`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number \| string` | Stable key of the round. |
-| `label` (obrigatória) | `string` | Text of the chip, for example "2.31×". |
-| `tone` (obrigatória) | `"low" \| "mid" \| "high"` | "low" is muted, "mid" is tinted, "high" takes the accent fill. |
+| `id` (required) | `number \| string` | Stable key of the round. |
+| `label` (required) | `string` | Text of the chip, for example "2.31×". |
+| `tone` (required) | `"low" \| "mid" \| "high"` | "low" is muted, "mid" is tinted, "high" takes the accent fill. |
 
-### Outras exportações
+### Other exports
 
-- `formatAmount` (função)
-- `formatMultiplier` (função)
-- `roundAmount` (função)
+- `formatAmount` (function)
+- `formatMultiplier` (function)
+- `roundAmount` (function)
 - `usePlayMoney` (hook)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão “Drop a ball”, solta uma bola; repetir solta outras, até `maxBalls` caindo juntas. |
-| `↑` ou `↓` ou `←` ou `→` | No grupo de risco, troca entre “Low”, “Medium” e “High” (rádios nativos); fica bloqueado enquanto há bolas caindo. |
-| `Enter` | No campo de aposta, confirma o valor e o ajusta entre `minBet` e o saldo. |
-| `Tab` | Passa por zerar o saldo, aposta, ½, 2×, Max, o risco marcado e o botão de soltar. |
+| `Enter` or `Space` | On the “Drop a ball” button, drops a ball; repeating drops more, up to `maxBalls` falling together. |
+| `↑` or `↓` or `←` or `→` | In the risk group, switches between “Low”, “Medium” and “High” (native radios); locked while balls are falling. |
+| `Enter` | In the bet field, confirms the value and clamps it between `minBet` and the balance. |
+| `Tab` | Moves through reset balance, bet, ½, 2×, Max, the selected risk and the drop button. |
 
-## Acessibilidade
+## Accessibility
 
-- O tabuleiro é `aria-hidden`; o leitor de tela encontra a lista de multiplicadores das casas, da esquerda para a direita, e ouve cada pouso (“Ball N landed on…”) numa região `role="status"`.
-- O risco é um grupo de rádios nativos rotulado “Risk”, cada um dentro de um `<label>`; o contorno de foco do teclado aparece no segmento.
-- Com várias bolas, cada pouso gera um anúncio novo; textos e anúncios estão fixos em inglês.
+- The board is `aria-hidden`; the screen reader finds the list of slot multipliers, from left to right, and hears each landing (“Ball N landed on…”) in a `role="status"` region.
+- The risk is a group of native radios labeled “Risk”, each inside a `<label>`; the keyboard focus outline appears on the segment.
+- With several balls, each landing produces a new announcement; texts and announcements are fixed in English.
 
-## Movimento
+## Motion
 
-- Cada bola cai e, em cada fileira, quica para a esquerda ou para a direita com um pequeno impulso para cima antes da gravidade; o pino tocado acende e cresce.
-- A casa onde a bola cai afunda e acende, fica com um anel até a próxima queda, e os valores trocam com um leve deslize quando o risco muda.
-- Com “reduzir movimento” ligado, nenhuma bola é desenhada: o resultado sai após uma pausa curta e a casa só acende, sem afundar.
+- Each ball falls and, at each row, bounces left or right with a small upward impulse before gravity; the peg it touches lights up and grows.
+- The slot where the ball lands sinks and lights up, keeps a ring until the next drop, and the values swap with a slight slide when the risk changes.
+- With “reduce motion” on, no ball is drawn: the result comes out after a short pause and the slot only lights up, without sinking.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O cartão vai até 42rem e é um contêiner: o tabuleiro fica acima dos controles e passa para o lado a partir de 36rem, com no máximo 27rem de largura.
-- O tabuleiro é um SVG que escala inteiro, e as casas acompanham a largura dele; abaixo de 22rem o “×” some dos rótulos.
+- The card goes up to 42rem and is a container: the board sits above the controls and moves to the side from 36rem, at most 27rem wide.
+- The board is an SVG that scales as a whole, and the slots follow its width; below 22rem the “×” disappears from the labels.
 
-## Desempenho
+## Performance
 
-- Um callback por quadro move todas as bolas direto no DOM, sem renderizar o React a cada passo; `maxBalls` (8) limita quantas caem juntas e `rows` vai de 6 a 12.
+- A per-frame callback moves all the balls directly in the DOM, without rendering React on each step; `maxBalls` (8) limits how many fall together and `rows` ranges from 6 to 12.
 
-## Notas para IA
+## Notes for AI
 
-- `risk` recalcula a tabela pela chance binomial de cada casa; para uma tabela sua, passe `multipliers` com exatamente `rows + 1` valores, senão ela é ignorada.
-- A aposta sai do saldo quando a bola é solta e o pagamento entra no pouso, quando `onDrop` chega com casa, multiplicador, aposta e pagamento.
-- O campo de aposta continua editável com bolas caindo e cada bola guarda a aposta do momento em que saiu; é dinheiro de mentira, com a própria cópia de `play-money.tsx`.
+- `risk` recomputes the table from each slot's binomial probability; for your own table, pass `multipliers` with exactly `rows + 1` values, otherwise it is ignored.
+- The bet leaves the balance when the ball is dropped and the payout comes in at landing, when `onDrop` arrives with slot, multiplier, bet and payout.
+- The bet field stays editable with balls falling and each ball keeps the bet from the moment it was dropped; it is play money, with its own copy of `play-money.tsx`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/plinko-game · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/plinko-game · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,47 +2,47 @@
 
 > Cartão de pagamento que inclina em 3D e vira para mostrar o verso, com saldo que pode ser ocultado e últimas transações.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/wallet-card
-- Descrição original (inglês): A payment card that leans toward the pointer in 3D and flips on a spring to show its back, with a balance that masks digit by digit and a short transaction list.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/wallet-card
+- Original description: A payment card that leans toward the pointer in 3D and flips on a spring to show its back, with a balance that masks digit by digit and a short transaction list.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json`. Caminho do registro, relativo ao endereço do site: `r/wallet-card.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/wallet-card.json`. Registry path, relative to the site address: `r/wallet-card.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/wallet-card/wallet-card.tsx`
   - `components/ryan-ui/blocks/wallet-card/wallet-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/wallet-card.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/wallet-card.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Painel ou landing de produto financeiro que mostra o cartão com saldo e as últimas transações, com um botão para esconder os valores.
-- Quando o verso do cartão (assinatura e código de segurança) faz parte da história e deve abrir com um giro.
+- Dashboard or financial product landing page that shows the card with balance and the latest transactions, with a button to hide the amounts.
+- When the back of the card (signature and security code) is part of the story and should open with a flip.
 
-## Quando não usar
+## When not to use
 
-- Use [`tilt-card`](tilt-card.md) quando só quer a inclinação 3D para outro conteúdo, sem verso, máscara ou transações.
-- Use [`metric-card`](metric-card.md) para mostrar um saldo com contexto num painel, sem o desenho do cartão.
-- Use [`sortable-data-table`](sortable-data-table.md) para históricos longos: a lista daqui é curta, sem paginação, filtro ou ordenação.
+- Use [`tilt-card`](tilt-card.md) when you only want the 3D tilt for other content, without a back, mask, or transactions.
+- Use [`metric-card`](metric-card.md) to show a balance with context in a dashboard, without the card drawing.
+- Use [`sortable-data-table`](sortable-data-table.md) for long histories: the list here is short, with no pagination, filter, or sorting.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import WalletCardPreview from "@/components/ryan-ui/blocks/wallet-card/wallet-card";
@@ -56,15 +56,15 @@ export default function WalletCardDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `WalletCard`
 
 A payment card with its account around it. The card leans toward the pointer in 3D under a moving glare and flips on a spring to show its back; the balance, the security code and the transaction amounts mask digit by digit. Touch and reduced motion get a still card that still flips and masks.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `holder` | `string` | `"Maya Okafor"` | Name printed on the card. |
 | `issuer` | `string` | `"Northwind"` | Bank or product name printed on the card. |
@@ -86,48 +86,48 @@ A payment card with its account around it. The card leans toward the pointer in 
 
 Ready preview with sample account data.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `WalletTransaction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable key. |
-| `merchant` (obrigatória) | `string` | Who was paid, or who paid. |
-| `detail` (obrigatória) | `string` | Second line: category, date or both. |
-| `amount` (obrigatória) | `number` | Signed amount: negative for money out, positive for money in. |
+| `id` (required) | `string` | Stable key. |
+| `merchant` (required) | `string` | Who was paid, or who paid. |
+| `detail` (required) | `string` | Second line: category, date or both. |
+| `amount` (required) | `number` | Signed amount: negative for money out, positive for money in. |
 | `icon` | `ReactNode` | Icon in the row's badge. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Nos botões “Show back” e “Hide amounts”, viram o cartão ou mascaram os valores; o cartão em si não recebe foco. |
+| `Enter` or `Space` | On the “Show back” and “Hide amounts” buttons, flip the card or mask the amounts; the card itself does not receive focus. |
 
-## Acessibilidade
+## Accessibility
 
-- A face que não está à mostra fica com `aria-hidden` e `inert`; o número é lido como “Card ending in” mais os quatro dígitos, e os valores mascarados como “Balance hidden”, em texto escondido.
-- Os dois controles são botões com `aria-pressed`; o clique no cartão é só um atalho de ponteiro numa `div` sem papel, então os botões são o caminho acessível.
-- Rótulos e textos escondidos estão fixos em inglês (“Show amounts”, “Recent activity”, “Card ending in”).
+- The face that is not showing is `aria-hidden` and `inert`; the number is read as “Card ending in” plus the four digits, and masked values as “Balance hidden”, in hidden text.
+- The two controls are buttons with `aria-pressed`; clicking the card is only a pointer shortcut on a `div` with no role, so the buttons are the accessible path.
+- Labels and hidden texts are hardcoded in English (“Show amounts”, “Recent activity”, “Card ending in”).
 
-## Movimento
+## Motion
 
-- Com mouse, o cartão inclina até 11° na direção do ponteiro em 3D numa mola, sob um brilho que acompanha o ponteiro, e volta reto ao sair.
-- O giro de 180° usa uma mola com pequeno quique; ao mascarar, cada dígito vira ponto um após o outro (16 ms de intervalo) e as transações sobem em sequência ao montar.
-- O toque não inclina o cartão; com “reduzir movimento” ligado também não há inclinação, o giro é imediato, os dígitos trocam sem deslize e as transações aparecem de uma vez.
+- With a mouse, the card tilts up to 11° toward the pointer in 3D on a spring, under a glow that follows the pointer, and returns flat on leave.
+- The 180° flip uses a slightly bouncy spring; when masking, each digit turns into a dot one after another (16 ms apart) and the transactions rise in sequence on mount.
+- Touch does not tilt the card; with “reduce motion” on there is also no tilt, the flip is immediate, the digits swap without sliding, and the transactions appear all at once.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A raiz é um contêiner de até 23rem; o cartão mantém a proporção de cartão de pagamento (1,586) e o saldo escala com a largura, de 1,5rem a 2rem (`8.6cqi`).
+- The root is a container up to 23rem; the card keeps the payment-card proportion (1.586) and the balance scales with the width, from 1.5rem to 2rem (`8.6cqi`).
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `WalletCard`; o export padrão é o preview com dados de exemplo (titular, saldo e quatro transações).
-- Controle `masked` com `onMaskedChange` e `flipped` com `onFlippedChange` para guardar a escolha; `transactions={[]}` esconde a lista e cada `amount` é um número com sinal, negativo para saída.
-- Os valores são formatados sempre em `en-US` com a moeda de `currency`; o cartão só usa `last4`, e o `cvv` é impresso no verso protegido só pela máscara do saldo, então evite passar o código real.
+- Import the named component `WalletCard`; the default export is the preview with example data (holder, balance, and four transactions).
+- Control `masked` with `onMaskedChange` and `flipped` with `onFlippedChange` to store the choice; `transactions={[]}` hides the list and each `amount` is a signed number, negative for outflows.
+- Values are always formatted in `en-US` with the `currency` currency; the card only uses `last4`, and the `cvv` is printed on the back, protected only by the balance mask, so avoid passing the real code.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/wallet-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/wallet-card · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

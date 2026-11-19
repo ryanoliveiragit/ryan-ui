@@ -6,7 +6,7 @@ export const accents = ["lime", "neutral", "violet", "blue", "green", "amber", "
 export type Accent = (typeof accents)[number];
 
 const THEME_KEY = "ryan-ui:theme";
-const ACCENT_KEY = "ryan-ui:accent";
+const ACCENT_KEY = "ryan-ui:accent-color";
 
 interface ThemeState { mode: ThemeMode; theme: Theme; accent: Accent }
 
@@ -21,7 +21,7 @@ function initial(): ThemeState {
   const mode: ThemeMode = stored === "light" || stored === "dark" ? stored : "system";
   // O script do index.html já aplicou tema e cor (inclusive os da URL do preview); o estado parte do que está no <html>.
   const theme: Theme = root.dataset.theme === "dark" ? "dark" : "light";
-  const accent = isAccent(root.dataset.accent ?? null) ? (root.dataset.accent as Accent) : "lime";
+  const accent = isAccent(root.dataset.accent ?? null) ? (root.dataset.accent as Accent) : "blue";
   return { mode, theme, accent };
 }
 

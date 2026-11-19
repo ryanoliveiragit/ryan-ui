@@ -2,48 +2,48 @@
 
 > Informe um número limitado com controles de incremento claros e dígitos em odômetro.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/number-field
-- Descrição original (inglês): Enter a bounded number with clear increment controls.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/number-field
+- Original description: Enter a bounded number with clear increment controls.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json`. Caminho do registro, relativo ao endereço do site: `r/number-field.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/number-field.json`. Registry path, relative to the site address: `r/number-field.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/number-field/number-field.tsx`
   - `components/ryan-ui/number-field/number-field.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/number-field.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/number-field.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Números limitados que a pessoa pode tanto digitar quanto ajustar passo a passo: assentos, quantidade, preço por unidade.
-- Valores com unidade que acompanha o número, como “1 assento” e “2 assentos”: `prefix` e `suffix` aceitam texto ou uma função do valor.
-- Painéis de propriedades em que arrastar é mais rápido que clicar: com `scrub`, arrastar o rótulo para os lados muda um passo a cada 6 px.
+- Bounded numbers the person can both type and adjust step by step: seats, quantity, price per unit.
+- Values with a unit that follows the number, like “1 seat” and “2 seats”: `prefix` and `suffix` accept text or a function of the value.
+- Property panels where dragging is faster than clicking: with `scrub`, dragging the label sideways changes one step every 6 px.
 
-## Quando não usar
+## When not to use
 
-- Use [`adaptive-stepper`](adaptive-stepper.md) para contadores pequenos que não precisam de digitação e devem manter a largura fixa.
-- Use [`money-input`](money-input.md) para dinheiro, com moeda, centavos e saída em unidades menores.
-- Use [`scrub-input`](scrub-input.md) em editores compactos que pedem unidades, contas no próprio campo e passo fino com `Alt`.
+- Use [`adaptive-stepper`](adaptive-stepper.md) for small counters that need no typing and should keep a fixed width.
+- Use [`money-input`](money-input.md) for money, with currency, cents, and output in minor units.
+- Use [`scrub-input`](scrub-input.md) in compact editors that need units, math in the field itself, and fine steps with `Alt`.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -65,17 +65,17 @@ export default function NumberFieldDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `NumberField`
 
 A bounded number with odometer digits. Buttons and arrow keys repeat and speed up while held, PageUp and PageDown take large steps, Home and End jump to the limits, and `scrub` lets the label be dragged. Typing edits a plain draft that applies live while valid; the rolling digits return once it commits on Enter, blur, or the next step.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `value` | `number` | — | — |
 | `defaultValue` | `number` | `0` | — |
 | `onValueChange` | `(value: number) => void` | — | — |
@@ -94,50 +94,50 @@ A bounded number with odometer digits. Buttons and arrow keys repeat and speed u
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | Control height, type size, and default width. |
 | `limitHint` | `boolean \| ((edge: "min" \| "max", limit: number) => string)` | `true` | A short note beside the label when a press meets a limit or a typed value passes one. `false` hides it; a function writes the copy. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `NumberFieldAffix`: Text shown beside the number. A function receives the value, so a unit can follow it: `n => n === 1 ? " seat" : " seats"`. | `string \| ((value: number) => string)` |
 | `NumberFieldSize` | `"sm" \| "md" \| "lg"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Somam ou subtraem `step`; segurar repete e acelera, e com `Shift` o passo vira `largeStep`. |
-| `Page Up` ou `Page Down` | Somam ou subtraem `largeStep` (por padrão, dez passos). |
-| `Home` ou `End` | Vão para `min` ou para `max` (`End` só quando `max` foi definido); durante a digitação, movem o cursor. |
-| `Enter` | Aplica o valor digitado, ajustado ao passo e aos limites; sem digitação, seleciona o número. |
-| `Esc` | Durante a digitação, descarta o texto e volta ao valor de antes da edição. |
-| `Tab` | Passa pelo botão de menos, pelo número e pelo de mais; nos botões, `Enter` e `Espaço` dão um passo. |
+| `↑` or `↓` | Add or subtract `step`; holding repeats and accelerates, and with `Shift` the step becomes `largeStep`. |
+| `Page Up` or `Page Down` | Add or subtract `largeStep` (by default, ten steps). |
+| `Home` or `End` | Go to `min` or to `max` (`End` only when `max` was defined); while typing, they move the cursor. |
+| `Enter` | Applies the typed value, adjusted to the step and limits; with no typing, selects the number. |
+| `Esc` | While typing, discards the text and returns to the value from before the edit. |
+| `Tab` | Moves through the minus button, the number, and the plus button; on the buttons, `Enter` and `Space` take one step. |
 
-## Acessibilidade
+## Accessibility
 
-- O número é um `<input>` com `role="spinbutton"` ligado ao `label` visível, com `aria-valuenow`, `aria-valuetext` já com `prefix` e `suffix`, e os limites quando definidos.
-- Os botões ficam na ordem de tabulação e, no limite, recebem `aria-disabled` sem perder o foco; seus nomes são `Decrease …` e `Increase …`, em inglês.
-- Uma região `aria-live` anuncia o valor após um clique nos botões ou um arrasto do rótulo, e o limite atingido; a nota visível `Max …`/`Min …` muda com `limitHint` ou some com `false`.
+- The number is an `<input>` with `role="spinbutton"` tied to the visible `label`, with `aria-valuenow`, `aria-valuetext` already including `prefix` and `suffix`, and the limits when defined.
+- The buttons stay in the tab order and, at the limit, get `aria-disabled` without losing focus; their names are `Decrease …` and `Increase …`, in English.
+- An `aria-live` region announces the value after a click on the buttons or a drag of the label, and the limit reached; the visible `Max …`/`Min …` note changes with `limitHint` or disappears with `false`.
 
-## Movimento
+## Motion
 
-- Cada dígito gira como um odômetro no sentido da mudança, dando a volta de 9 para 0, e as colunas abrem ou fecham a largura quando o número ganha ou perde um dígito.
-- No limite, o valor força em direção a ele e volta com uma mola, um pouco mais a cada insistência seguida; o ícone do botão recusado treme e uma nota com o limite surge ao lado do rótulo.
-- Com “reduzir movimento” ligado, nada se desloca: os dígitos só esmaecem e insistir num limite apenas tinge o número por um instante.
+- Each digit turns like an odometer in the direction of the change, wrapping from 9 to 0, and the columns open or close the width when the number gains or loses a digit.
+- At the limit, the value pushes toward it and returns with a spring, a little more with each consecutive attempt; the refused button's icon shakes and a note with the limit appears next to the label.
+- With “reduce motion” on, nothing moves: digits only fade and pushing against a limit only tints the number for a moment.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura vem de `--number-field-width` (196 px; 164 em `sm` e 228 em `lg`), limitada a 100% do contêiner, e a altura segue `size`: 36, 44 ou 50 px.
+- The width comes from `--number-field-width` (196 px; 164 in `sm` and 228 in `lg`), capped at 100% of the container, and the height follows `size`: 36, 44, or 50 px.
 
-## Desempenho
+## Performance
 
-- Cada dígito monta uma roda com os dez algarismos, cada um com estilos animados próprios: numa tabela com dezenas de campos, prefira um campo simples como `input`.
+- Each digit mounts a wheel with the ten numerals, each with its own animated styles: in a table with dozens of fields, prefer a simple field like `input`.
 
-## Notas para IA
+## Notes for AI
 
-- Controlado com `value` + `onValueChange` ou não controlado com `defaultValue` (padrão `0`); como `min` também é `0` por padrão, passe um `min` negativo para aceitar valores abaixo de zero.
-- Um valor digitado dentro dos limites e do passo já chama `onValueChange` durante a digitação; o resto é ajustado ao confirmar ou sair do campo, e as casas decimais seguem as de `step`.
-- Passe `locale="pt-BR"` para vírgula decimal e ponto de milhar e `formatOptions` para casas ou agrupamento; não há prop `name`, então envie o valor a partir do seu estado.
+- Controlled with `value` + `onValueChange` or uncontrolled with `defaultValue` (default `0`); since `min` is also `0` by default, pass a negative `min` to accept values below zero.
+- A value typed within the limits and the step already calls `onValueChange` while typing; the rest is adjusted on confirming or leaving the field, and decimal places follow those of `step`.
+- Pass `locale="pt-BR"` for decimal comma and thousands period and `formatOptions` for places or grouping; there is no `name` prop, so send the value from your state.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/number-field · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/number-field · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

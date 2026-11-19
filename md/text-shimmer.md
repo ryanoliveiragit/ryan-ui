@@ -2,47 +2,47 @@
 
 > Indica trabalho em andamento com uma luz calma passando pelo texto.
 
-- Tipo: componente (categoria Texto)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/text-shimmer
-- Descrição original (inglês): Show ongoing work with a calm light across the words.
+- Type: component (category Text)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/text-shimmer
+- Original description: Show ongoing work with a calm light across the words.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-shimmer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-shimmer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-shimmer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-shimmer.json`. Caminho do registro, relativo ao endereço do site: `r/text-shimmer.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-shimmer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-shimmer.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/text-shimmer.json`. Registry path, relative to the site address: `r/text-shimmer.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/text-shimmer/text-shimmer.tsx`
   - `components/ryan-ui/text-shimmer/text-shimmer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/text-shimmer.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/text-shimmer.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma linha curta de status enquanto algo trabalha: “Pensando”, “Gerando resumo”, “Analisando 1.284 transações…”.
-- Status que termina no mesmo lugar: com `active={false}`, a luz sai, o texto fica sólido e um rótulo novo, como “Análise concluída”, sobe no lugar.
+- A short status line while something is working: “Thinking”, “Generating summary”, “Analyzing 1,284 transactions…”.
+- A status that ends in the same place: with `active={false}`, the light leaves, the text turns solid, and a new label, such as “Analysis complete”, rises in its place.
 
-## Quando não usar
+## When not to use
 
-- Use [`loading-states`](loading-states.md) para um indicador de IA mais completo, com pontos, frases que se revezam ou contador de passos.
-- Use [`skeleton`](skeleton.md) para reservar o espaço de um conteúdo que ainda não chegou.
-- Use [`progress`](progress.md) quando dá para mostrar quanto falta.
+- Use [`loading-states`](loading-states.md) for a fuller AI indicator, with dots, rotating phrases, or a step counter.
+- Use [`skeleton`](skeleton.md) to reserve the space of content that has not arrived yet.
+- Use [`progress`](progress.md) when it is possible to show how much remains.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -62,41 +62,41 @@ export default function TextShimmerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `TextShimmer`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `string` | — | The status text. Keep it to one short line. |
+| `children` (required) | `string` | — | The status text. Keep it to one short line. |
 | `active` | `boolean` | `true` | Sweep while work is ongoing. Defaults to true. |
 | `duration` | `number` | `1.8` | Seconds for one sweep across the text. Defaults to 1.8. |
 | `as` | `"span" \| "p" \| "div" \| "h2" \| "h3" \| "h4"` | `"span"` | — |
 | `className` | `string` | — | — |
 | `id` | `string` | — | — |
 
-## Acessibilidade
+## Accessibility
 
-- Com `active`, o elemento recebe `aria-busy`; o fim do trabalho não é anunciado, então avise numa região viva sua.
-- Em alto contraste (`forced-colors`) ou sem suporte a `color-mix`, o efeito some e o texto aparece na cor normal.
+- With `active`, the element gets `aria-busy`; the end of the work is not announced, so announce it in your own live region.
+- In high contrast (`forced-colors`) or without `color-mix` support, the effect disappears and the text appears in its normal color.
 
-## Movimento
+## Motion
 
-- Uma faixa de luz na cor do texto atravessa as palavras em ritmo linear a cada `duration` (padrão 1,8 s), com uma pausa curta entre as passagens.
-- Ao desligar `active`, a faixa termina de passar e o texto assenta na cor sólida; um rótulo novo sobe com leve desfoque e a largura acompanha com uma mola.
-- Com “reduzir movimento”, não há faixa: o texto fica na cor base, mais apagada, enquanto `active`, e sólido no fim; a troca de rótulo vira um esmaecer.
+- A band of light in the text color crosses the words at a linear pace every `duration` (default 1.8 s), with a short pause between passes.
+- When `active` is turned off, the band finishes passing and the text settles into the solid color; a new label rises with a slight blur and the width follows with a spring.
+- With “reduce motion”, there is no band: the text stays in the dimmer base color while `active`, and solid at the end; the label swap becomes a fade.
 
-## Desempenho
+## Performance
 
-- A faixa só anda com o texto na tela (com 64 px de margem) e a aba visível, e retoma de onde parou; fora da tela, nenhuma animação roda.
+- The band only moves while the text is on screen (with a 64 px margin) and the tab is visible, and resumes where it left off; off screen, no animation runs.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `TextShimmer` de `@/components/ryan-ui/text-shimmer/text-shimmer`; o texto vai como filho (string) e `active` liga e desliga a luz.
-- Mantenha numa linha curta; a cor da faixa vem da cor do texto, e dá para ajustar com `--text-shimmer-highlight` e `--text-shimmer-base`.
+- Import `TextShimmer` from `@/components/ryan-ui/text-shimmer/text-shimmer`; the text goes as the child (a string) and `active` turns the light on and off.
+- Keep it to a short line; the band color comes from the text color, and can be adjusted with `--text-shimmer-highlight` and `--text-shimmer-base`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/text-shimmer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/text-shimmer · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

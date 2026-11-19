@@ -2,48 +2,48 @@
 
 > Cartão que pede sua aprovação antes de o agente agir, com resumo, detalhes que se abrem e o resultado da decisão.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/approval-card
-- Descrição original (inglês): A card that asks a person to approve or reject an agent's proposed action, with a summary, details that expand, and a resolved state the buttons morph into.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/approval-card
+- Original description: A card that asks a person to approve or reject an agent's proposed action, with a summary, details that expand, and a resolved state the buttons morph into.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/approval-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/approval-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/approval-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/approval-card.json`. Caminho do registro, relativo ao endereço do site: `r/approval-card.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/approval-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/approval-card.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/approval-card.json`. Registry path, relative to the site address: `r/approval-card.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/approval-card/approval-card.tsx`
   - `components/ryan-ui/approval-card/approval-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/approval-card.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/approval-card.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um agente propõe uma ação com efeito real (reembolso, envio, exclusão) e uma pessoa precisa aprovar ou rejeitar antes de ela acontecer.
-- Pedidos que precisam de contexto: um resumo, fatos em pares de rótulo e valor e, se quiser, uma prévia da mudança atrás do botão de detalhes.
-- Filas de revisão em que o cartão continua na tela depois da decisão, mostrando o que foi decidido e um “Undo”.
+- An agent proposes an action with a real effect (refund, send, delete) and a person must approve or reject it before it happens.
+- Requests that need context: a summary, facts as label and value pairs and, optionally, a preview of the change behind the details button.
+- Review queues where the card stays on screen after the decision, showing what was decided and an “Undo”.
 
-## Quando não usar
+## When not to use
 
-- Use [`tool-approval`](tool-approval.md) para um pedido compacto dentro da conversa, com permitir uma vez, permitir sempre ou negar.
-- Use [`confirm-morph`](confirm-morph.md) ou [`hold-to-confirm`](hold-to-confirm.md) quando é a própria pessoa que dispara uma ação destrutiva e só falta confirmá-la.
-- Use [`dialog`](dialog.md) quando a decisão deve bloquear o resto da tela até ser tomada.
+- Use [`tool-approval`](tool-approval.md) for a compact request inside the conversation, with allow once, allow always or deny.
+- Use [`confirm-morph`](confirm-morph.md) or [`hold-to-confirm`](hold-to-confirm.md) when the person themselves triggers a destructive action and only needs to confirm it.
+- Use [`dialog`](dialog.md) when the decision must block the rest of the screen until it is made.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -86,15 +86,15 @@ export default function ApprovalCardDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ApprovalCard`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | The action waiting for a decision, in one line. |
+| `title` (required) | `string` | — | The action waiting for a decision, in one line. |
 | `summary` | `ReactNode` | — | A sentence or two on what will happen and why. |
 | `source` | `string` | — | Who is asking, shown above the title (an agent or a workflow name). |
 | `icon` | `ReactNode` | — | Icon of the request while it is pending. |
@@ -112,48 +112,48 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `allowUndo` | `boolean` | `true` | Offers an undo in the resolved state that returns the card to pending. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ApprovalStatus` | `"pending" \| "approved" \| "rejected"` |
 
 #### `ApprovalDetail`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | Name of the fact, such as "Amount". |
-| `value` (obrigatória) | `ReactNode` | Its value. |
+| `label` (required) | `string` | Name of the fact, such as "Amount". |
+| `value` (required) | `ReactNode` | Its value. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Aciona o botão em foco: detalhes, rejeitar, aprovar ou desfazer. |
-| `Tab` | Percorre os controles na ordem do DOM: botão de detalhes, rejeitar e aprovar. |
+| `Enter` or `Space` | Activates the focused button: details, reject, approve or undo. |
+| `Tab` | Moves through the controls in DOM order: details button, reject and approve. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é uma `<section>` rotulada pelo `title`; o botão de detalhes expõe `aria-expanded` e `aria-controls`, e o resultado aparece numa região `role="status"`.
-- Ao decidir, o botão pressionado sai do DOM e o código não move o foco, que fica no `body`; se a fila é usada pelo teclado, mova o foco você mesmo em `onStatusChange`.
-- “Show details”, “Hide details”, “Undo” e “needs your approval” estão fixos em inglês; só `approveLabel`, `rejectLabel` e `resolvedLabels` podem ser traduzidos.
+- The root is a `<section>` labeled by `title`; the details button exposes `aria-expanded` and `aria-controls`, and the result appears in a `role="status"` region.
+- On decision, the pressed button leaves the DOM and the code does not move focus, which lands on `body`; if the queue is used by keyboard, move focus yourself in `onStatusChange`.
+- “Show details”, “Hide details”, “Undo” and “needs your approval” are fixed in English; only `approveLabel`, `rejectLabel` and `resolvedLabels` can be translated.
 
-## Movimento
+## Motion
 
-- Ao decidir, o ícone vira um visto ou um xis que se desenha, uma onda sai do emblema e os botões dão lugar ao resultado com um esmaecer curto.
-- Os detalhes abrem com uma mola de altura e as linhas de fatos entram em sequência.
-- Com “reduzir movimento” ligado, sobram só trocas de opacidade: sem onda, sem traço se desenhando e sem transições de cor ou escala.
+- On decision, the icon becomes a check mark or an X that draws itself, a ripple leaves the badge and the buttons give way to the result with a short fade.
+- The details open with a height spring and the fact rows enter in sequence.
+- With “reduce motion” on, only opacity changes remain: no ripple, no stroke drawing and no color or scale transitions.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Quando a janela tem até 26rem de largura (media query, não do contêiner), os dois botões dividem a linha inteira; o cartão sempre ocupa 100% do pai.
+- When the window is up to 26rem wide (media query, not container), the two buttons split the full row; the card always fills 100% of the parent.
 
-## Notas para IA
+## Notes for AI
 
-- O cartão só registra a decisão: execute a ação em `onStatusChange` e, para refletir o que o servidor respondeu, controle `status` (`pending`, `approved`, `rejected`).
-- “Undo” devolve o cartão a `pending` e chama `onStatusChange("pending")`; se a ação não pode ser desfeita depois de executada, passe `allowUndo={false}`.
-- O botão de detalhes só aparece quando há `details` ou `children`; cada `label` de `details` serve de `key`, então não repita rótulos.
+- The card only records the decision: run the action in `onStatusChange` and, to reflect what the server replied, control `status` (`pending`, `approved`, `rejected`).
+- “Undo” returns the card to `pending` and calls `onStatusChange("pending")`; if the action cannot be undone once executed, pass `allowUndo={false}`.
+- The details button only appears when there are `details` or `children`; each `label` in `details` is used as the `key`, so do not repeat labels.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/approval-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/approval-card · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

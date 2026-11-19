@@ -8,11 +8,12 @@ import { SiteSidebar, useSidebarState } from "@/site/components/sidebar";
 import { SiteFooter } from "@/site/components/site-footer";
 import { SiteHeader } from "@/site/components/site-header";
 import { findItem } from "@/site/lib/catalog";
-import { href, useRoute } from "@/site/lib/router";
+import { href, navigate, useRoute } from "@/site/lib/router";
 import { site } from "@/site/lib/site-config";
 import { CatalogPage } from "@/site/pages/catalog";
 import { DocsPage, type DocsPageId } from "@/site/pages/docs";
 import { HomePage } from "@/site/pages/home";
+import { PricingPage } from "@/site/pages/pricing";
 import { SavedPage } from "@/site/pages/saved";
 import styles from "./shell.module.css";
 
@@ -20,10 +21,12 @@ import styles from "./shell.module.css";
 const loadItemPage = () => import("@/site/pages/item");
 const ItemPage = lazy(() => loadItemPage().then(module => ({ default: module.ItemPage })));
 
-const docPages = new Set(["instalacao", "temas", "licenca"]);
-/** A partir desta largura a barra lateral fica na página; abaixo dela, vira gaveta. */
-const WIDE = "(min-width: 64rem)";
+const docPages: Record<string, DocsPageId> = { theming: "theming", license: "license" };
+/** Endereços antigos do site, em português: os links que já circulam continuam abrindo a página certa. */
+const legacyPaths: Record<string, string> = { "/componentes": "/components", "/blocos": "/blocks", "/salvos": "/saved", "/docs/instalacao": "/docs", "/docs/temas": "/docs/theming", "/docs/licenca": "/docs/license" };
 
+/** A partir desta largura o menu lateral fica na página; abaixo dela, vira gaveta. */
+const WIDE = "(min-width: 64rem)";
 function useMediaQuery(query: string) {
   return useSyncExternalStore(
     notify => { const list = window.matchMedia(query); list.addEventListener("change", notify); return () => list.removeEventListener("change", notify); },
@@ -35,17 +38,17 @@ function NotFound() {
   return (
     <div className={styles.notFound}>
       <EmptyState
-        label="Página não encontrada"
+        label="Page not found"
         icon={<Compass size={28} aria-hidden="true" />}
-        title="Página não encontrada"
-        description="Este endereço não existe neste site. Verifique o link ou volte ao início."
-        action={<a className={styles.notFoundLink} href={href("/")}>Voltar ao início</a>}
+        title="Page not found"
+        description="This address doesn't exist on this site. Check the link or go back home."
+        action={<a className={styles.notFoundLink} href={href("/")}>Back to home</a>}
       />
     </div>
   );
 }
 
-/** Se uma página quebra ao carregar ou ao desenhar, o quadro (cabeçalho e barra lateral) continua de pé e a pessoa pode ir para outra. */
+/** Se uma página quebra ao carregar ou ao desenhar, o cabeçalho continua de pé e a pessoa pode ir para outra. */
 class PageBoundary extends Component<{ resetKey: string; children: ReactNode }, { error: Error | null; resetKey: string }> {
   state = { error: null as Error | null, resetKey: this.props.resetKey };
   static getDerivedStateFromError(error: unknown) { return { error: error instanceof Error ? error : new Error(String(error)) }; }
@@ -58,11 +61,11 @@ class PageBoundary extends Component<{ resetKey: string; children: ReactNode }, 
     return (
       <div className={styles.notFound}>
         <EmptyState
-          label="Esta página não abriu"
+          label="This page didn't open"
           icon={<TriangleAlert size={26} aria-hidden="true" />}
-          title="Esta página não abriu"
-          description="Algo quebrou ao carregar esta página. Recarregue ou escolha outra na navegação."
-          action={<button type="button" className={styles.notFoundLink} onClick={() => window.location.reload()}>Recarregar</button>}
+          title="This page didn't open"
+          description="Something broke while loading this page. Reload it or pick another page."
+          action={<button type="button" className={styles.notFoundLink} onClick={() => window.location.reload()}>Reload</button>}
         />
         <pre className={styles.errorDetail}>{error.message}</pre>
       </div>
@@ -71,10 +74,8 @@ class PageBoundary extends Component<{ resetKey: string; children: ReactNode }, 
 }
 
 /**
- * A casca do site. Decide o quadro de cada rota:
- *   início e 404            cabeçalho + conteúdo de ponta a ponta + rodapé grande
- *   galerias, itens, docs   cabeçalho + barra lateral + <main> (a página põe o próprio respiro)
- * A barra lateral fica montada enquanto se navega entre essas páginas, então rolagem, grupos recolhidos, filtro e busca continuam.
+ * A casca do site. Início, preços e 404 ocupam uma coluna central; catálogo, itens, docs e salvos têm o menu lateral,
+ * que fica montado enquanto se navega entre essas páginas (rolagem, grupos recolhidos, filtro e busca continuam).
  */
 export default function Shell() {
   const route = useRoute();
@@ -89,20 +90,24 @@ export default function Shell() {
   /** A gaveta foi aberta pela tecla "/": o foco vai para a busca dela. */
   const focusDrawerSearch = useRef(false);
   const [section, name] = route.segments;
+  const legacy = legacyPaths[route.path];
 
   const item = section === "c" || section === "b" ? findItem(name) : undefined;
-  let page: ReactNode;
-  let framed = true;
-  if (section === undefined) { page = <HomePage />; framed = false; }
-  else if (section === "componentes") page = <CatalogPage key="component" kind="component" route={route} />;
-  else if (section === "blocos") page = <CatalogPage key="block" kind="block" route={route} />;
-  else if (item) page = <ItemPage item={item} route={route} />;
-  else if (section === "docs" && docPages.has(name ?? "")) page = <DocsPage page={name as DocsPageId} />;
-  else if (section === "salvos" && route.segments.length === 1) page = <SavedPage />;
-  else { page = <NotFound />; framed = false; }
-  const missing = !framed && section !== undefined;
+  let page: ReactNode = <NotFound />;
+  let missing = !legacy;
+  let framed = false;
+  if (legacy) page = null;
+  else if (section === undefined) { page = <HomePage />; missing = false; }
+  else if (section === "components" && !name) { page = <CatalogPage key="component" kind="component" route={route} />; missing = false; framed = true; }
+  else if (section === "blocks" && !name) { page = <CatalogPage key="block" kind="block" route={route} />; missing = false; framed = true; }
+  else if (item) { page = <ItemPage item={item} route={route} />; missing = false; framed = true; }
+  else if (section === "pricing" && !name) { page = <PricingPage />; missing = false; }
+  else if (section === "docs" && !name) { page = <DocsPage page="installation" />; missing = false; framed = true; }
+  else if (section === "docs" && name && docPages[name]) { page = <DocsPage page={docPages[name]} />; missing = false; framed = true; }
+  else if (section === "saved" && !name) { page = <SavedPage />; missing = false; framed = true; }
 
-  useEffect(() => { if (missing) document.title = `Página não encontrada · ${site.name}`; }, [missing]);
+  useEffect(() => { if (legacy) navigate(legacy, { replace: true, query: Object.fromEntries(route.query) }); }, [legacy, route.query]);
+  useEffect(() => { if (missing) document.title = `Page not found · ${site.name}`; }, [missing]);
 
   // Troca de página: volta ao topo sem animação e fecha busca e gaveta, se abertas.
   useEffect(() => {
@@ -115,7 +120,7 @@ export default function Shell() {
     setMenuOpen(false);
   }, [route.path]);
 
-  // Abrir um item mostra o grupo dele na barra lateral, mesmo que estivesse recolhido.
+  // Abrir um item mostra o grupo dele no menu lateral, mesmo que estivesse recolhido.
   const { openGroup } = sidebar;
   const itemName = item?.name, itemCategory = item?.category;
   useEffect(() => { if (itemName && itemCategory) openGroup(itemCategory); }, [itemName, itemCategory, openGroup]);
@@ -126,7 +131,7 @@ export default function Shell() {
   // A gaveta só existe em telas estreitas.
   useEffect(() => { if (wide) setMenuOpen(false); }, [wide]);
 
-  // ⌘K / Ctrl+K abre a busca geral; "/" (fora de campos de texto) leva o foco à busca da barra lateral.
+  // ⌘K / Ctrl+K abre a busca geral; "/" (fora de campos de texto) leva o foco à busca do menu lateral.
   const state = useRef({ wide, framed, menuOpen });
   useEffect(() => { state.current = { wide, framed, menuOpen }; }, [wide, framed, menuOpen]);
   useEffect(() => {
@@ -147,25 +152,19 @@ export default function Shell() {
   }, []);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const content = <PageBoundary resetKey={route.path}><Suspense fallback={<div className={styles.pending} aria-busy="true" />}>{page}</Suspense></PageBoundary>;
 
   return (
-    <div className={styles.app} data-site-chrome="1">
-      <button type="button" className={styles.skip} onClick={() => mainRef.current?.focus()}>Pular para o conteúdo</button>
+    <div className={styles.app} data-site-chrome="1" data-framed={framed || undefined}>
+      <button type="button" className={styles.skip} onClick={() => mainRef.current?.focus()}>Skip to content</button>
       <SiteHeader route={route} menuOpen={menuOpen} menuRef={menuButton} onOpenMenu={() => { focusDrawerSearch.current = false; setMenuOpen(true); }} onOpenSearch={() => setSearchOpen(true)} />
-
       {framed ? (
         <div className={styles.frame}>
           {wide ? <SiteSidebar route={route} state={sidebar} searchRef={railSearch} /> : null}
-          <main ref={mainRef} className={styles.main} tabIndex={-1}>
-            <PageBoundary resetKey={route.path}><Suspense fallback={<div className={styles.pending} aria-busy="true" />}>{page}</Suspense></PageBoundary>
-          </main>
+          <main ref={mainRef} className={styles.framedMain} tabIndex={-1}>{content}</main>
         </div>
-      ) : (
-        <>
-          <main ref={mainRef} className={styles.content} tabIndex={-1}><PageBoundary resetKey={route.path}>{page}</PageBoundary></main>
-          <SiteFooter />
-        </>
-      )}
+      ) : <main ref={mainRef} className={styles.main} tabIndex={-1}>{content}</main>}
+      <SiteFooter />
 
       {wide ? null : (
         <DialogPrimitive.Root open={menuOpen} onOpenChange={setMenuOpen}>
@@ -176,12 +175,11 @@ export default function Shell() {
               aria-describedby={undefined}
               onOpenAutoFocus={event => { if (focusDrawerSearch.current) { event.preventDefault(); focusDrawerSearch.current = false; drawerSearch.current?.focus(); } }}
               onCloseAutoFocus={event => { event.preventDefault(); menuButton.current?.focus(); }}
-              // Com texto na busca, o Esc primeiro limpa a busca; só depois fecha a gaveta.
               onEscapeKeyDown={event => { if (sidebar.query && document.activeElement === drawerSearch.current) event.preventDefault(); }}
             >
               <div className={styles.drawerHeader}>
                 <DialogPrimitive.Title className={styles.drawerTitle}><BrandMark size={22} /><span>{site.name}</span><span className={styles.visuallyHidden}>: menu</span></DialogPrimitive.Title>
-                <DialogPrimitive.Close className={styles.drawerClose} aria-label="Fechar o menu"><X size={18} strokeWidth={1.75} aria-hidden="true" /></DialogPrimitive.Close>
+                <DialogPrimitive.Close className={styles.drawerClose} aria-label="Close menu"><X size={18} strokeWidth={1.75} aria-hidden="true" /></DialogPrimitive.Close>
               </div>
               <SiteSidebar route={route} state={sidebar} variant="drawer" searchRef={drawerSearch} onNavigate={closeMenu} />
             </DialogPrimitive.Content>

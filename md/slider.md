@@ -2,48 +2,48 @@
 
 > Escolha um valor ou um intervalo numa trilha que acompanha o dedo, com balão de dígitos rolantes.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/slider
-- Descrição original (inglês): Pick a value or a range on a track that follows your finger.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/slider
+- Original description: Pick a value or a range on a track that follows your finger.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json`. Caminho do registro, relativo ao endereço do site: `r/slider.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slider.json`. Registry path, relative to the site address: `r/slider.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/slider/slider.tsx`
   - `components/ryan-ui/slider/slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/slider.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/slider.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ajustes contínuos em que a posição relativa importa: volume, brilho, zoom, opacidade.
-- Faixas de filtro com dois limites, como orçamento ou preço, com distância mínima entre os polegares.
-- Escalas com poucos pontos nomeados, como Rascunho, Bom e Ótimo, usando `marks` com rótulo e `step`.
+- Continuous adjustments where relative position matters: volume, brightness, zoom, opacity.
+- Filter ranges with two limits, such as budget or price, with a minimum distance between the thumbs.
+- Scales with a few named points, such as Draft, Good, and Great, using `marks` with a label and `step`.
 
-## Quando não usar
+## When not to use
 
-- Use [`number-field`](number-field.md) quando o valor exato importa e a pessoa prefere digitar.
-- Use [`range-histogram-slider`](range-histogram-slider.md) quando ver a distribuição dos dados ajuda a escolher a faixa.
-- Use [`ruler-slider`](ruler-slider.md) para medidas precisas com unidade, como altura ou peso, em telas de toque.
+- Use [`number-field`](number-field.md) when the exact value matters and people prefer to type.
+- Use [`range-histogram-slider`](range-histogram-slider.md) when seeing the data distribution helps choose the range.
+- Use [`ruler-slider`](ruler-slider.md) for precise measurements with a unit, such as height or weight, on touch screens.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -63,17 +63,17 @@ export default function SliderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Slider`
 
 A value or a range on a track. The thumb follows the pointer 1:1, rubber-bands past its limits, and settles on the step grid with the velocity of the release; pressing the track springs the nearest thumb there. A bubble with rolling digits rides the thumb while it is dragged or keyboard focused. Arrows, Shift+arrows, PageUp, PageDown, Home, and End work as in a native range input.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Visible label. Range thumbs are named from it unless `thumbLabels` says otherwise. |
+| `label` (required) | `string` | — | Visible label. Range thumbs are named from it unless `thumbLabels` says otherwise. |
 | `value` | `T` | — | A number for one thumb, a pair for a range. |
 | `defaultValue` | `T` | — | — |
 | `onValueChange` | `(value: T) => void` | — | — |
@@ -93,50 +93,50 @@ A value or a range on a track. The thumb follows the pointer 1:1, rubber-bands p
 | `disabled` | `boolean` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `SliderValue` | `number \| [number, number]` |
 
 #### `SliderMark`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `number` | — |
+| `value` (required) | `number` | — |
 | `label` | `string` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↑` | Aumentam um `step`. |
-| `←` ou `↓` | Diminuem um `step`; num limite, o polegar força contra a borda e volta. |
-| `Page Up` ou `Page Down` ou `Shift + →` ou `Shift + ←` | Movem `largeStep`, por padrão um décimo da faixa. |
-| `Home` ou `End` | Vão ao limite do polegar: a ponta da faixa ou, num intervalo, o outro polegar. |
-| `Tab` | Num intervalo, passa de um polegar para o outro. |
+| `→` or `↑` | Increase by one `step`. |
+| `←` or `↓` | Decrease by one `step`; at a limit, the thumb strains against the edge and springs back. |
+| `Page Up` or `Page Down` or `Shift + →` or `Shift + ←` | Move by `largeStep`, by default one tenth of the range. |
+| `Home` or `End` | Go to the thumb's limit: the end of the range or, in an interval, the other thumb. |
+| `Tab` | In an interval, moves from one thumb to the other. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada polegar é um `role="slider"` com `aria-valuetext` vindo de `format`; um valor único é nomeado pelo rótulo, e num intervalo cada polegar ganha nome próprio (`thumbLabels` ou “…, minimum” e “…, maximum”).
-- O número ao lado do rótulo e o balão são `aria-hidden`, porque o slider já fala o valor; ícones em `start` e `end` devem ser `aria-hidden` ou botões com nome.
+- Each thumb is a `role="slider"` with `aria-valuetext` coming from `format`; a single value is named by the label, and in an interval each thumb gets its own name (`thumbLabels` or “…, minimum” and “…, maximum”).
+- The number beside the label and the bubble are `aria-hidden`, because the slider already speaks the value; icons in `start` and `end` should be `aria-hidden` or named buttons.
 
-## Movimento
+## Motion
 
-- O polegar segue o ponteiro 1:1, estica como elástico além dos limites e assenta na grade de `step` levando a velocidade do gesto; tocar no trilho leva o polegar mais próximo até lá numa mola.
-- Um balão com dígitos de hodômetro acompanha o polegar ao arrastar e no foco por teclado, mas não no foco vindo do ponteiro, e colunas novas de dígitos abrem a largura numa mola.
-- Com “reduzir movimento” ligado, o polegar vai direto ao valor, sem elástico nem tranco, e os dígitos trocam sem rolar.
+- The thumb follows the pointer 1:1, stretches like elastic past the limits, and settles on the `step` grid carrying the gesture's velocity; tapping the track takes the nearest thumb there on a spring.
+- A bubble with odometer digits follows the thumb while dragging and on keyboard focus, but not on pointer-originated focus, and new digit columns open the width on a spring.
+- With “reduce motion” on, the thumb goes straight to the value, with no elastic or bump, and the digits change without rolling.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Em telas de toque o balão fica mais alto, para o dedo não cobri-lo, e nunca passa das bordas do componente; arrastar na vertical continua rolando a página.
+- On touch screens the bubble sits higher, so the finger does not cover it, and never goes past the component edges; dragging vertically still scrolls the page.
 
-## Notas para IA
+## Notes for AI
 
-- O tipo do valor define o modo: `defaultValue={60}` dá um polegar, `defaultValue={[800, 2400]}` dá um intervalo, e `onValueChange` devolve o mesmo formato.
-- `onValueChange` dispara a cada passo do arraste; trabalho pesado, como filtrar ou salvar, vai em `onValueCommit`, que vem ao soltar ou a cada tecla.
-- `marks` aceita números (só o tique) ou `{ value, label }` (rótulo clicável), e `start` e `end` recebem ícones, como volume baixo e alto.
+- The value type defines the mode: `defaultValue={60}` gives one thumb, `defaultValue={[800, 2400]}` gives an interval, and `onValueChange` returns the same format.
+- `onValueChange` fires on every drag step; heavy work, such as filtering or saving, goes in `onValueCommit`, which arrives on release or on each key.
+- `marks` accepts numbers (tick only) or `{ value, label }` (clickable label), and `start` and `end` take icons, such as low and high volume.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slider · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

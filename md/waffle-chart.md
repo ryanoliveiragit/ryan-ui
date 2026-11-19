@@ -2,48 +2,48 @@
 
 > Gráfico de unidades 10 por 10 em que cada célula vale um por cento e voa para o novo grupo quando os dados mudam.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/waffle-chart
-- Descrição original (inglês): A ten by ten unit chart where every cell is one percent, and cells fly to their new group when the data changes.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/waffle-chart
+- Original description: A ten by ten unit chart where every cell is one percent, and cells fly to their new group when the data changes.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/waffle-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/waffle-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/waffle-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/waffle-chart.json`. Caminho do registro, relativo ao endereço do site: `r/waffle-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/waffle-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/waffle-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/waffle-chart.json`. Registry path, relative to the site address: `r/waffle-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/waffle-chart/waffle-chart.tsx`
   - `components/ryan-ui/waffle-chart/waffle-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/waffle-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/waffle-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Mostrar partes de um todo como quadradinhos contáveis, em que cada célula vale um por cento: matriz de energia, respostas de uma pesquisa, orçamento por área.
-- Comparar dois momentos com as mesmas categorias: ao trocar `data`, as células que mudam de grupo voam para o lugar novo e a legenda rola as porcentagens.
-- Quando a cor não pode ser o único canal: além da cor, as categorias alternam entre células quadradas, redondas e com moldura.
+- Showing parts of a whole as countable squares, where each cell is worth one percent: energy mix, survey responses, budget by area.
+- Comparing two moments with the same categories: when `data` changes, cells that change group fly to their new place and the legend rolls the percentages.
+- When color can't be the only channel: besides color, categories alternate between square, round, and framed cells.
 
-## Quando não usar
+## When not to use
 
-- Use [`donut-chart`](donut-chart.md) ou [`composition-chart`](composition-chart.md) quando há muitas categorias pequenas: abaixo de meio por cento, uma categoria pode ficar sem nenhuma célula.
-- Use [`bar-chart`](bar-chart.md) para comparar valores que não somam um todo.
-- Use [`progress`](progress.md) ou [`usage-meter`](usage-meter.md) para uma única fração, como o uso de uma cota.
+- Use [`donut-chart`](donut-chart.md) or [`composition-chart`](composition-chart.md) when there are many small categories: below half a percent, a category may end up with no cell.
+- Use [`bar-chart`](bar-chart.md) to compare values that don't add up to a whole.
+- Use [`progress`](progress.md) or [`usage-meter`](usage-meter.md) for a single fraction, such as quota usage.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -84,16 +84,16 @@ export default function WaffleChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `WaffleChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `WaffleCategory[]` | — | Categories in fill order. The first fills from the bottom-left corner, column by column. |
-| `label` (obrigatória) | `string` | — | What the whole is, such as "Electricity generation, 2023". Names the chart for assistive technology. |
+| `data` (required) | `WaffleCategory[]` | — | Categories in fill order. The first fills from the bottom-left corner, column by column. |
+| `label` (required) | `string` | — | What the whole is, such as "Electricity generation, 2023". Names the chart for assistive technology. |
 | `unit` | `string` | `""` | Unit after each raw value in the tooltip and table, such as "TWh". |
 | `formatValue` | `(value: number, category: WaffleCategory) => string` | — | — |
 | `rows` | `number` | `10` | Grid rows. rows × columns cells make the whole; 10 × 10 means one cell per percent. |
@@ -108,55 +108,55 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `WaffleCategory`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. Cells keep following their category when the data changes, so a new dataset flows instead of repainting. |
-| `label` (obrigatória) | `string` | Name in the legend, the tooltip, and the data table. |
-| `value` (obrigatória) | `number` | Raw amount. Shares are computed from the total; negatives count as zero. |
+| `key` (required) | `string` | Stable identity. Cells keep following their category when the data changes, so a new dataset flows instead of repainting. |
+| `label` (required) | `string` | Name in the legend, the tooltip, and the data table. |
+| `value` (required) | `number` | Raw amount. Shares are computed from the total; negatives count as zero. |
 | `color` | `string` | Any CSS color. Defaults to the first series for accentKey, the supporting series for the next three, then neutral steps. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Com o foco na grade, sobe ou desce uma célula na coluna e lê a categoria dela. |
-| `←` ou `→` | Passa para a célula ao lado, na coluna anterior ou na seguinte. |
-| `Page Up` ou `Page Down` | Page Down salta para o início da categoria seguinte; Page Up volta ao início da atual ou, se já está nele, da anterior. |
-| `Home` ou `End` | Vai à primeira ou à última célula preenchida. |
-| `Esc` | Encerra a leitura e esconde a dica. |
-| `Enter` ou `Espaço` | Na legenda, fixa ou solta o destaque da categoria. |
+| `↑` or `↓` | With focus on the grid, move up or down one cell in the column and read its category. |
+| `←` or `→` | Move to the neighboring cell, in the previous or next column. |
+| `Page Up` or `Page Down` | Page Down jumps to the start of the next category; Page Up returns to the start of the current one or, if already there, of the previous one. |
+| `Home` or `End` | Go to the first or last filled cell. |
+| `Esc` | Ends the reading and hides the tooltip. |
+| `Enter` or `Space` | In the legend, pin or release the category's highlight. |
 
-## Acessibilidade
+## Accessibility
 
-- A grade é um grupo focável com `aria-roledescription="waffle chart"` e as instruções no nome, em inglês; uma região `aria-live="polite"` lê a categoria da célula atual com fatia e valor.
-- A legenda é uma lista de botões com `aria-pressed`; um resumo e uma tabela ocultos trazem valor, fatia e número de células de cada categoria.
-- A forma da célula é um segundo canal além da cor: fora a categoria de destaque, as categorias alternam entre quadrada, redonda e com moldura, e a legenda repete a forma.
+- The grid is a focusable group with `aria-roledescription="waffle chart"` and the instructions in its name, in English; an `aria-live="polite"` region reads the current cell's category with share and value.
+- The legend is a list of buttons with `aria-pressed`; a hidden summary and table carry each category's value, share, and number of cells.
+- Cell shape is a second channel besides color: apart from the highlighted category, categories alternate between square, round, and framed, and the legend repeats the shape.
 
-## Movimento
+## Motion
 
-- Ao entrar na tela, as células crescem e aparecem em onda curta, na ordem de preenchimento: de baixo para cima, coluna a coluna.
-- Quando os dados mudam, as células que trocam de grupo ou de posição voam até o novo lugar, encolhendo no meio do voo, e mudam de cor e forma no caminho; as porcentagens da legenda rolam.
-- Com “reduzir movimento” ligado, as células vão direto ao lugar e à cor finais e as porcentagens trocam sem rolar.
+- On entering the viewport, cells grow and appear in a short wave, in fill order: bottom to top, column by column.
+- When the data changes, cells that change group or position fly to the new place, shrinking mid-flight, and change color and shape along the way; the legend percentages roll.
+- With “reduced motion” on, cells go straight to their final place and color and the percentages swap without rolling.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Em contêiner de 420 px ou mais, a legenda fica ao lado da grade; abaixo disso, desce para uma lista de uma coluna.
-- A grade tem no máximo 300 px de largura (232 px com a legenda ao lado) e as células acompanham essa medida; no toque, arrastar na horizontal percorre as células e o gesto vertical rola a página.
+- In a container of 420 px or more, the legend sits beside the grid; below that, it drops to a one-column list.
+- The grid is at most 300 px wide (232 px with the legend beside it) and the cells follow that measure; on touch, dragging horizontally scans the cells and the vertical gesture scrolls the page.
 
-## Desempenho
+## Performance
 
-- Cada célula é um elemento animado com `will-change: transform`: a grade padrão tem 100, e `rows` × `columns` maiores multiplicam esse número.
+- Each cell is an animated element with `will-change: transform`: the default grid has 100, and larger `rows` × `columns` multiply that number.
 
-## Notas para IA
+## Notes for AI
 
-- Passe `data` como `{ key, label, value }` na ordem de preenchimento, com valores brutos: as fatias são calculadas e arredondadas para células inteiras que sempre somam a grade (10 × 10, uma por cento).
-- Mantenha `key` estável entre conjuntos para as células voarem em vez de repintar; `unit` e `formatValue` formatam a dica e a tabela, e `decimals` as porcentagens.
-- A cor de destaque vai para `accentKey` (a primeira categoria, por padrão) e as três seguintes usam as outras cores de série; `activeKey` com `onActiveChange` controla a categoria fixada.
+- Pass `data` as `{ key, label, value }` in fill order, with raw values: slices are computed and rounded to whole cells that always sum to the grid (10 × 10, one percent each).
+- Keep `key` stable between datasets so cells fly instead of repainting; `unit` and `formatValue` format the tooltip and table, and `decimals` the percentages.
+- The accent color goes to `accentKey` (the first category, by default) and the next three use the other series colors; `activeKey` with `onActiveChange` controls the pinned category.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/waffle-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/waffle-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

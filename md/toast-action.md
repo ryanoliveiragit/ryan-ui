@@ -2,49 +2,49 @@
 
 > Aviso com uma ação, como Desfazer, e uma barra fina que se esgota até ele sair; passar o mouse ou focar pausa a contagem.
 
-- Tipo: componente (categoria Feedback), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-action
-- Descrição original (inglês): A toast with one action, such as Undo, and a thin countdown bar that drains until it leaves; hover or focus holds the countdown, and taking the action swaps the copy for a short confirmation.
-- Versões: Padrão ([`toast`](toast.md)), Pilha ([`toast-stack`](toast-stack.md)), Com ação (este item), Progresso ([`toast-progress`](toast-progress.md))
+- Type: component (category Feedback), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-action
+- Original description: A toast with one action, such as Undo, and a thin countdown bar that drains until it leaves; hover or focus holds the countdown, and taking the action swaps the copy for a short confirmation.
+- Versions: Padrão ([`toast`](toast.md)), Pilha ([`toast-stack`](toast-stack.md)), Com ação (this item), Progresso ([`toast-progress`](toast-progress.md))
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-action.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-action.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-action.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-action.json`. Caminho do registro, relativo ao endereço do site: `r/toast-action.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-action.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-action.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/toast-action.json`. Registry path, relative to the site address: `r/toast-action.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/toast-action/toast-action.tsx`
   - `components/ryan-ui/toast-action/toast-action.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/toast-action.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/toast-action.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Logo depois de algo reversível, como excluir, arquivar ou enviar, oferecendo “Desfazer” enquanto a barra de tempo corre.
-- Quando a pessoa precisa de tempo para reagir: a contagem para com o mouse em cima, com foco ou com a aba oculta e retoma de onde parou.
-- Quando o resultado da ação deve ficar claro: ao tocar nela, o texto troca por `confirmation` com um visto desenhado antes de o aviso sair.
+- Right after something reversible, such as deleting, archiving, or sending, offering “Undo” while the timer bar runs.
+- When the user needs time to react: the countdown stops with the mouse over it, with focus, or with the tab hidden and resumes where it left off.
+- When the result of the action should be clear: on tapping it, the text swaps to `confirmation` with a drawn checkmark before the notice leaves.
 
-## Quando não usar
+## When not to use
 
-- Use [`toast`](toast.md) para uma confirmação simples, sem ação.
-- Use [`toast-stack`](toast-stack.md) quando vários avisos podem chegar em sequência; este mostra um por vez.
-- Use [`confirm-morph`](confirm-morph.md) ou [`hold-to-confirm`](hold-to-confirm.md) quando a ação destrutiva deve ser confirmada antes, e não desfeita depois.
+- Use [`toast`](toast.md) for a simple confirmation, with no action.
+- Use [`toast-stack`](toast-stack.md) when several notices may arrive in sequence; this one shows one at a time.
+- Use [`confirm-morph`](confirm-morph.md) or [`hold-to-confirm`](hold-to-confirm.md) when the destructive action should be confirmed beforehand, not undone afterward.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -148,15 +148,15 @@ export default function ToastActionDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ToastAction`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | What just happened, in a few words. Changing the title or description while the toast is open swaps the copy in place and restarts the countdown. |
+| `title` (required) | `string` | — | What just happened, in a few words. Changing the title or description while the toast is open swaps the copy in place and restarts the countdown. |
 | `description` | `string` | — | Optional second line with the detail. |
 | `resetKey` | `string \| number` | — | Identifies the event the toast is about. A new value while the toast is open starts it over (action back, countdown full) even when the copy is the same, for example when the same file is deleted twice. |
 | `icon` | `ReactNode` | — | Glyph in the status circle before the action is taken, for example a trash icon at 16px. |
@@ -174,45 +174,45 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `hotkey` | `boolean` | `true` | Alt+T moves focus to the action, so keyboard users can reach it before the countdown ends. |
 | `className` | `string` | — | Extra class for the toast surface. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ToastActionCloseReason`: Why the toast closed: the countdown ran out, the person closed it (button, Escape or swipe), or the action was taken. | `"timeout" \| "dismiss" \| "action"` |
 | `ToastActionPosition`: `inline` renders where it is placed, like `Toast`. The others pin it to the bottom edge, like `ToastStack`. | `"inline" \| "bottom-right" \| "bottom-center" \| "bottom-left"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Alt + T` | Leva o foco à ação do aviso aberto (ou ao botão de fechar, depois da ação), para alcançá-la antes do fim do tempo; desligue com `hotkey={false}`. |
-| `Tab` ou `Shift + Tab` | Com o foco dentro do aviso, a contagem pausa; ao sair, retoma de onde parou. |
-| `Enter` ou `Espaço` | Na ação, executa `onAction` e mostra a confirmação; o foco passa para o botão de fechar. |
-| `Esc` | Com o foco dentro, fecha o aviso e devolve o foco para onde ele estava antes. |
+| `Alt + T` | Moves focus to the open notice's action (or to the close button, after the action), to reach it before the time runs out; turn off with `hotkey={false}`. |
+| `Tab` or `Shift + Tab` | With focus inside the notice, the countdown pauses; on leaving, it resumes where it left off. |
+| `Enter` or `Space` | On the action, runs `onAction` and shows the confirmation; focus moves to the close button. |
+| `Esc` | With focus inside, closes the notice and returns focus to where it was before. |
 
-## Acessibilidade
+## Accessibility
 
-- É `role="status"` com `aria-live="polite"`; a cópia que sai fica oculta, então só o texto atual é lido, inclusive a confirmação.
-- Ao fechar com o foco dentro, ele volta para onde estava antes de entrar no aviso; depois da ação, vai para o botão de fechar em vez de cair na página.
-- `duration={0}` mantém o aviso até ser fechado, para quem precisa de mais tempo; o `aria-label` do fechar é fixo em inglês (“Dismiss notification”).
+- It is `role="status"` with `aria-live="polite"`; the outgoing copy is hidden, so only the current text is read, including the confirmation.
+- On closing with focus inside, it returns to where it was before entering the notice; after the action, it goes to the close button instead of dropping onto the page.
+- `duration={0}` keeps the notice until it is closed, for those who need more time; the close `aria-label` is fixed in English (“Dismiss notification”).
 
-## Movimento
+## Motion
 
-- Uma barra fina no rodapé esvazia em ritmo linear até o aviso sair; enquanto a contagem está pausada, ela fica mais apagada.
-- Ao tomar a ação, o ícone encolhe com desfoque e um visto se desenha no lugar, o texto troca subindo e a altura acompanha com uma mola; o botão da ação sai do fluxo e esmaece.
-- Entra subindo com uma mola e sai voando quando arrastado para o lado. Com “reduzir movimento”, a barra desce em 8 degraus, tudo só esmaece e o arraste fica desligado.
+- A thin bar at the bottom empties at a linear pace until the notice leaves; while the countdown is paused, it appears dimmer.
+- On taking the action, the icon shrinks with blur and a checkmark draws itself in its place, the text swaps rising and the height follows with a spring; the action button leaves the flow and fades.
+- It enters rising with a spring and flies off when dragged sideways. With “reduce motion”, the bar drops in 8 steps, everything only fades, and dragging is turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Nas posições `bottom-*` fica fixo na janela com até 24 rem e, em telas abaixo de 30 rem, centraliza no rodapé; com `contained`, prende-se ao ancestral posicionado.
-- Num aviso com menos de 23 rem de largura, a ação desce para baixo do texto em vez de espremê-lo.
+- In `bottom-*` positions it is fixed to the window at up to 24 rem and, on screens below 30 rem, centers at the bottom; with `contained`, it attaches to the positioned ancestor.
+- In a notice narrower than 23 rem, the action drops below the text instead of squeezing it.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/toast-action/toast-action`. Desfaça a operação em `onAction` e só apague de vez em `onOpenChange` quando o motivo não for `"action"`.
-- Para repetir o aviso num evento igual (o mesmo arquivo excluído duas vezes), mude `resetKey`: a ação volta e a barra enche de novo.
-- Use `position="bottom-center"` (ou outro canto) para fixar na janela, ou `inline` para ficar no fluxo; numa prévia dentro de um painel, some `contained` e dê `position: relative` ao pai.
+- Import from `@/components/ryan-ui/toast-action/toast-action`. Undo the operation in `onAction` and only delete for good in `onOpenChange` when the reason is not `"action"`.
+- To repeat the notice on an identical event (the same file deleted twice), change `resetKey`: the action comes back and the bar fills again.
+- Use `position="bottom-center"` (or another corner) to fix it to the window, or `inline` to stay in the flow; in a preview inside a panel, add `contained` and give the parent `position: relative`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-action · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/toast-action · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

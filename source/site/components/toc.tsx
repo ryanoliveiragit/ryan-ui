@@ -124,7 +124,8 @@ interface TocProps {
   hrefFor: (id: string) => string;
   /** Avisa que a seção foi escolhida no índice (a página atualiza a URL). */
   onNavigate?: (id: string) => void;
-  markdownHref: string;
+  /** Ausente nos itens Pro: o Markdown traz o código. */
+  markdownHref?: string;
   onTop: () => void;
   className?: string;
 }
@@ -141,7 +142,7 @@ export function Toc({ toc, hrefFor, onNavigate, markdownHref, onTop, className }
   return (
     <aside className={[styles.rail, className].filter(Boolean).join(" ")}>
       <nav aria-labelledby={titleId}>
-        <p id={titleId} className={styles.title}>Nesta página</p>
+        <p id={titleId} className={styles.title}>On this page</p>
         <ul className={styles.list}>
           {toc.entries.map(entry => (
             <li key={entry.id}>
@@ -151,8 +152,8 @@ export function Toc({ toc, hrefFor, onNavigate, markdownHref, onTop, className }
         </ul>
       </nav>
       <div className={styles.extra}>
-        <a className={styles.extraLink} href={markdownHref} target="_blank" rel="noreferrer"><FileText size={13} strokeWidth={1.75} aria-hidden="true" /><span>Ver em Markdown</span></a>
-        <button type="button" className={styles.extraLink} onClick={onTop}><span>Voltar ao topo</span><ArrowUp size={13} strokeWidth={1.75} aria-hidden="true" /></button>
+        {markdownHref ? <a className={styles.extraLink} href={markdownHref} target="_blank" rel="noreferrer"><FileText size={13} strokeWidth={1.75} aria-hidden="true" /><span>View as Markdown</span></a> : null}
+        <button type="button" className={styles.extraLink} onClick={onTop}><span>Back to top</span><ArrowUp size={13} strokeWidth={1.75} aria-hidden="true" /></button>
       </div>
     </aside>
   );

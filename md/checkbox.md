@@ -2,48 +2,48 @@
 
 > Uma escolha binária com estado preciso e fácil de ler.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/checkbox
-- Descrição original (inglês): A binary choice with a precise, legible state.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/checkbox
+- Original description: A binary choice with a precise, legible state.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/checkbox.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/checkbox.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/checkbox.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/checkbox.json`. Caminho do registro, relativo ao endereço do site: `r/checkbox.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/checkbox.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/checkbox.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/checkbox.json`. Registry path, relative to the site address: `r/checkbox.json`.
 
-- Pacotes npm: `@radix-ui/react-checkbox`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-checkbox`, `motion`
+- Files, once installed:
   - `components/ryan-ui/checkbox/checkbox.tsx`
   - `components/ryan-ui/checkbox/checkbox.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-checkbox motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/checkbox.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-checkbox motion`.
+2. Copy the files listed above. The content of each one is in `r/checkbox.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Opções independentes que podem ser marcadas em qualquer combinação, como preferências de notificação.
-- Aceite explícito num formulário (termos, consentimento), que só vale ao enviar.
-- Caixa “selecionar tudo” que resume um grupo: `checked="indeterminate"` mostra o traço quando só parte dos itens está marcada.
+- Independent options that can be checked in any combination, like notification preferences.
+- Explicit acceptance in a form (terms, consent), which only counts on submit.
+- A “select all” box that summarizes a group: `checked="indeterminate"` shows the dash when only some of the items are checked.
 
-## Quando não usar
+## When not to use
 
-- Use [`switch`](switch.md) quando a mudança tem efeito imediato, sem botão de salvar.
-- Use [`radio-group`](radio-group.md) quando só uma opção pode ficar marcada.
-- Use [`chip-group`](chip-group.md) para filtros que as pessoas ligam e desligam com frequência acima de uma lista.
+- Use [`switch`](switch.md) when the change takes effect immediately, with no save button.
+- Use [`radio-group`](radio-group.md) when only one option can be checked.
+- Use [`chip-group`](chip-group.md) for filters people turn on and off often above a list.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -74,42 +74,42 @@ export default function CheckboxDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Checkbox`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | — | — |
 | `description` | `string` | — | — |
-| `...props` | `ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>` | — | Também aceita as props deste tipo. |
+| `...props` | `ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>` | — | Also accepts the props of this type. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Espaço` | Marca ou desmarca a caixa em foco; `Enter` não alterna. |
+| `Space` | Checks or unchecks the focused box; `Enter` does not toggle. |
 
-## Acessibilidade
+## Accessibility
 
-- Usa o `Checkbox` do Radix: um botão com `role="checkbox"` e `aria-checked`, que vale `mixed` no estado indeterminado.
-- `label` gera um `<label>` ligado ao controle e `description` entra por `aria-describedby`; sem `label`, passe `aria-label`, senão o nome acessível vira o genérico `Checkbox`.
-- A área de clique tem 44 px de lado, embora o quadrado desenhado tenha 18 px, e clicar no rótulo também alterna.
+- Uses Radix's `Checkbox`: a button with `role="checkbox"` and `aria-checked`, which is `mixed` in the indeterminate state.
+- `label` generates a `<label>` tied to the control and `description` goes in via `aria-describedby`; without `label`, pass `aria-label`, otherwise the accessible name becomes the generic `Checkbox`.
+- The click area is 44 px on a side, although the drawn square is 18 px, and clicking the label also toggles.
 
-## Movimento
+## Motion
 
-- O preenchimento cresce com uma mola curta enquanto o traço da marca se desenha; ao desmarcar, o traço se recolhe.
-- A marca e o traço do estado indeterminado têm os mesmos três pontos, então um se transforma no outro em vez de trocar.
-- Com “reduzir movimento” ligado, a troca de estado é instantânea e o quadrado não encolhe ao ser pressionado.
+- The fill grows on a short spring while the checkmark stroke draws itself; on uncheck, the stroke retracts.
+- The checkmark and the indeterminate dash have the same three points, so one transforms into the other instead of swapping.
+- With “reduce motion” on, the state change is instant and the square does not shrink when pressed.
 
-## Notas para IA
+## Notes for AI
 
-- Controlado com `checked` + `onCheckedChange` ou não controlado com `defaultChecked`; o valor pode ser `true`, `false` ou `"indeterminate"`.
-- Em `onCheckedChange`, compare com `=== true` antes de gravar um booleano, porque o valor recebido pode ser `"indeterminate"`.
-- As demais props vão para o `Checkbox.Root` do Radix (`disabled`, `required`, `name`, `value`) e o `ref` aponta para o botão.
+- Controlled with `checked` + `onCheckedChange` or uncontrolled with `defaultChecked`; the value can be `true`, `false`, or `"indeterminate"`.
+- In `onCheckedChange`, compare with `=== true` before storing a boolean, because the received value can be `"indeterminate"`.
+- The other props go to Radix's `Checkbox.Root` (`disabled`, `required`, `name`, `value`) and the `ref` points to the button.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/checkbox · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/checkbox · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

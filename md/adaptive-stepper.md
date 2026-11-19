@@ -2,47 +2,47 @@
 
 > Contador que não muda de tamanho: os dígitos rolam até o novo valor e o botão de menos ou de mais se recolhe no limite.
 
-- Tipo: componente (categoria Entradas), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/adaptive-stepper
-- Descrição original (inglês): A numeric stepper with a fixed footprint: digits roll between values, and the minus or plus button folds away at the minimum or maximum.
+- Type: component (category Inputs), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/adaptive-stepper
+- Original description: A numeric stepper with a fixed footprint: digits roll between values, and the minus or plus button folds away at the minimum or maximum.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/adaptive-stepper.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/adaptive-stepper.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/adaptive-stepper.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/adaptive-stepper.json`. Caminho do registro, relativo ao endereço do site: `r/adaptive-stepper.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/adaptive-stepper.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/adaptive-stepper.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/adaptive-stepper.json`. Registry path, relative to the site address: `r/adaptive-stepper.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/adaptive-stepper/adaptive-stepper.tsx`
   - `components/ryan-ui/adaptive-stepper/adaptive-stepper.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/adaptive-stepper.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/adaptive-stepper.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Quantidades pequenas com limites conhecidos, ajustadas um passo por vez: hóspedes, noites, itens do carrinho.
-- Linhas de formulário ou de lista em que o controle não pode mudar de largura: o espaço dos dois botões e do maior valor fica reservado mesmo quando um botão some.
-- Quando o limite precisa ficar evidente: em `min` ou `max` o botão correspondente some, em vez de só ficar esmaecido.
+- Small quantities with known limits, adjusted one step at a time: guests, nights, cart items.
+- Form or list rows where the control cannot change width: the space for the two buttons and the largest value stays reserved even when a button disappears.
+- When the limit needs to be obvious: at `min` or `max` the matching button disappears, instead of just being dimmed.
 
-## Quando não usar
+## When not to use
 
-- Use [`number-field`](number-field.md) quando a pessoa precisa digitar o valor: aqui o número não é editável, só os botões e as setas o mudam.
-- Use [`slider`](slider.md) para faixas largas ou contínuas, em que chegar ao valor passo a passo levaria toques demais.
+- Use [`number-field`](number-field.md) when the person needs to type the value: here the number is not editable, only the buttons and arrows change it.
+- Use [`slider`](slider.md) for wide or continuous ranges, where reaching the value step by step would take too many taps.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -83,13 +83,13 @@ export default function AdaptiveStepperDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AdaptiveStepper`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `number` | — | The current value (controlled). |
 | `defaultValue` | `number` | — | The starting value (uncontrolled). Defaults to `min`. |
@@ -98,45 +98,45 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `max` | `number` | `10` | Highest value. The plus button folds away here. |
 | `step` | `number` | `1` | Amount added or removed per press. |
 | `largeStep` | `number` | — | Amount for Page Up and Page Down. Defaults to five steps. |
-| `label` (obrigatória) | `string` | — | Accessible name, for example "Quantity". |
+| `label` (required) | `string` | — | Accessible name, for example "Quantity". |
 | `formatValueText` | `(value: number) => string` | — | Spoken form of the value, for example `value => value + " guests"`. |
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | Control height: 36, 44 or 50 px. |
 | `name` | `string` | — | Field name: adds a hidden input so the value submits with a form. |
 | `disabled` | `boolean` | `false` | Turns the control off: it is dimmed and ignores pointer and keyboard input. |
 | `className` | `string` | — | Extra class names for the root element. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `→` | Soma um `step`. |
-| `↓` ou `←` | Subtrai um `step`. |
-| `Page Up` ou `Page Down` | Soma ou subtrai `largeStep` (por padrão, cinco passos). |
-| `Home` ou `End` | Vai para `min` ou para `max`. |
-| `Tab` | Leva o foco ao número; os botões de menos e de mais ficam fora da ordem de tabulação. |
+| `↑` or `→` | Adds one `step`. |
+| `↓` or `←` | Subtracts one `step`. |
+| `Page Up` or `Page Down` | Adds or subtracts `largeStep` (by default, five steps). |
+| `Home` or `End` | Goes to `min` or to `max`. |
+| `Tab` | Moves focus to the number; the minus and plus buttons are outside the tab order. |
 
-## Acessibilidade
+## Accessibility
 
-- O número é um `role="spinbutton"` com `aria-valuenow`, `aria-valuemin` e `aria-valuemax`; `label` é obrigatório e vira o nome acessível.
-- Passe `formatValueText` para o leitor de tela anunciar o valor com unidade (“3 noites”) em vez do número puro.
-- Pressionar um botão leva o foco ao número, então o foco não se perde quando o botão some no limite; os botões têm `aria-label` em inglês (`Increase …`, `Decrease …`), montado a partir de `label`.
+- The number is a `role="spinbutton"` with `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`; `label` is required and becomes the accessible name.
+- Pass `formatValueText` so the screen reader announces the value with a unit (“3 nights”) instead of the bare number.
+- Pressing a button moves focus to the number, so focus is not lost when the button disappears at the limit; the buttons have an English `aria-label` (`Increase …`, `Decrease …`), built from `label`.
 
-## Movimento
+## Motion
 
-- Cada dígito rola para cima quando o valor sobe e para baixo quando desce, com uma mola sem ultrapassagem e um leve desfoque.
-- Em `min` ou `max` o botão correspondente dobra contra a borda e some, e o número desliza meio botão para o lado que ficou vazio.
-- Com “reduzir movimento” ligado, dígitos e botões só esmaecem e o número muda de lugar na hora.
+- Each digit rolls up when the value goes up and down when it goes down, with a spring with no overshoot and a slight blur.
+- At `min` or `max` the matching button folds against the edge and disappears, and the number slides half a button toward the side that became empty.
+- With “reduce motion” on, digits and buttons only fade and the number changes place instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura é fixa (dois botões mais os dígitos do maior entre `min` e `max`) e a altura segue `size`: 36, 44 ou 50 px.
+- The width is fixed (two buttons plus the digits of the larger of `min` and `max`) and the height follows `size`: 36, 44, or 50 px.
 
-## Notas para IA
+## Notes for AI
 
-- Funciona controlado (`value` + `onValueChange`) ou não controlado (`defaultValue`, que cai em `min`); os padrões são `min={0}`, `max={10}` e `step={1}`.
-- `label` é obrigatório e não aparece na tela: ponha o texto visível ao lado, e passe `name` se o valor deve seguir no envio de um formulário (vira um campo oculto).
-- Segurar um botão já repete o passo (espera 380 ms, depois um a cada 75 ms) e as casas decimais seguem as de `step` e `min`: não reimplemente isso por fora.
+- Works controlled (`value` + `onValueChange`) or uncontrolled (`defaultValue`, which falls back to `min`); the defaults are `min={0}`, `max={10}`, and `step={1}`.
+- `label` is required and does not show on screen: put the visible text alongside, and pass `name` if the value should go along on form submission (it becomes a hidden field).
+- Holding a button already repeats the step (waits 380 ms, then one every 75 ms) and the decimal places follow those of `step` and `min`: do not reimplement this externally.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/adaptive-stepper · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/adaptive-stepper · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

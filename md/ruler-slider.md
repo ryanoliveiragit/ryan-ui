@@ -2,48 +2,48 @@
 
 > Uma fita de marcas que desliza sob uma agulha fixa, com inércia, encaixe e valor rolante.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/ruler-slider
-- Descrição original (inglês): A tape of ticks that slides under a fixed needle, with momentum, snapping, and a rolling readout.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/ruler-slider
+- Original description: A tape of ticks that slides under a fixed needle, with momentum, snapping, and a rolling readout.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json`. Caminho do registro, relativo ao endereço do site: `r/ruler-slider.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ruler-slider.json`. Registry path, relative to the site address: `r/ruler-slider.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/ruler-slider/ruler-slider.tsx`
   - `components/ryan-ui/ruler-slider/ruler-slider.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/ruler-slider.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/ruler-slider.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Medidas como altura, peso ou temperatura, em que a metáfora da fita métrica ajuda e o valor exato importa.
-- Telas de toque, onde arrastar e arremessar uma fita é mais confortável que acertar um polegar pequeno.
-- Onboarding com uma medida por tela, com o número grande e a unidade em destaque.
+- Measurements such as height, weight, or temperature, where the tape-measure metaphor helps and the exact value matters.
+- Touch screens, where dragging and flinging a tape is more comfortable than hitting a small thumb.
+- Onboarding with one measurement per screen, with the large number and the unit highlighted.
 
-## Quando não usar
+## When not to use
 
-- Use [`slider`](slider.md) quando a faixa é curta ou quando ver a posição no trilho importa mais que o número exato.
-- Use [`number-field`](number-field.md) quando a pessoa já sabe o número e prefere digitar.
-- Use [`range-histogram-slider`](range-histogram-slider.md) ou um [`slider`](slider.md) com dois valores para escolher um intervalo.
+- Use [`slider`](slider.md) when the range is short or when seeing the position on the track matters more than the exact number.
+- Use [`number-field`](number-field.md) when people already know the number and prefer to type it.
+- Use [`range-histogram-slider`](range-histogram-slider.md) or a [`slider`](slider.md) with two values to choose a range.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -61,17 +61,17 @@ export default function RulerSliderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `RulerSlider`
 
 A precise value input shaped like a tape measure. A ruler of ticks slides under a fixed needle: drag it 1:1, flick it and it coasts with momentum onto a tick, pull it past either end and it rubber-bands back, or tap a spot to glide it there. The readout rolls each digit as the tape passes. Arrows step one tick, Shift+arrows and PageUp or PageDown move one labelled tick, Home and End go to the ends, and horizontal trackpad scrolling moves the tape.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Visible label; it also names the control. |
+| `label` (required) | `string` | — | Visible label; it also names the control. |
 | `value` | `number` | — | — |
 | `defaultValue` | `number` | — | — |
 | `onValueChange` | `(value: number) => void` | — | — |
@@ -88,40 +88,40 @@ A precise value input shaped like a tape measure. A ruler of ticks slides under 
 | `disabled` | `boolean` | — | — |
 | `className` | `string` | — | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↑` | Avançam uma marca pequena (`step`), e a fita desliza até ela numa mola. |
-| `←` ou `↓` | Voltam uma marca pequena. |
-| `Page Up` ou `Page Down` ou `Shift + →` ou `Shift + ←` | Andam uma marca rotulada (`largeStep`, por padrão `step` vezes `majorEvery`). |
-| `Home` ou `End` | Vão ao mínimo ou ao máximo. |
+| `→` or `↑` | Advance one small mark (`step`), and the tape slides to it on a spring. |
+| `←` or `↓` | Go back one small mark. |
+| `Page Up` or `Page Down` or `Shift + →` or `Shift + ←` | Move one labeled mark (`largeStep`, by default `step` times `majorEvery`). |
+| `Home` or `End` | Go to the minimum or the maximum. |
 
-## Acessibilidade
+## Accessibility
 
-- A fita inteira é um único `role="slider"` focável, nomeado pelo rótulo, com `aria-valuetext` que junta o valor formatado e a `unit` (“172 cm”).
-- O número grande e as marcas são `aria-hidden`, e o leitor de tela ouve só o valor do slider, então ponha em `format` e `unit` o texto que deve ser falado.
+- The whole tape is a single focusable `role="slider"`, named by the label, with `aria-valuetext` joining the formatted value and the `unit` (“172 cm”).
+- The large number and the marks are `aria-hidden`, and the screen reader hears only the slider value, so put the text that should be spoken in `format` and `unit`.
 
-## Movimento
+## Motion
 
-- A fita segue o dedo 1:1, continua deslizando com inércia depois de um arremesso e sempre para numa marca; puxada além das pontas, estica como elástico e volta.
-- Um toque leva a marca tocada até a agulha numa mola, e os dígitos do número rolam cada um na sua coluna enquanto a fita passa.
-- Com “reduzir movimento” ligado, a fita vai direto ao valor, sem inércia nem elástico, e os dígitos trocam sem rolar.
+- The tape follows the finger 1:1, keeps sliding with inertia after a fling, and always stops on a mark; pulled past the ends, it stretches like elastic and snaps back.
+- A tap brings the tapped mark to the needle on a spring, and the digits of the number each roll in their own column while the tape passes.
+- With “reduce motion” on, the tape goes straight to the value, with no inertia or elastic, and the digits change without rolling.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa a largura do contêiner com as pontas da fita esmaecidas; no toque, arrastar na vertical rola a página, e no trackpad a rolagem horizontal move a fita.
+- It fills the container width with the tape ends faded; on touch, dragging vertically scrolls the page, and on a trackpad horizontal scrolling moves the tape.
 
-## Desempenho
+## Performance
 
-- As marcas pequenas são um fundo em CSS, mas cada marca rotulada é um elemento e a fita tem a largura da faixa inteira; para faixas enormes com `step` pequeno, aumente `majorEvery` ou divida a faixa.
+- The small marks are a CSS background, but each labeled mark is an element and the tape spans the whole range width; for huge ranges with a small `step`, increase `majorEvery` or split the range.
 
-## Notas para IA
+## Notes for AI
 
-- Feito para valores físicos com `unit` (cm, kg, °C): `min`, `max` e `step` definem a fita, e `spacing` (px por marca) controla a precisão do arraste.
-- `onValueChange` dispara a cada marca que passa pela agulha, inclusive durante a inércia; salve ou busque em `onValueCommit`, que vem quando a fita para.
-- A altura vem de `--ruler-height` e a largura é 100%, então limite a largura no elemento pai.
+- Built for physical values with `unit` (cm, kg, °C): `min`, `max`, and `step` define the tape, and `spacing` (px per mark) controls drag precision.
+- `onValueChange` fires on every mark that passes the needle, including during inertia; save or fetch in `onValueCommit`, which arrives when the tape stops.
+- The height comes from `--ruler-height` and the width is 100%, so limit the width on the parent element.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ruler-slider · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ruler-slider · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

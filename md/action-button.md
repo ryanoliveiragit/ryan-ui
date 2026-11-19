@@ -2,47 +2,47 @@
 
 > Botão compacto para as ações mais usadas de uma barra de ferramentas.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/action-button
-- Descrição original (inglês): A compact button for frequent toolbar actions.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/action-button
+- Original description: A compact button for frequent toolbar actions.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-button.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-button.json`. Caminho do registro, relativo ao endereço do site: `r/action-button.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-button.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/action-button.json`. Registry path, relative to the site address: `r/action-button.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/action-button/action-button.tsx`
   - `components/ryan-ui/action-button/action-button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/action-button.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/action-button.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ações assíncronas que devem mostrar andamento e confirmação no próprio botão: salvar rascunho, publicar, sincronizar.
-- Quando você quer que os estados de pendente e concluído sejam geridos pelo componente a partir de uma única função `onAction`.
+- Async actions that should show progress and confirmation on the button itself: save draft, publish, sync.
+- When you want the pending and done states managed by the component from a single `onAction` function.
 
-## Quando não usar
+## When not to use
 
-- Use [`button`](button.md) quando precisar de variantes, tamanhos ou de um ícone próprio: aqui a aparência é fixa, preenchida e com uma seta à direita.
-- Use [`action-swap`](action-swap.md) quando o botão alterna entre estados que permanecem, como Seguir e Seguindo, ou precisa de tom e ícone por estado.
-- Use [`confirm-morph`](confirm-morph.md) ou [`hold-to-confirm`](hold-to-confirm.md) quando a ação é destrutiva e pede confirmação antes de rodar.
+- Use [`button`](button.md) when you need variants, sizes, or your own icon: here the look is fixed, filled, with an arrow on the right.
+- Use [`action-swap`](action-swap.md) when the button toggles between states that persist, like Follow and Following, or needs a tone and icon per state.
+- Use [`confirm-morph`](confirm-morph.md) or [`hold-to-confirm`](hold-to-confirm.md) when the action is destructive and needs confirmation before it runs.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -75,54 +75,54 @@ export default function ActionButtonDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ActionButton`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `successLabel` | `string` | `"Saved"` | — |
 | `pendingLabel` | `string` | `"Saving"` | — |
-| `onAction` (obrigatória) | `() => void \| Promise<void>` | — | — |
+| `onAction` (required) | `() => void \| Promise<void>` | — | — |
 | `resetAfterMs` | `number` | `2400` | — |
 | `onActionError` | `(error: unknown) => void` | — | — |
-| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Também aceita as props deste tipo, menos `onClick`, `onDrag`, `onDragEnd`, `onDragStart` e `onAnimationStart`. |
+| `...props` | `ButtonHTMLAttributes<HTMLButtonElement>` | — | Also accepts the props of this type, except `onClick`, `onDrag`, `onDragEnd`, `onDragStart` and `onAnimationStart`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Disparam `onAction`; enquanto a ação está pendente, novos acionamentos são ignorados. |
+| `Enter` or `Space` | Trigger `onAction`; while the action is pending, further activations are ignored. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<button>` nativo com `type="button"` por padrão; pendente, recebe `aria-busy` e `aria-disabled` em vez de `disabled`, então o foco não se perde no meio da ação.
-- O texto animado e os ícones ficam em `aria-hidden`: o leitor de tela recebe o `label` fixo e um `role="status"` que anuncia `pendingLabel` e depois `successLabel`.
-- `pendingLabel` e `successLabel` têm padrão em inglês (“Saving” e “Saved”); passe os dois no idioma da interface.
+- It is a native `<button>` with `type="button"` by default; while pending, it gets `aria-busy` and `aria-disabled` instead of `disabled`, so focus is not lost mid-action.
+- The animated text and the icons are `aria-hidden`: the screen reader gets the fixed `label` and a `role="status"` that announces `pendingLabel` and then `successLabel`.
+- `pendingLabel` and `successLabel` default to English (“Saving” and “Saved”); pass both in the interface language.
 
-## Movimento
+## Motion
 
-- O rótulo troca com um esmaecer curto (o novo sobe 2 px) e a largura do botão acompanha o texto com uma mola sem ultrapassagem.
-- A seta sai para a direita quando a ação começa, dá lugar a um indicador giratório e depois a um visto que se desenha; ao voltar ao repouso, a seta entra pela esquerda.
-- Com “reduzir movimento”, o rótulo troca na hora, os ícones só esmaecem, a largura salta, o visto aparece pronto e o indicador não gira.
+- The label swaps with a short fade (the new one rises 2 px) and the button width follows the text with a spring with no overshoot.
+- The arrow exits to the right when the action starts, gives way to a spinner and then to a checkmark that draws itself; on return to rest, the arrow enters from the left.
+- With “reduce motion”, the label swaps instantly, the icons only fade, the width jumps, the checkmark appears already drawn, and the spinner does not spin.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O rótulo não quebra linha e a largura muda a cada estado; em linhas apertadas, use textos de comprimento parecido em `label`, `pendingLabel` e `successLabel` para os vizinhos não se deslocarem.
+- The label does not wrap and the width changes with each state; in tight rows, use text of similar length in `label`, `pendingLabel`, and `successLabel` so neighbors do not shift.
 
-## Desempenho
+## Performance
 
-- Cada botão mantém um `ResizeObserver` para medir o rótulo e um temporizador para voltar ao repouso; evite centenas deles numa lista longa.
+- Each button keeps a `ResizeObserver` to measure the label and a timer to return to rest; avoid hundreds of them in a long list.
 
-## Notas para IA
+## Notes for AI
 
-- A ação vai em `onAction` (não existe `onClick`): devolva uma Promise para o estado pendente durar enquanto ela roda e rejeite-a para sinalizar falha.
-- Na falha o botão volta ao repouso sem mensagem e chama `onActionError`; mostre o erro você mesmo, por exemplo com `toast`.
-- `resetAfterMs` (padrão 2400) define quanto tempo o estado concluído fica visível; com `0` ele permanece até o próximo clique.
+- The action goes in `onAction` (there is no `onClick`): return a Promise so the pending state lasts while it runs, and reject it to signal failure.
+- On failure the button returns to rest with no message and calls `onActionError`; show the error yourself, for example with `toast`.
+- `resetAfterMs` (default 2400) sets how long the done state stays visible; with `0` it stays until the next click.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/action-button · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/action-button · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

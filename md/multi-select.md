@@ -2,48 +2,48 @@
 
 > Selecione vários valores mantendo o campo legível.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/multi-select
-- Descrição original (inglês): Select several values while keeping the field readable.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/multi-select
+- Original description: Select several values while keeping the field readable.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json`. Caminho do registro, relativo ao endereço do site: `r/multi-select.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/multi-select.json`. Registry path, relative to the site address: `r/multi-select.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/multi-select/multi-select.tsx`
   - `components/ryan-ui/multi-select/multi-select.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/multi-select.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/multi-select.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolher vários valores de uma lista curta dentro de um formulário, como equipes, categorias ou permissões.
-- Quando o campo precisa continuar baixo: só os primeiros `maxVisible` escolhidos aparecem como chips e o resto vira um contador `+N`.
-- Quando limpar tudo de uma vez é comum: o botão de limpar aparece assim que há algo escolhido.
+- Choosing several values from a short list inside a form, like teams, categories, or permissions.
+- When the field needs to stay short: only the first `maxVisible` chosen appear as chips and the rest becomes a `+N` counter.
+- When clearing everything at once is common: the clear button appears as soon as something is chosen.
 
-## Quando não usar
+## When not to use
 
-- Use [`chip-group`](chip-group.md) quando há poucas opções e todas devem ficar à vista, sem abrir um menu.
-- Use [`tag-input`](tag-input.md) quando os valores são digitados pela pessoa, não escolhidos de uma lista.
-- Para listas longas: o menu mostra todas as opções de uma vez, sem busca e sem rolagem própria.
+- Use [`chip-group`](chip-group.md) when there are few options and all should stay in view, without opening a menu.
+- Use [`tag-input`](tag-input.md) when the values are typed by the person, not chosen from a list.
+- For long lists: the menu shows all the options at once, with no search and no scrolling of its own.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -69,16 +69,16 @@ export default function MultiSelectDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MultiSelect`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
-| `options` (obrigatória) | `MultiSelectOption[]` | — | — |
+| `label` (required) | `string` | — | — |
+| `options` (required) | `MultiSelectOption[]` | — | — |
 | `value` | `string[]` | — | — |
 | `defaultValue` | `string[]` | `[]` | — |
 | `onValueChange` | `(value: string[]) => void` | — | — |
@@ -89,48 +89,48 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `defaultOpen` | `boolean` | `false` | Start with the menu open, without moving focus (for previews and onboarding). |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `MultiSelectOption`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `value` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `disabled` | `boolean` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↓` ou `↑` | No gatilho, abrem a lista e movem o destaque pelas opções habilitadas, dando a volta nas pontas. |
-| `Enter` | Com uma opção em destaque, marca ou desmarca sem fechar a lista; sem destaque, abre ou fecha a lista. |
-| `Espaço` | No gatilho, abre ou fecha a lista. |
-| `Esc` | Com o foco no gatilho, fecha a lista. |
-| `Tab` | Passa pelo botão de limpar e por cada opção, que `Enter` ou `Espaço` marcam; sair com `Tab` não fecha a lista. |
+| `↓` or `↑` | On the trigger, open the list and move the highlight through the enabled options, wrapping around at the ends. |
+| `Enter` | With an option highlighted, checks or unchecks it without closing the list; with no highlight, opens or closes the list. |
+| `Space` | On the trigger, opens or closes the list. |
+| `Esc` | With focus on the trigger, closes the list. |
+| `Tab` | Moves through the clear button and each option, which `Enter` or `Space` check; leaving with `Tab` does not close the list. |
 
-## Acessibilidade
+## Accessibility
 
-- O gatilho é um `<button>` com `aria-haspopup="listbox"` e `aria-expanded`, nomeado pelo `label` visível e pela lista do que foi escolhido, escrita por extenso só para o leitor de tela.
-- A lista é um `role="listbox"` com `aria-multiselectable` e opções com `aria-selected`, mas o destaque movido pelas setas não é anunciado, porque o gatilho não usa `aria-activedescendant`.
-- `description` aparece sob o campo sem ligação por `aria-describedby`, e o botão de limpar tem nome fixo em inglês (`Clear selections`).
+- The trigger is a `<button>` with `aria-haspopup="listbox"` and `aria-expanded`, named by the visible `label` and by the list of what was chosen, written out in full only for the screen reader.
+- The list is a `role="listbox"` with `aria-multiselectable` and options with `aria-selected`, but the highlight moved by the arrows is not announced, because the trigger does not use `aria-activedescendant`.
+- `description` appears under the field with no `aria-describedby` link, and the clear button has a fixed English name (`Clear selections`).
 
-## Movimento
+## Motion
 
-- Cada chip escolhido abre o próprio espaço com uma mola e cresce de um leve desfoque, levando os vizinhos junto; ao sair, o espaço se fecha.
-- O contador `+N` rola para cima quando aumenta e para baixo quando diminui, e o visto de cada opção se desenha ao marcar e se recolhe ao desmarcar.
-- Com “reduzir movimento” ligado, chips, contador, vistos e menu só esmaecem.
+- Each chosen chip opens its own space with a spring and grows from a slight blur, carrying its neighbors along; on exit, the space closes.
+- The `+N` counter rolls up when it increases and down when it decreases, and each option's checkmark draws itself on check and retracts on uncheck.
+- With “reduce motion” on, chips, counter, checkmarks, and menu only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Ocupa a largura do contêiner; cada chip é cortado em 9rem com reticências, e o menu abre abaixo com a largura do campo, sem portal e sem altura máxima.
+- Takes the container width; each chip is cut at 9rem with an ellipsis, and the menu opens below with the field's width, with no portal and no maximum height.
 
-## Notas para IA
+## Notes for AI
 
-- Controlado com `value` + `onValueChange` ou não controlado com `defaultValue`; o array guarda a ordem em que as opções foram marcadas, e os chips seguem essa ordem.
-- Escolher não fecha o menu, feito para marcar várias opções seguidas: ele fecha com um clique fora ou no gatilho, com `Espaço` ou `Esc` no gatilho, ou ao limpar tudo.
-- Não há prop `name`: num formulário nativo, gere os `<input type="hidden">` a partir de `value`; `maxVisible` (padrão 2) define quantos chips aparecem antes do `+N`.
+- Controlled with `value` + `onValueChange` or uncontrolled with `defaultValue`; the array keeps the order in which the options were checked, and the chips follow that order.
+- Choosing does not close the menu, which is made for checking several options in a row: it closes with a click outside or on the trigger, with `Space` or `Esc` on the trigger, or on clearing everything.
+- There is no `name` prop: in a native form, generate the `<input type="hidden">` from `value`; `maxVisible` (default 2) defines how many chips appear before the `+N`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/multi-select · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/multi-select · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

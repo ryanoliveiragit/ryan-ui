@@ -2,48 +2,48 @@
 
 > Árvore de arquivos com pastas que abrem suavemente, ícones por tipo, seleção e navegação completa pelo teclado.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-tree
-- Descrição original (inglês): A file explorer tree whose folders open on a height spring, with file-type icons, selection, change markers and full keyboard navigation with type-ahead.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/file-tree
+- Original description: A file explorer tree whose folders open on a height spring, with file-type icons, selection, change markers and full keyboard navigation with type-ahead.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-tree.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-tree.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-tree.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-tree.json`. Caminho do registro, relativo ao endereço do site: `r/file-tree.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-tree.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-tree.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-tree.json`. Registry path, relative to the site address: `r/file-tree.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/file-tree/file-tree.tsx`
   - `components/ryan-ui/file-tree/file-tree.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/file-tree.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/file-tree.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Explorador de arquivos de um projeto num editor, revisor de código ou painel de repositório.
-- Lista de arquivos alterados, com a marca de versão de cada um (`status`: M, A, D, U) e o ponto que sinaliza pastas com mudanças dentro.
-- Árvores em que a pessoa navega só pelo teclado e pula para um arquivo digitando o começo do nome.
+- File explorer for a project in an editor, code reviewer, or repository panel.
+- List of changed files, with each one's version-control mark (`status`: M, A, D, U) and the dot that flags folders with changes inside.
+- Trees the user navigates by keyboard only, jumping to a file by typing the start of its name.
 
-## Quando não usar
+## When not to use
 
-- Use [`tree-view`](tree-view.md) para hierarquias que não são arquivos (categorias, seções), sem ícone por extensão nem marcas de alteração.
-- Use [`tree-table`](tree-table.md) quando cada linha tem colunas, seleção com caixas ou filhos carregados sob demanda.
-- Use [`animated-sidebar`](animated-sidebar.md) para a navegação do app com grupos aninhados; esta árvore seleciona arquivos, não troca de página.
+- Use [`tree-view`](tree-view.md) for hierarchies that aren't files (categories, sections), with no per-extension icon or change marks.
+- Use [`tree-table`](tree-table.md) when each row has columns, checkbox selection, or children loaded on demand.
+- Use [`animated-sidebar`](animated-sidebar.md) for app navigation with nested groups; this tree selects files, it doesn't switch pages.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -101,15 +101,15 @@ export default function FileTreeDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FileTree`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `nodes` (obrigatória) | `FileTreeNode[]` | — | The root level of files and folders. |
+| `nodes` (required) | `FileTreeNode[]` | — | The root level of files and folders. |
 | `value` | `string \| null` | — | Id of the selected file (controlled). Pass null for none. |
 | `defaultValue` | `string \| null` | `null` | Selected file when uncontrolled. |
 | `onValueChange` | `(id: string, node: FileTreeNode) => void` | — | Called when a row is selected. |
@@ -121,61 +121,61 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `label` | `string` | `"Files"` | Accessible name of the tree. |
 | `className` | `string` | — | Extra class for the tree. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `FileTreeStatus` | `"modified" \| "added" \| "deleted" \| "untracked"` |
 
 #### `FileTreeNode`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | File or folder name, with its extension. The extension picks the icon. |
+| `name` (required) | `string` | File or folder name, with its extension. The extension picks the icon. |
 | `id` | `string` | Unique id. Defaults to the path from the root, such as `src/app/page.tsx`. |
 | `children` | `FileTreeNode[]` | Present on folders (use an empty array for an empty folder); absent on files. |
 | `status` | `"modified" \| "added" \| "deleted" \| "untracked"` | Version control state, shown as a letter at the end of the row. A folder shows a dot when anything inside it changed. |
 | `disabled` | `boolean` | Keeps the row visible but skips it for selection and keyboard focus. |
 | `icon` | `ReactNode` | Replaces the icon picked from the extension. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Movem o foco para a linha visível anterior ou seguinte, pulando as desabilitadas. |
-| `→` ou `←` | `→` abre a pasta ou, se já aberta, vai ao primeiro item dela; `←` fecha a pasta ou, num arquivo, volta à pasta mãe. |
-| `Home` ou `End` | Vão à primeira e à última linha visível. |
-| `Enter` ou `Espaço` | Selecionam o arquivo ou abrem e fecham a pasta; `Enter` num arquivo também chama `onOpen`. |
-| `*` | Abre todas as pastas irmãs da linha em foco. |
-| `A–Z` | Digitar o começo de um nome (letras, números ou ponto) leva o foco à linha correspondente; repetir a mesma tecla percorre as que começam com ela. |
+| `↑` or `↓` | Move focus to the previous or next visible row, skipping disabled ones. |
+| `→` or `←` | `→` opens the folder or, if already open, goes to its first item; `←` closes the folder or, on a file, goes back to the parent folder. |
+| `Home` or `End` | Go to the first and last visible rows. |
+| `Enter` or `Space` | Select the file or open and close the folder; `Enter` on a file also calls `onOpen`. |
+| `*` | Opens all sibling folders of the focused row. |
+| `A–Z` | Typing the start of a name (letters, numbers, or a dot) moves focus to the matching row; repeating the same key cycles through the ones that start with it. |
 
-## Acessibilidade
+## Accessibility
 
-- Segue o padrão de árvore: `role="tree"` nomeado por `label`, linhas `treeitem` com `aria-level`, `aria-setsize` e `aria-posinset`, `aria-expanded` nas pastas e `aria-selected` nos arquivos.
-- Só uma linha fica na ordem de `Tab` (a que tem foco, senão a selecionada, senão a primeira); nós com `disabled` continuam visíveis, mas o teclado os pula e eles não podem ser selecionados.
-- A letra de status traz o nome por extenso para leitor de tela e a pasta com mudanças diz “contains changes”; esses textos e “Empty folder” estão fixos em inglês.
+- Follows the tree pattern: `role="tree"` named by `label`, `treeitem` rows with `aria-level`, `aria-setsize`, and `aria-posinset`, `aria-expanded` on folders, and `aria-selected` on files.
+- Only one row is in the `Tab` order (the focused one, otherwise the selected one, otherwise the first); nodes with `disabled` remain visible, but the keyboard skips them and they can't be selected.
+- The status letter carries its full name for screen readers and a folder with changes says “contains changes”; these texts and “Empty folder” are hardcoded in English.
 
-## Movimento
+## Motion
 
-- Abrir uma pasta anima a altura do grupo numa mola sem ultrapassagem, e as linhas entram em sequência, deslizando 8 px da esquerda, com atraso total limitado a 0,2 s.
-- A seta gira 90°, o ícone encolhe um pouco ao ser pressionado e a linha selecionada ganha uma barra de destaque que cresce a partir do meio.
-- Com “reduzir movimento”, as pastas abrem e fecham na hora e as transições de seta, ícone e barra são desligadas.
+- Opening a folder animates the group's height on a spring with no overshoot, and rows enter in sequence, sliding 8 px from the left, with the total delay capped at 0.2 s.
+- The arrow rotates 90°, the icon shrinks slightly when pressed, and the selected row gets a highlight bar that grows from the middle.
+- With “reduced motion”, folders open and close instantly and the arrow, icon, and bar transitions are turned off.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Nomes longos são cortados com reticências; cada nível recua 1rem (`--tree-indent`) e cada linha tem 1.875rem de altura (`--tree-row`).
-- A árvore não rola sozinha: ponha-a num contêiner com altura e rolagem (por exemplo `scroll-area`) quando houver muitos arquivos.
+- Long names are truncated with an ellipsis; each level indents 1rem (`--tree-indent`) and each row is 1.875rem tall (`--tree-row`).
+- The tree doesn't scroll on its own: put it in a container with a height and scrolling (for example `scroll-area`) when there are many files.
 
-## Desempenho
+## Performance
 
-- Pastas fechadas não renderizam os filhos, mas não há virtualização: cada linha visível é um elemento; mantenha `nodes` com referência estável, pois a lista visível é recalculada quando ele muda.
+- Closed folders don't render their children, but there is no virtualization: each visible row is an element; keep `nodes` referentially stable, since the visible list is recomputed when it changes.
 
-## Notas para IA
+## Notes for AI
 
-- Pasta é todo nó com `children` (use `[]` para pasta vazia); o `id` padrão é o caminho desde a raiz, como `src/app/page.tsx`, e é ele que vai em `value` e `expandedIds`.
-- Seleção (`value`, `onValueChange`) e pastas abertas (`expandedIds`, `onExpandedChange`) aceitam uso controlado ou não; `onOpen` é separado e dispara com `Enter` ou duplo clique num arquivo.
-- Por padrão as pastas só abrem e fecham: passe `selectFolders` para que também sejam selecionáveis; o ícone vem da extensão do nome ou de `icon` no nó.
+- A folder is any node with `children` (use `[]` for an empty folder); the default `id` is the path from the root, like `src/app/page.tsx`, and that is what goes in `value` and `expandedIds`.
+- Selection (`value`, `onValueChange`) and open folders (`expandedIds`, `onExpandedChange`) support controlled or uncontrolled use; `onOpen` is separate and fires on `Enter` or double click on a file.
+- By default folders only open and close: pass `selectFolders` to make them selectable too; the icon comes from the name's extension or from `icon` on the node.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-tree · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/file-tree · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

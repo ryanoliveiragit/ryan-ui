@@ -2,47 +2,47 @@
 
 > Textos e números que giram até o novo valor, como rolos de caça-níqueis.
 
-- Tipo: componente (categoria Especial)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/slot-text
-- Descrição original (inglês): Text and numbers that spin into their new value on staggered slot machine reels.
+- Type: component (category Special)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/slot-text
+- Original description: Text and numbers that spin into their new value on staggered slot machine reels.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json`. Caminho do registro, relativo ao endereço do site: `r/slot-text.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/slot-text.json`. Registry path, relative to the site address: `r/slot-text.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/slot-text/slot-text.tsx`
   - `components/ryan-ui/slot-text/slot-text.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/slot-text.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/slot-text.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Números que merecem um momento quando mudam: preço novo, total de visitas, placar, a revelação de um número num lançamento.
-- Palavras curtas que trocam como num painel de aeroporto, como o nome de uma cidade em maiúsculas, com as letras embaralhando antes de parar.
+- Numbers that deserve a moment when they change: a new price, total visits, a score, the reveal of a number at a launch.
+- Short words that swap as on an airport board, such as a city name in capitals, with the letters scrambling before stopping.
 
-## Quando não usar
+## When not to use
 
-- Use [`animated-counter`](animated-counter.md) para totais de painel que mudam com frequência, com dígitos que rolam como um odômetro.
-- Use [`text-morph`](text-morph.md) para rótulos de estado, como “Seguir” e “Seguindo”, em que as letras em comum devem ficar paradas.
-- Use [`countdown`](countdown.md) para contagem regressiva até um horário: ela cuida do relógio, do fuso e do fim.
+- Use [`animated-counter`](animated-counter.md) for dashboard totals that change often, with digits that roll like an odometer.
+- Use [`text-morph`](text-morph.md) for state labels, such as “Follow” and “Following”, where shared letters should stay still.
+- Use [`countdown`](countdown.md) for a countdown to a time: it handles the clock, the time zone, and the end.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -68,15 +68,15 @@ export default function SlotTextDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SlotText`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `string \| number` | — | The value to show. Numbers pass through format; strings render as they are. |
+| `value` (required) | `string \| number` | — | The value to show. Numbers pass through format; strings render as they are. |
 | `format` | `(value: number) => string` | — | Formats a number value. Defaults to en-US grouping, so 12480 reads 12,480. |
 | `duration` | `number` | `.9` | Seconds the first reel spins. Later reels add stagger. |
 | `stagger` | `number` | `.07` | Seconds between reels stopping, left to right. |
@@ -86,27 +86,27 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | — |
 | `style` | `CSSProperties` | — | — |
 
-## Acessibilidade
+## Accessibility
 
-- As rodas são `aria-hidden` e o texto final fica num `span` oculto, então o leitor de tela lê o valor certo, nunca os caracteres girando.
-- Com `announce`, cada valor novo é anunciado com `aria-live="polite"`; sem ele, a mudança é silenciosa.
+- The wheels are `aria-hidden` and the final text sits in a hidden `span`, so the screen reader reads the correct value, never the spinning characters.
+- With `announce`, each new value is announced with `aria-live="polite"`; without it, the change is silent.
 
-## Movimento
+## Motion
 
-- Cada caractere é uma roda: dígitos contam na direção em que o número mudou, letras passam por letras sorteadas, e as rodas param uma depois da outra, da esquerda para a direita, sem passar do alvo.
-- Quanto mais rápido a roda gira, mais ela desfoca; a largura de cada caractere acompanha com uma mola, e caracteres novos crescem a partir do zero.
-- Com “reduzir movimento”, o valor novo aparece na hora, sem giro.
+- Each character is a wheel: digits count in the direction the number changed, letters pass through random letters, and the wheels stop one after another, left to right, without overshooting the target.
+- The faster the wheel spins, the more it blurs; each character's width follows with a spring, and new characters grow from zero.
+- With “reduce motion”, the new value appears immediately, without spinning.
 
-## Desempenho
+## Performance
 
-- Cada caractere monta uma tira com todas as etapas do giro (até 20 células por dígito com `spins={1}`); use em valores curtos, não em textos longos.
+- Each character builds a strip with all the spin stages (up to 20 cells per digit with `spins={1}`); use it on short values, not long texts.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `SlotText` de `@/components/ryan-ui/slot-text/slot-text`. Para números, passe `value` numérico e um `format`, como `v => v.toLocaleString("pt-BR")`; o padrão agrupa no estilo en-US (12,480).
-- Deixe símbolos de moeda que começam com letra, como “R$”, fora do componente: com a letra no início, quando o número ganha um dígito o prefixo muda de roda e gira.
-- O tamanho vem da fonte do pai; para mudanças frequentes, `spins={0}` e um `duration` menor deixam o giro curto.
+- Import `SlotText` from `@/components/ryan-ui/slot-text/slot-text`. For numbers, pass a numeric `value` and a `format`, such as `v => v.toLocaleString("pt-BR")`; the default groups in en-US style (12,480).
+- Keep currency symbols that start with a letter, such as “R$”, outside the component: with the letter at the start, when the number gains a digit the prefix changes wheel and spins.
+- The size comes from the parent's font; for frequent changes, `spins={0}` and a smaller `duration` keep the spin short.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slot-text · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/slot-text · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

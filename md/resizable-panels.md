@@ -2,48 +2,48 @@
 
 > Painéis que trocam espaço entre si ao arrastar o divisor.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/resizable-panels
-- Descrição original (inglês): Trade space between panes by dragging the divider between them.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/resizable-panels
+- Original description: Trade space between panes by dragging the divider between them.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json`. Caminho do registro, relativo ao endereço do site: `r/resizable-panels.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/resizable-panels.json`. Registry path, relative to the site address: `r/resizable-panels.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/resizable-panels/resizable-panels.tsx`
   - `components/ryan-ui/resizable-panels/resizable-panels.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/resizable-panels.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/resizable-panels.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Layouts de e-mail ou de editor, como pastas, lista e leitura lado a lado, em que cada pessoa ajusta o espaço para a tarefa.
-- Um painel lateral que pode ser escondido arrastando até a borda (`collapsible`) e volta pela aba que aparece no divisor.
-- Comparar dois conteúdos lado a lado, como código e prévia, com limites em px (`minSize`, `maxSize`).
+- Email or editor layouts, such as folders, list, and reading side by side, where each person adjusts the space for the task.
+- A side panel that can be hidden by dragging it to the edge (`collapsible`) and comes back through the tab that appears on the divider.
+- Comparing two pieces of content side by side, such as code and preview, with limits in px (`minSize`, `maxSize`).
 
-## Quando não usar
+## When not to use
 
-- Use [`image-compare`](image-compare.md) para comparar duas imagens sobrepostas com um divisor.
-- Use [`drawer`](drawer.md) ou [`tabs`](tabs.md) em telas de celular, onde painéis lado a lado ficam estreitos demais.
-- Evite quando precisar de divisão vertical, com um painel em cima do outro: o grupo só divide na horizontal.
+- Use [`image-compare`](image-compare.md) to compare two overlaid images with a divider.
+- Use [`drawer`](drawer.md) or [`tabs`](tabs.md) on phone screens, where side-by-side panels become too narrow.
+- Avoid it when you need a vertical split, with one panel above the other: the group only splits horizontally.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { ResizablePanel, ResizablePanels } from "@/components/ryan-ui/resizable-panels/resizable-panels";
@@ -72,19 +72,19 @@ export default function ResizablePanelsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ResizablePanel`
 
 Carries a pane's configuration into `ResizablePanels`. Rendered on its own it shows its children unchanged.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `id` (obrigatória) | `string` | — | Stable id, also used by the dividers' `aria-controls`. |
-| `label` (obrigatória) | `string` | — | Names the pane for its divider, for example "Folders". |
-| `defaultSize` (obrigatória) | `number` | — | Starting share of the group. Shares are relative, so they need not add up to 100. |
+| `id` (required) | `string` | — | Stable id, also used by the dividers' `aria-controls`. |
+| `label` (required) | `string` | — | Names the pane for its divider, for example "Folders". |
+| `defaultSize` (required) | `number` | — | Starting share of the group. Shares are relative, so they need not add up to 100. |
 | `minSize` | `number` | — | Width in px where the pane starts to resist. Its content never reflows below it; it clips and fades instead. |
 | `maxSize` | `number` | — | — |
 | `collapsible` | `boolean` | — | Dragging well past the minimum, or flicking toward the edge, snaps the pane closed. Its divider then shows a restore tab. |
@@ -94,46 +94,46 @@ Carries a pane's configuration into `ResizablePanels`. Rendered on its own it sh
 
 ### `ResizablePanels`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | — | Names the group for assistive technology. |
-| `children` (obrigatória) | `ReactNode` | — | `ResizablePanel` elements, in order. The set of panes should stay the same for the life of the group. |
+| `children` (required) | `ReactNode` | — | `ResizablePanel` elements, in order. The set of panes should stay the same for the life of the group. |
 | `onLayoutChange` | `(sizes: number[]) => void` | — | Called with each pane's share in percent after a resize settles. |
 | `className` | `string` | — | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | No divisor em foco, movem a borda 16 px; no limite de um painel recolhível, a seta seguinte o esconde e a oposta o traz de volta no mínimo. |
-| `Shift + ←` ou `Shift + →` | Movem a borda 64 px. |
-| `Home` ou `End` | Levam o painel da esquerda ao menor ou ao maior tamanho permitido. |
-| `Enter` | Esconde o painel recolhível vizinho ou mostra de novo o que estava escondido. |
-| `Esc` | Durante um arraste, devolve o divisor à posição de onde saiu. |
+| `←` or `→` | On the focused divider, move the edge 16 px; at the limit of a collapsible panel, the next arrow hides it and the opposite one brings it back at the minimum. |
+| `Shift + ←` or `Shift + →` | Move the edge 64 px. |
+| `Home` or `End` | Take the left panel to the smallest or largest allowed size. |
+| `Enter` | Hides the neighboring collapsible panel or shows the hidden one again. |
+| `Esc` | During a drag, returns the divider to the position it started from. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada divisor é um `separator` focável com `aria-valuenow`, `aria-valuemin` e `aria-valuemax` em porcentagem, nomeado pelo `label` do painel à esquerda e ligado a ele por `aria-controls`.
-- Com um painel escondido, o divisor anuncia “<nome> hidden, press Enter to show”, texto fixo em inglês, e o conteúdo escondido fica `inert`.
-- O grupo é um `group` nomeado por `label`; o `aria-valuenow` já mostra o destino assim que a mola começa, sem esperar ela assentar.
+- Each divider is a focusable `separator` with `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` in percent, named by the `label` of the panel on the left and tied to it by `aria-controls`.
+- With a panel hidden, the divider announces “<name> hidden, press Enter to show”, fixed text in English, and the hidden content is `inert`.
+- The group is a `group` named by `label`; `aria-valuenow` already shows the destination as soon as the spring starts, without waiting for it to settle.
 
-## Movimento
+## Motion
 
-- O divisor segue o ponteiro 1:1 e resiste como elástico além dos limites; puxar bem abaixo do mínimo de um painel `collapsible`, ou dar um gesto rápido para a borda, o fecha.
-- Mudanças de estado e o teclado usam molas sem ultrapassagem; o conteúdo esmaece conforme o painel é espremido abaixo do mínimo e fica preso à borda que se move, como uma gaveta.
-- Com “reduzir movimento” ligado, os painéis vão direto ao tamanho final e a aba de restaurar só esmaece.
+- The divider follows the pointer 1:1 and resists like elastic past the limits; pulling well below the minimum of a `collapsible` panel, or making a fast gesture toward the edge, closes it.
+- State changes and the keyboard use no-overshoot springs; the content fades as the panel is squeezed below the minimum and stays pinned to the moving edge, like a drawer.
+- With “reduce motion” on, the panels go straight to the final size and the restore tab only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O grupo é um contêiner de tamanho: quando fica mais estreito que a soma dos mínimos, cada mínimo encolhe na proporção, e os painéis mantêm as proporções quando a janela muda.
-- O grupo ocupa `height: 100%`, então o pai precisa de altura definida; o demo usa uma caixa de 260 px.
+- The group is a size container: when it gets narrower than the sum of the minimums, each minimum shrinks proportionally, and the panels keep their proportions when the window changes.
+- The group takes `height: 100%`, so the parent needs a defined height; the demo uses a 260 px box.
 
-## Notas para IA
+## Notes for AI
 
-- Monte `ResizablePanels` com filhos `ResizablePanel`, cada um com `id` único, `label` e `defaultSize` (proporções relativas, não precisam somar 100); `minSize` é em px e vale 80 por padrão.
-- O conjunto de painéis deve ser o mesmo durante toda a vida do grupo; para trocar os painéis, remonte o grupo com outra `key`.
-- Para lembrar o layout, salve as porcentagens de `onLayoutChange` e passe-as como `defaultSize` na próxima montagem; um duplo clique no divisor volta ao padrão.
+- Assemble `ResizablePanels` with `ResizablePanel` children, each with a unique `id`, `label`, and `defaultSize` (relative proportions, they do not need to add up to 100); `minSize` is in px and defaults to 80.
+- The set of panels must stay the same for the whole life of the group; to swap the panels, remount the group with a different `key`.
+- To remember the layout, save the percentages from `onLayoutChange` and pass them as `defaultSize` on the next mount; a double click on the divider returns to the default.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/resizable-panels · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/resizable-panels · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

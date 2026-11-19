@@ -2,23 +2,23 @@
 
 > Perguntas frequentes em acordeão, por categoria ou com busca, com um caminho para falar com alguém.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/faq-section
-- Descrição original (inglês): FAQs as an accordion, a topic rail, or a searchable list that highlights matches.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/faq-section
+- Original description: FAQs as an accordion, a topic rail, or a searchable list that highlights matches.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/faq-section.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/faq-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/faq-section.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/faq-section.json`. Caminho do registro, relativo ao endereço do site: `r/faq-section.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/faq-section.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/faq-section.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/faq-section.json`. Registry path, relative to the site address: `r/faq-section.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Search field](search-field.md), [Segmented control](segmented-control.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Search field](search-field.md), [Segmented control](segmented-control.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/faq-section/faq-section.tsx`
   - `components/ryan-ui/blocks/faq-section/faq-section.module.css`
   - `components/ryan-ui/segmented-control/segmented-control.tsx`
@@ -26,57 +26,46 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/search-field/search-field.tsx`
   - `components/ryan-ui/search-field/search-field.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/faq-section.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/faq-section.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Seção de perguntas frequentes numa página de produto ou de preços, com respostas que abrem no lugar, na variante `accordion`.
-- Muitas perguntas agrupadas por tema, na variante `columns`, com um trilho de categorias que fica fixo ao lado durante a rolagem.
-- Centrais de ajuda em que a pessoa procura por palavra: a variante `search` filtra perguntas e respostas, ignora acentos e destaca o trecho encontrado.
+- A frequently-asked-questions section on a product or pricing page, with answers that open in place, in the `accordion` variant.
+- Many questions grouped by topic, in the `columns` variant, with a category rail that stays fixed beside them while scrolling.
+- Help centers where the person searches by word: the `search` variant filters questions and answers, ignores accents, and highlights the match.
 
-## Quando não usar
+## When not to use
 
-- Use [`accordion`](accordion.md) para revelar seções de qualquer conteúdo, e não só perguntas com respostas em texto.
-- Evite quando as respostas precisam de links, listas ou formatação: `answer` é texto puro, porque também é o que a busca compara e destaca.
+- Use [`accordion`](accordion.md) to reveal sections of any content, not just questions with text answers.
+- Avoid when answers need links, lists, or formatting: `answer` is plain text, because it is also what the search compares and highlights.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
-import FaqSectionBlock from "@/components/ryan-ui/blocks/faq-section/faq-section";
-import type { DemoStage } from "./_kit";
-
-// O canvas do site encolhe ao conteúdo e pinta ~12px a menos que o rect de layout (base cortada antes da borda):
-// medido na ref de 11/12, a faixa pintada é 774×1085 com respiro de 14. O palco reproduz isso: iframe de 1083
-// (= 1085 menos as duas bordas do painel), respiro 14 e cor de canvas; o excesso dos últimos px do respiro
-// transborda a viewport do iframe e some, exatamente como a pintura do site corta.
-export const stage: DemoStage = { height: 1083 };
+import FaqSection from "@/components/ryan-ui/blocks/faq-section/faq-section";
 
 export default function FaqSectionDemo() {
-  return (
-    <div style={{ display: "grid", placeItems: "center", padding: 14, background: "var(--surface-muted)" }}>
-      <FaqSectionBlock />
-    </div>
-  );
+  return <FaqSection />;
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FaqSection`
 
 A frequently asked questions section in three layouts: one centered accordion, a category rail beside its questions, and a searchable list that filters and highlights as you type. Answers open on a height spring with the icon turning to a close mark; arrow keys move between questions.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"accordion" \| "columns" \| "search"` | `"accordion"` | `accordion` is one centered list, `columns` groups questions beside a category rail, `search` filters as you type. |
 | `title` | `string` | `"Frequently asked questions"` | — |
@@ -97,57 +86,57 @@ A frequently asked questions section in three layouts: one centered accordion, a
 
 Preview: the FAQ with a switch between its three layouts.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `FaqSectionVariant` | `"accordion" \| "columns" \| "search"` |
 
 #### `FaqItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `id` | `string` | Stable id used for open state. Defaults to the question. |
-| `question` (obrigatória) | `string` | — |
-| `answer` (obrigatória) | `string` | Plain text answer; it is also what search matches. |
+| `question` (required) | `string` | — |
+| `answer` (required) | `string` | Plain text answer; it is also what search matches. |
 | `category` | `string` | Groups questions in the columns variant. |
 
-### Outras exportações
+### Other exports
 
-- `faqExampleItems` (valor)
+- `faqExampleItems` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Movem o foco para a pergunta anterior ou a próxima da mesma lista, dando a volta. |
-| `Home` ou `End` | Focam a primeira ou a última pergunta da lista. |
-| `Enter` ou `Espaço` | Abrem ou fecham a resposta da pergunta em foco; nas categorias de `columns`, trocam o tema. |
+| `↑` or `↓` | Move focus to the previous or next question in the same list, wrapping around. |
+| `Home` or `End` | Focus the first or last question in the list. |
+| `Enter` or `Space` | Open or close the answer of the focused question; on the `columns` categories, switch the topic. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada pergunta é um botão dentro de um `h3`, com `aria-expanded` e `aria-controls`, e a resposta é uma `region` nomeada pela própria pergunta.
-- Na busca, a contagem de respostas encontradas é anunciada numa região `aria-live`; nas categorias, o tema ativo usa `aria-pressed`.
-- `title` vira o `h2` que nomeia a seção; o cartão de contato do fim é um link quando recebe `href` e um botão nos outros casos.
+- Each question is a button inside an `h3`, with `aria-expanded` and `aria-controls`, and the answer is a `region` named by the question itself.
+- In search, the count of answers found is announced in an `aria-live` region; on the categories, the active topic uses `aria-pressed`.
+- `title` becomes the `h2` that names the section; the contact card at the end is a link when it receives `href` and a button otherwise.
 
-## Movimento
+## Motion
 
-- A resposta abre com a altura numa mola sem ultrapassagem e o texto desce de um leve desfoque, enquanto o sinal de mais gira 45° e vira um x.
-- Na busca, as perguntas que deixam de bater fecham a altura e as restantes deslizam; em `columns`, a lista do novo tema entra no sentido da troca e o realce desliza até ele.
-- Com “reduzir movimento” ligado, respostas, filtros e temas trocam na hora e o ícone não anima.
+- The answer opens with the height on a no-overshoot spring and the text descends from a slight blur, while the plus sign rotates 45° and becomes an x.
+- In search, questions that stop matching close their height and the remaining ones slide; in `columns`, the new topic's list enters in the direction of the switch and the highlight slides to it.
+- With “reduce motion” on, answers, filters, and topics swap instantly and the icon does not animate.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Container query: abaixo de 760px o trilho de `columns` deixa de ficar fixo e as categorias viram uma fileira que rola na horizontal, acima das perguntas.
+- Container query: below 760px the `columns` rail stops being fixed and the categories become a horizontally scrolling row above the questions.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `FaqSection` pelo nome (a exportação padrão é a prévia com seletor) e escolha `variant`: `accordion`, `columns` ou `search`; `search-field` e `segmented-control` vêm junto.
-- Por padrão a primeira pergunta abre e só uma fica aberta por vez: use `multiple` para várias e `defaultValue={[]}` para começar fechado; o id de cada item é `id` ou, sem ele, a pergunta.
-- Em `columns`, dê `category` a cada item (sem ela, vira “General”); `contact={null}` remove o cartão “Still have a question?”, que sem `href` nem `onClick` não faz nada.
+- Import `FaqSection` by name (the default export is the preview with a selector) and choose `variant`: `accordion`, `columns`, or `search`; `search-field` and `segmented-control` come along.
+- By default the first question opens and only one stays open at a time: use `multiple` for several and `defaultValue={[]}` to start closed; each item's id is `id` or, without it, the question.
+- In `columns`, give each item a `category` (without it, it becomes “General”); `contact={null}` removes the “Still have a question?” card, which does nothing without `href` or `onClick`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/faq-section · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/faq-section · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

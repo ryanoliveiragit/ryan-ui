@@ -2,47 +2,47 @@
 
 > Dock de aplicativos: os ícones crescem perto do cursor, mostram o nome, pulam ao clicar e o ativo ganha um ponto.
 
-- Tipo: componente (categoria Ações), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/dock
-- Descrição original (inglês): An app dock whose tiles magnify around the cursor, show a tooltip, bounce when pressed and mark the active one with a dot.
+- Type: component (category Actions), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/dock
+- Original description: An app dock whose tiles magnify around the cursor, show a tooltip, bounce when pressed and mark the active one with a dot.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json`. Caminho do registro, relativo ao endereço do site: `r/dock.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/dock.json`. Registry path, relative to the site address: `r/dock.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/dock/dock.tsx`
   - `components/ryan-ui/dock/dock.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/dock.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/dock.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um lançador de aplicativos ou de áreas no rodapé de uma tela, com poucos ícones e um item ativo.
-- Interfaces de demonstração ou criativas em que a ampliação sob o cursor faz parte da identidade.
+- An app or area launcher at the bottom of a screen, with few icons and one active item.
+- Demo or creative interfaces where magnification under the cursor is part of the identity.
 
-## Quando não usar
+## When not to use
 
-- Use [`floating-button-group`](floating-button-group.md) para barras de ferramentas de trabalho, com rótulos e atalhos, em que tiles que crescem e quicam atrapalhariam.
-- Use [`bounce-sidebar`](bounce-sidebar.md) ou [`animated-sidebar`](animated-sidebar.md) para a navegação principal de um app com muitas seções e nomes sempre visíveis.
-- Evite como única navegação em telas estreitas: no toque não há ampliação nem balão com o nome, e a fileira não se adapta à largura.
+- Use [`floating-button-group`](floating-button-group.md) for work toolbars, with labels and shortcuts, where tiles that grow and bounce would get in the way.
+- Use [`bounce-sidebar`](bounce-sidebar.md) or [`animated-sidebar`](animated-sidebar.md) for the main navigation of an app with many sections and always-visible names.
+- Avoid as the only navigation on narrow screens: on touch there is no magnification or name bubble, and the row does not adapt to the width.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -73,15 +73,15 @@ export default function DockDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Dock`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `DockItem[]` | — | The tiles, left to right. |
+| `items` (required) | `DockItem[]` | — | The tiles, left to right. |
 | `value` | `string \| null` | — | Id of the active item (controlled). Pass null for none. |
 | `defaultValue` | `string \| null` | `null` | Active item when uncontrolled. |
 | `onValueChange` | `(value: string) => void` | — | Called with the id of the pressed item. |
@@ -91,55 +91,55 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `label` | `string` | `"Dock"` | Accessible name of the toolbar. |
 | `className` | `string` | — | Extra class for the dock bar. |
 
-### Tipos exportados
+### Exported types
 
 #### `DockItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique id, reported by `onValueChange` when the item is pressed. |
-| `label` (obrigatória) | `string` | Name shown in the tooltip and announced to screen readers. |
-| `icon` (obrigatória) | `ReactNode` | The icon, usually an SVG sized around 45% of the tile. |
+| `id` (required) | `string` | Unique id, reported by `onValueChange` when the item is pressed. |
+| `label` (required) | `string` | Name shown in the tooltip and announced to screen readers. |
+| `icon` (required) | `ReactNode` | The icon, usually an SVG sized around 45% of the tile. |
 | `open` | `boolean` | Draws a quiet dot under the icon, for something that is running in the background. |
 | `separatorBefore` | `boolean` | Draws a thin divider before this item, to split the dock into groups. |
 | `disabled` | `boolean` | Keeps the item visible but not pressable. |
 | `onSelect` | `() => void` | Runs when the item is pressed, after the bounce starts. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `←` | Movem o foco entre os tiles habilitados e dão a volta nas pontas; o tile em foco é ampliado como se o cursor estivesse sobre ele. |
-| `Home` ou `End` | Vão para o primeiro e o último tile habilitado. |
-| `Enter` ou `Espaço` | Acionam o tile: ele quica, vira o ativo e chama `onValueChange` e `onSelect`. |
+| `→` or `←` | Move focus between enabled tiles and wrap around at the ends; the focused tile is magnified as if the cursor were over it. |
+| `Home` or `End` | Go to the first and last enabled tile. |
+| `Enter` or `Space` | Trigger the tile: it bounces, becomes the active one, and calls `onValueChange` and `onSelect`. |
 
-## Acessibilidade
+## Accessibility
 
-- O contêiner é `role="toolbar"` com `aria-label` (padrão em inglês, “Dock”); cada tile é um `<button>` com `aria-label` igual a `label` e `aria-pressed` marcando o ativo.
-- O balão com o nome é só visual (`aria-hidden`) e aparece com o ponteiro ou com o foco do teclado; o ponto de `open` também é decorativo e não é anunciado.
-- Todos os tiles são paradas de `Tab`, além das setas; `separatorBefore` insere um `role="separator"` vertical.
+- The container is `role="toolbar"` with `aria-label` (default in English, “Dock”); each tile is a `<button>` with an `aria-label` equal to `label` and `aria-pressed` marking the active one.
+- The name bubble is visual only (`aria-hidden`) and appears with the pointer or keyboard focus; the `open` dot is also decorative and is not announced.
+- All tiles are `Tab` stops, in addition to the arrows; `separatorBefore` inserts a vertical `role="separator"`.
 
-## Movimento
+## Motion
 
-- Com mouse ou caneta, cada tile cresce conforme a proximidade do cursor, numa curva que se apaga em `range` px (140), suavizada por uma mola; o tile sob o cursor chega a `magnification` vezes o tamanho (1,6).
-- Ao pressionar, o tile dá dois pulos, um alto e um baixo (0,62 s); o ponto sob o ativo se alonga numa barra curta, e o balão com o nome sobe e esmaece acima do tile.
-- No toque não há ampliação nem balão; com “reduzir movimento”, também não há ampliação nem pulos, e o balão só esmaece.
+- With mouse or pen, each tile grows with the cursor's proximity, on a curve that fades out at `range` px (140), smoothed by a spring; the tile under the cursor reaches `magnification` times its size (1.6).
+- On press, the tile makes two hops, one high and one low (0.62 s); the dot under the active one stretches into a short bar, and the name bubble rises and fades above the tile.
+- On touch there is no magnification or bubble; with “reduce motion”, there is also no magnification or hops, and the bubble only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O dock não rola nem quebra linha: os tiles têm largura fixa (`size`), e num contêiner mais estreito que a fileira eles transbordam; dimensione `size` e a quantidade de itens para a menor tela.
-- Os tiles crescem para cima a partir da base da barra, que mantém a altura; deixe espaço livre acima do dock para os tiles ampliados e o balão.
+- The dock does not scroll or wrap: tiles have a fixed width (`size`), and in a container narrower than the row they overflow; size `size` and the number of items for the smallest screen.
+- Tiles grow upward from the bar's base, which keeps its height; leave free space above the dock for the magnified tiles and the bubble.
 
-## Desempenho
+## Performance
 
-- A cada movimento do ponteiro sobre o dock, cada tile mede a própria posição e anima o tamanho numa mola; pense em uma dezena de tiles, não em dezenas.
+- On every pointer move over the dock, each tile measures its own position and animates its size on a spring; think a dozen tiles, not dozens.
 
-## Notas para IA
+## Notes for AI
 
-- Cada item precisa de `id`, `label` e `icon` (um SVG de uns 45% de `size`); controle o ativo com `value` e `onValueChange`, ou deixe interno com `defaultValue`.
-- `open` desenha o ponto de “em execução”, `separatorBefore` uma divisória antes do item e `disabled` o deixa visível mas inerte; `size`, `magnification` e `range` ajustam a ampliação.
-- Dê ao pai espaço acima do dock (o demo usa `padding-top` de `--space-12`) e largura para a fileira inteira.
+- Each item needs `id`, `label`, and `icon` (an SVG of about 45% of `size`); control the active one with `value` and `onValueChange`, or leave it internal with `defaultValue`.
+- `open` draws the “running” dot, `separatorBefore` a divider before the item, and `disabled` leaves it visible but inert; `size`, `magnification`, and `range` tune the magnification.
+- Give the parent space above the dock (the demo uses `padding-top` of `--space-12`) and width for the whole row.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/dock · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/dock · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,51 +2,51 @@
 
 > Uma amostra que se expande em seletor, com formatos, conta-gotas, cores salvas e leitura de contraste.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/color-picker
-- Descrição original (inglês): A swatch that grows into a picker with format morphing, eyedropper, saved swatches, and contrast readout.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/color-picker
+- Original description: A swatch that grows into a picker with format morphing, eyedropper, saved swatches, and contrast readout.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/color-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/color-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/color-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/color-picker.json`. Caminho do registro, relativo ao endereço do site: `r/color-picker.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/color-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/color-picker.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/color-picker.json`. Registry path, relative to the site address: `r/color-picker.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Text morph](text-morph.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Text morph](text-morph.md)
+- Files, once installed:
   - `components/ryan-ui/color-picker/color-picker.tsx`
   - `components/ryan-ui/color-picker/color-picker.module.css`
   - `components/ryan-ui/text-morph/text-morph.tsx`
   - `components/ryan-ui/text-morph/text-morph.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/color-picker.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/color-picker.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Escolha livre de cor num editor de tema, de marca ou de etiqueta, com opacidade e entrada por texto em hex, RGB, HSL ou OKLCH.
-- Quando a legibilidade importa: `background` alimenta a leitura de contraste WCAG (razão e nível) da cor sobre o fundo em que ela vai ficar.
-- Fluxos em que as pessoas guardam e reutilizam cores: as amostras salvas podem ser aplicadas, reordenadas e removidas.
+- Free color choice in a theme, brand, or label editor, with opacity and text input in hex, RGB, HSL, or OKLCH.
+- When legibility matters: `background` feeds the WCAG contrast reading (ratio and level) of the color over the background it will sit on.
+- Flows where people save and reuse colors: saved swatches can be applied, reordered, and removed.
 
-## Quando não usar
+## When not to use
 
-- Use [`color-swatches`](color-swatches.md) quando a escolha é entre poucas cores fixas, como os acabamentos de um produto.
-- Evite dentro de contêineres que cortam o conteúdo ou junto à borda direita ou inferior da tela: o painel não usa portal nem inverte, cresce para baixo e para a direita a partir da amostra.
-- Quando a cor precisa ser confirmada ou cancelada: cada ajuste chama `onValueChange` na hora e o botão de concluir só fecha o painel.
+- Use [`color-swatches`](color-swatches.md) when the choice is among a few fixed colors, like a product's finishes.
+- Avoid inside containers that clip content or near the right or bottom edge of the screen: the panel uses no portal and does not flip, it grows down and to the right from the swatch.
+- When the color needs to be confirmed or canceled: each adjustment calls `onValueChange` right away and the done button only closes the panel.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -84,13 +84,13 @@ export default function ColorPickerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ColorPicker`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `string` | — | Any color the picker can read: hex, rgb(), hsl(), or oklch(). |
 | `defaultValue` | `string` | `"#2F6BFF"` | — |
@@ -105,70 +105,70 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `defaultOpen` | `boolean` | `false` | Start with the panel open, without moving focus into it (for previews and onboarding). Later opens move focus as usual. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ColorFormat` | `"hex" \| "rgb" \| "hsl" \| "oklch"` |
 
 #### `ColorSwatch`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `color` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `color` (required) | `string` | — |
 
 #### `Hsva`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `h` (obrigatória) | `number` | — |
-| `s` (obrigatória) | `number` | — |
-| `v` (obrigatória) | `number` | — |
-| `a` (obrigatória) | `number` | — |
+| `h` (required) | `number` | — |
+| `s` (required) | `number` | — |
+| `v` (required) | `number` | — |
+| `a` (required) | `number` | — |
 
-### Outras exportações
+### Other exports
 
-- `toHex` (função)
-- `parseColor` (função)
+- `toHex` (function)
+- `parseColor` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Abrem e fecham o painel pela amostra e aplicam a cor salva em foco; no campo de texto, `Enter` aplica o valor digitado. |
-| `←` ou `→` ou `↑` ou `↓` | Movem o controle em foco em 1: saturação e brilho na área, matiz e opacidade nas barras; entre as cores salvas, `←` e `→` trocam o foco. |
-| `Shift + ←` ou `Shift + →` ou `Shift + ↑` ou `Shift + ↓` ou `Page Up` ou `Page Down` | Dão passos de 10 em vez de 1 nos controles de cor. |
-| `Home` ou `End` | Nas barras de matiz e opacidade, vão ao mínimo ou ao máximo; nas cores salvas, à primeira ou à última. |
-| `Alt + ←` ou `Alt + →` | Mudam de posição a cor salva em foco; `Delete` ou `Backspace` a removem. |
-| `Esc` | Fecha o painel e devolve o foco à amostra; com um valor em edição no campo de texto, primeiro descarta o que foi digitado. |
+| `Enter` or `Space` | Open and close the panel from the swatch and apply the focused saved color; in the text field, `Enter` applies the typed value. |
+| `←` or `→` or `↑` or `↓` | Move the focused control by 1: saturation and brightness in the area, hue and opacity on the bars; among saved colors, `←` and `→` move focus. |
+| `Shift + ←` or `Shift + →` or `Shift + ↑` or `Shift + ↓` or `Page Up` or `Page Down` | Take steps of 10 instead of 1 on the color controls. |
+| `Home` or `End` | On the hue and opacity bars, go to the minimum or maximum; on saved colors, to the first or last. |
+| `Alt + ←` or `Alt + →` | Change the position of the focused saved color; `Delete` or `Backspace` remove it. |
+| `Esc` | Closes the panel and returns focus to the swatch; with a value being edited in the text field, it first discards what was typed. |
 
-## Acessibilidade
+## Accessibility
 
-- A amostra é um botão com `aria-haspopup="dialog"` e `aria-expanded`; o painel é um `role="dialog"` não modal, sem prisão de foco, e não fecha se o foco sair dele com `Tab`.
-- Ao abrir, o foco vai para o controle de saturação e brilho; `Esc` e o botão de concluir devolvem o foco à amostra.
-- Os controles são `role="slider"` com `aria-valuetext` e o contraste tem uma versão em texto para leitor de tela, mas os rótulos internos (`Hue`, `Opacity`, `Done`…) são fixos em inglês.
+- The swatch is a button with `aria-haspopup="dialog"` and `aria-expanded`; the panel is a non-modal `role="dialog"`, with no focus trap, and does not close if focus leaves it with `Tab`.
+- On open, focus goes to the saturation and brightness control; `Esc` and the done button return focus to the swatch.
+- The controls are `role="slider"` with `aria-valuetext` and the contrast has a text version for screen readers, but the internal labels (`Hue`, `Opacity`, `Done`…) are fixed in English.
 
-## Movimento
+## Motion
 
-- A amostra cresce até virar o painel por um recorte animado com mola, e o conteúdo aparece logo atrás da borda que avança.
-- Os controles seguem o ponteiro com uma mola curta, o botão de formato transforma o texto de um formato no outro e um valor inválido faz o campo tremer.
-- Com “reduzir movimento” ligado, o painel só esmaece, os controles saltam para a posição e o texto troca de formato sem transição.
+- The swatch grows into the panel through an animated clip with a spring, and the content appears just behind the advancing edge.
+- Controls follow the pointer with a short spring, the format button morphs the text from one format into the other, and an invalid value makes the field shake.
+- With “reduce motion” on, the panel only fades, controls jump to position, and the text switches format with no transition.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O painel tem `min(19rem, 100vw - 32px)` de largura e abre sobre a amostra, crescendo para baixo e para a direita: reserve esse espaço no layout.
+- The panel is `min(19rem, 100vw - 32px)` wide and opens over the swatch, growing down and to the right: reserve that space in the layout.
 
-## Desempenho
+## Performance
 
-- O painel só fica montado enquanto está aberto ou fechando, e o conta-gotas só aparece onde o navegador oferece a API `EyeDropper`.
+- The panel is only mounted while it is open or closing, and the eyedropper only appears where the browser offers the `EyeDropper` API.
 
-## Notas para IA
+## Notes for AI
 
-- `value` aceita hex, `rgb()`, `hsl()` ou `oklch()`, mas `onValueChange` devolve sempre hex em maiúsculas, com dois dígitos de alfa quando a cor não é opaca.
-- Cor e amostras funcionam controladas ou não: `value` ou `defaultValue`, e `swatches` ou `defaultSwatches` com `onSwatchesChange`; ao salvar além de `maxSwatches` (padrão 7), a última da lista sai.
-- Depende de `text-morph`, e o arquivo também exporta `parseColor` e `toHex` para converter cores fora do componente.
+- `value` accepts hex, `rgb()`, `hsl()`, or `oklch()`, but `onValueChange` always returns uppercase hex, with two alpha digits when the color is not opaque.
+- Color and swatches work controlled or not: `value` or `defaultValue`, and `swatches` or `defaultSwatches` with `onSwatchesChange`; when saving beyond `maxSwatches` (default 7), the last one in the list drops out.
+- Depends on `text-morph`, and the file also exports `parseColor` and `toHex` to convert colors outside the component.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/color-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/color-picker · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

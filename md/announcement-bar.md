@@ -2,48 +2,48 @@
 
 > Faixa no topo que alterna mensagens, mostra contagem regressiva e recolhe com suavidade ao ser dispensada.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/announcement-bar
-- Descrição original (inglês): A top banner that rotates messages, counts down, and collapses smoothly when dismissed.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/announcement-bar
+- Original description: A top banner that rotates messages, counts down, and collapses smoothly when dismissed.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json`. Caminho do registro, relativo ao endereço do site: `r/announcement-bar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/announcement-bar.json`. Registry path, relative to the site address: `r/announcement-bar.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/announcement-bar/announcement-bar.tsx`
   - `components/ryan-ui/announcement-bar/announcement-bar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/announcement-bar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/announcement-bar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um recado para o site inteiro no topo da página: promoção com prazo, versão nova ou evento ao vivo, com um link de ação.
-- Duas a quatro mensagens que se revezam no mesmo espaço, com pausa ao passar o mouse ou focar e, com `controls`, botões de anterior, próximo e pausa.
-- Campanhas que a pessoa fecha uma vez: com `id`, a dispensa fica salva em `localStorage` e a barra não volta; troque o `id` para mostrar uma campanha nova a todos.
+- A site-wide message at the top of the page: a time-limited promotion, a new version, or a live event, with an action link.
+- Two to four messages that rotate in the same space, pausing on hover or focus and, with `controls`, previous, next, and pause buttons.
+- Campaigns the user closes once: with `id`, the dismissal is saved in `localStorage` and the bar does not come back; change the `id` to show a new campaign to everyone.
 
-## Quando não usar
+## When not to use
 
-- Use [`alert`](alert.md) para uma mensagem ligada a uma tela ou formulário específico, que ajuda a resolver um problema ali.
-- Use [`toast`](toast.md) ou [`toast-stack`](toast-stack.md) para o resultado de algo que a pessoa acabou de fazer.
-- Use [`countdown`](countdown.md) quando a contagem regressiva é o centro da página, como a tela de um lançamento, e não um detalhe numa faixa.
+- Use [`alert`](alert.md) for a message tied to a specific screen or form, helping to resolve a problem there.
+- Use [`toast`](toast.md) or [`toast-stack`](toast-stack.md) for the result of something the user just did.
+- Use [`countdown`](countdown.md) when the countdown is the centerpiece of the page, such as a launch screen, and not a detail in a strip.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -86,15 +86,15 @@ export default function AnnouncementBarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AnnouncementBar`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `messages` (obrigatória) | `Announcement[]` | — | — |
+| `messages` (required) | `Announcement[]` | — | — |
 | `id` | `string` | — | Remembers dismissal under this id. Change the id to show a new campaign to everyone again. |
 | `open` | `boolean` | — | Whether the bar is shown. Leave it out to let the component manage it. |
 | `defaultOpen` | `boolean` | `true` | — |
@@ -112,62 +112,62 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `label` | `string` | `"Announcements"` | Accessible name of the region. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `AnnouncementAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `href` | `string` | — |
 | `onClick` | `() => void` | — |
 
 #### `Announcement`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable id, reported to callbacks. |
-| `message` (obrigatória) | `ReactNode` | — |
+| `id` (required) | `string` | Stable id, reported to callbacks. |
+| `message` (required) | `ReactNode` | — |
 | `action` | `AnnouncementAction` | — |
 | `countdown` | `{ to: Date \| string \| number; label?: string }` | Counts down to a moment, for example the end of a sale. |
 
-### Outras exportações
+### Other exports
 
-- `clearAnnouncementDismissal` (função)
+- `clearAnnouncementDismissal` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` ou `Shift + Tab` | Percorre o link de ação e os botões de anterior, pausa, próximo e fechar; enquanto o foco estiver dentro da barra, a rotação fica parada. |
+| `Tab` or `Shift + Tab` | Moves through the action link and the previous, pause, next, and close buttons; while focus is inside the bar, rotation stays paused. |
 
-## Acessibilidade
+## Accessibility
 
-- É uma `<section>` com `aria-label` (padrão “Announcements”); com mais de uma mensagem vira um carrossel (`aria-roledescription`) e cada mensagem é um grupo rotulado “N of M”.
-- Enquanto gira sozinha, a área das mensagens fica com `aria-live="off"` para não falar a cada troca; parada por pausa, foco, mouse ou “reduzir movimento”, passa a `polite`.
-- Os rótulos dos botões (“Previous announcement”, “Pause announcements”, “Dismiss”) e a leitura da contagem estão fixos em inglês; passe `label` em português e ajuste os demais no arquivo copiado.
+- It is a `<section>` with `aria-label` (default “Announcements”); with more than one message it becomes a carousel (`aria-roledescription`) and each message is a labeled group “N of M”.
+- While it rotates on its own, the messages area has `aria-live="off"` so it does not speak on every change; when stopped by pause, focus, mouse, or “reduce motion”, it switches to `polite`.
+- The button labels (“Previous announcement”, “Pause announcements”, “Dismiss”) and the countdown reading are fixed in English; pass `label` in your language and adjust the rest in the copied file.
 
-## Movimento
+## Motion
 
-- A próxima mensagem sobe de baixo com um leve desfoque enquanto a anterior sai por cima (voltar faz o caminho inverso), e a barra acompanha a altura da nova com uma mola sem ultrapassagem.
-- O anel de pausa é o relógio da rotação: enche de forma linear durante `interval`, para onde está ao pausar e completa o resto ao retomar; na contagem, cada dígito que muda cai de cima.
-- Fechar recolhe a altura com uma mola e a página sobe junto. Com “reduzir movimento”, a rotação automática é desligada, as mensagens só esmaecem e fechar vira um esmaecer curto.
+- The next message rises from below with a slight blur while the previous one exits upward (going back reverses the path), and the bar follows the new message's height with a no-overshoot spring.
+- The pause ring is the rotation clock: it fills linearly during `interval`, stops where it is when paused, and completes the rest on resume; in the countdown, each digit that changes drops in from above.
+- Closing collapses the height with a spring and the page moves up with it. With “reduce motion”, automatic rotation is turned off, messages only fade, and closing becomes a short fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Abaixo de 560 px de largura da própria barra (container query), a coluna que espelha os botões some e a mensagem passa a alinhar à esquerda em vez de centralizar.
-- Mensagem, contagem e link quebram em linhas quando falta espaço (a contagem e o link não se partem por dentro), e a barra cresce até a nova altura com a mola.
+- Below 560 px of the bar's own width (container query), the column that mirrors the buttons disappears and the message aligns left instead of centering.
+- Message, countdown, and link wrap onto lines when space runs out (the countdown and the link do not break internally), and the bar grows to the new height with the spring.
 
-## Desempenho
+## Performance
 
-- Cada contagem acorda uma vez por segundo, alinhada ao segundo cheio; a rotação é uma animação linear que para com a aba oculta, o mouse em cima ou o foco dentro.
+- Each countdown wakes once per second, aligned to the full second; the rotation is a linear animation that stops when the tab is hidden, the mouse is over it, or focus is inside.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/announcement-bar/announcement-bar`; cada item de `messages` precisa de `id` estável. A barra fica no fluxo (não é fixa nem sticky): ponha-a acima do cabeçalho.
-- Com `open` controlado, a dispensa é gravada em `localStorage` (havendo `id`), mas não é lida; para lembrar, deixe o estado com o componente. `clearAnnouncementDismissal(id)` apaga a dispensa, e a barra volta na próxima montagem.
-- `controls` vem desligado (só o botão de fechar aparece). `countdown.to` passa por `new Date()`; use uma data ISO com fuso (`Z` ou `-03:00`) para não depender do fuso do visitante.
+- Import from `@/components/ryan-ui/announcement-bar/announcement-bar`; each item in `messages` needs a stable `id`. The bar stays in the flow (it is not fixed or sticky): place it above the header.
+- With controlled `open`, the dismissal is written to `localStorage` (when there is an `id`) but not read; to remember it, keep the state in the component. `clearAnnouncementDismissal(id)` erases the dismissal, and the bar returns on the next mount.
+- `controls` is off by default (only the close button appears). `countdown.to` goes through `new Date()`; use an ISO date with a time zone (`Z` or `-03:00`) so it does not depend on the visitor's time zone.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/announcement-bar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/announcement-bar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

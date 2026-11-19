@@ -2,47 +2,47 @@
 
 > Texto longo recolhido em poucas linhas, com ler mais e mostrar menos.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-text
-- Descrição original (inglês): Long text clamped to a few lines with a soft fade that glides open with Read more and closes with Show less, shown only when the text overflows.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-text
+- Original description: Long text clamped to a few lines with a soft fade that glides open with Read more and closes with Show less, shown only when the text overflows.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json`. Caminho do registro, relativo ao endereço do site: `r/expandable-text.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/expandable-text.json`. Registry path, relative to the site address: `r/expandable-text.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/expandable-text/expandable-text.tsx`
   - `components/ryan-ui/expandable-text/expandable-text.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/expandable-text.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/expandable-text.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Descrições de produto, biografias ou avaliações longas numa lista, cortadas em poucas linhas com `lines`.
-- Textos de tamanho variável em que o botão só deve aparecer quando o texto realmente passa do corte.
-- Parágrafos com links no meio: o texto inteiro continua no DOM, e um link escondido abaixo do corte abre o texto quando recebe foco.
+- Long product descriptions, bios, or reviews in a list, clipped to a few lines with `lines`.
+- Variable-length texts where the button should only appear when the text actually exceeds the clip.
+- Paragraphs with links in the middle: the whole text stays in the DOM, and a link hidden below the clip opens the text when it receives focus.
 
-## Quando não usar
+## When not to use
 
-- Use [`collapsible`](collapsible.md) quando a parte escondida é um bloco separado, como uma lista ou um formulário, e não a continuação do texto.
-- Use [`accordion`](accordion.md) para várias seções com títulos próprios.
+- Use [`collapsible`](collapsible.md) when the hidden part is a separate block, such as a list or a form, and not the continuation of the text.
+- Use [`accordion`](accordion.md) for several sections with their own titles.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import ExpandableText from "@/components/ryan-ui/expandable-text/expandable-text";
@@ -59,55 +59,55 @@ export default function ExpandableTextDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ExpandableText`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | The text. Plain strings, paragraphs, and inline links all work; the whole text stays available to screen readers while clamped. |
+| `children` (required) | `ReactNode` | — | The text. Plain strings, paragraphs, and inline links all work; the whole text stays available to screen readers while clamped. |
 | `lines` | `number` | `3` | How many lines show while collapsed. |
 | `expanded` | `boolean` | — | Controlled open state. |
 | `defaultExpanded` | `boolean` | `false` | — |
 | `onExpandedChange` | `(expanded: boolean) => void` | — | — |
 | `moreLabel` | `string` | `"Read more"` | Toggle label while collapsed. |
 | `lessLabel` | `string` | `"Show less"` | Toggle label while open. |
-| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Também aceita as props deste tipo, menos `children`. |
+| `...props` | `HTMLAttributes<HTMLDivElement>` | — | Also accepts the props of this type, except `children`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão, abre ou fecha o texto. |
-| `Tab` | Ao levar o foco a um link escondido abaixo do corte, o texto se abre sozinho. |
+| `Enter` or `Space` | On the button, opens or closes the text. |
+| `Tab` | When focus reaches a link hidden below the clip, the text opens on its own. |
 
-## Acessibilidade
+## Accessibility
 
-- O botão tem `aria-expanded` e `aria-controls`; os dois rótulos dividem o mesmo espaço e o inativo fica oculto, então o nome lido é sempre o atual.
-- O texto cortado continua inteiro no DOM, disponível para o leitor de tela; o corte é só visual.
+- The button has `aria-expanded` and `aria-controls`; the two labels share the same space and the inactive one is hidden, so the name read is always the current one.
+- The clipped text stays whole in the DOM, available to the screen reader; the clip is only visual.
 
-## Movimento
+## Motion
 
-- A altura desliza com uma desaceleração suave, de 500 a 600 ms ao abrir e de 400 a 450 ms ao fechar, conforme a distância; o esmaecimento da última linha some junto e a seta gira no mesmo passo.
-- Ao fechar com o início do texto fora da tela, a página rola de volta até ele.
-- Com “reduzir movimento” ligado, o texto abre e fecha na hora, os rótulos trocam sem transição e a rolagem de volta é instantânea.
+- The height slides with a smooth deceleration, 500 to 600 ms on open and 400 to 450 ms on close, depending on the distance; the fade on the last line goes away along with it and the arrow rotates in step.
+- When closing with the start of the text off screen, the page scrolls back to it.
+- With “reduce motion” on, the text opens and closes instantly, the labels swap without a transition, and the scroll back is instant.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Em repouso, o corte é CSS em `lh`, e um observador refaz a medida quando a largura ou a fonte mudam: o botão aparece ou some conforme o texto passa ou não do corte.
+- At rest, the clip is CSS in `lh`, and an observer remeasures when the width or font changes: the button appears or disappears depending on whether the text exceeds the clip.
 
-## Desempenho
+## Performance
 
-- Cada instância usa um `ResizeObserver` para saber se o texto transborda; numa lista longa, é um observador por item.
+- Each instance uses a `ResizeObserver` to know whether the text overflows; in a long list, that is one observer per item.
 
-## Notas para IA
+## Notes for AI
 
-- Traduza os rótulos com `moreLabel` e `lessLabel`; o padrão é “Read more” e “Show less”.
-- Não desenhe um “ler mais” próprio: o botão já aparece só quando o texto passa de `lines` linhas (padrão 3).
-- Para controlar, passe `expanded` com `onExpandedChange`. Importe de `@/components/ryan-ui/expandable-text/expandable-text`.
+- Translate the labels with `moreLabel` and `lessLabel`; the defaults are “Read more” and “Show less”.
+- Do not draw your own “read more”: the button already appears only when the text exceeds `lines` lines (default 3).
+- To control it, pass `expanded` with `onExpandedChange`. Import from `@/components/ryan-ui/expandable-text/expandable-text`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-text · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/expandable-text · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

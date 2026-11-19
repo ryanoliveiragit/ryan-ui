@@ -2,47 +2,47 @@
 
 > Cartões dispostos em volta de um cilindro 3D que gira com arraste, setas ou teclado e para sempre em um cartão.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/cylinder-carousel
-- Descrição original (inglês): Cards placed around a 3D cylinder that turns by drag, arrows and keys, snaps to the nearest card and dims the cards that turn away.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/cylinder-carousel
+- Original description: Cards placed around a 3D cylinder that turns by drag, arrows and keys, snaps to the nearest card and dims the cards that turn away.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json`. Caminho do registro, relativo ao endereço do site: `r/cylinder-carousel.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/cylinder-carousel.json`. Registry path, relative to the site address: `r/cylinder-carousel.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/cylinder-carousel/cylinder-carousel.tsx`
   - `components/ryan-ui/cylinder-carousel/cylinder-carousel.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/cylinder-carousel.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/cylinder-carousel.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Vitrine de um conjunto pequeno de cartões visuais (salas, produtos, planos) em que um fica de frente por vez e os vizinhos aparecem em perspectiva.
-- Escolha de um item entre poucos, quando o resto da tela reage ao cartão da frente: `onValueChange` informa em qual cartão o cilindro vai parar.
+- Showcase for a small set of visual cards (rooms, products, plans) where one faces forward at a time and its neighbors appear in perspective.
+- Picking one item from a few, when the rest of the screen reacts to the front card: `onValueChange` reports which card the cylinder stops on.
 
-## Quando não usar
+## When not to use
 
-- Use [`carousel`](carousel.md) para uma fileira comum de slides, com indicador de página e rotação automática opcional.
-- Use [`card-stack`](card-stack.md) quando a pessoa decide cartão a cartão, descartando ou escolhendo, com opção de desfazer.
-- Evite com dezenas de cartões: o raio do cilindro cresce com a quantidade e todos ficam montados; uma grade ou lista serve melhor.
+- Use [`carousel`](carousel.md) for a regular row of slides, with a page indicator and optional autoplay.
+- Use [`card-stack`](card-stack.md) when the user decides card by card, discarding or choosing, with an undo option.
+- Avoid it with dozens of cards: the cylinder radius grows with the count and all cards stay mounted; a grid or list works better.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -91,15 +91,15 @@ export default function CylinderCarouselDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CylinderCarousel`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | One card per child. Three or more make a proper cylinder. |
+| `children` (required) | `ReactNode` | — | One card per child. Three or more make a proper cylinder. |
 | `value` | `number` | — | Index of the card facing the viewer (controlled). |
 | `defaultValue` | `number` | `0` | Index of the card facing the viewer at first when uncontrolled. |
 | `onValueChange` | `(index: number) => void` | — | Called with the index of the card that the cylinder settles on. |
@@ -111,42 +111,42 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `label` | `string` | `"Carousel"` | Accessible name of the carousel. |
 | `className` | `string` | — | Extra class for the root element. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Com o foco no palco, giram para o cartão anterior ou o próximo; toques rápidos se acumulam. |
-| `Home` ou `End` | Giram até o primeiro ou o último cartão pelo caminho mais curto. |
-| `Tab` | Passa pelo palco, pelos controles do cartão da frente e pelos botões de anterior e próximo; os outros cartões ficam fora da ordem de foco. |
-| `Enter` ou `Espaço` | Nos botões de anterior e próximo, giram um cartão. |
+| `←` or `→` | With focus on the stage, rotate to the previous or next card; quick presses accumulate. |
+| `Home` or `End` | Rotate to the first or last card by the shortest path. |
+| `Tab` | Moves through the stage, the front card's controls, and the previous and next buttons; the other cards are outside the focus order. |
+| `Enter` or `Space` | On the previous and next buttons, rotate one card. |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é um grupo com `aria-roledescription="carousel"` nomeado por `label`; cada cartão é um grupo `slide` rotulado “N of M”, e só o da frente fica exposto: os demais recebem `aria-hidden` e `inert`.
-- Uma região `aria-live="polite"` anuncia “Card N of M” a cada troca, e os botões de anterior e próximo têm `aria-label` próprio.
-- Passe `label` com o nome do conjunto; os demais textos lidos (“Previous card”, “Card 2 of 8”) estão fixos em inglês no código.
+- The root is a group with `aria-roledescription="carousel"` named by `label`; each card is a `slide` group labeled “N of M”, and only the front one is exposed: the others get `aria-hidden` and `inert`.
+- An `aria-live="polite"` region announces “Card N of M” on each change, and the previous and next buttons have their own `aria-label`.
+- Pass `label` with the name of the set; the other read-out texts (“Previous card”, “Card 2 of 8”) are hardcoded in English in the code.
 
-## Movimento
+## Motion
 
-- O cartão da frente acompanha o arraste ponto a ponto; ao soltar, um arremesso leva o giro um pouco adiante e uma mola com leve ultrapassagem o assenta no cartão mais próximo.
-- Os cartões escurecem conforme se afastam da frente e os de trás somem; na entrada, o cilindro chega girando pouco mais de um cartão e para no inicial.
-- Com “reduzir movimento”, o giro salta direto para o cartão de destino, sem mola nem entrada, e o contador troca só com um esmaecer.
+- The front card follows the drag point by point; on release, a fling carries the rotation slightly further and a spring with a slight overshoot settles it on the nearest card.
+- Cards darken as they move away from the front and the ones behind fade out; on entrance, the cylinder arrives spinning a little more than one card and stops on the initial one.
+- With “reduced motion”, the rotation jumps straight to the target card, with no spring or entrance, and the counter changes with only a fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Um `ResizeObserver` mede o palco: o cartão usa `cardWidth` ou 58% da largura disponível, o que for menor, e a altura encolhe na mesma proporção.
-- O palco usa `touch-action: pan-y`: no toque, arrastar na horizontal gira o cilindro e a rolagem vertical da página continua livre.
+- A `ResizeObserver` measures the stage: the card uses `cardWidth` or 58% of the available width, whichever is smaller, and the height shrinks in the same proportion.
+- The stage uses `touch-action: pan-y`: on touch, dragging horizontally rotates the cylinder and vertical page scrolling stays free.
 
-## Desempenho
+## Performance
 
-- Todos os cartões ficam montados (os de trás só são ocultados por `backface-visibility`) e cada um acompanha o giro para calcular a própria opacidade; prefira poucos cartões e imagens leves.
+- All cards stay mounted (the back ones are only hidden by `backface-visibility`) and each one follows the rotation to compute its own opacity; prefer few cards and light images.
 
-## Notas para IA
+## Notes for AI
 
-- Cada filho vira um cartão: passe três ou mais (com dois, ficam frente e verso; sem filhos, nada é renderizado).
-- Controle com `value` e `onValueChange` (índice do cartão da frente) ou deixe livre com `defaultValue`; `onValueChange` dispara quando o destino é decidido, antes de a mola terminar.
-- Dê largura ao pai (a raiz ocupa 100%) e deixe a altura por conta de `cardHeight` mais 96 px; dentro do cartão, marque com `data-no-drag` as áreas que não devem iniciar o arraste.
+- Each child becomes a card: pass three or more (with two, they become front and back; with no children, nothing is rendered).
+- Control it with `value` and `onValueChange` (index of the front card) or leave it uncontrolled with `defaultValue`; `onValueChange` fires when the target is decided, before the spring finishes.
+- Give the parent a width (the root takes 100%) and leave the height to `cardHeight` plus 96 px; inside the card, mark with `data-no-drag` the areas that must not start the drag.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cylinder-carousel · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/cylinder-carousel · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

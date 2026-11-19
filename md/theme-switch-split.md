@@ -2,50 +2,50 @@
 
 > O novo tema se abre a partir de uma fenda fina no centro.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-split
-- Descrição original (inglês): The next appearance opens from a slim center seam.
-- Versões: Padrão ([`theme-switch`](theme-switch.md)), Eclipse ([`theme-switch-eclipse`](theme-switch-eclipse.md)), Split (este item), Rise ([`theme-switch-rise`](theme-switch-rise.md))
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-split
+- Original description: The next appearance opens from a slim center seam.
+- Versions: Padrão ([`theme-switch`](theme-switch.md)), Eclipse ([`theme-switch-eclipse`](theme-switch-eclipse.md)), Split (this item), Rise ([`theme-switch-rise`](theme-switch-rise.md))
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json`. Caminho do registro, relativo ao endereço do site: `r/theme-switch-split.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch-split.json`. Registry path, relative to the site address: `r/theme-switch-split.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md)
+- Files, once installed:
   - `components/ryan-ui/theme-switch/theme-switch.tsx`
   - `components/ryan-ui/theme-switch/theme-switch.module.css`
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/theme-switch-split.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/theme-switch-split.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um botão de tema centralizado ou numa barra simétrica, quando o tema novo deve se abrir a partir de uma fenda vertical no meio da tela.
-- Quando você quer uma troca curta e simétrica (520 ms no demo), que não depende de onde o botão está.
+- A centered theme button or one in a symmetric bar, when the new theme should open from a vertical slit in the middle of the screen.
+- When you want a short, symmetric swap (520 ms in the demo) that does not depend on where the button is.
 
-## Quando não usar
+## When not to use
 
-- Use [`theme-switch`](theme-switch.md) (variante `reveal`) quando a transição deve partir do próprio botão.
-- Use [`theme-switch-rise`](theme-switch-rise.md) quando o botão fica perto da base da tela e uma subida combina mais.
+- Use [`theme-switch`](theme-switch.md) (`reveal` variant) when the transition should start from the button itself.
+- Use [`theme-switch-rise`](theme-switch-rise.md) when the button is near the bottom of the screen and a rise fits better.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import ThemeSwitch from "@/components/ryan-ui/theme-switch/theme-switch";
@@ -67,50 +67,50 @@ export default function ThemeSwitchSplitDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ThemeSwitch`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `theme` (obrigatória) | `"light" \| "dark"` | — | — |
+| `theme` (required) | `"light" \| "dark"` | — | — |
 | `variant` | `"reveal" \| "eclipse" \| "split" \| "rise"` | `"reveal"` | — |
-| `onThemeChange` (obrigatória) | `(next: Theme, variant: ThemeSwitchVariant, trigger: HTMLElement) => void` | — | — |
+| `onThemeChange` (required) | `(next: Theme, variant: ThemeSwitchVariant, trigger: HTMLElement) => void` | — | — |
 | `label` | `string` | — | — |
 | `iconOnly` | `boolean` | `false` | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ThemeSwitchVariant` | `"reveal" \| "eclipse" \| "split" \| "rise"` |
 | `Theme` | `"light" \| "dark"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Acionam o botão, que chama `onThemeChange` com o próximo tema e `"split"`. |
+| `Enter` or `Space` | Trigger the button, which calls `onThemeChange` with the next theme and `"split"`. |
 
-## Acessibilidade
+## Accessibility
 
-- É o `button` da biblioteca, com `aria-pressed` verdadeiro no tema escuro e ícones `aria-hidden`; o demo mostra a versão com texto e a só com ícone, ambas com o `label` fixo “Change appearance”.
-- Na versão com texto, o rótulo visível é o fixo “Switch theme”, em inglês, e não é o nome do botão quando há `label`; numa interface em português, use `iconOnly` ou troque esse texto no arquivo instalado.
+- It is the library's `button`, with `aria-pressed` true in the dark theme and `aria-hidden` icons; the demo shows the version with text and the icon-only one, both with the fixed `label` “Change appearance”.
+- In the version with text, the visible label is the fixed “Switch theme”, in English, and is not the button's name when there is a `label`; in a Portuguese interface, use `iconOnly` or replace that text in the installed file.
 
-## Movimento
+## Motion
 
-- Com `variant="split"`, o ícone se desloca 1 px para a direita no tema escuro, numa curva de mola, e volta ao retornar ao claro, enquanto o sol e a lua trocam girando.
-- A abertura da página não vem no componente: no demo, o tema novo surge de uma fenda no centro que se abre para os lados, recortando `::view-transition-new(root)` de `inset(0 50% 0 50%)` até `inset(0 0 0 0)`.
-- Com “reduzir movimento”, o ícone só esmaece e o deslocamento acontece sem transição; o utilitário do demo também troca o tema sem animar a página.
+- With `variant="split"`, the icon shifts 1 px to the right in the dark theme, on a spring curve, and returns when going back to light, while the sun and moon swap by rotating.
+- The page opening does not come with the component: in the demo, the new theme appears from a slit in the center that opens to the sides, clipping `::view-transition-new(root)` from `inset(0 50% 0 50%)` to `inset(0 0 0 0)`.
+- With “reduce motion”, the icon only fades and the shift happens without transition; the demo's utility also swaps the theme without animating the page.
 
-## Notas para IA
+## Notes for AI
 
-- É o mesmo `ThemeSwitch` com `variant="split"`: importe de `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` recebe `"split"` como segundo argumento.
-- Implemente a abertura no app: dentro de `document.startViewTransition`, aplique o tema e anime o `clip-path` de `::view-transition-new(root)`; o `trigger` não é necessário para esta variante.
-- `theme` é controlado e só aceita `light` ou `dark`; pule a animação quando `prefers-reduced-motion` estiver ligado, como faz o demo.
+- It is the same `ThemeSwitch` with `variant="split"`: import from `@/components/ryan-ui/theme-switch/theme-switch`; `onThemeChange` receives `"split"` as the second argument.
+- Implement the opening in the app: inside `document.startViewTransition`, apply the theme and animate the `clip-path` of `::view-transition-new(root)`; `trigger` is not needed for this variant.
+- `theme` is controlled and only accepts `light` or `dark`; skip the animation when `prefers-reduced-motion` is on, as the demo does.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-split · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch-split · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

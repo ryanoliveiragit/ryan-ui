@@ -2,136 +2,133 @@
 
 > Lista que guia um novo espaço de trabalho pela configuração, um passo de cada vez.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/onboarding-checklist
-- Descrição original (inglês): Guide a new workspace through setup, one step at a time.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/onboarding-checklist
+- Original description: Guide a new workspace through setup, one step at a time.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json`. Caminho do registro, relativo ao endereço do site: `r/onboarding-checklist.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/onboarding-checklist.json`. Registry path, relative to the site address: `r/onboarding-checklist.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/onboarding-checklist/onboarding-checklist.tsx`
   - `components/ryan-ui/onboarding-checklist/onboarding-checklist.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/onboarding-checklist.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/onboarding-checklist.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- A configuração inicial de uma conta ou workspace, com três a oito passos que podem ser feitos em qualquer ordem.
-- Passos que a própria interface executa: com `actionLabel` e um `onAction` assíncrono, o botão mostra carregando, marca o passo ao terminar e mostra a mensagem do erro se ele falhar.
-- Um cartão de boas-vindas que a pessoa pode recolher (`defaultHidden`, `onHiddenChange`) e que, no fim, troca `title` por `doneTitle`.
+- The initial setup of an account or workspace, with three to eight steps that can be done in any order.
+- Steps the interface itself performs: with `actionLabel` and an asynchronous `onAction`, the button shows loading, marks the step when done, and shows the error message if it fails.
+- A welcome card the user can collapse (`defaultHidden`, `onHiddenChange`) and which, at the end, swaps `title` for `doneTitle`.
 
-## Quando não usar
+## When not to use
 
-- Use [`stepper`](stepper.md) quando a ordem é obrigatória, como num checkout em que uma etapa libera a próxima.
-- Use [`todo-list`](todo-list.md) para mostrar o plano de um agente de IA avançando sozinho, sem a pessoa marcar nada.
-- Use [`checkbox`](checkbox.md) para uma lista simples de tarefas, sem detalhes nem ações por item.
+- Use [`stepper`](stepper.md) when the order is mandatory, such as in a checkout where one step unlocks the next.
+- Use [`todo-list`](todo-list.md) to show an AI agent's plan advancing on its own, with the user checking nothing.
+- Use [`checkbox`](checkbox.md) for a simple task list, with no details or per-item actions.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
-import { useState } from "react";
-import { RotateCcw } from "lucide-react";
-import { OnboardingChecklist, type OnboardingStep } from "@/components/ryan-ui/onboarding-checklist/onboarding-checklist";
+import { OnboardingChecklist } from "@/components/ryan-ui/onboarding-checklist/onboarding-checklist";
 import { Stack } from "./_kit";
 
-const steps: OnboardingStep[] = [
-  { id: "create-workspace", title: "Create your workspace" },
-  { id: "invite-team", title: "Invite your team", description: "Priya and Jonas are waiting.", actionLabel: "Send invites", onAction: () => {} },
-  { id: "connect-github", title: "Connect GitHub", description: "Link the repository you want to sync.", actionLabel: "Connect", onAction: () => {} },
-  { id: "two-factor", title: "Turn on two-factor sign-in" },
-];
+const wait = (ms: number) => new Promise<void>(resolve => window.setTimeout(resolve, ms));
+let inviteAttempts = 0;
 
 export default function OnboardingChecklistDemo() {
-  // Remontar pelo key zera o estado interno do checklist.
-  const [run, setRun] = useState(0);
   return (
-    <Stack gap={4} width={440}>
-      <OnboardingChecklist key={run} title="Set up Northwind" doneTitle="Northwind is ready" steps={steps} defaultCompleted={["create-workspace"]} />
-      <button type="button" style={{ display: "inline-flex", alignSelf: "flex-start", alignItems: "center", gap: 6, padding: 0, border: 0, background: "none", cursor: "pointer", color: "var(--text-secondary)", fontSize: "var(--text-sm)", fontFamily: "inherit", letterSpacing: "var(--tracking-body)" }} onClick={() => setRun(value => value + 1)}>
-        <RotateCcw size={14} strokeWidth={1.75} aria-hidden="true" />
-        Reset demo
-      </button>
+    <Stack width={440}>
+      <OnboardingChecklist
+        title="Set up your workspace"
+        defaultCompleted={["profile"]}
+        steps={[
+          { id: "profile", title: "Create your profile", description: "Add your name and a photo so teammates recognise you." },
+          { id: "invite", title: "Invite your team", description: "Send invitations to up to five teammates so you can work together.", actionLabel: "Send invites", onAction: async () => { await wait(900); if (inviteAttempts++ === 0) throw new Error("We could not reach the mail service. Try again."); } },
+          { id: "repo", title: "Connect a repository", description: "Link GitHub to see deploys next to your pull requests.", actionLabel: "Connect GitHub", onAction: () => wait(900) },
+          { id: "billing", title: "Choose a plan", description: "Pick Starter or Pro. You can change it any time." },
+        ]}
+      />
     </Stack>
   );
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `OnboardingChecklist`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | — |
+| `title` (required) | `string` | — | — |
 | `doneTitle` | `string` | `"You’re all set"` | Title once every step is done. |
-| `steps` (obrigatória) | `OnboardingStep[]` | — | — |
+| `steps` (required) | `OnboardingStep[]` | — | — |
 | `defaultCompleted` | `string[]` | `[]` | — |
 | `onCompletedChange` | `(completed: string[]) => void` | — | — |
 | `defaultHidden` | `boolean` | `false` | — |
 | `onHiddenChange` | `(hidden: boolean) => void` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `OnboardingStep`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `title` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `title` (required) | `string` | — |
 | `description` | `string` | — |
 | `actionLabel` | `string` | Label of the button that does the step. Without it, the step is checked off by hand. |
 | `onAction` | `() => void \| Promise<void>` | Runs the step. Resolve to check it off; throw an Error to keep it open and show the error's message. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` | Com o foco no título de um passo, vai para o título anterior ou o próximo, dando a volta no fim da lista. |
-| `Home` ou `End` | Vai para o título do primeiro ou do último passo da lista. |
-| `Enter` ou `Espaço` | No título, abre ou fecha os detalhes do passo; no círculo, marca ou desmarca; na ação, executa `onAction`. |
+| `↑` or `↓` | With focus on a step's title, moves to the previous or next title, wrapping around at the end of the list. |
+| `Home` or `End` | Moves to the title of the first or last step in the list. |
+| `Enter` or `Space` | On the title, opens or closes the step's details; on the circle, checks or unchecks; on the action, runs `onAction`. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada círculo é um botão com `role="checkbox"` e `aria-checked`, nomeado pelo título do passo; o título abre os detalhes com `aria-expanded` e `aria-controls`.
-- O anel é `role="progressbar"` (“N of M steps done”) e uma região `role="status"` anuncia cada passo feito ou desfeito; o erro de `onAction` aparece com `role="alert"`.
-- Quando um passo com foco se recolhe, o foco vai para a ação do próximo passo aberto, e desmarcar no grupo de concluídos leva o foco ao círculo do passo que voltou.
+- Each circle is a button with `role="checkbox"` and `aria-checked`, named by the step's title; the title opens the details with `aria-expanded` and `aria-controls`.
+- The ring is `role="progressbar"` (“N of M steps done”) and a `role="status"` region announces each step done or undone; the `onAction` error appears with `role="alert"`.
+- When a focused step collapses, focus moves to the action of the next open step, and unchecking in the completed group moves focus to the circle of the step that came back.
 
-## Movimento
+## Motion
 
-- Ao marcar, o círculo se preenche do centro e o visto se desenha; o título ganha um risco que atravessa a linha e, depois de 0,72 s, o passo se recolhe para o grupo de concluídos.
-- Linhas e painéis abrem e fecham a altura com uma mola sem ultrapassagem; o anel enche a cada passo, os números giram na direção da mudança e um visto aparece no anel quando tudo termina.
-- Com “reduzir movimento”, as alturas mudam na hora com um esmaecer curto, risco e preenchimento aparecem sem transição e o giro do botão de ação para.
+- On checking, the circle fills from the center and the checkmark draws itself; the title gets a strikethrough that crosses the line and, after 0.72 s, the step collapses into the completed group.
+- Rows and panels open and close their height with a no-overshoot spring; the ring fills with each step, the numbers turn in the direction of the change, and a checkmark appears in the ring when everything is finished.
+- With “reduce motion”, heights change immediately with a short fade, strikethrough and fill appear without transition, and the action button's spinner stops.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Num cartão com menos de 380 px (container query), o botão de esconder mostra só a seta e mantém o nome falado.
+- In a card narrower than 380 px (container query), the hide button shows only the arrow and keeps its spoken name.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/onboarding-checklist/onboarding-checklist`. É não controlado: passe `defaultCompleted` com os ids já feitos e salve o progresso a partir de `onCompletedChange`.
-- Em `onAction`, devolva uma Promise: resolver marca o passo; lançar `new Error("mensagem")` mantém o passo aberto com a mensagem. Sem `actionLabel`, o passo só é marcado à mão.
-- Os textos fixos (“Setup progress”, “Hide”, “completed”, a mensagem de erro padrão) estão em inglês; traduza no arquivo copiado. Cada passo precisa de `id` estável.
+- Import from `@/components/ryan-ui/onboarding-checklist/onboarding-checklist`. It is uncontrolled: pass `defaultCompleted` with the ids already done and save progress from `onCompletedChange`.
+- In `onAction`, return a Promise: resolving marks the step; throwing `new Error("mensagem")` keeps the step open with the message. Without `actionLabel`, the step is only checked by hand.
+- The fixed texts (“Setup progress”, “Hide”, “completed”, the default error message) are in English; translate them in the copied file. Each step needs a stable `id`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/onboarding-checklist · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/onboarding-checklist · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

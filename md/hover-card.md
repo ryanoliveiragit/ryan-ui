@@ -2,48 +2,48 @@
 
 > Pré-visualiza uma pessoa ou link ao passar o mouse ou focar, sem sair da página.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-card
-- Descrição original (inglês): Preview a person or link on hover or focus without leaving the page.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-card
+- Original description: Preview a person or link on hover or focus without leaving the page.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json`. Caminho do registro, relativo ao endereço do site: `r/hover-card.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/hover-card.json`. Registry path, relative to the site address: `r/hover-card.json`.
 
-- Pacotes npm: `@radix-ui/react-popover`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-popover`, `motion`
+- Files, once installed:
   - `components/ryan-ui/hover-card/hover-card.tsx`
   - `components/ryan-ui/hover-card/hover-card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-popover motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/hover-card.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-popover motion`.
+2. Copy the files listed above. The content of each one is in `r/hover-card.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Menções a pessoas num texto, como autores e revisores, com `HoverCardProfile` mostrando foto, cargo, bio e números.
-- Avatares ou nomes numa lista em que o clique deve continuar livre para abrir o perfil.
-- Prévias de links ou referências que ajudam a decidir antes de sair da página.
+- Mentions of people in a text, such as authors and reviewers, with `HoverCardProfile` showing photo, role, bio, and numbers.
+- Avatars or names in a list where the click should stay free to open the profile.
+- Previews of links or references that help decide before leaving the page.
 
-## Quando não usar
+## When not to use
 
-- Use [`tooltip`](tooltip.md) para um texto curto que nomeia ou explica um controle.
-- Use [`popover`](popover.md) quando o conteúdo tem botões, links ou campos: o cartão não recebe foco, então nada dentro dele é alcançável pelo teclado.
-- Use [`citations`](citations.md) para fontes numeradas dentro de uma resposta de IA.
+- Use [`tooltip`](tooltip.md) for a short text that names or explains a control.
+- Use [`popover`](popover.md) when the content has buttons, links, or fields: the card does not receive focus, so nothing inside it is reachable by keyboard.
+- Use [`citations`](citations.md) for numbered sources inside an AI response.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import HoverCard, { HoverCardProfile } from "@/components/ryan-ui/hover-card/hover-card";
@@ -73,16 +73,16 @@ export default function HoverCardDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `HoverCard`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactElement` | — | The trigger, such as a mention button or a link. It must accept a ref and be focusable. |
-| `content` (obrigatória) | `ReactNode` | — | The preview. `HoverCardProfile` covers people; any read only content works. |
+| `children` (required) | `ReactElement` | — | The trigger, such as a mention button or a link. It must accept a ref and be focusable. |
+| `content` (required) | `ReactNode` | — | The preview. `HoverCardProfile` covers people; any read only content works. |
 | `side` | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | — |
 | `align` | `"start" \| "center" \| "end"` | `"start"` | — |
 | `openDelay` | `number` | `OPEN_DELAY` | Milliseconds of hover before the first card opens. |
@@ -93,53 +93,53 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 ### `HoverCardProfile`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `name` (obrigatória) | `string` | — | — |
+| `name` (required) | `string` | — | — |
 | `role` | `string` | — | Role and team, such as "Product designer, Payments". |
 | `avatar` | `string \| ReactNode` | — | A portrait URL, or your own image element such as next/image. Initials show when it is missing. |
 | `bio` | `string` | — | — |
 | `stats` | `HoverCardStat[]` | `[]` | — |
 | `meta` | `ReactNode` | — | A footer line, such as a location and local time. |
 
-### Tipos exportados
+### Exported types
 
 #### `HoverCardStat`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
-| `value` (obrigatória) | `string \| number` | — |
+| `label` (required) | `string` | — |
+| `value` (required) | `string \| number` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Ao focar o gatilho pelo teclado, o cartão abre na hora; ao sair do gatilho, fecha. |
-| `Esc` | Fecha o cartão; ele só reabre depois que o foco ou o ponteiro saírem do gatilho e voltarem. |
+| `Tab` | When the trigger is focused by keyboard, the card opens right away; when leaving the trigger, it closes. |
+| `Esc` | Closes the card; it only reopens after focus or the pointer leaves the trigger and comes back. |
 
-## Acessibilidade
+## Accessibility
 
-- O cartão tem `role="tooltip"` e, aberto, o gatilho recebe `aria-describedby` apontando para ele: o leitor de tela lê o conteúdo como descrição do gatilho.
-- O foco nunca entra no cartão; mantenha o conteúdo só de leitura e deixe qualquer ação no próprio gatilho.
-- No toque, um toque no gatilho abre e fecha o cartão; a foto do perfil tem `alt` vazio, porque o nome já está no texto.
+- The card has `role="tooltip"` and, when open, the trigger gets `aria-describedby` pointing to it: the screen reader reads the content as the trigger's description.
+- Focus never enters the card; keep the content read-only and leave any action on the trigger itself.
+- On touch, a tap on the trigger opens and closes the card; the profile photo has an empty `alt`, because the name is already in the text.
 
-## Movimento
+## Motion
 
-- O primeiro cartão espera `openDelay` (500 ms); com outro aberto há pouco, o próximo abre em 80 ms e só esmaece.
-- O cartão cresce a partir da borda do gatilho: sai de 96% e 4 px na direção dele numa mola sem ultrapassagem, e volta de onde estiver se o ponteiro retornar durante a saída.
-- Com “reduzir movimento” ligado, o cartão só esmaece, as linhas do perfil não entram em sequência e a foto não sai de um desfoque.
+- The first card waits `openDelay` (500 ms); with another one open recently, the next opens in 80 ms and only fades.
+- The card grows from the trigger edge: it starts at 96% and 4 px toward the trigger on a no-overshoot spring, and returns from wherever it is if the pointer comes back during the exit.
+- With “reduce motion” on, the card only fades, the profile rows do not enter in sequence, and the photo does not come out of a blur.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura é de 18,5rem, encolhendo até a largura disponível, e o cartão troca de lado quando não cabe, com 12 px de folga da borda.
+- The width is 18.5rem, shrinking to the available width, and the card switches sides when it does not fit, with 12 px of clearance from the edge.
 
-## Notas para IA
+## Notes for AI
 
-- O filho é o gatilho e precisa aceitar `ref` e receber foco, como um `<button>` ou um link; a prévia vai em `content`.
-- Só um cartão fica aberto por vez na página inteira; não é preciso coordenar as instâncias.
-- `HoverCardProfile` aceita `avatar` como URL ou como elemento (por exemplo `next/image`) e mostra as iniciais sem foto. Importe de `@/components/ryan-ui/hover-card/hover-card`.
+- The child is the trigger and must accept `ref` and receive focus, like a `<button>` or a link; the preview goes in `content`.
+- Only one card is open at a time across the whole page; there is no need to coordinate the instances.
+- `HoverCardProfile` accepts `avatar` as a URL or as an element (for example `next/image`) and shows initials without a photo. Import from `@/components/ryan-ui/hover-card/hover-card`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/hover-card · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

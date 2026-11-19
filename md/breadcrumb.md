@@ -2,150 +2,115 @@
 
 > Mostra onde a página está dentro da hierarquia do produto.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/breadcrumb
-- Descrição original (inglês): Show where a page sits in a hierarchy.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/breadcrumb
+- Original description: Show where a page sits in a hierarchy.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/breadcrumb.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/breadcrumb.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/breadcrumb.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/breadcrumb.json`. Caminho do registro, relativo ao endereço do site: `r/breadcrumb.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/breadcrumb.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/breadcrumb.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/breadcrumb.json`. Registry path, relative to the site address: `r/breadcrumb.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/breadcrumb/breadcrumb.tsx`
   - `components/ryan-ui/breadcrumb/breadcrumb.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/breadcrumb.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/breadcrumb.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Páginas fundas numa hierarquia, como Workspace › Projetos › App móvel › Versões, para a pessoa voltar a qualquer nível.
-- Navegadores de pastas ou categorias em que o caminho vive em estado local: itens com `onClick` e sem `href` viram botões.
-- Caminhos que crescem enquanto a pessoa desce na árvore: os níveis novos entram deslizando no fim.
+- Deep pages in a hierarchy, such as Workspace › Projects › Mobile app › Releases, so people can go back to any level.
+- Folder or category browsers where the path lives in local state: items with `onClick` and no `href` become buttons.
+- Paths that grow as the person descends the tree: new levels slide in at the end.
 
-## Quando não usar
+## When not to use
 
-- Use [`stepper`](stepper.md) para mostrar o progresso de um fluxo em etapas; a trilha mostra lugar, não progresso.
-- Use [`tabs`](tabs.md) para alternar entre vistas irmãs do mesmo nível.
-- Use [`pagination`](pagination.md) para percorrer as páginas de uma coleção.
+- Use [`stepper`](stepper.md) to show the progress of a multi-step flow; the trail shows location, not progress.
+- Use [`tabs`](tabs.md) to switch between sibling views at the same level.
+- Use [`pagination`](pagination.md) to move through the pages of a collection.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
-import { ChevronRight, File } from "lucide-react";
 import { Breadcrumb } from "@/components/ryan-ui/breadcrumb/breadcrumb";
-import { Stack, Surface } from "./_kit";
+import { Button } from "@/components/ryan-ui/button/button";
+import { Caption, Stack } from "./_kit";
 
-const startTrail = ["Projects", "Arc launch", "Design review"];
-const files = ["Motion pass", "Final copy"];
+const tree = ["Workspace", "Projects", "Mobile app", "Releases", "v2.4.0"];
 
 export default function BreadcrumbDemo() {
-  const [trail, setTrail] = useState<string[]>(startTrail);
+  const [depth, setDepth] = useState(3);
+  const items = tree.slice(0, depth).map((label, i) => ({ label, onClick: () => setDepth(i + 1) }));
   return (
-    <Surface width={460} padding={3}>
-      <Stack gap={3}>
-        <Breadcrumb
-          items={trail.map((label, index) => ({
-            label,
-            onClick: index < trail.length - 1 ? () => setTrail(trail.slice(0, index + 1)) : undefined,
-          }))}
-        />
-        <div>
-          {files.map((file) => (
-            <button
-              key={file}
-              type="button"
-              onClick={() => setTrail((t) => [...t, file])}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 12,
-                width: "100%",
-                padding: "8px 10px",
-                border: "none",
-                borderRadius: 8,
-                background: "transparent",
-                color: "var(--muted-foreground)",
-                fontSize: 14,
-                fontFamily: "inherit",
-                cursor: "pointer",
-              }}
-            >
-              <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <File size={15} aria-hidden="true" />
-                {file}
-              </span>
-              <ChevronRight size={15} aria-hidden="true" />
-            </button>
-          ))}
-        </div>
-      </Stack>
-    </Surface>
+    <Stack gap={5} align="center">
+      <Breadcrumb items={items} />
+      <Button variant="secondary" size="sm" disabled={depth >= tree.length} onClick={() => setDepth(d => d + 1)}>Go deeper</Button>
+      <Caption>New crumbs slide in; choose an earlier crumb to go back up.</Caption>
+    </Stack>
   );
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Breadcrumb`
 
 Crumbs present on first render stay still; crumbs added later slide in from the path before them.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `items` (obrigatória) | `BreadcrumbItem[]` | — | — |
+| `items` (required) | `BreadcrumbItem[]` | — | — |
 | `ariaLabel` | `string` | `"Breadcrumb"` | — |
 
-### Tipos exportados
+### Exported types
 
 #### `BreadcrumbItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `href` | `string` | — |
 | `onClick` | `(event: MouseEvent<HTMLElement>) => void` | Runs when the crumb is chosen. Without an href the crumb renders as a button, for paths that live in local state. |
 
-## Acessibilidade
+## Accessibility
 
-- Renderiza um `<nav>` com `aria-label` (padrão “Breadcrumb”, em inglês) e uma lista ordenada; as setas entre os níveis ficam ocultas para o leitor de tela.
-- O último item é sempre a página atual: vira texto com `aria-current="page"`, mesmo que tenha `href`.
+- Renders a `<nav>` with `aria-label` (default “Breadcrumb”, in English) and an ordered list; the arrows between levels are hidden from the screen reader.
+- The last item is always the current page: it becomes text with `aria-current="page"`, even if it has `href`.
 
-## Movimento
+## Motion
 
-- Os itens do primeiro render ficam parados; níveis adicionados depois entram deslizando 8 px da esquerda, saindo de um leve desfoque, e os removidos somem num esmaecer curto.
-- Os itens que ficam se reposicionam numa mola sem ultrapassagem, e cada um reserva a largura do rótulo em peso médio, então virar a página atual não desloca o caminho.
-- Com “reduzir movimento” ligado, entradas, saídas e reposicionamento acontecem na hora.
+- Items from the first render stay still; levels added later slide in 8 px from the left, out of a slight blur, and removed ones disappear in a short fade.
+- The items that remain reposition on a no-overshoot spring, and each reserves the label width at medium weight, so becoming the current page does not shift the path.
+- With “reduce motion” on, entries, exits, and repositioning happen instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A lista quebra em várias linhas quando não cabe (`flex-wrap`), mas cada rótulo fica numa linha só; não há reticências nem recolhimento dos níveis do meio.
+- The list wraps onto several lines when it does not fit (`flex-wrap`), but each label stays on a single line; there is no ellipsis or collapsing of the middle levels.
 
-## Notas para IA
+## Notes for AI
 
-- Passe o caminho inteiro em `items`, com a página atual por último; use `href` para rotas reais e `onClick` sem `href` para caminhos em estado local.
-- Os links passam pelo `RyanProvider`: com ele, o `next/link` ou o Link do seu roteador é usado no lugar do `<a>`.
-- Troque `ariaLabel` para português, por exemplo “Trilha de navegação”, já que o padrão é “Breadcrumb”. Importe de `@/components/ryan-ui/breadcrumb/breadcrumb`.
+- Pass the whole path in `items`, with the current page last; use `href` for real routes and `onClick` without `href` for paths in local state.
+- Links go through `RyanProvider`: with it, `next/link` or your router's Link is used in place of the `<a>`.
+- Change `ariaLabel` to Portuguese, for example “Trilha de navegação”, since the default is “Breadcrumb”. Import from `@/components/ryan-ui/breadcrumb/breadcrumb`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/breadcrumb · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/breadcrumb · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

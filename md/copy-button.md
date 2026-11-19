@@ -2,47 +2,47 @@
 
 > Copia um valor e confirma na hora.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/copy-button
-- Descrição original (inglês): Copy a value with immediate confirmation.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/copy-button
+- Original description: Copy a value with immediate confirmation.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json`. Caminho do registro, relativo ao endereço do site: `r/copy-button.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/copy-button.json`. Registry path, relative to the site address: `r/copy-button.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/copy-button/copy-button.tsx`
   - `components/ryan-ui/copy-button/copy-button.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/copy-button.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/copy-button.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Ao lado de um valor que a pessoa vai colar em outro lugar: um comando de instalação, uma chave de API, um link de convite.
-- Em tabelas, cartões e campos somente leitura, só com ícone (`iconOnly`) ou sem borda (`variant="plain"`) para ocupar pouco espaço.
+- Next to a value the person will paste elsewhere: an install command, an API key, an invite link.
+- In tables, cards, and read-only fields, icon-only (`iconOnly`) or borderless (`variant="plain"`) to take little space.
 
-## Quando não usar
+## When not to use
 
-- Use [`code-block`](code-block.md) para exibir trechos de código: ele já inclui este botão.
-- Quando copiar é um item de menu ou parte de outro controle, use o hook `useCopyFeedback` (instalado junto, em `lib/use-copy-feedback.ts`) em vez de aninhar este botão.
+- Use [`code-block`](code-block.md) to display code snippets: it already includes this button.
+- When copying is a menu item or part of another control, use the `useCopyFeedback` hook (installed alongside, in `lib/use-copy-feedback.ts`) instead of nesting this button.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -68,15 +68,15 @@ export default function CopyButtonDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CopyButton`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `string` | — | — |
+| `value` (required) | `string` | — | — |
 | `label` | `string` | `"Copy"` | — |
 | `className` | `string` | — | — |
 | `iconOnly` | `boolean` | `false` | — |
@@ -84,30 +84,30 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `disabled` | `boolean` | — | — |
 | `onCopied` | `() => void` | — | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Copiam `value` e mostram a confirmação no próprio botão. |
+| `Enter` or `Space` | Copy `value` and show the confirmation on the button itself. |
 
-## Acessibilidade
+## Accessibility
 
-- É um `<button type="button">` cujo nome acessível é sempre `label`; a palavra visível e os ícones ficam em `aria-hidden`.
-- O resultado é anunciado numa região `aria-live="polite"` como “`label`: Copied” ou “`label`: Could not copy”; o nome do botão não muda.
-- Na versão `iconOnly`, `label` é o único nome do botão: passe um texto que diga o que é copiado, como “Copiar link”.
+- It is a `<button type="button">` whose accessible name is always `label`; the visible word and the icons are `aria-hidden`.
+- The result is announced in an `aria-live="polite"` region as “`label`: Copied” or “`label`: Could not copy”; the button name does not change.
+- In the `iconOnly` version, `label` is the button's only name: pass text that says what is copied, like “Copy link”.
 
-## Movimento
+## Motion
 
-- Ao copiar, o ícone troca por um visto que se desenha (ou por um alerta, na falha) e a palavra troca com um esmaecer curto; a largura acompanha a nova palavra numa mola sem ultrapassagem.
-- A pressão reduz a escala para 0,97 (0,96 só com ícone) e solta numa curva de mola; depois de 1,9 s o botão volta ao rótulo original.
-- Com “reduzir movimento”, as trocas são instantâneas, o visto aparece pronto, a largura salta e a pressão não altera a escala.
+- On copy, the icon swaps for a checkmark that draws itself (or for an alert, on failure) and the word swaps with a short fade; the width follows the new word on a spring with no overshoot.
+- The press reduces the scale to 0.97 (0.96 for icon-only) and releases on a spring curve; after 1.9 s the button returns to the original label.
+- With “reduce motion”, swaps are instant, the checkmark appears already drawn, the width jumps, and the press does not change the scale.
 
-## Notas para IA
+## Notes for AI
 
-- Passe o texto exato em `value` e um `label` curto; `onCopied` só roda quando a cópia dá certo, e a falha aparece no próprio botão por 1,9 s.
-- “Copied”, “Failed” e os anúncios são fixos em inglês; numa interface em português, troque essas strings no arquivo instalado.
-- A cópia usa a Clipboard API e, se ela faltar ou for recusada (iframes, contexto inseguro), recorre a um `<textarea>` oculto com `execCommand("copy")`.
+- Pass the exact text in `value` and a short `label`; `onCopied` only runs when the copy succeeds, and failure shows on the button itself for 1.9 s.
+- “Copied”, “Failed”, and the announcements are fixed in English; in a Portuguese interface, replace those strings in the installed file.
+- Copying uses the Clipboard API and, if it is missing or refused (iframes, insecure context), falls back to a hidden `<textarea>` with `execCommand("copy")`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/copy-button · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/copy-button · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

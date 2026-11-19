@@ -2,49 +2,49 @@
 
 > Registro recolhível de uma chamada de ferramenta, com status, duração e a entrada e a saída formatadas.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-result
-- Descrição original (inglês): A collapsible record of a tool call that shows its status, a live or final duration, and formatted input and output that expand with a height spring.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-result
+- Original description: A collapsible record of a tool call that shows its status, a live or final duration, and formatted input and output that expand with a height spring.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json`. Caminho do registro, relativo ao endereço do site: `r/tool-result.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/tool-result.json`. Registry path, relative to the site address: `r/tool-result.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/tool-result/tool-result.tsx`
   - `components/ryan-ui/tool-result/tool-result.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/tool-result.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/tool-result.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- A transcrição de um agente: cada chamada de ferramenta vira uma linha com estado, nome, resumo e duração, que abre para mostrar entrada e saída.
-- Chamadas ainda em execução: um cronômetro conta ao vivo e a saída mostra linhas de espera até o resultado chegar.
-- Depuração: objetos aparecem como JSON indentado e colorido, com um botão de copiar em cada bloco.
+- An agent's transcript: each tool call becomes a row with state, name, summary and duration, which opens to show input and output.
+- Calls still running: a timer counts live and the output shows waiting lines until the result arrives.
+- Debugging: objects appear as indented, colorized JSON, with a copy button on each block.
 
-## Quando não usar
+## When not to use
 
-- Use [`tool-approval`](tool-approval.md) antes da chamada, quando a pessoa precisa permitir ou negar a execução.
-- Use [`json-viewer`](json-viewer.md) para JSON grande ou aninhado, com árvore recolhível, busca e paginação.
-- Use [`agent-activity`](agent-activity.md) para uma linha do tempo dos passos do agente, sem a entrada e a saída de cada chamada.
+- Use [`tool-approval`](tool-approval.md) before the call, when the person needs to allow or deny the execution.
+- Use [`json-viewer`](json-viewer.md) for large or nested JSON, with a collapsible tree, search and pagination.
+- Use [`agent-activity`](agent-activity.md) for a timeline of the agent's steps, without the input and output of each call.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useEffect, useState } from "react";
@@ -86,15 +86,15 @@ export default function ToolResultDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ToolResult`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `tool` (obrigatória) | `string` | — | Name of the tool that was called. |
+| `tool` (required) | `string` | — | Name of the tool that was called. |
 | `status` | `"running" \| "success" \| "error"` | `"success"` | Where the call stands. |
 | `summary` | `string` | — | Short text after the name, usually the main argument. |
 | `durationMs` | `number` | — | How long the call took, in milliseconds. While `status` is "running" and this is not set, a live timer counts from mount. |
@@ -106,50 +106,50 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onOpenChange` | `(open: boolean) => void` | — | Called when the header is pressed. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ToolResultStatus` | `"running" \| "success" \| "error"` |
 
-### Outras exportações
+### Other exports
 
-- `formatDuration` (função)
+- `formatDuration` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No cabeçalho, abre ou recolhe o registro. |
-| `Tab` | Com o registro aberto, passa pelos botões de copiar e pelos blocos de código, que são focáveis; recolhido, nada do corpo recebe foco. |
-| `↑` ou `↓` | Com o foco num bloco de código, rolam o conteúdo que passa de 15rem de altura (rolagem nativa). |
+| `Enter` or `Space` | On the header, opens or collapses the record. |
+| `Tab` | With the record open, moves through the copy buttons and the code blocks, which are focusable; collapsed, nothing in the body receives focus. |
+| `↑` or `↓` | With focus on a code block, scroll content taller than 15rem (native scrolling). |
 
-## Acessibilidade
+## Accessibility
 
-- O cabeçalho é um `<button>` com `aria-expanded` e `aria-controls`; o nome dele inclui o estado (“Running”, “Succeeded”, “Failed”), a ferramenta, o resumo e a duração com “running for” ou “took”.
-- Recolhido, o corpo continua montado, mas `inert`; cada botão de copiar tem `aria-label` próprio (“Copy input”, “Copy output”, “Copy error”).
-- Enquanto roda, a saída é um esqueleto `role="status"` com o nome “Waiting for the result”; todos esses textos estão fixos em inglês.
+- The header is a `<button>` with `aria-expanded` and `aria-controls`; its name includes the state (“Running”, “Succeeded”, “Failed”), the tool, the summary and the duration with “running for” or “took”.
+- Collapsed, the body stays mounted but `inert`; each copy button has its own `aria-label` (“Copy input”, “Copy output”, “Copy error”).
+- While running, the output is a `role="status"` skeleton named “Waiting for the result”; all these texts are fixed in English.
 
-## Movimento
+## Motion
 
-- O estado troca de spinner para um selo que entra com um pequeno quique e um visto ou xis que se desenha; ao abrir, entrada e saída sobem em sequência.
-- O corpo abre e fecha com uma mola na altura medida e cresce do mesmo jeito quando o resultado chega com o registro aberto.
-- Com “reduzir movimento” ligado, spinner e esqueleto param, os ícones só esmaecem, as alturas trocam na hora e o cronômetro conta de segundo em segundo.
+- The state swaps from a spinner to a badge that enters with a small bounce and a check mark or X that draws itself; on open, input and output rise in sequence.
+- The body opens and closes with a spring on the measured height and grows the same way when the result arrives with the record open.
+- With “reduce motion” on, the spinner and skeleton stop, the icons only fade, heights change instantly and the timer counts second by second.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O nome da ferramenta ocupa no máximo 55% da linha e o resumo corta com reticências; nos blocos de código as linhas longas quebram, e acima de 15rem o bloco rola por dentro.
+- The tool name takes at most 55% of the row and the summary truncates with an ellipsis; in the code blocks long lines wrap, and above 15rem the block scrolls internally.
 
-## Desempenho
+## Performance
 
-- Cada registro tem um `ResizeObserver`; sem `durationMs`, o estado `running` liga também um `setInterval` de 100 ms (1 s com “reduzir movimento”), que renderiza o registro a cada tique.
+- Each record has a `ResizeObserver`; without `durationMs`, the `running` state also starts a 100 ms `setInterval` (1 s with “reduce motion”), which re-renders the record on each tick.
 
-## Notas para IA
+## Notes for AI
 
-- Ao terminar, mude `status` para `success` ou `error` e passe `durationMs` com `output` ou `error`: sem `durationMs`, a duração some quando o estado deixa de ser `running`.
-- Objetos passados na entrada e na saída viram JSON indentado e colorido; strings aparecem como estão, então mande o objeto, não o texto já serializado.
-- Começa recolhido; numa lista, controle `open` e `onOpenChange` para manter um registro aberto por vez, como faz o demo.
+- When it finishes, change `status` to `success` or `error` and pass `durationMs` with `output` or `error`: without `durationMs`, the duration disappears when the state stops being `running`.
+- Objects passed as input and output become indented, colorized JSON; strings appear as they are, so send the object, not already-serialized text.
+- It starts collapsed; in a list, control `open` and `onOpenChange` to keep one record open at a time, as the demo does.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-result · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/tool-result · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

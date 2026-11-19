@@ -2,48 +2,48 @@
 
 > Um baralho que distribui cartas pelas posições da mesa em arco, virando cada uma; dá para embaralhar e recomeçar.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/card-dealer
-- Descrição original (inglês): A deck that deals playing cards to table positions along an arc while they lift and flip face up, with a riffle shuffle, a reset and a named poker hand.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/card-dealer
+- Original description: A deck that deals playing cards to table positions along an arc while they lift and flip face up, with a riffle shuffle, a reset and a named poker hand.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json`. Caminho do registro, relativo ao endereço do site: `r/card-dealer.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card-dealer.json`. Registry path, relative to the site address: `r/card-dealer.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/card-dealer/card-dealer.tsx`
   - `components/ryan-ui/blocks/card-dealer/card-dealer.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/card-dealer.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/card-dealer.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Demonstrações e protótipos de jogos de cartas: distribui de uma a sete cartas do baralho para a mesa e, com cinco posições, dá nome à mão de pôquer.
-- Seções lúdicas de uma página, como um sorteio ou uma “mão do dia”, em que a animação de dar as cartas é o próprio conteúdo.
-- Exemplo de referência de movimento em sequência: trajetória em arco, virada em 3D e embaralhamento.
+- Card game demos and prototypes: deals one to seven cards from the deck to the table and, with five positions, names the poker hand.
+- Playful sections of a page, such as a draw or a “hand of the day”, where the dealing animation is the content itself.
+- Reference example of sequential motion: arc trajectory, 3D flip, and shuffling.
 
-## Quando não usar
+## When not to use
 
-- Use [`card-stack`](card-stack.md) para percorrer cartões de conteúdo um a um, com arremesso e desfazer.
-- Evite em jogos com dinheiro ou resultado auditável: o embaralhamento usa `Math.random` no navegador e o baralho vive no estado do componente.
-- Evite quando as cartas precisam de conteúdo próprio: as faces só desenham valor e naipe.
+- Use [`card-stack`](card-stack.md) to go through content cards one by one, with throw and undo.
+- Avoid in games involving money or an auditable outcome: shuffling uses `Math.random` in the browser and the deck lives in the component state.
+- Avoid when the cards need their own content: the faces only draw value and suit.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import CardDealerPreview from "@/components/ryan-ui/blocks/card-dealer/card-dealer";
@@ -53,15 +53,15 @@ export default function CardDealerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CardDealer`
 
 A deck and a table. Dealing sends each card from the deck to its position along an arc, lifting and turning face up on the way, one after another. Shuffle riffles the deck into a new random order and Reset restores the factory order. With five positions the finished hand is named like a poker hand.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `positions` | `number` | `5` | How many positions the table has, from 1 to 7. Five makes a poker hand, and the hand gets named. |
 | `onDeal` | `(hand: PlayingCard[]) => void` | — | Called after every deal with the cards now on the table, in position order. |
@@ -73,54 +73,54 @@ A deck and a table. Dealing sends each card from the deck to its position along 
 
 Ready preview: a five card table.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `CardSuit` | `"spades" \| "hearts" \| "diamonds" \| "clubs"` |
 
 #### `PlayingCard`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Unique key, such as "K-spades". |
-| `rank` (obrigatória) | `string` | Printed rank: "2" to "10", "J", "Q", "K" or "A". |
-| `suit` (obrigatória) | `"spades" \| "hearts" \| "diamonds" \| "clubs"` | The suit. |
-| `value` (obrigatória) | `number` | Rank order from 0 (two) to 12 (ace). |
+| `id` (required) | `string` | Unique key, such as "K-spades". |
+| `rank` (required) | `string` | Printed rank: "2" to "10", "J", "Q", "K" or "A". |
+| `suit` (required) | `"spades" \| "hearts" \| "diamonds" \| "clubs"` | The suit. |
+| `value` (required) | `number` | Rank order from 0 (two) to 12 (ace). |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No baralho, dão uma carta para a próxima posição livre; nos botões, distribuem a mão (“Deal hand”), embaralham (“Shuffle”) ou recomeçam (“Reset”). |
+| `Enter` or `Space` | On the deck, deal a card to the next free position; on the buttons, deal the hand (“Deal hand”), shuffle (“Shuffle”), or start over (“Reset”). |
 
-## Acessibilidade
+## Accessibility
 
-- A mesa é um `role="group"` nomeado por `label`, e o baralho é um botão cujo nome informa quantas cartas restam.
-- As cartas desenhadas ficam em `aria-hidden`; quem conta o que há na mesa é um parágrafo oculto com `aria-live="polite"`, que lista as cartas e o nome da mão, em inglês.
+- The table is a `role="group"` named by `label`, and the deck is a button whose name says how many cards remain.
+- The drawn cards are `aria-hidden`; what is on the table is announced by a hidden paragraph with `aria-live="polite"`, which lists the cards and the name of the hand, in English.
 
-## Movimento
+## Motion
 
-- Cada carta sai do baralho para a sua posição em arco (corre de lado primeiro e desce depois), levanta um pouco e vira de frente no caminho, com 0,13 s entre uma carta e a seguinte.
-- “Shuffle” recolhe a mesa e faz as cartas do topo abrirem para os lados duas vezes; com a mesa cheia, as cartas voltam para o baralho antes da próxima mão.
-- Com “reduzir movimento” ligado, as cartas mudam de lugar na hora, sem trajetória, virada nem espera entre as etapas.
+- Each card leaves the deck for its position on the arc (it moves sideways first and then down), lifts slightly and flips face up on the way, with 0.13 s between one card and the next.
+- “Shuffle” gathers the table and makes the top cards fan out to the sides twice; with a full table, the cards return to the deck before the next hand.
+- With “reduce motion” on, the cards change place instantly, with no trajectory, flip, or wait between steps.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura das cartas é calculada em unidades de container para caber na fileira (até 5,25rem), e as posições são medidas por `ResizeObserver`, então a mesa encolhe sem quebrar a linha.
+- The card width is computed in container units to fit the row (up to 5.25rem), and positions are measured by `ResizeObserver`, so the table shrinks without breaking the row.
 
-## Desempenho
+## Performance
 
-- Só as cinco cartas do topo do baralho são desenhadas, além das que estão na mesa (no máximo doze elementos animados); o resto do baralho é só um número.
+- Only the top five cards of the deck are drawn, plus those on the table (at most twelve animated elements); the rest of the deck is just a number.
 
-## Notas para IA
+## Notes for AI
 
-- Importe `CardDealer` pelo nome; a exportação padrão é a prévia com cinco posições.
-- O baralho e a mesa são estado interno, sem props para controlar as cartas: a única saída é `onDeal(hand)`, chamado no clique (antes de a animação terminar) com as cartas da mesa na ordem das posições.
-- `positions` aceita de 1 a 7; a mão só recebe nome com a mesa cheia e ao menos duas posições, e sequências e flushes exigem exatamente cinco cartas.
+- Import `CardDealer` by name; the default export is the preview with five positions.
+- The deck and the table are internal state, with no props to control the cards: the only output is `onDeal(hand)`, called on click (before the animation ends) with the table's cards in position order.
+- `positions` accepts 1 to 7; the hand is named only with a full table and at least two positions, and straights and flushes require exactly five cards.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/card-dealer · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/card-dealer · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

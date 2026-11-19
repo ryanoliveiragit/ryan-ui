@@ -2,48 +2,48 @@
 
 > Área de conversa que acompanha as mensagens novas, solta quando você rola para cima e mostra um atalho com as não lidas.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/message-scroller
-- Descrição original (inglês): A conversation scroll area that follows new messages while the reader is at the bottom, lets go when they scroll up, and offers a jump to latest pill with an unread count.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/message-scroller
+- Original description: A conversation scroll area that follows new messages while the reader is at the bottom, lets go when they scroll up, and offers a jump to latest pill with an unread count.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json`. Caminho do registro, relativo ao endereço do site: `r/message-scroller.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message-scroller.json`. Registry path, relative to the site address: `r/message-scroller.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/message-scroller/message-scroller.tsx`
   - `components/ryan-ui/message-scroller/message-scroller.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/message-scroller.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/message-scroller.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- A área de rolagem de uma conversa que recebe mensagens novas ou texto em streaming e deve acompanhar o fim enquanto o leitor está lá.
-- Quando rolar para cima deve soltar o acompanhamento, sem puxar o leitor de volta, e oferecer um atalho para a mensagem mais recente.
-- Registros ao vivo em geral (logs de execução, feeds de eventos) em que o conteúdo novo entra por baixo.
+- The scroll area of a conversation that receives new messages or streaming text and should follow the end while the reader is there.
+- When scrolling up should release the follow behavior, without pulling the reader back, and offer a shortcut to the latest message.
+- Live logs in general (run logs, event feeds) where new content enters from the bottom.
 
-## Quando não usar
+## When not to use
 
-- Use [`scroll-area`](scroll-area.md) para conteúdo estático que só precisa de barras finas e esmaecer nas bordas.
-- Use [`chat-thread`](chat-thread.md) ou [`chat-app`](chat-app.md) quando quiser a conversa pronta, com mensagens e campo de escrita, e não só o contêiner.
-- Use [`infinite-masonry`](infinite-masonry.md) para feeds que carregam mais itens ao chegar ao fim, em vez de acompanhar o que chega.
+- Use [`scroll-area`](scroll-area.md) for static content that only needs thin scrollbars and edge fades.
+- Use [`chat-thread`](chat-thread.md) or [`chat-app`](chat-app.md) when you want the ready-made conversation, with messages and input field, and not just the container.
+- Use [`infinite-masonry`](infinite-masonry.md) for feeds that load more items on reaching the end, instead of following what arrives.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useEffect, useState } from "react";
@@ -110,15 +110,15 @@ export default function MessageScrollerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MessageScroller`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | The messages. Each direct child counts as one message for the unread count; give them stable keys. |
+| `children` (required) | `ReactNode` | — | The messages. Each direct child counts as one message for the unread count; give them stable keys. |
 | `label` | `string` | `"Conversation"` | Accessible name of the scroll area. |
 | `threshold` | `number` | `32` | How close to the bottom, in pixels, still counts as being at the bottom. |
 | `jumpLabel` | `string` | `"Jump to latest"` | Text of the pill that returns to the newest message. |
@@ -128,40 +128,40 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `className` | `string` | — | Extra class for the root element. |
 | `style` | `CSSProperties` | — | Inline style for the root element, for example a height. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` ou `Page Up` ou `Page Down` ou `Home` ou `End` ou `Espaço` | Com o foco na área, rolam a conversa (rolagem nativa) e interrompem na hora o deslize automático até o fim. |
-| `Tab` | Leva o foco à área de rolagem, que é focável, depois ao que houver de interativo nas mensagens e ao botão de pular. |
-| `Enter` ou `Espaço` | No botão “Jump to latest”, volta ao fim; o foco passa para a área de rolagem, porque o botão some. |
+| `↑` or `↓` or `Page Up` or `Page Down` or `Home` or `End` or `Space` | With focus on the area, scroll the conversation (native scrolling) and immediately interrupt the automatic slide to the end. |
+| `Tab` | Moves focus to the scroll area, which is focusable, then to whatever is interactive in the messages and to the jump button. |
+| `Enter` or `Space` | On the “Jump to latest” button, returns to the end; focus moves to the scroll area, because the button disappears. |
 
-## Acessibilidade
+## Accessibility
 
-- A área visível é um `role="region"` focável com o nome de `label`; o conteúdo é um `role="log"` com `aria-live="polite"`, então mensagens novas são anunciadas.
-- O botão de pular mostra o texto de `jumpLabel`, e o contador tem `aria-label` com o número de mensagens novas (em inglês, sem prop de tradução).
-- Ao acionar o botão pelo teclado, o foco vai para a área de rolagem em vez de se perder quando o botão sai.
+- The visible area is a focusable `role="region"` named by `label`; the content is a `role="log"` with `aria-live="polite"`, so new messages are announced.
+- The jump button shows the text of `jumpLabel`, and the counter has an `aria-label` with the number of new messages (in English, with no translation prop).
+- When the button is activated by keyboard, focus goes to the scroll area instead of being lost when the button leaves.
 
-## Movimento
+## Motion
 
-- Mensagens novas sobem com uma mola e um leve ganho de escala; as que já estavam na primeira renderização não animam.
-- A volta ao fim é um deslize com mola na posição de rolagem; o botão de pular surge de baixo e o número de não lidas rola a cada novo total.
-- Com “reduzir movimento” ligado, a rolagem vai direto ao fim, e mensagens e botão só esmaecem.
+- New messages rise with a spring and a slight scale-up; those already present on the first render do not animate.
+- The return to the end is a spring slide in the scroll position; the jump button emerges from below and the unread number rolls to each new total.
+- With “reduce motion” on, scrolling goes straight to the end, and messages and button only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A altura vem de `--message-scroller-height` (padrão 22rem) ou de `className` e `style`; a rolagem é interna, e as bordas de cima e de baixo esmaecem quando há mais conteúdo naquela direção.
+- The height comes from `--message-scroller-height` (default 22rem) or from `className` and `style`; scrolling is internal, and the top and bottom edges fade when there is more content in that direction.
 
-## Desempenho
+## Performance
 
-- Dois `ResizeObserver` acompanham o conteúdo e a moldura; não há virtualização e cada filho ganha um wrapper animado, então limite o histórico em conversas muito longas.
+- Two `ResizeObserver`s track the content and the frame; there is no virtualization and each child gets an animated wrapper, so limit the history in very long conversations.
 
-## Notas para IA
+## Notes for AI
 
-- Cada filho direto conta como uma mensagem: dê `key` estável a cada um; o contador de não lidas compara a quantidade de filhos, então aparar mensagens antigas enquanto chegam novas faz ele parar de subir.
-- Defina a altura (variável `--message-scroller-height`, `className` ou `style`); `onAtBottomChange` avisa quando o leitor sai do fim ou volta, e `threshold` (32 px) diz o que ainda conta como fim.
-- Combina com `message-bubble` ou `message` como filhos; passe `animateIn={false}` a eles, porque a entrada animada já é feita aqui (`animateItems`).
+- Each direct child counts as one message: give each a stable `key`; the unread counter compares the number of children, so trimming old messages while new ones arrive makes it stop going up.
+- Set the height (variable `--message-scroller-height`, `className` or `style`); `onAtBottomChange` signals when the reader leaves the end or returns, and `threshold` (32 px) says what still counts as the end.
+- It pairs with `message-bubble` or `message` as children; pass `animateIn={false}` to them, because the animated entrance is already handled here (`animateItems`).
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message-scroller · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message-scroller · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

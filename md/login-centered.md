@@ -2,23 +2,23 @@
 
 > Cartão de login centralizado, com passkey em primeiro lugar, que muda de e-mail para código sem trocar de tela.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/login-centered
-- Descrição original (inglês): A passkey-first login card on a quiet ring backdrop that morphs through email and code.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/login-centered
+- Original description: A passkey-first login card on a quiet ring backdrop that morphs through email and code.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json`. Caminho do registro, relativo ao endereço do site: `r/login-centered.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/login-centered.json`. Registry path, relative to the site address: `r/login-centered.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Input](input.md), [OTP input](otp-input.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md), [Input](input.md), [OTP input](otp-input.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/login-centered/login-centered.tsx`
   - `components/ryan-ui/blocks/login-centered/login-centered.module.css`
   - `components/ryan-ui/otp-input/otp-input.tsx`
@@ -28,29 +28,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/login-centered.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/login-centered.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Tela de login que ocupa a página inteira e oferece passkey primeiro, com e-mail mais código de 6 dígitos e três provedores de login único como alternativas.
-- Protótipos e demos que precisam de um fluxo de entrada navegável sem backend: todos os passos são simulados com temporizadores.
-- Produtos em que entrar e criar conta dividem o mesmo cartão: o botão do topo alterna entre os modos “Sign in” e “Sign up”.
+- Full-page login screen that offers passkey first, with email plus a 6-digit code and three single sign-on providers as alternatives.
+- Prototypes and demos that need a navigable sign-in flow without a backend: every step is simulated with timers.
+- Products where signing in and creating an account share the same card: the button at the top switches between “Sign in” and “Sign up” modes.
 
-## Quando não usar
+## When not to use
 
-- Use [`sign-in`](sign-in.md) quando basta um cartão solto de e-mail e código, sem o fundo de anéis, o cabeçalho e o rodapé de página.
-- Use [`signup-form`](signup-form.md) quando a criação de conta pede nome, senha e medidor de força.
-- Use [`otp-input`](otp-input.md) quando você já tem o fluxo e só falta o campo de código.
+- Use [`sign-in`](sign-in.md) when a standalone email-and-code card is enough, without the ring background, header, and page footer.
+- Use [`signup-form`](signup-form.md) when account creation asks for name, password, and a strength meter.
+- Use [`otp-input`](otp-input.md) when you already have the flow and only need the code field.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import LoginCentered from "@/components/ryan-ui/blocks/login-centered/login-centered";
@@ -63,13 +63,13 @@ export default function LoginCenteredDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `LoginCentered`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `demoCode` | `string` | `"482913"` | The code the simulated email contains. |
 | `fullScreen` | `boolean` | `false` | Fill the viewport (100dvh, no frame) when the block is the whole page. |
@@ -79,48 +79,48 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onSignIn` | `(email: string, method: LoginMethod, mode: Mode) => void` | — | Called once the simulated sign in or sign up succeeds. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `LoginMethod` | `"Passkey" \| "Email code" \| Provider` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | No campo de e-mail ou em qualquer casa do código, envia o formulário do passo atual. |
-| `←` ou `→` | No passo do código, movem o foco entre as casas (comportamento do `otp-input`). |
-| `Backspace` | Numa casa vazia do código, apaga a casa anterior e volta o foco para ela. |
-| `Tab` | Percorre os controles do passo; os botões bloqueados usam `aria-disabled` e continuam focáveis. |
+| `Enter` | In the email field or any code cell, submits the form for the current step. |
+| `←` or `→` | On the code step, move focus between the cells (`otp-input` behavior). |
+| `Backspace` | In an empty code cell, clears the previous cell and moves focus back to it. |
+| `Tab` | Moves through the controls of the step; blocked buttons use `aria-disabled` and stay focusable. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada mudança de passo é anunciada por uma região `role="status"` com `aria-live="polite"` escondida visualmente; a linha de status visível do rodapé fica com `aria-hidden`.
-- O foco acompanha o fluxo: vai para o botão de passkey, para o campo de e-mail, para a primeira casa do código e, ao concluir, para o título de boas-vindas.
-- O grupo de provedores é um `role="group"` nomeado, cada botão tem `aria-label` próprio e o botão de reenvio informa no `aria-label` quantos segundos faltam.
+- Each step change is announced by a visually hidden `role="status"` region with `aria-live="polite"`; the visible status line in the footer is `aria-hidden`.
+- Focus follows the flow: it goes to the passkey button, to the email field, to the first code cell, and, on completion, to the welcome heading.
+- The provider group is a named `role="group"`, each button has its own `aria-label`, and the resend button reports in its `aria-label` how many seconds remain.
 
-## Movimento
+## Motion
 
-- Os passos sobem para o lugar saindo de um leve desfoque e, ao voltar, descem de cima; a altura do cartão segue o novo conteúdo com uma mola sem ultrapassagem, só durante a troca.
-- Os anéis do fundo deslizam de leve com o mouse, os de fora mais que os de dentro; no passkey dois anéis pulsam a partir da digital, a contagem de reenvio rola dígito a dígito e o sucesso desenha um círculo e um visto.
-- Com “reduzir movimento” ligado, os passos só esmaecem, a altura troca na hora, os anéis ficam parados e o pulso do passkey não é renderizado.
+- Steps rise into place from a slight blur and, when going back, drop in from above; the card height follows the new content with a spring that does not overshoot, only during the switch.
+- The background rings drift slightly with the mouse, the outer ones more than the inner ones; on passkey two rings pulse out from the fingerprint, the resend countdown rolls digit by digit, and success draws a circle and a checkmark.
+- With “reduce motion” on, steps only fade, the height changes instantly, the rings stay still, and the passkey pulse is not rendered.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Usa container queries do próprio bloco: abaixo de 520 px e de 400 px de largura os espaçamentos, o título e os botões de provedor encolhem.
-- Ocupa a largura do contêiner com altura mínima de 640 px; `fullScreen` troca para `min-height: 100dvh` e remove borda e raio.
+- Uses the block's own container queries: below 520 px and 400 px of width, the spacing, the title, and the provider buttons shrink.
+- Fills the container width with a minimum height of 640 px; `fullScreen` switches to `min-height: 100dvh` and removes the border and radius.
 
-## Desempenho
+## Performance
 
-- Um `ResizeObserver` mede o cartão para animar a altura e a contagem de reenvio usa um temporizador de 1 s só no passo do código; todos os temporizadores são limpos ao desmontar.
+- A `ResizeObserver` measures the card to animate its height, and the resend countdown uses a 1 s timer only on the code step; all timers are cleared on unmount.
 
-## Notas para IA
+## Notes for AI
 
-- Nada é autenticado de verdade: `startPasskey`, `submitEmail`, `verify` e `signInWith` usam `setTimeout`, e `onSignIn(email, method, mode)` só avisa que a simulação terminou; troque essas funções pelas chamadas reais.
-- Props: `fullScreen` para ocupar a página, `demoCode` (o código aceito, padrão `482913`), `demoEmail` (a conta devolvida por passkey e provedores), `termsHref` e `privacyHref`.
-- Depende de `button`, `input` e `otp-input`; a marca “ryan-ui” e todos os textos estão fixos em inglês no arquivo, sem props para traduzir.
+- Nothing is actually authenticated: `startPasskey`, `submitEmail`, `verify`, and `signInWith` use `setTimeout`, and `onSignIn(email, method, mode)` only signals that the simulation finished; replace these functions with the real calls.
+- Props: `fullScreen` to fill the page, `demoCode` (the accepted code, default `482913`), `demoEmail` (the account returned by passkey and providers), `termsHref`, and `privacyHref`.
+- Depends on `button`, `input`, and `otp-input`; the “ryan-ui” brand and all texts are hardcoded in English in the file, with no props to translate them.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/login-centered · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/login-centered · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

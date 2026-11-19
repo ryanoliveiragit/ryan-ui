@@ -24,9 +24,9 @@ import styles from "./demo-stage.module.css";
 type StageWidth = "desktop" | "tablet" | "mobile";
 const widthPx: Record<StageWidth, number | null> = { desktop: null, tablet: 820, mobile: 390 };
 const widthOptions: { value: StageWidth; label: string; icon: ReactNode }[] = [
-  { value: "desktop", label: "Largura de computador", icon: <Monitor size={15} strokeWidth={1.75} aria-hidden="true" /> },
-  { value: "tablet", label: "Largura de tablet (820 px)", icon: <Tablet size={15} strokeWidth={1.75} aria-hidden="true" /> },
-  { value: "mobile", label: "Largura de celular (390 px)", icon: <Smartphone size={15} strokeWidth={1.75} aria-hidden="true" /> },
+  { value: "desktop", label: "Desktop width", icon: <Monitor size={15} strokeWidth={1.75} aria-hidden="true" /> },
+  { value: "tablet", label: "Tablet width (820 px)", icon: <Tablet size={15} strokeWidth={1.75} aria-hidden="true" /> },
+  { value: "mobile", label: "Phone width (390 px)", icon: <Smartphone size={15} strokeWidth={1.75} aria-hidden="true" /> },
 ];
 /** Altura mínima do painel, em px. */
 const MIN_HEIGHT = 520;
@@ -109,7 +109,7 @@ export function useDemoStage(item: CatalogItem, variant?: string): StageControll
   return { item, variant, status, module, loadError, framed, alwaysFramed, layout: stage.layout, height: Math.max(stage.height, MIN_HEIGHT), width, setWidth, run, restart, frameRef, frameSrc, previewHref, onInlineStatus };
 }
 
-const statusText: Record<DemoStatus, string> = { loading: "Carregando…", ready: "Ao vivo", error: "O demo não abriu" };
+const statusText: Record<DemoStatus, string> = { loading: "Loading…", ready: "Live", error: "The demo did not open" };
 
 /** As ferramentas do palco, para a linha das abas: estado, larguras, reiniciar e abrir sozinho. */
 export function StageTools({ stage }: { stage: StageController }) {
@@ -118,12 +118,12 @@ export function StageTools({ stage }: { stage: StageController }) {
   return (
     <div className={styles.tools}>
       <span className={styles.status} role="status" data-status={stage.status}>{statusText[stage.status]}</span>
-      <Segmented label="Largura do palco" iconOnly options={options} value={stage.width} onChange={stage.setWidth} />
-      <Tooltip content="Reiniciar o demo">
-        <IconButton aria-label="Reiniciar o demo" onClick={stage.restart}><RotateCcw size={15} strokeWidth={1.75} aria-hidden="true" /></IconButton>
+      <Segmented label="Stage width" iconOnly options={options} value={stage.width} onChange={stage.setWidth} />
+      <Tooltip content="Restart demo">
+        <IconButton aria-label="Restart demo" onClick={stage.restart}><RotateCcw size={15} strokeWidth={1.75} aria-hidden="true" /></IconButton>
       </Tooltip>
-      <Tooltip content="Abrir sozinho em outra aba">
-        <IconLink aria-label="Abrir o demo sozinho em outra aba" href={stage.previewHref} target="_blank" rel="noreferrer"><Maximize2 size={15} strokeWidth={1.75} aria-hidden="true" /></IconLink>
+      <Tooltip content="Open on its own in a new tab">
+        <IconLink aria-label="Open the demo on its own in a new tab" href={stage.previewHref} target="_blank" rel="noreferrer"><Maximize2 size={15} strokeWidth={1.75} aria-hidden="true" /></IconLink>
       </Tooltip>
     </div>
   );
@@ -133,14 +133,14 @@ export function StageTools({ stage }: { stage: StageController }) {
 export function StagePanel({ stage }: { stage: StageController }) {
   const { item, variant, module, loadError, framed } = stage;
   const maxWidth = widthPx[stage.width];
-  const loading = <div className={styles.loading}><Skeleton label="Carregando demo" lines={3} /></div>;
+  const loading = <div className={styles.loading}><Skeleton label="Loading demo" lines={3} /></div>;
   return (
     <div className={styles.panel} data-demo-stage="1" data-status={stage.status} data-layout={framed ? "frame" : stage.layout} style={{ minHeight: framed ? undefined : stage.height }}>
       {loadError ? (
-        <div className={styles.notice}><Alert tone="danger" title="O demo não carregou">{loadError.message}</Alert></div>
+        <div className={styles.notice}><Alert tone="danger" title="The demo failed to load">{loadError.message}</Alert></div>
       ) : !module ? loading : framed ? (
         <div className={styles.frameWrap} style={{ maxWidth: maxWidth ?? undefined }} data-narrow={maxWidth ? "true" : undefined}>
-          <iframe ref={stage.frameRef} key={`${item.name}:${variant ?? ""}`} className={styles.frame} title={`Demo de ${item.title}`} src={stage.frameSrc} style={{ height: stage.height }} />
+          <iframe ref={stage.frameRef} key={`${item.name}:${variant ?? ""}`} className={styles.frame} title={`${item.title} demo`} src={stage.frameSrc} style={{ height: stage.height }} />
         </div>
       ) : (
         <DemoMount
@@ -151,8 +151,8 @@ export function StagePanel({ stage }: { stage: StageController }) {
           fallback={loading}
           renderError={(error, retry) => (
             <div className={styles.notice}>
-              <Alert tone="danger" title="O demo quebrou ao abrir">{error.message}</Alert>
-              <Button variant="secondary" size="sm" onClick={retry}>Tentar de novo</Button>
+              <Alert tone="danger" title="The demo crashed on open">{error.message}</Alert>
+              <Button variant="secondary" size="sm" onClick={retry}>Try again</Button>
             </div>
           )}
         />

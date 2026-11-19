@@ -2,48 +2,48 @@
 
 > Totais que mudam com movimento claro, dígito por dígito.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-counter
-- Descrição original (inglês): Give changing totals a clear sense of movement.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-counter
+- Original description: Give changing totals a clear sense of movement.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-counter.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-counter.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-counter.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-counter.json`. Caminho do registro, relativo ao endereço do site: `r/animated-counter.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-counter.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-counter.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/animated-counter.json`. Registry path, relative to the site address: `r/animated-counter.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/animated-counter/animated-counter.tsx`
   - `components/ryan-ui/animated-counter/animated-counter.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/animated-counter.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/animated-counter.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Totais de painel que mudam com o período ou o filtro: cada dígito gira como um odômetro na direção em que o número andou.
-- Números de destaque que contam a partir do zero quando entram na tela, com `animateOnView`.
-- Valores com moeda, percentual ou casas decimais, via `prefix`, `suffix` e `decimals`.
+- Dashboard totals that change with the period or filter: each digit spins like an odometer in the direction the number moved.
+- Highlight numbers that count up from zero when they enter the screen, with `animateOnView`.
+- Values with currency, percentage, or decimal places, via `prefix`, `suffix`, and `decimals`.
 
-## Quando não usar
+## When not to use
 
-- Use [`metric-card`](metric-card.md) quando o número precisa de rótulo, contexto e variação num cartão pronto.
-- Use [`slot-text`](slot-text.md) quando o valor mistura letras e números ou a troca deve parecer uma roleta de caça-níquel.
-- Use [`countdown`](countdown.md) para contagem regressiva até uma data.
+- Use [`metric-card`](metric-card.md) when the number needs a label, context, and change in a ready-made card.
+- Use [`slot-text`](slot-text.md) when the value mixes letters and numbers or the swap should look like a slot machine.
+- Use [`countdown`](countdown.md) for a countdown to a date.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -77,15 +77,15 @@ export default function AnimatedCounterDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AnimatedCounter`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `number` | — | — |
+| `value` (required) | `number` | — | — |
 | `label` | `string` | — | — |
 | `prefix` | `string` | `""` | — |
 | `suffix` | `string` | `""` | — |
@@ -93,28 +93,28 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `animateOnView` | `boolean` | `false` | Roll every digit up from zero the first time the counter scrolls into view. |
 | `locale` | `string` | `"en-US"` | Formatting locale. Fixed by default so server and client render the same digits. |
 
-## Acessibilidade
+## Accessibility
 
-- Os dígitos animados ficam em `aria-hidden`; o leitor de tela recebe um texto oculto com o número já formatado, incluindo `prefix` e `suffix`.
-- Não há região viva: se a mudança de valor precisa ser anunciada, envolva o contador num elemento com `aria-live`.
-- Os dígitos visíveis têm `user-select: none`, então o número não pode ser selecionado para copiar.
+- The animated digits are `aria-hidden`; the screen reader receives a hidden text with the already formatted number, including `prefix` and `suffix`.
+- There is no live region: if the value change needs to be announced, wrap the counter in an element with `aria-live`.
+- The visible digits have `user-select: none`, so the number cannot be selected for copying.
 
-## Movimento
+## Motion
 
-- Cada dígito é uma roda de 0 a 9 que gira com mola sem ultrapassagem no sentido da mudança (para cima quando o valor cresce), passando de 9 para 0 como um odômetro.
-- Quando o número ganha ou perde casas, as colunas abrem ou fecham em largura; com `animateOnView`, os dígitos sobem do zero em cascata quando 60% do contador está visível.
-- Com “reduzir movimento”, os dígitos trocam na hora e o rótulo só esmaece.
+- Each digit is a 0 to 9 wheel that spins with a no-overshoot spring in the direction of the change (upward when the value grows), going from 9 to 0 like an odometer.
+- When the number gains or loses places, the columns open or close in width; with `animateOnView`, the digits rise from zero in a cascade when 60% of the counter is visible.
+- With “reduce motion”, the digits change immediately and the label only fades.
 
-## Desempenho
+## Performance
 
-- Cada dígito monta dez glifos animados (um número de sete dígitos são 70 elementos), então use em poucos destaques por tela, não em cada linha de uma tabela.
+- Each digit mounts ten animated glyphs (a seven-digit number is 70 elements), so use it on a few highlights per screen, not on every row of a table.
 
-## Notas para IA
+## Notes for AI
 
-- `value` precisa ser `number`; a formatação usa `locale` (padrão `en-US`, fixo para servidor e cliente renderizarem igual), então passe `locale="pt-BR"` para ponto de milhar e vírgula decimal.
-- Não aceita `className` nem `style`, e o tamanho vem de `--text-3xl` no próprio componente: um `font-size` no elemento pai não muda nada; redefina essa variável num elemento em volta.
-- Basta trocar `value` para animar; não mude a `key` do componente, senão ele remonta já no valor novo, sem girar.
+- `value` must be a `number`; formatting uses `locale` (default `en-US`, fixed so server and client render the same), so pass `locale="pt-BR"` for a dot thousands separator and a decimal comma.
+- It accepts neither `className` nor `style`, and the size comes from `--text-3xl` on the component itself: a `font-size` on the parent element changes nothing; redefine that variable on a surrounding element.
+- Just change `value` to animate; do not change the component's `key`, otherwise it remounts already at the new value, without spinning.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-counter · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/animated-counter · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

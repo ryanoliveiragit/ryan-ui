@@ -2,51 +2,51 @@
 
 > Quatro estados vazios numa única ilustração, cujas formas se transformam ao trocar de aba.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/empty-states
-- Descrição original (inglês): Four empty states in one illustration whose shapes morph between scenes as you switch tabs.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/empty-states
+- Original description: Four empty states in one illustration whose shapes morph between scenes as you switch tabs.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json`. Caminho do registro, relativo ao endereço do site: `r/empty-states.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/empty-states.json`. Registry path, relative to the site address: `r/empty-states.json`.
 
-- Pacotes npm: `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md)
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/empty-states/empty-states.tsx`
   - `components/ryan-ui/blocks/empty-states/empty-states.module.css`
   - `components/ryan-ui/blocks/empty-states/empty-states-art.ts`
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/empty-states.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/empty-states.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Vitrine ou página de demonstração de estados vazios ilustrados (sem resultados, offline, caixa em dia, página não encontrada), em que trocar de aba transforma a ilustração.
-- Ponto de partida para estados vazios próprios com formas que se transformam, adaptando textos, ações e cenas no código.
+- A showcase or demo page of illustrated empty states (no results, offline, inbox zero, page not found), where switching tabs transforms the illustration.
+- A starting point for your own empty states with shapes that morph, adapting texts, actions, and scenes in the code.
 
-## Quando não usar
+## When not to use
 
-- Use [`empty-state`](empty-state.md) para um estado vazio de verdade dentro de uma tela, com título, texto e ação por props.
-- Use [`not-found`](not-found.md) para uma página 404 completa, com busca e links de volta.
-- Evite quando textos e ações precisam vir de props: o bloco não recebe nenhuma, e as ações só simulam o resultado na própria tela.
+- Use [`empty-state`](empty-state.md) for a real empty state inside a screen, with title, text, and action through props.
+- Use [`not-found`](not-found.md) for a complete 404 page, with search and links back.
+- Avoid when texts and actions must come from props: the block takes none, and the actions only simulate the result on the screen itself.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import EmptyStates from "@/components/ryan-ui/blocks/empty-states/empty-states";
@@ -61,23 +61,23 @@ export default function EmptyStatesDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `EmptyStates`
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
 ### `FRAMES`
 
 Every frame is computed once at load, so the server and the first client render draw the same thing.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `SceneId`: Geometry for the empty states illustration. Every scene is drawn from the same ten primitives, in the same paint order: two back tiles, one morphing body, four front tiles, two line accents and one two-stroke mark. A scene only moves them. Tiles are rounded rectangles described by center, size, radius, rotation and skew, so a circle can become a panel. The body, lines and mark are equal-count point lists, sampled clockwise from the top left, so any outline can become any other. | `"search" \| "offline" \| "inbox" \| "map"` |
 | `Phase` | `"idle" \| "loading" \| "done"` |
@@ -87,60 +87,60 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 `geo` springs as one vector; `fx` holds opacity and how much of a stroke is drawn.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `kind` (obrigatória) | `"tile" \| "body" \| "stroke" \| "mark"` | — |
-| `geo` (obrigatória) | `number[]` | — |
-| `fx` (obrigatória) | `[number, number]` | — |
-| `tone` (obrigatória) | `string` | — |
-| `redraw` (obrigatória) | `boolean` | — |
+| `kind` (required) | `"tile" \| "body" \| "stroke" \| "mark"` | — |
+| `geo` (required) | `number[]` | — |
+| `fx` (required) | `[number, number]` | — |
+| `tone` (required) | `string` | — |
+| `redraw` (required) | `boolean` | — |
 
 #### `Frame`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `prims` (obrigatória) | `Prim[]` | — |
-| `label` (obrigatória) | `string` | — |
+| `prims` (required) | `Prim[]` | — |
+| `label` (required) | `string` | — |
 
-### Outras exportações
+### Other exports
 
-- `KINDS` (valor)
-- `VIEW` (valor)
-- `shapePath` (função)
+- `KINDS` (value)
+- `VIEW` (value)
+- `shapePath` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Selecionam a aba anterior ou a próxima, dando a volta, e levam o foco junto. |
-| `Home` ou `End` | Selecionam a primeira ou a última aba. |
-| `Enter` ou `Espaço` | No botão, executam a ação da cena: limpar filtros, tentar de novo, verificar o e-mail ou achar a página. |
+| `←` or `→` | Select the previous or next tab, wrapping around, and move focus along with it. |
+| `Home` or `End` | Select the first or last tab. |
+| `Enter` or `Space` | On the button, run the scene's action: clear filters, try again, check the email, or find the page. |
 
-## Acessibilidade
+## Accessibility
 
-- As cenas seguem o padrão de abas (`tablist`, `tab` com `aria-selected`, `tabpanel`) com foco itinerante, e a ilustração é um `role="img"` com descrição própria de cada cena.
-- O resultado de cada ação é anunciado numa região `aria-live="polite"` oculta, e o botão fica em estado de carregamento enquanto a ação simulada espera.
+- The scenes follow the tabs pattern (`tablist`, `tab` with `aria-selected`, `tabpanel`) with roving focus, and the illustration is a `role="img"` with its own description for each scene.
+- The result of each action is announced in a hidden `aria-live="polite"` region, and the button stays in a loading state while the simulated action waits.
 
-## Movimento
+## Motion
 
-- Ao trocar de aba, cada uma das dez formas da ilustração viaja para nova posição, tamanho, raio e cor numa mola própria, e as linhas se redesenham um instante depois.
-- Com mouse, as camadas da ilustração se deslocam levemente acompanhando o ponteiro; título e texto trocam subindo de um leve desfoque, e a altura do texto acompanha com uma mola.
-- Com “reduzir movimento” ligado, a ilustração troca por esmaecimento cruzado, sem viagem das formas, a paralaxe é desligada e os textos só esmaecem.
+- When switching tabs, each of the illustration's ten shapes travels to a new position, size, radius, and color on its own spring, and the lines redraw a moment later.
+- With a mouse, the illustration layers shift slightly following the pointer; title and text swap rising from a slight blur, and the text height follows with a spring.
+- With “reduce motion” on, the illustration switches by crossfade, with no shape travel, the parallax is turned off, and the texts only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A ilustração tem proporção fixa e no máximo 360px de largura, então trocar de cena não muda o layout; em contêineres de até 420px as abas ficam menores e rolam se faltar espaço.
+- The illustration has a fixed aspect ratio and a maximum width of 360px, so switching scenes does not change the layout; in containers up to 420px the tabs get smaller and scroll if space runs out.
 
-## Desempenho
+## Performance
 
-- Um único laço de `requestAnimationFrame` move todas as formas escrevendo direto nos atributos do SVG, sem renderizar o React a cada quadro, e dorme quando tudo assenta.
+- A single `requestAnimationFrame` loop moves all shapes by writing directly to the SVG attributes, without rendering React on every frame, and sleeps when everything settles.
 
-## Notas para IA
+## Notes for AI
 
-- O bloco não tem props: textos e ações estão em `COPY`, no componente, e as cenas em `empty-states-art.ts`; para um estado vazio configurável, use `empty-state`.
-- As ações são locais e simuladas (limpar filtros, reconectar, checar o e-mail, achar a página); para ligá-las a dados reais, troque a função `act()` no arquivo instalado.
-- Depende de `button`, instalado junto; o cartão ocupa a largura do pai, e o conteúdo se limita a 480px no centro.
+- The block has no props: texts and actions are in `COPY`, inside the component, and the scenes in `empty-states-art.ts`; for a configurable empty state, use `empty-state`.
+- The actions are local and simulated (clear filters, reconnect, check the email, find the page); to connect them to real data, replace the `act()` function in the installed file.
+- Depends on `button`, installed along with it; the card takes the parent's width, and the content is limited to 480px in the center.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/empty-states · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/empty-states · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

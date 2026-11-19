@@ -2,48 +2,48 @@
 
 > Ação principal com um menu de alternativas ao lado.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/split-button
-- Descrição original (inglês): A primary action with a menu of nearby alternatives.
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/split-button
+- Original description: A primary action with a menu of nearby alternatives.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/split-button.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/split-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/split-button.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/split-button.json`. Caminho do registro, relativo ao endereço do site: `r/split-button.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/split-button.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/split-button.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/split-button.json`. Registry path, relative to the site address: `r/split-button.json`.
 
-- Pacotes npm: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dropdown-menu`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/split-button/split-button.tsx`
   - `components/ryan-ui/split-button/split-button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/split-button.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dropdown-menu lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/split-button.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma ação principal com algumas alternativas próximas no menu, como Enviar, com Agendar e Salvar rascunho ao lado.
-- Quando a última alternativa escolhida deve virar a ação principal: troque `label` e `icon` no `onSelect` e o botão se transforma no lugar.
-- Exportações com um formato padrão e outros no menu, na variante `secondary`.
+- A main action with a few close alternatives in the menu, like Send, with Schedule and Save draft alongside.
+- When the last chosen alternative should become the main action: change `label` and `icon` in `onSelect` and the button transforms in place.
+- Exports with a default format and others in the menu, in the `secondary` variant.
 
-## Quando não usar
+## When not to use
 
-- Use [`dropdown-menu`](dropdown-menu.md) quando não existe uma ação claramente principal.
-- Use [`button-group`](button-group.md) quando as ações são independentes e todas merecem ficar à vista.
-- Use [`action-swap`](action-swap.md) quando a ação muda de estado sozinha a cada clique, sem a pessoa escolher num menu.
+- Use [`dropdown-menu`](dropdown-menu.md) when there is no clearly main action.
+- Use [`button-group`](button-group.md) when the actions are independent and all deserve to stay in view.
+- Use [`action-swap`](action-swap.md) when the action changes state on its own with each click, without the person choosing from a menu.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -95,18 +95,18 @@ export default function SplitButtonDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SplitButton`
 
 The main action morphs its icon and label in place while its width follows on a spring; the menu half never scales, so the menu opens from a still anchor.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
-| `actions` (obrigatória) | `SplitButtonAction[]` | — | — |
+| `label` (required) | `string` | — | — |
+| `actions` (required) | `SplitButtonAction[]` | — | — |
 | `onClick` | `() => void` | — | — |
 | `disabled` | `boolean` | — | — |
 | `icon` | `ReactNode` | — | — |
@@ -116,46 +116,46 @@ The main action morphs its icon and label in place while its width follows on a 
 | `modal` | `boolean` | `true` | — |
 | `onOpenAutoFocus` | `(event: Event) => void` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `SplitButtonAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `onSelect` | `() => void` | — |
 | `disabled` | `boolean` | — |
 | `destructive` | `boolean` | — |
 | `icon` | `ReactNode` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão principal, executam `onClick`; na seta, abrem o menu com o foco na primeira alternativa (`↓` também abre). |
-| `↓` ou `↑` | No menu, percorrem as alternativas habilitadas e dão a volta nas pontas. |
-| `Home` ou `End` | No menu, vão para a primeira e a última alternativa. |
-| `A–Z` | No menu, digitar o começo de um rótulo leva o foco a essa alternativa. |
-| `Esc` | Fecha o menu e devolve o foco à seta; escolher uma alternativa com `Enter` ou `Espaço` também fecha. |
+| `Enter` or `Space` | On the main button, run `onClick`; on the arrow, open the menu with focus on the first alternative (`↓` also opens). |
+| `↓` or `↑` | In the menu, move through the enabled alternatives and wrap around at the ends. |
+| `Home` or `End` | In the menu, go to the first and last alternative. |
+| `A–Z` | In the menu, typing the start of a label moves focus to that alternative. |
+| `Esc` | Closes the menu and returns focus to the arrow; choosing an alternative with `Enter` or `Space` also closes it. |
 
-## Acessibilidade
+## Accessibility
 
-- São dois botões: o principal, cujo nome é `label` (o texto animado fica em `aria-hidden` e uma cópia oculta em `aria-live="polite"` anuncia a troca), e a seta, com `aria-label` montado em inglês (“Send more actions”).
-- O menu é o `DropdownMenu` do Radix em modo modal: enquanto aberto, o foco fica preso nele e a página não rola; ao fechar, o foco volta à seta.
-- `disabled` desliga as duas metades juntas; alternativas `disabled` ficam esmaecidas e são puladas pelas setas.
+- There are two buttons: the main one, whose name is `label` (the animated text is `aria-hidden` and a hidden copy in `aria-live="polite"` announces the swap), and the arrow, with an `aria-label` built in English (“Send more actions”).
+- The menu is Radix's `DropdownMenu` in modal mode: while open, focus is trapped in it and the page does not scroll; on close, focus returns to the arrow.
+- `disabled` turns off both halves together; `disabled` alternatives are dimmed and skipped by the arrows.
 
-## Movimento
+## Motion
 
-- Quando `label` muda, as letras em comum ficam paradas e só as novas sobem de um leve desfoque, em sequência; o ícone troca com escala, e a largura acompanha numa mola sem ultrapassagem.
-- Pressionar a ação principal encolhe a pílula inteira para 0,97; a seta responde só com cor, para o Radix medir a âncora sem escala, e gira 180° com o menu aberto.
-- O menu cresce a partir da seta, com as alternativas em sequência; com “reduzir movimento”, letras e largura trocam na hora, a pílula não encolhe e o menu só esmaece.
+- When `label` changes, the shared letters stay still and only the new ones rise from a slight blur, in sequence; the icon swaps with scale, and the width follows on a spring with no overshoot.
+- Pressing the main action shrinks the whole pill to 0.97; the arrow responds only with color, so Radix measures the anchor without scale, and rotates 180° with the menu open.
+- The menu grows from the arrow, with the alternatives in sequence; with “reduce motion”, letters and width swap instantly, the pill does not shrink, and the menu only fades.
 
-## Notas para IA
+## Notes for AI
 
-- `label` e `onClick` são a ação principal; `actions` lista as alternativas (`label`, `onSelect`, `icon`, `disabled`, `destructive`), e o `label` de cada uma é a chave React, então não repita rótulos.
-- O componente não troca a ação principal sozinho: para lembrar a última escolha, guarde-a no estado do pai e passe o novo `label` e `icon`, como faz o demo.
-- O `aria-label` da seta é montado em inglês (“… more actions”): numa interface em português, ajuste essa string no arquivo instalado; `variant="secondary"` é a versão clara e menor.
+- `label` and `onClick` are the main action; `actions` lists the alternatives (`label`, `onSelect`, `icon`, `disabled`, `destructive`), and each one's `label` is the React key, so do not repeat labels.
+- The component does not swap the main action on its own: to remember the last choice, keep it in the parent's state and pass the new `label` and `icon`, as the demo does.
+- The arrow's `aria-label` is built in English (“… more actions”): in a Portuguese interface, adjust that string in the installed file; `variant="secondary"` is the lighter, smaller version.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/split-button · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/split-button · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

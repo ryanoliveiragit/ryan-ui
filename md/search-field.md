@@ -2,47 +2,47 @@
 
 > Campo de busca reconhecível, com ícone, botão de limpar e foco bem marcado.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/search-field
-- Descrição original (inglês): A recognizable search entry point with clear affordances.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/search-field
+- Original description: A recognizable search entry point with clear affordances.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json`. Caminho do registro, relativo ao endereço do site: `r/search-field.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/search-field.json`. Registry path, relative to the site address: `r/search-field.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/search-field/search-field.tsx`
   - `components/ryan-ui/search-field/search-field.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/search-field.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/search-field.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Filtrar uma lista ou tabela que já está na tela, como destinos, pessoas ou arquivos.
-- Campo de busca fixo no topo de uma página ou de uma barra lateral, com rótulo visível.
+- Filtering a list or table that is already on screen, such as destinations, people, or files.
+- A search field fixed at the top of a page or sidebar, with a visible label.
 
-## Quando não usar
+## When not to use
 
-- Use [`combobox`](combobox.md) quando a busca termina na escolha de um item da lista.
-- Use [`expanding-search`](expanding-search.md) ou [`morphing-search`](morphing-search.md) quando o espaço é curto e a busca começa como um ícone.
-- Use [`command-palette`](command-palette.md) para buscar ações e navegar pela aplicação inteira pelo teclado.
+- Use [`combobox`](combobox.md) when the search ends in choosing an item from the list.
+- Use [`expanding-search`](expanding-search.md) or [`morphing-search`](morphing-search.md) when space is tight and the search starts as an icon.
+- Use [`command-palette`](command-palette.md) to search actions and navigate the whole application by keyboard.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -63,42 +63,42 @@ export default function SearchFieldDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SearchField`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
-| `value` (obrigatória) | `string` | — | — |
-| `onValueChange` (obrigatória) | `(value: string) => void` | — | — |
-| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Também aceita as props deste tipo, menos `type`. |
+| `label` (required) | `string` | — | — |
+| `value` (required) | `string` | — | — |
+| `onValueChange` (required) | `(value: string) => void` | — | — |
+| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Also accepts the props of this type, except `type`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão de limpar, que entra na ordem de tabulação depois do campo quando há texto, apagam a busca e devolvem o foco ao campo. |
+| `Enter` or `Space` | On the clear button, which enters the tab order after the field when there is text, clear the search and return focus to the field. |
 
-## Acessibilidade
+## Accessibility
 
-- O rótulo é um `<label>` visível ligado ao campo `type="search"`, e a lupa é `aria-hidden`.
-- O botão de limpar tem `aria-label="Clear search"`, fixo em inglês, e devolve o foco ao campo porque some debaixo do ponteiro.
-- O componente não anuncia resultados: se a lista filtra ao vivo, informe a contagem numa região `aria-live` sua.
+- The label is a visible `<label>` tied to the `type="search"` field, and the magnifier is `aria-hidden`.
+- The clear button has `aria-label="Clear search"`, fixed in English, and returns focus to the field because it disappears from under the pointer.
+- The component does not announce results: if the list filters live, report the count in your own `aria-live` region.
 
-## Movimento
+## Motion
 
-- O botão de limpar entra com uma mola curta e um leve desfoque e sai rápido; ele tem um espaço reservado, então o campo nunca muda de largura.
-- A lupa passa de apagada para a cor do texto quando o campo recebe foco ou tem texto.
-- Com “reduzir movimento” ligado, o botão só esmaece e as transições de cor são desligadas.
+- The clear button enters with a short spring and a slight blur and leaves quickly; it has a reserved space, so the field never changes width.
+- The magnifier goes from muted to the text color when the field receives focus or has text.
+- With “reduce motion” on, the button only fades and the color transitions are turned off.
 
-## Notas para IA
+## Notes for AI
 
-- É sempre controlado: `value` e `onValueChange(texto)` são obrigatórios; filtre no pai e, se for chamar a rede, use seu próprio debounce.
-- Import nomeado, `import { SearchField } from "@/components/ryan-ui/search-field/search-field"`; `label` é obrigatório, e as outras props de `<input>`, como `placeholder`, passam direto.
+- It is always controlled: `value` and `onValueChange(texto)` are required; filter in the parent and, if you call the network, use your own debounce.
+- Named import, `import { SearchField } from "@/components/ryan-ui/search-field/search-field"`; `label` is required, and the other `<input>` props, such as `placeholder`, pass straight through.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/search-field · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/search-field · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

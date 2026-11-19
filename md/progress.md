@@ -2,48 +2,48 @@
 
 > Barra que mostra quanto de uma tarefa conhecida já foi concluído.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/progress
-- Descrição original (inglês): Show how much of a known task is complete.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/progress
+- Original description: Show how much of a known task is complete.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/progress.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/progress.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/progress.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/progress.json`. Caminho do registro, relativo ao endereço do site: `r/progress.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/progress.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/progress.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/progress.json`. Registry path, relative to the site address: `r/progress.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/progress/progress.tsx`
   - `components/ryan-ui/progress/progress.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/progress.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/progress.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma tarefa com fim conhecido, como envio de arquivo, importação ou processamento em etapas, com o número ao lado (`showValue`).
-- Medidas de preenchimento que não são tempo, como perfil 72% completo ou 18 de 50 GB usados (`value` e `max`).
-- Quando o fim merece um sinal: em 100% a barra assume a cor de sucesso e um visto aparece ao lado do número.
+- A task with a known end, such as a file upload, an import, or multi-stage processing, with the number alongside (`showValue`).
+- Fill measures that are not time, such as a profile 72% complete or 18 of 50 GB used (`value` and `max`).
+- When the end deserves a signal: at 100% the bar takes on the success color and a checkmark appears next to the number.
 
-## Quando não usar
+## When not to use
 
-- Use [`loader`](loader.md) quando não dá para saber quanto falta; esta barra não tem modo indeterminado.
-- Use [`usage-meter`](usage-meter.md) para uma cota dividida por categorias, com limite e aviso de quase cheio.
-- Use [`toast-progress`](toast-progress.md) para acompanhar uma tarefa em segundo plano sem ocupar espaço na página.
+- Use [`loader`](loader.md) when there is no way to know how much remains; this bar has no indeterminate mode.
+- Use [`usage-meter`](usage-meter.md) for a quota split by category, with a limit and a nearly-full warning.
+- Use [`toast-progress`](toast-progress.md) to track a background task without taking up space on the page.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useEffect, useState } from "react";
@@ -73,37 +73,37 @@ export default function ProgressDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Progress`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `number` | `0` | — |
 | `max` | `number` | `100` | — |
 | `label` | `string` | — | — |
 | `showValue` | `boolean` | `false` | — |
-| `...props` | `React.HTMLAttributes<HTMLDivElement>` | — | Também aceita as props deste tipo, menos `children`. |
+| `...props` | `React.HTMLAttributes<HTMLDivElement>` | — | Also accepts the props of this type, except `children`. |
 
-## Acessibilidade
+## Accessibility
 
-- É `role="progressbar"` com `aria-valuenow`, `aria-valuemax` e `aria-valuetext` em porcentagem; o nome vem de `label` e, sem ele, é o genérico “Progress”.
-- Passe sempre `label` dizendo o que avança (“Enviando relatório.pdf”): ele é o nome acessível e também o texto visível acima da barra.
+- It is `role="progressbar"` with `aria-valuenow`, `aria-valuemax`, and `aria-valuetext` as a percentage; the name comes from `label` and, without it, is the generic “Progress”.
+- Always pass `label` saying what is advancing (“Uploading report.pdf”): it is the accessible name and also the visible text above the bar.
 
-## Movimento
+## Motion
 
-- Uma única mola sem ultrapassagem move o preenchimento e conta o número, então os dois sempre batem; o preenchimento desliza da esquerda em vez de esticar, e a ponta arredondada mantém a forma.
-- Ao chegar a 100%, o visto entra com um pequeno atraso ao lado do número e a cor muda para a de sucesso; trocar `label` faz o texto novo subir com um leve desfoque.
-- Com “reduzir movimento”, a barra salta para o valor, o rótulo só esmaece e a cor muda sem transição.
+- A single no-overshoot spring moves the fill and counts the number, so the two always match; the fill slides in from the left instead of stretching, and the rounded tip keeps its shape.
+- On reaching 100%, the checkmark enters with a small delay next to the number and the color changes to the success one; changing `label` makes the new text rise with a slight blur.
+- With “reduce motion”, the bar jumps to the value, the label only fades, and the color changes without transition.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/progress/progress`. `value` vai de 0 a `max` (padrão 100) e é limitado a esse intervalo; não há modo indeterminado.
-- Ocupa toda a largura do pai, então dê largura ao contêiner. Atualize `value` à vontade: cada mudança só redireciona a mola.
-- Com `max`, o número mostrado continua em porcentagem (18 de 50 vira 36%); se quiser “18 de 50 GB”, escreva isso em `label`.
+- Import from `@/components/ryan-ui/progress/progress`. `value` goes from 0 to `max` (default 100) and is clamped to that range; there is no indeterminate mode.
+- It fills the parent's full width, so give the container a width. Update `value` freely: each change only redirects the spring.
+- With `max`, the displayed number remains a percentage (18 of 50 becomes 36%); if you want “18 of 50 GB”, write that in `label`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/progress · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/progress · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

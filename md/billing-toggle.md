@@ -2,51 +2,51 @@
 
 > Alternância entre cobrança mensal e anual, com selo de economia e preços que rolam até o novo valor.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/billing-toggle
-- Descrição original (inglês): A monthly and yearly switch with a savings badge and prices that roll to the new amount.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/billing-toggle
+- Original description: A monthly and yearly switch with a savings badge and prices that roll to the new amount.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/billing-toggle.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/billing-toggle.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/billing-toggle.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/billing-toggle.json`. Caminho do registro, relativo ao endereço do site: `r/billing-toggle.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/billing-toggle.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/billing-toggle.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/billing-toggle.json`. Registry path, relative to the site address: `r/billing-toggle.json`.
 
-- Pacotes npm: `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Animated counter](animated-counter.md)
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Uses other ryan-ui items (installed along with it): [Animated counter](animated-counter.md)
+- Files, once installed:
   - `components/ryan-ui/billing-toggle/billing-toggle.tsx`
   - `components/ryan-ui/billing-toggle/billing-toggle.module.css`
   - `components/ryan-ui/animated-counter/animated-counter.tsx`
   - `components/ryan-ui/animated-counter/animated-counter.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/billing-toggle.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/billing-toggle.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Página de preços em que o período de cobrança (mensal ou anual) muda os valores exibidos nos planos.
-- Quando a opção mais barata leva um selo de economia que muda de texto ao ser escolhida (`badge` → `activeBadge`).
-- Preços que devem girar até o novo valor sem empurrar o que está ao lado: use `BillingPrice`, exportado pelo mesmo arquivo.
+- Pricing page where the billing period (monthly or yearly) changes the values shown on the plans.
+- When the cheaper option carries a savings badge whose text changes when it is chosen (`badge` → `activeBadge`).
+- Prices that should roll to the new value without pushing what is next to them: use `BillingPrice`, exported by the same file.
 
-## Quando não usar
+## When not to use
 
-- Use [`segmented-control`](segmented-control.md) para alternar visões ou filtros que não são período de cobrança e não levam selo.
-- Use [`switch`](switch.md) para uma configuração de ligar e desligar com efeito imediato.
-- Use [`plan-comparison`](plan-comparison.md) quando precisa da comparação de planos inteira, não só do seletor de período.
+- Use [`segmented-control`](segmented-control.md) to toggle views or filters that are not a billing period and carry no badge.
+- Use [`switch`](switch.md) for an on or off setting with immediate effect.
+- Use [`plan-comparison`](plan-comparison.md) when you need the full plan comparison, not just the period selector.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -78,18 +78,18 @@ export default function BillingToggleDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `BillingToggle`
 
 A billing period switch. One thumb glides between the options on a critically damped spring, and the savings note on the cheaper period tints and rewrites itself in place once it is chosen.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `string` | — | — |
-| `onValueChange` (obrigatória) | `(value: string) => void` | — | — |
+| `value` (required) | `string` | — | — |
+| `onValueChange` (required) | `(value: string) => void` | — | — |
 | `options` | `BillingToggleOption[]` | `DEFAULT_OPTIONS` | — |
 | `label` | `string` | `"Billing period"` | Accessible name of the group. |
 | `size` | `"md" \| "lg"` | `"md"` | — |
@@ -99,58 +99,58 @@ A billing period switch. One thumb glides between the options on a critically da
 
 A price that rolls to its new amount. The old price and the period ease their width, so nothing beside them jumps.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `amount` (obrigatória) | `number` | — | — |
+| `amount` (required) | `number` | — | — |
 | `currency` | `string` | `"$"` | — |
 | `period` | `string` | — | Period after the price, e.g. "per month". Swaps in place when it changes. |
 | `was` | `number` | — | Previous price, shown struck through when it is higher than `amount`. |
 | `decimals` | `number` | `0` | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `BillingToggleOption`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
+| `value` (required) | `string` | — |
+| `label` (required) | `string` | — |
 | `badge` | `string` | Short savings note, e.g. "Save 20%". |
 | `activeBadge` | `string` | Badge text once this option is selected, e.g. "You save $48". Defaults to `badge`. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `↓` | Seleciona a próxima opção e leva o foco a ela; da última volta à primeira. |
-| `←` ou `↑` | Seleciona a opção anterior; da primeira vai à última. |
-| `Home` ou `End` | Seleciona a primeira ou a última opção. |
-| `Tab` | Entra no grupo pela opção selecionada e sai dele; as outras opções ficam fora da ordem de tabulação. |
+| `→` or `↓` | Selects the next option and moves focus to it; from the last it wraps to the first. |
+| `←` or `↑` | Selects the previous option; from the first it goes to the last. |
+| `Home` or `End` | Selects the first or last option. |
+| `Tab` | Enters the group at the selected option and leaves it; the other options are outside the tab order. |
 
-## Acessibilidade
+## Accessibility
 
-- O grupo é um `role="radiogroup"` e cada opção um `<button role="radio">` com `aria-checked` e tabindex móvel.
-- `label` nomeia o grupo e tem padrão em inglês (`Billing period`): passe o texto no idioma da página.
-- O selo faz parte do nome da opção, então o leitor de tela anuncia rótulo e selo juntos; em `BillingPrice` o preço antigo sai num `<del>` e o valor atual tem uma cópia em texto para leitor de tela.
+- The group is a `role="radiogroup"` and each option a `<button role="radio">` with `aria-checked` and a roving tabindex.
+- `label` names the group and defaults to English (`Billing period`): pass the text in the page language.
+- The badge is part of the option name, so the screen reader announces label and badge together; in `BillingPrice` the old price comes out in a `<del>` and the current value has a text copy for screen readers.
 
-## Movimento
+## Motion
 
-- Um único polegar desliza entre as opções com uma mola sem ultrapassagem, assumindo a posição e a largura da opção escolhida.
-- O selo troca de texto no lugar, numa caixa que já tem a largura do texto mais longo; em `BillingPrice` os dígitos giram até o novo valor e o preço antigo (`was`) abre em largura.
-- Com “reduzir movimento” ligado, o polegar e os dígitos saltam para o lugar e os textos só esmaecem.
+- A single thumb slides between options with a spring with no overshoot, taking the position and width of the chosen option.
+- The badge swaps text in place, in a box that already has the width of the longest text; in `BillingPrice` the digits roll to the new value and the old price (`was`) opens in width.
+- With “reduce motion” on, the thumb and digits jump into place and texts only fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Rótulos e selos não quebram linha (`white-space: nowrap`): em telas estreitas, mantenha os textos curtos.
-- `BillingPrice` joga o período para a linha de baixo quando falta largura (`flex-wrap`).
+- Labels and badges do not wrap (`white-space: nowrap`): on narrow screens, keep the texts short.
+- `BillingPrice` pushes the period to the line below when width runs short (`flex-wrap`).
 
-## Notas para IA
+## Notes for AI
 
-- É sempre controlado: `value` e `onValueChange` são obrigatórios; sem `options` ele mostra `Monthly` e `Yearly` com o selo `Save 20%`, em inglês.
-- O arquivo exporta também `BillingPrice` (`amount`, `currency`, `period`, `was`, `decimals`); `was` só aparece riscado quando é maior que `amount`.
-- Depende de `animated-counter`; a cor do selo ativo vem de `--billing-accent` (padrão `--success`), que pode ser definida em qualquer ancestral.
+- It is always controlled: `value` and `onValueChange` are required; without `options` it shows `Monthly` and `Yearly` with the `Save 20%` badge, in English.
+- The file also exports `BillingPrice` (`amount`, `currency`, `period`, `was`, `decimals`); `was` only shows struck through when it is greater than `amount`.
+- Depends on `animated-counter`; the active badge color comes from `--billing-accent` (default `--success`), which can be defined on any ancestor.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/billing-toggle · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/billing-toggle · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,48 +2,48 @@
 
 > Cinco indicadores de carregamento em três tamanhos, com rótulo lido por leitores de tela.
 
-- Tipo: componente (categoria Feedback), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/loader
-- Descrição original (inglês): A family of five loaders (spinner, dots, bars, pulse ring, orbit) in three sizes that share one box, color and accessible label.
+- Type: component (category Feedback), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/loader
+- Original description: A family of five loaders (spinner, dots, bars, pulse ring, orbit) in three sizes that share one box, color and accessible label.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json`. Caminho do registro, relativo ao endereço do site: `r/loader.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loader.json`. Registry path, relative to the site address: `r/loader.json`.
 
-- Pacotes npm: nenhum além do React
-- Arquivos, depois de instalados:
+- npm packages: none besides React
+- Files, once installed:
   - `components/ryan-ui/loader/loader.tsx`
   - `components/ryan-ui/loader/loader.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: não há pacotes para instalar.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/loader.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: there are no packages to install.
+2. Copy the files listed above. The content of each one is in `r/loader.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Uma espera curta sem progresso conhecido, como abrir uma fatura, enviar um formulário ou buscar resultados.
-- Dentro de um botão ou de uma frase, com `size="sm"` e `tone="current"` para herdar a cor do texto.
-- Esperas com sentido próprio: `dots` para “alguém está digitando”, `bars` para áudio carregando, `ring` para aguardar um sinal ao vivo e `orbit` para tarefas mais longas.
+- A short wait with no known progress, such as opening an invoice, submitting a form, or fetching results.
+- Inside a button or a sentence, with `size="sm"` and `tone="current"` to inherit the text color.
+- Waits with their own meaning: `dots` for “someone is typing”, `bars` for audio loading, `ring` for waiting on a live signal, and `orbit` for longer tasks.
 
-## Quando não usar
+## When not to use
 
-- Use [`progress`](progress.md) quando você sabe quanto falta: uma barra com número diz mais que um giro sem fim.
-- Use [`skeleton`](skeleton.md) quando a espera é pelo conteúdo de uma área cujo formato você já conhece.
-- Use [`loading-states`](loading-states.md) ou [`text-shimmer`](text-shimmer.md) para o “pensando” de interfaces de IA, com texto de status.
+- Use [`progress`](progress.md) when you know how much remains: a bar with a number says more than an endless spin.
+- Use [`skeleton`](skeleton.md) when the wait is for the content of an area whose shape you already know.
+- Use [`loading-states`](loading-states.md) or [`text-shimmer`](text-shimmer.md) for the “thinking” state of AI interfaces, with status text.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useState } from "react";
@@ -92,13 +92,13 @@ export default function LoaderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Loader`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"spinner" \| "dots" \| "bars" \| "ring" \| "orbit"` | `"spinner"` | Which loader to draw. |
 | `size` | `"sm" \| "md" \| "lg"` | `"md"` | Box size: 16 px, 24 px or 40 px. |
@@ -107,37 +107,37 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `tone` | `"accent" \| "current"` | `"accent"` | "accent" draws in the accent color; "current" inherits the surrounding text color, for loaders inside buttons. |
 | `speed` | `number` | `1` | Speed multiplier: 2 runs twice as fast, 0.5 at half speed. |
 | `className` | `string` | — | Extra class for the root element. |
-| `...props` | `HTMLAttributes<HTMLSpanElement>` | — | Também aceita as props deste tipo, menos `children`. |
+| `...props` | `HTMLAttributes<HTMLSpanElement>` | — | Also accepts the props of this type, except `children`. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `LoaderVariant` | `"spinner" \| "dots" \| "bars" \| "ring" \| "orbit"` |
 | `LoaderSize` | `"sm" \| "md" \| "lg"` |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é `role="status"` com `aria-live="polite"`, e `label` (padrão “Loading”) é o texto lido; o desenho é decorativo (`aria-hidden`).
-- Escreva em `label` o que está carregando (“Salvando alterações”), não só “Carregando”; `showLabel` mostra o mesmo texto ao lado do desenho.
-- Cada loader é uma região viva: evite vários ao mesmo tempo na tela e, dentro de um botão, marque o botão com `aria-busy`, como no demo.
+- The root is `role="status"` with `aria-live="polite"`, and `label` (default “Loading”) is the text that is read; the drawing is decorative (`aria-hidden`).
+- Write in `label` what is loading (“Saving changes”), not just “Loading”; `showLabel` shows the same text next to the drawing.
+- Each loader is a live region: avoid several on screen at once and, inside a button, mark the button with `aria-busy`, as in the demo.
 
-## Movimento
+## Motion
 
-- Tudo é animação CSS em laço: o arco do `spinner` estica e encolhe enquanto gira, os pontos fazem uma onda, as barras pulsam como um equalizador, o anel solta duas ondas e três satélites orbitam juntos.
-- `speed` multiplica o ritmo de qualquer variante: 2 é o dobro da velocidade e 0,5 a metade.
-- Com “reduzir movimento”, nada se desloca: cada variante para numa forma legível e o desenho inteiro só pulsa a opacidade devagar, para ainda dizer “trabalhando”.
+- Everything is a looping CSS animation: the `spinner` arc stretches and shrinks as it turns, the dots make a wave, the bars pulse like an equalizer, the ring emits two waves, and three satellites orbit together.
+- `speed` multiplies the pace of any variant: 2 is double speed and 0.5 is half.
+- With “reduce motion”, nothing moves: each variant stops in a readable shape and the whole drawing only pulses its opacity slowly, so it still says “working”.
 
-## Desempenho
+## Performance
 
-- A animação é só CSS (keyframes), sem timers nem re-render do React, então vários loaders na página não custam JavaScript.
+- The animation is CSS only (keyframes), with no timers or React re-renders, so several loaders on the page cost no JavaScript.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/loader/loader`. As props que importam são `variant`, `size` (`sm` 16 px, `md` 24 px, `lg` 40 px) e `label`; o quadrado é o mesmo em todas as variantes, então trocar não mexe no layout.
-- Dentro de um botão, use `size="sm"` e `tone="current"` para herdar a cor do texto; o padrão `accent` pinta com a cor de destaque.
-- Não há prop de atraso nem de visibilidade: renderize o loader só durante a espera e tire-o quando ela acabar.
+- Import from `@/components/ryan-ui/loader/loader`. The props that matter are `variant`, `size` (`sm` 16 px, `md` 24 px, `lg` 40 px), and `label`; the square is the same in every variant, so switching does not shift the layout.
+- Inside a button, use `size="sm"` and `tone="current"` to inherit the text color; the default `accent` paints with the accent color.
+- There is no delay or visibility prop: render the loader only during the wait and remove it when the wait ends.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/loader · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/loader · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

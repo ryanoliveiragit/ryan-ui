@@ -2,51 +2,51 @@
 
 > Quatro transições suaves entre o tema claro e o escuro.
 
-- Tipo: componente (categoria Ações)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch
-- Descrição original (inglês): Four smooth ways to move between light and dark appearance.
-- Versões: Padrão (este item), Eclipse ([`theme-switch-eclipse`](theme-switch-eclipse.md)), Split ([`theme-switch-split`](theme-switch-split.md)), Rise ([`theme-switch-rise`](theme-switch-rise.md))
+- Type: component (category Actions)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch
+- Original description: Four smooth ways to move between light and dark appearance.
+- Versions: Padrão (this item), Eclipse ([`theme-switch-eclipse`](theme-switch-eclipse.md)), Split ([`theme-switch-split`](theme-switch-split.md)), Rise ([`theme-switch-rise`](theme-switch-rise.md))
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch.json`. Caminho do registro, relativo ao endereço do site: `r/theme-switch.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/theme-switch.json`. Registry path, relative to the site address: `r/theme-switch.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md)
+- Files, once installed:
   - `components/ryan-ui/theme-switch/theme-switch.tsx`
   - `components/ryan-ui/theme-switch/theme-switch.module.css`
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/theme-switch.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/theme-switch.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um botão de alternar entre claro e escuro na barra do app ou do site, com o sol e a lua girando no lugar.
-- Quando a troca de tema vai ganhar uma transição de página inteira: o botão entrega a variante e o próprio elemento em `onThemeChange`, para a animação partir dele (`reveal`, o padrão).
+- A light/dark toggle button in the app or site bar, with the sun and moon rotating in place.
+- When the theme change is going to get a full-page transition: the button hands the variant and the element itself to `onThemeChange`, so the animation starts from it (`reveal`, the default).
 
-## Quando não usar
+## When not to use
 
-- Use o seletor de tema do [`user-menu`](user-menu.md), ou um [`segmented-control`](segmented-control.md), quando a pessoa deve poder escolher também “Sistema”: aqui há só claro e escuro.
-- Use [`switch`](switch.md) quando o tema é uma opção numa página de configurações, ao lado de outras chaves.
-- Use [`icon-morph`](icon-morph.md) com `name="theme"` quando o botão já existe e você só quer o ícone de sol e lua que se transforma.
+- Use the [`user-menu`](user-menu.md) theme selector, or a [`segmented-control`](segmented-control.md), when the person should also be able to choose “System”: here there are only light and dark.
+- Use [`switch`](switch.md) when the theme is an option on a settings page, next to other toggles.
+- Use [`icon-morph`](icon-morph.md) with `name="theme"` when the button already exists and you only want the transforming sun and moon icon.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import ThemeSwitch from "@/components/ryan-ui/theme-switch/theme-switch";
@@ -68,51 +68,51 @@ export default function ThemeSwitchDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ThemeSwitch`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `theme` (obrigatória) | `"light" \| "dark"` | — | — |
+| `theme` (required) | `"light" \| "dark"` | — | — |
 | `variant` | `"reveal" \| "eclipse" \| "split" \| "rise"` | `"reveal"` | — |
-| `onThemeChange` (obrigatória) | `(next: Theme, variant: ThemeSwitchVariant, trigger: HTMLElement) => void` | — | — |
+| `onThemeChange` (required) | `(next: Theme, variant: ThemeSwitchVariant, trigger: HTMLElement) => void` | — | — |
 | `label` | `string` | — | — |
 | `iconOnly` | `boolean` | `false` | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ThemeSwitchVariant` | `"reveal" \| "eclipse" \| "split" \| "rise"` |
 | `Theme` | `"light" \| "dark"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Acionam o botão, que chama `onThemeChange` com o próximo tema. |
+| `Enter` or `Space` | Trigger the button, which calls `onThemeChange` with the next theme. |
 
-## Acessibilidade
+## Accessibility
 
-- É o `button` da biblioteca, com `aria-pressed` verdadeiro no tema escuro; os ícones são `aria-hidden`.
-- Sem `label`, o nome é montado em inglês e muda com o estado (“Switch to light mode”), o que confunde ao lado de `aria-pressed`; passe um `label` fixo, como “Tema escuro”.
-- O texto visível “Switch theme” é fixo em inglês e, com `aria-label`, deixa de ser o nome do botão; numa interface em português, use `iconOnly` ou troque esse texto no arquivo instalado.
+- It is the library's `button`, with `aria-pressed` true in the dark theme; the icons are `aria-hidden`.
+- Without `label`, the name is built in English and changes with the state (“Switch to light mode”), which is confusing next to `aria-pressed`; pass a fixed `label`, like “Dark theme”.
+- The visible text “Switch theme” is fixed in English and, with `aria-label`, stops being the button's name; in a Portuguese interface, use `iconOnly` or replace that text in the installed file.
 
-## Movimento
+## Motion
 
-- Na troca, o sol e a lua giram no mesmo sentido (horário rumo ao escuro), com escala numa mola curta e esmaecer com leve desfoque; no escuro, a variante `reveal` ainda amplia o ícone para 1,08.
-- Uma preferência salva que chega logo depois da hidratação troca o ícone sem animar, então uma página que abre no escuro não gira o botão.
-- Com “reduzir movimento”, o ícone só esmaece, o ajuste da variante acontece sem transição e a pressão do botão não escala.
+- On the swap, the sun and moon rotate in the same direction (clockwise toward dark), with scale on a short spring and a fade with a slight blur; in dark, the `reveal` variant also enlarges the icon to 1.08.
+- A saved preference that arrives right after hydration swaps the icon without animating, so a page that opens in dark does not rotate the button.
+- With “reduce motion”, the icon only fades, the variant adjustment happens without transition, and the button press does not scale.
 
-## Notas para IA
+## Notes for AI
 
-- O componente não troca o tema nem anima a página: ele chama `onThemeChange(next, variant, trigger)`, e o app aplica o tema (por exemplo, `data-theme` no `<html>`) e, se quiser, a transição.
-- A transição do demo vem do site, não do item instalado: `document.startViewTransition` e um `clip-path` animado em `::view-transition-new(root)`, partindo de `trigger`, pulado com “reduzir movimento”.
-- `theme` é controlado e só aceita `light` ou `dark` (resolva “sistema” antes de passar); as outras variantes são `eclipse`, `split` e `rise`.
+- The component neither switches the theme nor animates the page: it calls `onThemeChange(next, variant, trigger)`, and the app applies the theme (for example, `data-theme` on `<html>`) and, if you want, the transition.
+- The demo's transition comes from the site, not from the installed item: `document.startViewTransition` and an animated `clip-path` on `::view-transition-new(root)`, starting from `trigger`, skipped with “reduce motion”.
+- `theme` is controlled and only accepts `light` or `dark` (resolve “system” before passing it); the other variants are `eclipse`, `split`, and `rise`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/theme-switch · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

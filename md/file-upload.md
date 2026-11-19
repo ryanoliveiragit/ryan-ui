@@ -2,46 +2,46 @@
 
 > Envio de arquivos com arrastar e soltar, limite de tamanho, progresso e mensagens de erro.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/file-upload
-- Descrição original (inglês): A complete file selection flow with constraints, progress, and error feedback.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/file-upload
+- Original description: A complete file selection flow with constraints, progress, and error feedback.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-upload.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-upload.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-upload.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-upload.json`. Caminho do registro, relativo ao endereço do site: `r/file-upload.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-upload.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-upload.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/file-upload.json`. Registry path, relative to the site address: `r/file-upload.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/file-upload/file-upload.tsx`
   - `components/ryan-ui/file-upload/file-upload.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/file-upload.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/file-upload.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Formulários que pedem um ou mais arquivos com regras de tipo e tamanho, mostrando o motivo da recusa na própria linha do arquivo.
-- Envio com progresso por arquivo, cancelamento ao remover e botão de tentar de novo quando falha, ligado ao seu `onUpload`.
+- Forms that ask for one or more files with type and size rules, showing the reason for rejection on the file's own row.
+- Upload with per-file progress, cancellation on removal, and a retry button on failure, wired to your `onUpload`.
 
-## Quando não usar
+## When not to use
 
-- Use [`file-dropzone`](file-dropzone.md) quando basta uma área generosa para soltar arquivos, sem lista nem progresso.
-- Evite para escolher uma imagem de perfil com recorte ou prévia: cada linha mostra só um ícone pelo tipo, o nome e o tamanho.
+- Use [`file-dropzone`](file-dropzone.md) when a generous area to drop files is enough, with no list or progress.
+- Avoid for choosing a profile image with cropping or a preview: each row shows only a type icon, the name, and the size.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { FileUpload } from "@/components/ryan-ui/file-upload/file-upload";
@@ -73,13 +73,13 @@ export default function FileUploadDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `FileUpload`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `accept` | `string` | — | — |
 | `disabled` | `boolean` | `false` | — |
@@ -91,44 +91,44 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onChange` | `(files: FileUploadItem[]) => void` | — | — |
 | `onUpload` | `(file: File, options: { onProgress: (percent: number) => void; signal: AbortSignal }) => Promise<void>` | — | Uploads each accepted file. Report progress from 0 to 100, resolve when done, or reject to mark the file as failed. Removing a file aborts its signal. |
 
-### Tipos exportados
+### Exported types
 
 #### `FileUploadItem`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `file` (obrigatória) | `File` | — |
+| `id` (required) | `string` | — |
+| `file` (required) | `File` | — |
 | `error` | `string` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Na área de envio, abrem a janela de escolha de arquivos do sistema. |
-| `Enter` ou `Espaço` | Nos botões de cada linha, removem o arquivo ou tentam de novo; ao remover, o foco vai para o “remover” do arquivo vizinho ou volta à área de envio. |
+| `Enter` or `Space` | On the upload area, open the system file-picker window. |
+| `Enter` or `Space` | On each row's buttons, remove the file or retry; on removal, focus goes to the neighboring file's “remove” or back to the upload area. |
 
-## Acessibilidade
+## Accessibility
 
-- A área de envio é um `role="button"` focável, com `aria-disabled` e a descrição ligada por `aria-describedby`; o `input` de arquivo real fica escondido e fora do Tab.
-- Uma região `aria-live` anuncia arquivos adicionados, recusados, enviados, com falha e removidos, e os botões de cada linha incluem o nome do arquivo (“Remove foto.png”, “Retry foto.png”).
+- The upload area is a focusable `role="button"`, with `aria-disabled` and the description tied by `aria-describedby`; the real file `input` is hidden and out of the Tab order.
+- An `aria-live` region announces files added, rejected, uploaded, failed, and removed, and each row's buttons include the file name (“Remove foto.png”, “Retry foto.png”).
 
-## Movimento
+## Motion
 
-- Cada linha abre e fecha a altura numa mola; a barra de progresso e a porcentagem seguem a mesma mola, e a barra só se recolhe depois de mostrar 100%.
-- Os textos de estado trocam subindo de um leve desfoque, o visto de pronto se desenha e a nuvem sobe um pouco quando um arquivo paira sobre a área.
-- Com “reduzir movimento” ligado, linhas, barra e textos mudam na hora ou só esmaecem, e a nuvem não se move.
+- Each row opens and closes its height on a spring; the progress bar and the percentage follow the same spring, and the bar only collapses after showing 100%.
+- The status texts swap rising from a slight blur, the done checkmark is drawn, and the cloud rises slightly when a file hovers over the area.
+- With “reduce motion” on, rows, bar, and texts change instantly or only fade, and the cloud does not move.
 
-## Desempenho
+## Performance
 
-- Cada envio tem seu `AbortController`: remover o arquivo ou desmontar o componente cancela o sinal, então o seu `onUpload` precisa respeitar `signal` para parar a rede.
+- Each upload has its own `AbortController`: removing the file or unmounting the component cancels the signal, so your `onUpload` must respect `signal` to stop the network request.
 
-## Notas para IA
+## Notes for AI
 
-- Apesar de estar entre os blocos, instala em `@/components/ryan-ui/file-upload/file-upload`; sem `onUpload`, os arquivos só aparecem como prontos e nada é enviado.
-- `onUpload(file, { onProgress, signal })` deve chamar `onProgress` de 0 a 100, resolver ao terminar e rejeitar na falha; recusados por `accept` ou `maxSize` (em bytes) ficam na lista e não são enviados.
-- `value` e `onChange` controlam a lista de `{ id, file, error }`; com `multiple={false}`, um arquivo novo substitui o anterior e cancela o envio em andamento.
+- Although it is among the blocks, it installs at `@/components/ryan-ui/file-upload/file-upload`; without `onUpload`, files just appear as ready and nothing is sent.
+- `onUpload(file, { onProgress, signal })` must call `onProgress` from 0 to 100, resolve when finished, and reject on failure; files rejected by `accept` or `maxSize` (in bytes) stay in the list and are not sent.
+- `value` and `onChange` control the `{ id, file, error }` list; with `multiple={false}`, a new file replaces the previous one and cancels the upload in progress.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/file-upload · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/file-upload · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

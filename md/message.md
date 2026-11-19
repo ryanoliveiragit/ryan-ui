@@ -2,49 +2,49 @@
 
 > Mensagem completa do assistente, com avatar, nome, texto formatado e ações de copiar, refazer e avaliar ao passar o mouse.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/message
-- Descrição original (inglês): A full assistant message row with avatar, name and formatted content that staggers in, plus a copy, retry and rate bar that steps in on hover or focus.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/message
+- Original description: A full assistant message row with avatar, name and formatted content that staggers in, plus a copy, retry and rate bar that steps in on hover or focus.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message.json`. Caminho do registro, relativo ao endereço do site: `r/message.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/message.json`. Registry path, relative to the site address: `r/message.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/message/message.tsx`
   - `components/ryan-ui/message/message.module.css`
   - `components/ryan-ui/lib/use-copy-feedback.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/message.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/message.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- A resposta do assistente numa conversa em que ele não usa bolha: avatar, nome, texto formatado e ações embaixo.
-- Respostas com listas, títulos, código, negrito e links: `content` aceita um subconjunto pequeno de Markdown.
-- Quando cada resposta precisa de copiar, tentar de novo e avaliar com polegar para cima ou para baixo.
+- The assistant's reply in a conversation where it does not use a bubble: avatar, name, formatted text and actions below.
+- Replies with lists, headings, code, bold and links: `content` accepts a small subset of Markdown.
+- When each reply needs copy, retry and rating with thumbs up or down.
 
-## Quando não usar
+## When not to use
 
-- Use [`message-bubble`](message-bubble.md) para as mensagens da pessoa e para conversas em estilo de bolhas.
-- Use [`streaming-response`](streaming-response.md) enquanto o texto ainda está chegando palavra por palavra.
-- Use [`chat-thread`](chat-thread.md) ou [`comment-thread`](comment-thread.md) para conversas entre pessoas, com reações, respostas e confirmação de leitura.
+- Use [`message-bubble`](message-bubble.md) for the person's messages and for bubble-style conversations.
+- Use [`streaming-response`](streaming-response.md) while the text is still arriving word by word.
+- Use [`chat-thread`](chat-thread.md) or [`comment-thread`](comment-thread.md) for conversations between people, with reactions, replies and read receipts.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -96,13 +96,13 @@ export default function MessageDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Message`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `name` | `string` | `"Assistant"` | Sender name shown next to the avatar. |
 | `avatarSrc` | `string` | — | Image URL for the avatar. Without it (and without `avatar`) a spark mark on the accent is shown. |
@@ -119,42 +119,42 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `animateIn` | `boolean` | `true` | Staggers the content blocks in when the message mounts. Turn it off for history. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `MessageRating` | `"up" \| "down" \| null` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Passa pelos links, pelos blocos de código (focáveis para rolar) e por cada botão de ação; o foco dentro da linha faz a barra aparecer. |
-| `Enter` ou `Espaço` | Aciona a ação em foco: copiar, tentar de novo ou avaliar; repetir a mesma avaliação a limpa. |
-| `←` ou `→` | Com o foco num bloco de código largo, rolam o código na horizontal (rolagem nativa). |
+| `Tab` | Moves through the links, the code blocks (focusable for scrolling) and each action button; focus inside the row makes the toolbar appear. |
+| `Enter` or `Space` | Activates the focused action: copy, retry or rate; repeating the same rating clears it. |
+| `←` or `→` | With focus on a wide code block, scroll the code horizontally (native scrolling). |
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é um `<article>` com `aria-label` “Message from” mais o `name`; o avatar fica `aria-hidden`.
-- A barra é um `role="toolbar"` em que cada botão tem `aria-label`; os de avaliação usam `aria-pressed`, e uma região `role="status"` anuncia “Message copied”.
-- Em telas de toque a barra fica sempre visível; com mouse ela aparece no hover ou quando o foco entra na linha, e uma avaliação já dada continua à mostra.
+- The root is an `<article>` with `aria-label` “Message from” plus the `name`; the avatar is `aria-hidden`.
+- The toolbar is a `role="toolbar"` in which each button has an `aria-label`; the rating buttons use `aria-pressed`, and a `role="status"` region announces “Message copied”.
+- On touch screens the toolbar is always visible; with a mouse it appears on hover or when focus enters the row, and a rating already given stays visible.
 
-## Movimento
+## Motion
 
-- Ao montar, os blocos do conteúdo entram em sequência, subindo de um desfoque leve; `animateIn={false}` desliga isso.
-- Os botões da barra entram um após o outro, o ícone de copiar vira um visto, o de tentar de novo dá uma volta com uma mola e o polegar escolhido dá um pequeno salto.
-- Com “reduzir movimento” ligado, os blocos só esmaecem, sem atraso entre eles, os ícones trocam com esmaecer e não há giro nem salto.
+- On mount, the content blocks enter in sequence, rising from a light blur; `animateIn={false}` turns this off.
+- The toolbar buttons enter one after another, the copy icon turns into a check mark, the retry icon makes a turn with a spring and the chosen thumb makes a small hop.
+- With “reduce motion” on, the blocks only fade, with no delay between them, the icons swap with a fade and there is no turn or hop.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A grade tem a coluna do avatar e uma coluna flexível; textos longos quebram em qualquer ponto e os blocos de código rolam na horizontal em vez de alargar a página.
+- The grid has the avatar column and a flexible column; long text wraps at any point and the code blocks scroll horizontally instead of widening the page.
 
-## Notas para IA
+## Notes for AI
 
-- Passe o texto em `content` (parágrafos, listas, títulos com `#`, blocos entre crases triplas, código em linha, `**negrito**` e links `http`, `https`, `mailto`, `/` ou `#`); tabelas e itálico saem como texto comum.
-- O botão de tentar de novo só existe com `onRetry`, e os de avaliação só com `onRatingChange`, `defaultRating` ou `rating={…}` (vale `rating={null}`); `actions="always"` ou `"none"` fixa ou esconde a barra.
-- Com `children`, você renderiza o conteúdo e `content` vira só o texto a copiar; em históricos longos, passe `animateIn={false}`.
+- Pass the text in `content` (paragraphs, lists, headings with `#`, blocks between triple backticks, inline code, `**negrito**` and links `http`, `https`, `mailto`, `/` or `#`); tables and italics come out as plain text.
+- The retry button only exists with `onRetry`, and the rating ones only with `onRatingChange`, `defaultRating` or `rating={…}` (`rating={null}` counts); `actions="always"` or `"none"` pins or hides the toolbar.
+- With `children`, you render the content and `content` becomes just the text to copy; in long histories, pass `animateIn={false}`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/message · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

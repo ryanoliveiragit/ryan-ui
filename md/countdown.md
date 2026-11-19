@@ -2,48 +2,48 @@
 
 > Contagem regressiva com dígitos que rolam e se transformam em um estado ao vivo quando chega a zero.
 
-- Tipo: componente (categoria Feedback)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/countdown
-- Descrição original (inglês): A launch countdown with rolling digits that morphs into a live state at zero.
+- Type: component (category Feedback)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/countdown
+- Original description: A launch countdown with rolling digits that morphs into a live state at zero.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/countdown.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/countdown.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/countdown.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/countdown.json`. Caminho do registro, relativo ao endereço do site: `r/countdown.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/countdown.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/countdown.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/countdown.json`. Registry path, relative to the site address: `r/countdown.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/countdown/countdown.tsx`
   - `components/ryan-ui/countdown/countdown.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/countdown.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/countdown.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um momento fixo que as pessoas esperam, como lançamento, evento ao vivo ou fim de inscrição, com dígitos grandes no centro de uma seção (`variant="large"`).
-- Um prazo dentro de um banner, cartão ou célula de tabela, numa linha só (`variant="compact"`).
-- Telas que devem mudar sozinhas no zero: os dígitos viram `completeLabel` (padrão “Live now”) e `onComplete` dispara uma vez, na hora, mesmo com a aba oculta.
+- A fixed moment people are waiting for, such as a launch, a live event, or a registration deadline, with large digits in the center of a section (`variant="large"`).
+- A deadline inside a banner, card, or table cell, on a single line (`variant="compact"`).
+- Screens that must change on their own at zero: the digits become `completeLabel` (default “Live now”) and `onComplete` fires once, immediately, even with the tab hidden.
 
-## Quando não usar
+## When not to use
 
-- Para tempo decorrido, como um cronômetro que sobe, ela não serve: só conta para baixo até `target`.
-- Use [`announcement-bar`](announcement-bar.md) quando o prazo acompanha um recado no topo do site; ela tem uma contagem própria dentro da mensagem.
-- Use [`slot-text`](slot-text.md) ou [`animated-counter`](animated-counter.md) para números que mudam por evento, como preço ou total, sem um relógio por trás.
+- It does not suit elapsed time, such as a stopwatch counting up: it only counts down to `target`.
+- Use [`announcement-bar`](announcement-bar.md) when the deadline accompanies a message at the top of the site; it has its own countdown inside the message.
+- Use [`slot-text`](slot-text.md) or [`animated-counter`](animated-counter.md) for numbers that change by event, such as a price or total, with no clock behind them.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -71,15 +71,15 @@ export default function CountdownDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Countdown`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `target` (obrigatória) | `Date \| number \| string` | — | The moment to count down to. A number is epoch milliseconds, a Date is used as is, and an ISO string with `Z` or an offset such as `2026-10-06T10:00:00-07:00` is exact. A string without an offset is wall time in `timeZone`, or UTC when no zone is given, so the result never depends on the visitor's own time zone. |
+| `target` (required) | `Date \| number \| string` | — | The moment to count down to. A number is epoch milliseconds, a Date is used as is, and an ISO string with `Z` or an offset such as `2026-10-06T10:00:00-07:00` is exact. A string without an offset is wall time in `timeZone`, or UTC when no zone is given, so the result never depends on the visitor's own time zone. |
 | `timeZone` | `string` | — | IANA zone for a target string without an offset, such as "America/Los_Angeles". Daylight saving is resolved for the target date. |
 | `units` | `CountdownUnit[]` | `DEFAULT_UNITS` | Units to show, largest first. The largest unit absorbs the rest, so hours can pass 24 when days are left out. |
 | `variant` | `"large" \| "compact"` | `"large"` | Large digits with unit labels, or one compact line for banners and table cells. |
@@ -90,42 +90,42 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `ref` | `Ref<HTMLDivElement>` | — | — |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `CountdownUnit` | `"days" \| "hours" \| "minutes" \| "seconds"` |
 
-### Outras exportações
+### Other exports
 
-- `toEpoch` (função)
+- `toEpoch` (function)
 
-## Acessibilidade
+## Accessibility
 
-- A raiz é `role="timer"` com o nome de `label` (padrão “Time remaining”); os dígitos animados ficam ocultos e um texto oculto diz o tempo por extenso, sem os segundos enquanto falta mais de um minuto.
-- `role="timer"` não anuncia mudanças; se o fim importa para quem usa leitor de tela, anuncie numa região viva sua a partir de `onComplete`.
-- Os nomes das unidades, visíveis e lidos (“Days”, “3 days, 4 hours”), estão em inglês; passe `label` em português e traduza as unidades no arquivo copiado.
+- The root is `role="timer"` named by `label` (default “Time remaining”); the animated digits are hidden and a hidden text states the time in full, without seconds while more than a minute remains.
+- `role="timer"` does not announce changes; if the end matters to screen reader users, announce it in your own live region from `onComplete`.
+- The unit names, both visible and read aloud (“Days”, “3 days, 4 hours”), are in English; pass `label` in your language and translate the units in the copied file.
 
-## Movimento
+## Motion
 
-- Cada dígito é uma roda que gira pelo caminho mais curto, para baixo a cada segundo (00 → 59 é um passo só); na primeira exibição, as rodas entram em sequência, da esquerda para a direita.
-- No zero, os dígitos se desfazem com escala e desfoque leves e dão lugar a `completeLabel`, e a caixa acompanha a nova largura e altura com uma mola; no `compact`, a pílula assume o tom de sucesso.
-- Com “reduzir movimento”, os dígitos trocam sem girar, a troca final é um esmaecer curto e o ponto que pulsa ao lado do rótulo fica parado.
+- Each digit is a wheel that turns by the shortest path, downward each second (00 → 59 is a single step); on first display, the wheels enter in sequence, left to right.
+- At zero, the digits dissolve with slight scale and blur and give way to `completeLabel`, and the box follows the new width and height with a spring; in `compact`, the pill takes on the success tone.
+- With “reduce motion”, the digits change without turning, the final swap is a short fade, and the pulsing dot next to the label stays still.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- No `large`, o tamanho dos dígitos acompanha a largura do contêiner (unidade `cqi`), de 1,75 rem até o tamanho de display, e quatro grupos cabem em 320 px.
+- In `large`, the digit size follows the container width (`cqi` unit), from 1.75 rem up to display size, and four groups fit in 320 px.
 
-## Desempenho
+## Performance
 
-- O relógio só avança com o componente na tela e a aba visível, e ao voltar relê a hora, sem acumular atraso; um temporizador separado garante o fim no horário.
+- The clock only advances while the component is on screen and the tab is visible, and on return it rereads the time, without accumulating delay; a separate timer guarantees the end on time.
 
-## Notas para IA
+## Notes for AI
 
-- Importe de `@/components/ryan-ui/countdown/countdown`. Para um horário local, passe `target="2026-12-01T10:00"` e `timeZone="America/Sao_Paulo"`; uma string sem fuso e sem `timeZone` é lida como UTC.
-- `units` define o que aparece, e a maior unidade absorve o resto: com `["hours", "minutes"]`, as horas passam de 24. Se o relógio do aparelho não for confiável, passe `clock` com a hora do servidor.
-- `onComplete` só dispara se a contagem chega a zero com o componente montado; se `target` já passou ao montar, mostra `completeLabel` sem contar e sem chamar o callback.
+- Import from `@/components/ryan-ui/countdown/countdown`. For a local time, pass `target="2026-12-01T10:00"` and `timeZone="America/Sao_Paulo"`; a string without a time zone and without `timeZone` is read as UTC.
+- `units` defines what appears, and the largest unit absorbs the rest: with `["hours", "minutes"]`, hours go past 24. If the device clock is not reliable, pass `clock` with the server time.
+- `onComplete` only fires if the count reaches zero while the component is mounted; if `target` has already passed on mount, it shows `completeLabel` without counting and without calling the callback.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/countdown · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/countdown · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,48 +2,48 @@
 
 > Pequena superfície ancorada para informações de contexto.
 
-- Tipo: componente (categoria Revelação)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/popover
-- Descrição original (inglês): A small anchored surface for contextual information.
+- Type: component (category Disclosure)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/popover
+- Original description: A small anchored surface for contextual information.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json`. Caminho do registro, relativo ao endereço do site: `r/popover.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/popover.json`. Registry path, relative to the site address: `r/popover.json`.
 
-- Pacotes npm: `@radix-ui/react-popover`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-popover`
+- Files, once installed:
   - `components/ryan-ui/popover/popover.tsx`
   - `components/ryan-ui/popover/popover.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-popover`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/popover.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-popover`.
+2. Copy the files listed above. The content of each one is in `r/popover.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um painel pequeno junto de um botão, como o link de compartilhamento com a ação de copiar.
-- Ajustes ou filtros rápidos que a pessoa abre, muda e fecha sem sair do contexto.
-- Informação de contexto com um ou dois controles, que não deve bloquear o resto da página.
+- A small panel next to a button, such as the share link with a copy action.
+- Quick settings or filters that people open, change, and close without leaving context.
+- Contextual information with one or two controls, which should not block the rest of the page.
 
-## Quando não usar
+## When not to use
 
-- Use [`tooltip`](tooltip.md) para um texto curto, sem interação, que nomeia um controle.
-- Use [`dropdown-menu`](dropdown-menu.md) para uma lista de ações.
-- Use [`dialog`](dialog.md) quando a decisão precisa bloquear a página até ser tomada.
+- Use [`tooltip`](tooltip.md) for a short, non-interactive text that names a control.
+- Use [`dropdown-menu`](dropdown-menu.md) for a list of actions.
+- Use [`dialog`](dialog.md) when the decision needs to block the page until it is made.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { Popover, PopoverClose, PopoverContent, PopoverTrigger } from "@/components/ryan-ui/popover/popover";
@@ -70,55 +70,55 @@ export default function PopoverDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PopoverTrigger`
 
 The trigger anchors the panel, so it opts out of press-scale: a scaled rect measured on open would shift the panel as the trigger springs back.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
 ### `PopoverContent`
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Outras exportações
+### Other exports
 
-- `Popover` (valor)
-- `PopoverClose` (valor)
+- `Popover` (value)
+- `PopoverClose` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No gatilho, abre ou fecha o painel; ao abrir, o foco vai para o primeiro controle de dentro. |
-| `Tab` ou `Shift + Tab` | Circulam pelos controles do painel. |
-| `Esc` | Fecha o painel e devolve o foco ao gatilho. |
+| `Enter` or `Space` | On the trigger, open or close the panel; on open, focus goes to the first control inside. |
+| `Tab` or `Shift + Tab` | Cycle through the panel controls. |
+| `Esc` | Closes the panel and returns focus to the trigger. |
 
-## Acessibilidade
+## Accessibility
 
-- É o Popover do Radix sem modo modal: o gatilho recebe `aria-haspopup="dialog"`, `aria-expanded` e `aria-controls`, e o painel tem `role="dialog"`.
-- O painel não tem nome acessível por padrão; passe `aria-label` ou `aria-labelledby` ao `PopoverContent`.
-- A página por trás continua acessível e rolável; clicar fora ou mover o foco para fora fecha o painel.
+- It is the non-modal Radix Popover: the trigger gets `aria-haspopup="dialog"`, `aria-expanded`, and `aria-controls`, and the panel has `role="dialog"`.
+- The panel has no accessible name by default; pass `aria-label` or `aria-labelledby` to `PopoverContent`.
+- The page behind stays accessible and scrollable; clicking outside or moving focus outside closes the panel.
 
-## Movimento
+## Motion
 
-- O painel parte alguns pixels na direção do gatilho, a 97% do tamanho, e assenta com uma curva de mola em CSS; sai mais rápido do que entra.
-- São transições, não keyframes: fechar no meio da abertura, ou reabrir durante o fechamento, inverte a partir de onde o painel está.
-- Com “reduzir movimento” ligado, o painel só esmaece.
+- The panel starts a few pixels toward the trigger, at 97% size, and settles with a CSS spring curve; it leaves faster than it enters.
+- These are transitions, not keyframes: closing mid-open, or reopening during the close, reverses from wherever the panel is.
+- With “reduce motion” on, the panel only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura vai de 12rem a `min(22rem, 100vw - 20px)`, e o painel muda de lado quando não cabe, com 10 px de folga da borda (`collisionPadding`).
+- The width goes from 12rem to `min(22rem, 100vw - 20px)`, and the panel switches sides when it does not fit, with 10 px of clearance from the edge (`collisionPadding`).
 
-## Notas para IA
+## Notes for AI
 
-- Monte `Popover`, `PopoverTrigger asChild` em volta do botão e `PopoverContent`; ações que fecham vão em `PopoverClose asChild`.
-- O padrão é `align="start"` e `sideOffset={6}`; `side` e as demais props do Radix passam direto para o `PopoverContent`.
-- Importe de `@/components/ryan-ui/popover/popover`; o `PopoverContent` já vem num portal, com 1rem de espaçamento interno, então não envolva o conteúdo em outro cartão.
+- Assemble `Popover`, `PopoverTrigger asChild` around the button, and `PopoverContent`; actions that close go in `PopoverClose asChild`.
+- The defaults are `align="start"` and `sideOffset={6}`; `side` and the other Radix props pass straight through to `PopoverContent`.
+- Import from `@/components/ryan-ui/popover/popover`; `PopoverContent` already comes in a portal, with 1rem of inner padding, so do not wrap the content in another card.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/popover · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/popover · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,92 +2,101 @@
 
 > Um interruptor tátil para ajustes que passam a valer na hora.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/switch
-- Descrição original (inglês): A tactile toggle for settings that take effect immediately.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/switch
+- Original description: A tactile toggle for settings that take effect immediately.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json`. Caminho do registro, relativo ao endereço do site: `r/switch.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/switch.json`. Registry path, relative to the site address: `r/switch.json`.
 
-- Pacotes npm: `@radix-ui/react-switch`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-switch`, `motion`
+- Files, once installed:
   - `components/ryan-ui/switch/switch.tsx`
   - `components/ryan-ui/switch/switch.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-switch motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/switch.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-switch motion`.
+2. Copy the files listed above. The content of each one is in `r/switch.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Preferências que passam a valer na hora, como notificações, sincronização ou recursos em teste.
-- Listas de ajustes ligados e desligados, um por linha, com o rótulo ao lado.
+- Preferences that take effect immediately, such as notifications, sync, or features in testing.
+- Lists of on and off settings, one per row, with the label beside it.
 
-## Quando não usar
+## When not to use
 
-- Use [`checkbox`](checkbox.md) quando a escolha só vale depois de enviar um formulário ou faz parte de uma lista de opções.
-- Use [`segmented-control`](segmented-control.md) quando os dois estados têm nomes próprios, como Mensal e Anual.
-- Use [`theme-switch`](theme-switch.md) para trocar entre tema claro e escuro com transição de página.
+- Use [`checkbox`](checkbox.md) when the choice only counts after submitting a form or is part of a list of options.
+- Use [`segmented-control`](segmented-control.md) when the two states have names of their own, such as Monthly and Yearly.
+- Use [`theme-switch`](theme-switch.md) to switch between light and dark themes with a page transition.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
 import Switch from "@/components/ryan-ui/switch/switch";
+import { Caption, Stack } from "./_kit";
 
 export default function SwitchDemo() {
-  const [enabled, setEnabled] = useState(true);
-  return <Switch label="Weekly digest" checked={enabled} onCheckedChange={setEnabled} />;
+  const [push, setPush] = useState(true);
+  const [email, setEmail] = useState(false);
+  return (
+    <Stack width={320} gap={4}>
+      <Switch label="Push notifications" checked={push} onCheckedChange={setPush} />
+      <Switch label="Weekly email digest" checked={email} onCheckedChange={setEmail} />
+      <Switch label="Beta features (managed by admin)" defaultChecked disabled />
+      <Caption>Push {push ? "on" : "off"}, digest {email ? "on" : "off"}. Changes apply immediately.</Caption>
+    </Stack>
+  );
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Switch`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | — | — |
-| `...props` | `ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>` | — | Também aceita as props deste tipo. |
+| `...props` | `ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>` | — | Also accepts the props of this type. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Espaço` ou `Enter` | Ligam ou desligam; segurando Espaço, o polegar se alarga como sob um dedo e viaja ao soltar. |
+| `Space` or `Enter` | Turn on or off; holding Space, the thumb widens as under a finger and travels on release. |
 
-## Acessibilidade
+## Accessibility
 
-- É o `Switch` do Radix: um `<button role="switch">` com `aria-checked`, e dentro de um `<form>` um campo oculto envia `name` e `value`.
-- O `label` fica dentro do botão, então clicar no texto também alterna, e vira o nome acessível; sem `label`, passe `aria-label` ou `aria-labelledby`.
+- It is the Radix `Switch`: a `<button role="switch">` with `aria-checked`, and inside a `<form>` a hidden field submits `name` and `value`.
+- The `label` sits inside the button, so clicking the text also toggles, and it becomes the accessible name; without `label`, pass `aria-label` or `aria-labelledby`.
 
-## Movimento
+## Motion
 
-- O polegar viaja numa mola sem ultrapassagem e para exatamente no estado que anuncia; ao pressionar, ele se alarga na direção do outro lado, como sob um dedo.
-- Mudanças sem pressão, como pelo Enter ou vindas do estado, ganham um esticão curto no meio do caminho, e a trilha passa para a cor de ligado.
-- Com “reduzir movimento” ligado, o polegar muda de lado na hora e as transições de cor são desligadas.
+- The thumb travels on a no-overshoot spring and stops exactly in the state it announces; on press, it widens toward the other side, as under a finger.
+- Changes without a press, such as via Enter or coming from state, get a short stretch midway, and the track switches to the on color.
+- With “reduce motion” on, the thumb changes side instantly and the color transitions are turned off.
 
-## Notas para IA
+## Notes for AI
 
-- Use para ajustes que valem na hora, sem botão de salvar: `checked` com `onCheckedChange` controlado, ou `defaultChecked`.
-- Para o texto à esquerda e o switch à direita numa linha de ajustes, deixe `label` de fora, escreva seu texto e ligue os dois com `aria-labelledby`.
-- Aceita as props do Radix (`disabled`, `required`, `name`, `value`); num formulário, o valor enviado quando ligado é `on`, a menos que você passe `value`.
+- Use it for settings that take effect immediately, without a save button: `checked` with `onCheckedChange` for controlled, or `defaultChecked`.
+- For text on the left and the switch on the right in a settings row, leave `label` out, write your own text, and link the two with `aria-labelledby`.
+- It accepts the Radix props (`disabled`, `required`, `name`, `value`); in a form, the value submitted when on is `on`, unless you pass `value`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/switch · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/switch · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

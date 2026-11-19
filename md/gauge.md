@@ -2,47 +2,47 @@
 
 > Mostra um valor dentro de um intervalo conhecido, com faixas de estado.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/gauge
-- Descrição original (inglês): Show a value against a known range.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/gauge
+- Original description: Show a value against a known range.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json`. Caminho do registro, relativo ao endereço do site: `r/gauge.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/gauge.json`. Registry path, relative to the site address: `r/gauge.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/gauge/gauge.tsx`
   - `components/ryan-ui/gauge/gauge.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/gauge.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/gauge.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um único valor contra uma faixa conhecida num painel: carga do servidor, nota de atendimento, uso de uma cota.
-- Quando o valor tem estados nomeados (saudável, ocupado, crítico): com `thresholds`, cor e rótulo mudam no instante em que o número cruza cada limite.
+- A single value against a known range on a dashboard: server load, support score, quota usage.
+- When the value has named states (healthy, busy, critical): with `thresholds`, color and label change the instant the number crosses each limit.
 
-## Quando não usar
+## When not to use
 
-- Use [`progress`](progress.md) para o andamento de uma tarefa com fim conhecido, como um envio de arquivo.
-- Use [`usage-meter`](usage-meter.md) quando importa ver o que ocupa uma cota e quanto falta para o limite.
-- Use [`slider`](slider.md) quando a pessoa precisa ajustar o valor; o medidor é só leitura.
+- Use [`progress`](progress.md) for the progress of a task with a known end, such as a file upload.
+- Use [`usage-meter`](usage-meter.md) when it matters to see what fills a quota and how much remains before the limit.
+- Use [`slider`](slider.md) when the user needs to adjust the value; the gauge is read-only.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -80,56 +80,56 @@ export default function GaugeDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Gauge`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `number` | — | — |
+| `value` (required) | `number` | — | — |
 | `min` | `number` | `0` | — |
 | `max` | `number` | `100` | — |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `detail` | `string` | — | — |
 | `tone` | `GaugeTone` | `"accent"` | — |
 | `thresholds` | `GaugeThreshold[]` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `GaugeThreshold`
 
 A band that starts at `from`: the highest band the value reaches sets the tone and names the state, so it never rests on color alone.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `from` (obrigatória) | `number` | — |
-| `tone` (obrigatória) | `GaugeTone` | — |
-| `label` (obrigatória) | `string` | — |
+| `from` (required) | `number` | — |
+| `tone` (required) | `GaugeTone` | — |
+| `label` (required) | `string` | — |
 
-## Acessibilidade
+## Accessibility
 
-- O anel é um `role="meter"` com `aria-valuemin`, `aria-valuemax`, `aria-valuenow` e um `aria-valuetext` com a porcentagem e o nome da faixa; o desenho e o número animado ficam em `aria-hidden`.
-- Cada faixa de `thresholds` tem um `label` de texto, então o estado não depende só da cor.
-- `label` é obrigatório; o `aria-label` da figura junta rótulo, valor e máximo com um “of” fixo em inglês.
+- The ring is a `role="meter"` with `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, and an `aria-valuetext` with the percentage and the band name; the drawing and the animated number are `aria-hidden`.
+- Each `thresholds` band has a text `label`, so the state doesn't depend on color alone.
+- `label` is required; the figure's `aria-label` joins label, value, and maximum with a fixed English “of”.
 
-## Movimento
+## Motion
 
-- O primeiro preenchimento espera metade do medidor entrar na tela: o arco fecha devagar, sem ultrapassar o valor, enquanto o número conta.
-- A cada novo valor, arco e número vão até lá numa mola; cor e rótulo da faixa mudam quando o número em tela cruza o limite, e o texto entra de baixo se o valor subiu ou de cima se caiu.
-- Com “reduzir movimento”, arco e número saltam para o valor e os textos trocam com um esmaecer rápido.
+- The first fill waits until half of the gauge enters the viewport: the arc closes slowly, without overshooting the value, while the number counts up.
+- On each new value, the arc and number move there on a spring; the band's color and label change when the on-screen number crosses the limit, and the text enters from below if the value rose or from above if it fell.
+- With “reduced motion”, the arc and number jump to the value and the texts swap with a quick fade.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O anel ocupa `min(100%, 176px)` de largura e a espessura do traço escala junto; não há prop de tamanho, então quem manda é a largura do pai.
+- The ring takes `min(100%, 176px)` of width and the stroke thickness scales with it; there is no size prop, so the parent's width decides.
 
-## Notas para IA
+## Notes for AI
 
-- O centro sempre mostra a porcentagem da faixa (`7.4` entre 0 e 10 aparece como 74%), não o valor bruto; use `detail` para dizer o valor com a unidade.
-- Em `thresholds`, vale a faixa de maior `from` que o valor alcança: inclua uma com `from` igual a `min` para sempre haver estado; sem `thresholds`, a cor vem de `tone`.
-- Não aceita `className` nem tamanho: envolva num contêiner com a largura desejada, lembrando que o anel não passa de 176 px.
+- The center always shows the percentage within the range (`7.4` between 0 and 10 appears as 74%), not the raw value; use `detail` to state the value with its unit.
+- In `thresholds`, the band with the highest `from` that the value reaches applies: include one with `from` equal to `min` so there is always a state; without `thresholds`, the color comes from `tone`.
+- It accepts neither `className` nor a size: wrap it in a container with the width you want, remembering that the ring doesn't exceed 176 px.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/gauge · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/gauge · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

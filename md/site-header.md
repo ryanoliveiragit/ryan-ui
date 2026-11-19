@@ -2,23 +2,23 @@
 
 > Cabeçalho de site com menu mega, que ganha fundo ao rolar a página, em três layouts.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/site-header
-- Descrição original (inglês): A sticky website header that turns solid on scroll, with a gliding active link, mega menu panels, and a mobile sheet.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/site-header
+- Original description: A sticky website header that turns solid on scroll, with a gliding active link, mega menu panels, and a mobile sheet.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json`. Caminho do registro, relativo ao endereço do site: `r/site-header.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/site-header.json`. Registry path, relative to the site address: `r/site-header.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Segmented control](segmented-control.md)
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Uses other ryan-ui items (installed along with it): [Segmented control](segmented-control.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/site-header/site-header.tsx`
   - `components/ryan-ui/blocks/site-header/site-header.module.css`
   - `components/ryan-ui/lib/media.ts`
@@ -26,29 +26,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/segmented-control/segmented-control.module.css`
   - `components/ryan-ui/lib/ryan-provider.tsx`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/site-header.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/site-header.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Navegação do topo de um site de produto ou documentação: marca, poucas seções, “Sign in” e uma ação principal, fixa no topo e opaca ao rolar.
-- Seções com muitos destinos que pedem painéis de mega menu com descrição por link e um cartão em destaque (`variant="mega"`).
-- Sites que precisam funcionar no celular: abaixo de 760 px de largura do cabeçalho, os links dobram numa folha de menu.
+- Top navigation for a product or documentation site: brand, a few sections, “Sign in,” and a primary action, fixed at the top and opaque on scroll.
+- Sections with many destinations that call for mega menu panels with a description per link and a featured card (`variant="mega"`).
+- Sites that need to work on mobile: below 760 px of header width, the links fold into a menu sheet.
 
-## Quando não usar
+## When not to use
 
-- Use [`page-header`](page-header.md) para o cabeçalho de uma página dentro do app, com título do projeto, abas e ações.
-- Use [`animated-sidebar`](animated-sidebar.md) quando a navegação do app é um menu lateral com grupos e muitas seções.
-- Use [`drawer`](drawer.md) quando o menu do celular precisa ser um diálogo modal: a folha daqui não prende o foco.
+- Use [`page-header`](page-header.md) for the header of a page inside the app, with project title, tabs, and actions.
+- Use [`animated-sidebar`](animated-sidebar.md) when the app's navigation is a side menu with groups and many sections.
+- Use [`drawer`](drawer.md) when the mobile menu needs to be a modal dialog: the sheet here does not trap focus.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import SiteHeader from "@/components/ryan-ui/blocks/site-header/site-header";
@@ -58,19 +58,19 @@ export default function SiteHeaderDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `RyanMark`
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
 ### `SiteHeader`
 
 A website header in three layouts. It sticks to the top and turns solid once the page scrolls, marks the current section with an indicator that glides between links, opens springy mega menu panels whose content slides in from the side you moved toward, and folds into a menu sheet on narrow containers.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"simple" \| "centered" \| "mega"` | `"mega"` | `simple` puts links beside the brand, `centered` centers them in a quiet capsule, `mega` opens panels for items with links. |
 | `brand` | `{ name: string; href?: string; mark?: ReactNode }` | `{ name: "ryan-ui" }` | — |
@@ -92,11 +92,11 @@ A website header in three layouts. It sticks to the top and turns solid once the
 
 Preview: the header inside a small scrolling page, with a switch between its three layouts.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `SiteHeaderVariant` | `"simple" \| "centered" \| "mega"` |
 
@@ -104,9 +104,9 @@ Sem props próprias: aceita as do elemento ou do primitivo que envolve.
 
 One destination inside a mega menu panel.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `description` | `string` | One short line under the label. |
 | `icon` | `ReactNode` | A plain decorative icon beside the label. |
 | `href` | `string` | — |
@@ -115,9 +115,9 @@ One destination inside a mega menu panel.
 
 A card beside the links in a mega menu panel.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `title` (obrigatória) | `string` | — |
+| `title` (required) | `string` | — |
 | `description` | `string` | — |
 | `href` | `string` | — |
 | `image` | `{ src: string; alt: string }` | — |
@@ -126,19 +126,19 @@ A card beside the links in a mega menu panel.
 
 A top level destination. With `links` and the mega variant it opens a panel; otherwise it is a plain link.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `value` (obrigatória) | `string` | Stable value, also used for `current`. |
-| `label` (obrigatória) | `string` | — |
+| `value` (required) | `string` | Stable value, also used for `current`. |
+| `label` (required) | `string` | — |
 | `href` | `string` | — |
 | `links` | `SiteHeaderLink[]` | — |
 | `feature` | `SiteHeaderFeature` | — |
 
 #### `SiteHeaderAction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `href` | `string` | — |
 | `onClick` | `() => void` | — |
 
@@ -146,54 +146,54 @@ A top level destination. With `links` and the mega variant it opens a panel; oth
 
 What `onNavigate` receives.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
+| `label` (required) | `string` | — |
 | `href` | `string` | — |
 | `section` | `string` | The top level item the destination belongs to. |
 
-### Outras exportações
+### Other exports
 
-- `siteHeaderExampleItems` (valor)
+- `siteHeaderExampleItems` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `←` ou `→` | Movem o foco entre os itens do topo, dando a volta; com um painel aberto, o painel acompanha o item. |
-| `↓` | Num item com painel, abre o painel e leva o foco ao primeiro link. |
-| `↑` ou `↓` | Dentro do painel, movem entre os links; `↑` no primeiro link fecha o painel e devolve o foco ao item. |
-| `Home` ou `End` | Dentro do painel, vão ao primeiro ou ao último link. |
-| `Esc` | Fecha o painel e devolve o foco ao item; com a folha do celular aberta, fecha a folha e devolve o foco ao botão de menu. |
-| `Enter` ou `Espaço` | Num item com painel, abrem ou fecham o painel; no botão de menu, abrem ou fecham a folha. |
+| `←` or `→` | Move focus between the top-level items, wrapping around; with a panel open, the panel follows the item. |
+| `↓` | On an item with a panel, opens the panel and moves focus to the first link. |
+| `↑` or `↓` | Inside the panel, move between links; `↑` on the first link closes the panel and returns focus to the item. |
+| `Home` or `End` | Inside the panel, go to the first or last link. |
+| `Esc` | Closes the panel and returns focus to the item; with the mobile sheet open, closes the sheet and returns focus to the menu button. |
+| `Enter` or `Space` | On an item with a panel, open or close the panel; on the menu button, open or close the sheet. |
 
-## Acessibilidade
+## Accessibility
 
-- Os links do topo ficam num `<nav>` nomeado por `label` (“Main”); itens simples recebem `aria-current="page"`, mas num item com painel o estado atual é só visual.
-- Gatilhos de painel têm `aria-expanded` e `aria-controls`, o painel é uma `role="region"` com o nome do item e a face que sai fica `inert` durante a troca.
-- O botão de menu tem `aria-expanded`, `aria-controls` e rótulo que alterna; a folha não move nem prende o foco ao abrir, e `Esc` a fecha devolvendo o foco ao botão.
+- The top-level links sit in a `<nav>` named by `label` (“Main”); simple items receive `aria-current="page"`, but on an item with a panel the current state is only visual.
+- Panel triggers have `aria-expanded` and `aria-controls`, the panel is a `role="region"` with the item's name, and the outgoing face is `inert` during the switch.
+- The menu button has `aria-expanded`, `aria-controls`, and a label that toggles; the sheet neither moves nor traps focus on open, and `Esc` closes it, returning focus to the button.
 
-## Movimento
+## Motion
 
-- Passado `scrollThreshold` (8 px), o fundo fica opaco com borda e sombra e só clareia de novo perto do topo; o realce de hover (fora do `centered`) e o indicador da seção atual deslizam entre os links.
-- O painel abre após 70 ms de intenção do mouse, a altura segue o conteúdo numa mola sem ultrapassagem e, ao passar para outro item, o conteúdo entra pelo lado para onde você se moveu.
-- A folha do celular desce da barra abrindo a altura numa mola, com as linhas em sequência; com “reduzir movimento” ligado, painel e folha só esmaecem e o ícone de menu não gira.
+- Past `scrollThreshold` (8 px), the background becomes opaque with a border and shadow and only lightens again near the top; the hover highlight (outside `centered`) and the current-section indicator slide between links.
+- The panel opens after 70 ms of mouse intent, the height follows the content on a spring that does not overshoot and, when moving to another item, the content enters from the side you moved toward.
+- The mobile sheet drops from the bar opening its height on a spring, with rows in sequence; with “reduce motion” on, panel and sheet only fade and the menu icon does not rotate.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O cabeçalho é o próprio contêiner: abaixo de 760 px somem os links, a ação secundária e o painel, aparece o botão de menu e alargar de novo fecha a folha.
-- A folha rola por dentro até `--site-header-sheet-max` (padrão `100dvh - 65px`); defina essa variável quando o cabeçalho mora num contêiner de altura fixa.
+- The header is its own container: below 760 px the links, the secondary action, and the panel disappear, the menu button appears, and widening again closes the sheet.
+- The sheet scrolls inside up to `--site-header-sheet-max` (default `100dvh - 65px`); set that variable when the header lives in a fixed-height container.
 
-## Desempenho
+## Performance
 
-- Ouve `scroll` de forma passiva na janela ou em `scrollContainer` e usa um `ResizeObserver` no cabeçalho; os temporizadores de intenção do hover são limpos ao desmontar.
+- Listens to `scroll` passively on the window or on `scrollContainer` and uses a `ResizeObserver` on the header; hover intent timers are cleared on unmount.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `SiteHeader`; o export padrão é `SiteHeaderBlock`, o preview com troca de layout dentro de uma página que rola.
-- Se a página rola dentro de um elemento, passe-o em `scrollContainer`: ele decide quando o fundo fica opaco e recebe `overflow: hidden` enquanto a folha do celular está aberta.
-- Itens com `links` só viram painel no `mega`; como o evento do clique não chega a `onNavigate`, para roteamento no cliente deixe os destinos sem `href` (viram botões) e navegue no callback.
+- Import the named component `SiteHeader`; the default export is `SiteHeaderBlock`, the preview with layout switching inside a scrolling page.
+- If the page scrolls inside an element, pass it as `scrollContainer`: it decides when the background becomes opaque and receives `overflow: hidden` while the mobile sheet is open.
+- Items with `links` only become a panel in `mega`; since the click event does not reach `onNavigate`, for client-side routing leave the destinations without `href` (they become buttons) and navigate in the callback.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/site-header · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/site-header · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

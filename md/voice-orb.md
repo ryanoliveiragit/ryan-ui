@@ -2,48 +2,48 @@
 
 > Orbe de assistente de voz que mostra quando ele escuta, pensa ou fala, com anéis e barras que acompanham o volume.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/voice-orb
-- Descrição original (inglês): A voice assistant orb with idle, listening, thinking and speaking states whose rings and waveform bars follow a live level value.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/voice-orb
+- Original description: A voice assistant orb with idle, listening, thinking and speaking states whose rings and waveform bars follow a live level value.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/voice-orb.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/voice-orb.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/voice-orb.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/voice-orb.json`. Caminho do registro, relativo ao endereço do site: `r/voice-orb.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/voice-orb.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/voice-orb.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/voice-orb.json`. Registry path, relative to the site address: `r/voice-orb.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/voice-orb/voice-orb.tsx`
   - `components/ryan-ui/voice-orb/voice-orb.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/voice-orb.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/voice-orb.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- O rosto de um assistente de voz: mostra de quem é a vez, entre repouso, ouvindo, pensando e falando.
-- Quando há um nível de áudio ao vivo, do microfone ou da reprodução, para os anéis e as barras acompanharem a voz.
-- Como o botão principal da conversa por voz, para começar a ouvir ou interromper a fala, com `onPress`.
+- The face of a voice assistant: shows whose turn it is, among idle, listening, thinking and speaking.
+- When there is a live audio level, from the microphone or playback, so the rings and bars follow the voice.
+- As the main button of the voice conversation, to start listening or interrupt speech, with `onPress`.
 
-## Quando não usar
+## When not to use
 
-- Use [`loading-states`](loading-states.md) para indicar que a IA está pensando numa conversa de texto.
-- Use [`button`](button.md) com um ícone de microfone quando basta ligar e desligar a gravação, sem estados nem nível de áudio.
-- Use [`loader`](loader.md) para um carregamento genérico, sem relação com voz.
+- Use [`loading-states`](loading-states.md) to indicate that the AI is thinking in a text conversation.
+- Use [`button`](button.md) with a microphone icon when you only need to turn recording on and off, without states or an audio level.
+- Use [`loader`](loader.md) for generic loading, unrelated to voice.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useEffect, useRef, useState } from "react";
@@ -92,13 +92,13 @@ export default function VoiceOrbDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `VoiceOrb`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `state` | `"idle" \| "listening" \| "thinking" \| "speaking"` | `"idle"` | Who has the floor. Drives the colors, the rings and how the bars move. |
 | `level` | `number \| MotionValue<number>` | `0` | Loudness from 0 to 1 (microphone while listening, playback while speaking). Pass a motion value to update it every frame without re-rendering. |
@@ -109,41 +109,41 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onPress` | `() => void` | — | Makes the orb a button, for example to start listening or to interrupt the answer. |
 | `className` | `string` | — | Extra class for the root element. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `VoiceOrbState` | `"idle" \| "listening" \| "thinking" \| "speaking"` |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | Com `onPress`, o orbe é um `<button>` e essas teclas o acionam; sem `onPress`, ele não recebe foco. |
+| `Enter` or `Space` | With `onPress`, the orb is a `<button>` and these keys activate it; without `onPress`, it does not receive focus. |
 
-## Acessibilidade
+## Accessibility
 
-- Com `onPress` o orbe é um `<button>` com `aria-label` igual a `label`; sem `onPress`, é um `role="img"` com o mesmo nome.
-- O estado fica num `role="status"`, visível como legenda ou só para leitor de tela com `showLabel={false}`; os textos padrão (“Tap to talk”, “Listening”, “Thinking”, “Speaking”) mudam por `stateLabels`.
-- O `label` não muda com o estado: se o toque faz coisas diferentes, como começar a ouvir ou interromper, troque o `label` a cada estado.
+- With `onPress` the orb is a `<button>` with `aria-label` equal to `label`; without `onPress`, it is a `role="img"` with the same name.
+- The state sits in a `role="status"`, visible as a caption or for screen readers only with `showLabel={false}`; the default texts (“Tap to talk”, “Listening”, “Thinking”, “Speaking”) change through `stateLabels`.
+- The `label` does not change with the state: if the tap does different things, such as start listening or interrupt, change the `label` for each state.
 
-## Movimento
+## Motion
 
-- Em repouso o núcleo respira; ouvindo, anéis contornados se abrem em volta; pensando, um arco gira; falando, o núcleo se enche da cor de destaque e os anéis viram discos suaves.
-- Ouvindo e falando, as barras e os anéis seguem `level` a cada quadro: a barra do meio sobe mais e os anéis de fora seguem com uma mola mais frouxa, como uma onda; pensando, as barras ondulam sozinhas.
-- Com “reduzir movimento” ligado, cada estado vira uma forma parada: barras fixas por estado, anéis num tamanho só, sem respiração, giro nem pulso do núcleo.
+- At rest the core breathes; listening, outlined rings open around it; thinking, an arc spins; speaking, the core fills with the accent color and the rings become soft discs.
+- While listening and speaking, the bars and rings follow `level` on every frame: the middle bar rises most and the outer rings follow with a looser spring, like a wave; while thinking, the bars undulate on their own.
+- With “reduce motion” on, each state becomes a still shape: fixed bars per state, rings at a single size, with no breathing, spinning or core pulse.
 
-## Desempenho
+## Performance
 
-- Cada uma das cinco barras roda um callback por quadro enquanto o orbe está montado, mesmo em repouso ou com “reduzir movimento”; mantenha um orbe por tela e desmonte-o fora da conversa por voz.
-- Passe `level` como `MotionValue`, por exemplo alimentado por um `AnalyserNode`, para atualizar a cada quadro sem renderizar o React; um número em `level` exige uma renderização a cada mudança.
+- Each of the five bars runs a per-frame callback while the orb is mounted, even at rest or with “reduce motion”; keep one orb per screen and unmount it outside the voice conversation.
+- Pass `level` as a `MotionValue`, for example fed by an `AnalyserNode`, to update every frame without rendering React; a number in `level` requires a render on every change.
 
-## Notas para IA
+## Notes for AI
 
-- O orbe não lê o microfone: calcule o volume de 0 a 1 e passe em `level`, de preferência como `MotionValue`; `state` decide cores, anéis e o movimento das barras.
-- Use `onPress` para começar a ouvir ou interromper a fala, e mude `label` conforme o que o toque faz em cada estado.
-- `size` é o diâmetro em pixels, anéis incluídos (padrão 176); o orbe não encolhe com o contêiner, então escolha o tamanho pensando na menor tela.
+- The orb does not read the microphone: compute the volume from 0 to 1 and pass it in `level`, preferably as a `MotionValue`; `state` decides colors, rings and the bars' movement.
+- Use `onPress` to start listening or interrupt speech, and change `label` according to what the tap does in each state.
+- `size` is the diameter in pixels, rings included (default 176); the orb does not shrink with the container, so choose the size with the smallest screen in mind.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/voice-orb · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/voice-orb · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,50 +2,50 @@
 
 > Campo 5×5 de mentirinha: vire as peças para achar gemas e aumentar o multiplicador, mas uma mina encerra a rodada.
 
-- Tipo: componente (categoria Jogos), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/mines-game
-- Descrição original (inglês): A play-money mines game on a 5×5 grid: tiles flip to reveal gems that raise the multiplier, and a mine ends the round unless you cash out first.
+- Type: component (category Games), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/mines-game
+- Original description: A play-money mines game on a 5×5 grid: tiles flip to reveal gems that raise the multiplier, and a mine ends the round unless you cash out first.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json`. Caminho do registro, relativo ao endereço do site: `r/mines-game.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/mines-game.json`. Registry path, relative to the site address: `r/mines-game.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/mines-game/mines-game.tsx`
   - `components/ryan-ui/mines-game/mines-game.module.css`
   - `components/ryan-ui/mines-game/play-money.tsx`
   - `components/ryan-ui/mines-game/play-money.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/mines-game.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/mines-game.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Demos ou áreas de jogo com saldo fictício em que cada gema encontrada aumenta o multiplicador e a pessoa decide quando parar.
-- Jogos jogáveis pelo teclado: o tabuleiro 5 × 5 tem foco itinerante e setas para andar entre as casas.
-- Explicar risco e recompensa: mais minas dão saltos maiores no multiplicador, que é o pagamento justo menos `margin`.
+- Demos or game areas with a play-money balance where each gem found raises the multiplier and the person decides when to stop.
+- Games playable by keyboard: the 5 × 5 board has roving focus and arrow keys to move between tiles.
+- Explain risk and reward: more mines give bigger jumps in the multiplier, which is the fair payout minus `margin`.
 
-## Quando não usar
+## When not to use
 
-- Não use com dinheiro real nem prêmios: o saldo é fictício e as minas são sorteadas no navegador com `random`.
-- Use [`crash-game`](crash-game.md) quando a tensão deve vir do tempo, sacando antes do estouro de uma curva ao vivo.
-- Use [`plinko-game`](plinko-game.md) ou [`slide-game`](slide-game.md) quando o resultado deve sair sozinho, sem decisões durante a rodada.
+- Do not use with real money or prizes: the balance is play money and the mines are drawn in the browser with `random`.
+- Use [`crash-game`](crash-game.md) when the tension should come from time, cashing out before a live curve crashes.
+- Use [`plinko-game`](plinko-game.md) or [`slide-game`](slide-game.md) when the result should come out on its own, with no decisions during the round.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -76,15 +76,15 @@ export default function MinesGameDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MinesGame`
 
 A mines game with fake money: every gem uncovered in the 5×5 grid raises the multiplier, a mine ends the round, and tiles flip to show what they hid.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `balance` | `number` | — | Controlled play-money balance. |
 | `defaultBalance` | `number` | `1000` | Starting balance when uncontrolled; the reset button returns to it. |
@@ -104,25 +104,25 @@ A mines game with fake money: every gem uncovered in the 5×5 grid raises the mu
 
 The card around a game: title, a "Play money" tag, the balance and its reset.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | Name of the game, shown in the header and used as the region label. |
-| `money` (obrigatória) | `PlayMoney` | — | The balance from `usePlayMoney`. |
+| `title` (required) | `string` | — | Name of the game, shown in the header and used as the region label. |
+| `money` (required) | `PlayMoney` | — | The balance from `usePlayMoney`. |
 | `busy` | `boolean` | `false` | True while a round is running: the reset button waits for it to end. |
 | `announcement` | `string` | `""` | Result text for screen readers, announced politely. |
 | `className` | `string` | — | Extra class for the card. |
-| `children` (obrigatória) | `ReactNode` | — | The stage and controls of the game. |
+| `children` (required) | `ReactNode` | — | The stage and controls of the game. |
 
 ### `BetField`
 
 Bet amount with half, double and max shortcuts. Typing is free; the amount is clamped when the field loses focus.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` (obrigatória) | `number` | — | Bet amount. |
-| `onValueChange` (obrigatória) | `(value: number) => void` | — | Called with the new amount, already clamped between `min` and `max`. |
+| `value` (required) | `number` | — | Bet amount. |
+| `onValueChange` (required) | `(value: number) => void` | — | Called with the new amount, already clamped between `min` and `max`. |
 | `min` | `number` | `1` | Smallest bet. |
-| `max` (obrigatória) | `number` | — | Largest bet, usually the balance. |
+| `max` (required) | `number` | — | Largest bet, usually the balance. |
 | `disabled` | `boolean` | `false` | Locks the field, for example while a round runs. |
 | `label` | `string` | `"Bet"` | Field label. |
 
@@ -130,11 +130,11 @@ Bet amount with half, double and max shortcuts. Typing is free; the amount is cl
 
 A small optional number, such as a target multiplier.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Field label. |
-| `value` (obrigatória) | `string` | — | Text in the field (digits and one dot). Empty means "not set". |
-| `onValueChange` (obrigatória) | `(value: string) => void` | — | Called with the cleaned text on every edit. |
+| `label` (required) | `string` | — | Field label. |
+| `value` (required) | `string` | — | Text in the field (digits and one dot). Empty means "not set". |
+| `onValueChange` (required) | `(value: string) => void` | — | Called with the cleaned text on every edit. |
 | `placeholder` | `string` | — | Shown while the field is empty. |
 | `suffix` | `string` | — | Short unit after the number, for example "×". |
 | `disabled` | `boolean` | `false` | Locks the field. |
@@ -143,119 +143,119 @@ A small optional number, such as a target multiplier.
 
 A labelled slot for a custom control, aligned with the bet field.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | Label above the control. |
-| `children` (obrigatória) | `ReactNode` | — | The control: a stepper, a segmented choice… |
+| `label` (required) | `string` | — | Label above the control. |
+| `children` (required) | `ReactNode` | — | The control: a stepper, a segmented choice… |
 
 ### `PlayButton`
 
 The main action of a game. One button keeps focus while its label changes (Bet, Cash out, …).
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `labelKey` (obrigatória) | `string` | — | Identifies the label: when it changes, the old label slides out and the new one slides in. |
+| `labelKey` (required) | `string` | — | Identifies the label: when it changes, the old label slides out and the new one slides in. |
 | `tone` | `"accent" \| "neutral"` | `"accent"` | "accent" for the main action, "neutral" for a waiting state. |
 | `disabled` | `boolean` | `false` | Turns the action off. The button stays focusable (aria-disabled), so keyboard focus is never lost while a round runs. |
-| `onClick` (obrigatória) | `() => void` | — | Runs the action. |
-| `children` (obrigatória) | `ReactNode` | — | Label content. |
+| `onClick` (required) | `() => void` | — | Runs the action. |
+| `children` (required) | `ReactNode` | — | Label content. |
 
 ### `HistoryChips`
 
 A row of past results. A new chip springs in at the start and pushes the others along.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `entries` (obrigatória) | `HistoryEntry[]` | — | Past results, newest first. |
-| `label` (obrigatória) | `string` | — | Label of the list for screen readers. |
+| `entries` (required) | `HistoryEntry[]` | — | Past results, newest first. |
+| `label` (required) | `string` | — | Label of the list for screen readers. |
 
-### Tipos exportados
+### Exported types
 
 #### `MinesRound`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number` | Round number, starting at 1. |
-| `mines` (obrigatória) | `number` | Mines hidden in the grid this round. |
-| `gems` (obrigatória) | `number` | Gems the player uncovered. |
-| `multiplier` (obrigatória) | `number` | Multiplier reached with those gems. |
-| `outcome` (obrigatória) | `"cashed-out" \| "mine"` | "cashed-out" when the player left with the payout, "mine" when a mine ended the round. |
-| `bet` (obrigatória) | `number` | Amount bet. |
-| `payout` (obrigatória) | `number` | Amount paid back (0 after a mine). |
+| `id` (required) | `number` | Round number, starting at 1. |
+| `mines` (required) | `number` | Mines hidden in the grid this round. |
+| `gems` (required) | `number` | Gems the player uncovered. |
+| `multiplier` (required) | `number` | Multiplier reached with those gems. |
+| `outcome` (required) | `"cashed-out" \| "mine"` | "cashed-out" when the player left with the payout, "mine" when a mine ended the round. |
+| `bet` (required) | `number` | Amount bet. |
+| `payout` (required) | `number` | Amount paid back (0 after a mine). |
 
 #### `PlayMoneyOptions`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `balance` | `number` | Controlled balance. |
-| `defaultBalance` (obrigatória) | `number` | Starting balance when uncontrolled; a reset returns to it. |
+| `defaultBalance` (required) | `number` | Starting balance when uncontrolled; a reset returns to it. |
 | `onBalanceChange` | `(balance: number) => void` | Called with the new balance after a bet, a payout or a reset. |
 
 #### `PlayMoneyGain`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number` | Changes on every payout, so the same amount twice still animates. |
-| `amount` (obrigatória) | `number` | Amount paid. |
+| `id` (required) | `number` | Changes on every payout, so the same amount twice still animates. |
+| `amount` (required) | `number` | Amount paid. |
 
 #### `PlayMoney`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `balance` (obrigatória) | `number` | Current fake balance. |
-| `gain` (obrigatória) | `PlayMoneyGain \| null` | The latest payout, for the "+12.40" flyer next to the balance. |
-| `spend` (obrigatória) | `(amount: number) => boolean` | Takes a bet out of the balance. Returns false (and takes nothing) when the balance is too low. |
-| `pay` (obrigatória) | `(amount: number) => void` | Adds a payout to the balance. |
-| `reset` (obrigatória) | `() => void` | Returns the balance to its starting amount. |
+| `balance` (required) | `number` | Current fake balance. |
+| `gain` (required) | `PlayMoneyGain \| null` | The latest payout, for the "+12.40" flyer next to the balance. |
+| `spend` (required) | `(amount: number) => boolean` | Takes a bet out of the balance. Returns false (and takes nothing) when the balance is too low. |
+| `pay` (required) | `(amount: number) => void` | Adds a payout to the balance. |
+| `reset` (required) | `() => void` | Returns the balance to its starting amount. |
 
 #### `HistoryEntry`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `number \| string` | Stable key of the round. |
-| `label` (obrigatória) | `string` | Text of the chip, for example "2.31×". |
-| `tone` (obrigatória) | `"low" \| "mid" \| "high"` | "low" is muted, "mid" is tinted, "high" takes the accent fill. |
+| `id` (required) | `number \| string` | Stable key of the round. |
+| `label` (required) | `string` | Text of the chip, for example "2.31×". |
+| `tone` (required) | `"low" \| "mid" \| "high"` | "low" is muted, "mid" is tinted, "high" takes the accent fill. |
 
-### Outras exportações
+### Other exports
 
-- `formatAmount` (função)
-- `formatMultiplier` (função)
-- `roundAmount` (função)
+- `formatAmount` (function)
+- `formatMultiplier` (function)
+- `roundAmount` (function)
 - `usePlayMoney` (hook)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `↑` ou `↓` ou `←` ou `→` | No tabuleiro, movem o foco entre as casas e param na borda, sem dar a volta. |
-| `Home` ou `End` | Levam o foco à primeira ou à última casa da linha atual. |
-| `Enter` ou `Espaço` | Numa casa fechada durante a rodada, vira a casa. |
-| `Tab` | Entra no tabuleiro pela última casa focada, a única na ordem de foco, e depois segue para os controles de aposta e de minas. |
-| `Enter` ou `Espaço` | No botão principal, aposta, saca depois da primeira gema e aposta de novo; é o mesmo `<button>` o tempo todo. |
-| `Enter` | No campo de aposta, confirma o valor e o ajusta entre `minBet` e o saldo. |
+| `↑` or `↓` or `←` or `→` | On the board, move focus between tiles and stop at the edge, without wrapping. |
+| `Home` or `End` | Move focus to the first or last tile of the current row. |
+| `Enter` or `Space` | On a closed tile during the round, flips the tile. |
+| `Tab` | Enters the board at the last focused tile, the only one in the focus order, and then moves on to the bet and mine controls. |
+| `Enter` or `Space` | On the main button, bets, cashes out after the first gem and bets again; it is the same `<button>` the whole time. |
+| `Enter` | In the bet field, confirms the value and clamps it between `minBet` and the balance. |
 
-## Acessibilidade
+## Accessibility
 
-- O tabuleiro é um `role="group"` com foco itinerante (só uma casa tem `tabIndex={0}`), e cada casa diz linha, coluna e estado (“hidden”, “gem” ou “mine”) no `aria-label`.
-- Casas já viradas ou fora de rodada usam `aria-disabled` e continuam na navegação; cada jogada é anunciada numa região `role="status"`, e o número de minas, noutra região viva.
-- Saldo, atalhos de aposta e botão principal seguem o padrão dos outros jogos, com `aria-disabled` para manter o foco; todos os textos estão em inglês.
+- The board is a `role="group"` with roving focus (only one tile has `tabIndex={0}`), and each tile states row, column and state (“hidden”, “gem” or “mine”) in its `aria-label`.
+- Tiles already flipped or outside a round use `aria-disabled` and stay in the navigation; each move is announced in a `role="status"` region, and the mine count in another live region.
+- Balance, bet shortcuts and main button follow the pattern of the other games, with `aria-disabled` to keep focus; all texts are in English.
 
-## Movimento
+## Motion
 
-- As casas viram em 3D com uma mola de leve quique; no fim da rodada, as que faltam viram numa onda que parte da casa em foco, e uma mina faz o tabuleiro tremer.
-- O multiplicador dá um pequeno salto a cada gema, o número de minas rola na direção do ajuste e, numa nova aposta, as casas abertas fecham numa varredura diagonal.
-- Com “reduzir movimento” ligado, as casas viram na hora, sem onda, tremor, entrada escalonada nem elevação no hover.
+- Tiles flip in 3D with a spring with a slight bounce; at the end of the round, the remaining ones flip in a wave starting from the focused tile, and a mine makes the board shake.
+- The multiplier makes a small hop on each gem, the mine count rolls in the direction of the adjustment and, on a new bet, the open tiles close in a diagonal sweep.
+- With “reduce motion” on, tiles flip instantly, with no wave, shake, staggered entrance or hover lift.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O cartão vai até 40rem e é um contêiner: estreito, o tabuleiro fica acima dos controles; a partir de 34rem os dois ficam lado a lado, com o painel em 15rem e o tabuleiro em até 24rem.
+- The card goes up to 40rem and is a container: when narrow, the board sits above the controls; from 34rem they sit side by side, with the panel at 15rem and the board up to 24rem.
 
-## Notas para IA
+## Notes for AI
 
-- `mines` (1 a 24) pode ser controlado com `onMinesChange`; a cada fim de rodada, `onRoundEnd` traz gemas, multiplicador, resultado (`cashed-out` ou `mine`), aposta e pagamento.
-- `random` só é chamado na aposta, para esconder as minas, então um gerador com semente torna o tabuleiro repetível; achar todas as gemas encerra a rodada com saque automático.
-- Como os outros jogos, é dinheiro de mentira com a própria cópia de `play-money.tsx`; o saldo pode ser controlado com `balance` e `onBalanceChange`.
+- `mines` (1 to 24) can be controlled with `onMinesChange`; at the end of each round, `onRoundEnd` brings gems, multiplier, outcome (`cashed-out` or `mine`), bet and payout.
+- `random` is only called at bet time, to hide the mines, so a seeded generator makes the board repeatable; finding all the gems ends the round with an automatic cash-out.
+- Like the other games, it is play money with its own copy of `play-money.tsx`; the balance can be controlled with `balance` and `onBalanceChange`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/mines-game · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/mines-game · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,48 +2,48 @@
 
 > Velas de abertura, máxima, mínima e fechamento, com mira que acompanha o cursor e mostra os valores de cada período.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/candlestick-chart
-- Descrição original (inglês): OHLC candles with wicks in the status colors that grow in from left to right, with a crosshair that snaps to each candle and a tooltip of its open, high, low and close.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/candlestick-chart
+- Original description: OHLC candles with wicks in the status colors that grow in from left to right, with a crosshair that snaps to each candle and a tooltip of its open, high, low and close.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json`. Caminho do registro, relativo ao endereço do site: `r/candlestick-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/candlestick-chart.json`. Registry path, relative to the site address: `r/candlestick-chart.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Files, once installed:
   - `components/ryan-ui/candlestick-chart/candlestick-chart.tsx`
   - `components/ryan-ui/candlestick-chart/candlestick-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/candlestick-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/candlestick-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Preços de abertura, máxima, mínima e fechamento ao longo de uma sequência de pregões ou períodos.
-- Leitura exata de um período: a mira encaixa em cada vela e a dica mostra os quatro preços, a variação e o volume.
-- Trocar de intervalo (1 mês, 3 meses): velas com a mesma `key` deslizam para o novo lugar.
+- Open, high, low, and close prices over a sequence of trading sessions or periods.
+- Exact reading of a period: the crosshair snaps to each candle and the tooltip shows the four prices, the change, and the volume.
+- Switch ranges (1 month, 3 months): candles with the same `key` slide to the new place.
 
-## Quando não usar
+## When not to use
 
-- Use [`line-chart`](line-chart.md) quando basta o fechamento ou é preciso comparar ativos.
-- Use [`brush-chart`](brush-chart.md) para históricos longos que pedem zoom: aqui todas as velas de `data` ficam na tela.
-- Use [`sparkline`](sparkline.md) para a tendência compacta ao lado de um preço.
+- Use [`line-chart`](line-chart.md) when the close is enough or assets need to be compared.
+- Use [`brush-chart`](brush-chart.md) for long histories that need zoom: here all the candles in `data` stay on screen.
+- Use [`sparkline`](sparkline.md) for a compact trend next to a price.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -98,16 +98,16 @@ export default function CandlestickChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CandlestickChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `Candle[]` | — | Candles in time order, oldest first. |
-| `label` (obrigatória) | `string` | — | What is priced, such as "Northwind Corp." Names the chart for assistive technology and heads the readout. |
+| `data` (required) | `Candle[]` | — | Candles in time order, oldest first. |
+| `label` (required) | `string` | — | What is priced, such as "Northwind Corp." Names the chart for assistive technology and heads the readout. |
 | `period` | `string` | — | The range on show, such as "Last 30 sessions". It rests beside the change. |
 | `height` | `number` | `240` | Plot height in pixels. |
 | `formatValue` | `(value: number) => string` | `value => money.format(value)` | Formats prices on the axis, in the header and in the tooltip. |
@@ -118,59 +118,59 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onActiveChange` | `(index: number \| null) => void` | — | Called when the crosshair moves to another candle or leaves the plot. |
 | `className` | `string` | — | Extra class on the root figure. |
 
-### Tipos exportados
+### Exported types
 
 #### `Candle`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity, such as an ISO date. A candle whose key survives a data change slides to its new place instead of redrawing. |
-| `label` (obrigatória) | `string` | Full label for the tooltip and screen readers, such as "Tue, Nov 10". |
+| `key` (required) | `string` | Stable identity, such as an ISO date. A candle whose key survives a data change slides to its new place instead of redrawing. |
+| `label` (required) | `string` | Full label for the tooltip and screen readers, such as "Tue, Nov 10". |
 | `axisLabel` | `string` | Short label under the candle, such as "Nov 10". Leave it out on most candles to keep the axis quiet. |
-| `open` (obrigatória) | `number` | Price at the start of the period. |
-| `high` (obrigatória) | `number` | Highest price of the period. |
-| `low` (obrigatória) | `number` | Lowest price of the period. |
-| `close` (obrigatória) | `number` | Price at the end of the period. |
+| `open` (required) | `number` | Price at the start of the period. |
+| `high` (required) | `number` | Highest price of the period. |
+| `low` (required) | `number` | Lowest price of the period. |
+| `close` (required) | `number` | Price at the end of the period. |
 | `volume` | `number` | Optional traded volume, shown in the tooltip. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Leva o foco à área do gráfico e ativa a vela mais recente. |
-| `←` ou `↓` | Vai à vela anterior. |
-| `→` ou `↑` | Vai à vela seguinte. |
-| `Page Up` ou `Page Down` | Avança ou recua cinco velas. |
-| `Home` ou `End` | Vai à primeira ou à última vela. |
-| `Esc` | Tira a mira e fecha a dica. |
+| `Tab` | Moves focus to the chart area and activates the most recent candle. |
+| `←` or `↓` | Moves to the previous candle. |
+| `→` or `↑` | Moves to the next candle. |
+| `Page Up` or `Page Down` | Moves forward or back five candles. |
+| `Home` or `End` | Moves to the first or last candle. |
+| `Esc` | Removes the crosshair and closes the tooltip. |
 
-## Acessibilidade
+## Accessibility
 
-- A área de leitura é um `role="slider"` cujo `aria-valuetext` traz o rótulo do período e os quatro preços; uma tabela oculta lista todas as velas.
-- Alta e baixa são distinguidas só pela cor (`--success` e `--danger`); o sinal da variação aparece na dica, não no desenho.
-- `label` é obrigatório; “Open”, “High”, “Low”, “Close” e “Volume” estão em inglês no código.
+- The reading area is a `role="slider"` whose `aria-valuetext` carries the period label and the four prices; a hidden table lists all the candles.
+- Up and down are distinguished by color only (`--success` and `--danger`); the sign of the change appears in the tooltip, not in the drawing.
+- `label` is required; “Open”, “High”, “Low”, “Close”, and “Volume” are in English in the code.
 
-## Movimento
+## Motion
 
-- Na primeira aparição as velas crescem de um traço na altura do corpo, da esquerda para a direita; a linha do último fechamento aparece em seguida.
-- A mira vertical encaixa na vela e desliza com mola entre elas, com a dica junto; a linha horizontal segue o ponteiro ou, pelo teclado, repousa no fechamento.
-- Com “reduzir movimento”, velas, grade e mira aparecem e mudam sem transição.
+- On first appearance the candles grow from a line at body height, left to right; the last close line appears next.
+- The vertical crosshair snaps to the candle and slides with a spring between them, with the tooltip alongside; the horizontal line follows the pointer or, by keyboard, rests on the close.
+- With “reduce motion”, candles, grid, and crosshair appear and change without transition.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A largura é a do contêiner: o corpo de cada vela ocupa 62% da sua fatia, entre 1,5 e 14 px, e os rótulos do eixo guardam ao menos 58 px entre si.
-- A dica passa para a esquerda da vela quando não cabe à direita, e a camada de leitura usa `touch-action: pan-y` para a página continuar rolando na vertical.
+- The width is the container's: each candle's body takes 62% of its slice, between 1.5 and 14 px, and the axis labels keep at least 58 px between them.
+- The tooltip moves to the left of the candle when it does not fit on the right, and the reading layer uses `touch-action: pan-y` so the page keeps scrolling vertically.
 
-## Desempenho
+## Performance
 
-- Cada vela é um `path` animado e o corpo nunca fica abaixo de 1,5 px: com mais velas do que a largura comporta elas se sobrepõem, então agregue em períodos maiores.
+- Each candle is an animated `path` and the body never goes below 1.5 px: with more candles than the width can hold they overlap, so aggregate into larger periods.
 
-## Notas para IA
+## Notes for AI
 
-- Cada vela é `{ key, label, axisLabel?, open, high, low, close, volume? }`, da mais antiga à mais nova; ponha `axisLabel` só em algumas (toda segunda-feira, por exemplo).
-- A mira pode ser controlada com `activeIndex` e `onActiveChange`, útil para sincronizar com outro gráfico; sem isso, use `defaultActiveIndex` ou deixe livre.
-- `formatValue` formata eixo, título e dica (o padrão tem duas casas e nenhum símbolo de moeda); a variação do título é o último fechamento menos a primeira abertura de `data`.
+- Each candle is `{ key, label, axisLabel?, open, high, low, close, volume? }`, from oldest to newest; set `axisLabel` on only some (every Monday, for example).
+- The crosshair can be controlled with `activeIndex` and `onActiveChange`, useful for syncing with another chart; otherwise, use `defaultActiveIndex` or leave it free.
+- `formatValue` formats the axis, title, and tooltip (the default has two decimal places and no currency symbol); the title's change is the last close minus the first open in `data`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/candlestick-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/candlestick-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

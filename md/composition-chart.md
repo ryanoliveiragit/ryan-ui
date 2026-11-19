@@ -2,48 +2,48 @@
 
 > Barra empilhada de 100% com legenda: mostra as partes de um todo e desliza os segmentos quando os dados mudam.
 
-- Tipo: componente (categoria Dados), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/composition-chart
-- Descrição original (inglês): 100% stacked bar of the parts of a whole with a legend: segments slide to their new shares when the data changes, and legend rows switch parts off and on.
+- Type: component (category Data), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/composition-chart
+- Original description: 100% stacked bar of the parts of a whole with a legend: segments slide to their new shares when the data changes, and legend rows switch parts off and on.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json`. Caminho do registro, relativo ao endereço do site: `r/composition-chart.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/composition-chart.json`. Registry path, relative to the site address: `r/composition-chart.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/composition-chart/composition-chart.tsx`
   - `components/ryan-ui/composition-chart/composition-chart.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/composition-chart.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/composition-chart.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- As partes de um único todo quando a participação de cada uma importa mais que o histórico: gasto por serviço, receita por plano.
-- Deixar a pessoa tirar uma parte da conta: cada linha da legenda desliga ou religa a parte e as demais se redistribuem na barra.
-- Comparar as mesmas partes entre períodos: com as mesmas `key`, os segmentos deslizam para as novas participações.
+- The parts of a single whole when each one's share matters more than the history: spend by service, revenue by plan.
+- Let the user take a part out of the calculation: each legend row turns the part off or on and the others redistribute in the bar.
+- Compare the same parts across periods: with the same `key`s, the segments slide to the new shares.
 
-## Quando não usar
+## When not to use
 
-- Use [`usage-meter`](usage-meter.md) quando as partes preenchem um limite fixo, como o armazenamento de um plano.
-- Use [`treemap`](treemap.md) para partes dentro de partes, com navegação por níveis.
-- Use [`streamgraph`](streamgraph.md) quando interessa como a mistura muda ao longo do tempo.
+- Use [`usage-meter`](usage-meter.md) when the parts fill a fixed limit, such as a plan's storage.
+- Use [`treemap`](treemap.md) for parts within parts, with navigation by levels.
+- Use [`streamgraph`](streamgraph.md) when how the mix changes over time is what matters.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -82,16 +82,16 @@ export default function CompositionChartDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `CompositionChart`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `data` (obrigatória) | `CompositionPart[]` | — | The parts, in the order they should sit in the bar and the legend. |
-| `label` (obrigatória) | `string` | — | What the whole is, such as "Cloud spend by service". Names the chart for assistive technology and heads the readout. |
+| `data` (required) | `CompositionPart[]` | — | The parts, in the order they should sit in the bar and the legend. |
+| `label` (required) | `string` | — | What the whole is, such as "Cloud spend by service". Names the chart for assistive technology and heads the readout. |
 | `totalLabel` | `string` | `"total"` | Short text beside the total, such as "total in November". |
 | `formatValue` | `(value: number) => string` | `value => grouped.format(value)` | Formats the total and each part's value. |
 | `barHeight` | `number` | `28` | Height of the bar in pixels. |
@@ -101,46 +101,46 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `onHiddenChange` | `(keys: string[]) => void` | — | Called when a legend item switches a part on or off. The last part on show cannot be switched off. |
 | `className` | `string` | — | Extra class on the root figure. |
 
-### Tipos exportados
+### Exported types
 
 #### `CompositionPart`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `key` (obrigatória) | `string` | Stable identity. A part that survives a data change keeps its segment and slides to its new share. |
-| `label` (obrigatória) | `string` | Name in the legend and the tooltip. |
-| `value` (obrigatória) | `number` | Size of the part. Shares are worked out against the sum of the parts on show. |
+| `key` (required) | `string` | Stable identity. A part that survives a data change keeps its segment and slides to its new share. |
+| `label` (required) | `string` | Name in the legend and the tooltip. |
+| `value` (required) | `number` | Size of the part. Shares are worked out against the sum of the parts on show. |
 | `color` | `string` | Any CSS color. Parts default to the shared --series-* palette in data order, then neutral steps. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Percorre as linhas da legenda; a parte em foco se destaca na barra e mostra a dica. |
-| `Enter` ou `Espaço` | Desligam ou religam a parte em foco; a última parte visível não pode ser desligada. |
+| `Tab` | Moves through the legend rows; the focused part stands out in the bar and shows the tooltip. |
+| `Enter` or `Space` | Turn the focused part off or on; the last visible part cannot be turned off. |
 
-## Acessibilidade
+## Accessibility
 
-- A barra fica em `aria-hidden`: os dados vêm da legenda, em que cada linha é um botão com `aria-pressed`, nome, valor e participação.
-- O total do título também está em `aria-hidden`: se ele for essencial, repita-o em `label`, que é obrigatório e nomeia a figura.
-- “Value”, “Share”, “Hidden” e a instrução da legenda estão em inglês no código; só `label`, `totalLabel` e os nomes das partes são seus.
+- The bar is `aria-hidden`: the data comes from the legend, where each row is a button with `aria-pressed`, name, value, and share.
+- The title total is also `aria-hidden`: if it is essential, repeat it in `label`, which is required and names the figure.
+- “Value”, “Share”, “Hidden”, and the legend instruction are in English in the code; only `label`, `totalLabel`, and the part names are yours.
 
-## Movimento
+## Motion
 
-- Na primeira aparição os segmentos crescem da borda esquerda, um após o outro, e o total e as porcentagens contam a partir do zero.
-- Com dados novos ou uma parte desligada, os segmentos deslizam com mola sem ultrapassagem para as novas larguras; o que foi desligado dobra até sumir onde estava.
-- O segmento em foco cresce 3 px para cima e para baixo e a dica desliza até ele; com “reduzir movimento”, larguras e números mudam na hora.
+- On first appearance the segments grow from the left edge, one after another, and the total and percentages count up from zero.
+- With new data or a part turned off, the segments slide with a no-overshoot spring to the new widths; the one turned off folds away until it disappears where it was.
+- The focused segment grows 3 px up and down and the tooltip slides to it; with “reduce motion”, widths and numbers change immediately.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A barra mede a largura do contêiner, e a legenda é uma grade com colunas de no mínimo 232 px, que vira uma coluna só quando falta espaço.
+- The bar measures the container's width, and the legend is a grid with columns of at least 232 px, which becomes a single column when space runs short.
 
-## Notas para IA
+## Notes for AI
 
-- Cada parte é `{ key, label, value, color? }` na ordem em que deve aparecer; partes com valor zero ficam fora da barra e aparecem na legenda como “Hidden”, então filtre antes.
-- Total e porcentagens são calculados sobre as partes visíveis: ao desligar uma, o total do título diminui; controle com `hiddenKeys` e `onHiddenChange`, ou use `defaultHiddenKeys`.
-- As quatro primeiras partes usam `--series-1` a `--series-4` e as seguintes, três tons neutros que se repetem a partir da oitava: agrupe o resto em “Outros” ou passe `color`.
+- Each part is `{ key, label, value, color? }` in the order it should appear; parts with a zero value stay out of the bar and appear in the legend as “Hidden”, so filter beforehand.
+- Total and percentages are computed over the visible parts: turning one off decreases the title total; control with `hiddenKeys` and `onHiddenChange`, or use `defaultHiddenKeys`.
+- The first four parts use `--series-1` to `--series-4` and the following ones, three neutral tones that repeat from the eighth: group the rest into “Other” or pass `color`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/composition-chart · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/composition-chart · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

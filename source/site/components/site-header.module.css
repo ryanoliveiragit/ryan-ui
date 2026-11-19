@@ -1,60 +1,22 @@
-/* Cabeçalho: 64px + 1px de borda, preso no topo, com o mesmo contêiner central do resto do site. */
-.header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--border-subtle); background: color-mix(in oklab, var(--background) 96%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
-.inner { display: flex; width: min(100% - 2 * var(--site-gutter), var(--site-max)); height: calc(var(--site-header-height) - 1px); align-items: center; gap: 1.625rem; margin: 0 auto; }
-
-.brand { display: inline-flex; flex: none; align-items: center; gap: .625rem; border-radius: .5rem; color: var(--foreground); font-family: var(--font-display); font-size: 1rem; font-weight: 600; letter-spacing: -.02em; line-height: 1; text-decoration: none; }
-.brand svg { flex: none; }
-
-/* Cada link ocupa a altura toda do cabeçalho; o da página atual ganha uma linha de 2px sobre a borda de baixo, da largura do texto. */
-.nav { display: flex; align-self: stretch; gap: calc(1.4375rem - .75rem); margin: 0 -.375rem; }
-.nav a { position: relative; display: inline-flex; align-items: center; border-radius: .5rem; padding: 0 .375rem; color: var(--text-muted); font-size: .8125rem; font-weight: 500; text-decoration: none; white-space: nowrap; transition: color var(--duration-fast) var(--ease-standard); }
-.nav a:focus-visible { --focus-outline-offset: -4px; }
-.nav a[aria-current="page"] { color: var(--foreground); }
-.nav a[aria-current="page"]::after { position: absolute; right: .375rem; bottom: -1px; left: .375rem; height: 2px; background: var(--site-mark); content: ""; }
-@media (hover: hover) and (pointer: fine) { .nav a:hover { color: var(--foreground); } }
-
-.actions { display: flex; min-width: 0; flex: 1; align-items: center; justify-content: flex-end; gap: .625rem; }
-
-.search { display: inline-flex; height: 2.125rem; flex: none; align-items: center; gap: .5625rem; border: 1px solid var(--border); border-radius: .625rem; padding: 0 .5625rem 0 .75rem; color: var(--text-muted); background: var(--surface); font-size: .75rem; line-height: 1; cursor: pointer; transition: border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard); }
-.search svg { flex: none; color: var(--text-secondary); }
-.kbd { margin-left: .625rem; color: var(--text-muted); font-family: var(--font-body); font-size: .6875rem; font-weight: 500; line-height: 1; opacity: .82; white-space: nowrap; }
-@media (hover: hover) and (pointer: fine) { .search:hover { border-color: var(--border-strong); color: var(--text-secondary); } }
-
-/* Aparência + tema: um grupo só, com um divisor no meio. */
-.group { display: inline-flex; height: 2.375rem; flex: none; align-items: stretch; border: 1px solid var(--border); border-radius: .625rem; background: var(--surface); }
-.appearance { display: inline-flex; align-items: center; gap: .4375rem; border: 0; border-radius: .5625rem 0 0 .5625rem; padding: 0 .6875rem 0 .75rem; color: var(--foreground); background: transparent; font-size: .75rem; font-weight: 500; line-height: 1; white-space: nowrap; cursor: pointer; transition: background var(--duration-fast) var(--ease-standard); }
-.appearance svg, .theme svg { flex: none; }
-.theme { display: inline-grid; width: 2.3125rem; place-items: center; border: 0; border-left: 1px solid var(--border); border-radius: 0 .5625rem .5625rem 0; padding: 0; color: var(--foreground); background: transparent; cursor: pointer; transition: background var(--duration-fast) var(--ease-standard); }
-.appearance:focus-visible, .theme:focus-visible { --focus-outline-offset: -2px; }
-@media (hover: hover) and (pointer: fine) { .appearance:hover, .theme:hover { background: var(--surface-muted); } }
-.appearance[data-state="open"] { background: var(--surface-muted); }
-
-/* O botão preenchido: sempre a cor de destaque, com o texto escuro por cima. */
-.github { display: inline-flex; height: 2rem; flex: none; align-items: center; border-radius: .5625rem; padding: 0 .75rem; color: var(--accent-foreground); background: var(--accent); font-size: .8125rem; font-weight: 500; line-height: 1; text-decoration: none; transition: opacity var(--duration-fast) var(--ease-standard); }
-@media (hover: hover) and (pointer: fine) { .github:hover { opacity: .88; } }
-
-.menuButton { display: none; width: 2.5rem; height: 2.5rem; flex: none; place-items: center; margin-right: -1rem; border: 0; border-radius: .625rem; padding: 0; color: var(--foreground); background: transparent; cursor: pointer; transition: background var(--duration-fast) var(--ease-standard); }
-@media (hover: hover) and (pointer: fine) { .menuButton:hover { background: var(--surface-muted); } }
-
-.accentPanel { width: 15.5rem; }
-.accentTitle { margin: 0 0 var(--space-3); font-size: var(--text-sm); font-weight: 600; }
-.accentGrid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-1); }
-.accentOption { display: flex; align-items: center; gap: var(--space-2); border: 0; border-radius: .75rem; padding: var(--space-2); color: var(--text-secondary); background: transparent; font-size: var(--text-sm); text-align: left; cursor: pointer; transition: background var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard); }
-.accentOption[aria-checked="true"] { color: var(--foreground); background: var(--surface-muted); }
-@media (hover: hover) and (pointer: fine) { .accentOption:hover { color: var(--foreground); background: var(--surface-muted); } }
-.swatch { display: grid; width: 1.25rem; height: 1.25rem; flex: none; place-items: center; border-radius: 50%; color: #151515; box-shadow: inset 0 0 0 1px oklch(0% 0 0 / .08); }
-.accentHint { margin: var(--space-3) 0 0; color: var(--text-muted); font-size: var(--text-xs); line-height: 1.5; }
-.accentHint code { font-size: .92em; }
-
-/* Abaixo de 1024px a barra lateral vira gaveta: aparece o botão de menu. */
-@media (max-width: 1023.98px) { .menuButton { display: inline-grid; } }
-@media (max-width: 899.98px) { .nav { display: none; } }
-/* Celular: menu, marca e, à direita, busca só com ícone e o grupo aparência + tema. */
-@media (max-width: 640px) {
-  .actions { gap: .375rem; }
-  .search { width: 2.125rem; justify-content: center; padding: 0; }
-  .search svg { color: var(--foreground); }
-  .searchLabel, .kbd, .appearanceLabel, .github { display: none; }
-  .appearance { width: 2.25rem; justify-content: center; padding: 0; }
+/* A única barra fixa do site. */
+.header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--border); background: var(--background); }
+.inner { display: flex; width: min(100% - 2 * var(--site-gutter), var(--site-max)); height: calc(var(--site-header-height) - 1px); align-items: center; gap: var(--space-8); margin: 0 auto; }
+.brand { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--foreground); font-family: var(--font-display); font-weight: 600; letter-spacing: -.02em; text-decoration: none; }
+.nav { display: flex; gap: var(--space-6); }
+.nav a { color: var(--text-secondary); font-size: var(--text-sm); text-decoration: none; transition: color var(--duration-fast) var(--ease-standard); }
+.nav a[aria-current="page"] { color: var(--foreground); font-weight: 600; }
+.actions { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; }
+.search { display: inline-flex; height: var(--control-height-sm); align-items: center; gap: var(--space-2); border: 1px solid var(--border); border-radius: var(--radius-pill); padding-inline: var(--space-3); color: var(--text-secondary); background: transparent; font-size: var(--text-sm); cursor: pointer; transition: border-color var(--duration-fast) var(--ease-standard); }
+.search kbd { font-size: var(--text-xs); }
+.icon { display: inline-grid; width: var(--control-height-sm); height: var(--control-height-sm); flex: none; place-items: center; border: 0; border-radius: var(--radius-pill); padding: 0; color: var(--text-secondary); background: transparent; cursor: pointer; transition: color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard); }
+.menu { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .nav a:hover { color: var(--foreground); }
+  .search:hover { border-color: var(--border-strong); }
+  .icon:hover { color: var(--foreground); background: var(--surface-muted); }
 }
-@media (prefers-reduced-motion: reduce) { .nav a, .search, .appearance, .theme, .github, .menuButton, .accentOption { transition: none; } }
+@media (max-width: 63.99rem) {
+  .nav, .search { display: none; }
+  .menu { display: inline-grid; }
+}
+@media (prefers-reduced-motion: reduce) { .nav a, .search, .icon { transition: none; } }

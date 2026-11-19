@@ -2,49 +2,49 @@
 
 > Seletor de período que cresce a partir do gatilho, com dois meses, atalhos e destaque elástico.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/date-range-picker
-- Descrição original (inglês): A range picker that grows from its trigger into two months with presets and a stretching range highlight.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/date-range-picker
+- Original description: A range picker that grows from its trigger into two months with presets and a stretching range highlight.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json`. Caminho do registro, relativo ao endereço do site: `r/date-range-picker.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/date-range-picker.json`. Registry path, relative to the site address: `r/date-range-picker.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/date-range-picker/date-range-picker.tsx`
   - `components/ryan-ui/lib/use-today.ts`
   - `components/ryan-ui/date-range-picker/date-range-picker.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/date-range-picker.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/date-range-picker.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Período de um relatório ou filtro de painel, em que atalhos como “Last 7 days” resolvem a maioria dos casos.
-- Reservas e buscas em que início e fim são escolhidos juntos e só valem depois de confirmar em `Apply`.
-- Barras de ferramentas: fechado, ocupa só a largura do próprio texto, e o painel cresce por cima da página sem empurrar o conteúdo.
+- A report period or dashboard filter, where shortcuts like “Last 7 days” solve most cases.
+- Bookings and searches where start and end are chosen together and only count after confirming with `Apply`.
+- Toolbars: closed, it takes only the width of its own text, and the panel grows over the page without pushing the content.
 
-## Quando não usar
+## When not to use
 
-- Use [`date-picker`](date-picker.md) quando basta uma data.
-- Use [`calendar`](calendar.md) quando o mês precisa ficar sempre aberto na página.
-- Quando é preciso bloquear dias avulsos, como feriados ou fins de semana: só existem `minDate` e `maxDate`, sem função para desabilitar datas.
+- Use [`date-picker`](date-picker.md) when one date is enough.
+- Use [`calendar`](calendar.md) when the month needs to stay open on the page.
+- When you need to block individual days, like holidays or weekends: there are only `minDate` and `maxDate`, with no function to disable dates.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useMemo, useState } from "react";
@@ -85,13 +85,13 @@ export default function DateRangePickerDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `DateRangePicker`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `DateRange \| null` | — | Controlled value. Pass `null` for no selection. |
 | `defaultValue` | `DateRange \| null` | `null` | Uncontrolled starting value. |
@@ -108,68 +108,68 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `defaultOpen` | `boolean` | `false` | Start with the panel open, without moving focus into it or scrolling the page (for previews and onboarding). Later opens behave as usual. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
 #### `DateRange`
 
 An inclusive range of whole days.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `start` (obrigatória) | `Date` | — |
-| `end` (obrigatória) | `Date` | — |
+| `start` (required) | `Date` | — |
+| `end` (required) | `Date` | — |
 
 #### `DateRangePreset`
 
 A shortcut in the preset rail. `range` receives the viewer's local today.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `label` (obrigatória) | `string` | — |
-| `range` (obrigatória) | `(today: Date) => DateRange` | — |
+| `label` (required) | `string` | — |
+| `range` (required) | `(today: Date) => DateRange` | — |
 
-### Outras exportações
+### Other exports
 
-- `defaultDateRangePresets` (valor)
+- `defaultDateRangePresets` (value)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No gatilho, abrem o painel; num dia, marcam o início e, na segunda vez, o fim do período. |
-| `←` ou `→` ou `↑` ou `↓` | Nos dias, movem o foco um dia ou uma semana; depois de marcado o início, o período se estica até o dia em foco. |
-| `Home` ou `End` | Vão ao primeiro ou ao último dia da semana, conforme `weekStartsOn`. |
-| `Page Up` ou `Page Down` | Mudam um mês; com `Shift`, um ano. |
-| `↑` ou `↓` ou `←` ou `→` | Na lista de atalhos, passam de um atalho ao outro: `↑` e `↓` no painel largo, `←` e `→` no compacto. |
-| `Esc` | Fecha sem aplicar e devolve o foco ao gatilho. |
+| `Enter` or `Space` | On the trigger, open the panel; on a day, mark the start and, the second time, the end of the period. |
+| `←` or `→` or `↑` or `↓` | On days, move focus one day or one week; after the start is marked, the period stretches to the focused day. |
+| `Home` or `End` | Go to the first or last day of the week, according to `weekStartsOn`. |
+| `Page Up` or `Page Down` | Change one month; with `Shift`, one year. |
+| `↑` or `↓` or `←` or `→` | In the shortcut list, move from one shortcut to another: `↑` and `↓` in the wide panel, `←` and `→` in the compact one. |
+| `Esc` | Closes without applying and returns focus to the trigger. |
 
-## Acessibilidade
+## Accessibility
 
-- O gatilho tem `aria-label` com `label` e o período atual; o painel é um `role="dialog"`, cada mês um `role="grid"`, e os dias dentro do período recebem `aria-selected`.
-- Uma região `aria-live` anuncia o início marcado e depois o período com a contagem de dias; ao abrir, o foco vai ao início do período ou a hoje, e `Esc`, `Cancel` e `Apply` o devolvem ao gatilho.
-- `label` não aparece na tela, e `Cancel`, `Apply`, `Presets` e os anúncios são fixos em inglês; só os rótulos dos atalhos mudam, pela prop `presets`.
+- The trigger has an `aria-label` with `label` and the current period; the panel is a `role="dialog"`, each month a `role="grid"`, and days inside the period get `aria-selected`.
+- An `aria-live` region announces the marked start and then the period with the day count; on open, focus goes to the period start or to today, and `Esc`, `Cancel`, and `Apply` return it to the trigger.
+- `label` does not show on screen, and `Cancel`, `Apply`, `Presets`, and the announcements are fixed in English; only the shortcut labels change, via the `presets` prop.
 
-## Movimento
+## Motion
 
-- A superfície do gatilho cresce com uma mola até o tamanho do painel e encolhe de volta; ao aplicar, o texto do período voa do rodapé para o gatilho.
-- O destaque se estica semana a semana enquanto o cursor ou o foco se movem, as pontas deslizam de um dia ao outro e os meses entram pelo lado da navegação.
-- Com “reduzir movimento” ligado, tamanhos e posições saltam para o fim e o conteúdo só esmaece.
+- The trigger surface grows with a spring to the size of the panel and shrinks back; on apply, the period text flies from the footer to the trigger.
+- The highlight stretches week by week as the cursor or focus moves, the ends slide from one day to another, and the months enter from the navigation side.
+- With “reduce motion” on, sizes and positions jump to the end and the content only fades.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Com menos de 712 px livres no limite (a janela ou o elemento de `boundary`), mostra um mês só e os atalhos viram uma linha com rolagem horizontal; `months` força 1 ou 2.
-- O painel se desloca na horizontal para caber no limite com 8 px de margem e, em telas baixas, rola a página até o botão `Apply` aparecer.
+- With less than 712 px free in the boundary (the window or the `boundary` element), it shows a single month and shortcuts become a row with horizontal scrolling; `months` forces 1 or 2.
+- The panel shifts horizontally to fit the boundary with an 8 px margin and, on short screens, scrolls the page until the `Apply` button appears.
 
-## Desempenho
+## Performance
 
-- O painel só é montado enquanto está aberto; nesse tempo há um `ResizeObserver` nele e um ouvinte de `resize` na janela, além do observador permanente do gatilho.
+- The panel is only mounted while it is open; during that time there is a `ResizeObserver` on it and a `resize` listener on the window, in addition to the trigger's permanent observer.
 
-## Notas para IA
+## Notes for AI
 
-- `onChange` só dispara em `Apply`, nunca a cada clique; use `value` (com `null` para vazio) ou `defaultValue`, e lembre que o período inclui os dois dias das pontas.
-- Passe `boundary={() => elemento}` quando o seletor vive num painel ou coluna: o painel fica dentro dele e a escolha entre um e dois meses usa essa largura.
-- Troque `presets` por rótulos em português (`{ label, range: hoje => ({ start, end }) }`) e passe `locale="pt-BR"` e, se a semana começa na segunda, `weekStartsOn={1}`.
+- `onChange` only fires on `Apply`, never on each click; use `value` (with `null` for empty) or `defaultValue`, and remember the period includes both end days.
+- Pass `boundary={() => elemento}` when the picker lives in a panel or column: the panel stays inside it and the choice between one and two months uses that width.
+- Replace `presets` with Portuguese labels (`{ label, range: hoje => ({ start, end }) }`) and pass `locale="pt-BR"` and, if the week starts on Monday, `weekStartsOn={1}`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/date-range-picker · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/date-range-picker · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

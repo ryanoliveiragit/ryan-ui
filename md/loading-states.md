@@ -2,48 +2,48 @@
 
 > Indicadores de que a IA está pensando: texto cintilante, pontinhos que saltam, frases que se alternam e contador de etapas.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/loading-states
-- Descrição original (inglês): Thinking indicators for AI interfaces: shimmering text, bouncing dots, a rotating status phrase beside an orbiting mark, and a step counter with rolling digits and pips.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/loading-states
+- Original description: Thinking indicators for AI interfaces: shimmering text, bouncing dots, a rotating status phrase beside an orbiting mark, and a step counter with rolling digits and pips.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json`. Caminho do registro, relativo ao endereço do site: `r/loading-states.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/loading-states.json`. Registry path, relative to the site address: `r/loading-states.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/loading-states/loading-states.tsx`
   - `components/ryan-ui/loading-states/loading-states.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/loading-states.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/loading-states.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- O intervalo em que a IA já recebeu o pedido e ainda não tem nada para mostrar.
-- `ThinkingDots` dentro de uma bolha de chat e `ThinkingShimmer` em linha, no ponto em que a resposta vai começar.
-- Esperas mais longas: `ThinkingPhrases` alterna frases de status e `ThinkingSteps` mostra “Step 2 of 5” quando o número de passos é conhecido.
+- The interval in which the AI has already received the request and has nothing to show yet.
+- `ThinkingDots` inside a chat bubble and `ThinkingShimmer` inline, at the point where the reply will start.
+- Longer waits: `ThinkingPhrases` alternates status phrases and `ThinkingSteps` shows “Step 2 of 5” when the number of steps is known.
 
-## Quando não usar
+## When not to use
 
-- Use [`loader`](loader.md) para carregamento genérico fora de conversas de IA: spinner, pontos, barras, anel e órbita em três tamanhos.
-- Use [`skeleton`](skeleton.md) quando dá para reservar o formato do conteúdo que vai chegar.
-- Use [`todo-list`](todo-list.md) ou [`agent-activity`](agent-activity.md) quando cada passo do agente precisa aparecer com nome e estado.
+- Use [`loader`](loader.md) for generic loading outside AI conversations: spinner, dots, bars, ring and orbit in three sizes.
+- Use [`skeleton`](skeleton.md) when you can reserve the shape of the content that will arrive.
+- Use [`todo-list`](todo-list.md) or [`agent-activity`](agent-activity.md) when each agent step needs to appear with a name and state.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useEffect, useState } from "react";
@@ -88,15 +88,15 @@ export default function LoadingStatesDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ThinkingShimmer`
 
 "Thinking…" with a sheen that sweeps across the letters. The quietest indicator: use it inline, where a reply is about to start.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | `"Thinking…"` | The text the sheen runs across. |
 | `duration` | `number` | `1.7` | Seconds one pass of the sheen takes. |
@@ -106,7 +106,7 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 
 Three dots that bounce in a wave, the classic "someone is typing" signal.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `label` | `string` | `"Thinking"` | Accessible name of the indicator; also shown next to the dots when `showLabel` is set. |
 | `showLabel` | `boolean` | `false` | Shows the label as text after the dots. |
@@ -116,7 +116,7 @@ Three dots that bounce in a wave, the classic "someone is typing" signal.
 
 A status phrase that changes every few seconds beside a small orbiting mark, for waits long enough that one word would feel stuck.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `phrases` | `string[]` | `defaultPhrases` | Status phrases to rotate through, in order. |
 | `interval` | `number` | `2200` | Milliseconds each phrase stays. |
@@ -126,10 +126,10 @@ A status phrase that changes every few seconds beside a small orbiting mark, for
 
 "Step 2 of 5" with one pip per step: finished pips fill, the current one breathes, and the number rolls when the step changes.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `current` (obrigatória) | `number` | — | The step in progress, counted from 1. |
-| `total` (obrigatória) | `number` | — | How many steps there are. |
+| `current` (required) | `number` | — | The step in progress, counted from 1. |
+| `total` (required) | `number` | — | How many steps there are. |
 | `label` | `string` | — | What the current step is doing. |
 | `className` | `string` | — | Class name added to the root element. |
 
@@ -137,7 +137,7 @@ A status phrase that changes every few seconds beside a small orbiting mark, for
 
 Indicators for the moments an AI is working and has nothing to show yet. One component with four variants; each variant is also exported on its own (`ThinkingShimmer`, `ThinkingDots`, `ThinkingPhrases`, `ThinkingSteps`).
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `variant` | `"shimmer" \| "dots" \| "phrases" \| "steps"` | `"shimmer"` | Which indicator to show. |
 | `label` | `string` | — | Text of the shimmer, name of the dots, or description of the current step. |
@@ -147,32 +147,32 @@ Indicators for the moments an AI is working and has nothing to show yet. One com
 | `total` | `number` | `4` | Number of steps, for the "steps" variant. |
 | `className` | `string` | — | Class name added to the root element. |
 
-## Acessibilidade
+## Accessibility
 
-- Cada indicador é um `role="status"`; nos pontos e nos passos o desenho fica `aria-hidden`, e o nome acessível é o `label` ou “Step N of M” seguido do `label`.
-- Em `ThinkingPhrases` a frase fica dentro do `role="status"`, então cada troca é uma atualização da região viva: prefira frases curtas e um `interval` folgado.
-- Os textos padrão (“Thinking…”, as quatro frases, “Step … of …”) estão em inglês: `label` e `phrases` são traduzíveis, o “Step N of M” não.
+- Each indicator is a `role="status"`; in the dots and steps the drawing is `aria-hidden`, and the accessible name is the `label` or “Step N of M” followed by the `label`.
+- In `ThinkingPhrases` the phrase sits inside the `role="status"`, so each change is a live region update: prefer short phrases and a generous `interval`.
+- The default texts (“Thinking…”, the four phrases, “Step … of …”) are in English: `label` and `phrases` are translatable, the “Step N of M” is not.
 
-## Movimento
+## Motion
 
-- Um brilho varre as letras (`ThinkingShimmer`), três pontos sobem em onda (`ThinkingDots`), um ponto orbita um anel ao lado da frase (`ThinkingPhrases`) e o pip do passo atual pulsa (`ThinkingSteps`).
-- Frases, número do passo e rótulo trocam subindo de um desfoque leve e saindo para cima; os pips enchem com uma mola sem ultrapassagem.
-- Com “reduzir movimento” ligado, cada indicador vira um estado parado e legível: texto sem brilho, pontos e órbita imóveis, e trocas de texto imediatas.
+- A shimmer sweeps across the letters (`ThinkingShimmer`), three dots rise in a wave (`ThinkingDots`), a dot orbits a ring beside the phrase (`ThinkingPhrases`) and the current step's pip pulses (`ThinkingSteps`).
+- Phrases, step number and label swap by rising from a light blur and leaving upward; the pips fill with a spring without overshoot.
+- With “reduce motion” on, each indicator becomes a still, readable state: text without shimmer, still dots and orbit, and immediate text swaps.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- As frases e o rótulo do passo ficam numa linha e cortam com reticências; `ThinkingSteps` mostra um pip por passo até 8 passos e, acima disso, uma barra única.
+- Phrases and the step label stay on one line and truncate with an ellipsis; `ThinkingSteps` shows one pip per step up to 8 steps and, above that, a single bar.
 
-## Desempenho
+## Performance
 
-- Só `ThinkingPhrases` usa timer (um `setInterval`, com mínimo de 600 ms); os outros indicadores são animações CSS.
+- Only `ThinkingPhrases` uses a timer (one `setInterval`, with a minimum of 600 ms); the other indicators are CSS animations.
 
-## Notas para IA
+## Notes for AI
 
-- Importe a variante direto (`ThinkingShimmer`, `ThinkingDots`, `ThinkingPhrases`, `ThinkingSteps`) ou use `LoadingStates` com `variant`; `showLabel` e `duration` só existem nos componentes individuais.
-- `ThinkingSteps` é controlado: passe `current` (a partir de 1) e `total`, e troque `label` a cada passo; valores fora da faixa são ajustados para o intervalo válido.
-- Monte o indicador só enquanto espera e troque-o pelo conteúdo quando a resposta começar; `ai-sidebar` e `chat-app` já dependem deste item.
+- Import the variant directly (`ThinkingShimmer`, `ThinkingDots`, `ThinkingPhrases`, `ThinkingSteps`) or use `LoadingStates` with `variant`; `showLabel` and `duration` exist only on the individual components.
+- `ThinkingSteps` is controlled: pass `current` (starting at 1) and `total`, and change `label` on each step; out-of-range values are clamped to the valid range.
+- Mount the indicator only while waiting and swap it for the content when the reply starts; `ai-sidebar` and `chat-app` already depend on this item.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/loading-states · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/loading-states · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

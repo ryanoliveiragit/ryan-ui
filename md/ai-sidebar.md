@@ -2,49 +2,49 @@
 
 > Painel de assistente que desliza ao lado da página, com cabeçalho, mensagens, sugestões e caixa de prompt.
 
-- Tipo: componente (categoria Agentes de IA), novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/ai-sidebar
-- Descrição original (inglês): A docked assistant panel that springs in beside the page and pushes it aside (or slides over it when narrow), with a header, a message list that follows new messages, suggestion chips and a growing prompt box.
+- Type: component (category AI agents), new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/ai-sidebar
+- Original description: A docked assistant panel that springs in beside the page and pushes it aside (or slides over it when narrow), with a header, a message list that follows new messages, suggestion chips and a growing prompt box.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json`. Caminho do registro, relativo ao endereço do site: `r/ai-sidebar.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ai-sidebar.json`. Registry path, relative to the site address: `r/ai-sidebar.json`.
 
-- Pacotes npm: `motion`, `lucide-react`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Loading states](loading-states.md)
-- Arquivos, depois de instalados:
+- npm packages: `motion`, `lucide-react`
+- Uses other ryan-ui items (installed along with it): [Loading states](loading-states.md)
+- Files, once installed:
   - `components/ryan-ui/ai-sidebar/ai-sidebar.tsx`
   - `components/ryan-ui/ai-sidebar/ai-sidebar.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion lucide-react`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/ai-sidebar.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion lucide-react`.
+2. Copy the files listed above. The content of each one is in `r/ai-sidebar.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Um assistente que fica ao lado do conteúdo que comenta (documento, painel, editor) e empurra a página em vez de cobri-la.
-- Conversas curtas e contextuais sobre a tela atual, com sugestões prontas que enviam o prompt num toque.
-- Layouts divididos: o painel escolhe entre encaixar e sobrepor pela largura do próprio contêiner, não da janela.
+- An assistant that sits beside the content it comments on (document, dashboard, editor) and pushes the page instead of covering it.
+- Short, contextual conversations about the current screen, with ready-made suggestions that send the prompt in one tap.
+- Split layouts: the panel chooses between docking and overlaying based on the width of its own container, not the window.
 
-## Quando não usar
+## When not to use
 
-- Use [`chat-app`](chat-app.md) quando a conversa é a tela inteira, com lista de conversas e respostas que podem ser paradas ou refeitas.
-- Use [`drawer`](drawer.md) para um painel lateral temporário que não é uma conversa.
-- Use [`prompt-input`](prompt-input.md) com [`message-scroller`](message-scroller.md) quando precisar de anexos, menu de modelo ou botão de parar: a caixa de prompt embutida aqui só envia texto.
+- Use [`chat-app`](chat-app.md) when the conversation is the whole screen, with a conversation list and replies that can be stopped or redone.
+- Use [`drawer`](drawer.md) for a temporary side panel that is not a conversation.
+- Use [`prompt-input`](prompt-input.md) with [`message-scroller`](message-scroller.md) when you need attachments, a model menu or a stop button: the prompt box built in here only sends text.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto. O arquivo `.module.css` importado pelo demo é só do exemplo.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout. The `.module.css` file imported by the demo belongs to the example only.
 
 ```tsx
 import { useEffect, useRef, useState } from "react";
@@ -113,18 +113,18 @@ export default function AiSidebarDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `AiSidebar`
 
 An assistant panel docked beside the page. It slides in on a spring and pushes the page aside; in a narrow container it slides over the page behind a scrim instead. Inside: a header, a message list that follows new messages, suggestion chips and a prompt box that grows with the text. Enter sends, Shift+Enter adds a line, Escape closes.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `children` (obrigatória) | `ReactNode` | — | The page the assistant docks beside. |
-| `messages` (obrigatória) | `AiSidebarMessage[]` | — | The conversation, oldest first. |
+| `children` (required) | `ReactNode` | — | The page the assistant docks beside. |
+| `messages` (required) | `AiSidebarMessage[]` | — | The conversation, oldest first. |
 | `open` | `boolean` | — | Whether the panel is open (controlled). |
 | `defaultOpen` | `boolean` | `false` | Whether the panel starts open (uncontrolled). |
 | `onOpenChange` | `(open: boolean) => void` | — | Called when the launcher, the close button or Escape opens or closes the panel. |
@@ -141,53 +141,53 @@ An assistant panel docked beside the page. It slides in on a spring and pushes t
 | `launcher` | `boolean` | `true` | Shows a floating button that opens the panel while it is closed. Turn it off when the page has its own trigger. |
 | `className` | `string` | — | Class name added to the root element. |
 
-### Tipos exportados
+### Exported types
 
 #### `AiSidebarMessage`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable id of the message. |
-| `role` (obrigatória) | `"user" \| "assistant"` | Who wrote it. |
-| `content` (obrigatória) | `ReactNode` | The message. Text, or any node (a streaming response, a card). |
+| `id` (required) | `string` | Stable id of the message. |
+| `role` (required) | `"user" \| "assistant"` | Who wrote it. |
+| `content` (required) | `ReactNode` | The message. Text, or any node (a streaming response, a card). |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | Na caixa de prompt, envia o texto; durante a composição de um IME não envia. |
-| `Shift + Enter` | Quebra a linha sem enviar. |
-| `Esc` | Com o foco dentro do painel, fecha o painel. |
-| `Enter` ou `Espaço` | Numa sugestão, envia o texto dela como prompt. |
-| `Tab` | Percorre fechar, sugestões, caixa de prompt e enviar; com o painel fechado, nada dentro dele recebe foco. |
+| `Enter` | In the prompt box, sends the text; during IME composition it does not send. |
+| `Shift + Enter` | Inserts a line break without sending. |
+| `Esc` | With focus inside the panel, closes the panel. |
+| `Enter` or `Space` | On a suggestion, sends its text as the prompt. |
+| `Tab` | Moves through close, suggestions, prompt box and send; with the panel closed, nothing inside it receives focus. |
 
-## Acessibilidade
+## Accessibility
 
-- O painel é um `<aside>` rotulado pelo título; ao abrir, o foco vai para a caixa de prompt e, ao fechar, volta ao elemento que o tinha antes, se ele ainda existir (o `launcher` embutido sai do DOM ao abrir, então não o recebe de volta).
-- A lista de mensagens é `aria-live="polite"` e cada mensagem leva um prefixo só para leitor de tela; fechado, o painel fica `inert`, e aberto no modo sobreposto é a página atrás que fica `inert`.
-- Rótulos como “Close”, “Send message”, “Conversation” e “Suggestions” estão fixos em inglês; `title`, `subtitle`, `placeholder` e `emptyText` são seus.
+- The panel is an `<aside>` labeled by the title; on open, focus goes to the prompt box and, on close, returns to the element that had it before, if it still exists (the built-in `launcher` leaves the DOM when the panel opens, so it does not get focus back).
+- The message list is `aria-live="polite"` and each message carries a screen-reader-only prefix; when closed, the panel is `inert`, and when open in overlay mode, the page behind it is `inert`.
+- Labels such as “Close”, “Send message”, “Conversation” and “Suggestions” are fixed in English; `title`, `subtitle`, `placeholder` and `emptyText` are yours.
 
-## Movimento
+## Motion
 
-- Encaixado, o painel abre com uma mola na largura e empurra a página; sobreposto, desliza por cima dela com um véu que esmaece.
-- Mensagens novas sobem com um leve ganho de escala, as sugestões entram em sequência quando o painel abre e a lista rola suave até o fim a cada mensagem.
-- Com “reduzir movimento” ligado, painel, mensagens e sugestões trocam de estado na hora e a rolagem até o fim deixa de ser suave.
+- When docked, the panel opens with a width spring and pushes the page; when overlaid, it slides over the page with a fading scrim.
+- New messages rise with a slight scale-up, suggestions enter in sequence when the panel opens, and the list scrolls smoothly to the end on each message.
+- With “reduce motion” on, the panel, messages and suggestions change state instantly and scrolling to the end is no longer smooth.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Um `ResizeObserver` mede o contêiner: abaixo de `overlayBelow` (640 px por padrão) o painel desliza sobre a página, com largura `min(100%, max(width, 320px))`.
-- A caixa de prompt cresce com o texto até 132 px e depois rola por dentro; as sugestões ficam numa linha só, com rolagem horizontal.
+- A `ResizeObserver` measures the container: below `overlayBelow` (640 px by default) the panel slides over the page, with width `min(100%, max(width, 320px))`.
+- The prompt box grows with the text up to 132 px and then scrolls internally; suggestions stay on a single line, with horizontal scrolling.
 
-## Desempenho
+## Performance
 
-- São dois `ResizeObserver` por instância (contêiner e lista) e a lista não é virtualizada: conversas muito longas pesam no DOM.
+- There are two `ResizeObserver`s per instance (container and list) and the list is not virtualized: very long conversations weigh on the DOM.
 
-## Notas para IA
+## Notes for AI
 
-- Envolva a página: `children` é o conteúdo ao lado do painel, e a raiz usa `height: 100%`, então o pai precisa ter altura definida.
-- A conversa é sua: passe `messages` (`id`, `role`, `content`), acrescente a mensagem em `onSend` e ligue `pending` enquanto a resposta não chega; `content` aceita nós, como um `StreamingResponse`.
-- Use `open` com `onOpenChange` e `launcher={false}` quando a página já tem o próprio botão; o item depende de `loading-states` para o indicador de `pending`.
+- Wrap the page: `children` is the content beside the panel, and the root uses `height: 100%`, so the parent needs a defined height.
+- The conversation is yours: pass `messages` (`id`, `role`, `content`), append the message in `onSend` and turn on `pending` until the reply arrives; `content` accepts nodes, such as a `StreamingResponse`.
+- Use `open` with `onOpenChange` and `launcher={false}` when the page already has its own button; this item depends on `loading-states` for the `pending` indicator.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ai-sidebar · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/ai-sidebar · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

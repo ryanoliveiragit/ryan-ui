@@ -2,47 +2,47 @@
 
 > Mostra a força de uma nova senha enquanto ela é digitada, com requisitos em tempo real.
 
-- Tipo: componente (categoria Entradas)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/password-strength
-- Descrição original (inglês): Show how strong a new password is while it is typed.
+- Type: component (category Inputs)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/password-strength
+- Original description: Show how strong a new password is while it is typed.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-strength.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-strength.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-strength.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-strength.json`. Caminho do registro, relativo ao endereço do site: `r/password-strength.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-strength.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-strength.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/password-strength.json`. Registry path, relative to the site address: `r/password-strength.json`.
 
-- Pacotes npm: `motion`
-- Arquivos, depois de instalados:
+- npm packages: `motion`
+- Files, once installed:
   - `components/ryan-ui/password-strength/password-strength.tsx`
   - `components/ryan-ui/password-strength/password-strength.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/password-strength.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install motion`.
+2. Copy the files listed above. The content of each one is in `r/password-strength.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Cadastro de conta ou troca de senha, quando a pessoa precisa ver as regras sendo cumpridas enquanto digita.
-- Políticas de senha próprias: regras, rótulos, mínimo de caracteres e textos são configuráveis por props.
-- Fluxos que reagem à força em código, já que `onValueChange` entrega o nível e as regras cumpridas junto do valor.
+- Sign-up or password change, when people need to see the rules being met as they type.
+- Custom password policies: rules, labels, minimum length, and texts are all configurable through props.
+- Flows that react to strength in code, since `onValueChange` delivers the level and the rules met along with the value.
 
-## Quando não usar
+## When not to use
 
-- Use [`password-field`](password-field.md) no login, onde medir a força só atrapalha quem já tem senha.
-- Use [`signup-form`](signup-form.md) quando precisa do cadastro inteiro, com validação dos campos e estado de conclusão.
+- Use [`password-field`](password-field.md) on login, where measuring strength only gets in the way of people who already have a password.
+- Use [`signup-form`](signup-form.md) when you need the whole sign-up, with field validation and a completion state.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -60,15 +60,15 @@ export default function PasswordStrengthDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `PasswordStrength`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `label` (obrigatória) | `string` | — | — |
+| `label` (required) | `string` | — | — |
 | `value` | `string` | — | — |
 | `defaultValue` | `string` | `""` | — |
 | `onValueChange` | `(value: string, strength: PasswordStrengthResult) => void` | — | — |
@@ -79,75 +79,75 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `messages` | `Partial<Omit<PasswordStrengthMessages, "levels">> & { levels?: Partial<PasswordStrengthLevels> }` | — | Translated or reworded copy. Every string has an English default; see PasswordStrengthMessages. |
 | `shortLength` | `number` | — | Below this many characters the meter holds at its first step and reads "Too short". Defaults to 8. |
 | `countCharacters` | `(password: string) => number` | — | How characters are counted for shortLength. Defaults to code points, so an emoji counts once; pass `password => password.length` to count UTF-16 units like a server might. |
-| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Também aceita as props deste tipo, menos `type`, `value`, `defaultValue` e `children`. |
+| `...props` | `InputHTMLAttributes<HTMLInputElement>` | — | Also accepts the props of this type, except `type`, `value`, `defaultValue` and `children`. |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `PasswordStrengthMessagesInput`: Partial messages, with partial strength words, for the `messages` prop. | `Partial<Omit<PasswordStrengthMessages, "levels">> & { levels?: Partial<PasswordStrengthLevels> }` |
 
 #### `PasswordRule`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `label` (obrigatória) | `string` | — |
-| `test` (obrigatória) | `(password: string) => boolean` | — |
+| `id` (required) | `string` | — |
+| `label` (required) | `string` | — |
+| `test` (required) | `(password: string) => boolean` | — |
 | `remaining` | `(password: string) => number` | Characters still missing. Shown as a rolling count beside the rule while it is unmet. |
 
 #### `PasswordStrengthResult`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `level` (obrigatória) | `0 \| 1 \| 2 \| 3 \| 4` | — |
-| `label` (obrigatória) | `string` | — |
-| `met` (obrigatória) | `string[]` | — |
+| `level` (required) | `0 \| 1 \| 2 \| 3 \| 4` | — |
+| `label` (required) | `string` | — |
+| `met` (required) | `string[]` | — |
 | `short` | `boolean` | True while the password is shorter than the short length, so the meter holds at its first step. |
 
 #### `PasswordStrengthLevels`
 
 The strength words, one per meter step. Override them to translate the meter.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `tooShort` (obrigatória) | `string` | — |
-| `weak` (obrigatória) | `string` | — |
-| `fair` (obrigatória) | `string` | — |
-| `good` (obrigatória) | `string` | — |
-| `strong` (obrigatória) | `string` | — |
+| `tooShort` (required) | `string` | — |
+| `weak` (required) | `string` | — |
+| `fair` (required) | `string` | — |
+| `good` (required) | `string` | — |
+| `strong` (required) | `string` | — |
 
 #### `PasswordStrengthMessages`
 
 Every user-facing string in PasswordStrength. All have English defaults; pass only the ones you change.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `levels` (obrigatória) | `PasswordStrengthLevels` | — |
-| `showPassword` (obrigatória) | `string` | Name of the show password toggle. It is a pressed toggle (aria-pressed), so the name stays the same in both states. |
-| `meterLabel` (obrigatória) | `string` | Accessible name of the strength meter. |
-| `noPassword` (obrigatória) | `string` | Meter value text while the field is empty. |
-| `rulesLabel` (obrigatória) | `string` | Accessible name of the requirements list. |
-| `ruleMet` (obrigatória) | `string` | Read after a rule's label for screen readers, including any leading punctuation. |
-| `ruleNotMet` (obrigatória) | `string` | — |
-| `remainingPrefix` (obrigatória) | `string` | Words around the rolling count beside an unmet rule, as in "4 more". |
-| `remainingSuffix` (obrigatória) | `string` | — |
-| `summary` (obrigatória) | `(result: { label: string; met: number; total: number }) => string` | The polite live-region summary read after each change. |
+| `levels` (required) | `PasswordStrengthLevels` | — |
+| `showPassword` (required) | `string` | Name of the show password toggle. It is a pressed toggle (aria-pressed), so the name stays the same in both states. |
+| `meterLabel` (required) | `string` | Accessible name of the strength meter. |
+| `noPassword` (required) | `string` | Meter value text while the field is empty. |
+| `rulesLabel` (required) | `string` | Accessible name of the requirements list. |
+| `ruleMet` (required) | `string` | Read after a rule's label for screen readers, including any leading punctuation. |
+| `ruleNotMet` (required) | `string` | — |
+| `remainingPrefix` (required) | `string` | Words around the rolling count beside an unmet rule, as in "4 more". |
+| `remainingSuffix` (required) | `string` | — |
+| `summary` (required) | `(result: { label: string; met: number; total: number }) => string` | The polite live-region summary read after each change. |
 
 #### `PasswordRuleLabels`
 
 Labels for the built-in rules. `length` receives the minimum length.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `length` (obrigatória) | `(minLength: number) => string` | — |
-| `case` (obrigatória) | `string` | — |
-| `number` (obrigatória) | `string` | — |
-| `symbol` (obrigatória) | `string` | — |
+| `length` (required) | `(minLength: number) => string` | — |
+| `case` (required) | `string` | — |
+| `number` (required) | `string` | — |
+| `symbol` (required) | `string` | — |
 
 #### `PasswordRuleOptions`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `minLength` | `number` | Characters the length rule asks for. Defaults to 12. |
 | `labels` | `Partial<PasswordRuleLabels>` | Translated or reworded rule labels. |
@@ -155,48 +155,48 @@ Labels for the built-in rules. `length` receives the minimum length.
 
 #### `EstimateStrengthOptions`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `shortLength` | `number` | Below this many characters a password stays at the first step, however varied it is. Defaults to 8. |
 | `levels` | `Partial<PasswordStrengthLevels>` | Strength words for the result's label. |
 | `countCharacters` | `(password: string) => number` | How characters are counted for shortLength. Defaults to code points. |
 
-### Outras exportações
+### Other exports
 
-- `defaultPasswordStrengthMessages` (valor)
-- `countCodePoints` (função)
-- `createPasswordRules` (função)
-- `defaultPasswordRules` (valor)
-- `estimateStrength` (função)
+- `defaultPasswordStrengthMessages` (value)
+- `countCodePoints` (function)
+- `createPasswordRules` (function)
+- `defaultPasswordRules` (value)
+- `estimateStrength` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` ou `Espaço` | No botão de olho, que vem logo depois do campo na ordem de tabulação, mostram ou escondem a senha. |
+| `Enter` or `Space` | On the eye button, which comes right after the field in tab order, show or hide the password. |
 
-## Acessibilidade
+## Accessibility
 
-- O medidor tem `role="meter"` com `aria-valuenow` de 0 a 4 e `aria-valuetext` com a palavra da força, e cada regra leva “, met” ou “, not met” escondido para leitores de tela.
-- Uma região `role="status"` lê um resumo depois de cada mudança (“Strength: Good. 3 of 4 requirements met.”), e o campo aponta para a lista de regras e para o erro com `aria-describedby`.
-- O botão de olho tem nome fixo e informa o estado com `aria-pressed`; todos os textos vêm em inglês, então traduza com `messages`, inclusive `levels` e `summary`.
+- The meter has `role="meter"` with `aria-valuenow` from 0 to 4 and `aria-valuetext` with the strength word, and each rule carries a visually hidden “, met” or “, not met” for screen readers.
+- A `role="status"` region reads a summary after each change (“Strength: Good. 3 of 4 requirements met.”), and the field points to the rule list and the error with `aria-describedby`.
+- The eye button has a fixed name and reports its state with `aria-pressed`; all texts come in English, so translate them with `messages`, including `levels` and `summary`.
 
-## Movimento
+## Motion
 
-- Os quatro segmentos entram da esquerda numa mola sem ultrapassagem, em onda: uma senha colada enche da esquerda para a direita e, ao apagar, eles esvaziam no sentido contrário.
-- A palavra da força sobe quando melhora e desce quando piora, cada regra cumprida desenha um tique, a contagem do que falta rola os dígitos e um erro novo sacode o campo uma vez.
-- Com “reduzir movimento” ligado, as trocas viram esmaecimentos curtos ou instantâneos e o campo não sacode.
+- The four segments enter from the left on a no-overshoot spring, in a wave: a pasted password fills left to right and, when cleared, they empty in the opposite direction.
+- The strength word moves up when it improves and down when it worsens, each rule met draws a checkmark, the remaining count rolls its digits, and a new error shakes the field once.
+- With “reduce motion” on, the changes become short or instant fades and the field does not shake.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Em telas de toque (`pointer: coarse`) o texto do campo sobe para 16px, para o teclado do celular não dar zoom ao focar.
+- On touch screens (`pointer: coarse`) the field text goes up to 16px, so the phone keyboard does not zoom in on focus.
 
-## Notas para IA
+## Notes for AI
 
-- As regras padrão pedem 12 caracteres, maiúsculas e minúsculas, número e símbolo; mude com `createPasswordRules({ minLength, labels })` ou passe `rules` próprias com `test` e, para a contagem, `remaining`.
-- Abaixo de `shortLength` (8) o medidor fica no primeiro passo, com “Too short”, mesmo que as outras regras passem; os testes rodam a cada tecla, então mantenha `test` barato.
-- `onValueChange(valor, força)` traz `level` de 0 a 4 e os ids das regras cumpridas, mas a pontuação roda no aparelho e só orienta quem digita, então valide a política também no servidor.
+- The default rules require 12 characters, uppercase and lowercase letters, a number, and a symbol; change them with `createPasswordRules({ minLength, labels })` or pass your own `rules` with `test` and, for the count, `remaining`.
+- Below `shortLength` (8) the meter stays on the first step, with “Too short”, even if the other rules pass; the tests run on every keystroke, so keep `test` cheap.
+- `onValueChange(valor, força)` brings `level` from 0 to 4 and the ids of the rules met, but scoring runs on the device and only guides the person typing, so also validate the policy on the server.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/password-strength · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/password-strength · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

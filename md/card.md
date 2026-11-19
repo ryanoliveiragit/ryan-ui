@@ -2,48 +2,48 @@
 
 > Cartão com imagem, autor e ação que cresce em uma visão rápida ao ser aberto.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/card
-- Descrição original (inglês): A contained group of related content and actions.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/card
+- Original description: A contained group of related content and actions.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card.json`. Caminho do registro, relativo ao endereço do site: `r/card.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/card.json`. Registry path, relative to the site address: `r/card.json`.
 
-- Pacotes npm: `@radix-ui/react-dialog`, `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-dialog`, `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/card/card.tsx`
   - `components/ryan-ui/card/card.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-dialog lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/card.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-dialog lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/card.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Agrupar título, descrição curta, mídia e uma ou duas ações sobre um mesmo objeto (um projeto, um roteiro, um artigo) numa grade ou lista.
-- Resumo que abre uma visão rápida maior sem sair da página: com `details`, o cartão inteiro vira gatilho e cresce até um painel central.
-- Rodapé com o dono e um estado que muda no lugar, como “Atualizado agora”, anunciado ao leitor de tela.
+- Group a title, short description, media, and one or two actions about the same object (a project, an itinerary, an article) in a grid or list.
+- A summary that opens a larger quick look without leaving the page: with `details`, the whole card becomes the trigger and grows into a central panel.
+- A footer with the owner and a state that changes in place, such as “Updated just now”, announced to the screen reader.
 
-## Quando não usar
+## When not to use
 
-- Use [`expandable-card`](expandable-card.md) quando o conteúdo extra deve abrir no próprio lugar, dentro do fluxo da página, e não num diálogo.
-- Use [`metric-card`](metric-card.md) para um número com contexto e variação.
-- Use [`dialog`](dialog.md) para decisões e formulários que não partem de um cartão: a visão rápida daqui serve para ler mais sobre o mesmo item.
+- Use [`expandable-card`](expandable-card.md) when the extra content should open in place, within the page flow, and not in a dialog.
+- Use [`metric-card`](metric-card.md) for a number with context and change.
+- Use [`dialog`](dialog.md) for decisions and forms that do not start from a card: the quick look here is for reading more about the same item.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useState } from "react";
@@ -86,15 +86,15 @@ export default function CardDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `Card`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `title` (obrigatória) | `string` | — | — |
+| `title` (required) | `string` | — | — |
 | `description` | `string` | — | — |
 | `media` | `ReactNode` | — | — |
 | `action` | `ReactNode` | — | — |
@@ -106,44 +106,44 @@ Extraída do código-fonte. As descrições das props vêm dos comentários do c
 | `defaultOpen` | `boolean` | `false` | — |
 | `onOpenChange` | `(open: boolean) => void` | — | — |
 | `container` | `HTMLElement \| null` | — | Opens the quick look inside this element instead of over the whole page: the dim covers only the element and the quick look centers in it. The element needs position: relative and overflow: hidden. The page around it stays usable while the quick look is open: nothing is scroll-locked or hidden from assistive technology, and Escape, the dim and the close control still close it. |
-| `...props` | `HTMLAttributes<HTMLElement>` | — | Também aceita as props deste tipo. |
+| `...props` | `HTMLAttributes<HTMLElement>` | — | Also accepts the props of this type. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Tab` | Com `details`, para no título, que vira um botão; o foco aparece como a borda do cartão mais forte. |
-| `Enter` ou `Espaço` | Abrem a visão rápida a partir do título. |
-| `Esc` | Fecha a visão rápida: o painel volta para o lugar do cartão e o foco retorna ao título. |
-| `Tab` ou `Shift + Tab` | Com a visão rápida aberta, circulam só entre os controles do painel. |
+| `Tab` | With `details`, stops on the title, which becomes a button; focus appears as a stronger card border. |
+| `Enter` or `Space` | Open the quick look from the title. |
+| `Esc` | Closes the quick look: the panel returns to the card's place and focus returns to the title. |
+| `Tab` or `Shift + Tab` | With the quick look open, cycle only among the panel's controls. |
 
-## Acessibilidade
+## Accessibility
 
-- O cartão é um `article` com título `h3`; a visão rápida é um diálogo modal do Radix (prende o foco, fecha com `Esc` ou clique fora e devolve o foco) com o título em `h2` e a descrição ligada por `aria-describedby`.
-- Com `details`, a área de clique do título cobre o cartão todo e `action` fica por cima; o botão do título não tem contorno próprio, só a borda do cartão muda no foco.
-- `status` é uma região `role="status"`, então cada texto novo é anunciado; o botão de fechar tem rótulo em inglês (“Close quick look”), e o `alt` da mídia é por sua conta.
+- The card is an `article` with an `h3` title; the quick look is a Radix modal dialog (traps focus, closes with `Esc` or outside click, and returns focus) with the title as `h2` and the description linked by `aria-describedby`.
+- With `details`, the title's click area covers the whole card and `action` sits on top; the title button has no outline of its own, only the card border changes on focus.
+- `status` is a `role="status"` region, so each new text is announced; the close button has an English label (“Close quick look”), and the media `alt` is up to you.
 
-## Movimento
+## Motion
 
-- Sob o ponteiro do mouse o cartão sobe 2 px com sombra e a mídia aproxima devagar até 4%.
-- Na visão rápida, a superfície, a foto, o título, a descrição e o rodapé viajam numa mola sem ultrapassagem do cartão até o painel central e voltam pelo mesmo caminho ao fechar; `details` entra depois que o painel cresceu.
-- Com “reduzir movimento”, o cartão não sobe nem aproxima a foto, a visão rápida só esmaece e `status` troca sem animar.
+- Under the mouse pointer the card rises 2 px with a shadow and the media slowly zooms in to 4%.
+- In the quick look, the surface, photo, title, description, and footer travel on a no-overshoot spring from the card to the central panel and return along the same path on closing; `details` enters after the panel has grown.
+- With “reduce motion”, the card neither rises nor zooms the photo, the quick look only fades, and `status` swaps without animation.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O painel da visão rápida tem `min(100vw - var(--space-8), 30rem)` de largura e, no máximo, a altura da tela menos a mesma margem, com rolagem interna.
-- O cartão ocupa a largura do pai; num rodapé estreito, `meta` e `status` cortam com reticências em vez de passar por baixo de `action`.
+- The quick look panel is `min(100vw - var(--space-8), 30rem)` wide and at most the screen height minus the same margin, with internal scrolling.
+- The card takes the parent's width; in a narrow footer, `meta` and `status` truncate with an ellipsis instead of going under `action`.
 
-## Desempenho
+## Performance
 
-- Cada cartão com `details` monta um diálogo próprio e um observador de tamanho, e o fundo da visão rápida usa `backdrop-filter`; em grades longas, passe `details` só onde ela faz falta.
+- Each card with `details` mounts its own dialog and a size observer, and the quick look backdrop uses `backdrop-filter`; in long grids, pass `details` only where it is needed.
 
-## Notas para IA
+## Notes for AI
 
-- `title` é obrigatório e é texto; `media`, `avatar`, `meta`, `action`, `children` e `details` são espaços livres, e `status` precisa ser string porque anima palavra por palavra.
-- `open`, `defaultOpen` e `onOpenChange` só valem com `details`; sem ele o cartão é estático e o título não vira botão.
-- Com a visão rápida aberta, `media`, `children`, `avatar` e `action` existem duas vezes (no cartão e no painel): não ponha `id` fixo nem estado local dentro deles.
+- `title` is required and is text; `media`, `avatar`, `meta`, `action`, `children`, and `details` are free slots, and `status` must be a string because it animates word by word.
+- `open`, `defaultOpen`, and `onOpenChange` only apply with `details`; without it the card is static and the title does not become a button.
+- With the quick look open, `media`, `children`, `avatar`, and `action` exist twice (in the card and in the panel): do not put a fixed `id` or local state inside them.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/card · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/card · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

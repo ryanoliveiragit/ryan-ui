@@ -2,48 +2,48 @@
 
 > Conversa com mensagens agrupadas, reações, confirmação de leitura, indicador de digitação e campo de envio com anexos.
 
-- Tipo: componente (categoria Dados)
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/c/chat-thread
-- Descrição original (inglês): A chat thread with grouped messages, reactions, read receipts, typing, and a composer with attachments.
+- Type: component (category Data)
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/c/chat-thread
+- Original description: A chat thread with grouped messages, reactions, read receipts, typing, and a composer with attachments.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json`. Caminho do registro, relativo ao endereço do site: `r/chat-thread.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/chat-thread.json`. Registry path, relative to the site address: `r/chat-thread.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/chat-thread/chat-thread.tsx`
   - `components/ryan-ui/chat-thread/chat-thread.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/chat-thread.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/chat-thread.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Conversa entre pessoas ou atendimento: mensagens agrupadas por autor e por dia, reações, indicador de digitação e confirmação de leitura.
-- Quando o estado de entrega da própria mensagem importa: enviando, enviada, entregue, lida ou falhou, com botão de repetir via `onRetry`.
-- Quando a pessoa anexa arquivos pelo botão, colando ou arrastando para o campo de envio.
+- Conversation between people or customer support: messages grouped by author and by day, reactions, typing indicator, and read receipts.
+- When the delivery state of the user's own message matters: sending, sent, delivered, read, or failed, with a retry button via `onRetry`.
+- When the user attaches files with the button, by pasting, or by dragging onto the composer.
 
-## Quando não usar
+## When not to use
 
-- Use [`chat-app`](chat-app.md) para conversa com assistente de IA, com resposta em fluxo, parar e regenerar.
-- Use [`comment-thread`](comment-thread.md) para discussão presa a um conteúdo, com respostas aninhadas, menções, edição e resolver.
-- Use [`message-bubble`](message-bubble.md) quando só precisa do balão, sem lista, rolagem nem campo de envio.
+- Use [`chat-app`](chat-app.md) for a conversation with an AI assistant, with streaming responses, stop, and regenerate.
+- Use [`comment-thread`](comment-thread.md) for a discussion tied to a piece of content, with nested replies, mentions, editing, and resolve.
+- Use [`message-bubble`](message-bubble.md) when you only need the bubble, without a list, scrolling, or composer.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import { useEffect, useMemo, useState } from "react";
@@ -94,17 +94,17 @@ export default function ChatThreadDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `ChatComposer`
 
 The message box on its own: autosizing text, attachments by button, paste, or drop, and a send button that morphs when there is something to send.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `onSend` (obrigatória) | `(draft: ChatDraft) => void` | — | — |
+| `onSend` (required) | `(draft: ChatDraft) => void` | — | — |
 | `placeholder` | `string` | `"Message"` | — |
 | `allowAttachments` | `boolean` | `true` | — |
 | `accept` | `string` | — | — |
@@ -116,10 +116,10 @@ The message box on its own: autosizing text, attachments by button, paste, or dr
 
 A chat or support thread: grouped messages with day separators, reactions, read receipts that glide to the latest read message, a typing indicator, and a composer. The list stays pinned to the newest message and offers a pill when new messages land out of view.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `participants` (obrigatória) | `ChatParticipant[]` | — | — |
-| `currentUserId` (obrigatória) | `string` | — | — |
+| `participants` (required) | `ChatParticipant[]` | — | — |
+| `currentUserId` (required) | `string` | — | — |
 | `messages` | `ChatMessage[]` | — | Controlled messages, oldest first. Leave it out to let the thread keep its own list. |
 | `defaultMessages` | `ChatMessage[]` | — | — |
 | `typing` | `string[]` | `[]` | Participant ids currently typing. |
@@ -138,27 +138,27 @@ A chat or support thread: grouped messages with day separators, reactions, read 
 | `labels` | `ChatThreadLabels` | — | Words for localization. Leave out any key to keep its English default. |
 | `className` | `string` | — | — |
 
-### Tipos exportados
+### Exported types
 
-| Tipo | Definição |
+| Type | Definition |
 | --- | --- |
 | `ChatMessageStatus` | `"sending" \| "sent" \| "delivered" \| "read" \| "failed"` |
 
 #### `ChatParticipant`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `name` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `name` (required) | `string` | — |
 | `avatar` | `string` | Portrait URL. Initials show when it is missing. |
 
 #### `ChatAttachment`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `name` (obrigatória) | `string` | — |
-| `kind` (obrigatória) | `"image" \| "file"` | — |
+| `id` (required) | `string` | — |
+| `name` (required) | `string` | — |
+| `kind` (required) | `"image" \| "file"` | — |
 | `url` | `string` | — |
 | `size` | `number` | Bytes. |
 | `width` | `number` | Intrinsic image size, used to reserve space before the image loads. |
@@ -167,36 +167,36 @@ A chat or support thread: grouped messages with day separators, reactions, read 
 
 #### `ChatReaction`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `emoji` (obrigatória) | `string` | — |
-| `count` (obrigatória) | `number` | — |
+| `emoji` (required) | `string` | — |
+| `count` (required) | `number` | — |
 | `mine` | `boolean` | The current user reacted with this emoji. |
 
 #### `ChatMessage`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | — |
-| `authorId` (obrigatória) | `string` | — |
+| `id` (required) | `string` | — |
+| `authorId` (required) | `string` | — |
 | `text` | `string` | — |
-| `createdAt` (obrigatória) | `Date \| string \| number` | — |
+| `createdAt` (required) | `Date \| string \| number` | — |
 | `attachments` | `ChatAttachment[]` | — |
 | `reactions` | `ChatReaction[]` | — |
 | `status` | `"sending" \| "sent" \| "delivered" \| "read" \| "failed"` | Delivery state of the current user's own messages. |
 
 #### `ChatDraft`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `text` (obrigatória) | `string` | — |
-| `files` (obrigatória) | `File[]` | — |
+| `text` (required) | `string` | — |
+| `files` (required) | `File[]` | — |
 
 #### `ChatComposerLabels`
 
 Words the composer shows or announces. Each has an English default.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `send` | `string` | Accessible name of the send button. |
 | `attach` | `string` | Accessible name of the attach button. |
@@ -207,7 +207,7 @@ Words the composer shows or announces. Each has an English default.
 
 Every word the thread shows or announces. Each has an English default; words with a count or names are functions, so an app can apply its own plural rules.
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
 | `sending` | `string` | — |
 | `sent` | `string` | — |
@@ -226,64 +226,64 @@ Every word the thread shows or announces. Each has an English default; words wit
 | `reactions` | `string` | Accessible name of the reaction picker and of the reactions under a message. |
 | `reactWith` | `(emoji: string) => string` | Accessible name of an emoji in the picker. |
 | `reactionCount` | `(emoji: string, count: number, includesYou: boolean) => string` | Accessible name of a reaction under a message. |
-| `...props` | `ChatComposerLabels` | Também aceita as props deste tipo. |
+| `...props` | `ChatComposerLabels` | Also accepts the props of this type. |
 
 #### `ChatThreadHandle`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `scrollToBottom` (obrigatória) | `(smooth?: boolean) => void` | — |
-| `focusComposer` (obrigatória) | `() => void` | — |
+| `scrollToBottom` (required) | `(smooth?: boolean) => void` | — |
+| `focusComposer` (required) | `() => void` | — |
 
 #### `ChatComposerHandle`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `focus` (obrigatória) | `() => void` | — |
+| `focus` (required) | `() => void` | — |
 
-### Outras exportações
+### Other exports
 
-- `formatBytes` (função)
+- `formatBytes` (function)
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | No campo de mensagem, envia o texto e os anexos. |
-| `Shift + Enter` | Quebra a linha sem enviar. |
-| `←` ou `→` | No seletor de reações, passam de um emoji a outro, dando a volta nas pontas. |
-| `Esc` | Fecha o seletor de reações e devolve o foco ao botão que o abriu. |
-| `Espaço` ou `Enter` | Numa reação sob a mensagem, alternam a sua participação; no seletor, escolhem o emoji em foco. |
-| `Tab` | Percorre anexos, reações, a pílula de novas mensagens, anexar, campo e enviar; o botão de reagir de uma mensagem aparece quando o foco entra nela. |
+| `Enter` | In the message field, sends the text and attachments. |
+| `Shift + Enter` | Inserts a line break without sending. |
+| `←` or `→` | In the reaction picker, move from one emoji to another, wrapping at the ends. |
+| `Esc` | Closes the reaction picker and returns focus to the button that opened it. |
+| `Space` or `Enter` | On a reaction under the message, toggle your participation; in the picker, choose the focused emoji. |
+| `Tab` | Moves through attachments, reactions, the new messages pill, attach, field, and send; a message's react button appears when focus enters it. |
 
-## Acessibilidade
+## Accessibility
 
-- A lista é um `role="log"` com `aria-live="polite"`, então mensagens novas são anunciadas; quem está digitando sai numa região `role="status"` separada.
-- Reações são botões com `aria-pressed` e rótulo com a contagem; o seletor abre com o foco no primeiro emoji e o devolve ao fechar.
-- Todo texto visível ou anunciado tem padrão em inglês e pode ser trocado por `labels`; informe também `label` (o nome da conversa) e `alt` nos anexos de imagem.
+- The list is a `role="log"` with `aria-live="polite"`, so new messages are announced; who is typing is announced in a separate `role="status"` region.
+- Reactions are buttons with `aria-pressed` and a label with the count; the picker opens with focus on the first emoji and returns it on closing.
+- All visible or announced text has an English default and can be replaced through `labels`; also provide `label` (the conversation's name) and `alt` on image attachments.
 
-## Movimento
+## Motion
 
-- Cada mensagem nova salta do seu lado com mola e, se você está no fim, a conversa sobe de onde estava em vez de pular.
-- Reações surgem com escala e a contagem rola; os avatares de leitura deslizam até a última mensagem lida, e os pontos de digitação pulsam em sequência.
-- Com “reduzir movimento”, tudo vira um esmaecer curto, os pontos ficam parados e a rolagem até o fim é instantânea.
+- Each new message pops in from its side with a spring and, if you are at the end, the conversation rises from where it was instead of jumping.
+- Reactions appear with scale and the count rolls; the read avatars slide to the last read message, and the typing dots pulse in sequence.
+- With “reduce motion”, everything becomes a short fade, the dots stay still, and scrolling to the end is instant.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- A raiz tem `height: 100%` e rola por dentro: o pai precisa ter altura definida, senão a lista não rola nem fica presa ao fim.
-- Os balões ocupam até 78% da largura (84% em telas de até 420 px), e em telas de toque o botão de reagir fica sempre visível.
+- The root has `height: 100%` and scrolls internally: the parent must have a defined height, otherwise the list neither scrolls nor stays pinned to the end.
+- Bubbles take up to 78% of the width (84% on screens up to 420 px), and on touch screens the react button is always visible.
 
-## Desempenho
+## Performance
 
-- Todas as mensagens ficam no DOM, sem virtualização: em históricos longos, carregue por páginas.
-- As imagens usam `loading="lazy"`, e `width` e `height` no anexo reservam o espaço de uma imagem única antes de ela carregar.
+- All messages stay in the DOM, without virtualization: for long histories, load in pages.
+- Images use `loading="lazy"`, and `width` and `height` on the attachment reserve the space of a single image before it loads.
 
-## Notas para IA
+## Notes for AI
 
-- Com `messages` (controlado) você mesmo acrescenta a mensagem em `onSend` e atualiza as reações em `onReact`; com `defaultMessages` a lista cuida disso e os callbacks só avisam.
-- `onSend` recebe `{ text, files }` com objetos `File` que você precisa enviar ao servidor; `currentUserId` define o lado dos balões, e cada `authorId` deve existir em `participants`.
-- O texto das mensagens é puro, sem markdown; `ChatComposer` é exportado à parte, e o `ref` oferece `scrollToBottom()` e `focusComposer()`.
+- With `messages` (controlled) you add the message yourself in `onSend` and update reactions in `onReact`; with `defaultMessages` the list handles this and the callbacks only notify.
+- `onSend` receives `{ text, files }` with `File` objects that you must upload to the server; `currentUserId` sets the side of the bubbles, and each `authorId` must exist in `participants`.
+- Message text is plain, without markdown; `ChatComposer` is exported separately, and the `ref` offers `scrollToBottom()` and `focusComposer()`.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/chat-thread · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/c/chat-thread · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

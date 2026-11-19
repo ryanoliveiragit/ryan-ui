@@ -1,323 +1,323 @@
 {
  "activity-heatmap": {
   "quandoUsar": [
-   "Um ano de atividade diária (commits, acessos, treinos) em que o ritmo, as sequências e as semanas paradas importam mais que o número exato de cada dia.",
-   "Trocar de ano ou de intervalo sem redesenhar: com `days` novos a grade recolore numa varredura e o total rola dígito a dígito.",
-   "Deixar a pessoa escolher um dia para filtrar o que vem abaixo, com `selectedDate` e `onSelectDate`."
+   "A year of daily activity (commits, visits, workouts) where rhythm, streaks, and idle weeks matter more than the exact number for each day.",
+   "Switch years or ranges without redrawing: with new `days`, the grid recolors in a sweep and the total rolls digit by digit.",
+   "Let the user pick a day to filter what appears below, with `selectedDate` and `onSelectDate`."
   ],
   "quandoEvitar": [
-   "Use `bar-chart` quando a comparação exata entre os dias é o objetivo.",
-   "Use `returns-calendar` para valores diários que podem ser negativos, como ganhos e perdas; aqui contagens abaixo de zero viram zero.",
-   "Use `date-picker` quando a tarefa é escolher uma data, não ler atividade."
+   "Use `bar-chart` when exact comparison between days is the goal.",
+   "Use `returns-calendar` for daily values that can be negative, such as gains and losses; here, counts below zero become zero.",
+   "Use `date-picker` when the task is to choose a date, not to read activity."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Entra na grade pelo último dia que teve foco (ou o selecionado, ou o mais recente) e segue para a legenda; só um dia e um nível ficam na ordem de tabulação."
+    "acao": "Enters the grid at the last day that had focus (or the selected one, or the most recent) and continues to the legend; only one day and one level are in the tab order."
    },
    {
     "teclas": [
      "↑",
      "↓"
     ],
-    "acao": "Vai ao dia anterior ou ao seguinte."
+    "acao": "Moves to the previous or next day."
    },
    {
     "teclas": [
      "←",
      "→"
     ],
-    "acao": "Na grade, recua ou avança uma semana; na legenda, passa ao nível anterior ou ao seguinte."
+    "acao": "In the grid, moves back or forward one week; in the legend, moves to the previous or next level."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vai ao primeiro ou ao último dia do intervalo; na legenda, ao primeiro ou ao último nível."
+    "acao": "Moves to the first or last day of the range; in the legend, to the first or last level."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Na grade, seleciona o dia em foco e chama `onSelectDate`; na legenda, fixa ou solta o destaque do nível."
+    "acao": "In the grid, selects the focused day and calls `onSelectDate`; in the legend, pins or unpins the level highlight."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha a dica do dia em foco; na legenda, desfaz a pré-visualização do nível."
+    "acao": "Closes the tooltip of the focused day; in the legend, cancels the level preview."
    }
   ],
   "acessibilidade": [
-   "A grade tem `role=\"grid\"` com o nome vindo de `label` (obrigatório), e cada dia é um `gridcell` cujo `aria-label` traz a contagem e a data por extenso.",
-   "O total fica numa região `role=\"status\"` oculta; os níveis da legenda são botões com `aria-pressed`, e um texto `aria-live` diz quantos dias há no nível destacado.",
-   "Os textos fixos (“No …”, “in”, “Less”, “More”, “days with”) estão em inglês no código: `locale` só muda datas e números, e `unit` só os substantivos da contagem."
+   "The grid has `role=\"grid\"` with its name coming from `label` (required), and each day is a `gridcell` whose `aria-label` carries the count and the full date.",
+   "The total sits in a hidden `role=\"status\"` region; the legend levels are buttons with `aria-pressed`, and an `aria-live` text says how many days are in the highlighted level.",
+   "The fixed texts (“No …”, “in”, “Less”, “More”, “days with”) are in English in the code: `locale` only changes dates and numbers, and `unit` only the nouns of the count."
   ],
   "movimento": [
-   "Na primeira vez que entra na tela, os quadrados surgem numa onda diagonal de cerca de 0,4 s; um intervalo novo recolore a grade na mesma diagonal, para frente ou para trás conforme a data.",
-   "Uma única dica desliza com mola de um dia para outro, e o anel de seleção desliza até o dia escolhido.",
-   "Com “reduzir movimento”, a grade aparece de uma vez, a dica salta para o lugar e as trocas viram um esmaecer curto."
+   "The first time it enters the screen, the squares appear in a diagonal wave of about 0.4 s; a new range recolors the grid along the same diagonal, forward or backward depending on the date.",
+   "A single tooltip slides with a spring from one day to another, and the selection ring slides to the chosen day.",
+   "With “reduce motion”, the grid appears all at once, the tooltip jumps into place, and swaps become a short fade."
   ],
   "responsivo": [
-   "O lado dos quadrados vai de 9 a 15 px conforme a largura do contêiner; abaixo de uns 670 px a grade rola de lado, começa nas semanas mais recentes e mantém os dias da semana fixos à esquerda.",
-   "Em contêineres de até 440 px a legenda encurta para só a contagem de dias; se o fundo não for `--surface`, defina `--heatmap-surface` para os rótulos fixos cobrirem a grade que rola."
+   "The square size goes from 9 to 15 px depending on the container width; below about 670 px the grid scrolls sideways, starts at the most recent weeks, and keeps the weekday labels fixed on the left.",
+   "In containers up to 440 px the legend shortens to just the day count; if the background is not `--surface`, set `--heatmap-surface` so the fixed labels cover the scrolling grid."
   ],
   "desempenho": [
-   "São cerca de 370 células memorizadas, com eventos delegados à grade; passe `days`, `thresholds` e `onSelectDate` com referência estável (`useMemo`, `useCallback`) para não refazer todas a cada render."
+   "There are about 370 memoized cells, with events delegated to the grid; pass `days`, `thresholds`, and `onSelectDate` with a stable reference (`useMemo`, `useCallback`) so all of them are not redone on every render."
   ],
   "notasIA": [
-   "`days` é uma lista `{ date: \"YYYY-MM-DD\", count }` do dia mais antigo ao mais novo, lida em UTC; dias ausentes contam zero, e `label` e `period` são obrigatórios.",
-   "A seleção é só controlada: guarde `selectedDate` no pai e atualize em `onSelectDate`; sem esse callback, clicar num dia não faz nada.",
-   "Ponha o seletor de ano em `actions` (um `segmented-control`, por exemplo) e troque apenas `days`: mudar a `key` do componente remonta a grade e perde a varredura de recoloração."
+   "`days` is a list of `{ date: \"YYYY-MM-DD\", count }` from the oldest day to the newest, read in UTC; missing days count as zero, and `label` and `period` are required.",
+   "Selection is controlled only: keep `selectedDate` in the parent and update it in `onSelectDate`; without that callback, clicking a day does nothing.",
+   "Put the year selector in `actions` (a `segmented-control`, for example) and change only `days`: changing the component's `key` remounts the grid and loses the recoloring sweep."
   ]
  },
  "animated-counter": {
   "quandoUsar": [
-   "Totais de painel que mudam com o período ou o filtro: cada dígito gira como um odômetro na direção em que o número andou.",
-   "Números de destaque que contam a partir do zero quando entram na tela, com `animateOnView`.",
-   "Valores com moeda, percentual ou casas decimais, via `prefix`, `suffix` e `decimals`."
+   "Dashboard totals that change with the period or filter: each digit spins like an odometer in the direction the number moved.",
+   "Highlight numbers that count up from zero when they enter the screen, with `animateOnView`.",
+   "Values with currency, percentage, or decimal places, via `prefix`, `suffix`, and `decimals`."
   ],
   "quandoEvitar": [
-   "Use `metric-card` quando o número precisa de rótulo, contexto e variação num cartão pronto.",
-   "Use `slot-text` quando o valor mistura letras e números ou a troca deve parecer uma roleta de caça-níquel.",
-   "Use `countdown` para contagem regressiva até uma data."
+   "Use `metric-card` when the number needs a label, context, and change in a ready-made card.",
+   "Use `slot-text` when the value mixes letters and numbers or the swap should look like a slot machine.",
+   "Use `countdown` for a countdown to a date."
   ],
   "acessibilidade": [
-   "Os dígitos animados ficam em `aria-hidden`; o leitor de tela recebe um texto oculto com o número já formatado, incluindo `prefix` e `suffix`.",
-   "Não há região viva: se a mudança de valor precisa ser anunciada, envolva o contador num elemento com `aria-live`.",
-   "Os dígitos visíveis têm `user-select: none`, então o número não pode ser selecionado para copiar."
+   "The animated digits are `aria-hidden`; the screen reader receives a hidden text with the already formatted number, including `prefix` and `suffix`.",
+   "There is no live region: if the value change needs to be announced, wrap the counter in an element with `aria-live`.",
+   "The visible digits have `user-select: none`, so the number cannot be selected for copying."
   ],
   "movimento": [
-   "Cada dígito é uma roda de 0 a 9 que gira com mola sem ultrapassagem no sentido da mudança (para cima quando o valor cresce), passando de 9 para 0 como um odômetro.",
-   "Quando o número ganha ou perde casas, as colunas abrem ou fecham em largura; com `animateOnView`, os dígitos sobem do zero em cascata quando 60% do contador está visível.",
-   "Com “reduzir movimento”, os dígitos trocam na hora e o rótulo só esmaece."
+   "Each digit is a 0 to 9 wheel that spins with a no-overshoot spring in the direction of the change (upward when the value grows), going from 9 to 0 like an odometer.",
+   "When the number gains or loses places, the columns open or close in width; with `animateOnView`, the digits rise from zero in a cascade when 60% of the counter is visible.",
+   "With “reduce motion”, the digits change immediately and the label only fades."
   ],
   "desempenho": [
-   "Cada dígito monta dez glifos animados (um número de sete dígitos são 70 elementos), então use em poucos destaques por tela, não em cada linha de uma tabela."
+   "Each digit mounts ten animated glyphs (a seven-digit number is 70 elements), so use it on a few highlights per screen, not on every row of a table."
   ],
   "notasIA": [
-   "`value` precisa ser `number`; a formatação usa `locale` (padrão `en-US`, fixo para servidor e cliente renderizarem igual), então passe `locale=\"pt-BR\"` para ponto de milhar e vírgula decimal.",
-   "Não aceita `className` nem `style`, e o tamanho vem de `--text-3xl` no próprio componente: um `font-size` no elemento pai não muda nada; redefina essa variável num elemento em volta.",
-   "Basta trocar `value` para animar; não mude a `key` do componente, senão ele remonta já no valor novo, sem girar."
+   "`value` must be a `number`; formatting uses `locale` (default `en-US`, fixed so server and client render the same), so pass `locale=\"pt-BR\"` for a dot thousands separator and a decimal comma.",
+   "It accepts neither `className` nor `style`, and the size comes from `--text-3xl` on the component itself: a `font-size` on the parent element changes nothing; redefine that variable on a surrounding element.",
+   "Just change `value` to animate; do not change the component's `key`, otherwise it remounts already at the new value, without spinning."
   ]
  },
  "aspect-ratio": {
   "quandoUsar": [
-   "Pré-visualização que alterna entre paisagem, quadrado e retrato (um seletor de formato de corte, por exemplo) sem salto de layout.",
-   "Reservar o espaço de imagem, vídeo ou `iframe` antes do carregamento, com a mídia recortada pelo centro.",
-   "Formatos verticais que não devem empurrar a página: com `maxHeight` a caixa estreita em vez de crescer."
+   "A preview that switches between landscape, square, and portrait (a crop format selector, for example) without layout shift.",
+   "Reserve the space of an image, video, or `iframe` before loading, with the media cropped from the center.",
+   "Vertical formats that should not push the page: with `maxHeight` the box narrows instead of growing."
   ],
   "quandoEvitar": [
-   "Quando a proporção nunca muda e não há recorte, a propriedade CSS `aspect-ratio` resolve sem um componente cliente.",
-   "Use `image-compare` para confrontar duas imagens com uma divisória.",
-   "Use `image-viewer` quando as fotos precisam abrir ampliadas, com zoom e navegação."
+   "When the ratio never changes and there is no cropping, the CSS `aspect-ratio` property does the job without a client component.",
+   "Use `image-compare` to compare two images with a divider.",
+   "Use `image-viewer` when photos need to open enlarged, with zoom and navigation."
   ],
   "acessibilidade": [
-   "É um `div` sem papel nem rótulo: a descrição vem da mídia que você coloca dentro, então informe `alt` na imagem ou `title` no `iframe`."
+   "It is a `div` with no role or label: the description comes from the media you place inside, so provide `alt` on the image or `title` on the `iframe`."
   ],
   "movimento": [
-   "Ao mudar `ratio`, a própria proporção anima com mola sem ultrapassagem e o navegador recalcula largura e altura a cada quadro, então a mídia nunca estica como esticaria num `scale`.",
-   "A primeira renderização não anima; `animated={false}` troca na hora, e com “reduzir movimento” a troca é sempre instantânea."
+   "When `ratio` changes, the ratio itself animates with a no-overshoot spring and the browser recalculates width and height on every frame, so the media never stretches as it would with a `scale`.",
+   "The first render does not animate; `animated={false}` swaps immediately, and with “reduce motion” the swap is always instant."
   ],
   "responsivo": [
-   "A caixa ocupa 100% da largura do pai; com `maxHeight` a largura passa a ser o menor entre 100% e `maxHeight` vezes a proporção, e a caixa fica centralizada na linha."
+   "The box takes 100% of the parent's width; with `maxHeight` the width becomes the smaller of 100% and `maxHeight` times the ratio, and the box is centered in the row."
   ],
   "desempenho": [
-   "A animação mexe em layout, não em `transform`: cada quadro recalcula a caixa e o que vem depois dela, o que é leve para uma prévia e pesado para uma grade inteira trocando de proporção ao mesmo tempo."
+   "The animation touches layout, not `transform`: each frame recalculates the box and what comes after it, which is light for a preview and heavy for a whole grid changing ratio at the same time."
   ],
   "notasIA": [
-   "`ratio` aceita número (`16 / 9`) ou texto (`\"16/9\"`, `\"16:9\"`, `\"1.85\"`); um valor ilegível cai em 16:9 sem aviso.",
-   "Filhos diretos `img`, `video`, `canvas`, `iframe` e `picture` são esticados sobre a caixa e recortados (`fit=\"contain\"` mostra a mídia inteira); outros filhos você mesmo posiciona, pois a caixa é `position: relative`.",
-   "`onRatioSettled` avisa quando a caixa assenta numa proporção nova (não dispara na montagem); o pai precisa definir a largura."
+   "`ratio` accepts a number (`16 / 9`) or text (`\"16/9\"`, `\"16:9\"`, `\"1.85\"`); an unreadable value falls back to 16:9 without a warning.",
+   "Direct children `img`, `video`, `canvas`, `iframe`, and `picture` are stretched over the box and cropped (`fit=\"contain\"` shows the whole media); other children you position yourself, since the box is `position: relative`.",
+   "`onRatioSettled` fires when the box settles on a new ratio (it does not fire on mount); the parent must define the width."
   ]
  },
  "avatar": {
   "quandoUsar": [
-   "Identificar uma pessoa ou conta ao lado do nome, num comentário, numa linha de lista ou no cabeçalho.",
-   "Mostrar presença com `status` (`online` ou `offline`), num ponto no canto do avatar.",
-   "Listas em que nem todos têm foto: sem `src`, ou se a imagem falhar, entram as iniciais de `name`."
+   "Identify a person or account next to the name, in a comment, a list row, or the header.",
+   "Show presence with `status` (`online` or `offline`), as a dot at the corner of the avatar.",
+   "Lists where not everyone has a photo: without `src`, or if the image fails, the initials of `name` appear."
   ],
   "quandoEvitar": [
-   "Use `avatar-group` para várias pessoas empilhadas num espaço pequeno.",
-   "Use `user-menu` quando o avatar abre o menu da conta.",
-   "Para logotipos e imagens que não representam alguém, use uma imagem comum: o recorte é sempre circular e a alternativa à foto são as iniciais de um nome."
+   "Use `avatar-group` for several people stacked in a small space.",
+   "Use `user-menu` when the avatar opens the account menu.",
+   "For logos and images that do not represent someone, use a regular image: the crop is always circular and the fallback to the photo is a name's initials."
   ],
   "acessibilidade": [
-   "O `span` recebe `role=\"img\"` e `aria-label` com `name` e, se houver, o status; a foto tem `alt` vazio e as iniciais ficam em `aria-hidden`.",
-   "`role` e `aria-label` passados por props são sobrescritos; quando o nome já aparece em texto ao lado, passe `aria-hidden` para o leitor de tela não repetir.",
-   "O status entra no rótulo em inglês (“online”, “offline”) e, na tela, é só um ponto colorido."
+   "The `span` gets `role=\"img\"` and `aria-label` with `name` and, if present, the status; the photo has an empty `alt` and the initials are `aria-hidden`.",
+   "`role` and `aria-label` passed through props are overwritten; when the name already appears as text next to it, pass `aria-hidden` so the screen reader does not repeat it.",
+   "The status goes into the label in English (“online”, “offline”) and, on screen, is just a colored dot."
   ],
   "movimento": [
-   "Uma foto ainda carregando surge de um desfoque leve; uma já em cache aparece na hora, e as iniciais de reserva entram com um esmaecer.",
-   "O ponto de status aparece e troca com uma pequena escala em mola; com “reduzir movimento”, foto, iniciais e ponto mudam sem transição."
+   "A photo still loading emerges from a slight blur; one already cached appears immediately, and the fallback initials enter with a fade.",
+   "The status dot appears and swaps with a small spring scale; with “reduce motion”, photo, initials, and dot change without transition."
   ],
   "responsivo": [
-   "Os tamanhos são fixos em pixels (`sm` 28, `md` 36, `lg` 48, `xl` 88) e o avatar não encolhe dentro de uma linha flex."
+   "Sizes are fixed in pixels (`sm` 28, `md` 36, `lg` 48, `xl` 88) and the avatar does not shrink inside a flex row."
   ],
   "desempenho": [
-   "A foto sai pelo componente de imagem do `RyanProvider`: por padrão um `<img>` com `loading=\"lazy\"`; com `next/image` ela recebe `fill` e o `sizes` do tamanho escolhido."
+   "The photo goes through the image component from `RyanProvider`: by default an `<img>` with `loading=\"lazy\"`; with `next/image` it receives `fill` and the `sizes` of the chosen size."
   ],
   "notasIA": [
-   "`name` é obrigatório mesmo com foto: dele saem o rótulo acessível e as iniciais (primeira letra das duas primeiras palavras).",
-   "Não é interativo nem recebe foco: para um avatar clicável, envolva-o num `button` ou link com nome próprio, ou use `user-menu`.",
-   "O export é nomeado, sem default: `import { Avatar } from \"@/components/ryan-ui/avatar/avatar\"`; props extras vão para o `span` raiz."
+   "`name` is required even with a photo: the accessible label and the initials (first letter of the first two words) come from it.",
+   "It is not interactive and does not receive focus: for a clickable avatar, wrap it in a `button` or link with its own name, or use `user-menu`.",
+   "The export is named, with no default: `import { Avatar } from \"@/components/ryan-ui/avatar/avatar\"`; extra props go to the root `span`."
   ]
  },
  "avatar-group": {
   "quandoUsar": [
-   "Mostrar quem participa de um projeto, documento ou equipe em pouco espaço: cabeçalho, cartão ou célula de tabela.",
-   "Listas que mudam ao vivo: quem entra ou sai abre ou fecha o próprio espaço e o resto da pilha desliza.",
-   "Grupos maiores que o espaço: `max` limita os avatares visíveis e o restante vira um contador `+N`."
+   "Show who takes part in a project, document, or team in little space: header, card, or table cell.",
+   "Lists that change live: whoever joins or leaves opens or closes their own space and the rest of the stack slides.",
+   "Groups larger than the space: `max` limits the visible avatars and the remainder becomes a `+N` counter."
   ],
   "quandoEvitar": [
-   "Use `avatar` para uma pessoa só.",
-   "Quando cada pessoa precisa ser clicável ou a lista completa tem de estar à vista, use uma lista com nomes: aqui nada recebe foco e quem passa de `max` não é mostrado."
+   "Use `avatar` for a single person.",
+   "When each person needs to be clickable or the full list must be in view, use a list with names: here nothing receives focus and anyone beyond `max` is not shown."
   ],
   "acessibilidade": [
-   "O contêiner é um `role=\"group\"` nomeado por `label` (o padrão é inglês, “Team members”); cada avatar anuncia o nome, e o contador anuncia “N more” seguido do rótulo.",
-   "O balão com o nome é só visual: aparece ao passar o mouse e fica em `aria-hidden`; em toque ele não aparece, e os nomes além de `max` não ficam em lugar nenhum."
+   "The container is a `role=\"group\"` named by `label` (the default is English, “Team members”); each avatar announces the name, and the counter announces “N more” followed by the label.",
+   "The name bubble is visual only: it appears on mouse hover and is `aria-hidden`; on touch it does not appear, and the names beyond `max` are not available anywhere."
   ],
   "movimento": [
-   "Um membro novo abre o próprio espaço em largura com mola sem ultrapassagem e os demais deslizam; quem sai fecha o espaço do mesmo jeito.",
-   "O contador `+N` rola no sentido da mudança: o número novo sobe quando há mais gente e desce quando há menos.",
-   "Com “reduzir movimento”, entradas, saídas e contador trocam na hora e o balão do nome aparece sem subir."
+   "A new member opens its own width with a no-overshoot spring and the others slide; whoever leaves closes the space the same way.",
+   "The `+N` counter rolls in the direction of the change: the new number rises when there are more people and drops when there are fewer.",
+   "With “reduce motion”, entries, exits, and the counter swap immediately and the name bubble appears without rising."
   ],
   "notasIA": [
-   "`members` é uma lista `{ name, src?, status? }` e o `name` serve de `key`: dois membros com o mesmo nome geram aviso do React e quebram a animação.",
-   "Para ver entrada e saída animadas, altere a lista `members` com o componente montado; `max` (padrão 4) decide quantos aparecem antes do `+N`.",
-   "Depende de `avatar` e só aceita `size` `sm`, `md` ou `lg`; passe `label` em português, porque o padrão é inglês."
+   "`members` is a list of `{ name, src?, status? }` and `name` serves as the `key`: two members with the same name cause a React warning and break the animation.",
+   "To see animated entry and exit, change the `members` list while the component is mounted; `max` (default 4) decides how many appear before the `+N`.",
+   "It depends on `avatar` and only accepts `size` `sm`, `md`, or `lg`; pass `label` in your language, because the default is English."
   ]
  },
  "badge": {
   "quandoUsar": [
-   "Estado de um registro em tabela, lista ou cartão (Ativo, Vencido, Falhou), com `tone` e, se quiser, o ponto de `dot`.",
-   "Categorias sem sentido de estado, como métodos HTTP ou rótulos, com as seis cores de `color`.",
-   "Rótulo que muda no lugar (Rascunho → Publicado): o texto troca e a largura acompanha com uma mola."
+   "The state of a record in a table, list, or card (Active, Overdue, Failed), with `tone` and, if you like, the `dot` indicator.",
+   "Categories with no state meaning, such as HTTP methods or labels, with the six `color` options.",
+   "A label that changes in place (Draft → Published): the text swaps and the width follows with a spring."
   ],
   "quandoEvitar": [
-   "Use `tag-input` para valores que a pessoa digita e remove.",
-   "Use `chip-group` para filtros que ligam e desligam: a etiqueta não é clicável nem recebe foco.",
-   "Use `alert` quando a mensagem precisa de explicação ou de uma ação."
+   "Use `tag-input` for values the user types and removes.",
+   "Use `chip-group` for filters that toggle on and off: the badge is not clickable and does not receive focus.",
+   "Use `alert` when the message needs an explanation or an action."
   ],
   "acessibilidade": [
-   "É um `span` sem papel: o leitor de tela lê só o texto, então a palavra tem de dizer o estado; a cor de `tone` e o ponto não são anunciados.",
-   "Ícone e ponto ficam em `aria-hidden`, e durante a troca a cópia que sai também, para o texto não ser lido duas vezes.",
-   "A mudança de texto não é anunciada sozinha; se precisar, passe `role=\"status\"` (as props extras vão para o `span`)."
+   "It is a `span` with no role: the screen reader reads only the text, so the word itself must state the status; the `tone` color and the dot are not announced.",
+   "Icon and dot are `aria-hidden`, and during the swap so is the outgoing copy, so the text is not read twice.",
+   "A text change is not announced on its own; if needed, pass `role=\"status\"` (extra props go to the `span`)."
   ],
   "movimento": [
-   "Quando o texto muda, o antigo sobe e some, o novo entra de baixo com um desfoque leve, e a largura vai do tamanho antigo ao novo com mola sem ultrapassagem.",
-   "Um ícone de outro componente troca com escala e esmaecer; mudar `tone` ou `color` faz fundo, borda e texto mudarem de cor numa transição curta.",
-   "Com “reduzir movimento”, texto e ícone só esmaecem rápido e a largura acompanha na hora."
+   "When the text changes, the old one rises and disappears, the new one enters from below with a slight blur, and the width goes from the old size to the new with a no-overshoot spring.",
+   "An icon from another component swaps with scale and fade; changing `tone` or `color` makes background, border, and text change color in a short transition.",
+   "With “reduce motion”, text and icon only fade quickly and the width follows immediately."
   ],
   "responsivo": [
-   "A etiqueta não quebra linha nem encolhe (`white-space: nowrap`, `flex: none`): em colunas estreitas use rótulos curtos ou `size=\"sm\"`."
+   "The badge does not wrap or shrink (`white-space: nowrap`, `flex: none`): in narrow columns use short labels or `size=\"sm\"`."
   ],
   "desempenho": [
-   "Cada etiqueta mantém um observador de tamanho para a animação de largura; numa tabela com centenas de linhas isso soma, então pagine ou virtualize."
+   "Each badge keeps a size observer for the width animation; in a table with hundreds of rows this adds up, so paginate or virtualize."
   ],
   "notasIA": [
-   "Use `tone` para estado (`neutral`, `success`, `info`, `warning`, `danger`) e `color` para categoria; `color` vence `tone`, e `dot` é ignorado quando há `icon`.",
-   "Passe o rótulo como texto puro (`<Badge>{status}</Badge>`): a troca animada só acontece quando o filho é string ou número, não JSX.",
-   "O SVG de `icon` é redimensionado por CSS para 12, 14 ou 16 px conforme `size`; `outline` e `pill` só mudam a borda e os cantos."
+   "Use `tone` for status (`neutral`, `success`, `info`, `warning`, `danger`) and `color` for category; `color` wins over `tone`, and `dot` is ignored when there is an `icon`.",
+   "Pass the label as plain text (`<Badge>{status}</Badge>`): the animated swap only happens when the child is a string or number, not JSX.",
+   "The `icon` SVG is resized by CSS to 12, 14, or 16 px depending on `size`; `outline` and `pill` only change the border and corners."
   ]
  },
  "bar-chart": {
   "quandoUsar": [
-   "Uma medida ao longo de dias, semanas ou meses, quando a pessoa compara cada período com os outros e com a média.",
-   "Trocar de intervalo (semana, 30 dias) sem redesenhar: barras com a mesma `key` ficam no lugar e o eixo aproxima ou afasta em torno da mais recente.",
-   "Leitura por toque: arrastar o dedo sobre as barras mostra o valor de cada uma no título."
+   "A measure over days, weeks, or months, when the user compares each period with the others and with the average.",
+   "Switch ranges (week, 30 days) without redrawing: bars with the same `key` stay in place and the axis zooms in or out around the most recent one.",
+   "Touch reading: dragging a finger over the bars shows each one's value in the title."
   ],
   "quandoEvitar": [
-   "Use `line-chart` para mais de uma série ou quando a forma da tendência importa mais que cada valor.",
-   "Use `sparkline` para uma tendência compacta ao lado de um número, sem eixos.",
-   "Use `composition-chart` para as partes de um todo; este gráfico mostra uma única medida e não desenha valores negativos."
+   "Use `line-chart` for more than one series or when the shape of the trend matters more than each value.",
+   "Use `sparkline` for a compact trend next to a number, without axes.",
+   "Use `composition-chart` for the parts of a whole; this chart shows a single measure and does not draw negative values."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Leva o foco à área do gráfico, que se comporta como um `slider`, e ativa a barra mais recente."
+    "acao": "Moves focus to the chart area, which behaves as a `slider`, and activates the most recent bar."
    },
    {
     "teclas": [
      "←",
      "↓"
     ],
-    "acao": "Vai à barra anterior."
+    "acao": "Moves to the previous bar."
    },
    {
     "teclas": [
      "→",
      "↑"
     ],
-    "acao": "Vai à barra seguinte."
+    "acao": "Moves to the next bar."
    },
    {
     "teclas": [
      "Page Up",
      "Page Down"
     ],
-    "acao": "Avança ou recua sete barras."
+    "acao": "Moves forward or back seven bars."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vai à primeira ou à última barra."
+    "acao": "Moves to the first or last bar."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Sai da leitura: o título volta a mostrar a média."
+    "acao": "Leaves reading mode: the title shows the average again."
    }
   ],
   "acessibilidade": [
-   "A área de leitura é um `role=\"slider\"` focável cujo `aria-valuetext` diz o rótulo e o valor da barra ativa; o SVG é um `img` com um resumo de média, maior e menor valor.",
-   "Uma tabela oculta lista todos os pontos para o leitor de tela, e uma região `aria-live` anuncia período e média quando os dados mudam.",
-   "`label` e `period` são obrigatórios e nomeiam o gráfico; “Avg”, “Highest” e “Lowest” ficam em inglês no código, mas `averageLabel`, `valueLabel` e `categoryLabel` são seus."
+   "The reading area is a focusable `role=\"slider\"` whose `aria-valuetext` states the label and value of the active bar; the SVG is an `img` with a summary of the average, highest, and lowest value.",
+   "A hidden table lists every point for the screen reader, and an `aria-live` region announces the period and average when the data changes.",
+   "`label` and `period` are required and name the chart; “Avg”, “Highest”, and “Lowest” are in English in the code, but `averageLabel`, `valueLabel`, and `categoryLabel` are yours."
   ],
   "movimento": [
-   "As barras crescem da base, da esquerda para a direita, quando o gráfico entra na tela, e a linha da média sobe junto.",
-   "Num intervalo novo, o eixo do tempo aproxima ou afasta com mola em torno da barra mais recente: as barras que ficam mudam de altura no lugar, as que saem afundam na base e a média desliza.",
-   "Com “reduzir movimento”, alturas, escala e cursor saltam para o valor final e os textos do título só esmaecem."
+   "The bars grow from the base, left to right, when the chart enters the screen, and the average line rises with them.",
+   "On a new range, the time axis zooms in or out with a spring around the most recent bar: the bars that stay change height in place, those that leave sink to the base, and the average slides.",
+   "With “reduce motion”, heights, scale, and cursor jump to the final value and the title texts only fade."
   ],
   "responsivo": [
-   "O gráfico mede a própria largura, e os rótulos do eixo rareiam (um sim, um não, e assim por diante, contando da barra mais recente) para não se tocarem.",
-   "A camada de leitura usa `touch-action: pan-y`: arrastar na horizontal lê as barras e na vertical continua rolando a página; a altura é fixa em `height` (176 px por padrão)."
+   "The chart measures its own width, and the axis labels thin out (every other one, and so on, counting from the most recent bar) so they do not touch.",
+   "The reading layer uses `touch-action: pan-y`: dragging horizontally reads the bars and vertically keeps scrolling the page; the height is fixed at `height` (176 px by default)."
   ],
   "desempenho": [
-   "Cada barra é um `path` recalculado a cada quadro durante as transições e ocupa 58% da sua fatia (no máximo 28 px): o componente serve a dezenas de barras, não a centenas."
+   "Each bar is a `path` recalculated on every frame during transitions and takes 58% of its slice (at most 28 px): the component serves dozens of bars, not hundreds."
   ],
   "notasIA": [
-   "Cada ponto é `{ key, label, axisLabel?, value }`, do mais antigo ao mais novo; a `key` tem de ser estável (uma data ISO) para a troca de intervalo transformar as barras em vez de redesenhar.",
-   "A barra ativa é estado interno: não há prop nem callback para ler ou controlar qual está sendo lida.",
-   "A média do título é arredondada para inteiro antes de `formatValue`, e o formato padrão não tem casas decimais: para medidas fracionárias, passe os valores numa unidade menor."
+   "Each point is `{ key, label, axisLabel?, value }`, from oldest to newest; the `key` must be stable (an ISO date) so the range swap transforms the bars instead of redrawing.",
+   "The active bar is internal state: there is no prop or callback to read or control which one is being read.",
+   "The title average is rounded to an integer before `formatValue`, and the default format has no decimal places: for fractional measures, pass the values in a smaller unit."
   ]
  },
  "brush-chart": {
   "quandoUsar": [
-   "Série temporal longa e densa em que a pessoa precisa do histórico inteiro e de olhar de perto qualquer trecho.",
-   "Marcar eventos na série (lançamentos, mudanças de preço) com `annotations` e ler cada um no próprio gráfico.",
-   "Sincronizar a janela com atalhos ou com outros painéis, por `range` e `onRangeChange`."
+   "A long, dense time series where the user needs the whole history and a close look at any stretch.",
+   "Mark events in the series (launches, price changes) with `annotations` and read each one on the chart itself.",
+   "Sync the window with shortcuts or other panels, through `range` and `onRangeChange`."
   ],
   "quandoEvitar": [
-   "Use `line-chart` para comparar mais de uma série: aqui há uma só.",
-   "Use `bar-chart` para poucos períodos comparados um a um e com a média.",
-   "Use `sparkline` para uma tendência compacta ao lado de um número."
+   "Use `line-chart` to compare more than one series: here there is only one.",
+   "Use `bar-chart` for a few periods compared one by one and against the average.",
+   "Use `sparkline` for a compact trend next to a number."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Passa por quatro paradas: o gráfico, a janela da faixa de visão geral, a alça inicial e a alça final."
+    "acao": "Goes through four stops: the chart, the overview strip window, the start handle, and the end handle."
    },
    {
     "teclas": [
@@ -326,7 +326,7 @@
      "Home",
      "End"
     ],
-    "acao": "No gráfico, levam a leitura ao ponto anterior, ao seguinte, ao primeiro e ao último ponto visível."
+    "acao": "On the chart, move the reading to the previous point, the next, the first, and the last visible point."
    },
    {
     "teclas": [
@@ -335,282 +335,282 @@
      "↑",
      "↓"
     ],
-    "acao": "Na janela, deslocam o intervalo em 10% da sua largura; numa alça, movem aquela borda um ponto; com `Shift`, o passo vira 50% ou dez pontos."
+    "acao": "On the window, shift the range by 10% of its width; on a handle, move that edge one point; with `Shift`, the step becomes 50% or ten points."
    },
    {
     "teclas": [
      "Page Up",
      "Page Down"
     ],
-    "acao": "No gráfico, saltam cerca de um oitavo dos pontos visíveis; na janela e nas alças, dão o passo grande."
+    "acao": "On the chart, jump about one eighth of the visible points; on the window and handles, take the large step."
    },
    {
     "teclas": [
      "+",
      "-"
     ],
-    "acao": "Com o foco na janela, aproximam (metade do intervalo) ou afastam (o dobro)."
+    "acao": "With focus on the window, zoom in (half the range) or out (double)."
    },
    {
     "teclas": [
      "Esc",
      "0"
     ],
-    "acao": "Na janela ou nas alças, voltam à série inteira; no gráfico, `Esc` apaga a leitura."
+    "acao": "On the window or handles, return to the whole series; on the chart, `Esc` clears the reading."
    }
   ],
   "acessibilidade": [
-   "O gráfico é um grupo focável que anuncia a data e o valor do ponto lido numa região `aria-live`; uma tabela oculta traz os pontos e os eventos da janela atual.",
-   "A janela e as duas alças são `role=\"slider\"` com `aria-valuetext` em datas, e cada uma é uma parada de `Tab`.",
-   "`label` é obrigatório; a instrução do grupo, os nomes das alças e as datas dos eixos estão em inglês no código (`formatDate` só muda a dica e os anúncios)."
+   "The chart is a focusable group that announces the date and value of the point being read in an `aria-live` region; a hidden table carries the points and events of the current window.",
+   "The window and the two handles are `role=\"slider\"` with `aria-valuetext` in dates, and each one is a `Tab` stop.",
+   "`label` is required; the group instruction, the handle names, and the axis dates are in English in the code (`formatDate` only changes the tooltip and announcements)."
   ],
   "movimento": [
-   "A linha se desenha da esquerda para a direita na primeira vez que aparece; ao aproximar, o eixo de valores se ajusta com mola ao ponto mais alto da janela.",
-   "A janela segue o dedo sem atraso no arrasto e desliza com mola quando `range` muda por fora ou quando volta à série inteira; a dica acompanha a mira com mola.",
-   "Com “reduzir movimento”, a linha já aparece inteira, a janela e o eixo saltam para o destino e a dica acompanha sem mola."
+   "The line draws from left to right the first time it appears; on zoom in, the value axis adjusts with a spring to the highest point in the window.",
+   "The window follows the finger with no delay while dragging and slides with a spring when `range` changes externally or when it returns to the whole series; the tooltip follows the crosshair with a spring.",
+   "With “reduce motion”, the line already appears whole, the window and axis jump to the destination, and the tooltip follows without a spring."
   ],
   "responsivo": [
-   "Mede a própria largura: os rótulos de data passam de dias a semanas, meses, trimestres e anos conforme o espaço, e rótulos de evento que colidiriam ficam ocultos.",
-   "Gráfico e faixa usam `touch-action: pan-y`, então arrastar na vertical continua rolando a página; as alturas vêm de `height` (240) e `overviewHeight` (52), em pixels."
+   "It measures its own width: date labels move from days to weeks, months, quarters, and years depending on space, and event labels that would collide are hidden.",
+   "Chart and strip use `touch-action: pan-y`, so dragging vertically keeps scrolling the page; heights come from `height` (240) and `overviewHeight` (52), in pixels."
   ],
   "desempenho": [
-   "Acima de dois pontos por pixel a linha guarda só o mínimo e o máximo de cada coluna; a tabela oculta, porém, tem uma linha por ponto da janela, então agregue séries muito longas antes de passar.",
-   "Mantenha `data` e `annotations` com referência estável (`useMemo`): a suavização e a faixa de visão geral são recalculadas sempre que elas mudam."
+   "Above two points per pixel the line keeps only the minimum and maximum of each column; the hidden table, however, has one row per point in the window, so aggregate very long series before passing them.",
+   "Keep `data` and `annotations` with a stable reference (`useMemo`): smoothing and the overview strip are recalculated whenever they change."
   ],
   "notasIA": [
-   "`data` é `{ date, value }` com `date` em `Date` ou milissegundos, em ordem crescente; com menos de dois pontos aparece `emptyLabel`, e o eixo de valores sempre parte do zero.",
-   "`range` é um destino, não uma trava: a janela anda sozinha no arrasto e só desliza quando `range` muda, então guarde em estado o que vier de `onRangeChange`; sem `range`, use `defaultRange`.",
-   "O componente pressupõe um ponto por dia: com o zoom afastado a linha vira uma média de sete pontos com faixa, e a dica compara com sete pontos antes chamando isso de “a week earlier”."
+   "`data` is `{ date, value }` with `date` as a `Date` or milliseconds, in ascending order; with fewer than two points `emptyLabel` appears, and the value axis always starts at zero.",
+   "`range` is a target, not a lock: the window moves on its own while dragging and only slides when `range` changes, so keep what comes from `onRangeChange` in state; without `range`, use `defaultRange`.",
+   "The component assumes one point per day: when zoomed out the line becomes a seven-point average with a band, and the tooltip compares with seven points earlier, calling it “a week earlier”."
   ]
  },
  "bump-chart": {
   "quandoUsar": [
-   "Quando a ordem importa mais que os valores: quem liderou, quem ultrapassou quem e em que período.",
-   "Rankings por período com poucos itens, como regiões por mês ou times por rodada, com o nome de cada série no fim da linha.",
-   "Trocar a medida do ranking mantendo os itens: séries com a mesma `key` deslizam para as novas posições."
+   "When order matters more than values: who led, who overtook whom, and in which period.",
+   "Rankings by period with few items, such as regions by month or teams by round, with each series' name at the end of its line.",
+   "Switch the ranking measure while keeping the items: series with the same `key` slide to the new positions."
   ],
   "quandoEvitar": [
-   "Use `line-chart` quando a distância entre os valores importa: aqui só a posição aparece no desenho.",
-   "Use `slope-chart` para comparar exatamente dois momentos.",
-   "Use `sortable-data-table` para o ranking de um único período com várias colunas."
+   "Use `line-chart` when the distance between values matters: here only the position appears in the drawing.",
+   "Use `slope-chart` to compare exactly two moments.",
+   "Use `sortable-data-table` for the ranking of a single period with several columns."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Leva o foco à área do gráfico e traz à frente a série que está em primeiro no último período."
+    "acao": "Moves focus to the chart area and brings forward the series that is first in the last period."
    },
    {
     "teclas": [
      "↑",
      "↓"
     ],
-    "acao": "Passa à série uma posição acima ou abaixo no período atual."
+    "acao": "Moves to the series one position above or below in the current period."
    },
    {
     "teclas": [
      "←",
      "→"
     ],
-    "acao": "Vai ao período anterior ou ao seguinte, mantendo a série."
+    "acao": "Moves to the previous or next period, keeping the series."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vai ao primeiro ou ao último período."
+    "acao": "Moves to the first or last period."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Solta a série: todas voltam ao mesmo peso."
+    "acao": "Releases the series: all return to the same weight."
    }
   ],
   "acessibilidade": [
-   "A área de leitura é um `role=\"slider\"` vertical cujo `aria-valuetext` diz série, período, posição, valor e a mudança desde o período anterior.",
-   "Uma tabela oculta traz a posição e o valor de cada série em cada período; `label` é obrigatório e nomeia a figura.",
-   "Ordinais e frases da dica (“1st of 6”, “Up 2 from Oct”) são gerados em inglês no código e não têm prop de tradução."
+   "The reading area is a vertical `role=\"slider\"` whose `aria-valuetext` states the series, period, position, value, and the change since the previous period.",
+   "A hidden table carries the position and value of each series in each period; `label` is required and names the figure.",
+   "Ordinals and tooltip phrases (“1st of 6”, “Up 2 from Oct”) are generated in English in the code and have no translation prop."
   ],
   "movimento": [
-   "Na primeira aparição cada linha se desenha do primeiro ao último período, uma série depois da outra, e os pontos surgem acompanhando o traço.",
-   "Quando os dados mudam, linhas, pontos e nomes deslizam com mola sem ultrapassagem para as novas posições; a série em foco ganha traço mais grosso e um anel com a posição em cada período, e as outras esmaecem.",
-   "Com “reduzir movimento”, tudo aparece e troca na hora, e a dica salta em vez de deslizar."
+   "On first appearance each line draws from the first to the last period, one series after another, and the points appear following the stroke.",
+   "When the data changes, lines, points, and names slide with a no-overshoot spring to the new positions; the focused series gets a thicker stroke and a ring with the position in each period, and the others fade.",
+   "With “reduce motion”, everything appears and swaps immediately, and the tooltip jumps instead of sliding."
   ],
   "responsivo": [
-   "A altura é `rowHeight` (40 px) vezes o número de séries e a largura é a do contêiner; a coluna de nomes ocupa até 36% e corta com reticências.",
-   "Os rótulos de período não rareiam quando falta espaço: com muitos períodos em tela estreita eles se sobrepõem, então use rótulos curtos."
+   "The height is `rowHeight` (40 px) times the number of series and the width is the container's; the names column takes up to 36% and truncates with an ellipsis.",
+   "Period labels do not thin out when space runs short: with many periods on a narrow screen they overlap, so use short labels."
   ],
   "notasIA": [
-   "Cada série é `{ key, label, values, color? }`, com um valor por item de `periods` na mesma ordem; as posições são calculadas dos valores, e `order=\"asc\"` põe o menor em primeiro (tempos, custos).",
-   "Série em foco: controlada com `activeKey` e `onActiveChange` (`null` para nenhuma), ou livre com `defaultActiveKey`.",
-   "As quatro primeiras séries usam `--series-1` a `--series-4` e as seguintes, três tons neutros que se repetem a partir da oitava: passe `color` se houver mais."
+   "Each series is `{ key, label, values, color? }`, with one value per item in `periods` in the same order; positions are computed from the values, and `order=\"asc\"` puts the smallest first (times, costs).",
+   "Focused series: controlled with `activeKey` and `onActiveChange` (`null` for none), or uncontrolled with `defaultActiveKey`.",
+   "The first four series use `--series-1` to `--series-4` and the following ones, three neutral tones that repeat from the eighth: pass `color` if there are more."
   ]
  },
  "candlestick-chart": {
   "quandoUsar": [
-   "Preços de abertura, máxima, mínima e fechamento ao longo de uma sequência de pregões ou períodos.",
-   "Leitura exata de um período: a mira encaixa em cada vela e a dica mostra os quatro preços, a variação e o volume.",
-   "Trocar de intervalo (1 mês, 3 meses): velas com a mesma `key` deslizam para o novo lugar."
+   "Open, high, low, and close prices over a sequence of trading sessions or periods.",
+   "Exact reading of a period: the crosshair snaps to each candle and the tooltip shows the four prices, the change, and the volume.",
+   "Switch ranges (1 month, 3 months): candles with the same `key` slide to the new place."
   ],
   "quandoEvitar": [
-   "Use `line-chart` quando basta o fechamento ou é preciso comparar ativos.",
-   "Use `brush-chart` para históricos longos que pedem zoom: aqui todas as velas de `data` ficam na tela.",
-   "Use `sparkline` para a tendência compacta ao lado de um preço."
+   "Use `line-chart` when the close is enough or assets need to be compared.",
+   "Use `brush-chart` for long histories that need zoom: here all the candles in `data` stay on screen.",
+   "Use `sparkline` for a compact trend next to a price."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Leva o foco à área do gráfico e ativa a vela mais recente."
+    "acao": "Moves focus to the chart area and activates the most recent candle."
    },
    {
     "teclas": [
      "←",
      "↓"
     ],
-    "acao": "Vai à vela anterior."
+    "acao": "Moves to the previous candle."
    },
    {
     "teclas": [
      "→",
      "↑"
     ],
-    "acao": "Vai à vela seguinte."
+    "acao": "Moves to the next candle."
    },
    {
     "teclas": [
      "Page Up",
      "Page Down"
     ],
-    "acao": "Avança ou recua cinco velas."
+    "acao": "Moves forward or back five candles."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vai à primeira ou à última vela."
+    "acao": "Moves to the first or last candle."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Tira a mira e fecha a dica."
+    "acao": "Removes the crosshair and closes the tooltip."
    }
   ],
   "acessibilidade": [
-   "A área de leitura é um `role=\"slider\"` cujo `aria-valuetext` traz o rótulo do período e os quatro preços; uma tabela oculta lista todas as velas.",
-   "Alta e baixa são distinguidas só pela cor (`--success` e `--danger`); o sinal da variação aparece na dica, não no desenho.",
-   "`label` é obrigatório; “Open”, “High”, “Low”, “Close” e “Volume” estão em inglês no código."
+   "The reading area is a `role=\"slider\"` whose `aria-valuetext` carries the period label and the four prices; a hidden table lists all the candles.",
+   "Up and down are distinguished by color only (`--success` and `--danger`); the sign of the change appears in the tooltip, not in the drawing.",
+   "`label` is required; “Open”, “High”, “Low”, “Close”, and “Volume” are in English in the code."
   ],
   "movimento": [
-   "Na primeira aparição as velas crescem de um traço na altura do corpo, da esquerda para a direita; a linha do último fechamento aparece em seguida.",
-   "A mira vertical encaixa na vela e desliza com mola entre elas, com a dica junto; a linha horizontal segue o ponteiro ou, pelo teclado, repousa no fechamento.",
-   "Com “reduzir movimento”, velas, grade e mira aparecem e mudam sem transição."
+   "On first appearance the candles grow from a line at body height, left to right; the last close line appears next.",
+   "The vertical crosshair snaps to the candle and slides with a spring between them, with the tooltip alongside; the horizontal line follows the pointer or, by keyboard, rests on the close.",
+   "With “reduce motion”, candles, grid, and crosshair appear and change without transition."
   ],
   "responsivo": [
-   "A largura é a do contêiner: o corpo de cada vela ocupa 62% da sua fatia, entre 1,5 e 14 px, e os rótulos do eixo guardam ao menos 58 px entre si.",
-   "A dica passa para a esquerda da vela quando não cabe à direita, e a camada de leitura usa `touch-action: pan-y` para a página continuar rolando na vertical."
+   "The width is the container's: each candle's body takes 62% of its slice, between 1.5 and 14 px, and the axis labels keep at least 58 px between them.",
+   "The tooltip moves to the left of the candle when it does not fit on the right, and the reading layer uses `touch-action: pan-y` so the page keeps scrolling vertically."
   ],
   "desempenho": [
-   "Cada vela é um `path` animado e o corpo nunca fica abaixo de 1,5 px: com mais velas do que a largura comporta elas se sobrepõem, então agregue em períodos maiores."
+   "Each candle is an animated `path` and the body never goes below 1.5 px: with more candles than the width can hold they overlap, so aggregate into larger periods."
   ],
   "notasIA": [
-   "Cada vela é `{ key, label, axisLabel?, open, high, low, close, volume? }`, da mais antiga à mais nova; ponha `axisLabel` só em algumas (toda segunda-feira, por exemplo).",
-   "A mira pode ser controlada com `activeIndex` e `onActiveChange`, útil para sincronizar com outro gráfico; sem isso, use `defaultActiveIndex` ou deixe livre.",
-   "`formatValue` formata eixo, título e dica (o padrão tem duas casas e nenhum símbolo de moeda); a variação do título é o último fechamento menos a primeira abertura de `data`."
+   "Each candle is `{ key, label, axisLabel?, open, high, low, close, volume? }`, from oldest to newest; set `axisLabel` on only some (every Monday, for example).",
+   "The crosshair can be controlled with `activeIndex` and `onActiveChange`, useful for syncing with another chart; otherwise, use `defaultActiveIndex` or leave it free.",
+   "`formatValue` formats the axis, title, and tooltip (the default has two decimal places and no currency symbol); the title's change is the last close minus the first open in `data`."
   ]
  },
  "card": {
   "quandoUsar": [
-   "Agrupar título, descrição curta, mídia e uma ou duas ações sobre um mesmo objeto (um projeto, um roteiro, um artigo) numa grade ou lista.",
-   "Resumo que abre uma visão rápida maior sem sair da página: com `details`, o cartão inteiro vira gatilho e cresce até um painel central.",
-   "Rodapé com o dono e um estado que muda no lugar, como “Atualizado agora”, anunciado ao leitor de tela."
+   "Group a title, short description, media, and one or two actions about the same object (a project, an itinerary, an article) in a grid or list.",
+   "A summary that opens a larger quick look without leaving the page: with `details`, the whole card becomes the trigger and grows into a central panel.",
+   "A footer with the owner and a state that changes in place, such as “Updated just now”, announced to the screen reader."
   ],
   "quandoEvitar": [
-   "Use `expandable-card` quando o conteúdo extra deve abrir no próprio lugar, dentro do fluxo da página, e não num diálogo.",
-   "Use `metric-card` para um número com contexto e variação.",
-   "Use `dialog` para decisões e formulários que não partem de um cartão: a visão rápida daqui serve para ler mais sobre o mesmo item."
+   "Use `expandable-card` when the extra content should open in place, within the page flow, and not in a dialog.",
+   "Use `metric-card` for a number with context and change.",
+   "Use `dialog` for decisions and forms that do not start from a card: the quick look here is for reading more about the same item."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Com `details`, para no título, que vira um botão; o foco aparece como a borda do cartão mais forte."
+    "acao": "With `details`, stops on the title, which becomes a button; focus appears as a stronger card border."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Abrem a visão rápida a partir do título."
+    "acao": "Open the quick look from the title."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha a visão rápida: o painel volta para o lugar do cartão e o foco retorna ao título."
+    "acao": "Closes the quick look: the panel returns to the card's place and focus returns to the title."
    },
    {
     "teclas": [
      "Tab",
      "Shift + Tab"
     ],
-    "acao": "Com a visão rápida aberta, circulam só entre os controles do painel."
+    "acao": "With the quick look open, cycle only among the panel's controls."
    }
   ],
   "acessibilidade": [
-   "O cartão é um `article` com título `h3`; a visão rápida é um diálogo modal do Radix (prende o foco, fecha com `Esc` ou clique fora e devolve o foco) com o título em `h2` e a descrição ligada por `aria-describedby`.",
-   "Com `details`, a área de clique do título cobre o cartão todo e `action` fica por cima; o botão do título não tem contorno próprio, só a borda do cartão muda no foco.",
-   "`status` é uma região `role=\"status\"`, então cada texto novo é anunciado; o botão de fechar tem rótulo em inglês (“Close quick look”), e o `alt` da mídia é por sua conta."
+   "The card is an `article` with an `h3` title; the quick look is a Radix modal dialog (traps focus, closes with `Esc` or outside click, and returns focus) with the title as `h2` and the description linked by `aria-describedby`.",
+   "With `details`, the title's click area covers the whole card and `action` sits on top; the title button has no outline of its own, only the card border changes on focus.",
+   "`status` is a `role=\"status\"` region, so each new text is announced; the close button has an English label (“Close quick look”), and the media `alt` is up to you."
   ],
   "movimento": [
-   "Sob o ponteiro do mouse o cartão sobe 2 px com sombra e a mídia aproxima devagar até 4%.",
-   "Na visão rápida, a superfície, a foto, o título, a descrição e o rodapé viajam numa mola sem ultrapassagem do cartão até o painel central e voltam pelo mesmo caminho ao fechar; `details` entra depois que o painel cresceu.",
-   "Com “reduzir movimento”, o cartão não sobe nem aproxima a foto, a visão rápida só esmaece e `status` troca sem animar."
+   "Under the mouse pointer the card rises 2 px with a shadow and the media slowly zooms in to 4%.",
+   "In the quick look, the surface, photo, title, description, and footer travel on a no-overshoot spring from the card to the central panel and return along the same path on closing; `details` enters after the panel has grown.",
+   "With “reduce motion”, the card neither rises nor zooms the photo, the quick look only fades, and `status` swaps without animation."
   ],
   "responsivo": [
-   "O painel da visão rápida tem `min(100vw - var(--space-8), 30rem)` de largura e, no máximo, a altura da tela menos a mesma margem, com rolagem interna.",
-   "O cartão ocupa a largura do pai; num rodapé estreito, `meta` e `status` cortam com reticências em vez de passar por baixo de `action`."
+   "The quick look panel is `min(100vw - var(--space-8), 30rem)` wide and at most the screen height minus the same margin, with internal scrolling.",
+   "The card takes the parent's width; in a narrow footer, `meta` and `status` truncate with an ellipsis instead of going under `action`."
   ],
   "desempenho": [
-   "Cada cartão com `details` monta um diálogo próprio e um observador de tamanho, e o fundo da visão rápida usa `backdrop-filter`; em grades longas, passe `details` só onde ela faz falta."
+   "Each card with `details` mounts its own dialog and a size observer, and the quick look backdrop uses `backdrop-filter`; in long grids, pass `details` only where it is needed."
   ],
   "notasIA": [
-   "`title` é obrigatório e é texto; `media`, `avatar`, `meta`, `action`, `children` e `details` são espaços livres, e `status` precisa ser string porque anima palavra por palavra.",
-   "`open`, `defaultOpen` e `onOpenChange` só valem com `details`; sem ele o cartão é estático e o título não vira botão.",
-   "Com a visão rápida aberta, `media`, `children`, `avatar` e `action` existem duas vezes (no cartão e no painel): não ponha `id` fixo nem estado local dentro deles."
+   "`title` is required and is text; `media`, `avatar`, `meta`, `action`, `children`, and `details` are free slots, and `status` must be a string because it animates word by word.",
+   "`open`, `defaultOpen`, and `onOpenChange` only apply with `details`; without it the card is static and the title does not become a button.",
+   "With the quick look open, `media`, `children`, `avatar`, and `action` exist twice (in the card and in the panel): do not put a fixed `id` or local state inside them."
   ]
  },
  "card-stack": {
   "quandoUsar": [
-   "Triagem rápida, um item por vez, em que cada um merece um momento de atenção: selecionar destinos, candidatos ou opções de design.",
-   "Decisões de dois lados (ficar ou passar) com desfazer, por arrasto, pelos botões ou pelas setas do teclado.",
-   "Baralhos longos: só quatro cartões ficam montados de cada vez."
+   "Quick triage, one item at a time, where each deserves a moment of attention: selecting destinations, candidates, or design options.",
+   "Two-sided decisions (keep or pass) with undo, by dragging, with the buttons, or with the keyboard arrow keys.",
+   "Long decks: only four cards are mounted at a time."
   ],
   "quandoEvitar": [
-   "Use `sortable-data-table` quando as pessoas precisam comparar os itens lado a lado.",
-   "Use `carousel` para navegar por um conjunto sem decidir nada sobre cada item.",
-   "Use `swipe-actions` para ações por deslize nas linhas de uma lista; aqui só existem dois desfechos por cartão."
+   "Use `sortable-data-table` when people need to compare items side by side.",
+   "Use `carousel` to browse a set without deciding anything about each item.",
+   "Use `swipe-actions` for swipe actions on the rows of a list; here there are only two outcomes per card."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Leva o foco à pilha (o contorno aparece no cartão do topo) e depois aos três botões."
+    "acao": "Moves focus to the stack (the outline appears on the top card) and then to the three buttons."
    },
    {
     "teclas": [
      "←",
      "→"
     ],
-    "acao": "Com o foco na pilha, decidem o cartão do topo para a esquerda ou para a direita."
+    "acao": "With focus on the stack, decide the top card to the left or to the right."
    },
    {
     "teclas": [
@@ -618,49 +618,49 @@
      "Ctrl + Z",
      "Cmd + Z"
     ],
-    "acao": "Com o foco na pilha, desfazem a última decisão e trazem o cartão de volta."
+    "acao": "With focus on the stack, undo the last decision and bring the card back."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão em foco: recusar, desfazer ou aceitar."
+    "acao": "Trigger the focused button: reject, undo, or accept."
    }
   ],
   "acessibilidade": [
-   "A pilha é um grupo focável com `aria-roledescription=\"card stack\"` e uma dica oculta com as teclas; o cartão do topo anuncia nome e posição (via `getLabel`) e os de trás ficam `inert`.",
-   "Cada decisão, desfazer e recomeço é anunciado numa região `role=\"status\"`; `outcomes` dá o verbo da frase, mas o resto dela (“3 left.”, “restored”) é inglês fixo.",
-   "Os botões usam `aria-disabled` para manter o foco quando a pilha acaba; a dica de teclas, “Undo” e o estado vazio padrão também estão em inglês (`renderEmpty` troca o estado vazio)."
+   "The stack is a focusable group with `aria-roledescription=\"card stack\"` and a hidden hint with the keys; the top card announces its name and position (via `getLabel`) and the ones behind are `inert`.",
+   "Each decision, undo, and restart is announced in a `role=\"status\"` region; `outcomes` supplies the verb of the sentence, but the rest of it (“3 left.”, “restored”) is fixed English.",
+   "The buttons use `aria-disabled` to keep focus when the stack runs out; the key hint, “Undo”, and the default empty state are also in English (`renderEmpty` replaces the empty state)."
   ],
   "movimento": [
-   "O cartão do topo segue o dedo, gira conforme o deslocamento e mostra o carimbo do lado escolhido; os de trás sobem aos poucos enquanto ele se afasta.",
-   "Solto além de 35% da largura (no máximo 140 px) ou num deslize rápido, ele sai voando com mola na direção do gesto; antes disso, volta ao lugar com mola.",
-   "Desfazer traz o cartão de onde ele saiu; com “reduzir movimento”, sair e voltar são só um esmaecer e os de trás trocam de lugar na hora."
+   "The top card follows the finger, rotates with the displacement, and shows the stamp of the chosen side; the ones behind rise gradually as it moves away.",
+   "Released beyond 35% of the width (at most 140 px) or on a fast swipe, it flies off with a spring in the direction of the gesture; before that, it returns to its place with a spring.",
+   "Undo brings the card back from where it left; with “reduce motion”, leaving and returning are just a fade and the ones behind swap places immediately."
   ],
   "responsivo": [
-   "A pilha tem até 20rem de largura e altura fixa de 19rem (17,5rem em telas de até 26rem); o conteúdo de `renderCard` deve preencher 100% da altura.",
-   "Em telas de até 22,5rem o botão de desfazer fica só com o ícone, mantendo o nome acessível; o cartão usa `touch-action: pan-y`, então arrastar na vertical rola a página."
+   "The stack is up to 20rem wide with a fixed height of 19rem (17.5rem on screens up to 26rem); the content of `renderCard` should fill 100% of the height.",
+   "On screens up to 22.5rem the undo button keeps only the icon, retaining its accessible name; the card uses `touch-action: pan-y`, so dragging vertically scrolls the page."
   ],
   "desempenho": [
-   "Só os quatro cartões seguintes (e os que ainda estão voando) ficam no DOM, então o tamanho de `items` não pesa na renderização."
+   "Only the next four cards (and those still flying off) stay in the DOM, so the size of `items` does not weigh on rendering."
   ],
   "notasIA": [
-   "`items`, `getKey`, `getLabel` e `renderCard` são obrigatórios; a posição é estado interno e o pai recebe `onDecide(item, \"left\" | \"right\")`, `onUndo` e `onReset`.",
-   "Mantenha `items` estável: a posição é guardada por índice, então remover o item decidido da lista dentro de `onDecide` faz pular o cartão seguinte.",
-   "Trate `onUndo` e `onReset` junto com `onDecide`, senão a sua lista de escolhidos fica diferente da pilha; `labels` dá nome aos botões e aos carimbos."
+   "`items`, `getKey`, `getLabel`, and `renderCard` are required; position is internal state and the parent receives `onDecide(item, \"left\" | \"right\")`, `onUndo`, and `onReset`.",
+   "Keep `items` stable: position is stored by index, so removing the decided item from the list inside `onDecide` makes the next card get skipped.",
+   "Handle `onUndo` and `onReset` along with `onDecide`, otherwise your list of chosen items diverges from the stack; `labels` names the buttons and the stamps."
   ]
  },
  "carousel": {
   "quandoUsar": [
-   "Um conjunto curto e ordenado de itens do mesmo tipo, como produtos ou estudos de caso, em que os vizinhos à vista indicam que há mais.",
-   "Navegação por toque (arrastar, deslize rápido, gesto horizontal no trackpad) com setas, indicadores e teclado equivalentes.",
-   "Rotação automática opcional com botão de pausa visível, via `interval`."
+   "A short, ordered set of items of the same kind, such as products or case studies, where the neighbors in view signal that there is more.",
+   "Touch navigation (drag, quick swipe, horizontal trackpad gesture) with equivalent arrows, indicators, and keyboard.",
+   "Optional automatic rotation with a visible pause button, via `interval`."
   ],
   "quandoEvitar": [
-   "Use `marquee` para uma faixa que rola sozinha sem parar em cada item, como uma fila de logotipos.",
-   "Use `image-viewer` para fotos que precisam abrir ampliadas, com zoom.",
-   "Use `card-stack` quando a pessoa decide sobre cada item em vez de só navegar."
+   "Use `marquee` for a strip that scrolls on its own without stopping at each item, such as a row of logos.",
+   "Use `image-viewer` for photos that need to open enlarged, with zoom.",
+   "Use `card-stack` when the user decides on each item instead of just browsing."
   ],
   "teclado": [
    {
@@ -668,194 +668,194 @@
      "←",
      "→"
     ],
-    "acao": "Vão ao slide anterior ou ao seguinte, com o foco em qualquer parte do carrossel fora de campos de texto."
+    "acao": "Go to the previous or next slide, with focus anywhere in the carousel outside text fields."
    },
    {
     "teclas": [
      "Home",
      "End"
     ],
-    "acao": "Vão ao primeiro ou ao último slide."
+    "acao": "Go to the first or last slide."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre a área dos slides, o conteúdo do slide ativo, o botão de rotação, o indicador selecionado e as duas setas."
+    "acao": "Moves through the slides area, the active slide's content, the rotation button, the selected indicator, and the two arrows."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão em foco: pausar ou iniciar a rotação, escolher um slide, anterior ou próximo."
+    "acao": "Trigger the focused button: pause or start rotation, choose a slide, previous or next."
    }
   ],
   "acessibilidade": [
-   "A `section` tem `aria-roledescription=\"carousel\"` e o nome de `label`; cada slide é um `tabpanel` rotulado por `slideLabel`, e os indicadores formam um `tablist` em que só o selecionado fica na ordem de tabulação.",
-   "Slides fora do centro ficam `inert`: links e botões dentro deles só funcionam no slide ativo, e a troca manual é anunciada numa região `aria-live`.",
-   "A rotação pausa ao passar o mouse, no foco do teclado, no arrasto, fora da tela e com a aba oculta; os rótulos dos controles (“Next slide”, “Pause slide rotation”) estão em inglês no código."
+   "The `section` has `aria-roledescription=\"carousel\"` and the name from `label`; each slide is a `tabpanel` labeled by `slideLabel`, and the indicators form a `tablist` in which only the selected one is in the tab order.",
+   "Slides away from the center are `inert`: links and buttons inside them only work on the active slide, and a manual change is announced in an `aria-live` region.",
+   "Rotation pauses on mouse hover, on keyboard focus, while dragging, off screen, and with the tab hidden; the control labels (“Next slide”, “Pause slide rotation”) are in English in the code."
   ],
   "movimento": [
-   "A trilha vai ao slide com mola sem ultrapassagem, levando a velocidade do gesto; nas pontas ela resiste como um elástico.",
-   "Os slides encolhem até 90% e esmaecem até 50% conforme se afastam do centro, e o indicador estica numa pílula que viaja junto, quadro a quadro; na rotação, a pílula esvazia até a troca.",
-   "Com “reduzir movimento”, a trilha salta para o slide e a rotação automática fica indisponível (o botão nem aparece)."
+   "The track goes to the slide with a no-overshoot spring, carrying the gesture's velocity; at the ends it resists like an elastic band.",
+   "Slides shrink to 90% and fade to 50% as they move away from the center, and the indicator stretches into a pill that travels along with it, frame by frame; during rotation, the pill empties until the swap.",
+   "With “reduce motion”, the track jumps to the slide and automatic rotation is unavailable (the button does not even appear)."
   ],
   "responsivo": [
-   "A raiz é um contêiner de tamanho e precisa de largura definida; `slideSize` (padrão `min(80cqw, 340px)`) aceita qualquer comprimento CSS, e `cqw` é a fração da largura do carrossel.",
-   "Com até 340 px de contêiner a linha de controles aperta; a área dos slides usa `touch-action: pan-y`, então o gesto vertical rola a página."
+   "The root is a size container and needs a defined width; `slideSize` (default `min(80cqw, 340px)`) accepts any CSS length, and `cqw` is the fraction of the carousel's width.",
+   "With a container up to 340 px the controls row tightens; the slides area uses `touch-action: pan-y`, so the vertical gesture scrolls the page."
   ],
   "desempenho": [
-   "Todos os slides ficam montados e leem a posição da trilha a cada quadro para escala e opacidade: mantenha o conjunto curto.",
-   "Com `interval`, um `IntersectionObserver` e o evento de visibilidade da página pausam a rotação quando ninguém está vendo."
+   "All slides stay mounted and read the track position on every frame for scale and opacity: keep the set short.",
+   "With `interval`, an `IntersectionObserver` and the page visibility event pause rotation when no one is looking."
   ],
   "notasIA": [
-   "Cada filho é um slide (dê `key` estável) e `label` é obrigatório; índice controlado com `index` e `onIndexChange`, ou livre com `defaultIndex`.",
-   "`interval` (ms por slide) só adiciona o botão de rotação; ela começa parada, a menos que você passe `autoplay`.",
-   "Não há laço: as setas param no primeiro e no último slide, e só a rotação automática volta ao início."
+   "Each child is a slide (give it a stable `key`) and `label` is required; index controlled with `index` and `onIndexChange`, or uncontrolled with `defaultIndex`.",
+   "`interval` (ms per slide) only adds the rotation button; it starts stopped, unless you pass `autoplay`.",
+   "There is no loop: the arrows stop at the first and last slide, and only automatic rotation returns to the start."
   ]
  },
  "chat-thread": {
   "quandoUsar": [
-   "Conversa entre pessoas ou atendimento: mensagens agrupadas por autor e por dia, reações, indicador de digitação e confirmação de leitura.",
-   "Quando o estado de entrega da própria mensagem importa: enviando, enviada, entregue, lida ou falhou, com botão de repetir via `onRetry`.",
-   "Quando a pessoa anexa arquivos pelo botão, colando ou arrastando para o campo de envio."
+   "Conversation between people or customer support: messages grouped by author and by day, reactions, typing indicator, and read receipts.",
+   "When the delivery state of the user's own message matters: sending, sent, delivered, read, or failed, with a retry button via `onRetry`.",
+   "When the user attaches files with the button, by pasting, or by dragging onto the composer."
   ],
   "quandoEvitar": [
-   "Use `chat-app` para conversa com assistente de IA, com resposta em fluxo, parar e regenerar.",
-   "Use `comment-thread` para discussão presa a um conteúdo, com respostas aninhadas, menções, edição e resolver.",
-   "Use `message-bubble` quando só precisa do balão, sem lista, rolagem nem campo de envio."
+   "Use `chat-app` for a conversation with an AI assistant, with streaming responses, stop, and regenerate.",
+   "Use `comment-thread` for a discussion tied to a piece of content, with nested replies, mentions, editing, and resolve.",
+   "Use `message-bubble` when you only need the bubble, without a list, scrolling, or composer."
   ],
   "teclado": [
    {
     "teclas": [
      "Enter"
     ],
-    "acao": "No campo de mensagem, envia o texto e os anexos."
+    "acao": "In the message field, sends the text and attachments."
    },
    {
     "teclas": [
      "Shift + Enter"
     ],
-    "acao": "Quebra a linha sem enviar."
+    "acao": "Inserts a line break without sending."
    },
    {
     "teclas": [
      "←",
      "→"
     ],
-    "acao": "No seletor de reações, passam de um emoji a outro, dando a volta nas pontas."
+    "acao": "In the reaction picker, move from one emoji to another, wrapping at the ends."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha o seletor de reações e devolve o foco ao botão que o abriu."
+    "acao": "Closes the reaction picker and returns focus to the button that opened it."
    },
    {
     "teclas": [
-     "Espaço",
+     "Space",
      "Enter"
     ],
-    "acao": "Numa reação sob a mensagem, alternam a sua participação; no seletor, escolhem o emoji em foco."
+    "acao": "On a reaction under the message, toggle your participation; in the picker, choose the focused emoji."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre anexos, reações, a pílula de novas mensagens, anexar, campo e enviar; o botão de reagir de uma mensagem aparece quando o foco entra nela."
+    "acao": "Moves through attachments, reactions, the new messages pill, attach, field, and send; a message's react button appears when focus enters it."
    }
   ],
   "acessibilidade": [
-   "A lista é um `role=\"log\"` com `aria-live=\"polite\"`, então mensagens novas são anunciadas; quem está digitando sai numa região `role=\"status\"` separada.",
-   "Reações são botões com `aria-pressed` e rótulo com a contagem; o seletor abre com o foco no primeiro emoji e o devolve ao fechar.",
-   "Todo texto visível ou anunciado tem padrão em inglês e pode ser trocado por `labels`; informe também `label` (o nome da conversa) e `alt` nos anexos de imagem."
+   "The list is a `role=\"log\"` with `aria-live=\"polite\"`, so new messages are announced; who is typing is announced in a separate `role=\"status\"` region.",
+   "Reactions are buttons with `aria-pressed` and a label with the count; the picker opens with focus on the first emoji and returns it on closing.",
+   "All visible or announced text has an English default and can be replaced through `labels`; also provide `label` (the conversation's name) and `alt` on image attachments."
   ],
   "movimento": [
-   "Cada mensagem nova salta do seu lado com mola e, se você está no fim, a conversa sobe de onde estava em vez de pular.",
-   "Reações surgem com escala e a contagem rola; os avatares de leitura deslizam até a última mensagem lida, e os pontos de digitação pulsam em sequência.",
-   "Com “reduzir movimento”, tudo vira um esmaecer curto, os pontos ficam parados e a rolagem até o fim é instantânea."
+   "Each new message pops in from its side with a spring and, if you are at the end, the conversation rises from where it was instead of jumping.",
+   "Reactions appear with scale and the count rolls; the read avatars slide to the last read message, and the typing dots pulse in sequence.",
+   "With “reduce motion”, everything becomes a short fade, the dots stay still, and scrolling to the end is instant."
   ],
   "responsivo": [
-   "A raiz tem `height: 100%` e rola por dentro: o pai precisa ter altura definida, senão a lista não rola nem fica presa ao fim.",
-   "Os balões ocupam até 78% da largura (84% em telas de até 420 px), e em telas de toque o botão de reagir fica sempre visível."
+   "The root has `height: 100%` and scrolls internally: the parent must have a defined height, otherwise the list neither scrolls nor stays pinned to the end.",
+   "Bubbles take up to 78% of the width (84% on screens up to 420 px), and on touch screens the react button is always visible."
   ],
   "desempenho": [
-   "Todas as mensagens ficam no DOM, sem virtualização: em históricos longos, carregue por páginas.",
-   "As imagens usam `loading=\"lazy\"`, e `width` e `height` no anexo reservam o espaço de uma imagem única antes de ela carregar."
+   "All messages stay in the DOM, without virtualization: for long histories, load in pages.",
+   "Images use `loading=\"lazy\"`, and `width` and `height` on the attachment reserve the space of a single image before it loads."
   ],
   "notasIA": [
-   "Com `messages` (controlado) você mesmo acrescenta a mensagem em `onSend` e atualiza as reações em `onReact`; com `defaultMessages` a lista cuida disso e os callbacks só avisam.",
-   "`onSend` recebe `{ text, files }` com objetos `File` que você precisa enviar ao servidor; `currentUserId` define o lado dos balões, e cada `authorId` deve existir em `participants`.",
-   "O texto das mensagens é puro, sem markdown; `ChatComposer` é exportado à parte, e o `ref` oferece `scrollToBottom()` e `focusComposer()`."
+   "With `messages` (controlled) you add the message yourself in `onSend` and update reactions in `onReact`; with `defaultMessages` the list handles this and the callbacks only notify.",
+   "`onSend` receives `{ text, files }` with `File` objects that you must upload to the server; `currentUserId` sets the side of the bubbles, and each `authorId` must exist in `participants`.",
+   "Message text is plain, without markdown; `ChatComposer` is exported separately, and the `ref` offers `scrollToBottom()` and `focusComposer()`."
   ]
  },
  "code-block": {
   "quandoUsar": [
-   "Mostrar um trecho de código em documentação ou tutorial, com nome do arquivo, linguagem e botão de copiar.",
-   "Fontes longas que devem começar recolhidas: `maxLines` corta a altura e um botão abre o resto no lugar.",
-   "Código que muda no mesmo bloco (variações por gerenciador de pacotes ou framework): o novo entra suave e a altura acompanha."
+   "Show a code snippet in documentation or a tutorial, with file name, language, and a copy button.",
+   "Long sources that should start collapsed: `maxLines` cuts the height and a button opens the rest in place.",
+   "Code that changes in the same block (variations by package manager or framework): the new code enters smoothly and the height follows."
   ],
   "quandoEvitar": [
-   "Use `file-diff` para mostrar o que mudou entre duas versões de um arquivo.",
-   "Use `json-viewer` para explorar dados JSON com nós que abrem e fecham e com busca.",
-   "Use `copy-button` sozinho para copiar um valor curto, como um token ou um comando de uma linha."
+   "Use `file-diff` to show what changed between two versions of a file.",
+   "Use `json-viewer` to explore JSON data with nodes that open and close and with search.",
+   "Use `copy-button` alone to copy a short value, such as a token or a one-line command."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Passa pelo botão de copiar, pelo bloco de código (que é focável) e, se houver, pelo botão de expandir."
+    "acao": "Moves through the copy button, the code block (which is focusable), and, if present, the expand button."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Acionam o botão em foco: copiar, ou mostrar todas as linhas e recolher."
+    "acao": "Trigger the focused button: copy, or show all lines and collapse."
    },
    {
     "teclas": [
      "←",
      "→"
     ],
-    "acao": "Com o foco no código, rolam as linhas longas para os lados; é a rolagem nativa do `pre`, que recebe `tabIndex` para isso."
+    "acao": "With focus on the code, scroll long lines sideways; this is the native scrolling of the `pre`, which receives `tabIndex` for that."
    }
   ],
   "acessibilidade": [
-   "O bloco é uma `section` rotulada com o nome do arquivo ou a linguagem; o `pre` é focável para rolar pelo teclado, e o botão de expandir informa `aria-expanded`.",
-   "Recolhido, o código só é cortado na altura: o leitor de tela e o botão de copiar continuam com o texto inteiro.",
-   "A cópia é confirmada numa região `role=\"status\"` do `copy-button`; os rótulos (“Copy code”, “Show all N lines”) estão em inglês no código."
+   "The block is a `section` labeled with the file name or the language; the `pre` is focusable for scrolling by keyboard, and the expand button reports `aria-expanded`.",
+   "When collapsed, the code is only clipped in height: the screen reader and the copy button still have the full text.",
+   "Copying is confirmed in a `role=\"status\"` region of the `copy-button`; the labels (“Copy code”, “Show all N lines”) are in English in the code."
   ],
   "movimento": [
-   "Expandir e recolher anima a altura com mola sem ultrapassagem, gira a seta e troca o rótulo do botão.",
-   "Um `code` novo entra subindo 4 px enquanto a altura acompanha o conteúdo, e um `filename` novo troca com a largura seguindo em mola.",
-   "Com “reduzir movimento”, altura, textos e seta mudam na hora."
+   "Expanding and collapsing animates the height with a no-overshoot spring, rotates the arrow, and swaps the button label.",
+   "A new `code` enters rising 4 px while the height follows the content, and a new `filename` swaps with the width following on a spring.",
+   "With “reduce motion”, height, texts, and arrow change immediately."
   ],
   "responsivo": [
-   "Linhas longas não quebram: rolam para os lados dentro do bloco, que ocupa 100% da largura do pai.",
-   "Em telas de até 420 px a fonte e o espaçamento diminuem e o botão de copiar fica só com o ícone."
+   "Long lines do not wrap: they scroll sideways inside the block, which takes 100% of the parent's width.",
+   "On screens up to 420 px the font and spacing shrink and the copy button keeps only the icon."
   ],
   "desempenho": [
-   "O realce roda a cada render sobre o código inteiro e cria um `span` por token, mesmo recolhido: para arquivos de milhares de linhas, mostre um trecho."
+   "Highlighting runs on every render over the whole code and creates one `span` per token, even when collapsed: for files with thousands of lines, show an excerpt."
   ],
   "notasIA": [
-   "`language` (padrão `tsx`) define o rótulo e as heurísticas do realce, um tokenizador simples voltado a JS/TS, JSON, HTML e CSS; em `bash` ou `python`, comentários com `#` não são reconhecidos.",
-   "Passe `code` sem quebra de linha no fim: ela conta como uma linha a mais no botão “Show all N lines”.",
-   "Depende de `copy-button`, o export é nomeado (`CodeBlock`) e o estado expandido é interno; não há `className`, números de linha nem destaque de linhas."
+   "`language` (default `tsx`) defines the label and the highlighting heuristics, a simple tokenizer aimed at JS/TS, JSON, HTML, and CSS; in `bash` or `python`, comments with `#` are not recognized.",
+   "Pass `code` without a trailing line break: it counts as one extra line in the “Show all N lines” button.",
+   "It depends on `copy-button`, the export is named (`CodeBlock`), and the expanded state is internal; there is no `className`, line numbers, or line highlighting."
   ]
  },
  "comment-thread": {
   "quandoUsar": [
-   "Discussão presa a um conteúdo específico (um título do layout, um parágrafo, uma tarefa), com o assunto em `title`.",
-   "Quando a conversa precisa de respostas aninhadas, reações, menções com `@` e edição ou exclusão dos próprios comentários no lugar.",
-   "Revisões que se encerram: resolver dobra a conversa inteira num resumo de uma linha que pode ser reaberto."
+   "A discussion tied to specific content (a layout heading, a paragraph, a task), with the subject in `title`.",
+   "When the conversation needs nested replies, reactions, `@` mentions, and editing or deleting your own comments in place.",
+   "Reviews that wrap up: resolving folds the whole conversation into a one-line summary that can be reopened."
   ],
   "quandoEvitar": [
-   "Use `chat-thread` para conversa em tempo real, com balões, indicador de digitação e confirmação de leitura.",
-   "Use `mention-input` quando só precisa do campo com menções, sem a conversa em volta.",
-   "Use `timeline` para um histórico só de leitura do que aconteceu."
+   "Use `chat-thread` for real-time conversation, with bubbles, typing indicator, and read receipts.",
+   "Use `mention-input` when you only need the field with mentions, without the surrounding conversation.",
+   "Use `timeline` for a read-only history of what happened."
   ],
   "teclado": [
    {
@@ -863,101 +863,101 @@
      "Ctrl + Enter",
      "Cmd + Enter"
     ],
-    "acao": "Enviam o comentário ou salvam a edição; `Enter` sozinho quebra a linha."
+    "acao": "Submit the comment or save the edit; `Enter` alone inserts a line break."
    },
    {
     "teclas": [
      "↑",
      "↓"
     ],
-    "acao": "Com as sugestões de menção abertas, percorrem a lista."
+    "acao": "With the mention suggestions open, move through the list."
    },
    {
     "teclas": [
      "Enter",
      "Tab"
     ],
-    "acao": "Com as sugestões abertas, inserem a pessoa destacada como `@Nome Completo`."
+    "acao": "With the suggestions open, insert the highlighted person as `@Nome Completo`."
    },
    {
     "teclas": [
      "Esc"
     ],
-    "acao": "Fecha as sugestões; sem elas, cancela a resposta ou a edição, e também fecha o seletor de reações e a confirmação de exclusão."
+    "acao": "Closes the suggestions; without them, cancels the reply or edit, and also closes the reaction picker and the delete confirmation."
    },
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre os botões de cada comentário; as ações (reagir, responder, editar, excluir) aparecem quando o foco entra nele."
+    "acao": "Moves through each comment's buttons; the actions (react, reply, edit, delete) appear when focus enters it."
    }
   ],
   "acessibilidade": [
-   "A raiz é uma `section` nomeada e cada comentário é um `article` com autor e hora no rótulo; o campo é um `combobox` ligado à lista de menções por `aria-activedescendant`.",
-   "O foco é conduzido: resolver leva ao botão de reabrir e vice-versa, responder leva ao campo, e a confirmação de exclusão abre com o foco no botão de excluir.",
-   "Todos os textos têm padrão em inglês e são trocados por `labels`; não há região viva, então comentários que chegam de fora não são anunciados."
+   "The root is a named `section` and each comment is an `article` with author and time in the label; the field is a `combobox` linked to the mentions list by `aria-activedescendant`.",
+   "Focus is guided: resolving moves to the reopen button and vice versa, replying moves to the field, and the delete confirmation opens with focus on the delete button.",
+   "All texts have an English default and are replaced through `labels`; there is no live region, so comments arriving from elsewhere are not announced."
   ],
   "movimento": [
-   "Comentários e respostas entram e saem abrindo a própria altura com mola; recolher respostas faz o mesmo e gira a seta.",
-   "Editar troca o texto pelo campo com um esmaecer enquanto a altura do comentário acompanha em mola; reações surgem com escala e a contagem rola.",
-   "Resolver cruza a conversa com o resumo enquanto a altura da caixa anima; com “reduzir movimento”, sobram esmaecimentos curtos e as alturas mudam na hora."
+   "Comments and replies enter and leave by opening their own height with a spring; collapsing replies does the same and rotates the arrow.",
+   "Editing swaps the text for the field with a fade while the comment's height follows on a spring; reactions appear with scale and the count rolls.",
+   "Resolving crossfades the conversation with the summary while the box height animates; with “reduce motion”, short fades remain and heights change immediately."
   ],
   "responsivo": [
-   "Em telas de até 420 px o campo perde o avatar ao lado e as respostas recuam 12 px em vez de 24; em toque, as ações de cada comentário ficam sempre visíveis.",
-   "O campo cresce com o texto por `field-sizing: content` (até 160 px); em navegadores sem essa propriedade ele fica com uma linha e rola."
+   "On screens up to 420 px the field loses the avatar beside it and replies indent 12 px instead of 24; on touch, each comment's actions are always visible.",
+   "The field grows with the text through `field-sizing: content` (up to 160 px); in browsers without that property it stays at one line and scrolls."
   ],
   "desempenho": [
-   "A árvore inteira é refeita a cada mudança e cada comentário mantém um observador de altura: serve a discussões de dezenas de comentários, não a um feed longo."
+   "The whole tree is rebuilt on every change and each comment keeps a height observer: it serves discussions of dozens of comments, not a long feed."
   ],
   "notasIA": [
-   "Controlado ou não nos dois eixos: `comments` com `onCommentsChange` e `resolved` com `onResolvedChange`, ou `defaultComments` e `defaultResolved`; o callback entrega a árvore nova inteira e o evento que a causou, para sincronizar o servidor.",
-   "`createdAt` é o texto já formatado (“2h”, “18 set”), não uma data; comentários novos saem com `nowLabel` e um `id` local, que você troca pelo do servidor.",
-   "`currentUser` decide quem pode editar e excluir; `people` alimenta as menções, e respostas além de `maxDepth` (2) se prendem ao nível mais fundo permitido."
+   "Controlled or not on both axes: `comments` with `onCommentsChange` and `resolved` with `onResolvedChange`, or `defaultComments` and `defaultResolved`; the callback delivers the whole new tree and the event that caused it, to sync the server.",
+   "`createdAt` is the already formatted text (“2h”, “Sep 18”), not a date; new comments go out with `nowLabel` and a local `id`, which you swap for the server's.",
+   "`currentUser` decides who can edit and delete; `people` feeds the mentions, and replies beyond `maxDepth` (2) attach to the deepest allowed level."
   ]
  },
  "composition-chart": {
   "quandoUsar": [
-   "As partes de um único todo quando a participação de cada uma importa mais que o histórico: gasto por serviço, receita por plano.",
-   "Deixar a pessoa tirar uma parte da conta: cada linha da legenda desliga ou religa a parte e as demais se redistribuem na barra.",
-   "Comparar as mesmas partes entre períodos: com as mesmas `key`, os segmentos deslizam para as novas participações."
+   "The parts of a single whole when each one's share matters more than the history: spend by service, revenue by plan.",
+   "Let the user take a part out of the calculation: each legend row turns the part off or on and the others redistribute in the bar.",
+   "Compare the same parts across periods: with the same `key`s, the segments slide to the new shares."
   ],
   "quandoEvitar": [
-   "Use `usage-meter` quando as partes preenchem um limite fixo, como o armazenamento de um plano.",
-   "Use `treemap` para partes dentro de partes, com navegação por níveis.",
-   "Use `streamgraph` quando interessa como a mistura muda ao longo do tempo."
+   "Use `usage-meter` when the parts fill a fixed limit, such as a plan's storage.",
+   "Use `treemap` for parts within parts, with navigation by levels.",
+   "Use `streamgraph` when how the mix changes over time is what matters."
   ],
   "teclado": [
    {
     "teclas": [
      "Tab"
     ],
-    "acao": "Percorre as linhas da legenda; a parte em foco se destaca na barra e mostra a dica."
+    "acao": "Moves through the legend rows; the focused part stands out in the bar and shows the tooltip."
    },
    {
     "teclas": [
      "Enter",
-     "Espaço"
+     "Space"
     ],
-    "acao": "Desligam ou religam a parte em foco; a última parte visível não pode ser desligada."
+    "acao": "Turn the focused part off or on; the last visible part cannot be turned off."
    }
   ],
   "acessibilidade": [
-   "A barra fica em `aria-hidden`: os dados vêm da legenda, em que cada linha é um botão com `aria-pressed`, nome, valor e participação.",
-   "O total do título também está em `aria-hidden`: se ele for essencial, repita-o em `label`, que é obrigatório e nomeia a figura.",
-   "“Value”, “Share”, “Hidden” e a instrução da legenda estão em inglês no código; só `label`, `totalLabel` e os nomes das partes são seus."
+   "The bar is `aria-hidden`: the data comes from the legend, where each row is a button with `aria-pressed`, name, value, and share.",
+   "The title total is also `aria-hidden`: if it is essential, repeat it in `label`, which is required and names the figure.",
+   "“Value”, “Share”, “Hidden”, and the legend instruction are in English in the code; only `label`, `totalLabel`, and the part names are yours."
   ],
   "movimento": [
-   "Na primeira aparição os segmentos crescem da borda esquerda, um após o outro, e o total e as porcentagens contam a partir do zero.",
-   "Com dados novos ou uma parte desligada, os segmentos deslizam com mola sem ultrapassagem para as novas larguras; o que foi desligado dobra até sumir onde estava.",
-   "O segmento em foco cresce 3 px para cima e para baixo e a dica desliza até ele; com “reduzir movimento”, larguras e números mudam na hora."
+   "On first appearance the segments grow from the left edge, one after another, and the total and percentages count up from zero.",
+   "With new data or a part turned off, the segments slide with a no-overshoot spring to the new widths; the one turned off folds away until it disappears where it was.",
+   "The focused segment grows 3 px up and down and the tooltip slides to it; with “reduce motion”, widths and numbers change immediately."
   ],
   "responsivo": [
-   "A barra mede a largura do contêiner, e a legenda é uma grade com colunas de no mínimo 232 px, que vira uma coluna só quando falta espaço."
+   "The bar measures the container's width, and the legend is a grid with columns of at least 232 px, which becomes a single column when space runs short."
   ],
   "notasIA": [
-   "Cada parte é `{ key, label, value, color? }` na ordem em que deve aparecer; partes com valor zero ficam fora da barra e aparecem na legenda como “Hidden”, então filtre antes.",
-   "Total e porcentagens são calculados sobre as partes visíveis: ao desligar uma, o total do título diminui; controle com `hiddenKeys` e `onHiddenChange`, ou use `defaultHiddenKeys`.",
-   "As quatro primeiras partes usam `--series-1` a `--series-4` e as seguintes, três tons neutros que se repetem a partir da oitava: agrupe o resto em “Outros” ou passe `color`."
+   "Each part is `{ key, label, value, color? }` in the order it should appear; parts with a zero value stay out of the bar and appear in the legend as “Hidden”, so filter beforehand.",
+   "Total and percentages are computed over the visible parts: turning one off decreases the title total; control with `hiddenKeys` and `onHiddenChange`, or use `defaultHiddenKeys`.",
+   "The first four parts use `--series-1` to `--series-4` and the following ones, three neutral tones that repeat from the eighth: group the rest into “Other” or pass `color`."
   ]
  }
 }

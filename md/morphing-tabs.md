@@ -2,48 +2,48 @@
 
 > Abas com uma pílula ativa que estica e muda de forma ao viajar, enquanto o painel troca na mesma direção.
 
-- Tipo: bloco, novo no ryan-ui
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-tabs
-- Descrição original (inglês): Tabs whose active pill stretches, thins and squares off as it travels to the next tab, while the panel crossfades in the direction of travel.
+- Type: block, new in ryan-ui
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-tabs
+- Original description: Tabs whose active pill stretches, thins and squares off as it travels to the next tab, while the panel crossfades in the direction of travel.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json`. Caminho do registro, relativo ao endereço do site: `r/morphing-tabs.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/morphing-tabs.json`. Registry path, relative to the site address: `r/morphing-tabs.json`.
 
-- Pacotes npm: `lucide-react`, `motion`
-- Arquivos, depois de instalados:
+- npm packages: `lucide-react`, `motion`
+- Files, once installed:
   - `components/ryan-ui/blocks/morphing-tabs/morphing-tabs.tsx`
   - `components/ryan-ui/blocks/morphing-tabs/morphing-tabs.module.css`
   - `components/ryan-ui/lib/media.ts`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install lucide-react motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/morphing-tabs.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install lucide-react motion`.
+2. Copy the files listed above. The content of each one is in `r/morphing-tabs.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Troca de seção dentro de um cartão ou página em que a própria troca merece atenção: a pílula ativa viaja esticando até a nova aba.
-- Poucas abas de rótulo curto cujos painéis têm alturas diferentes: a área de conteúdo anima a altura de um painel para o outro.
+- Section switching inside a card or page where the switch itself deserves attention: the active pill travels, stretching toward the new tab.
+- A few tabs with short labels whose panels have different heights: the content area animates the height from one panel to the other.
 
-## Quando não usar
+## When not to use
 
-- Use [`tabs`](tabs.md) quando precisa compor gatilhos e painéis livremente ou manter painéis montados; aqui só o painel ativo existe no DOM.
-- Use [`segmented-control`](segmented-control.md) quando a escolha só muda um modo ou filtro e não há painel associado.
-- Use [`expandable-tabs`](expandable-tabs.md) quando as abas são ícones e o espaço só comporta o rótulo da aba ativa.
+- Use [`tabs`](tabs.md) when you need to compose triggers and panels freely or keep panels mounted; here only the active panel exists in the DOM.
+- Use [`segmented-control`](segmented-control.md) when the choice only changes a mode or filter and there is no associated panel.
+- Use [`expandable-tabs`](expandable-tabs.md) when the tabs are icons and the space only fits the label of the active tab.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI.
+The demo from the item page, with imports as they look after installing through the CLI.
 
 ```tsx
 import MorphingTabsPreview from "@/components/ryan-ui/blocks/morphing-tabs/morphing-tabs";
@@ -53,17 +53,17 @@ export default function MorphingTabsDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `MorphingTabs`
 
 Tabs with a liquid active pill. The pill is a clipped copy of the tab row in the accent color, so the label under it inverts exactly at its edge. When the selection moves, the leading edge springs ahead and the trailing edge follows: the pill stretches, thins and squares off on the way, then settles back into a pill at the new width. The panel leaves and enters along the same direction.
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `tabs` (obrigatória) | `MorphingTab[]` | — | The tabs, in order. |
+| `tabs` (required) | `MorphingTab[]` | — | The tabs, in order. |
 | `value` | `string` | — | Active tab id (controlled). |
 | `defaultValue` | `string` | — | Active tab id on first render (uncontrolled). Defaults to the first tab. |
 | `onValueChange` | `(value: string) => void` | — | Called with the id of the tab that was picked. |
@@ -74,54 +74,54 @@ Tabs with a liquid active pill. The pill is a clipped copy of the tab row in the
 
 Ready preview: a workspace card with four sections of different heights.
 
-Sem props próprias: aceita as do elemento ou do primitivo que envolve.
+No props of its own: accepts those of the element or primitive it wraps.
 
-### Tipos exportados
+### Exported types
 
 #### `MorphingTab`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `id` (obrigatória) | `string` | Stable value of the tab. |
-| `label` (obrigatória) | `string` | Tab text. |
+| `id` (required) | `string` | Stable value of the tab. |
+| `label` (required) | `string` | Tab text. |
 | `icon` | `ReactNode` | Optional icon before the label. |
-| `content` (obrigatória) | `ReactNode` | Panel shown while the tab is active. |
+| `content` (required) | `ReactNode` | Panel shown while the tab is active. |
 | `disabled` | `boolean` | A disabled tab cannot be picked and is skipped by the arrow keys. |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `→` ou `←` | Selecionam a aba seguinte ou anterior, dando a volta nas pontas e pulando as desativadas; a seleção acompanha o foco. |
-| `Home` ou `End` | Selecionam a primeira ou a última aba habilitada. |
-| `Tab` | Entra na lista pela aba ativa e, em seguida, vai para o painel, que é focável. |
+| `→` or `←` | Select the next or previous tab, wrapping around at the ends and skipping disabled ones; selection follows focus. |
+| `Home` or `End` | Select the first or last enabled tab. |
+| `Tab` | Enters the list at the active tab and then moves to the panel, which is focusable. |
 
-## Acessibilidade
+## Accessibility
 
-- Segue o padrão de abas: `role="tablist"` com `aria-label` vindo de `label`, abas com `aria-selected` e `aria-controls`, e painel `role="tabpanel"` ligado por `aria-labelledby`.
-- Usa roving tabindex (só a aba ativa entra na ordem de Tab), e a cópia colorida da fileira que forma a pílula fica com `aria-hidden`.
-- O `label` padrão é “Sections”, em inglês; passe o nome real do conjunto de abas.
+- Follows the tabs pattern: `role="tablist"` with `aria-label` coming from `label`, tabs with `aria-selected` and `aria-controls`, and a `role="tabpanel"` panel linked by `aria-labelledby`.
+- Uses roving tabindex (only the active tab is in the Tab order), and the colored copy of the row that forms the pill is `aria-hidden`.
+- The default `label` is “Sections”, in English; pass the real name of the tab set.
 
-## Movimento
+## Motion
 
-- A pílula é um recorte (`clip-path`) de uma cópia da fileira na cor de destaque: a borda da frente chega primeiro com uma mola rápida e a de trás segue com outra mais lenta, o que estica a pílula.
-- Enquanto está esticada ela afina (até 5 px a menos em cima e embaixo) e fica com os cantos mais retos, e volta ao formato de pílula ao chegar; o painel sai e entra deslizando 36 px no sentido da viagem, com a altura numa mola.
-- Com “reduzir movimento” ligado, a pílula salta para a nova aba e o painel e a altura trocam na hora.
+- The pill is a clip (`clip-path`) of a copy of the row in the highlight color: the leading edge arrives first with a fast spring and the trailing edge follows with a slower one, which stretches the pill.
+- While stretched it thins (up to 5 px less at top and bottom) and gets squarer corners, and returns to the pill shape on arrival; the panel exits and enters sliding 36 px in the direction of travel, with the height on a spring.
+- With “reduce motion” on, the pill jumps to the new tab and the panel and height change instantly.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- Se a fileira de abas for mais larga que o espaço, ela rola na horizontal com a barra de rolagem escondida; abaixo de 26rem de viewport o respiro lateral das abas diminui.
+- If the row of tabs is wider than the available space, it scrolls horizontally with the scrollbar hidden; below 26rem of viewport the tabs' side padding shrinks.
 
-## Desempenho
+## Performance
 
-- A pílula anima só `clip-path` a partir de dois valores de movimento, sem layout por quadro; rótulos e ícones são renderizados duas vezes por causa da cópia colorida.
+- The pill animates only `clip-path` from two motion values, with no per-frame layout; labels and icons are rendered twice because of the colored copy.
 
-## Notas para IA
+## Notes for AI
 
-- Importe o componente nomeado `MorphingTabs`; o export padrão do arquivo é o preview com um cartão de exemplo.
-- A API é um array: `tabs` com `id`, `label`, `icon`, `content` e `disabled`; controle com `value` e `onValueChange` ou use `defaultValue`.
-- Como só o painel ativo fica montado, estado local dentro de `content` se perde ao trocar de aba; e o respiro de 4 px da lista no CSS precisa bater com a constante `INSET` do componente.
+- Import the named component `MorphingTabs`; the file's default export is the preview with an example card.
+- The API is an array: `tabs` with `id`, `label`, `icon`, `content`, and `disabled`; control it with `value` and `onValueChange` or use `defaultValue`.
+- Because only the active panel stays mounted, local state inside `content` is lost when switching tabs; and the list's 4 px inset in the CSS must match the component's `INSET` constant.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-tabs · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/morphing-tabs · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt

@@ -2,23 +2,23 @@
 
 > Cadastro com validação por campo, força da senha e um estado de conclusão claro.
 
-- Tipo: bloco
-- Página: https://ryanoliveiragit.github.io/ryan-ui/#/b/signup-form
-- Descrição original (inglês): An account creation flow with field validation, password strength, and a clear completion state.
+- Type: block
+- Page: https://ryanoliveiragit.github.io/ryan-ui/#/b/signup-form
+- Original description: An account creation flow with field validation, password strength, and a clear completion state.
 
-## Instalação
+## Installation
 
-Com a CLI do shadcn (um comando copia o código e instala as dependências):
+With the shadcn CLI (one command copies the code and installs the dependencies):
 
 ```bash
 npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signup-form.json
 ```
 
-Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signup-form.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signup-form.json` ou `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signup-form.json`. Caminho do registro, relativo ao endereço do site: `r/signup-form.json`.
+With another package manager: `pnpm dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signup-form.json`, `yarn dlx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signup-form.json` or `bunx --bun shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/signup-form.json`. Registry path, relative to the site address: `r/signup-form.json`.
 
-- Pacotes npm: `@radix-ui/react-checkbox`, `motion`
-- Usa outros itens do ryan-ui (vêm junto na instalação): [Button](button.md), [Checkbox](checkbox.md), [Input](input.md), [Password field](password-field.md)
-- Arquivos, depois de instalados:
+- npm packages: `@radix-ui/react-checkbox`, `motion`
+- Uses other ryan-ui items (installed along with it): [Button](button.md), [Checkbox](checkbox.md), [Input](input.md), [Password field](password-field.md)
+- Files, once installed:
   - `components/ryan-ui/blocks/signup-form/signup-form.tsx`
   - `components/ryan-ui/blocks/signup-form/signup-form.module.css`
   - `components/ryan-ui/password-field/password-field.tsx`
@@ -30,29 +30,29 @@ Com outro gerenciador: `pnpm dlx shadcn@latest add https://ryanoliveiragit.githu
   - `components/ryan-ui/button/button.tsx`
   - `components/ryan-ui/button/button.module.css`
 
-Primeira vez no projeto: instale a base uma vez (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) e importe `@/components/ryan-ui/foundation.css` na raiz do app. Requer React 19 e o alias `@/`.
+First time in the project: install the foundation once (`npx shadcn@latest add https://ryanoliveiragit.github.io/ryan-ui/r/ryan-foundation.json`) and import `@/components/ryan-ui/foundation.css` at the root of the app. Requires React 19 and the `@/` alias.
 
 ### Manual
 
-1. Instale os pacotes: `npm install @radix-ui/react-checkbox motion`.
-2. Copie os arquivos listados acima. O conteúdo de cada um está em `r/signup-form.json` (campo `files[].content`).
-3. Garanta que `foundation.css` (os tokens) e `motion-tokens.ts` já estão no projeto.
+1. Install the packages: `npm install @radix-ui/react-checkbox motion`.
+2. Copy the files listed above. The content of each one is in `r/signup-form.json` (field `files[].content`).
+3. Make sure `foundation.css` (the tokens) and `motion-tokens.ts` are already in your project.
 
-## Quando usar
+## When to use
 
-- Página ou cartão de criação de conta com login único (Google, Apple, GitHub) e, abaixo, nome, e-mail de trabalho e senha com medidor de força.
-- Fluxos em que o erro deve aparecer no campo certo: as mensagens surgem ao sair de um campo preenchido ou ao enviar, e o foco vai para o primeiro inválido.
-- Quando a criação precisa terminar num estado claro de conclusão, com o método usado e a preferência de e-mails, sem trocar de página.
+- Account-creation page or card with single sign-on (Google, Apple, GitHub) and, below it, name, work email, and a password with a strength meter.
+- Flows where the error should appear on the right field: messages show up when leaving a filled field or on submit, and focus goes to the first invalid one.
+- When creation needs to end in a clear completion state, showing the method used and the email preference, without changing pages.
 
-## Quando não usar
+## When not to use
 
-- Use [`sign-in`](sign-in.md) ou [`login-centered`](login-centered.md) para quem já tem conta.
-- Use [`newsletter-signup`](newsletter-signup.md) quando só precisa coletar um e-mail.
-- Use [`password-strength`](password-strength.md) quando quer só o medidor de força dentro de um formulário seu.
+- Use [`sign-in`](sign-in.md) or [`login-centered`](login-centered.md) for people who already have an account.
+- Use [`newsletter-signup`](newsletter-signup.md) when you only need to collect an email.
+- Use [`password-strength`](password-strength.md) when you want only the strength meter inside a form of your own.
 
-## Uso
+## Usage
 
-O demo da página do item, com os imports como ficam depois de instalar pela CLI. `Stack`, `Row`, `Caption`, `Field` e `Surface` (de `./_kit`) são auxiliares de layout do site: troque pelo layout do seu projeto.
+The demo from the item page, with imports as they look after installing through the CLI. `Stack`, `Row`, `Caption`, `Field` and `Surface` (from `./_kit`) are site layout helpers: replace them with your own project layout.
 
 ```tsx
 import SignupForm from "@/components/ryan-ui/blocks/signup-form/signup-form";
@@ -65,58 +65,58 @@ export default function SignupFormDemo() {
 }
 ```
 
-## Referência da API
+## API reference
 
-Extraída do código-fonte. As descrições das props vêm dos comentários do código e estão em inglês.
+Extracted from the source code. Prop descriptions come from code comments.
 
 ### `SignupForm`
 
-| Prop | Tipo | Padrão | Descrição |
+| Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `onSubmit` | `(details: SignupDetails) => void \| Promise<void>` | — | Receives the details once every field is valid. Throw to show a submit error. |
 | `serverError` | `string \| null` | — | An error from your API, shown above the submit button. |
 | `onProvider` | `(provider: Provider) => void` | — | Called when someone picks a single sign-on provider. The preview simulates the redirect. |
 
-### Tipos exportados
+### Exported types
 
 #### `SignupDetails`
 
-| Campo | Tipo | Descrição |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` (obrigatória) | `string` | — |
-| `email` (obrigatória) | `string` | — |
-| `password` (obrigatória) | `string` | — |
-| `productUpdates` (obrigatória) | `boolean` | — |
+| `name` (required) | `string` | — |
+| `email` (required) | `string` | — |
+| `password` (required) | `string` | — |
+| `productUpdates` (required) | `boolean` | — |
 
-## Teclado
+## Keyboard
 
-| Teclas | O que fazem |
+| Keys | Action |
 | --- | --- |
-| `Enter` | Em qualquer campo, envia o formulário; com erro, o foco vai para o primeiro campo inválido. |
-| `Espaço` | Na caixa “Email me product updates”, marca ou desmarca (checkbox Radix). |
+| `Enter` | In any field, submits the form; with an error, focus goes to the first invalid field. |
+| `Space` | On the “Email me product updates” box, checks or unchecks it (Radix checkbox). |
 
-## Acessibilidade
+## Accessibility
 
-- Os campos vêm de `input` e `password-field`, com rótulo visível e mensagem de erro ligada a cada um; ao enviar com erro, o foco vai para o primeiro campo inválido.
-- A linha de força é ligada à senha por `aria-describedby` e vira `role="alert"` em erro; o medidor colorido fica com `aria-hidden`, então o nível chega em palavras, de “Weak” a “Strong”.
-- O erro de envio, seu (`serverError`) ou lançado por `onSubmit`, aparece em `role="alert"`; os passos são anunciados por `role="status"` e o título de boas-vindas recebe o foco ao concluir.
+- The fields come from `input` and `password-field`, with a visible label and an error message linked to each one; on submit with an error, focus goes to the first invalid field.
+- The strength line is linked to the password by `aria-describedby` and becomes `role="alert"` on error; the colored meter is `aria-hidden`, so the level arrives in words, from “Weak” to “Strong”.
+- The submit error, yours (`serverError`) or thrown by `onSubmit`, appears in `role="alert"`; steps are announced by `role="status"` and the welcome heading receives focus on completion.
 
-## Movimento
+## Motion
 
-- Os passos cruzam de lado saindo de um leve desfoque, a altura do cartão segue numa mola sem ultrapassagem só durante a troca e a conclusão desenha um círculo e depois um visto.
-- O texto de força troca no lugar subindo de um leve desfoque enquanto o medidor acende barra a barra, com cor por nível, e a linha de erro de envio abre a própria altura numa mola.
-- Com “reduzir movimento” ligado, os passos só esmaecem, a altura e as linhas trocam na hora, o visto aparece pronto e o medidor muda de cor sem transição.
+- Steps cross sideways coming out of a slight blur, the card height follows on a spring that does not overshoot only during the switch, and completion draws a circle and then a checkmark.
+- The strength text swaps in place rising from a slight blur while the meter lights up bar by bar, with a color per level, and the submit error line opens its own height on a spring.
+- With “reduce motion” on, steps only fade, the height and lines change instantly, the checkmark appears already drawn, and the meter changes color without a transition.
 
-## Comportamento responsivo
+## Responsive behavior
 
-- O cartão tem `min(100%, 432px)`; uma container query de até 380 px aperta margens, título, botões de provedor e barras do medidor, e até 480 px de viewport o raio diminui.
+- The card uses `min(100%, 432px)`; a container query up to 380 px tightens margins, title, provider buttons, and meter bars, and up to 480 px of viewport the radius shrinks.
 
-## Notas para IA
+## Notes for AI
 
-- `onSubmit(details)` recebe `name`, `email`, `password` e `productUpdates`; lance um `Error` para mostrar a mensagem dele, e saiba que a conclusão espera no mínimo 700 ms mesmo com resposta rápida.
-- `serverError` mostra um erro da sua API acima do botão; `onProvider(provider)` é chamado no clique, mas o bloco simula o redirecionamento e conclui em 900 ms com dados de exemplo.
-- As regras são fixas (nome com 2 ou mais caracteres, e-mail completo, senha com 8 ou mais) e as mensagens estão em inglês; “Terms”, “Privacy policy” e “Sign in” só mudam a linha de status.
+- `onSubmit(details)` receives `name`, `email`, `password`, and `productUpdates`; throw an `Error` to show its message, and note that completion waits at least 700 ms even with a fast response.
+- `serverError` shows an error from your API above the button; `onProvider(provider)` is called on click, but the block simulates the redirect and completes in 900 ms with example data.
+- The rules are fixed (name with 2 or more characters, complete email, password with 8 or more) and the messages are in English; “Terms”, “Privacy policy”, and “Sign in” only change the status line.
 
 ---
 
-ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/signup-form · índice para assistentes: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
+ryan-ui · https://ryanoliveiragit.github.io/ryan-ui/#/b/signup-form · index for assistants: https://ryanoliveiragit.github.io/ryan-ui/llms.txt
