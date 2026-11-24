@@ -478,8 +478,12 @@ export function ImageReveal({
     if (s === "decoding") {
       const e = eng.t - eng.phaseStart;
       if (p.reduced) {
-        // Single crossfade instead of tiles.
-        ctx.drawImage(imgRef.current as HTMLImageElement, eng.cover.sx, eng.cover.sy, eng.cover.sw, eng.cover.sh, 0, 0, w, h);
+        // Single crossfade from the frozen last frame instead of tiles.
+        if (eng.decodeBase) {
+          ctx.drawImage(eng.decodeBase, 0, 0, w, h);
+        } else {
+          drawImageLayer(eng, ctx, w, h, 1, 0);
+        }
         const k = smooth(clamp01(e / 240));
         ctx.globalAlpha = k;
         ctx.drawImage(imgRef.current as HTMLImageElement, eng.cover.sx, eng.cover.sy, eng.cover.sw, eng.cover.sh, 0, 0, w, h);
@@ -547,13 +551,15 @@ export function ImageReveal({
   const drawImageLayer = (eng: Engine, ctx: CanvasRenderingContext2D, w: number, h: number, u: number, extraBlur: number) => {
     const chain = eng.chain;
     if (chain.length === 0 || !imgRef.current) return;
-    const pos = clamp01(u) * (chain.length - 1);
+    // Reduced motion parks the prediction at the softest link: one static frame, no travel, no blur drift.
+    const still = propsRef.current.reduced;
+    const pos = clamp01(still ? 0 : u) * (chain.length - 1);
     const k = Math.min(chain.length - 1, Math.floor(pos));
     const f = pos - k;
     const linkA = chain[k];
     const linkB = chain[k + 1];
     if (!linkA) return;
-    const blurPx = ((1 - clamp01(u)) * 9 + extraBlur) * (u < 0.98 ? 1 : 0);
+    const blurPx = still ? 0 : ((1 - clamp01(u)) * 9 + extraBlur) * (u < 0.98 ? 1 : 0);
     if (blurPx > 0.4) ctx.filter = `blur(${blurPx.toFixed(1)}px)`;
     ctx.drawImage(linkA, 0, 0, w, h);
     if (linkB && f > 0.001) {
@@ -566,7 +572,8 @@ export function ImageReveal({
 
   const drawNoiseLayer = (eng: Engine, ctx: CanvasRenderingContext2D, w: number, h: number, u: number, totalSteps: number, reducedMotion: boolean) => {
     const step = Math.min(totalSteps - 1, Math.floor(clamp01(u) * totalSteps));
-    if (eng.lastStep !== step) {
+    // Reduced motion keeps the very first noise frame for the whole run; only its fade-out moves.
+    if (reducedMotion ? eng.noise === null : eng.lastStep !== step) {
       const cellsW = Math.max(8, Math.floor(w / 6));
       const cellsH = Math.max(8, Math.floor(h / 6));
       const fresh = makeCanvas(cellsW, cellsH);
@@ -837,13 +844,18 @@ export function ImageReveal({
   // Visibility + off-screen pause.
   useEffect(() => {
     const root = rootRef.current;
+    const settle = () => {
+      cancelAnimationFrame(rafRef.current);
+      rafOnRef.current = false;
+    };
+    const setPaused = (paused: boolean) => {
+      root?.setAttribute("data-paused", paused ? "true" : "false");
+    };
     const onVis = () => {
       visibleRef.current = !document.hidden;
+      setPaused(!visibleRef.current);
       if (visibleRef.current) wake();
-      else {
-        cancelAnimationFrame(rafRef.current);
-        rafOnRef.current = false;
-      }
+      else settle();
     };
     document.addEventListener("visibilitychange", onVis);
     let io: IntersectionObserver | null = null;
@@ -853,11 +865,9 @@ export function ImageReveal({
           const entry = entries[0];
           if (!entry) return;
           visibleRef.current = entry.isIntersecting;
+          setPaused(!visibleRef.current);
           if (visibleRef.current) wake();
-          else {
-            cancelAnimationFrame(rafRef.current);
-            rafOnRef.current = false;
-          }
+          else settle();
         },
         { threshold: 0 },
       );
@@ -866,6 +876,7 @@ export function ImageReveal({
     return () => {
       document.removeEventListener("visibilitychange", onVis);
       io?.disconnect();
+      root?.removeAttribute("data-paused");
     };
   }, [wake]);
 
@@ -883,61 +894,31 @@ export function ImageReveal({
   const label =
     s === "done" ? alt : s === "queued" ? queueLabel : s === "error" ? errorMessage : s === "decoding" ? "Decoding image" : "Generating image";
 
-  const pillContent = (() => {
-    if (s === "queued") {
-      return (
-        <span key="q">
-          {queueLabel}
-        </span>
-      );
-    }
-    if (s === "generating") {
-      return (
-        <span key="g" className={styles.pillRow}>
-          <span className={styles.ringWrap} style={ringColor ? { color: ringColor } : undefined} aria-hidden>
-            <svg width="11" height="11" viewBox="0 0 11 11" focusable="false">
-              <circle cx="5.5" cy="5.5" r="4.4" fill="none" stroke="currentColor" strokeOpacity="0.25" strokeWidth="1.6" />
-              <path d="M5.5 1.1a4.4 4.4 0 0 1 4.4 4.4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-          </span>
-          {size !== "sm" && <span>Denoising</span>}
-          <span className={styles.num}>
-            {ui.step} / {steps}
-          </span>
-        </span>
-      );
-    }
-    if (s === "decoding") {
-      return (
-        <span key="d" className={styles.pillRow}>
-          <span className={styles.ringWrap} style={ringColor ? { color: ringColor } : undefined} aria-hidden>
-            <svg width="11" height="11" viewBox="0 0 11 11" focusable="false">
-              <circle cx="5.5" cy="5.5" r="4.4" fill="none" stroke="currentColor" strokeOpacity="0.25" strokeWidth="1.6" />
-              <path d="M5.5 1.1a4.4 4.4 0 0 1 4.4 4.4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span>Decoding</span>
-        </span>
-      );
-    }
-    if (s === "done" && ui.doneMs !== null) {
-      return (
-        <span key="ok" className={styles.pillRow}>
-          <Check size={11} strokeWidth={2.4} aria-hidden />
-          <span className={styles.num}>{(ui.doneMs / 1000).toFixed(1)}s</span>
-        </span>
-      );
-    }
-    return null;
-  })();
+  const ringIcon = (
+    <span className={styles.ringWrap} style={ringColor ? { color: ringColor } : undefined} aria-hidden>
+      <svg className={styles.spin} width="11" height="11" viewBox="0 0 11 11" focusable="false">
+        <circle cx="5.5" cy="5.5" r="4.4" fill="none" stroke="currentColor" strokeOpacity="0.25" strokeWidth="1.6" />
+        <path d="M5.5 1.1a4.4 4.4 0 0 1 4.4 4.4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      </svg>
+    </span>
+  );
+
+  // Icon + label crossfade together when the status flips; the counter sits outside so it ticks in place.
+  const pillIcon = s === "done" ? <Check size={11} strokeWidth={2.4} aria-hidden /> : s === "generating" || s === "decoding" ? ringIcon : null;
+  const pillText = s === "queued" ? queueLabel : s === "generating" && size !== "sm" ? "Denoising" : s === "decoding" ? "Decoding" : null;
+  const pillNum = s === "generating" ? `${ui.step} / ${steps}` : s === "done" && ui.doneMs !== null ? `${(ui.doneMs / 1000).toFixed(1)}s` : null;
+  const pillVisible = s === "queued" || s === "generating" || s === "decoding" || (s === "done" && ui.doneMs !== null);
 
   return (
     <div
       ref={rootRef}
-      role="img"
+      role={s === "error" ? undefined : "img"}
       aria-label={label}
       aria-busy={s === "generating" || s === "decoding"}
+      data-component="image-reveal"
       data-size={size}
+      data-status={s}
+      data-reduced={reduced || undefined}
       className={[styles.root, className].filter(Boolean).join(" ")}
       style={{ aspectRatio: typeof aspectRatio === "number" ? String(aspectRatio) : aspectRatio, ...style }}
     >
@@ -946,9 +927,8 @@ export function ImageReveal({
       {showProgress && s !== "error" && (
         <div className={styles.pillWrap} role={s === "generating" || s === "decoding" ? "progressbar" : undefined} aria-valuemin={s === "generating" ? 0 : undefined} aria-valuemax={s === "generating" ? steps : undefined} aria-valuenow={s === "generating" ? ui.step : undefined} aria-valuetext={s === "generating" ? `Step ${ui.step} of ${steps}` : undefined}>
           <AnimatePresence initial={false}>
-            {!pillHidden && pillContent !== null && (
+            {!pillHidden && pillVisible && (
               <motion.div
-                key={`${s}-${s === "generating" ? ui.step : ""}`}
                 className={styles.pill}
                 initial={{ opacity: 0, y: 3, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -957,15 +937,18 @@ export function ImageReveal({
               >
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
-                    key={s === "generating" ? ui.step : s}
+                    key={s === "generating" ? "generating" : s}
+                    className={styles.pillRow}
                     initial={{ opacity: 0, y: 2 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, transition: { duration: 0.1 } }}
                     transition={{ duration: reduced ? 0 : 0.16, delay: 0.06 }}
                   >
-                    {pillContent}
+                    {pillIcon}
+                    {pillText && <span>{pillText}</span>}
                   </motion.span>
                 </AnimatePresence>
+                {pillNum && <span className={s === "generating" ? styles.numStep : styles.num}>{pillNum}</span>}
               </motion.div>
             )}
           </AnimatePresence>

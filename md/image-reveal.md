@@ -53,7 +53,7 @@ import { Stack } from "./_kit";
 import type { DemoStage } from "./_kit";
 import styles from "./image-reveal.module.css";
 
-export const stage: DemoStage = { height: 780 };
+export const stage: DemoStage = { height: 720 };
 
 const TILES = [0, 1, 2, 3];
 
@@ -61,7 +61,7 @@ export default function ImageRevealDemo() {
   const [runKey, setRunKey] = useState(1);
 
   return (
-    <Stack gap={3} width={668}>
+    <Stack gap={3} width={564}>
       <div className={styles.card}>
         <div className={styles.head}>
           <div>
@@ -79,12 +79,14 @@ export default function ImageRevealDemo() {
               key={i}
               seed={48213 + i}
               steps={30}
-              aspectRatio={1}
+              aspectRatio="9 / 10"
               size="sm"
               runKey={runKey}
+              loop={false}
               startDelay={i * 350}
               queueDuration={900}
-              duration={4600}
+              duration={4200}
+              style={{ maxInlineSize: "none" }}
               alt={`Golden-hour landscape, variation ${i + 1}`}
             />
           ))}

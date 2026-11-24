@@ -53,6 +53,24 @@ Nada do que é artefato foi publicado; o orquestrador coleta o que está no `MAN
 3. **image-reveal**: ref pegada em 28/30 quase nítida; minhas shots oficiais (2500 ms de espera do script) pegam o meio do sampling (steps 1–20/30) — arco completo conferido em shots `-late` (4300 ms): mesmo look, blur+noise caindo até o decode em tiles.
 4. **image-reveal**: lote de 4 tiles mostra 4 fotos diferentes (ciclo de samples com seeds distintas) vs a ref com 4 variações da mesma cena — comportamento "simulado" previsto pela spec (seed diferencia o ruído).
 
+## Verificação final (4ª retomada, 24/11)
+
+Evidência com a versão definitiva dos 4 arquivos de image-reveal (probes em `ryan-ui-work/c08-image-reveal.mjs` e `c08-pause.mjs`, Chromium headless):
+
+- Cotações dark+light (`ir-dark.png`, `ir-light.png`): **zero erros de console**, sem overflow; estrutura idêntica à ref (grid 2×2 gap 8, header EN, pílulas ring+"n / 30" embaixo-esquerda, ghost "Generate again").
+- Ciclo completo automático: 4 tiles → `done` em ~7,0 s; `Generate again` → todos `queued` (wipe) e 2º ciclo termina **com as fotos rotacionadas +1** (verificado comparando `ir-probe-done.png` × `ir-probe-done2.png`).
+- Pausa: `document.hidden=true` → `data-paused="true"` nos 4 tiles, canvas **pixel-igual** entre dois screenshots 500 ms após congelar; ao voltar `visible`, retoma e chega a `done`. Zero erros.
+- Pílula em `done`: mostra o tempo ("4.8 s") e o elemento interno é desmontado ~1,4 s depois (count de `.pill` interno = 0 em +2,6 s).
+- Reduced motion: `reducedMotion:"reduce"` → `done` nos 4 tiles, imagem nítida final, zero erros, `data-reduced="true"` exposto.
+- Legibilidade da pílula em light: crop `ir-pill-light.png` — pill dark (neutral-11 74%) + texto claro, alto contraste sobre foto clara.
+- Slugs da sessão irmã (ai-command, starter-prompts): parados desde 11:03 → assumi as cotações finais; 4 shots (`sib-*-*.png`) com zero erros e sem overflow.
+- `npx tsc --noEmit` na cópia: **0 erros** (após os últimos edits).
+
+Deltas aceitos adicionais:
+5. **image-reveal**: a cor de fundo da surface é lida do token `--surface-muted` uma vez no mount (canvas); trocar de tema ao vivo deixa o fundo levemente desatualizado até a próxima execução — nas cotações o tema vem por query param (page load), então não aparece.
+6. **image-reveal**: em `done` há um frame transitório (~200 ms) em que o crossfade da pílula ainda mostra "Decoding" junto com o tempo — é a troca de status do AnimatePresence, assenta sozinha.
+7. **image-reveal**: raiz agora expõe `data-component` / `data-status` / `data-reduced` / `data-paused` (mesma convenção de toast-progress, tool-result, approval-card, todo-list); o `data-paused` alimenta o freeze CSS do shimmer/spin.
+
 ## Como integrar (para o orquestrador)
 
 1. Copiar os caminhos do `MANIFEST.txt` de `/tmp/opencode/clone-08/` para `$AG/ryan-ui/` (paths relativos; sobrescrever os existentes das demos/registros).
