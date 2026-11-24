@@ -1,0 +1,93 @@
+.root {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+
+  /* Restyle points: --mascot-body, --mascot-eye, --mascot-dot, --mascot-shade, --mascot-ground. */
+  --mascot-body: var(--accent);
+  --mascot-eye: var(--accent-foreground);
+  --mascot-dot: var(--accent-foreground);
+  --mascot-shade: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --mascot-ground: color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+.root[data-tone="ink"] {
+  --mascot-body: var(--foreground);
+  --mascot-eye: var(--background);
+  --mascot-dot: var(--foreground);
+}
+
+.root[data-tone="soft"] {
+  --mascot-body: var(--surface-muted);
+  --mascot-eye: var(--foreground);
+  --mascot-dot: var(--foreground);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* The contact shadow, drawn under everything. */
+.ground {
+  fill: var(--mascot-ground);
+}
+
+/* The line the companion writes while the status is "writing". */
+.line {
+  fill: none;
+  stroke: var(--mascot-dot);
+  stroke-linecap: round;
+}
+
+.body {
+  fill: var(--mascot-body);
+}
+
+/* The soft tone sits on a flat surface, so it needs a 1px border to keep its edge. */
+.root[data-tone="soft"] .body {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.shade {
+  fill: var(--mascot-shade);
+}
+
+.brow {
+  fill: none;
+  stroke: var(--mascot-eye);
+  stroke-linecap: round;
+}
+
+.eye {
+  fill: var(--mascot-eye);
+}
+
+.dot {
+  fill: var(--mascot-dot);
+}
+
+/* Same geometry as the dot, but in the eye color: it fades in as the dot crosses the crown,
+   so an accent-colored companion never disappears against the body. */
+.dotTint {
+  fill: var(--mascot-eye);
+}
+
+.sparkle {
+  fill: var(--mascot-dot);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

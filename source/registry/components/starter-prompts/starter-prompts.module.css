@@ -1,0 +1,429 @@
+/* Starter prompts — saudação, abas de categoria, grade de cartões e composer para o estado vazio de um app de IA. */
+
+.root {
+  container-type: inline-size;
+  background: color-mix(in oklab, var(--background) 40%, var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 1.375rem;
+  box-shadow: var(--shadow-resting);
+  padding: 24px 25px 25px;
+  font-family: var(--font-body);
+  color: var(--foreground);
+}
+
+.greeting {
+  margin: 0;
+  font-size: 1.375rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+.description {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* ---------- abas + shuffle ---------- */
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.tablist {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, var(--foreground) 3%, var(--surface));
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tablist::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: color var(--duration-instant) ease-out;
+}
+.tab:hover {
+  color: var(--foreground);
+}
+.tabActive {
+  background: color-mix(in oklab, var(--background) 40%, var(--surface));
+  box-shadow: inset 0 0 0 1px var(--border);
+  color: var(--foreground);
+  font-weight: 600;
+}
+.tabActive:hover {
+  color: var(--foreground);
+}
+
+.shuffle {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 8px 10px;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: color var(--duration-instant) ease-out, background-color var(--duration-instant) ease-out;
+}
+.shuffle:hover {
+  color: var(--foreground);
+  background: color-mix(in oklab, var(--foreground) 4%, transparent);
+}
+
+/* ---------- grade de cartões ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.cell {
+  display: flex;
+  min-height: 97px;
+}
+.cardMotion,
+.cardEmpty {
+  flex: 1;
+  min-width: 0;
+}
+
+.card {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: transparent;
+  padding: 16px 17px 16px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--duration-instant) ease-out, background-color var(--duration-instant) ease-out;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  background: color-mix(in oklab, var(--foreground) 2.5%, transparent);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.catTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+.catTag svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
+}
+.catTag > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.appTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+.appTag > svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+.appTag > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardTitle {
+  margin-top: 9px;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.cardDesc {
+  margin-top: 2px;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Cores dos ícones por categoria padrão (o rótulo permanece quieta nos dois temas). */
+.catBlue svg {
+  color: #4a91d3;
+}
+.catViolet svg {
+  color: #8b3fae;
+}
+.catAmber svg {
+  color: #f1c67d;
+}
+:root[data-theme="dark"] .catAmber svg {
+  color: #82450d;
+}
+.catGreen svg {
+  color: #7fcec1;
+}
+:root[data-theme="dark"] .catGreen svg {
+  color: #0d613d;
+}
+
+/* ---------- esqueleto de carregamento ---------- */
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  padding: 16px 17px;
+}
+.skBar {
+  display: block;
+  height: 11px;
+  border-radius: 6px;
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
+  animation: spBreath 1.6s ease-in-out infinite;
+}
+.skTop {
+  width: 34%;
+}
+.skTitle {
+  width: 78%;
+  height: 14px;
+}
+.skDesc {
+  width: 56%;
+}
+@keyframes spBreath {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ---------- composer ---------- */
+
+.composer {
+  margin-top: 17px;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: transparent;
+  padding: 13px 18px 10px;
+}
+
+.area {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  resize: none;
+  outline: none;
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--foreground);
+  min-height: 24px;
+  max-height: 132px;
+  padding: 4px 0 0;
+}
+.area::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+.fadeIn {
+  animation: spFadeIn 160ms ease-out;
+}
+@keyframes spFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.composerFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.modelTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: auto;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+.modelTag svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
+}
+
+.status,
+.statusDone,
+.statusError {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+}
+.status {
+  color: var(--text-muted);
+}
+.statusDone {
+  color: var(--success);
+}
+.statusError {
+  color: var(--danger);
+}
+.retryBtn {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0 2px;
+  font: inherit;
+  font-size: 0.8125rem;
+  color: var(--danger);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sendBtn {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border: 0;
+  border-radius: 0.625rem;
+  background: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+  transition: opacity var(--duration-instant) ease-out;
+}
+.sendBtn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+.sendBtn:disabled {
+  background: transparent;
+  color: var(--text-muted);
+  box-shadow: inset 0 0 0 1px var(--border);
+  cursor: default;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- responsivo (container queries) ---------- */
+
+@container (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .tablist {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 14px, #000 calc(100% - 14px), transparent);
+  }
+}
+
+@container (max-width: 440px) {
+  .shuffleLabel {
+    display: none;
+  }
+  .shuffle {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .root {
+    padding: 18px;
+    border-radius: 1.125rem;
+  }
+}
+
+/* ---------- movimento reduzido ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .skBar {
+    animation: none;
+  }
+  .fadeIn {
+    animation: none;
+  }
+}

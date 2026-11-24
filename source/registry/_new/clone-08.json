@@ -264,5 +264,193 @@
         "checkpoint"
       ]
     }
+  },
+  {
+    "name": "ai-command",
+    "type": "registry:ui",
+    "title": "AI command",
+    "description": "A Cmd+K command palette with an AI mode: type to search pages and actions, or press Tab to ask your workspace — the answer streams into the fixed-height panel with numbered citations that highlight their source chips, and suggests next steps you can run right there (create a Linear issue, open a Notion doc) with running, done and retry states. Gliding highlight, combobox/listbox semantics, polite live region, reduced-motion fallbacks and a self-playing walkthrough that stops at first real interaction.",
+    "categories": [
+      "special"
+    ],
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "ryan-motion-tokens"
+    ],
+    "files": [
+      {
+        "path": "registry/components/ai-command/ai-command.tsx",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/ai-command/ai-command.tsx"
+      },
+      {
+        "path": "registry/components/ai-command/ai-command.module.css",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/ai-command/ai-command.module.css"
+      }
+    ],
+    "meta": {
+      "kind": "component",
+      "tags": [
+        "ai",
+        "command-palette",
+        "search",
+        "chat",
+        "streaming"
+      ]
+    }
+  },
+  {
+    "name": "ai-spark",
+    "type": "registry:ui",
+    "title": "AI spark",
+    "description": "An animated four-ray brand mark that shows what your AI is doing: it breathes while idle, ripples while thinking, pulses like a heartbeat while writing, gathers when done and dims on error — every status change blends from the pose the mark already occupies. Ships in three variants (bare mark, bordered pill with a live crossfading label, avatar tile), self-plays with no status for demos, respects prefers-reduced-motion and announces state changes through a polite live region.",
+    "categories": [
+      "special"
+    ],
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "ryan-motion-tokens"
+    ],
+    "files": [
+      {
+        "path": "registry/components/ai-spark/ai-spark.tsx",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/ai-spark/ai-spark.tsx"
+      },
+      {
+        "path": "registry/components/ai-spark/ai-spark.module.css",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/ai-spark/ai-spark.module.css"
+      }
+    ],
+    "meta": {
+      "kind": "component",
+      "tags": [
+        "ai",
+        "sparkle",
+        "status-indicator",
+        "motion",
+        "brand"
+      ]
+    }
+  },
+  {
+    "name": "starter-prompts",
+    "type": "registry:ui",
+    "title": "Starter prompts",
+    "description": "An empty-state panel for AI apps: a greeting, category tabs (All plus yours), and a 2x2 grid of starter prompt cards. Shuffle deals a fresh page of suggestions with a staggered crossfade; picking a card fills the composer below it, Enter sends (Escape aborts in flight), and app-connected cards carry their app mark (Gmail, GitHub, Notion, Linear, Google Calendar). Ships with 24 sample starters, a loading skeleton in the cards' own rhythm, roving-tabindex tab navigation and a polite live region announcing picks, shuffles, sends, aborts and errors.",
+    "categories": [
+      "special"
+    ],
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "ryan-motion-tokens"
+    ],
+    "files": [
+      {
+        "path": "registry/components/starter-prompts/starter-prompts.tsx",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/starter-prompts/starter-prompts.tsx"
+      },
+      {
+        "path": "registry/components/starter-prompts/starter-prompts.module.css",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/starter-prompts/starter-prompts.module.css"
+      }
+    ],
+    "meta": {
+      "kind": "component",
+      "tags": [
+        "ai",
+        "starter-prompts",
+        "empty-state",
+        "composer",
+        "tabs"
+      ]
+    }
+  },
+  {
+    "name": "ai-mascot",
+    "type": "registry:ui",
+    "title": "AI mascot",
+    "description": "A live SVG mascot that shows what your assistant is doing: idle breathes, floats and blinks; listening leans in with wide eyes; thinking tilts its head while a companion dot orbits around it, passing behind and in front of the body; writing looks down as the dot draws a line under it; done squints happily and the dot becomes a sparkle; error shakes once with worried brows. The eyes follow the pointer on a damped spring, every status change blends from the pose currently on screen over 420 ms, it self-plays through all states when status is unset, freezes into clean static poses under prefers-reduced-motion and can announce state changes through a polite live region.",
+    "categories": [
+      "special"
+    ],
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "ryan-motion-tokens"
+    ],
+    "files": [
+      {
+        "path": "registry/components/ai-mascot/ai-mascot.tsx",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/ai-mascot/ai-mascot.tsx"
+      },
+      {
+        "path": "registry/components/ai-mascot/ai-mascot.module.css",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/ai-mascot/ai-mascot.module.css"
+      }
+    ],
+    "meta": {
+      "kind": "component",
+      "tags": [
+        "ai",
+        "mascot",
+        "status-indicator",
+        "motion",
+        "character"
+      ]
+    }
+  },
+  {
+    "name": "image-reveal",
+    "type": "registry:ui",
+    "title": "Image reveal",
+    "description": "An image generation canvas where a soft, blurred preview built from the image's own downsampled colors sharpens behind a fine latent-noise layer as the sampler steps, then a tiled VAE-style decode snaps the crisp image in over the frozen last frame, finished by one soft light sheen. Ships a translucent progress pill (spinner + Denoising + n / 30 with tabular numerals), a calm queued state with a 2.6s seam-free shimmer, an error state with optional Retry, seeded per-step noise so batch tiles differ, reduced-motion fallbacks, and auto-simulation mode with staggered queue, hold and loop for grids.",
+    "categories": [
+      "special"
+    ],
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "ryan-motion-tokens"
+    ],
+    "files": [
+      {
+        "path": "registry/components/image-reveal/image-reveal.tsx",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/image-reveal/image-reveal.tsx"
+      },
+      {
+        "path": "registry/components/image-reveal/image-reveal.module.css",
+        "type": "registry:component",
+        "target": "@components/ryan-ui/image-reveal/image-reveal.module.css"
+      }
+    ],
+    "meta": {
+      "kind": "component",
+      "tags": [
+        "ai",
+        "motion",
+        "image-generation",
+        "progress",
+        "canvas"
+      ]
+    }
   }
 ]

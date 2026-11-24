@@ -458,5 +458,302 @@
       "Importe QwenColorMark e HuggingFaceMark do próprio componente ou passe seus SVGs em model.mark / dataset.mark; ações primárias (Resume, Retry, Deploy) usam o accent e só o Confirm cancel usa danger.",
       "onDeploy recebe um AbortSignal; faça abort no unmount e o cartão já mostra o endpoint retornado com botão de copiar."
     ]
+  },
+  "ai-command": {
+    "quandoUsar": [
+      "Atalho global (Cmd+K) de um app com muitas páginas e ações: busca por nome ou palavra-chave e salta com Enter.",
+      "Produtos em que o usuário pergunta sobre os próprios dados (suporte, billing, ops) sem sair do teclado: o Tab troca da busca pela pergunta.",
+      "Comandos com passos seguintes de IA: depois da resposta, executa na hora o que foi sugerido (criar issue, abrir doc)."
+    ],
+    "quandoEvitar": [
+      "Conversa de chat completa com histórico de várias turnos: use um componente de chat; aqui cada pergunta é isolada e substituível.",
+      "Busca simples de navegação sem IA: um combobox normal basta.",
+      "Formulários longos ou assistentes multi-etapa: paleta é para ação pontual, não para fluxo."
+    ],
+    "teclado": [
+      {
+        "teclas": [
+          "↑",
+          "↓"
+        ],
+        "acao": "Move o destaque entre resultados, perguntas sugeridas e próximos passos."
+      },
+      {
+        "teclas": [
+          "Enter"
+        ],
+        "acao": "Ativa a linha destacada: abre página/ação, faz a pergunta ou roda o passo sugerido."
+      },
+      {
+        "teclas": [
+          "Tab"
+        ],
+        "acao": "Na busca com texto, troca para o modo ask e pergunta a consulta atual; no modo ask sem resposta, volta à busca."
+      },
+      {
+        "teclas": [
+          "Esc"
+        ],
+        "acao": "No modo ask, cancela a resposta em andamento e volta à busca; na busca vazia, chama onClose."
+      },
+      {
+        "teclas": [
+          "Cmd/Ctrl + K"
+        ],
+        "acao": "Com hotkey ativado, foca a paleta a partir de qualquer ponto da página."
+      }
+    ],
+    "acessibilidade": [
+      "O input tem semântica de combobox e a lista de listbox, com aria-activedescendant seguindo o destaque; o toggle de modo usa botões com aria-pressed.",
+      "As citações numeradas são botões reais nomeados com título e descrição da fonte; abrem em nova aba (href) ou disparam onSourceSelect.",
+      "Uma live region polida anuncia perguntas, respostas prontas, erros e resultados dos passos (\"Created ENG-2481\", \"Simulated, no requests were sent\").",
+      "Nenhum estado depende só de cor: cada status tem ícone e rótulo, e o check desenhado uma única vez sinaliza conclusão de passo."
+    ],
+    "movimento": [
+      "O destaque desliza entre linhas em 130 ms com o ease standard e salta instantaneamente quando a lista muda de forma ou quando o movimento reduzido está ativo.",
+      "As visões de busca e de pergunta fazem crossfade no lugar (saída em 100 ms, entrada em 160 ms com subida de 2 px) dentro da área de altura fixa, então nada reflowa enquanto se digita.",
+      "A resposta chega em blocos de 3 a 7 palavras (~34 ms cada) com fade de 140 ms por bloco e autoscroll que solta quando o usuário sobe; o check de conclusão desenha o caminho uma vez em 300 ms.",
+      "Com reduzir movimento os blocos chegam sem fade (blocos maiores), o crossfade de visão vira instantâneo e spinner/caret/pontos param de animar."
+    ],
+    "responsivo": [
+      "A paleta é limitada a 680 px e preenche o espaço dado; rótulos e meta das linhas truncam com elipse.",
+      "Os chips de fonte quebram de linha em vez de comprimir, mantendo a resposta legível em popovers estreitos.",
+      "Segura em 360 px: entrada, toggle e rodapé empilham sem scroll horizontal."
+    ],
+    "desempenho": [
+      "A busca filtra em memória a cada tecla, sem debounce; resultados e linhas são estado derivado com useMemo.",
+      "O stream adiciona blocos a um array pequeno em vez de reparsing o texto inteiro; citações só renderizam quando chegam.",
+      "O walkthrough pausa com IntersectionObserver fora da tela e em abas ocultas, e qualquer pointerdown/keydown cancela ele e aborta as ações pendentes."
+    ],
+    "notasIA": [
+      "Use como camada global de comandos: monte uma vez com hotkey, passe onClose para fechar o diálogo ao redor e ligue onAsk ao seu motor real (o protocolo ctx.append/setSources funciona com SSE).",
+      "Passe marks reais de fontes e ações a 14–16 px; marcas mono devem usar currentColor para seguirem o tema, enquanto as coloridas (Linear, Notion, Slack, Figma) mantêm os fills.",
+      "Ações resolvem um rótulo de conclusão (\"Created ENG-2481\"); defina doneMeta para deixar claro que a simulação não enviou nada. O AbortSignal cobre navegação e cancelamento no meio do voo.",
+      "Items e perguntas de exemplo são para demo — forneça seus próprios items e suggestedQuestions em produção."
+    ]
+  },
+  "ai-spark": {
+    "quandoUsar": [
+      "Mostrar o que um agente de IA está fazendo agora — pronto, pensando, escrevendo, terminou ou falhou — em chats, cabeçalhos, avatares e pills de status.",
+      "Substituir um spinner genérico quando o estado da IA importa: cada estado tem uma pose própria (respiração, ondulação, batida de coração, recolhimento, sacudida).",
+      "Um único símbolo animado reutilizável de 12 px para cima, com o mesmo comportamento como marca avulsa, pílula com rótulo ou avatar."
+    ],
+    "quandoEvitar": [
+      "Progresso quantitativo com percentual ou etapas numeradas: use um componente de progresso ou de status de agente.",
+      "Muitas instâncias animadas na mesma tela: cada marca roda um requestAnimationFrame próprio; prefira uma por contexto de status.",
+      "Decoração sem estado real: passe twinkle={false} para um idle imóvel — uma marca viva sem dado por trás é só ruído."
+    ],
+    "teclado": [
+      {
+        "teclas": [
+          "Tab"
+        ],
+        "acao": "A própria marca não recebe foco (role=img ou role=status); o foco percorre os controles vizinhos, como o seletor de estado do demo."
+      }
+    ],
+    "acessibilidade": [
+      "Cada instância anuncia o estado por uma live region polida (role=status); nas cópias decorativas, desligue announce para que só uma marca fale.",
+      "O rótulo nomeia o estado em linguagem simples (AI is thinking, Couldn't finish) e pode ser substituído com aria-label.",
+      "Enquanto trabalha o nó ganha aria-busy=true; o erro não depende só de cor: raios mais curtos, diagonais esmaecidas e o tom danger."
+    ],
+    "movimento": [
+      "Toda troca de estado parte da pose atual e se funde para a nova em 420–560 ms (200 ms com reduzir movimento): nenhum corte brusco entre estados.",
+      "Thinking ondula o anel girando a 26°/s; generating bate num ritmo de coração a 46°/s com duas partículas orbitando acima de 40 px; done recolhe os raios em 170 ms, assenta em 510 ms e desliza para um ângulo múltiplo de 90°.",
+      "Error sacode uma vez em 460 ms com amortecimento exponencial, encurta os raios e esmaece as diagonais.",
+      "Com reduzir movimento a marca assenta numa pose estática por estado, sem loop; fora da viewport ou aba oculta o rAF pausa, e num estado em repouso ele desliga por completo — zero CPU quieta."
+    ],
+    "responsivo": [
+      "Aceita size em pixels ou em CSS length (\"1em\" segue o texto); a pílula mantém 28 px de altura e só a largura do rótulo anima.",
+      "Abaixo de 18 px as diagonais viram pontos e abaixo de 24 px os traços engrossam, então a marca continua legível do ladder de 12 px para cima."
+    ],
+    "desempenho": [
+      "Um único requestAnimationFrame por marca escreve atributos SVG via ref; React nunca re-renderiza por frame.",
+      "O loop desliga sozinho em estados de repouso, com paused ou twinkle={false}; IntersectionObserver e visibilitychange param a escrita fora da tela ou da aba ativa."
+    ],
+    "notasIA": [
+      "Sem status o componente se auto-represent idle → thinking → generating → done em loop: use só em demos e marketing; em produto passe o status real.",
+      "speed multiplica todos os ritmos; paused congela no meio da fase e retoma de onde parou; twinkle={false} deixa um idle totalmente imóvel.",
+      "tone=\"inherit\" segue a cor do texto (bom em temas neutros); color aceita qualquer cor CSS. O rótulo da pílula aceita label para textos próprios (\"Lendo 12 arquivos\")."
+    ]
+  },
+  "starter-prompts": {
+    "quandoUsar": [
+      "Estado vazio de um chat ou agente de IA: o usuário ainda não escreveu nada e precisa de um empurrão inicial concreto.",
+      "Painel de boas-vindas de um produto com ferramentas conectadas (Gmail, GitHub, Notion, Linear, Google Calendar), onde os starters trabalham com os dados do app.",
+      "Apps em que o bom prompt depende da categoria da tarefa (escrever, código, análise, planejar) e filtrar por aba ajuda mais do que uma lista única.",
+      "Qualquer composer de IA que quer pré-preencher o campo com sugestões reais em vez de um placeholder genérico."
+    ],
+    "quandoEvitar": [
+      "Conversas em andamento com histórico: o espaço vazio já foi ocupado e os starters viram ruído acima das mensagens.",
+      "Sugestões que dependem de contexto fino do documento (cursor, seleção, arquivo aberto): prefira um componente inline de sugestões no próprio texto.",
+      "Bibliotecas grandes de templates pesquisáveis: use busca ou um diálogo de modelos, não uma grade fixa de quatro."
+    ],
+    "teclado": [
+      {
+        "teclas": [
+          "Tab"
+        ],
+        "acao": "Navega na ordem visual: só a aba ativa fica no percurso (roving tabindex), depois Shuffle, os cartões e o composer."
+      },
+      {
+        "teclas": [
+          "←",
+          "→"
+        ],
+        "acao": "Na aba focada, move foco e seleção para a aba anterior/próxima com wrap nas pontas; Home e End vão para a primeira e a última."
+      },
+      {
+        "teclas": [
+          "Enter"
+        ],
+        "acao": "Num cartão, escolhe o starter e preenche o composer com foco; no composer, envia a mensagem."
+      },
+      {
+        "teclas": [
+          "Shift+Enter"
+        ],
+        "acao": "No composer, insere quebra de linha sem enviar."
+      },
+      {
+        "teclas": [
+          "Esc"
+        ],
+        "acao": "Durante o envio, aborta a chamada; o anúncio diz \"Stopped\" e o estado volta ao de pronto."
+      }
+    ],
+    "acessibilidade": [
+      "A raiz é um <section> rotulado; o tablist usa role=tablist com aria-selected e roving tabindex — só a aba ativa entra no percurso de foco.",
+      "Uma live region polida (role=status) anuncia a escolha do cartão (\"Picked <título>. The composer is filled.\"), o shuffle, o envio, a conclusão (\"Sent\", com \"simulated\" quando onSubmit não existe), o aborto e o erro.",
+      "Nenhum estado depende só de cor: o envio mostra o texto \"Sending…\", o sucesso soma Check + \"Sent\", o erro soma TriangleAlert + a mensagem + botão Retry, e o botão enviar troca de forma (seta vira quadrado) além de cor.",
+      "Cada cartão tem nome acessível composto: título, o app usado quando há (\", uses Gmail\") e a categoria.",
+      "Todos os ícones são aria-hidden; o composer tem aria-label=\"Message\" e o shuffle tem rótulo próprio."
+    ],
+    "movimento": [
+      "O shuffle troca a página por célula com AnimatePresence mode=\"wait\": cada célula sai (160 ms, 100 ms quando fica vazia) e entra em 160 ms com subida de 2 px, com stagger de 35 ms por cartão.",
+      "Escolher um cartão re-dispara um fade de 160 ms sobre o texto recém-preenchido no composer, ligando visualmente o cartão ao campo.",
+      "O esqueleto de carregamento respira numa animação CSS pura de 1,6 s (opacidade 0,55 a 1), sem JavaScript por frame.",
+      "Com movimento reduzido: entradas e saídas viram opacidade de duração zero, o stagger some e o fade do texto e a respiração do esqueleto desligam."
+    ],
+    "responsivo": [
+      "Container queries na própria raiz: abaixo de 560 px a grade vira uma coluna e o tablist ganha fades nas bordas para anunciar o rolamento; abaixo de 440 px o rótulo do Shuffle vira só o ícone.",
+      "O composer cresce até 132 px de altura e rola internamente; nada do painel ultrapassa a largura do container.",
+      "Os slots da grade ficam reservados mesmo quando a categoria tem poucos starters, então trocar de aba nunca desloca o composer."
+    ],
+    "desempenho": [
+      "A tela mostra sempre `count` cartas (default 4) independentemente do tamanho da pool: o filtro roda num useMemo e o DOM permanece constante.",
+      "O shuffle apenas muda um offset num estado local; nenhum prompt é recriado nem reordenado fisicamente.",
+      "Toda animação é transform/opacity (motion + CSS); o auto-resize do textarea mede scrollHeight uma vez por mudança de texto."
+    ],
+    "notasIA": [
+      "Passe prompts próprios com id, category, title, uma description curta (uma linha) e o prompt completo — o cartão mostra title/description e o composer recebe o prompt inteiro.",
+      "Declare as categorias que existem: abas sem um único starter somem sozinhas da lista, e \"All\" está sempre presente.",
+      "Sem onSubmit o envio é simulado (1,4 s) e anunciado como simulado — ideal para demos; em produção ligue seu onSubmit e respeite o AbortSignal recebido para o Esc funcionar.",
+      "model aceita { name, mark } para a tag do rodapé; o default é a spark da casa com \"Claude Sonnet 5.5\".",
+      "count controla a grade (2×2 com 4); loading mostra o esqueleto com o mesmo tamanho e ritmo antes dos dados chegarem.",
+      "Para pré-preenchimento programático use value/onValueChange ou defaultValue; escolher um cartão chama onSelect com o StarterPrompt completo."
+    ]
+  },
+  "ai-mascot": {
+    "quandoUsar": [
+      "Mostrar, com personalidade, o que um agente de IA está fazendo agora — esperando, ouvindo, pensando, escrevendo, terminou ou falhou — no lugar de uma pílula genérica de status.",
+      "Preencher estados vazios de chat, painel ou tela de loading com um personagem que fica vivo e acompanha o ponteiro, dando presença a produtos de assistente.",
+      "Quando a mudança de estado precisa chegar também a leitores de tela: o mascote anuncia frases curtas numa live region opcional (prop announce)."
+    ],
+    "quandoEvitar": [
+      "Progresso quantitativo com percentual, tempo restante ou etapas numeradas: use um componente de progresso — o mascote não mede nada.",
+      "Densidade alta: tabelas, dashboards ou listas longas onde um personagem por linha pesa mais do que ajuda.",
+      "Produtos que já têm outro personagem ou marca forte: dois mascotes no mesmo fluxo competem e nenhum ganha."
+    ],
+    "teclado": [
+      {
+        "teclas": [
+          "Tab"
+        ],
+        "acao": "O próprio mascote não recebe foco (role=img); o foco percorre os controles ao redor dele, como um seletor de estado montado como radiogroup com setas, Home e End."
+      }
+    ],
+    "acessibilidade": [
+      "Cada instância é role=img com rótulo próprio e estado, ex.: \"Atlas, thinking\"; cópias decorativas passam label para esvaziar o rótulo.",
+      "Com announce ativo, uma live region polida (sr-only) lê frases curtas a cada mudança de estado; use só no mascote que carrega o estado da página.",
+      "Estados em andamento marcam aria-busy; a informação nunca depende só de cor: pose, sobrancelhas e movimento diferenciam error de done."
+    ],
+    "movimento": [
+      "Toda troca de estado parte da pose que está na tela e se funde para a nova em 420 ms; com reduzir movimento, cada estado congela numa pose estática legível e a troca leva 200 ms.",
+      "Respiração, flutuação, piscadas (2,4–5,2 s, às vezes duplas), órbita do ponto e o ciclo de escrita são funções contínuas de um relógio virtual: pause congela exatamente o quadro atual e o retoma cai no mesmo frame.",
+      "Fora da tela visível ou em aba oculta o requestAnimationFrame para sozinho e volta sem salto."
+    ],
+    "responsivo": [
+      "Aceita size em pixels (24 a 160, padrão 96); abaixo de 56 px troca para um desenho compacto com corpo e olhos maiores que continua legível a 20 px.",
+      "A sombra de contato e a linha de escrita só desenham a partir de 56 px, onde cabem."
+    ],
+    "desempenho": [
+      "Um único requestAnimationFrame por mascote escreve atributos SVG via ref; React não re-renderiza por frame.",
+      "O loop some quando não há motivo para rodar (estado assentado, reduzir movimento, pause, fora da tela), então um mascote parado custa zero CPU."
+    ],
+    "notasIA": [
+      "Sem status o mascote se auto-representa em loop — idle → listening → thinking → writing → done → error — e chama onStatusChange a cada transição: use só em demos; em produto, passe status.",
+      "Os olhos seguem o ponteiro por mola criticamente amortecida (followPointer true ou \"page\"), mas cedem para o olhar próprio em thinking, writing, done e error e desligam com reduzir movimento.",
+      "Os tons accent, ink e soft trocam só variáveis CSS (--mascot-body, --mascot-eye, --mascot-dot, --mascot-shade, --mascot-ground); color e eyeColor pintam direto no elemento sem novo arquivo de estilo."
+    ]
+  },
+  "image-reveal": {
+    "quandoUsar": [
+      "Mostrar o progresso de um modelo de imagens num canvas ou numa resposta de chat, no estilo ChatGPT/Midjourney/Gemini.",
+      "Um lote de variações sendo amostradas lado a lado (a mesma seed diferencia o ruído por tile).",
+      "Um trabalho de imagem na fila que precisa parecer vivo antes de começar."
+    ],
+    "quandoEvitar": [
+      "Imagem estática sem estado de carregamento: um <img> comum basta.",
+      "Progresso determinístico e longo (minutos): prefira uma barra linear — aqui o ritmo é o de um sampler de segundos.",
+      "GIFs ou vídeos em loop: o reveal é único por imagem, não contínuo."
+    ],
+    "teclado": [
+      {
+        "teclas": [
+          "Tab"
+        ],
+        "acao": "No estado de erro, foca o botão Retry (o único controle focusável do componente)."
+      },
+      {
+        "teclas": [
+          "Enter",
+          "Space"
+        ],
+        "acao": "No Retry focado, dispara onRetry e volta a simulação/estado controlado."
+      }
+    ],
+    "acessibilidade": [
+      "A raiz é role=img com aria-label que muda por estado (rótulo da fila, \"Generating image\", \"Decoding image\", alt no fim) e aria-busy durante sampling e decode.",
+      "A pílula vira role=progressbar com aria-valuemin/max/now/text enquanto gera; os ícones são aria-hidden.",
+      "Uma live region polida (role=status) anuncia transições: fila, geração, pronto e erro.",
+      "O estado de erro não depende só de cor: TriangleAlert + mensagem + botão visível.",
+      "Com movimento reduzido: shimmer e spinner param, o decode vira um crossfade simples de 240 ms e o sheen some."
+    ],
+    "movimento": [
+      "Durante o sampling, a corrente de previsões (6/9/13/19/28/42/63/96 px) faz crossfade entre links com blur que diminui conforme o progresso, sob ruído latente que troca a cada step com blend de 35 ms e esmaece com (1-u)^1.6.",
+      "O decode é um tile (até 10×10) que resolve por cima do último quadro congelado com janelas escalonadas de 240 ms; ao fim, um sheen de luz cruza a imagem em 1,1 s (soft-light).",
+      "Voltar a gerar (runKey) faz um wipe de 220 ms do quadro atual de volta à superfície antes da nova simulação.",
+      "A pílula entra/sai com spring (stiffness 480, damping 34) e o contador troca por crossfade de 160 ms; a fila tem shimmer CSS de 2,6 s sem costura.",
+      "O loop rAF para sozinho: fila sem imagem, erro e imagem pronta sem sheen/loop rodam zero frames."
+    ],
+    "responsivo": [
+      "A raiz toma 100% da largura disponível e mantém a aspectRatio dada (default 1); o canvas acompanha via ResizeObserver com DPR limitado a 2.",
+      "size=\"sm\" aperta raio e pílula para grades e miniaturas (só spinner + n / 30); \"md\" e \"lg\" ganham o rótulo Denoising e pílula maior.",
+      "Nada transborda: overlays (pílula, erro) são absolutos dentro da raiz com overflow hidden."
+    ],
+    "desempenho": [
+      "Uma única canvas 2D desenha tudo; a imagem decodifica fora do thread principal (im.decode) antes de entrar no loop.",
+      "O ruído latente é um canvas pequeno (~w/6) desenhado escalado com smoothing off — barato a cada frame.",
+      "Grain de filme é um tile de 160 px criado uma vez e repetido via pattern com alpha variável por estado.",
+      "O rAF só roda quando há quadro para produzir (sampling, decode, sheen, wipe, espera de fila com imagem) e pausa fora da viewport (IntersectionObserver) e com aba oculta."
+    ],
+    "notasIA": [
+      "Sem src, o modo automático cicla quatro fotos locais do site (mesma origem, funciona offline) — cada tile de um lote parte de seed própria e mostra uma foto diferente.",
+      "Controle por status/progress se necessário; ir direto de generating para done ainda toca o decode antes de fechar.",
+      "runKey (string ou número) é o botão \"Generate again\": muda e o tile faz blur-back e roda de novo.",
+      "startDelay + queueDuration escalonam grades; holdDuration + loop mantêm a vitrine viva.",
+      "steps alimenta o contador da pílula (n / 30) e o ritmo dos trocos de ruído; duration é o tempo total do sampling no modo não controlado (4,6 s).",
+      "color pinta o spinner (default: accent da casa); showProgress oculta a pílula; sheen desliga o brilho final."
+    ]
   }
 }

@@ -1,0 +1,112 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  vertical-align: middle;
+  transition: color var(--duration-standard) var(--ease-standard);
+}
+
+.root[data-tone="accent"] { color: var(--accent); }
+.root[data-tone="foreground"] { color: var(--foreground); }
+.root[data-tone="muted"] { color: var(--text-muted); }
+.root[data-error="true"] { color: var(--danger); }
+.root[data-tone="custom"] { color: var(--spark-custom); }
+
+.svg {
+  display: block;
+  overflow: visible;
+}
+
+.diag { opacity: .55; }
+
+.root[data-error="true"] .diag { opacity: .35; }
+
+.mark { display: block; }
+
+/* The pill pins its own mark box so the 100%-sized SVG always has an anchor. */
+.pill .mark {
+  width: var(--spark-mark, 16px);
+  height: var(--spark-mark, 16px);
+  flex: none;
+}
+
+/* Pill: fixed 28px capsule; only the measured label width animates (layout spring in the tsx). */
+.pill {
+  height: 28px;
+  gap: var(--space-2);
+  padding: 0 var(--space-3) 0 var(--space-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--surface-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pillLabelWrap {
+  display: inline-flex;
+  min-width: 0;
+}
+
+.pillLabel {
+  color: var(--text-secondary);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Shimmer sweep across the label while the spark is actually working. */
+@keyframes label-sweep {
+  from { background-position: 140% 0; }
+  to { background-position: -40% 0; }
+}
+
+.pill[data-active="true"] .pillLabel {
+  /* Sweep band over a solid base layer: the 240%-wide band leaves the element partly uncovered when
+     it slides off, and with color: transparent uncovered text would vanish, so the base always paints. */
+  background-image: linear-gradient(105deg, transparent 42%, var(--foreground) 50%, transparent 58%), linear-gradient(var(--text-secondary), var(--text-secondary));
+  background-size: 240% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: label-sweep 2.2s var(--ease-in-out) infinite;
+}
+
+/* Paused freezes the sweep mid-phase too: a paused pill reads as fully still. */
+.pill[data-paused="true"] .pillLabel {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill[data-active="true"] .pillLabel {
+    animation: none;
+    background-image: none;
+    color: var(--text-secondary);
+  }
+}
+
+/* Avatar: round tile with a tint of its own tone. */
+.avatar {
+  border-radius: var(--radius-pill);
+  background: color-mix(in oklab, currentColor 11%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, currentColor 16%, transparent);
+}
+
+.avatarInner {
+  display: block;
+  width: 56%;
+  height: 56%;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

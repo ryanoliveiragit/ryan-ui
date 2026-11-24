@@ -6,7 +6,7 @@
   "copyright": "Copyright (c) 2026 Elia Kuratli"
  },
  "counts": {
-  "components": 189,
+  "components": 194,
   "blocks": 42
  },
  "items": [
@@ -215,6 +215,67 @@
    "hasGuide": true
   },
   {
+   "name": "ai-command",
+   "title": "AI command",
+   "description": "A Cmd+K command palette with an AI mode: type to search pages and actions, or press Tab to ask your workspace — the answer streams into the fixed-height panel with numbered citations that highlight their source chips, and suggests next steps you can run right there (create a Linear issue, open a Notion doc) with running, done and retry states. Gliding highlight, combobox/listbox semantics, polite live region, reduced-motion fallbacks and a self-playing walkthrough that stops at first real interaction.",
+   "descricao": "Paleta de comando estilo Cmd+K com modo de IA: digita para buscar páginas e ações ou aperta Tab para perguntar ao workspace — a resposta chega em streaming num painel de altura fixa, com fontes numeradas que acendem os chips e próximos passos executáveis na hora (issue no Linear, doc no Notion). Destaque que desliza, semântica de combobox, live region polida e walkthrough auto-executado que para na primeira interação.",
+   "kind": "component",
+   "category": "special",
+   "tags": [
+    "ai",
+    "command-palette",
+    "search",
+    "chat",
+    "streaming"
+   ],
+   "dependencies": [
+    "motion",
+    "lucide-react"
+   ],
+   "requires": [],
+   "files": [
+    "registry/components/ai-command/ai-command.tsx",
+    "registry/components/ai-command/ai-command.module.css"
+   ],
+   "ownFiles": [
+    "registry/components/ai-command/ai-command.tsx",
+    "registry/components/ai-command/ai-command.module.css"
+   ],
+   "hasDemo": true,
+   "isNew": true,
+   "hasGuide": true
+  },
+  {
+   "name": "ai-mascot",
+   "title": "AI mascot",
+   "description": "A live SVG mascot that shows what your assistant is doing: idle breathes, floats and blinks; listening leans in with wide eyes; thinking tilts its head while a companion dot orbits around it, passing behind and in front of the body; writing looks down as the dot draws a line under it; done squints happily and the dot becomes a sparkle; error shakes once with worried brows. The eyes follow the pointer on a damped spring, every status change blends from the pose currently on screen over 420 ms, it self-plays through all states when status is unset, freezes into clean static poses under prefers-reduced-motion and can announce state changes through a polite live region.",
+   "descricao": "Um mascote SVG vivo que mostra o que seu assistente está fazendo agora: idle respira, flutua e pisca de vez em quando; listening se inclina para dentro com os olhos mais abertos; thinking inclina a cabeça enquanto um ponto companheiro orbita ao redor do corpo, passando por trás e por frente; writing olha para baixo enquanto o ponto desenha uma linha debaixo dele; done faz um estreitar de olhos feliz e o ponto vira um brilho no lugar; error sacode uma vez com sobrancelhas preocupadas. Os olhos seguem o ponteiro, cada troca de estado se funde em 420 ms a partir da pose atual, com reduzir movimento ele congela em poses estáticas limpas e muda de estado na mesma posição.",
+   "kind": "component",
+   "category": "special",
+   "tags": [
+    "ai",
+    "mascot",
+    "status-indicator",
+    "motion",
+    "character"
+   ],
+   "dependencies": [
+    "motion"
+   ],
+   "requires": [],
+   "files": [
+    "registry/components/ai-mascot/ai-mascot.tsx",
+    "registry/components/ai-mascot/ai-mascot.module.css"
+   ],
+   "ownFiles": [
+    "registry/components/ai-mascot/ai-mascot.tsx",
+    "registry/components/ai-mascot/ai-mascot.module.css"
+   ],
+   "hasDemo": true,
+   "isNew": true,
+   "hasGuide": true
+  },
+  {
    "name": "ai-sidebar",
    "title": "AI sidebar",
    "description": "A docked assistant panel that springs in beside the page and pushes it aside (or slides over it when narrow), with a header, a message list that follows new messages, suggestion chips and a growing prompt box.",
@@ -241,6 +302,36 @@
    "ownFiles": [
     "registry/components/ai-sidebar/ai-sidebar.tsx",
     "registry/components/ai-sidebar/ai-sidebar.module.css"
+   ],
+   "hasDemo": true,
+   "isNew": true,
+   "hasGuide": true
+  },
+  {
+   "name": "ai-spark",
+   "title": "AI spark",
+   "description": "An animated four-ray brand mark that shows what your AI is doing: it breathes while idle, ripples while thinking, pulses like a heartbeat while writing, gathers when done and dims on error — every status change blends from the pose the mark already occupies. Ships in three variants (bare mark, bordered pill with a live crossfading label, avatar tile), self-plays with no status for demos, respects prefers-reduced-motion and announces state changes through a polite live region.",
+   "descricao": "Marca viva de status de IA em três variantes — mark, pill e avatar — com cinco estados: idle respira com um cintilar por raio, thinking ondula ao redor do anel, generating bate num ritmo de coração com duas partículas orbitando, done reúne os raios num ângulo fixo e error sacode uma vez com raios mais curtos. As trocas se fundem em 420–560 ms a partir da pose atual, o loop pausa fora da tela e desliga quando assenta, a marca vira pontos abaixo de 18 px e as mudanças de estado são anunciadas para leitores de tela.",
+   "kind": "component",
+   "category": "special",
+   "tags": [
+    "ai",
+    "sparkle",
+    "status-indicator",
+    "motion",
+    "brand"
+   ],
+   "dependencies": [
+    "motion"
+   ],
+   "requires": [],
+   "files": [
+    "registry/components/ai-spark/ai-spark.tsx",
+    "registry/components/ai-spark/ai-spark.module.css"
+   ],
+   "ownFiles": [
+    "registry/components/ai-spark/ai-spark.tsx",
+    "registry/components/ai-spark/ai-spark.module.css"
    ],
    "hasDemo": true,
    "isNew": true,
@@ -3202,6 +3293,37 @@
    "hasGuide": true
   },
   {
+   "name": "image-reveal",
+   "title": "Image reveal",
+   "description": "An image generation canvas where a soft, blurred preview built from the image's own downsampled colors sharpens behind a fine latent-noise layer as the sampler steps, then a tiled VAE-style decode snaps the crisp image in over the frozen last frame, finished by one soft light sheen. Ships a translucent progress pill (spinner + Denoising + n / 30 with tabular numerals), a calm queued state with a 2.6s seam-free shimmer, an error state with optional Retry, seeded per-step noise so batch tiles differ, reduced-motion fallbacks, and auto-simulation mode with staggered queue, hold and loop for grids.",
+   "descricao": "Tela de geração de imagem em que um preview embaçado construído a partir das próprias cores da imagem (corrente de previsões de 6 a 96 px) afia passo a passo sob um ruído latente semeado por step, seguido de um decodificado em tiles estilo VAE por cima do último quadro congelado e um brilho suave final; pílula de progresso translúcida (spinner + Denoising + n / 30 com numerais tabulares), estado de fila calmo com shimmer de 2,6 s sem costura, estado de erro com Retry opcional, ruído semeado por step para tiles do mesmo lote saírem diferentes, fallback de movimento reduzido e modo simulado automático com fila escalonada, pausa e loop para grades.",
+   "kind": "component",
+   "category": "special",
+   "tags": [
+    "ai",
+    "motion",
+    "image-generation",
+    "progress",
+    "canvas"
+   ],
+   "dependencies": [
+    "motion",
+    "lucide-react"
+   ],
+   "requires": [],
+   "files": [
+    "registry/components/image-reveal/image-reveal.tsx",
+    "registry/components/image-reveal/image-reveal.module.css"
+   ],
+   "ownFiles": [
+    "registry/components/image-reveal/image-reveal.tsx",
+    "registry/components/image-reveal/image-reveal.module.css"
+   ],
+   "hasDemo": true,
+   "isNew": true,
+   "hasGuide": true
+  },
+  {
    "name": "image-viewer",
    "title": "Image viewer",
    "description": "A thumbnail gallery whose pictures grow into a lightbox with a shared-element zoom, with arrows, swipe, zoom and pan, a focus trap, and Escape closing back into the thumbnail.",
@@ -5760,6 +5882,37 @@
    ],
    "hasDemo": true,
    "isNew": false,
+   "hasGuide": true
+  },
+  {
+   "name": "starter-prompts",
+   "title": "Starter prompts",
+   "description": "An empty-state panel for AI apps: a greeting, category tabs (All plus yours), and a 2x2 grid of starter prompt cards. Shuffle deals a fresh page of suggestions with a staggered crossfade; picking a card fills the composer below it, Enter sends (Escape aborts in flight), and app-connected cards carry their app mark (Gmail, GitHub, Notion, Linear, Google Calendar). Ships with 24 sample starters, a loading skeleton in the cards' own rhythm, roving-tabindex tab navigation and a polite live region announcing picks, shuffles, sends, aborts and errors.",
+   "descricao": "Saudação, abas de categoria e uma grade 2×2 de cartões de prompt de partida para o estado vazio de um app de IA: o shuffle troca a página de sugestões com crossfade escalonado (160 ms por carta, 35 ms de atraso entre elas), escolher um cartão preenche o composer abaixo (Enter envia, Shift+Enter quebra linha, Escape aborta o envio em curso), cartões com app conectado mostram o mark do app (Gmail, GitHub, Notion, Linear, Google Calendar), há esqueleto de carregamento com o mesmo tamanho e ritmo dos cartões, as setas navegam entre as abas com roving tabindex, categorias sem starter somem da lista e todas as mudanças são anunciadas por live region.",
+   "kind": "component",
+   "category": "special",
+   "tags": [
+    "ai",
+    "starter-prompts",
+    "empty-state",
+    "composer",
+    "tabs"
+   ],
+   "dependencies": [
+    "motion",
+    "lucide-react"
+   ],
+   "requires": [],
+   "files": [
+    "registry/components/starter-prompts/starter-prompts.tsx",
+    "registry/components/starter-prompts/starter-prompts.module.css"
+   ],
+   "ownFiles": [
+    "registry/components/starter-prompts/starter-prompts.tsx",
+    "registry/components/starter-prompts/starter-prompts.module.css"
+   ],
+   "hasDemo": true,
+   "isNew": true,
    "hasGuide": true
   },
   {
